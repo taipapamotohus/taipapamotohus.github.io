@@ -226,7 +226,7 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 &lt;ul&gt;
 &lt;li&gt;これでいよいよ肝心のinit.orgの作成を行う&lt;/li&gt;
 &lt;li&gt;org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている．&lt;/li&gt;
-&lt;li&gt;具体的な内容は次回以降に記述予定だが，code blockの挿入だけは特筆しておく．&lt;/li&gt;
+&lt;li&gt;具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&#34;code-blockの挿入&#34;&gt;Code blockの挿入&lt;/h4&gt;
@@ -258,7 +258,7 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/Users/kohkichi/Taipapablog/static/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; /&gt;
+&lt;img src=&#34;/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; /&gt;
 
 
 &lt;/figure&gt;&lt;/li&gt;
