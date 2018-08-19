@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+    <url>
+    
+      <loc>/post/japanese_setup/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/post/init_org/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/post/prelude_install/</loc>
+      <lastmod>2018-08-19T16:14:41+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/post/emacs_install/</loc>
+      <lastmod>2018-08-19T16:14:41+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/privacy/</loc>
+      <lastmod>2018-06-28T00:00:00+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/post/</loc>
+      <lastmod>2017-01-01T00:00:00+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/emacs/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/homebrew/</loc>
+      <lastmod>2018-08-19T16:14:41+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/init-el/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/init-org/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/prelude/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/publication_types/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>/tags/</loc>
+      <lastmod>2018-08-19T16:14:42+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+</urlset>

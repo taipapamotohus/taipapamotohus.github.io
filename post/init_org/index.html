@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.46" />
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとか">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/init_org/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#0095eb">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+  
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/init_org/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="/post/init_org/">
+  <meta property="og:title" content="Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する | A perfect autumn day">
+  <meta property="og:description" content="自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとか"><meta property="og:image" content="/img/headers/Honolulu-1.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-08-17T00:00:00&#43;09:00">
+  
+  <meta property="article:modified_time" content="2018-08-19T16:14:42&#43;09:00">
+  
+
+  
+
+  
+
+  <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する | A perfect autumn day</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#search">
+            
+            <span>Search</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/headers/Honolulu-1.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption">Honolulu</span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2018-08-17 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2018-08-19 16:14:42 &#43;0900 JST" itemprop="dateModified">
+      Aug 19, 2018
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/init_org/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．</p>
+
+<h2 id="参考サイト">参考サイト</h2>
+
+<ul>
+<li><a href="http://blog.lambda-consulting.jp/2015/11/20/article/" target="_blank">俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）</a></li>
+<li><a href="https://futurismo.biz/archives/6057/" target="_blank">babel-loader:org-mode で init.el を管理する方法</a></li>
+<li><a href="https://uwabami.junkhub.org/log/?date=20111213" target="_blank">平衡点(2011-12-13)</a></li>
+<li><a href="https://ameblo.jp/concello/entry-10786074455.html" target="_blank">ORG-Babel + init.el = ?? | くらいまーず　はい</a></li>
+<li><a href="https://funwithemacs.wordpress.com/2013/04/21/prelude-init-el-org-babel/" target="_blank">Prelude init.el &amp; org-babel</a></li>
+</ul>
+
+<h2 id="preludeを使いながら-init-dot-orgから個人用のinit-dot-elを自動作成させてemacsを設定する方法">Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法</h2>
+
+<h3 id="基本方針">基本方針</h3>
+
+<ul>
+<li>個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む．</li>
+<li>起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む．</li>
+<li>具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む．</li>
+<li>しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．</li>
+</ul>
+
+<h3 id="preludeの導入">Preludeの導入</h3>
+
+<p>前回のポスト（<a href="../prelude_install">Emacsの設定（その1）Preludeの導入</a>）を参考　</p>
+
+<h3 id="emac-init-dot-elの作成">emac-init.elの作成</h3>
+
+<ul>
+<li>~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む</li>
+</ul>
+
+<pre><code class="language-lisp">(require 'org)
+(defvar my-config-dir (concat user-emacs-directory &quot;personal/&quot;))
+(org-babel-load-file
+ (expand-file-name &quot;init.org&quot; my-config-dir))
+</code></pre>
+
+<ul>
+<li>工夫と言っても， <strong>init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう</strong>  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．</li>
+<li>これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．</li>
+</ul>
+
+<h3 id="init-dot-orgの作成">init.orgの作成</h3>
+
+<ul>
+<li>これでいよいよ肝心のinit.orgの作成を行う</li>
+<li>org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている．</li>
+<li>具体的な内容は次回以降に記述予定だが，code blockの挿入だけは特筆しておく．</li>
+</ul>
+
+<h4 id="code-blockの挿入">Code blockの挿入</h4>
+
+<ul>
+<li><a href="http://blog.lambda-consulting.jp/2015/11/20/article/" target="_blank">俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）</a>で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．</li>
+
+<li><p>org-modeで以下のようにする．（後述する設定が必要）</p>
+
+<pre><code class="language-text">&lt;l （ここで&lt;TAB&gt;すると．．．）
+以下のように展開される
+#+begin_src emacs-lisp
+
+#+end_src
+</code></pre></li>
+</ul>
+
+<h4 id="codeの記述">Codeの記述</h4>
+
+<ul>
+<li>上記の#+begin_src emacs-lispと#+end_srcの間にemacs-lispで設定内容を書く．ここからが便利にできているところ．</li>
+
+<li><p>code-blockの中にいるときに</p>
+
+<ul>
+<li>C-c ;とする</li>
+
+<li><p>当該のcode blockだけのバッファが表示される（下図の下のバッファ）</p>
+
+<figure>
+
+<img src="/img/CodeBlock_small.jpg" width="100%" />
+
+
+</figure></li>
+
+<li><p>この中はemacs-lisp modeでsyntaxも普通に効くので，普通にコードを書く．もちろん，括弧の対応もハイライトで表示される．</p></li>
+
+<li><p>C-c nとする</p></li>
+
+<li><p>すると，インデントも綺麗に整えてくれる．</p></li>
+
+<li><p>満足したら，C-c ;で元のバッファに戻る．整形は綺麗なまま反映される．素晴らしい！</p></li>
+</ul></li>
+
+<li><p>具体的なinit.orgの内容は次回のポスト以降に記述予定</p></li>
+</ul>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="/tags/emacs/">emacs</a>
+  
+  <a class="label label-default" href="/tags/init-org/">init-org</a>
+  
+  <a class="label label-default" href="/tags/init-el/">init-el</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/prelude_install/">Emacsの設定（その1）Preludeの導入</a></li>
+        
+        <li><a href="/post/emacs_install/">Emacsのインストール</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/post/japanese_setup/" rel="next">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>
+  </div>
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/prelude_install/" rel="prev">Emacsの設定（その1）Preludeの導入</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+    <p class="powered-by">
+      <a href="/privacy/">Privacy Policy</a>
+    </p>
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/search.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

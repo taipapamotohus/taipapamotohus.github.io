@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Init-org on A perfect autumn day</title>
+    <link>/tags/init-org/</link>
+    <description>Recent content in Init-org on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 17 Aug 2018 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/init-org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</title>
+      <link>/post/init_org/</link>
+      <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/init_org/</guid>
+      <description>自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとか</description>
+    </item>
+    
+  </channel>
+</rss>

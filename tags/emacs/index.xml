@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on A perfect autumn day</title>
+    <link>/tags/emacs/</link>
+    <description>Recent content in Emacs on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</title>
+      <link>/post/japanese_setup/</link>
+      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/japanese_setup/</guid>
+      <description>ようやく，ここからinit.orgの具体的な記述になる． Coding systemの設定 まずは，coding systemの設定，つまり，日本語の設定，</description>
+    </item>
+    
+    <item>
+      <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</title>
+      <link>/post/init_org/</link>
+      <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/init_org/</guid>
+      <description>自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとか</description>
+    </item>
+    
+    <item>
+      <title>Emacsの設定（その1）Preludeの導入</title>
+      <link>/post/prelude_install/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/prelude_install/</guid>
+      <description>昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある． Preludeとは Emacs初</description>
+    </item>
+    
+    <item>
+      <title>Emacsのインストール</title>
+      <link>/post/emacs_install/</link>
+      <pubDate>Tue, 14 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/emacs_install/</guid>
+      <description>なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサク</description>
+    </item>
+    
+  </channel>
+</rss>
