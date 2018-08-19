@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Beamer</title>
+      <link>/tags/beamer/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/beamer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Emac</title>
+      <link>/tags/emac/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/emac/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Emacs</title>
@@ -49,11 +67,38 @@
     </item>
     
     <item>
+      <title>Latex</title>
+      <link>/tags/latex/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pdf</title>
+      <link>/tags/pdf/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Prelude</title>
       <link>/tags/prelude/</link>
       <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>/tags/prelude/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Skim</title>
+      <link>/tags/skim/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/skim/</guid>
       <description></description>
     </item>
     

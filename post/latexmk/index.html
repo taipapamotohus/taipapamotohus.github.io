@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサク">
+  <meta name="description" content="Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/emacs_install/">
+  <link rel="alternate" hreflang="en-us" href="/post/latexmk/">
 
   
 
@@ -80,26 +80,26 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/emacs_install/">
+  <link rel="canonical" href="/post/latexmk/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="/post/emacs_install/">
-  <meta property="og:title" content="Emacsのインストール | A perfect autumn day">
-  <meta property="og:description" content="なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサク"><meta property="og:image" content="/img/headers/Paris.jpg">
+  <meta property="og:url" content="/post/latexmk/">
+  <meta property="og:title" content="texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする． | A perfect autumn day">
+  <meta property="og:description" content="Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原"><meta property="og:image" content="/img/headers/%E7%90%B5%E7%90%B6%E6%B9%96.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-08-14T00:00:00&#43;09:00">
+  <meta property="article:published_time" content="2018-08-19T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-08-19T21:02:37&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2018-08-19T21:02:38&#43;09:00">
   
 
   
 
-  <title>Emacsのインストール | A perfect autumn day</title>
+  
+
+  <title>texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする． | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -220,16 +220,16 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/Paris.jpg" class="article-banner" itemprop="image">
+    <img src="/img/headers/%e7%90%b5%e7%90%b6%e6%b9%96.jpg" class="article-banner" itemprop="image">
   
 
-  <span class="article-header-caption">Paris</span>
+  <span class="article-header-caption">琵琶湖</span>
 </div>
 
 
 
   <div class="article-container">
-    <h1 itemprop="name">Emacsのインストール</h1>
+    <h1 itemprop="name">texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする．</h1>
 
     
 
@@ -246,8 +246,8 @@
     
         Last updated on
     
-    <meta content="2018-08-14 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-08-19 21:02:37 &#43;0900 JST" itemprop="dateModified">
+    <meta content="2018-08-19 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2018-08-19 21:02:38 &#43;0900 JST" itemprop="dateModified">
       Aug 19, 2018
     </time>
   </span>
@@ -265,7 +265,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="/post/emacs_install/#disqus_thread"></a>
+  <a href="/post/latexmk/#disqus_thread"></a>
   
 
   
@@ -279,28 +279,38 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここでは<a href="https://brew.sh/index%5Fja" target="_blank">Homebrew</a>を使ってサクッとインストール．Homebrew自体のインストールはそちらのサイトを参照．</p>
+      
 
-<p>Emacsで日本語を書いてると，M-xしたときに面倒なことになるので，<a href="https://ja.wikipedia.org/wiki/インプット%5Fメソッド%5Fエディタ" target="_blank">Imput Method Editor (IME)</a>用のパッチを当てる．既にパッチの当たっているYAMAMOTO Mitsuharu版のMac Port用のemacs-macがよい．railwaycatさんがHomebrewでインストールできるようにしてくれているので，これを使わせていただく（<a href="https://github.com/railwaycat/homebrew-emacsmacport" target="_blank">Emacs Mac Port</a>）．ありがたい．</p>
+<p>Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原稿が出来上がるのを待たなければならず，この待ち時間が結構辛い．そこで，tex ファイルの変更が保存されるたびに自動で裏でlatexmkがcompileしてくれるようにする．latexmkを使う．</p>
 
-<pre><code class="language-shell">$ brew tap railwaycat/emacsmacport
-$ brew install emacs-mac --with-modern-icon --with-imagemagick
-$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-</code></pre>
+<h2 id="latexmk">latexmk</h2>
 
 <ul>
-<li>&ndash;with-modern-iconを指定すると、新しいアイコンになる。</li>
+<li>参考サイト：<a href="https://texwiki.texjp.org/?Latexmk" target="_blank">TeX Wiki Latexmk</a></li>
+<li>texlive2018, MacTeXに入っているので，これらを入れていれば別途インストールする必要なし．</li>
+
+<li><p>~/.latexmkrcの中に以下のように記述する</p>
+
+<pre><code class="language-lisp">$pdflatex = 'xelatex -interaction=nonstopmode -synctex=1 %O %S';
+$pdf_mode = 1;
+$postscript_mode = $dvi_mode = 0;
+$pdf_previewer  = 'open -a Skim';
+$preview_continuous_mode = 1;  # equivalent to -pvc
+</code></pre></li>
 </ul>
 
-<!--listend-->
+<h2 id="実際の作業">実際の作業</h2>
 
 <ul>
-<li>なお，他のoptionは以下のように打てば分かる．</li>
-</ul>
+<li>上記のようにセットアップしていることとする．</li>
 
-<pre><code class="language-sh">$ brew tap railwaycat/emacsmacport
-$ brew info emacs-mac
-</code></pre>
+<li><p>ターミナルで，texファイルが有るdirectoryに移動し，</p>
+
+<pre><code class="language-shell">latexmk -pvc -pdf -view=none document.tex
+</code></pre></li>
+
+<li><p>これで，texファイルへの変更を保存すると自動でコンパイルされて，設定にもよるが，skimで開いているpdfファイルも更新される．</p></li>
+</ul>
 
     </div>
 
@@ -309,9 +319,15 @@ $ brew info emacs-mac
 
 <div class="article-tags">
   
-  <a class="label label-default" href="/tags/emacs/">emacs</a>
+  <a class="label label-default" href="/tags/emac/">emac</a>
   
-  <a class="label label-default" href="/tags/homebrew/">homebrew</a>
+  <a class="label label-default" href="/tags/latex/">latex</a>
+  
+  <a class="label label-default" href="/tags/skim/">skim</a>
+  
+  <a class="label label-default" href="/tags/pdf/">pdf</a>
+  
+  <a class="label label-default" href="/tags/beamer/">beamer</a>
   
 </div>
 
@@ -325,11 +341,11 @@ $ brew info emacs-mac
     <div class="article-widget">
       <div class="post-nav">
   
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="/post/prelude_install/" rel="next">Emacsの設定（その1）Preludeの導入</a>
-  </div>
   
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/japanese_setup/" rel="prev">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>
+  </div>
   
 </div>
 
