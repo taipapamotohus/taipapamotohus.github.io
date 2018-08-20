@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする．</title>
+      <link>/post/latexmk/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/latexmk/</guid>
+      <description>Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原</description>
+    </item>
     
     <item>
       <title>Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</title>
