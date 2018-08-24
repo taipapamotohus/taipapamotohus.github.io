@@ -7,26 +7,181 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする．</title>
+      <title>beamerでスライド原稿用pdfを作成する</title>
+      <link>/post/beamer/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/beamer/</guid>
+      <description>
+
+&lt;h2 id=&#34;beamerによるスライド原稿の作成&#34;&gt;beamerによるスライド原稿の作成&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsが便利である．&lt;/li&gt;
+&lt;li&gt;下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う．&lt;/li&gt;
+&lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えてもらった．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34; target=&#34;_blank&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;% -*-coding:utf-8-*-
+\documentclass[svgnames, table, 14pt]{beamer}
+\usepackage{zxjatype}
+\usepackage[hiragino-dx]{zxjafont}
+
+% ヒラギノ角ゴ Proを使う
+\setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
+\setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
+
+% themeを指定する
+\usetheme{Darmstadt}
+
+\usefonttheme[onlylarge]{structurebold}
+\setbeamerfont*{frametitle}{size=\large,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+% Setup TikZ
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
+% Figure position
+\usepackage[absolute,overlay]{textpos}
+% math
+\usepackage{mathabx}
+
+\usefonttheme{professionalfonts}
+
+% Author, Title, etc.
+\title[hoge/fugaによる相補的な治療における高難度症例の治療と成績]
+{hoge/fugaによる相補的な治療における高難度症例の治療と成績}
+\author[taipapa]
+{taipapa, 織田信長, 豊臣秀吉, 徳川家康}
+\institute[hogefuga University]
+{hogefuga大学大学院 hogefuga研究科　hogefuga分野}
+
+
+\date[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]
+{\scriptsize{Symposium-02「とっーても難しいhogeとfuga」
+\\ \vspace{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
+完了しています．\\本演題の発表に関して開示すべきCOIはありません
+}}
+
+% 学会名，日付，スライド番号を挿入
+\setbeamertemplate{footline}
+{\color{gray} %
+\hspace{.075cm}
+\insertshortdate%
+\hspace{4cm}
+\insertframenumber{} / \inserttotalframenumber%
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{背景と目的}
+\begin{block}{}
+\begin{itemize}
+\item hogeとfugaを比較してみると，一方で難易度の高い症例で
+も他方では容易に行える場合も多い.
+\item 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
+用いることにより合併症の減少を目指す方針をとっている．
+\item そこで，自験例から高難度のhogefuga症例についての
+方針と成績を主にhogefuga surgeonの立場から検討した.
+\end{itemize}
+\end{block}
+\end{frame}
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする&lt;/a&gt;を参考　&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;latexmk -pvc -pdf -view=none beamer_test.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで下記のようなpdfが出来上がるはず．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;/img/beamer_tex.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;/img/beamer_tex2.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;画像の貼り付けが必要なら，必要な箇所で，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;\includegraphics[width=2in]{/Data/hoge/fuga/......./hoge_fuga.pdf}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と打てばよい．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</title>
       <link>/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>/post/latexmk/</guid>
       <description>
 
-&lt;p&gt;Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原稿が出来上がるのを待たなければならず，この待ち時間が結構辛い．そこで，tex ファイルの変更が保存されるたびに自動で裏でlatexmkがcompileしてくれるようにする．latexmkを使う．&lt;/p&gt;
+&lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト２：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト３：&lt;a href=&#34;http://www.tug.org/mactex/&#34; target=&#34;_blank&#34;&gt;The MacTeX-2018 Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする．&lt;/li&gt;
+&lt;li&gt;これでスライド作成ソフトであるbeamerも一緒にインストールされる．&lt;/li&gt;
+&lt;li&gt;beamerに固有の設定は特に必要なし．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見）&lt;/li&gt;
+&lt;li&gt;preludeをインストールした時点で，auctexもインストールされる．&lt;/li&gt;
+&lt;li&gt;auctexの設定などについては以下を参照（手抜き&amp;hellip;.. (^^;;; ）
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.gnu.org/software/auctex/&#34; target=&#34;_blank&#34;&gt;AUCTEX – Sophisticated document creation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX&#34; target=&#34;_blank&#34;&gt;TeX Wiki AUCTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mytexpert.osdn.jp/index.php?Emacs/AUCTeX&#34; target=&#34;_blank&#34;&gt;Emacs/AUCTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://skalldan.wordpress.com/2011/07/20/auctex-の設定と便利な機能/&#34; target=&#34;_blank&#34;&gt;AUCTeX の設定と便利な機能&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;しかし，org-modeを使うようになってからは直接latex文書を打つことはめっきり少なくなってしまった．それでも，学会発表用のスライドなどはlatexを直接打って，beamer文書を作成し，pdf原稿に変換している．&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;latexmk&#34;&gt;latexmk&lt;/h2&gt;
 
 &lt;ul&gt;
+&lt;li&gt;Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原稿が出来上がるのを待たなければならず，この待ち時間が結構辛い．そこで，tex ファイルの変更が保存されるたびに自動で裏でlatexmkがcompileしてくれるようにする．latexmkを使う．&lt;/li&gt;
 &lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34; target=&#34;_blank&#34;&gt;TeX Wiki Latexmk&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;texlive2018, MacTeXに入っているので，これらを入れていれば別途インストールする必要なし．&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;~/.latexmkrcの中に以下のように記述する&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;~/.latexmkrcの中に以下のように記述する（ちなみに私はxelatexを使用している）&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;$pdflatex = &#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&#39;;
 $pdf_mode = 1;
@@ -353,16 +508,16 @@ $ brew info emacs-mac
     <item>
       <title>About</title>
       <link>/home/about/</link>
-      <pubDate>Thu, 16 Aug 2018 20:30:16 +0900</pubDate>
+      <pubDate>Thu, 23 Aug 2018 22:14:00 +0900</pubDate>
       
       <guid>/home/about/</guid>
       <description>
 
 &lt;h2 id=&#34;このサイトについて&#34;&gt;&lt;strong&gt;このサイトについて&lt;/strong&gt;&lt;/h2&gt;
 
-&lt;p&gt;フリーソフトで学会発表用のスライドを作ったり，論文を書いたりするのに役に立ちそうなことを，自分のためにまとめておく備忘録みたいなもの．最近とみに衰えてきた記憶力の補助になればいいな．．． 😄&lt;/p&gt;
+&lt;p&gt;フリーソフトで学会発表用のスライドを作ったり，論文を書いたりするのに役に立ちそうなことを，自分のためにまとめておく備忘録みたいなもの．最近とみに衰えてきた記憶力の補助になればいいな．．．  😄&lt;/p&gt;
 
-&lt;p&gt;Emacsのorg-modeやLaTeXやbeamerに関する話が多くなりそう．．．&lt;/p&gt;
+&lt;p&gt;Emacsのorg-modeやLaTeX絡みの話が多くなりそう．．．&lt;/p&gt;
 
 &lt;p&gt;殆どは先人の方々からの受け売りなので，できるだけ情報元も併記する．&lt;/p&gt;
 
@@ -370,7 +525,7 @@ $ brew info emacs-mac
 
 &lt;p&gt;MacBook Pro late 2016, Sierra&lt;/p&gt;
 
-&lt;p&gt;GNU Emacs 26.1, texlive2018&lt;/p&gt;
+&lt;p&gt;GNU Emacs 26.1, TeX Live 2018 (MacTeX-2018)&lt;/p&gt;
 
 &lt;hr /&gt;
 </description>

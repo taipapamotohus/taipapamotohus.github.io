@@ -13,12 +13,21 @@
     
     
     <item>
-      <title>texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする．</title>
+      <title>beamerでスライド原稿用pdfを作成する</title>
+      <link>/post/beamer/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/beamer/</guid>
+      <description>beamerによるスライド原稿の作成 基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろ</description>
+    </item>
+    
+    <item>
+      <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</title>
       <link>/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>/post/latexmk/</guid>
-      <description>Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原</description>
+      <description>TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もし</description>
     </item>
     
     <item>

@@ -13,9 +13,18 @@
     
     
     <item>
+      <title>Auctex</title>
+      <link>/tags/auctex/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/auctex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Beamer</title>
       <link>/tags/beamer/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>/tags/beamer/</guid>
       <description></description>
@@ -24,7 +33,7 @@
     <item>
       <title>Emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>/tags/emacs/</guid>
       <description></description>
@@ -60,9 +69,27 @@
     <item>
       <title>Latex</title>
       <link>/tags/latex/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Latexmk</title>
+      <link>/tags/latexmk/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/latexmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mactex</title>
+      <link>/tags/mactex/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/mactex/</guid>
       <description></description>
     </item>
     
@@ -90,6 +117,15 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>/tags/skim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Texlive</title>
+      <link>/tags/texlive/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/texlive/</guid>
       <description></description>
     </item>
     
