@@ -72,6 +72,8 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;li&gt;&lt;p&gt;プレゼンテーションにskimを使うと動画が動かないので注意．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
