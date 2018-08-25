@@ -65,7 +65,7 @@ An annotation is considered as an object with a location on a page. The type of 
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．&lt;/p&gt;&lt;/li&gt;
 
