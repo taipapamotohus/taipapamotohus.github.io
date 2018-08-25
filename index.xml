@@ -31,7 +31,7 @@
 
 An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;. DVIPDFM(x) provides the following special command for annotations............
 
- The following example shows a movie annotation that enables us to run the movie  file ‘mymovie.avi’ inside a PDF viewer program.
+ The following example shows a movie annotation that enables us to run the movie file ‘mymovie.avi’ inside a PDF viewer program.
 
  \special{pdf:ann bbox 0 0 360 180 &amp;lt;&amp;lt;
  /Subtype /Movie /Border [1 0 0]
