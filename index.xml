@@ -7,11 +7,54 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>beamerでスライド原稿用pdfを作成する</title>
+      <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
+      <link>/post/beamer_movie/</link>
+      <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/beamer_movie/</guid>
+      <description>
+
+&lt;p&gt;実は，同じような内容について2010年に，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．&lt;/p&gt;
+
+&lt;h2 id=&#34;beamerで動画が走るスライド原稿を作る&#34;&gt;beamerで動画が走るスライド原稿を作る&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前述した ，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．&lt;/li&gt;
+&lt;li&gt;読んでいただければおわかりのように，非常にダサいベタ書きである．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;{
+    \usebackgroundtemplate{\put(20, -265){\includegraphics[scale=0.45]{/Data/.../..../Figures/hogefuga.pdf}}}
+    \begin{frame}
+    \frametitle{hogefugaの対策}
+    \special{pdf:ann bbox -10 -130 320 90 &amp;lt;&amp;lt;
+             /Subtype /Movie /Border [0 0 1]
+             /T (My Movie) /Movie &amp;lt;&amp;lt;
+             /F (/Data/.../hogefuga.mov)
+             %/Aspect [720 480]
+             /Aspect [640 480]
+             /Poster false &amp;gt;&amp;gt;
+             /A &amp;lt;&amp;lt; /ShowControls true /Mode /Repeat &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
+    \end{frame}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;プレゼンテーションにskimを使うと動画が動かないので注意．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．早送りなども可能．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>beamerでスライド原稿用pdfを作成する（その１）</title>
       <link>/post/beamer/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
@@ -21,9 +64,9 @@
 &lt;h2 id=&#34;beamerによるスライド原稿の作成&#34;&gt;beamerによるスライド原稿の作成&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsが便利である．&lt;/li&gt;
+&lt;li&gt;基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である．&lt;/li&gt;
 &lt;li&gt;下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う．&lt;/li&gt;
-&lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えてもらった．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34; target=&#34;_blank&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34; target=&#34;_blank&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -104,6 +147,13 @@
 \end{itemize}
 \end{block}
 \end{frame}
+
+\section{Results}
+\begin{frame}
+\frametitle{hogefuga症例の画像}
+\centering
+\includegraphics[width=3.5in]{hoge_fuga.pdf}
+\end{frame}
 \end{document}
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -117,24 +167,35 @@
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/img/beamer_tex.jpg&#34; width=&#34;100%&#34; /&gt;
+&lt;img src=&#34;/img/beamer_test.jpg&#34; width=&#34;100%&#34; /&gt;
 
 
 &lt;/figure&gt;
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/img/beamer_tex2.jpg&#34; width=&#34;100%&#34; /&gt;
+&lt;img src=&#34;/img/beamer_test2.jpg&#34; width=&#34;100%&#34; /&gt;
 
 
 &lt;/figure&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;画像の貼り付けが必要なら，必要な箇所で，&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;\includegraphics[width=2in]{/Data/hoge/fuga/......./hoge_fuga.pdf}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;と打てばよい．&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;/img/beamer_test3.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;次回は，beamerで動画を走らせる件について書く予定．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -202,6 +263,18 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;これで，texファイルへの変更を保存すると自動でコンパイルされて，設定にもよるが，skimで開いているpdfファイルも更新される．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;xelatexについて&#34;&gt;XeLaTeXについて&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以下を参照されたい．特に最初にあげたZRさんの文書は必読！
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://zrbabbler.sp.land.to/xelatex.html&#34; target=&#34;_blank&#34;&gt;XeLaTeX で日本語する件について&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?XeTeX&#34; target=&#34;_blank&#34;&gt;TeXWiki XeTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://suzusime-log.hatenablog.jp/entry/2017/04/15/210327&#34; target=&#34;_blank&#34;&gt;XeLaTeXだとかな混植が簡単にできて最高だという話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -272,9 +345,8 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 
 &lt;ul&gt;
 &lt;li&gt;ついで，最も重要なinline-patchの設定&lt;/li&gt;
-&lt;li&gt;参考：&lt;a href=&#34;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&#34; target=&#34;_blank&#34;&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考：&lt;a href=&#34;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&#34; target=&#34;_blank&#34;&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考：&lt;a href=&#34;http://suzuki.tdiary.net/20160103.html&#34; target=&#34;_blank&#34;&gt;http://suzuki.tdiary.net/20160103.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考：&lt;a href=&#34;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&#34; target=&#34;_blank&#34;&gt;Macに最新バージョンのEmacsをインストール&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考：&lt;a href=&#34;http://suzuki.tdiary.net/20160103.html&#34; target=&#34;_blank&#34;&gt;El Capitan での日本語入力時に Emacs 内のカーソル色を変更する&lt;/a&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;init.orgに以下のように書き込む．&lt;/p&gt;
 
@@ -319,7 +391,7 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 
 &lt;li&gt;&lt;p&gt;これで日本語入力中であっても，M-xなどでミニバッファ入力時に自動的に英語入力モードになってくれる．&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;ついでに行った日本語か英語かでカーソルの色が変わる設定はわりに有用だが，ときに色が変わらないことあり．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ついでに行った日本語か英語かでカーソルの色が変わる設定はわりに有用だが，ときに色が変わらないことがあるが，気にしないことにしている．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -407,7 +479,7 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 &lt;li&gt;&lt;p&gt;code-blockの中にいるときに&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;C-c ;とする&lt;/li&gt;
+&lt;li&gt;C-c &amp;lsquo;とする&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;当該のcode blockだけのバッファが表示される（下図の下のバッファ）&lt;/p&gt;
 
@@ -424,7 +496,7 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 
 &lt;li&gt;&lt;p&gt;すると，インデントも綺麗に整えてくれる．&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;満足したら，C-c ;で元のバッファに戻る．整形は綺麗なまま反映される．素晴らしい！&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;満足したら，C-c &amp;lsquo;で元のバッファに戻る．整形は綺麗なまま反映される．素晴らしい！&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;具体的なinit.orgの内容は次回のポスト以降に記述予定&lt;/p&gt;&lt;/li&gt;
@@ -508,7 +580,7 @@ $ brew info emacs-mac
     <item>
       <title>About</title>
       <link>/home/about/</link>
-      <pubDate>Thu, 23 Aug 2018 22:14:00 +0900</pubDate>
+      <pubDate>Sat, 25 Aug 2018 01:37:44 +0900</pubDate>
       
       <guid>/home/about/</guid>
       <description>

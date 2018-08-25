@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Movie on A perfect autumn day</title>
+    <link>/tags/movie/</link>
+    <description>Recent content in Movie on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/movie/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
+      <link>/post/beamer_movie/</link>
+      <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>/post/beamer_movie/</guid>
+      <description>実は，同じような内容について2010年に，TeX QA に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらて</description>
+    </item>
+    
+  </channel>
+</rss>
