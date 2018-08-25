@@ -24,7 +24,28 @@
 
 &lt;ul&gt;
 &lt;li&gt;前述した ，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．&lt;/li&gt;
-&lt;li&gt;読んでいただければおわかりのように，非常にダサいベタ書きである．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） &lt;a href=&#34;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&#34; target=&#34;_blank&#34;&gt;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&lt;/a&gt; の以下の部分&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;3 Annotations
+
+An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;. DVIPDFM(x) provides the following special command for annotations............
+
+ The following example shows a movie annotation that enables us to run the movie  le ‘mymovie.avi’ inside a PDF viewer program.
+
+ \special{pdf:ann bbox 0 0 360 180 &amp;lt;&amp;lt;
+ /Subtype /Movie /Border [1 0 0]
+ /T (My Movie) /Movie &amp;lt;&amp;lt;
+ /F (mymovie.avi) /Aspect [720 360]
+ /Poster true &amp;gt;&amp;gt;
+ /A &amp;lt;&amp;lt; /ShowControls false &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;mymovie.aviのところに動かしたい動画を記入（パスも効く）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;私の作成したものは読んでいただければおわかりのように，非常にダサいベタ書きである．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
 
@@ -46,9 +67,11 @@
 
 &lt;li&gt;&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう．&lt;/p&gt;&lt;/li&gt;
 
+&lt;li&gt;&lt;p&gt;動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;プレゼンテーションにskimを使うと動画が動かないので注意．&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．早送りなども可能．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
