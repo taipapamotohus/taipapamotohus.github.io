@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Init-el on A perfect autumn day</title>
-    <link>/tags/init-el/</link>
+    <link>https://taipapamotohus.com/tags/init-el/</link>
     <description>Recent content in Init-el on A perfect autumn day</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="/tags/init-el/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taipapamotohus.com/tags/init-el/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</title>
-      <link>/post/japanese_setup/</link>
+      <link>https://taipapamotohus.com/post/japanese_setup/</link>
       <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/japanese_setup/</guid>
+      <guid>https://taipapamotohus.com/post/japanese_setup/</guid>
       <description>ようやく，ここからinit.orgの具体的な記述になる． Coding systemの設定 まずは，coding systemの設定，つまり，日本語の設定，</description>
     </item>
     
     <item>
       <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</title>
-      <link>/post/init_org/</link>
+      <link>https://taipapamotohus.com/post/init_org/</link>
       <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/init_org/</guid>
+      <guid>https://taipapamotohus.com/post/init_org/</guid>
       <description>自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとか</description>
     </item>
     

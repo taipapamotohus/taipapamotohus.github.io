@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Beamer on A perfect autumn day</title>
-    <link>/tags/beamer/</link>
+    <link>https://taipapamotohus.com/tags/beamer/</link>
     <description>Recent content in Beamer on A perfect autumn day</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="/tags/beamer/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taipapamotohus.com/tags/beamer/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
-      <link>/post/beamer_movie/</link>
+      <link>https://taipapamotohus.com/post/beamer_movie/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/beamer_movie/</guid>
+      <guid>https://taipapamotohus.com/post/beamer_movie/</guid>
       <description>実は，同じような内容について2010年に，TeX QA に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらて</description>
     </item>
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その１）</title>
-      <link>/post/beamer/</link>
+      <link>https://taipapamotohus.com/post/beamer/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/beamer/</guid>
+      <guid>https://taipapamotohus.com/post/beamer/</guid>
       <description>beamerによるスライド原稿の作成 基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろ</description>
     </item>
     
     <item>
       <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</title>
-      <link>/post/latexmk/</link>
+      <link>https://taipapamotohus.com/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/latexmk/</guid>
+      <guid>https://taipapamotohus.com/post/latexmk/</guid>
       <description>TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もし</description>
     </item>
     

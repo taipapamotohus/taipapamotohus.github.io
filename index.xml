@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A perfect autumn day on A perfect autumn day</title>
-    <link>/</link>
+    <link>https://taipapamotohus.com/</link>
     <description>Recent content in A perfect autumn day on A perfect autumn day</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
-      <link>/post/beamer_movie/</link>
+      <link>https://taipapamotohus.com/post/beamer_movie/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/beamer_movie/</guid>
+      <guid>https://taipapamotohus.com/post/beamer_movie/</guid>
       <description>
 
 &lt;p&gt;実は，同じような内容について2010年に，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．&lt;/p&gt;
@@ -80,10 +80,10 @@ An annotation is considered as an object with a location on a page. The type of 
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その１）</title>
-      <link>/post/beamer/</link>
+      <link>https://taipapamotohus.com/post/beamer/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/beamer/</guid>
+      <guid>https://taipapamotohus.com/post/beamer/</guid>
       <description>
 
 &lt;h2 id=&#34;beamerによるスライド原稿の作成&#34;&gt;beamerによるスライド原稿の作成&lt;/h2&gt;
@@ -192,14 +192,14 @@ An annotation is considered as an object with a location on a page. The type of 
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/img/beamer_test.jpg&#34; width=&#34;100%&#34; /&gt;
+&lt;img src=&#34;https://taipapamotohus.com/img/beamer_test.jpg&#34; width=&#34;100%&#34; /&gt;
 
 
 &lt;/figure&gt;
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/img/beamer_test2.jpg&#34; width=&#34;100%&#34; /&gt;
+&lt;img src=&#34;https://taipapamotohus.com/img/beamer_test2.jpg&#34; width=&#34;100%&#34; /&gt;
 
 
 &lt;/figure&gt;&lt;/li&gt;
@@ -213,7 +213,7 @@ An annotation is considered as an object with a location on a page. The type of 
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/img/beamer_test3.jpg&#34; width=&#34;100%&#34; /&gt;
+&lt;img src=&#34;https://taipapamotohus.com/img/beamer_test3.jpg&#34; width=&#34;100%&#34; /&gt;
 
 
 &lt;/figure&gt;&lt;/li&gt;
@@ -227,10 +227,10 @@ An annotation is considered as an object with a location on a page. The type of 
     
     <item>
       <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</title>
-      <link>/post/latexmk/</link>
+      <link>https://taipapamotohus.com/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/latexmk/</guid>
+      <guid>https://taipapamotohus.com/post/latexmk/</guid>
       <description>
 
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
@@ -306,10 +306,10 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
     
     <item>
       <title>Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</title>
-      <link>/post/japanese_setup/</link>
+      <link>https://taipapamotohus.com/post/japanese_setup/</link>
       <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/japanese_setup/</guid>
+      <guid>https://taipapamotohus.com/post/japanese_setup/</guid>
       <description>
 
 &lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
@@ -423,10 +423,10 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
     
     <item>
       <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</title>
-      <link>/post/init_org/</link>
+      <link>https://taipapamotohus.com/post/init_org/</link>
       <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/init_org/</guid>
+      <guid>https://taipapamotohus.com/post/init_org/</guid>
       <description>
 
 &lt;p&gt;自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．&lt;/p&gt;
@@ -510,7 +510,7 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 
 &lt;figure&gt;
 
-&lt;img src=&#34;/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; /&gt;
+&lt;img src=&#34;https://taipapamotohus.com/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; /&gt;
 
 
 &lt;/figure&gt;&lt;/li&gt;
@@ -531,10 +531,10 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
     
     <item>
       <title>Emacsの設定（その1）Preludeの導入</title>
-      <link>/post/prelude_install/</link>
+      <link>https://taipapamotohus.com/post/prelude_install/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/prelude_install/</guid>
+      <guid>https://taipapamotohus.com/post/prelude_install/</guid>
       <description>
 
 &lt;p&gt;昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．&lt;/p&gt;
@@ -573,10 +573,10 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
     
     <item>
       <title>Emacsのインストール</title>
-      <link>/post/emacs_install/</link>
+      <link>https://taipapamotohus.com/post/emacs_install/</link>
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/post/emacs_install/</guid>
+      <guid>https://taipapamotohus.com/post/emacs_install/</guid>
       <description>&lt;p&gt;なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここでは&lt;a href=&#34;https://brew.sh/index%5Fja&#34; target=&#34;_blank&#34;&gt;Homebrew&lt;/a&gt;を使ってサクッとインストール．Homebrew自体のインストールはそちらのサイトを参照．&lt;/p&gt;
 
 &lt;p&gt;Emacsで日本語を書いてると，M-xしたときに面倒なことになるので，&lt;a href=&#34;https://ja.wikipedia.org/wiki/インプット%5Fメソッド%5Fエディタ&#34; target=&#34;_blank&#34;&gt;Imput Method Editor (IME)&lt;/a&gt;用のパッチを当てる．既にパッチの当たっているYAMAMOTO Mitsuharu版のMac Port用のemacs-macがよい．railwaycatさんがHomebrewでインストールできるようにしてくれているので，これを使わせていただく（&lt;a href=&#34;https://github.com/railwaycat/homebrew-emacsmacport&#34; target=&#34;_blank&#34;&gt;Emacs Mac Port&lt;/a&gt;）．ありがたい．&lt;/p&gt;
@@ -604,10 +604,10 @@ $ brew info emacs-mac
     
     <item>
       <title>About</title>
-      <link>/home/about/</link>
+      <link>https://taipapamotohus.com/home/about/</link>
       <pubDate>Sat, 25 Aug 2018 01:37:44 +0900</pubDate>
       
-      <guid>/home/about/</guid>
+      <guid>https://taipapamotohus.com/home/about/</guid>
       <description>
 
 &lt;h2 id=&#34;このサイトについて&#34;&gt;&lt;strong&gt;このサイトについて&lt;/strong&gt;&lt;/h2&gt;
@@ -630,28 +630,28 @@ $ brew info emacs-mac
     
     <item>
       <title>Search2</title>
-      <link>/search/</link>
+      <link>https://taipapamotohus.com/search/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
       
-      <guid>/search/</guid>
+      <guid>https://taipapamotohus.com/search/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>/index.js</link>
+      <link>https://taipapamotohus.com/index.js</link>
       <pubDate>Sat, 25 Aug 2018 21:04:00 +0900</pubDate>
       
-      <guid>/index.js</guid>
+      <guid>https://taipapamotohus.com/index.js</guid>
       <description></description>
     </item>
     
     <item>
       <title>Privacy Policy</title>
-      <link>/privacy/</link>
+      <link>https://taipapamotohus.com/privacy/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0900</pubDate>
       
-      <guid>/privacy/</guid>
+      <guid>https://taipapamotohus.com/privacy/</guid>
       <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
