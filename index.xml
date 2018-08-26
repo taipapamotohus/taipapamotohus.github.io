@@ -638,6 +638,15 @@ $ brew info emacs-mac
     </item>
     
     <item>
+      <title></title>
+      <link>/index.js</link>
+      <pubDate>Sat, 25 Aug 2018 21:04:00 +0900</pubDate>
+      
+      <guid>/index.js</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Privacy Policy</title>
       <link>/privacy/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0900</pubDate>
@@ -645,15 +654,6 @@ $ brew info emacs-mac
       <guid>/privacy/</guid>
       <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/index.js</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/index.js</guid>
-      <description></description>
     </item>
     
   </channel>

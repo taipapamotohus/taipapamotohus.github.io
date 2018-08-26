@@ -75,14 +75,5 @@
       <description>なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサク</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>/index.js</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/index.js</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>
