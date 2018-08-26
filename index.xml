@@ -49,7 +49,7 @@ An annotation is considered as an object with a location on a page. The type of 
 
 &lt;li&gt;&lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;{
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;{
     \usebackgroundtemplate{\put(20, -265){\includegraphics[scale=0.45]{/Data/.../..../Figures/hogefuga.pdf}}}
     \begin{frame}
     \frametitle{hogefugaの対策}
@@ -95,7 +95,7 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;li&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;% -*-coding:utf-8-*-
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;% -*-coding:utf-8-*-
 \documentclass[svgnames, table, 14pt]{beamer}
 \usepackage{zxjatype}
 \usepackage[hiragino-dx]{zxjafont}
