@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もし">
+  <meta name="description" content="前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われて">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/latexmk/">
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/beamer_movie2/">
 
   
 
@@ -80,26 +80,26 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://taipapamotohus.com/post/latexmk/">
+  <link rel="canonical" href="https://taipapamotohus.com/post/beamer_movie2/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="https://taipapamotohus.com/post/latexmk/">
-  <meta property="og:title" content="LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする | A perfect autumn day">
-  <meta property="og:description" content="TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もし"><meta property="og:image" content="https://taipapamotohus.com/img/headers/%E7%90%B5%E7%90%B6%E6%B9%96.jpg">
+  <meta property="og:url" content="https://taipapamotohus.com/post/beamer_movie2/">
+  <meta property="og:title" content="beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記） | A perfect autumn day">
+  <meta property="og:description" content="前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われて"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Florence-1.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-08-19T00:00:00&#43;09:00">
+  <meta property="article:published_time" content="2018-08-26T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-08-27T22:12:54&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2018-08-27T22:12:55&#43;09:00">
   
 
   
 
-  <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする | A perfect autumn day</title>
+  
+
+  <title>beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記） | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -220,16 +220,16 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/%e7%90%b5%e7%90%b6%e6%b9%96.jpg" class="article-banner" itemprop="image">
+    <img src="/img/headers/Florence-1.jpg" class="article-banner" itemprop="image">
   
 
-  <span class="article-header-caption">琵琶湖</span>
+  <span class="article-header-caption">Florence</span>
 </div>
 
 
 
   <div class="article-container">
-    <h1 itemprop="name">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</h1>
+    <h1 itemprop="name">beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</h1>
 
     
 
@@ -246,8 +246,8 @@
     
         Last updated on
     
-    <meta content="2018-08-19 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-08-27 22:12:54 &#43;0900 JST" itemprop="dateModified">
+    <meta content="2018-08-26 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2018-08-27 22:12:55 &#43;0900 JST" itemprop="dateModified">
       Aug 27, 2018
     </time>
   </span>
@@ -258,14 +258,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="https://taipapamotohus.com/post/latexmk/#disqus_thread"></a>
+  <a href="https://taipapamotohus.com/post/beamer_movie2/#disqus_thread"></a>
   
 
   
@@ -281,73 +281,77 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="tex-live-2018のインストール">TeX Live 2018のインストール</h2>
+<p>前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．</p>
+
+<h2 id="media9">media9</h2>
+
+<p>media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．</p>
 
 <ul>
-<li>参考サイト１：<a href="https://texwiki.texjp.org/?TeX%20Live" target="_blank">TeX Wiki TeX Live</a></li>
-<li>参考サイト２：<a href="https://texwiki.texjp.org/?TeX%20Live%2FMac" target="_blank">TeX Wiki TeX LiveMac</a></li>
-<li>参考サイト３：<a href="http://www.tug.org/mactex/" target="_blank">The MacTeX-2018 Distribution</a></li>
-<li>上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする．</li>
-<li>これでスライド作成ソフトであるbeamerも一緒にインストールされる．</li>
-<li>beamerに固有の設定は特に必要なし．</li>
+<li>参考サイト１：<a href="https://texwiki.texjp.org/?media9" target="_blank">TeXWiki media9</a></li>
+<li>参考サイト２：<a href="https://blog.tokor.org/2016/06/04/TeXでプレゼン-LaTeX-Beamerを使う人のためのTips集/" target="_blank">TeXでプレゼン - LaTeX Beamerを使う人のためのTips集</a></li>
+<li>参考サイト３：<a href="https://www.youtube.com/watch?v=HHzcrP27I08" target="_blank">How to embed video files in a PDF using LaTeX (a media9/beamer example)</a></li>
+<li>参考サイト４：<a href="http://empitsu.hatenablog.com/entry/2012/11/02/182722" target="_blank">Beamer で PDF ファイルに動画を埋め込む</a></li>
+<li>参考サイト５：<a href="http://tug.org/pipermail/macostex-archives/2014-July/052673.html" target="_blank">media9 problems</a></li>
 </ul>
 
-<h2 id="auctexのインストールと設定">auctexのインストールと設定</h2>
+<h2 id="beamerで動画が走るスライド原稿を作る-media9版">beamerで動画が走るスライド原稿を作る（media9版）</h2>
 
 <ul>
-<li>latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見）</li>
-<li>preludeをインストールした時点で，auctexもインストールされる．</li>
-<li>auctexの設定などについては以下を参照（手抜き&hellip;.. (^^;;; ）
+<li>同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い</li>
 
-<ul>
-<li><a href="https://www.gnu.org/software/auctex/" target="_blank">AUCTEX – Sophisticated document creation</a></li>
-<li><a href="https://texwiki.texjp.org/?AUCTeX" target="_blank">TeX Wiki AUCTeX</a></li>
-<li><a href="https://mytexpert.osdn.jp/index.php?Emacs/AUCTeX" target="_blank">Emacs/AUCTeX</a></li>
-<li><a href="https://skalldan.wordpress.com/2011/07/20/auctex-の設定と便利な機能/" target="_blank">AUCTeX の設定と便利な機能</a></li>
-</ul></li>
-<li>しかし，org-modeを使うようになってからは直接latex文書を打つことはめっきり少なくなってしまった．それでも，学会発表用のスライドなどはlatexを直接打って，beamer文書を作成し，pdf原稿に変換している．</li>
-</ul>
+<li><p>preambleに，\usepackage{media9}を忘れずに追加しておく．</p>
 
-<h2 id="latexmk">latexmk</h2>
+<pre><code class="language-tex">\newcommand{\showmovie}[1]{\includemedia[
+  activate=pageopen,
+  deactivate=pageclose,
+  width=110mm, height=72mm,
+  addresource=#1,
+  flashvars={
+    src=#1
+    &amp;loop=true
+    &amp;autoPlay=false
+  }
+  ]{}{StrobeMediaPlayback.swf}
+}
 
-<ul>
-<li>Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原稿が出来上がるのを待たなければならず，この待ち時間が結構辛い．そこで，tex ファイルの変更が保存されるたびに自動で裏でlatexmkがcompileしてくれるようにする．latexmkを使う．</li>
-<li>参考サイト：<a href="https://texwiki.texjp.org/?Latexmk" target="_blank">TeX Wiki Latexmk</a></li>
-<li>texlive2018, MacTeXに入っているので，これらを入れていれば別途インストールする必要なし．</li>
-
-<li><p>~/.latexmkrcの中に以下のように記述する（ちなみに私はxelatexを使用している）</p>
-
-<pre><code class="language-lisp">$pdflatex = 'xelatex -interaction=nonstopmode -synctex=1 %O %S';
-$pdf_mode = 1;
-$postscript_mode = $dvi_mode = 0;
-$pdf_previewer  = 'open -a Skim';
-$preview_continuous_mode = 1;  # equivalent to -pvc
-</code></pre></li>
-</ul>
-
-<h2 id="実際の作業">実際の作業</h2>
-
-<ul>
-<li>上記のようにセットアップしていることとする．</li>
-
-<li><p>ターミナルで，texファイルが有るdirectoryに移動し，</p>
-
-<pre><code class="language-shell">latexmk -pvc -pdf -view=none document.tex
+\begin{frame}
+  \frametitle{hogefugaの動画}
+  \centering
+  \showmovie{hogefuga.mov}
+\end{frame}
 </code></pre></li>
 
-<li><p>これで，texファイルへの変更を保存すると自動でコンパイルされて，設定にもよるが，skimで開いているpdfファイルも更新される．</p></li>
+<li><p>110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．</p></li>
+
+<li><p>loopは，ループ再生するかどうか</p></li>
+
+<li><p>autoplayは自動再生するかどうか</p></li>
 </ul>
 
-<h2 id="xelatexについて">XeLaTeXについて</h2>
+<h2 id="media9を使用したときの利点">media9を使用したときの利点</h2>
 
 <ul>
-<li>以下を参照されたい．特に最初にあげたZRさんの文書は必読！
+<li>なんと言ってもべた書きよりもelegant!</li>
+<li>スライドを開けたときに，何もしなくても動画の静止画が映るので，前回のやり方のように背景をべた書きしなくて良い．</li>
+</ul>
+
+<h2 id="media9を使用したときの欠点">media9を使用したときの欠点</h2>
+
+<p>もう完全にmedia9に乗り換えるつもりでいたが，以下に述べるようにいくつか欠点もあることが判明した．</p>
 
 <ul>
-<li><a href="http://zrbabbler.sp.land.to/xelatex.html" target="_blank">XeLaTeX で日本語する件について</a></li>
-<li><a href="https://texwiki.texjp.org/?XeTeX" target="_blank">TeXWiki XeTeX</a></li>
-<li><a href="http://suzusime-log.hatenablog.jp/entry/2017/04/15/210327" target="_blank">XeLaTeXだとかな混植が簡単にできて最高だという話</a></li>
-</ul></li>
+<li>media9はpdf自体に動画を埋め込むようである．したがって，200MBの動画を走らせるとすると，pdf自体が200MB以上の大きさになってしまう．</li>
+<li>それだけでなく，200MB程度の動画になると，途中で固まってしまう！これでは使い物にならない．</li>
+<li>一方，前回記事のべた書き方式だと，pdf自体に動画を埋め込まないので，pdfは大きくならないし，動画指定のパスは効くし，200MBだろうともっと大きかろうと動画はガンガン動く．</li>
+</ul>
+
+<h2 id="結論">結論</h2>
+
+<ul>
+<li>容量の小さな動画であれば，media9でも十分であろう．</li>
+<li>私のように，容量の大きな動画を使用するような場合は，べた書きを使用するほうが良いであろう．</li>
+<li>ということで，結局，元の木阿弥に戻ることとなった．</li>
 </ul>
 
     </div>
@@ -357,17 +361,13 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 
 <div class="article-tags">
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
+  <a class="label label-default" href="https://taipapamotohus.com/tags/beamer/">beamer</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/movie/">movie</a>
   
   <a class="label label-default" href="https://taipapamotohus.com/tags/latex/">latex</a>
   
   <a class="label label-default" href="https://taipapamotohus.com/tags/pdf/">pdf</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/skim/">skim</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/beamer/">beamer</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/auctex/">auctex</a>
   
 </div>
 
@@ -381,13 +381,11 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/japanese_setup/">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></li>
+        <li><a href="/post/beamer_movie/">beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</a></li>
         
-        <li><a href="/post/init_org/">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a></li>
+        <li><a href="/post/latexmk/">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</a></li>
         
-        <li><a href="/post/prelude_install/">Emacsの設定（その1）Preludeの導入</a></li>
-        
-        <li><a href="/post/emacs_install/">Emacsのインストール</a></li>
+        <li><a href="/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></li>
         
       </ul>
     </div>
@@ -397,15 +395,10 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
     <div class="article-widget">
       <div class="post-nav">
   
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="https://taipapamotohus.com/post/beamer/" rel="next">beamerでスライド原稿用pdfを作成する（その１）</a>
-  </div>
-  
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="https://taipapamotohus.com/post/japanese_setup/" rel="prev">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>
+    <a href="https://taipapamotohus.com/post/beamer_movie/" rel="prev">beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</a>
   </div>
   
 </div>

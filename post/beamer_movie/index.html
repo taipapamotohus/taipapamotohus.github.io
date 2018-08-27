@@ -92,7 +92,7 @@
   
   <meta property="article:published_time" content="2018-08-25T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-08-26T15:44:41&#43;09:00">
+  <meta property="article:modified_time" content="2018-08-27T22:12:55&#43;09:00">
   
 
   
@@ -247,8 +247,8 @@
         Last updated on
     
     <meta content="2018-08-25 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-08-26 15:44:41 &#43;0900 JST" itemprop="dateModified">
-      Aug 26, 2018
+    <time datetime="2018-08-27 22:12:55 &#43;0900 JST" itemprop="dateModified">
+      Aug 27, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -258,7 +258,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    3 min read
   </span>
   
 
@@ -330,9 +330,17 @@ An annotation is considered as an object with a location on a page. The type of 
 
 <li><p>\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．</p></li>
 
+<li><p>\putで背景画像（キャプチャー画像）の位置を直接指定し，\includegraphicsのscaleで倍率を指定して動画の大きさに合わせている．</p></li>
+
+<li><p>これで，画像をクリックすると（ほぼ）同じ大きさの動画が（ほぼ）同じ位置で動くようになる</p></li>
+
 <li><p>動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．</p></li>
 
 <li><p>プレゼンテーションにskimを使うと動画が動かないので注意．</p></li>
+
+<li><p>動画は同一directoryにある必要はなく，パスで指定すれば良い</p></li>
+
+<li><p>動画自体はpdfの中に埋め込まれないので，pdfの容量がむやみに大きくならないという利点がある．</p></li>
 
 <li><p>Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．</p></li>
 
@@ -377,6 +385,11 @@ An annotation is considered as an object with a location on a page. The type of 
     
     <div class="article-widget">
       <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="https://taipapamotohus.com/post/beamer_movie2/" rel="next">beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</a>
+  </div>
   
   
   <div class="post-nav-item">

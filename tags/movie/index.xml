@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 26 Aug 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/movie/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</title>
+      <link>https://taipapamotohus.com/post/beamer_movie2/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/beamer_movie2/</guid>
+      <description>前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われて</description>
+    </item>
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
