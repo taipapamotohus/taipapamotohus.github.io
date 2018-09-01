@@ -317,7 +317,7 @@ An annotation is considered as an object with a location on a page. The type of 
     </item>
     
     <item>
-      <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</title>
+      <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</title>
       <link>https://taipapamotohus.com/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
@@ -333,6 +333,34 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;li&gt;上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする．&lt;/li&gt;
 &lt;li&gt;これでスライド作成ソフトであるbeamerも一緒にインストールされる．&lt;/li&gt;
 &lt;li&gt;beamerに固有の設定は特に必要なし．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/h2&gt;
+
+&lt;p&gt;大事なことを２つ忘れていたので追記する．&lt;/p&gt;
+
+&lt;h3 id=&#34;ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;http://doratex.hatenablog.jp/entry/20180501/1525144736&#34; target=&#34;_blank&#34;&gt;MacTeX 2018のインストール&amp;amp;日本語環境構築法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい．&lt;/li&gt;
+&lt;li&gt;マックユーザーにとっての最大の問題点は &lt;strong&gt;「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」&lt;/strong&gt; ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記の&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;に書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/????/bin/*/tlmgr path add
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/h2&gt;

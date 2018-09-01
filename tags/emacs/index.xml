@@ -22,7 +22,7 @@
     </item>
     
     <item>
-      <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</title>
+      <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</title>
       <link>https://taipapamotohus.com/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
