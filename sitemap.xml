@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/post/org-mode_paper_1/</loc>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/post/beamer_movie2/</loc>
       <lastmod>2018-08-27T22:12:55+09:00</lastmod>
     </url>
@@ -29,7 +37,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/post/latexmk/</loc>
-      <lastmod>2018-09-01T20:29:10+09:00</lastmod>
+      <lastmod>2018-09-03T22:46:10+09:00</lastmod>
     </url>
     
   
@@ -85,7 +93,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2018-08-27T22:12:55+09:00</lastmod>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -94,7 +102,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/auctex/</loc>
-      <lastmod>2018-09-01T20:29:10+09:00</lastmod>
+      <lastmod>2018-09-03T22:46:10+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -120,7 +128,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/emacs/</loc>
-      <lastmod>2018-08-27T22:12:55+09:00</lastmod>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -130,6 +138,15 @@
     
       <loc>https://taipapamotohus.com/tags/homebrew/</loc>
       <lastmod>2018-08-27T22:12:54+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/html/</loc>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -156,7 +173,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/latex/</loc>
-      <lastmod>2018-08-27T22:12:55+09:00</lastmod>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -182,8 +199,35 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/tags/mode/</loc>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/tags/movie/</loc>
       <lastmod>2018-08-27T22:12:55+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/org/</loc>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/pandoc/</loc>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -218,7 +262,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/skim/</loc>
-      <lastmod>2018-09-01T20:29:10+09:00</lastmod>
+      <lastmod>2018-09-03T22:46:10+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -227,7 +271,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/</loc>
-      <lastmod>2018-09-01T20:29:10+09:00</lastmod>
+      <lastmod>2018-09-03T22:46:10+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -237,6 +281,15 @@
     
       <loc>https://taipapamotohus.com/tags/texlive/</loc>
       <lastmod>2018-08-27T22:12:55+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/word/</loc>
+      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
       <priority>0</priority>
     </url>
     

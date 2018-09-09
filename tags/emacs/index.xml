@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 01 Sep 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</title>
+      <link>https://taipapamotohus.com/post/org-mode_paper_1/</link>
+      <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/org-mode_paper_1/</guid>
+      <description>私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-mod</description>
+    </item>
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その１）</title>
