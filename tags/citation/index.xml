@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Citation on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/citation/</link>
+    <description>Recent content in Citation on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/tags/citation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</title>
+      <link>https://taipapamotohus.com/post/org-mode_paper_2/</link>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/org-mode_paper_2/</guid>
+      <description>さて，前回はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文</description>
+    </item>
+    
+  </channel>
+</rss>
