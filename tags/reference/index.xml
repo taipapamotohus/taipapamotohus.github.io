@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 15 Sep 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/reference/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</title>
+      <link>https://taipapamotohus.com/post/org-mode_paper_3/</link>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/org-mode_paper_3/</guid>
+      <description>前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibt</description>
+    </item>
     
     <item>
       <title>Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</title>
@@ -18,7 +27,7 @@
       <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/org-mode_paper_2/</guid>
-      <description>さて，前回はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文</description>
+      <description>さて，前回（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））はorg-modeによる論文本体の執筆に付いてま</description>
     </item>
     
   </channel>

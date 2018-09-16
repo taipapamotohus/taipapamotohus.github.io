@@ -4,8 +4,16 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/post/org-mode_paper_3/</loc>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/post/org-mode_paper_2/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:45+09:00</lastmod>
     </url>
     
   
@@ -101,7 +109,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -111,6 +119,15 @@
     
       <loc>https://taipapamotohus.com/tags/auctex/</loc>
       <lastmod>2018-09-03T22:46:10+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/automation/</loc>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -128,7 +145,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/bibdesk/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:45+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -137,7 +154,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/bibtex/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -154,7 +171,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/citation/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -208,7 +225,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/latex/</loc>
-      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -235,7 +252,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/mode/</loc>
-      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -253,7 +270,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/org/</loc>
-      <lastmod>2018-09-09T20:17:51+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -271,7 +288,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/pdf/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:45+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -297,7 +314,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/pubmed/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:45+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -306,7 +323,16 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/reference/</loc>
-      <lastmod>2018-09-16T11:24:16+09:00</lastmod>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/reftex/</loc>
+      <lastmod>2018-09-16T21:44:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     

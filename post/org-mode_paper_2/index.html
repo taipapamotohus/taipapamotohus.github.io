@@ -15,7 +15,7 @@
   
     
   
-  <meta name="description" content="さて，前回はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文">
+  <meta name="description" content="さて，前回（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））はorg-modeによる論文本体の執筆に付いてま">
 
   
   <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/org-mode_paper_2/">
@@ -87,12 +87,12 @@
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="https://taipapamotohus.com/post/org-mode_paper_2/">
   <meta property="og:title" content="Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理） | A perfect autumn day">
-  <meta property="og:description" content="さて，前回はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Paris-3.jpg">
+  <meta property="og:description" content="さて，前回（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））はorg-modeによる論文本体の執筆に付いてま"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Paris-3.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-09-12T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-09-16T11:24:16&#43;09:00">
+  <meta property="article:modified_time" content="2018-09-16T21:44:45&#43;09:00">
   
 
   
@@ -247,7 +247,7 @@
         Last updated on
     
     <meta content="2018-09-12 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-09-16 11:24:16 &#43;0900 JST" itemprop="dateModified">
+    <time datetime="2018-09-16 21:44:45 &#43;0900 JST" itemprop="dateModified">
       Sep 16, 2018
     </time>
   </span>
@@ -281,7 +281,7 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>さて，前回はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文を引用するためには，当然のことながら論文を収集しなければならない．そのうち膨大な数の論文の海に溺れることになる．そこで，収集した論文，つまり，pdfの整理をするソフトが必要になってくる．その引用も，書式や番号付を雑誌の規定に合わせて自動化してくれれば言うことはない．ということで，そのようなソフトについて書くことにする．有料ソフトの定番としては，EndoNoteがあるし，フリーソフトでは，<a href="https://www.zotero.org" target="_blank">zotero</a>や<a href="https://www.mendeley.com/?switchedFrom=" target="_blank">Mendeley</a>が有名である．私自身は，LaTeXを利用することが多い関係上，<a href="https://bibdesk.sourceforge.io" target="_blank">BibDesk</a>というこれまた老舗のソフトをもっぱら利用している．ネット上でもzoteroやmendeleyについての情報は豊富だが，BibDeskについてはそれほど見られないので，まとめておくことは多少の意味があるであろうと考え，BibDeskによる論文収集を説明することにした．</p>
+<p>さて，前回（<a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a>）はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文を引用するためには，当然のことながら論文を収集しなければならない．そのうち膨大な数の論文の海に溺れることになる．そこで，収集した論文，つまり，pdfの整理をするソフトが必要になってくる．その引用も，書式や番号付を雑誌の規定に合わせて自動化してくれれば言うことはない．ということで，そのようなソフトについて書くことにする．有料ソフトの定番としては，EndoNoteがあるし，フリーソフトでは，<a href="https://www.zotero.org" target="_blank">zotero</a>や<a href="https://www.mendeley.com/?switchedFrom=" target="_blank">Mendeley</a>が有名である．私自身は，LaTeXを利用することが多い関係上，<a href="https://bibdesk.sourceforge.io" target="_blank">BibDesk</a>というこれまた老舗のソフトをもっぱら利用している．ネット上でもzoteroやmendeleyについての情報は豊富だが，BibDeskについてはそれほど見られないので，まとめておくことは多少の意味があるであろうと考え，BibDeskによる論文収集を説明することにした．</p>
 
 <h2 id="bibdesk"><a href="https://bibdesk.sourceforge.io" target="_blank">BibDesk</a></h2>
 
@@ -321,6 +321,8 @@
 </figure></li>
 
 <li><p>上図のごとく，検索結果欄の左端に&rdquo;Import&rdquo; ボタンがあるが，これをクリックするとその論文の書誌事項が取り込まれる．その際に，自分の文献リストの名前を，&rdquo;hogefuga-reference.bib&rdquo; など適当に決めれば良い．以後はそのリストに追加していくことになる．</p></li>
+
+<li><p>また，取り込まれる際にcite-keyをBibDeskが自動的に決めてくれる．このcite-keyは次回の記事で述べる「引用の自動化」の際にreftexに使用される．</p></li>
 
 <li><p>なお，PubMedの番号，つまり，Pmidが分かっていれば，それを打ち込めば一発で書誌事項を検索できる．</p></li>
 
@@ -409,6 +411,11 @@
     
     <div class="article-widget">
       <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="https://taipapamotohus.com/post/org-mode_paper_3/" rel="next">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a>
+  </div>
   
   
   <div class="post-nav-item">
