@@ -433,6 +433,7 @@ hogefugaによる治療は有効である．
 &lt;h3 id=&#34;pythonの導入&#34;&gt;Pythonの導入&lt;/h3&gt;
 
 &lt;ul&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;https://www.python.org&#34; target=&#34;_blank&#34;&gt;Welcome to Python.org&lt;/a&gt; （本家）ご存知いま一番アツい言語．それしか知らなくても下記のようにして使える（笑）&lt;/li&gt;
 &lt;li&gt;まず下準備としてpythonを入れる．&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;homebrew でpython3をインストール&lt;/p&gt;
@@ -467,7 +468,11 @@ hogefugaによる治療は有効である．
 
 &lt;/figure&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;ようやく，これで使い物になる日本語のWord fileを作成することができた．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ようやく，使い物になる日本語のWord fileを作成することができた．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで，英語でも日本語でも，pdfからWordにコピペして修正するという難行苦行から解放される．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;しかし，co-authorとのすり合わせやrevisionの際は，まだ，Wordでの作業が必要とされる．苦行は続くのである．．．．．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
