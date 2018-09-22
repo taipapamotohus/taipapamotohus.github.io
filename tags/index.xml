@@ -60,7 +60,7 @@
     <item>
       <title>Citation</title>
       <link>https://taipapamotohus.com/tags/citation/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/citation/</guid>
       <description></description>
@@ -72,6 +72,15 @@
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Export</title>
+      <link>https://taipapamotohus.com/tags/export/</link>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/export/</guid>
       <description></description>
     </item>
     
@@ -141,7 +150,7 @@
     <item>
       <title>Mode</title>
       <link>https://taipapamotohus.com/tags/mode/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/mode/</guid>
       <description></description>
@@ -159,16 +168,25 @@
     <item>
       <title>Org</title>
       <link>https://taipapamotohus.com/tags/org/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/org/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Ox</title>
+      <link>https://taipapamotohus.com/tags/ox/</link>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/ox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pandoc</title>
       <link>https://taipapamotohus.com/tags/pandoc/</link>
-      <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/pandoc/</guid>
       <description></description>
@@ -204,7 +222,7 @@
     <item>
       <title>Reference</title>
       <link>https://taipapamotohus.com/tags/reference/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/reference/</guid>
       <description></description>
@@ -240,7 +258,7 @@
     <item>
       <title>Word</title>
       <link>https://taipapamotohus.com/tags/word/</link>
-      <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/word/</guid>
       <description></description>

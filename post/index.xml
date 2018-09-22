@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</title>
+      <link>https://taipapamotohus.com/post/org-mode_paper_4/</link>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/org-mode_paper_4/</guid>
+      <description>医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．． いま，一瞬，憤りのあまり意識を失いか</description>
+    </item>
+    
+    <item>
       <title>Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</title>
       <link>https://taipapamotohus.com/post/org-mode_paper_3/</link>
       <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>

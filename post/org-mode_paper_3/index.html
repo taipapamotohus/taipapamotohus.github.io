@@ -92,7 +92,7 @@
   
   <meta property="article:published_time" content="2018-09-15T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-09-16T21:44:46&#43;09:00">
+  <meta property="article:modified_time" content="2018-09-17T16:39:07&#43;09:00">
   
 
   
@@ -247,8 +247,8 @@
         Last updated on
     
     <meta content="2018-09-15 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-09-16 21:44:46 &#43;0900 JST" itemprop="dateModified">
-      Sep 16, 2018
+    <time datetime="2018-09-17 16:39:07 &#43;0900 JST" itemprop="dateModified">
+      Sep 17, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -290,7 +290,8 @@
 
 <li><p>RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）に記載したとおり，init.orgに書き込めば良い．</p>
 
-<pre><code class="language-lisp">(defun org-mode-reftex-setup ()
+<pre><code class="language-lisp">#+begin_src emacs-lisp
+(defun org-mode-reftex-setup ()
   (load-library &quot;reftex&quot;)
   (and (buffer-file-name)
        (file-exists-p (buffer-file-name))
@@ -298,6 +299,7 @@
   (define-key org-mode-map (kbd &quot;C-c )&quot;) 'reftex-citation)
   )
 (add-hook 'org-mode-hook 'org-mode-reftex-setup)
+#+end_src
 </code></pre></li>
 
 <li><p>上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．</p></li>
@@ -418,7 +420,7 @@ option:-r    reverse the sort
 <h2 id="文献を引用したorg-modeからのexportの実例">文献を引用したorg-modeからのexportの実例</h2>
 
 <ul>
-<li>ようやく，これで準備が整ったので，実例を示す．以下のファイルを作成する．</li>
+<li>ようやく，これで準備が整ったので，実例を示す．以下のファイルを作成し，hogefuga.orgとして保存する．</li>
 </ul>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: koma-jarticle
@@ -536,6 +538,11 @@ hogefugaによる治療は有効である．
     
     <div class="article-widget">
       <div class="post-nav">
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="https://taipapamotohus.com/post/org-mode_paper_4/" rel="next">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a>
+  </div>
   
   
   <div class="post-nav-item">
