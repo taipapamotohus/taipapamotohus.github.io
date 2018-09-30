@@ -272,7 +272,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    8 min read
+    9 min read
   </span>
   
 
@@ -296,6 +296,26 @@
       
 
 <p>前回（<a href="../org-mode_paper_2">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a>）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．</p>
+
+<h2>Table of Contents</h2>
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#org-mode-reftex-setup">org-mode-reftex-setup</a>
+<ul>
+<li><a href="#org-mode-reftex-setupの使用方法">org-mode-reftex-setupの使用方法</a></li>
+</ul></li>
+<li><a href="#ox-bibtex-dot-el"><a href="https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el" target="_blank">ox-bibtex.el</a></a></li>
+<li><a href="#bst-ファイルについて">bst ファイルについて</a>
+<ul>
+<li><a href="#bst-ファイルの置き場所">bst ファイルの置き場所</a></li>
+</ul></li>
+<li><a href="#文献を引用したorg-modeからのexportの実例">文献を引用したorg-modeからのexportの実例</a></li>
+</ul></li>
+</ul>
+</nav>
+
 
 <h2 id="org-mode-reftex-setup">org-mode-reftex-setup</h2>
 

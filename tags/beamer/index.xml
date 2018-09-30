@@ -36,7 +36,7 @@
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/beamer/</guid>
-      <description>beamerによるスライド原稿の作成 基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろ</description>
+      <description>前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新され</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/latexmk/</guid>
-      <description>TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もし</description>
+      <description>Table of Contents TeX Live 2018のインストール TeX Live 2018のインストール（2018年9月1日追記） ヒラギノフォントの埋め込みなど インストール後のパス</description>
     </item>
     
   </channel>

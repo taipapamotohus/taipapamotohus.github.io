@@ -18,7 +18,7 @@
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/beamer/</guid>
-      <description>beamerによるスライド原稿の作成 基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろ</description>
+      <description>前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新され</description>
     </item>
     
   </channel>

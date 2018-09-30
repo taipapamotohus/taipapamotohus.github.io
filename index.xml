@@ -22,6 +22,37 @@
 
 &lt;p&gt;いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， &lt;strong&gt;pandoc&lt;/strong&gt; とそれをorg−modeから利用するための &lt;strong&gt;ox-pandoc&lt;/strong&gt; である．&lt;/p&gt;
 
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ox-pandoc&#34;&gt;ox-pandoc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#文書の中で実際に引用された論文のみからなる文献リストを生成する方法&#34;&gt;文書の中で実際に引用された論文のみからなる文献リストを生成する方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#reftex-create-bibtex-file&#34;&gt;reftex-create-bibtex-file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bibexport&#34;&gt;bibexport&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pandocのための設定&#34;&gt;pandocのための設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#citation-style-language--csl--の設定&#34;&gt;Citation Style Language (CSL)の設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#英語論文の場合のorg-fileの設定&#34;&gt;英語論文の場合のorg fileの設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#英語論文のword-fileのexport&#34;&gt;英語論文のWord fileのexport&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#日本語論文の場合のorg-fileの設定&#34;&gt;日本語論文の場合のorg fileの設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-modeからword-fileへのexportの方法-1&#34;&gt;org-modeからWord fileへのexportの方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#word-file-の濁点分離を修正する方法&#34;&gt;Word file の濁点分離を修正する方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#pythonの導入&#34;&gt;Pythonの導入&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#docx-normarize-nfcの導入&#34;&gt;docx-normarize-nfcの導入&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#濁点分離の修正&#34;&gt;濁点分離の修正&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
 &lt;h2 id=&#34;ox-pandoc&#34;&gt;ox-pandoc&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -487,6 +518,26 @@ hogefugaによる治療は有効である．
 
 &lt;p&gt;前回（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．&lt;/p&gt;
 
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setupの使用方法&#34;&gt;org-mode-reftex-setupの使用方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ox-bibtex-dot-el&#34;&gt;&lt;a href=&#34;https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el&#34; target=&#34;_blank&#34;&gt;ox-bibtex.el&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bst-ファイルについて&#34;&gt;bst ファイルについて&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#bst-ファイルの置き場所&#34;&gt;bst ファイルの置き場所&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#文献を引用したorg-modeからのexportの実例&#34;&gt;文献を引用したorg-modeからのexportの実例&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
 &lt;h2 id=&#34;org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -798,6 +849,26 @@ hogefugaによる治療は有効である．
 
 &lt;p&gt;私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．&lt;/p&gt;
 
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#目的&#34;&gt;目的&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く利点&#34;&gt;org-modeで論文を書く利点&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-modeの設定-セットアップ-pdfとhtmlへの出力用&#34;&gt;org-modeの設定・セットアップ（pdfとhtmlへの出力用）&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#koma-script-a-bundle-of-versatile-classes-and-packages&#34;&gt;&lt;a href=&#34;https://ctan.org/pkg/koma-script&#34; target=&#34;_blank&#34;&gt;koma-script – A bundle of versatile classes and packages&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34; target=&#34;_blank&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-bullet&#34;&gt;org-bullet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-modeのinit-dot-elの設定-pdf出力用&#34;&gt;org-modeのinit.elの設定（pdf出力用）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く-の実例&#34;&gt;「org-modeで論文を書く」の実例&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
 &lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -1024,6 +1095,21 @@ hogefugaによる治療は有効である．
 
 &lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
 
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#media9&#34;&gt;media9&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#beamerで動画が走るスライド原稿を作る-media9版&#34;&gt;beamerで動画が走るスライド原稿を作る（media9版）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#media9を使用したときの利点&#34;&gt;media9を使用したときの利点&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#media9を使用したときの欠点&#34;&gt;media9を使用したときの欠点&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#結論&#34;&gt;結論&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
 &lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
 
 &lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
@@ -1181,6 +1267,9 @@ An annotation is considered as an object with a location on a page. The type of 
       <guid>https://taipapamotohus.com/post/beamer/</guid>
       <description>
 
+&lt;p&gt;前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
+　&lt;/p&gt;
+
 &lt;h2 id=&#34;beamerによるスライド原稿の作成&#34;&gt;beamerによるスライド原稿の作成&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -1328,6 +1417,26 @@ An annotation is considered as an object with a location on a page. The type of 
       <guid>https://taipapamotohus.com/post/latexmk/</guid>
       <description>
 
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#latexmk&#34;&gt;latexmk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#実際の作業&#34;&gt;実際の作業&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#xelatexについて&#34;&gt;XeLaTeXについて&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -1436,6 +1545,18 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
       <description>
 
 &lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#coding-systemの設定&#34;&gt;Coding systemの設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#inline-patchの設定&#34;&gt;Inline-patchの設定&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
 
 &lt;h2 id=&#34;coding-systemの設定&#34;&gt;Coding systemの設定&lt;/h2&gt;
 
@@ -1553,6 +1674,28 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
       <description>
 
 &lt;p&gt;自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#参考サイト&#34;&gt;参考サイト&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#preludeを使いながら-init-dot-orgから個人用のinit-dot-elを自動作成させてemacsを設定する方法&#34;&gt;Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#基本方針&#34;&gt;基本方針&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#preludeの導入&#34;&gt;Preludeの導入&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#emac-init-dot-elの作成&#34;&gt;emac-init.elの作成&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#init-dot-orgの作成&#34;&gt;init.orgの作成&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#code-blockの挿入&#34;&gt;Code blockの挿入&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#codeの記述&#34;&gt;Codeの記述&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
 
 &lt;h2 id=&#34;参考サイト&#34;&gt;参考サイト&lt;/h2&gt;
 
