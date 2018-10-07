@@ -69,9 +69,18 @@
     <item>
       <title>Emacs</title>
       <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Emacsclient</title>
+      <link>https://taipapamotohus.com/tags/emacsclient/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/emacsclient/</guid>
       <description></description>
     </item>
     
@@ -123,7 +132,7 @@
     <item>
       <title>Latex</title>
       <link>https://taipapamotohus.com/tags/latex/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/latex/</guid>
       <description></description>
@@ -195,7 +204,7 @@
     <item>
       <title>Pdf</title>
       <link>https://taipapamotohus.com/tags/pdf/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/pdf/</guid>
       <description></description>
@@ -243,6 +252,24 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/skim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Synchronization</title>
+      <link>https://taipapamotohus.com/tags/synchronization/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/synchronization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tex</title>
+      <link>https://taipapamotohus.com/tags/tex/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/tex/</guid>
       <description></description>
     </item>
     

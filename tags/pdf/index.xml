@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Oct 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/pdf/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Emacsとskimで，latexのソースとpdfの間を行ったり来たり</title>
+      <link>https://taipapamotohus.com/post/synchronization/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/synchronization/</guid>
+      <description>以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコ</description>
+    </item>
     
     <item>
       <title>Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</title>
