@@ -106,7 +106,7 @@
   
   <meta property="article:published_time" content="2018-10-07T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-10-07T22:38:35&#43;09:00">
+  <meta property="article:modified_time" content="2018-10-08T17:21:48&#43;09:00">
   
 
   
@@ -261,8 +261,8 @@
         Last updated on
     
     <meta content="2018-10-07 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-10-07 22:38:35 &#43;0900 JST" itemprop="dateModified">
-      Oct 7, 2018
+    <time datetime="2018-10-08 17:21:48 &#43;0900 JST" itemprop="dateModified">
+      Oct 8, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -296,18 +296,6 @@
       
 
 <p>以前の記事（<a href="../beamer">beamerでスライド原稿用pdfを作成する（その１）</a>）で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiの<a href="https://texwiki.texjp.org/?AUCTeX#h32722ec" target="_blank">macOS での設定例</a> を参照していただきたい．</p>
-
-<h2>Table of Contents</h2>
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#backward-search">backward search</a></li>
-<li><a href="#forward-search">forward search</a></li>
-</ul></li>
-</ul>
-</nav>
-
 
 <ul>
 <li>参照：<a href="https://ryogan.org/blog/2015/12/30/mac-os-x-el-capitan-の-auctex-の設定/" target="_blank">Mac OS X El Capitan の AUCTeX の設定</a></li>
@@ -351,7 +339,7 @@
 #+end_src
 </code></pre></li>
 
-<li><p>これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！</p></li>
+<li><p>これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．<del>もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！</del> これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．</p></li>
 
 <li><p>この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．</p></li>
 
