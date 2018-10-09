@@ -1893,7 +1893,7 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
     </item>
     
     <item>
-      <title>Emacsの設定（その1）Preludeの導入</title>
+      <title>Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</title>
       <link>https://taipapamotohus.com/post/prelude_install/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0900</pubDate>
       
@@ -1917,15 +1917,17 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ curl -L https://git.io/epre | sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．&lt;del&gt;auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！&lt;/del&gt; &lt;strong&gt;（2018年10月9日修正）&lt;/strong&gt; デフォルトのままではこうならない．下記のように設定する必要あり．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(require &#39;prelude-helm) ;; Interface for narrowing and search
 (require &#39;prelude-helm-everywhere) ;; Enable Helm everywhere
+..................
+(require &#39;prelude-latex)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;helmにすっかり慣らされてしまったのでこのあたりは外している．&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに &lt;strong&gt;auctex&lt;/strong&gt; がインストールされる．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．&lt;/p&gt;&lt;/li&gt;
 
