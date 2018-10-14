@@ -7,8 +7,235 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 07 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Swiper, ivy, avy, migemoによるEmacsの検索強化</title>
+      <link>https://taipapamotohus.com/post/swiper_migemo/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/swiper_migemo/</guid>
+      <description>
+
+&lt;p&gt;文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#swiper-dot-el&#34;&gt;swiper.el&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使い方&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#migemo&#34;&gt;migemo&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#cmigemoのinstall&#34;&gt;cmigemoのinstall&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#migemo-dot-elのinstall-and-setup&#34;&gt;migemo.elのInstall &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#avy-migemo-swiperのmigemo対応&#34;&gt;avy-migemo（swiperのmigemo対応）&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#install-and-setup-1&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使い方-1&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#最近開いたディレクトリを開く&#34;&gt;最近開いたディレクトリを開く&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;h2 id=&#34;swiper-dot-el&#34;&gt;swiper.el&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照1：&lt;a href=&#34;https://github.com/abo-abo/swiper&#34; target=&#34;_blank&#34;&gt;swiper&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;参照2：&lt;a href=&#34;http://emacs.rubikitch.com/swiper/&#34; target=&#34;_blank&#34;&gt;swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照3：&lt;a href=&#34;https://qiita.com/blue0513/items/c0dc35a880170997c3f5&#34; target=&#34;_blank&#34;&gt;Emacsの補完&amp;amp;検索を超強化する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以下を，int.orgに書き込む．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package swiper
+  :ensure t
+  :config
+  (defun isearch-forward-or-swiper (use-swiper)
+    (interactive &amp;quot;p&amp;quot;)
+    ;; (interactive &amp;quot;P&amp;quot;) ;; 大文字のPだと，C-u C-sでないと効かない
+    (let (current-prefix-arg)
+      (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward))))
+  (global-set-key (kbd &amp;quot;C-s&amp;quot;) &#39;isearch-forward-or-swiper)
+  )
+
+(use-package ivy
+  :ensure t
+  ;; :config
+  ;; (fset &#39;ivy--regex &#39;identity)
+  )
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ivyのコメントアウトしている部分については後述する．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;使い方&#34;&gt;使い方&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;現在開いているEmacsのバッファで，C-sとするだけでよい．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;下図は，ivyを検索しているところだが，下に&amp;rdquo;Swiper&amp;rdquo;と表示されるバッファが表示され，そこに”ivy”と打つと，上の本文の中のivyは黄色でハイライトされる．同時に下のバッファでは，現在見ているivyのある行に下線が引かれ，行数が横に示される．上下のArrow Keyでivyのある行から次の行に飛べる．リターンすれば本文のその行に行ける．非常に便利である．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/swiper-1a.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;migemo&#34;&gt;migemo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照1：&lt;a href=&#34;http://0xcc.net/migemo/&#34; target=&#34;_blank&#34;&gt;Migemo: ローマ字のまま日本語をインクリメンタル検索&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照2：&lt;a href=&#34;https://www.yokoweb.net/2017/03/05/emacs-macos-migemo/&#34; target=&#34;_blank&#34;&gt;【Emacs/macOS】migemoを有効にし、ローマ字のまま日本語検索する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;migemoとは，「ローマ字のまま日本語をインクリメンタル検索するため のツールです。かな漢字変換をすることなく日本語のインクリメン タル検索を快適に行うことができます。」&lt;/li&gt;
+&lt;li&gt;一度使い始めるとやみつきになるので，オススメ！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;cmigemoのinstall&#34;&gt;cmigemoのinstall&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;まず，C言語で再実装されたcmigemoをインストールする．homebrewで簡単にインストールできる．&amp;ndash;HEADのオプションが必要との記載もあるが，なくても同じであった．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew install cmigemo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;migemo-dot-elのinstall-and-setup&#34;&gt;migemo.elのInstall &amp;amp; setup&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以下を，int.orgに書き込む．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+BEGIN_SRC emacs-lisp
+(use-package migemo
+  :ensure t
+  :config
+  ;; C/Migemo を使う場合は次のような設定を .emacs に加えます．
+  (setq migemo-command &amp;quot;cmigemo&amp;quot;)
+  (setq migemo-options &#39;(&amp;quot;-q&amp;quot; &amp;quot;--emacs&amp;quot; &amp;quot;-i&amp;quot; &amp;quot;\a&amp;quot;))
+  (setq migemo-dictionary &amp;quot;/usr/local/Cellar/cmigemo/20110227/share/migemo/utf-8/migemo-dict&amp;quot;)  ;; 各自の辞書の在り処を指示
+  (setq migemo-user-dictionary nil)
+  (setq migemo-regex-dictionary nil)
+  ;; charset encoding
+  (setq migemo-coding-system &#39;utf-8-unix))
+#+END_SRC
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;avy-migemo-swiperのmigemo対応&#34;&gt;avy-migemo（swiperのmigemo対応）&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照１：&lt;a href=&#34;https://github.com/momomo5717/avy-migemo/blob/master/README.jp.org&#34; target=&#34;_blank&#34;&gt;avy-migemo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照２：&lt;a href=&#34;https://dev.classmethod.jp/tool/emacs-avy-migemo/&#34; target=&#34;_blank&#34;&gt;avy と migemo を組み合わせたパッケージ avy-migemo.el のご紹介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照３：&lt;a href=&#34;https://qiita.com/ballforest/items/7810e229d6f771d0ab16&#34; target=&#34;_blank&#34;&gt;avyのmigemo対応およびswiperのmigemo対応&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記のswiperだけでも十分に便利であるが，swiperをmigemoに対応させることで，更に便利になる．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;前述したswiper.elでのコメントアウトした設定部分，つまり，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-emacs-lisp&#34;&gt;;; (fset &#39;ivy--regex &#39;identity)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;は，コメントアウトしておかないと，migemo化を無効にしてしまうので注意。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;install-and-setup-1&#34;&gt;Install &amp;amp; setup&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以下を，int.orgに書き込む．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package avy-migemo
+  :ensure t
+  :config
+  (avy-migemo-mode 1)
+  (setq avy-timeout-seconds nil)
+  (require &#39;avy-migemo-e.g.swiper)
+  (global-set-key (kbd &amp;quot;C-M-;&amp;quot;) &#39;avy-migemo-goto-char-timer)
+  ;;  (global-set-key (kbd &amp;quot;M-g m m&amp;quot;) &#39;avy-migemo-mode)
+  )
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;使い方-1&#34;&gt;使い方&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;現在開いているEmacsのバッファで，C-sとするだけでよい．&lt;/li&gt;
+&lt;li&gt;下図は，&amp;rdquo;taiou&amp;rdquo;，つまり，「対応」を検索しているところである．migemo化する前と同じようにローマ字で日本語が検索できる．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;当たり前だが，漢字を入力しても検索できる．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/swiper-2a.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;最近開いたディレクトリを開く&#34;&gt;最近開いたディレクトリを開く&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照：&lt;a href=&#34;http://pragmaticemacs.com/emacs/open-a-recent-directory-in-dired-revisited/&#34; target=&#34;_blank&#34;&gt;OPEN A RECENT DIRECTORY IN DIRED: REVISITED&lt;/a&gt;　ネタ元&lt;/li&gt;
+&lt;li&gt;ivyを使って最近開いたディレクトリを動的に探索する方法をコード化してくれているので紹介する．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以下のコードをinit.orgに書き込めば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(defun bjm/ivy-dired-recent-dirs ()
+  &amp;quot;Present a list of recently used directories and open the selected one in dired&amp;quot;
+  (interactive)
+  (let ((recent-dirs
+         (delete-dups
+          (mapcar (lambda (file)
+                    (if (file-directory-p file) file (file-name-directory file)))
+                  recentf-list))))
+
+    (let ((dir (ivy-read &amp;quot;Directory: &amp;quot;
+                         recent-dirs
+                         :re-builder #&#39;ivy--regex
+                         :sort nil
+                         :initial-input nil)))
+      (dired dir))))
+
+(global-set-key (kbd &amp;quot;C-x C-d&amp;quot;) &#39;bjm/ivy-dired-recent-dirs)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--listend--&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/directory-1a.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上，今回は小ネタだが非常に有用なものばかりを紹介した．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Emacsとskimで，latexのソースとpdfの間を行ったり来たり</title>
@@ -1991,15 +2218,6 @@ $ brew info emacs-mac
 
 &lt;hr /&gt;
 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://taipapamotohus.com/index.js</link>
-      <pubDate>Sat, 25 Aug 2018 21:04:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/index.js</guid>
-      <description></description>
     </item>
     
   </channel>

@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコ">
+  <meta name="description" content="文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/synchronization/">
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/swiper_migemo/">
 
   
 
@@ -94,26 +94,26 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://taipapamotohus.com/post/synchronization/">
+  <link rel="canonical" href="https://taipapamotohus.com/post/swiper_migemo/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="https://taipapamotohus.com/post/synchronization/">
-  <meta property="og:title" content="Emacsとskimで，latexのソースとpdfの間を行ったり来たり | A perfect autumn day">
-  <meta property="og:description" content="以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコ"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Pharaoh.jpg">
+  <meta property="og:url" content="https://taipapamotohus.com/post/swiper_migemo/">
+  <meta property="og:title" content="Swiper, ivy, avy, migemoによるEmacsの検索強化 | A perfect autumn day">
+  <meta property="og:description" content="文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これ"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Pont_des_Arts.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-10-07T00:00:00&#43;09:00">
+  <meta property="article:published_time" content="2018-10-14T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-10-08T17:21:48&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2018-10-14T17:28:22&#43;09:00">
   
 
   
 
-  <title>Emacsとskimで，latexのソースとpdfの間を行ったり来たり | A perfect autumn day</title>
+  
+
+  <title>Swiper, ivy, avy, migemoによるEmacsの検索強化 | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -234,16 +234,16 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/Pharaoh.jpg" class="article-banner" itemprop="image">
+    <img src="/img/headers/Pont_des_Arts.jpg" class="article-banner" itemprop="image">
   
 
-  <span class="article-header-caption">Pharaoh</span>
+  <span class="article-header-caption">Pont des Arts</span>
 </div>
 
 
 
   <div class="article-container">
-    <h1 itemprop="name">Emacsとskimで，latexのソースとpdfの間を行ったり来たり</h1>
+    <h1 itemprop="name">Swiper, ivy, avy, migemoによるEmacsの検索強化</h1>
 
     
 
@@ -260,9 +260,9 @@
     
         Last updated on
     
-    <meta content="2018-10-07 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-10-08 17:21:48 &#43;0900 JST" itemprop="dateModified">
-      Oct 8, 2018
+    <meta content="2018-10-14 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2018-10-14 17:28:22 &#43;0900 JST" itemprop="dateModified">
+      Oct 14, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -272,14 +272,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="https://taipapamotohus.com/post/synchronization/#disqus_thread"></a>
+  <a href="https://taipapamotohus.com/post/swiper_migemo/#disqus_thread"></a>
   
 
   
@@ -295,92 +295,222 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>以前の記事（<a href="../beamer">beamerでスライド原稿用pdfを作成する（その１）</a>）で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiの<a href="https://texwiki.texjp.org/?AUCTeX#h32722ec" target="_blank">macOS での設定例</a> を参照していただきたい．</p>
+<p>文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;</p>
 
 <h2>Table of Contents</h2>
 <nav id="TableOfContents">
 <ul>
 <li>
 <ul>
-<li><a href="#backward-search">backward search</a></li>
-<li><a href="#forward-search">forward search</a></li>
+<li><a href="#swiper-dot-el">swiper.el</a>
+<ul>
+<li><a href="#install-and-setup">Install &amp; setup</a></li>
+<li><a href="#使い方">使い方</a></li>
+</ul></li>
+<li><a href="#migemo">migemo</a>
+<ul>
+<li><a href="#cmigemoのinstall">cmigemoのinstall</a></li>
+<li><a href="#migemo-dot-elのinstall-and-setup">migemo.elのInstall &amp; setup</a></li>
+</ul></li>
+<li><a href="#avy-migemo-swiperのmigemo対応">avy-migemo（swiperのmigemo対応）</a>
+<ul>
+<li><a href="#install-and-setup-1">Install &amp; setup</a></li>
+<li><a href="#使い方-1">使い方</a></li>
+</ul></li>
+<li><a href="#最近開いたディレクトリを開く">最近開いたディレクトリを開く</a></li>
 </ul></li>
 </ul>
 </nav>
 
 
+<h2 id="swiper-dot-el">swiper.el</h2>
+
 <ul>
-<li>参照：<a href="https://ryogan.org/blog/2015/12/30/mac-os-x-el-capitan-の-auctex-の設定/" target="_blank">Mac OS X El Capitan の AUCTeX の設定</a></li>
-<li>参照：<a href="https://texwiki.texjp.org/?Emacs#e9c08b3d" target="_blank">skimとの連携</a></li>
-<li>参照：<a href="https://skalldan.wordpress.com/2011/07/20/auctex-の設定と便利な機能/" target="_blank">AUCTeX の設定と便利な機能</a></li>
-<li>参照：<a href="https://sourceforge.net/p/skim-app/wiki/TeX%5Fand%5FPDF%5FSynchronization/" target="_blank">TeX_and_PDF_Synchronization</a></li>
+<li>参照1：<a href="https://github.com/abo-abo/swiper" target="_blank">swiper</a>  ご本家</li>
+<li>参照2：<a href="http://emacs.rubikitch.com/swiper/" target="_blank">swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ</a></li>
+<li>参照3：<a href="https://qiita.com/blue0513/items/c0dc35a880170997c3f5" target="_blank">Emacsの補完&amp;検索を超強化する</a></li>
+<li>Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．</li>
 </ul>
 
-<h2 id="backward-search">backward search</h2>
+<h3 id="install-and-setup">Install &amp; setup</h3>
 
 <ul>
-<li>こちらのほうが便利なので最初に説明する．</li>
-<li>skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる．</li>
+<li>以下を，int.orgに書き込む．</li>
+</ul>
 
-<li><p>この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．</p>
+<pre><code class="language-lisp">#+begin_src emacs-lisp
+(use-package swiper
+  :ensure t
+  :config
+  (defun isearch-forward-or-swiper (use-swiper)
+    (interactive &quot;p&quot;)
+    ;; (interactive &quot;P&quot;) ;; 大文字のPだと，C-u C-sでないと効かない
+    (let (current-prefix-arg)
+      (call-interactively (if use-swiper 'swiper 'isearch-forward))))
+  (global-set-key (kbd &quot;C-s&quot;) 'isearch-forward-or-swiper)
+  )
 
-<pre><code class="language-shell">$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient
-</code></pre></li>
+(use-package ivy
+  :ensure t
+  ;; :config
+  ;; (fset 'ivy--regex 'identity)
+  )
+#+end_src
+</code></pre>
 
-<li><p>defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．</p></li>
+<ul>
+<li>ivyのコメントアウトしている部分については後述する．</li>
+</ul>
 
-<li><p>引数のところには，以下のように打ち込む．</p>
+<h3 id="使い方">使い方</h3>
 
-<pre><code class="language-shell">$ --no-wait +%line &quot;%file&quot;
-</code></pre></li>
+<ul>
+<li>現在開いているEmacsのバッファで，C-sとするだけでよい．</li>
 
-<li><p>つまりこうなる．</p>
+<li><p>下図は，ivyを検索しているところだが，下に&rdquo;Swiper&rdquo;と表示されるバッファが表示され，そこに”ivy”と打つと，上の本文の中のivyは黄色でハイライトされる．同時に下のバッファでは，現在見ているivyのある行に下線が引かれ，行数が横に示される．上下のArrow Keyでivyのある行から次の行に飛べる．リターンすれば本文のその行に行ける．非常に便利である．</p>
 
 <figure>
 
-<img src="/img/skim-1.jpg" width="100%" />
+<img src="/img/swiper-1a.jpg" width="100%" />
 
 
 </figure></li>
-
-<li><p>一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．</p>
-
-<pre><code class="language-lisp">#+begin_src emacs-lisp
-;; Starts the Emacs server
-(server-start)
-#+end_src
-</code></pre></li>
-
-<li><p>これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．<del>もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！</del> これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．</p></li>
-
-<li><p>この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．</p></li>
-
-<li><p>該当箇所が少しずれることがあるのが欠点であるが，それでも十分に役に立つ．</p></li>
 </ul>
 
-<h2 id="forward-search">forward search</h2>
+<h2 id="migemo">migemo</h2>
 
 <ul>
-<li>こちらも，backward searchほどではないが，役に立つ．</li>
-<li>Emacs上のlatex document上の特定の箇所に該当するpdfの箇所を探して示してくれる．</li>
+<li>参照1：<a href="http://0xcc.net/migemo/" target="_blank">Migemo: ローマ字のまま日本語をインクリメンタル検索</a></li>
+<li>参照2：<a href="https://www.yokoweb.net/2017/03/05/emacs-macos-migemo/" target="_blank">【Emacs/macOS】migemoを有効にし、ローマ字のまま日本語検索する</a></li>
+<li>migemoとは，「ローマ字のまま日本語をインクリメンタル検索するため のツールです。かな漢字変換をすることなく日本語のインクリメン タル検索を快適に行うことができます。」</li>
+<li>一度使い始めるとやみつきになるので，オススメ！</li>
+</ul>
 
-<li><p>この機能を可能にするには，init.orgに以下のように記述する．</p>
+<h3 id="cmigemoのinstall">cmigemoのinstall</h3>
+
+<ul>
+<li>まず，C言語で再実装されたcmigemoをインストールする．homebrewで簡単にインストールできる．&ndash;HEADのオプションが必要との記載もあるが，なくても同じであった．</li>
+</ul>
+
+<pre><code class="language-shell">$ brew install cmigemo
+</code></pre>
+
+<h3 id="migemo-dot-elのinstall-and-setup">migemo.elのInstall &amp; setup</h3>
+
+<ul>
+<li>以下を，int.orgに書き込む．</li>
+</ul>
+
+<pre><code class="language-lisp">#+BEGIN_SRC emacs-lisp
+(use-package migemo
+  :ensure t
+  :config
+  ;; C/Migemo を使う場合は次のような設定を .emacs に加えます．
+  (setq migemo-command &quot;cmigemo&quot;)
+  (setq migemo-options '(&quot;-q&quot; &quot;--emacs&quot; &quot;-i&quot; &quot;\a&quot;))
+  (setq migemo-dictionary &quot;/usr/local/Cellar/cmigemo/20110227/share/migemo/utf-8/migemo-dict&quot;)  ;; 各自の辞書の在り処を指示
+  (setq migemo-user-dictionary nil)
+  (setq migemo-regex-dictionary nil)
+  ;; charset encoding
+  (setq migemo-coding-system 'utf-8-unix))
+#+END_SRC
+</code></pre>
+
+<h2 id="avy-migemo-swiperのmigemo対応">avy-migemo（swiperのmigemo対応）</h2>
+
+<ul>
+<li>参照１：<a href="https://github.com/momomo5717/avy-migemo/blob/master/README.jp.org" target="_blank">avy-migemo</a></li>
+<li>参照２：<a href="https://dev.classmethod.jp/tool/emacs-avy-migemo/" target="_blank">avy と migemo を組み合わせたパッケージ avy-migemo.el のご紹介</a></li>
+<li>参照３：<a href="https://qiita.com/ballforest/items/7810e229d6f771d0ab16" target="_blank">avyのmigemo対応およびswiperのmigemo対応</a></li>
+<li>上記のswiperだけでも十分に便利であるが，swiperをmigemoに対応させることで，更に便利になる．</li>
+
+<li><p>前述したswiper.elでのコメントアウトした設定部分，つまり，</p>
+
+<pre><code class="language-emacs-lisp">;; (fset 'ivy--regex 'identity)
+</code></pre>
+
+<p>は，コメントアウトしておかないと，migemo化を無効にしてしまうので注意。</p></li>
+</ul>
+
+<h3 id="install-and-setup-1">Install &amp; setup</h3>
+
+<ul>
+<li>以下を，int.orgに書き込む．</li>
+</ul>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
-(add-hook 'LaTeX-mode-hook
-          (function (lambda ()
-                      (add-to-list 'TeX-command-list
-                                   '(&quot;displayline&quot;
-                                     &quot;/Applications/Skim.app/Contents/SharedSupport/displayline %n %s.pdf \&quot;%b\&quot;&quot;
-                                     TeX-run-discard-or-function t t :help &quot;Forward search with Skim&quot;))
-                      )))
+(use-package avy-migemo
+  :ensure t
+  :config
+  (avy-migemo-mode 1)
+  (setq avy-timeout-seconds nil)
+  (require 'avy-migemo-e.g.swiper)
+  (global-set-key (kbd &quot;C-M-;&quot;) 'avy-migemo-goto-char-timer)
+  ;;  (global-set-key (kbd &quot;M-g m m&quot;) 'avy-migemo-mode)
+  )
+#+end_src
+</code></pre>
+
+<h3 id="使い方-1">使い方</h3>
+
+<ul>
+<li>現在開いているEmacsのバッファで，C-sとするだけでよい．</li>
+<li>下図は，&rdquo;taiou&rdquo;，つまり，「対応」を検索しているところである．migemo化する前と同じようにローマ字で日本語が検索できる．</li>
+
+<li><p>当たり前だが，漢字を入力しても検索できる．</p>
+
+<figure>
+
+<img src="/img/swiper-2a.jpg" width="100%" />
+
+
+</figure></li>
+</ul>
+
+<h2 id="最近開いたディレクトリを開く">最近開いたディレクトリを開く</h2>
+
+<ul>
+<li>参照：<a href="http://pragmaticemacs.com/emacs/open-a-recent-directory-in-dired-revisited/" target="_blank">OPEN A RECENT DIRECTORY IN DIRED: REVISITED</a>　ネタ元</li>
+<li>ivyを使って最近開いたディレクトリを動的に探索する方法をコード化してくれているので紹介する．</li>
+
+<li><p>以下のコードをinit.orgに書き込めば良い．</p>
+
+<pre><code class="language-lisp">#+begin_src emacs-lisp
+(defun bjm/ivy-dired-recent-dirs ()
+  &quot;Present a list of recently used directories and open the selected one in dired&quot;
+  (interactive)
+  (let ((recent-dirs
+         (delete-dups
+          (mapcar (lambda (file)
+                    (if (file-directory-p file) file (file-name-directory file)))
+                  recentf-list))))
+
+    (let ((dir (ivy-read &quot;Directory: &quot;
+                         recent-dirs
+                         :re-builder #'ivy--regex
+                         :sort nil
+                         :initial-input nil)))
+      (dired dir))))
+
+(global-set-key (kbd &quot;C-x C-d&quot;) 'bjm/ivy-dired-recent-dirs)
 #+end_src
 </code></pre></li>
-
-<li><p>これで，C-c C-c displayline により，Emacsのlatex document上の特定の箇所に該当するpdfの箇所に飛んでくれる．pdfの該当するところが赤丸で示される（数秒で消える）．</p></li>
-
-<li><p>ただし，該当する箇所が結構ずれてしまうことが多い．最近は，beamerでしか使わないので，もしかすると，通常のlatex 文書だと狂いなく示すのかもしれない．まぁ，backward searchと違って， なくても困らない機能である．</p></li>
 </ul>
+
+<!--listend-->
+
+<ul>
+<li><p>C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．</p>
+
+<figure>
+
+<img src="/img/directory-1a.jpg" width="100%" />
+
+
+</figure></li>
+</ul>
+
+<p>以上，今回は小ネタだが非常に有用なものばかりを紹介した．</p>
 
     </div>
 
@@ -389,17 +519,17 @@
 
 <div class="article-tags">
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/latex/">latex</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/pdf/">pdf</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/synchronization/">synchronization</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/tex/">tex</a>
-  
   <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/emacsclient/">emacsclient</a>
+  <a class="label label-default" href="https://taipapamotohus.com/tags/swiper/">swiper</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/ivy/">ivy</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/migemo/">migemo</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/search/">search</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/avy/">avy</a>
   
 </div>
 
@@ -413,15 +543,15 @@
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/latexmk/">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></li>
+        <li><a href="/post/synchronization/">Emacsとskimで，latexのソースとpdfの間を行ったり来たり</a></li>
         
         <li><a href="/post/org-mode_paper_1/">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></li>
         
-        <li><a href="/post/beamer_movie2/">beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</a></li>
-        
-        <li><a href="/post/beamer_movie/">beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</a></li>
-        
         <li><a href="/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></li>
+        
+        <li><a href="/post/latexmk/">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></li>
+        
+        <li><a href="/post/japanese_setup/">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></li>
         
       </ul>
     </div>
@@ -431,15 +561,10 @@
     <div class="article-widget">
       <div class="post-nav">
   
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="https://taipapamotohus.com/post/swiper_migemo/" rel="next">Swiper, ivy, avy, migemoによるEmacsの検索強化</a>
-  </div>
-  
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="https://taipapamotohus.com/post/org-mode_paper_4/" rel="prev">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a>
+    <a href="https://taipapamotohus.com/post/synchronization/" rel="prev">Emacsとskimで，latexのソースとpdfの間を行ったり来たり</a>
   </div>
   
 </div>
