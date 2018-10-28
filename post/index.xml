@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</title>
+      <link>https://taipapamotohus.com/post/r_homebrew_update_error/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/r_homebrew_update_error/</guid>
+      <description>Rとは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）</description>
+    </item>
+    
+    <item>
       <title>Swiper, ivy, avy, migemoによるEmacsの検索強化</title>
       <link>https://taipapamotohus.com/post/swiper_migemo/</link>
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>

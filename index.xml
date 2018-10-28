@@ -7,8 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</title>
+      <link>https://taipapamotohus.com/post/r_homebrew_update_error/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/r_homebrew_update_error/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://www.r-project.org&#34; target=&#34;_blank&#34;&gt;R&lt;/a&gt;とは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&amp;hellip;..(^^;;;&lt;/p&gt;
+
+&lt;h2 id=&#34;gccのリンク絡みのトラブル&#34;&gt;gccのリンク絡みのトラブル&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;大体は以下で直ることが多い（&lt;a href=&#34;https://github.com/Homebrew/homebrew-science/issues/5587&#34; target=&#34;_blank&#34;&gt;r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587&lt;/a&gt;）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew link --overwrite gcc
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;xmlが入らない&#34;&gt;XMLが入らない&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，&lt;a href=&#34;https://medium.com/biosyntax/installing-r-package-xml-on-macos-10-13-6-1738146d4ee0&#34; target=&#34;_blank&#34;&gt;Installing R package XML on MacOS 10.13.6&lt;/a&gt;と同じである．対処法は，同サイトや引用元の&lt;a href=&#34;https://stackoverflow.com/questions/40682615/cannot-install-xml-package-in-r&#34; target=&#34;_blank&#34;&gt;Cannot install XML package in r&lt;/a&gt;にある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;Sys.setenv(XML_CONFIG = &amp;quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;cairoなどのインストール時に-include-and-lt-x11-xlib-dot-h-and-gt-でハマる&#34;&gt;Cairoなどのインストール時に，#include &amp;lt;X11/Xlib.h&amp;gt; でハマる．&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&amp;lsquo;X11/Xlib.h&amp;rsquo; file not found, #include &amp;lt;X11/Xlib.h&amp;gt; のようなエラーが出てコンパイルできないことがある（例えば，&amp;rdquo;Cairo&amp;rdquo; packageなど）．要するにXlib.hの在り処が分からんということである．mdfind（Mac版のlocate）で探してみると，以下のような結果が得られる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ mdfind -name Xlib.h | grep X11
+/opt/X11/include/cairo/cairo-xlib.h
+/opt/X11/include/X11/Xlib.h
+/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/Xlib.h
+/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;Sys.setenv(C_INCLUDE_PATH = &amp;quot;/opt/X11/include&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，コンパイルできるようになるはずである．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;どこにX11/Xlib.hが入っているかは，インストールの仕方により色々であろうから，場所を確認してから上記の操作を行うようにする．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;なお，ネットのあちこちに，Xquartzをdowngradeすればコンパイルできる，みたいなことが書いてあったが，あれはなんなのだろうか．．．？&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回はいきなりのRネタになってしまった．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Swiper, ivy, avy, migemoによるEmacsの検索強化</title>
@@ -2191,32 +2250,6 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew tap railwaycat/emacsmacport
 $ brew info emacs-mac
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://taipapamotohus.com/home/about/</link>
-      <pubDate>Sat, 25 Aug 2018 01:37:44 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/home/about/</guid>
-      <description>
-
-&lt;h2 id=&#34;このサイトについて&#34;&gt;&lt;strong&gt;このサイトについて&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;フリーソフトで学会発表用のスライドを作ったり，論文を書いたりするのに役に立ちそうなことを，自分のためにまとめておく備忘録みたいなもの．最近とみに衰えてきた記憶力の補助になればいいな．．．  😄&lt;/p&gt;
-
-&lt;p&gt;Emacsのorg-modeやLaTeX絡みの話が多くなりそう．．．&lt;/p&gt;
-
-&lt;p&gt;殆どは先人の方々からの受け売りなので，できるだけ情報元も併記する．&lt;/p&gt;
-
-&lt;h2 id=&#34;環境&#34;&gt;&lt;strong&gt;環境&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;MacBook Pro late 2016, Sierra&lt;/p&gt;
-
-&lt;p&gt;GNU Emacs 26.1, TeX Live 2018 (MacTeX-2018)&lt;/p&gt;
-
-&lt;hr /&gt;
 </description>
     </item>
     

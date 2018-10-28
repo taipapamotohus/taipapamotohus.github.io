@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Homebrew on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/homebrew/</link>
-    <description>Recent content in Homebrew on A perfect autumn day</description>
+    <title>Error on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/error/</link>
+    <description>Recent content in Error on A perfect autumn day</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="https://taipapamotohus.com/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taipapamotohus.com/tags/error/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://taipapamotohus.com/post/r_homebrew_update_error/</guid>
       <description>Rとは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）</description>
-    </item>
-    
-    <item>
-      <title>Emacsのインストール</title>
-      <link>https://taipapamotohus.com/post/emacs_install/</link>
-      <pubDate>Tue, 14 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/emacs_install/</guid>
-      <description>なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサク</description>
     </item>
     
   </channel>
