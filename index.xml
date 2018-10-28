@@ -20,6 +20,20 @@
 
 &lt;p&gt;&lt;a href=&#34;https://www.r-project.org&#34; target=&#34;_blank&#34;&gt;R&lt;/a&gt;とは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&amp;hellip;..(^^;;;&lt;/p&gt;
 
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#gccのリンク絡みのトラブル&#34;&gt;gccのリンク絡みのトラブル&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#xmlが入らない&#34;&gt;XMLが入らない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cairoなどのインストール時に-include-and-lt-x11-xlib-dot-h-and-gt-でハマる&#34;&gt;Cairoなどのインストール時に，#include &amp;lt;X11/Xlib.h&amp;gt; でハマる．&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#rsvgのインストール時に-xcb-shm-dot-pcがないと怒られる&#34;&gt;rsvgのインストール時に，xcb-shm.pcがないと怒られる．&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
 &lt;h2 id=&#34;gccのリンク絡みのトラブル&#34;&gt;gccのリンク絡みのトラブル&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -45,7 +59,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&amp;lsquo;X11/Xlib.h&amp;rsquo; file not found, #include &amp;lt;X11/Xlib.h&amp;gt; のようなエラーが出てコンパイルできないことがある（例えば，&amp;rdquo;Cairo&amp;rdquo; packageなど）．要するにXlib.hの在り処が分からんということである．mdfind（Mac版のlocate）で探してみると，以下のような結果が得られる．&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ mdfind -name Xlib.h | grep X11
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mdfind -name Xlib.h | grep X11
 /opt/X11/include/cairo/cairo-xlib.h
 /opt/X11/include/X11/Xlib.h
 /System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/Xlib.h
@@ -55,7 +69,7 @@
 
 &lt;p&gt;そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;Sys.setenv(C_INCLUDE_PATH = &amp;quot;/opt/X11/include&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Sys.setenv(C_INCLUDE_PATH = &amp;quot;/opt/X11/include&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;これで，コンパイルできるようになるはずである．&lt;/p&gt;&lt;/li&gt;
@@ -63,6 +77,61 @@
 &lt;li&gt;&lt;p&gt;どこにX11/Xlib.hが入っているかは，インストールの仕方により色々であろうから，場所を確認してから上記の操作を行うようにする．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;なお，ネットのあちこちに，Xquartzをdowngradeすればコンパイルできる，みたいなことが書いてあったが，あれはなんなのだろうか．．．？&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;rsvgのインストール時に-xcb-shm-dot-pcがないと怒られる&#34;&gt;rsvgのインストール時に，xcb-shm.pcがないと怒られる．&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;こんな感じである．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;&amp;gt; biocLite(&amp;quot;rsvg&amp;quot;)
+...................................
+Package xcb-shm was not found in the pkg-config search path.
+Perhaps you should add the directory containing `xcb-shm.pc&#39;
+to the PKG_CONFIG_PATH environment variable
+Package &#39;xcb-shm&#39;, required by &#39;cairo&#39;, not found
+Found INCLUDE_DIR and/or LIB_DIR!
+Using PKG_CFLAGS=-I/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig/librsvg-2.0.pc
+Using PKG_LIBS=-L/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig -lrsvg
+------------------------- ANTICONF ERROR ---------------------------
+Configuration failed because librsvg-2.0 was not found. Try installing:
+​* deb: librsvg2-dev (Debian, Ubuntu, etc)
+​* rpm: librsvg2-devel (Fedora, EPEL)
+​* csw: librsvg_dev, sunx11_devel (Solaris)
+​* brew: librsvg (OSX)
+If librsvg-2.0 is already installed, check that &#39;pkg-config&#39; is in your
+PATH and PKG_CONFIG_PATH contains a librsvg-2.0.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars=&#39;INCLUDE_DIR=... LIB_DIR=...&#39;
+--------------------------------------------------------------------
+ERROR: configuration failed for package ‘rsvg’
+​* removing ‘/usr/local/Cellar/r/3.5.1/lib/R/library/rsvg’
+
+The downloaded source packages are in
+‘/private/var/folders/rq/hj_634613dbfzs41djqt52y80000gn/T/RtmpzsGqp0/downloaded_packages’
+Updating HTML index of packages in &#39;.Library&#39;
+Making &#39;packages.html&#39; ... done
+警告メッセージ:
+install.packages(pkgs = doing, lib = lib, ...) で:
+installation of package ‘rsvg’ had non-zero exit status
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;要するに，xcb-shm.pcのあるディレクトリをPKG＿CONFIG＿DIRに追加しろと言ってるので，xcb-shm.pcがどこにあるかをmdfindで探してから，言われるとおり追加する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mdfind -name xcb-shm.pc
+/opt/X11/lib/pkgconfig/cairo-xcb-shm.pc
+/opt/X11/lib/pkgconfig/xcb-shm.pc
+/usr/local/Cellar/cairo/1.14.8/lib/pkgconfig/cairo-xcb-shm.pc
+/usr/local/Cellar/cairo/1.14.10/lib/pkgconfig/cairo-xcb-shm.pc
+/usr/local/Cellar/cairo/1.14.12/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上記のように，/opt/X11/lib/pkgconfig/xcb-shm.pcとなっているので，これを追加する．このときも上述のごとく，RのコンソールでSys.setenvを使う．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;&amp;gt; Sys.setenv(PKG_CONFIG_PATH = &amp;quot;/opt/X11/lib/pkgconfig&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで，rsvgはうまくコンパイルされる．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;今回はいきなりのRネタになってしまった．&lt;/p&gt;
