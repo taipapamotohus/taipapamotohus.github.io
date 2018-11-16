@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Tufte-LaTeXとtufte-org-modeについて</title>
+      <link>https://taipapamotohus.com/post/tufte/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/tufte/</guid>
+      <description>以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））にも書いたが，Tufte−LaTeXなるものを</description>
+    </item>
+    
+    <item>
       <title>RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</title>
       <link>https://taipapamotohus.com/post/r_homebrew_update_error/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>

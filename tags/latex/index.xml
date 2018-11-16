@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 07 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tufte-LaTeXとtufte-org-modeについて</title>
+      <link>https://taipapamotohus.com/post/tufte/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/tufte/</guid>
+      <description>以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））にも書いたが，Tufte−LaTeXなるものを</description>
+    </item>
     
     <item>
       <title>Emacsとskimで，latexのソースとpdfの間を行ったり来たり</title>
