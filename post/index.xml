@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）</title>
+      <link>https://taipapamotohus.com/post/html_export/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/html_export/</guid>
+      <description>学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨なと</description>
+    </item>
+    
+    <item>
       <title>Tufte-LaTeXとtufte-org-modeについて</title>
       <link>https://taipapamotohus.com/post/tufte/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>

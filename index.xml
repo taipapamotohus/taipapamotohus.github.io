@@ -7,8 +7,110 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 10 Dec 2018 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）</title>
+      <link>https://taipapamotohus.com/post/html_export/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/html_export/</guid>
+      <description>
+
+&lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
+
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34; target=&#34;_blank&#34;&gt;Org Macros&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#exporting-org-mode-to-html-in-place-coloring&#34;&gt;&lt;a href=&#34;https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring&#34; target=&#34;_blank&#34;&gt;Exporting org-mode to HTML: In-place coloring&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+
+&lt;h2 id=&#34;org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34; target=&#34;_blank&#34;&gt;Org Macros&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの &lt;a href=&#34;https://github.com/fniessen/org-macros&#34; target=&#34;_blank&#34;&gt;Org Macros&lt;/a&gt;が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これだけである．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/li&gt;
+&lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;いくつか使い方の例をあげておく&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;{{{color(blue, 青くなるかな？)}}}
+*{{{color(blue, ボールドで青くなるかな？)}}}*
+{{{highlight(yellow, 黄色にハイライトされるかな？)}}}
+*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな？)}}}*
+{{{bgcolor(cyan, 背景がシアンになるかな？)}}}
+*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな？)}}}*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span style=&#34;color: blue&#34;&gt; 青くなるかな？&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&#34;color: blue&#34;&gt; ボールドで青くなるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;background-color: yellow;&#34;&gt; 黄色にハイライトされるかな？&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&#34;background-color: yellow;&#34;&gt; 黄色にハイライトされて文字はボールドになるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになるかな？&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになって文字はボールドになるかな？&lt;/div&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;{{{begin_panel}}} Panel example This is a formatted block of text… {{{end_panel}}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これが，
+&lt;div class=&#34;panel&#34;&gt;&lt;p&gt; Panel example This is a formatted block of text… &lt;/p&gt;&lt;/div&gt;
+  となる．マニュアルでは以下の使い方を薦めている．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_panel
+*Panel example* \\
+This is a formatted block of text...
+#+end_panel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;panel&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Panel example&lt;/strong&gt; &lt;br /&gt;
+ This is a formatted block of text&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;なお，org-modeのマクロ自体に関しては，org-modeのマニュアルの &lt;strong&gt;12.5 Macro replacement&lt;/strong&gt; を参考にしていただきたい．&lt;/p&gt;
+
+&lt;h2 id=&#34;exporting-org-mode-to-html-in-place-coloring&#34;&gt;&lt;a href=&#34;https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring&#34; target=&#34;_blank&#34;&gt;Exporting org-mode to HTML: In-place coloring&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;フォントの色を変える別の方法である．リンク先にある通り，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;     この文章は， *@@html:&amp;lt;font color = &amp;quot;blue&amp;quot;&amp;gt;@@青のボールド@@html:&amp;lt;/font&amp;gt;@@*になって欲しい！
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これが以下のように表示される．&lt;br /&gt;
+この文章は， &lt;strong&gt;&lt;font color = &#34;blue&#34;&gt;青のボールド&lt;/font&gt;&lt;/strong&gt; になって欲しい！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;org-modeのマニュアルの &lt;strong&gt;12.9.5 Quoting HTML tags&lt;/strong&gt; も参考のこと&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こちらは設定を必要としないが，やはり，最初に説明したマクロの方がいろいろ出来て便利である．&lt;/p&gt;
+
+&lt;p&gt;次回は，htmlをexportする際のCSSについてまとめてみたい．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Tufte-LaTeXとtufte-org-modeについて</title>
@@ -2437,50 +2539,6 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 &lt;/ul&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;具体的なinit.orgの内容は次回のポスト以降に記述予定&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</title>
-      <link>https://taipapamotohus.com/post/prelude_install/</link>
-      <pubDate>Wed, 15 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/prelude_install/</guid>
-      <description>
-
-&lt;p&gt;昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．&lt;/p&gt;
-
-&lt;h2 id=&#34;preludeとは&#34;&gt;Preludeとは&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．．&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/bbatsov/prelude&#34; target=&#34;_blank&#34;&gt;Prelude&lt;/a&gt; Githubはこちら&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;preludeのインストール&#34;&gt;Preludeのインストール&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになって入るが心配性なもんで）．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ curl -L https://git.io/epre | sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．&lt;del&gt;auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！&lt;/del&gt; &lt;strong&gt;（2018年10月9日修正）&lt;/strong&gt; デフォルトのままではこうならない．下記のように設定する必要あり．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(require &#39;prelude-helm) ;; Interface for narrowing and search
-(require &#39;prelude-helm-everywhere) ;; Enable Helm everywhere
-..................
-(require &#39;prelude-latex)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに &lt;strong&gt;auctex&lt;/strong&gt; がインストールされる．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
