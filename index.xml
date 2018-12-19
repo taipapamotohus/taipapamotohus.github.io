@@ -49,7 +49,7 @@
 &lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34; target=&#34;_blank&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
+&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34; target=&#34;_blank&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
