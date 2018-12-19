@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）</title>
+      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</title>
       <link>https://taipapamotohus.com/post/html_export/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
       
@@ -30,7 +30,28 @@
 &lt;p&gt;これだけである．&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/del&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;上記に関しては-ox-hugoの作者であるkaushal-modi氏から以下のような指摘を頂いた-12月19日追記&#34;&gt;上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）&lt;/h3&gt;
+
+&lt;div class=&#34;panel&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;p&gt;Can you try using #+setupfile instead of #+include? As an example, here is my blog Org source that I export using ox-hugo ( &lt;a href=&#34;https://gitlab.com/kaushalm&#34; target=&#34;_blank&#34;&gt;https://gitlab.com/kaushalm&lt;/a&gt;&amp;hellip; ), and here is the setup file tha t I &amp;ldquo;include&amp;rdquo; using the more appropriate #+setupfile ( &lt;a href=&#34;https://gitlab.com/kaushalm&#34; target=&#34;_blank&#34;&gt;https://gitlab.com/kaushalm&lt;/a&gt;&amp;hellip; ).&lt;/p&gt;
+
+&lt;p&gt;As you see, I use a lot of Org macros, and they all work in my &amp;ldquo;one post per subtree&amp;rdquo; flow.&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34; target=&#34;_blank&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
+
+&lt;ul&gt;
 &lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
 &lt;/ul&gt;
 

@@ -102,20 +102,20 @@
   
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="https://taipapamotohus.com/post/html_export/">
-  <meta property="og:title" content="Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど） | A perfect autumn day">
+  <meta property="og:title" content="Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記） | A perfect autumn day">
   <meta property="og:description" content="学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨なと"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Parthenon.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2018-12-10T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-12-16T19:43:34&#43;09:00">
+  <meta property="article:modified_time" content="2018-12-19T18:06:09&#43;09:00">
   
 
   
 
   
 
-  <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど） | A perfect autumn day</title>
+  <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記） | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -245,7 +245,7 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）</h1>
+    <h1 itemprop="name">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</h1>
 
     
 
@@ -263,8 +263,8 @@
         Last updated on
     
     <meta content="2018-12-10 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-12-16 19:43:34 &#43;0900 JST" itemprop="dateModified">
-      Dec 16, 2018
+    <time datetime="2018-12-19 18:06:09 &#43;0900 JST" itemprop="dateModified">
+      Dec 19, 2018
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -274,7 +274,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    4 min read
   </span>
   
 
@@ -309,7 +309,28 @@
 <p>これだけである．</p>
 
 <ul>
-<li>注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）</li>
+<li><del>注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）</del></li>
+</ul>
+
+<h3 id="上記に関しては-ox-hugoの作者であるkaushal-modi氏から以下のような指摘を頂いた-12月19日追記">上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）</h3>
+
+<div class="panel">
+  <div></div>
+
+<p>Can you try using #+setupfile instead of #+include? As an example, here is my blog Org source that I export using ox-hugo ( <a href="https://gitlab.com/kaushalm" target="_blank">https://gitlab.com/kaushalm</a>&hellip; ), and here is the setup file tha t I &ldquo;include&rdquo; using the more appropriate #+setupfile ( <a href="https://gitlab.com/kaushalm" target="_blank">https://gitlab.com/kaushalm</a>&hellip; ).</p>
+
+<p>As you see, I use a lot of Org macros, and they all work in my &ldquo;one post per subtree&rdquo; flow.</p>
+
+<p></div></p>
+
+<p>ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．</p>
+
+<pre><code class="language-lisp">#+setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
+</code></pre>
+
+<p>こんなブログにまで目を通してコメントしてくれるのには驚いた．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，<a href="https://translate.google.com/translate?depth=1&amp;sl=auto&amp;sp=nmt4&amp;tl=en&amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680" target="_blank">A Perfect Autumn Day</a>に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．</p>
+
+<ul>
 <li>残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．</li>
 </ul>
 
