@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 10 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/html/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Org-modeでhtml exportの際のthemeについて</title>
+      <link>https://taipapamotohus.com/post/org-html-export-theme/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/org-html-export-theme/</guid>
+      <description>org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並へ</description>
+    </item>
     
     <item>
       <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</title>
