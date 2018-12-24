@@ -7,8 +7,65 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</title>
+      <link>https://taipapamotohus.com/post/org-mode_recursive-narrow/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/org-mode_recursive-narrow/</guid>
+      <description>
+
+&lt;p&gt;org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すことができれば便利である．これを実現してくれるパッケージが&lt;a href=&#34;https://github.com/nflath/recursive-narrow&#34; target=&#34;_blank&#34;&gt;recursive-narrow&lt;/a&gt;である．&lt;/p&gt;
+
+&lt;h2 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h2&gt;
+
+&lt;p&gt;インストールは例によって，init.orgに以下のように書き込むだけである．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package recursive-narrow
+  :ensure t)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでインストールと設定は終了である．&lt;/p&gt;
+
+&lt;h2 id=&#34;使用法&#34;&gt;使用法&lt;/h2&gt;
+
+&lt;p&gt;使い方も実に簡単であり，&amp;rdquo;C-x n n&amp;rdquo;で現在カーソルがあるsubtree以下のみが表示されるようになり，&amp;rdquo;C-x n w&amp;rdquo;で元の表示に戻る．これではよくわからないので，実際の画像を示す．まず，最初の画像では全体の画面が表示されており，1951行目の「Org-modeで再帰的に」の行にカーソルがある．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/narrow-1.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;ここで，&amp;rdquo;C-x n n&amp;rdquo;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/narrow-2.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&amp;rdquo;C-x n n&amp;rdquo;とやると，以下の画像のようになる．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/narrow-3.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．&lt;/p&gt;
+
+&lt;p&gt;広い領域の表示が必要となれば，&amp;rdquo;C-x n w&amp;rdquo;とやると，1つ前の画像の状態に戻る．そして，もう一度&amp;rdquo;C-x n w&amp;rdquo;とやると，最初の状態に戻る．なんということはないのであるが，便利である．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Org-modeでhtml exportの際のthemeについて</title>
@@ -2390,135 +2447,6 @@ $preview_continuous_mode = 1;  # equivalent to -pvc
 &lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?XeTeX&#34; target=&#34;_blank&#34;&gt;TeXWiki XeTeX&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://suzusime-log.hatenablog.jp/entry/2017/04/15/210327&#34; target=&#34;_blank&#34;&gt;XeLaTeXだとかな混植が簡単にできて最高だという話&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</title>
-      <link>https://taipapamotohus.com/post/japanese_setup/</link>
-      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/japanese_setup/</guid>
-      <description>
-
-&lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
-
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#coding-systemの設定&#34;&gt;Coding systemの設定&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#inline-patchの設定&#34;&gt;Inline-patchの設定&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-
-&lt;h2 id=&#34;coding-systemの設定&#34;&gt;Coding systemの設定&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;init.orgに以下のように書き込む&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;​* Coding System Environment
-** 言語を日本語にする
-   #+BEGIN_SRC lisp
-   (set-language-environment &#39;Japanese)
-   #+END_SRC
-** 極力UTF-8とする
-   #+BEGIN_SRC lisp
-     (prefer-coding-system &#39;utf-8)
-   #+END_SRC
-** 日本語フォントをヒラギノにする
-​   - 日本語のサイズを指定しないと動的にサイズを変えられるようになる
-​   - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/
-   #+BEGIN_SRC lisp
-     (when (or (eq window-system &#39;mac) (eq window-system &#39;ns))
-       (set-face-attribute &#39;default nil
-                           :family &amp;quot;Menlo&amp;quot;
-                           :height 180) ;; 18pt
-       (set-fontset-font nil &#39;japanese-jisx0208
-                         (font-spec :family &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;))
-       (setq face-font-rescale-alist
-             &#39;((&amp;quot;.*Hiragino Kaku Gothic ProN.*&amp;quot; . 1.1))))
-   #+END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これがEmacs起動時にorg-babel-load-fileにより変換されて下記のようなinit.elとなる．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(set-language-environment &#39;Japanese)
-
-(prefer-coding-system &#39;utf-8)
-
-(when (or (eq window-system &#39;mac) (eq window-system &#39;ns))
-  (set-face-attribute &#39;default nil
-                      :family &amp;quot;Menlo&amp;quot;
-                      :height 180) ;; 18pt
-  (set-fontset-font nil &#39;japanese-jisx0208
-                    (font-spec :family &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;))
-  (setq face-font-rescale-alist
-        &#39;((&amp;quot;.*Hiragino Kaku Gothic ProN.*&amp;quot; . 1.1))))
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;つまり，org-modeで書いたinit.orgでの解説はすべて除かれて，lispのみのcodeになってinit.elが生成される．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;この利点は，init.elの説明が実に書きやすい点にある（実際にはinit.orgに書くわけだが．．．）．org-modeはアウトライナーなので，階層構造も自由自在である．整理もしやすいし，後で順番を変えるのもCommand + arrow keyを使えば実に簡単である．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;inline-patchの設定&#34;&gt;Inline-patchの設定&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ついで，最も重要なinline-patchの設定&lt;/li&gt;
-&lt;li&gt;参考：&lt;a href=&#34;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&#34; target=&#34;_blank&#34;&gt;Macに最新バージョンのEmacsをインストール&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考：&lt;a href=&#34;http://suzuki.tdiary.net/20160103.html&#34; target=&#34;_blank&#34;&gt;El Capitan での日本語入力時に Emacs 内のカーソル色を変更する&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;init.orgに以下のように書き込む．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;​* inline-patch on macosx
-** ミニバッファ入力時に自動的に英語入力モードにする
-​   - 参考：http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-   #+BEGIN_SRC lisp
-     (when (functionp &#39;mac-auto-ascii-mode)  ;; ミニバッファに入力時、自動的に英語モード
-       (mac-auto-ascii-mode 1))
-   #+END_SRC
-** 日本語か英語かで，カーソルの色を変える．
-​   - 参考１：http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-​   - 参考２：http://suzuki.tdiary.net/20160103.html
-   #+BEGIN_SRC lisp
-     (when (fboundp &#39;mac-input-source)
-       (defun my-mac-selected-keyboard-input-source-chage-function ()
-         (let ((mac-input-source (mac-input-source)))
-           (set-cursor-color
-                                             ; (if (string-match &amp;quot;com.apple.inputmethod.Kotoeri.Roman&amp;quot; mac-input-source)
-            (if (string-match &amp;quot;com.google.inputmethod.Japanese.Roman&amp;quot; mac-input-source)
-                &amp;quot;#91C3FF&amp;quot; &amp;quot;#FF9300&amp;quot;))))
-       (add-hook &#39;mac-selected-keyboard-input-source-change-hook
-                 &#39;my-mac-selected-keyboard-input-source-chage-function))
-   #+END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これがEmacsの起動時に，org-babel-load-fileによって，下記のようにcodeだけ抜き出されて，init.elに書き込まれる．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(when (functionp &#39;mac-auto-ascii-mode)  ;; ミニバッファに入力時、自動的に英語モード
-  (mac-auto-ascii-mode 1))
-
-(when (fboundp &#39;mac-input-source)
-  (defun my-mac-selected-keyboard-input-source-chage-function ()
-    (let ((mac-input-source (mac-input-source)))
-      (set-cursor-color
-                                        ; (if (string-match &amp;quot;com.apple.inputmethod.Kotoeri.Roman&amp;quot; mac-input-source)
-       (if (string-match &amp;quot;com.google.inputmethod.Japanese.Roman&amp;quot; mac-input-source)
-           &amp;quot;#91C3FF&amp;quot; &amp;quot;#FF9300&amp;quot;))))
-  (add-hook &#39;mac-selected-keyboard-input-source-change-hook
-            &#39;my-mac-selected-keyboard-input-source-chage-function))
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで日本語入力中であっても，M-xなどでミニバッファ入力時に自動的に英語入力モードになってくれる．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ついでに行った日本語か英語かでカーソルの色が変わる設定はわりに有用だが，ときに色が変わらないことがあるが，気にしないことにしている．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

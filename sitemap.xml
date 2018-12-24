@@ -4,6 +4,14 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/post/org-mode_recursive-narrow/</loc>
+      <lastmod>2018-12-24T21:38:53+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/post/org-html-export-theme/</loc>
       <lastmod>2018-12-22T12:13:19+09:00</lastmod>
     </url>
@@ -165,7 +173,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2018-12-22T12:13:19+09:00</lastmod>
+      <lastmod>2018-12-24T21:38:53+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -272,7 +280,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/emacs/</loc>
-      <lastmod>2018-12-22T12:13:19+09:00</lastmod>
+      <lastmod>2018-12-24T21:38:53+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -415,6 +423,15 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/tags/narrow/</loc>
+      <lastmod>2018-12-24T21:38:53+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/tags/org/</loc>
       <lastmod>2018-11-16T22:13:15+09:00</lastmod>
       <priority>0</priority>
@@ -425,7 +442,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/orgmode/</loc>
-      <lastmod>2018-12-22T12:13:19+09:00</lastmod>
+      <lastmod>2018-12-24T21:38:53+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -488,6 +505,15 @@
     
       <loc>https://taipapamotohus.com/tags/r/</loc>
       <lastmod>2018-11-15T22:09:50+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/recursive/</loc>
+      <lastmod>2018-12-24T21:38:53+09:00</lastmod>
       <priority>0</priority>
     </url>
     

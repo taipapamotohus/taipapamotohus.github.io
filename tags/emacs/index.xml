@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</title>
+      <link>https://taipapamotohus.com/post/org-mode_recursive-narrow/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/org-mode_recursive-narrow/</guid>
+      <description>org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すこ</description>
+    </item>
     
     <item>
       <title>Org-modeでhtml exportの際のthemeについて</title>
