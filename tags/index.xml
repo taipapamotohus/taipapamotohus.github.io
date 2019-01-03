@@ -105,7 +105,7 @@
     <item>
       <title>Emacs</title>
       <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
@@ -265,6 +265,15 @@
     </item>
     
     <item>
+      <title>Org-mode</title>
+      <link>https://taipapamotohus.com/tags/org-mode/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/org-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Orgmode</title>
       <link>https://taipapamotohus.com/tags/orgmode/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
@@ -294,9 +303,18 @@
     <item>
       <title>Pdf</title>
       <link>https://taipapamotohus.com/tags/pdf/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pdf-tools</title>
+      <link>https://taipapamotohus.com/tags/pdf-tools/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pdf-tools/</guid>
       <description></description>
     </item>
     

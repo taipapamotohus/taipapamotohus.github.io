@@ -7,8 +7,192 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Emacsでpdfを読む (pdf-tools)</title>
+      <link>https://taipapamotohus.com/post/pdf-tools/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/pdf-tools/</guid>
+      <description>
+
+&lt;p&gt;Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリとしていて使い勝手が悪かったため，サクッと止めて，skimを使っている．ただ，pdf-toolsというのがあって，こちらは割とスグレモノらしいとの噂は聞いていた．そこで，今回はこれを試してみることにした．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#pdf-tools&#34;&gt;PDF Tools&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#インストールと設定&#34;&gt;インストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使用法&#34;&gt;使用法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-pdfview&#34;&gt;org-pdfview&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#インストールと設定&#34;&gt;インストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pdf-toolsと他のアプリ-skim-previewなど-との比較&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pdf-tools&#34;&gt;PDF Tools&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/politza/pdf-tools&#34; target=&#34;_blank&#34;&gt;pdf-tools&lt;/a&gt;　ご本家&lt;/li&gt;
+&lt;li&gt;参考２：&lt;a href=&#34;http://blog.livedoor.jp/hiroaki8270/archives/22871970.html&#34; target=&#34;_blank&#34;&gt;emacsをPDF Viewerにしよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考３：&lt;a href=&#34;https://ubutun.blogspot.com/2014/05/emacstexpdf.html&#34; target=&#34;_blank&#34;&gt;emacs内でTeX文書の作成からpdf閲覧まで行う&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考４：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34; target=&#34;_blank&#34;&gt;pdf-tools on macos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考５：&lt;a href=&#34;http://pragmaticemacs.com/emacs/view-and-annotate-pdfs-in-emacs-with-pdf-tools/&#34; target=&#34;_blank&#34;&gt;VIEW AND ANNOTATE PDFS IN EMACS WITH PDF-TOOLS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考６：&lt;a href=&#34;http://pragmaticemacs.com/emacs/more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考７：&lt;a href=&#34;http://pragmaticemacs.com/emacs/even-more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;EVEN MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考８：&lt;a href=&#34;https://github.com/politza/pdf-tools/issues/189&#34; target=&#34;_blank&#34;&gt;pdf-tools pretty much unusable with linum-mode enabled&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考８：&lt;a href=&#34;https://www.youtube.com/watch?v=LFO2UbzbZhA&#34; target=&#34;_blank&#34;&gt;Using Emacs 44 - An Org mode and PDF-tools workflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ご本家のイントロに書いてあるが，DocViewのようにghostscriptで予めrenderしておくのではなく，on demandでページを作成し，メモリーに貯めておく仕組みになっている．このrenderingは，popplerという名前の特別なライブラリーによって行われるが，これはepdfinfoと呼ばれるserver programの中で走っている．こいつの仕事はEmacsからの要求を連続して読んで適切な結果，すなわち，PDFのページのPNG imageを作成することである．&lt;/p&gt;
+
+&lt;p&gt;　　「実際のところ，PDFファイルを表示するのはPDF toolsの仕事の一部に過ぎない．popplerは文書に関する全ての情報を提供でき，かつ，それを修飾もできるので，遥かにたくさんのことができる」とイントロの最後で大見得を切って，何ができるかを示す&lt;a href=&#34;https://www.dailymotion.com/video/x2bc1is?forcedQuality%3Dhd720&#34; target=&#34;_blank&#34;&gt;動画&lt;/a&gt;を紹介している．&lt;/p&gt;
+
+&lt;h3 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h3&gt;
+
+&lt;p&gt;OSXは公式にはサポートされていないが，コンパイルできたと報告されている，と書いてあり，実際，以下のように出来た．まず，homebrewでpopplerをインストールする．もし，まだ，automakeを入れていなければそれもhomebrewでインストールする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install poppler automake
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ついで，pkg-configをexportでいじるようなことが書いてあるが，特にそれはせずともよかった．ただし，pdf-toolsのインストールの際にコンパイルエラーが出た．どういうわけか， &lt;strong&gt;pdf-tools          20180428.1527&lt;/strong&gt; ではだめだったが，幸い， &lt;strong&gt;pdf-tools          20181221.1913&lt;/strong&gt; が出たので，参考4：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34; target=&#34;_blank&#34;&gt;pdf-tools on macos&lt;/a&gt;を頼りに，これにアップデートしたところ，あとは問題なくインストールできた．例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package pdf-tools
+  :ensure t
+  :config
+  ;; initialise
+  (pdf-tools-install)
+  ;; PDF Tools does not work well together with linum-mode
+  (add-hook &#39;pdf-view-mode-hook (lambda() (nlinum-mode -1)))
+  ;; open pdfs scaled to fit page
+  ;; (setq-default pdf-view-display-size &#39;fit-page)
+  ;; automatically annotate highlights
+  (setq pdf-annot-activate-created-annotations t)
+  ;; use normal isearch
+  (define-key pdf-view-mode-map (kbd &amp;quot;C-s&amp;quot;) &#39;isearch-forward)
+  ;; more fine-grained zooming
+  (setq pdf-view-resize-factor 1.1)
+  )
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下に内容を説明する．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pdf-tools-installにより最初のときにepdfinfoがコンパイルされる．&lt;/li&gt;
+&lt;li&gt;行番号を表示するとうまく動かない．私はnlinum-modeを使っているのでpdf-view-modeの際には止めておく．&lt;/li&gt;
+&lt;li&gt;ハイライトした部分には自動的に注釈を加える．&lt;/li&gt;
+&lt;li&gt;swiperはうまく動かないので，C-sを普通のisearchに戻す&lt;/li&gt;
+&lt;li&gt;＋とーで拡大，縮小だが，これを10%ずつにする．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;使用法&#34;&gt;使用法&lt;/h3&gt;
+
+&lt;p&gt;上記のインストールと設定を行えば，C-x C-fでも，drag &amp;amp; dropでも，Emacsのpdf toolsのpdf-view-modeでpdfが開くようになる．ここまでくれば，あとは色々なことができる．&lt;/p&gt;
+
+&lt;h4 id=&#34;highlight&#34;&gt;highlight&lt;/h4&gt;
+
+&lt;p&gt;マウスで文章をなぞって選択（下の画像の白黒反転した部分）したあとに，C-c C-a h もしくは，画像で示したように，PDF Tools &amp;rarr; Add markup annotation &amp;rarr; highlightを選択すれば，&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/pdf-tools-2.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;選択した部分がハイライトされ，下に新たなバッファが開いてそこに注釈が書けるようになる（下の画像参照）．書き終わったら，C-c C-cで注釈バッファが閉じる．なお，上に元からある黄色にハイライトされた部分は以前に選択してハイライトした部分である．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/pdf-tools-3.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;display-annotations&#34;&gt;Display Annotations&lt;/h4&gt;
+
+&lt;p&gt;複数箇所をハイライトして注釈をつけたあとに，全ての注釈を一度にリストにしてみることができる．C-c C-a l もしくは，PDF Tools &amp;rarr; Display Annotationsを選択すれば，下の画像のように，下に２つの新たなバッファが開く．真ん中のバッファに注釈のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動してブルーの枠で囲んで表示され，下のバッファに注釈の内容が表示される．qを押せば，2つのバッファは閉じる．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/pdf-tools-4.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;isearch-document--c-s&#34;&gt;Isearch document (C-s)&lt;/h4&gt;
+
+&lt;p&gt;pdf-toolsはswiperとはconflictするために，C-sは本来のisearch-forwardに戻して設定しておく必要がある（前述の設定の通り）．これで，C-sとやると，minibufferに打ち込んだ語が反転して表示され，C-sとやるごとに先へ移動していく．下の画像では，&amp;rdquo;MK2&amp;rdquo;という単語を打った時の状態を示している．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/pdf-tools-C-s.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;occur-document&#34;&gt;Occur document&lt;/h4&gt;
+
+&lt;p&gt;PDF Tools &amp;rarr; Occur documentを選択すれば，minibufferに List lines matching PCRE: と表示される．そこに例えばMK2と打てば，下の画像のように，下に新たなバッファが開き，MK2のあるページとそこにある文章のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動する．qを押せば，下のバッファは閉じる．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/pdf-tools-occur.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;org-pdfview&#34;&gt;org-pdfview&lt;/h2&gt;
+
+&lt;p&gt;org-modeからpdf文書へのリンクを開くのをサポートするパッケージ．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/markus1189/org-pdfview&#34; target=&#34;_blank&#34;&gt;org-pdfview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考２：&lt;a href=&#34;https://emacs.stackexchange.com/questions/19686/how-to-use-pdf-tools-pdf-view-mode-in-emacs&#34; target=&#34;_blank&#34;&gt;How to use pdf-tools (pdf-view-mode) in emacs?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考３：&lt;a href=&#34;https://emacs.stackexchange.com/questions/31895/configure-org-pdfview-and-pdf-tools-to-open-at-page&#34; target=&#34;_blank&#34;&gt;Configure org-pdfview and pdf-tools to open at page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;インストールと設定-1&#34;&gt;インストールと設定&lt;/h3&gt;
+
+&lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書くだけ．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package org-pdfview
+  :ensure t)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例えば，Emacsのpdf-toolsを用いて，hogehoge.pdfを開いて読んでいるとする．そこで，C-c lとすると， &lt;strong&gt;Stored: /Data/Hoge/Fuga/hogefuga.pdf&lt;/strong&gt; と今読んでいるpdfへのリンクが保存される．そして，それを保存しておきたいorg文書の適当な場所で，C-c C-lとすれば，そのリンクが貼り付けられる．以前の記事（&lt;a href=&#34;../org-html-export-theme&#34;&gt;Org-modeでhtml exportの際のthemeについて&lt;/a&gt;）で書いたような文献のまとめを作成しているときに，元文献とリンクさせておく際などに便利である．貼り付けたリンクをクリックすれば，元文献がEmacsのpdf-toolsによって開かれるようになる（画面が分割され，下に新たなバッファが開いてそこにpdfが表示される）．割と便利である．&lt;/p&gt;
+
+&lt;h2 id=&#34;pdf-toolsと他のアプリ-skim-previewなど-との比較&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;注釈の一覧表示，C−s， occurなどの機能は便利である．&lt;/li&gt;
+&lt;li&gt;skim, Previewなどでは，長方形ツールによりお好みの領域を選択してコピーすることができるし，このコピーした領域のみをpdfとして保存できるが，pdf-toolsではできない．&lt;/li&gt;
+&lt;li&gt;skim, Preview, Adobe Acrobat Readerのように，全画面でプレゼンテーションするモードはない．&lt;/li&gt;
+&lt;li&gt;Adobe Acrobat Readerのように，動画を動かすことは出来ない．&lt;/li&gt;
+&lt;li&gt;上記２つの理由から，auctexを使用する際のpdf viewerとしてEmacsを使用していない．&lt;/li&gt;
+&lt;li&gt;最近のpdfは，本文中に示された文献もしくはその番号をクリックすると，最後の文献リストの中の該当の論文のところに飛ぶようになっているものも多くなっているが，pdf-toolsはそれには対応していないようである．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上のことより，学会発表用のスライドなどを作成している際は，skimなどの方がpdf viewerとして便利であるが，文献のまとめなどpdfを読み込む際には，pdf-toolsの方が向いているのではないかと考えている．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</title>
@@ -2320,133 +2504,6 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;li&gt;&lt;p&gt;なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;次回は，beamerで動画を走らせる件について書く予定．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</title>
-      <link>https://taipapamotohus.com/post/latexmk/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/latexmk/</guid>
-      <description>
-
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#latexmk&#34;&gt;latexmk&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#実際の作業&#34;&gt;実際の作業&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#xelatexについて&#34;&gt;XeLaTeXについて&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-
-&lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト２：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト３：&lt;a href=&#34;http://www.tug.org/mactex/&#34; target=&#34;_blank&#34;&gt;The MacTeX-2018 Distribution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする．&lt;/li&gt;
-&lt;li&gt;これでスライド作成ソフトであるbeamerも一緒にインストールされる．&lt;/li&gt;
-&lt;li&gt;beamerに固有の設定は特に必要なし．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/h2&gt;
-
-&lt;p&gt;大事なことを２つ忘れていたので追記する．&lt;/p&gt;
-
-&lt;h3 id=&#34;ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;参考サイト：&lt;a href=&#34;http://doratex.hatenablog.jp/entry/20180501/1525144736&#34; target=&#34;_blank&#34;&gt;MacTeX 2018のインストール&amp;amp;日本語環境構築法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい．&lt;/li&gt;
-&lt;li&gt;マックユーザーにとっての最大の問題点は &lt;strong&gt;「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」&lt;/strong&gt; ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記の&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;に書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/????/bin/*/tlmgr path add
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見）&lt;/li&gt;
-&lt;li&gt;preludeをインストールした時点で，auctexもインストールされる．&lt;/li&gt;
-&lt;li&gt;auctexの設定などについては以下を参照（手抜き&amp;hellip;.. (^^;;; ）
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.gnu.org/software/auctex/&#34; target=&#34;_blank&#34;&gt;AUCTEX – Sophisticated document creation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX&#34; target=&#34;_blank&#34;&gt;TeX Wiki AUCTeX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mytexpert.osdn.jp/index.php?Emacs/AUCTeX&#34; target=&#34;_blank&#34;&gt;Emacs/AUCTeX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://skalldan.wordpress.com/2011/07/20/auctex-の設定と便利な機能/&#34; target=&#34;_blank&#34;&gt;AUCTeX の設定と便利な機能&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;しかし，org-modeを使うようになってからは直接latex文書を打つことはめっきり少なくなってしまった．それでも，学会発表用のスライドなどはlatexを直接打って，beamer文書を作成し，pdf原稿に変換している．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;latexmk&#34;&gt;latexmk&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原稿が出来上がるのを待たなければならず，この待ち時間が結構辛い．そこで，tex ファイルの変更が保存されるたびに自動で裏でlatexmkがcompileしてくれるようにする．latexmkを使う．&lt;/li&gt;
-&lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34; target=&#34;_blank&#34;&gt;TeX Wiki Latexmk&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;texlive2018, MacTeXに入っているので，これらを入れていれば別途インストールする必要なし．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;~/.latexmkrcの中に以下のように記述する（ちなみに私はxelatexを使用している）&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;$pdflatex = &#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&#39;;
-$pdf_mode = 1;
-$postscript_mode = $dvi_mode = 0;
-$pdf_previewer  = &#39;open -a Skim&#39;;
-$preview_continuous_mode = 1;  # equivalent to -pvc
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;実際の作業&#34;&gt;実際の作業&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;上記のようにセットアップしていることとする．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ターミナルで，texファイルが有るdirectoryに移動し，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;latexmk -pvc -pdf -view=none document.tex
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで，texファイルへの変更を保存すると自動でコンパイルされて，設定にもよるが，skimで開いているpdfファイルも更新される．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;xelatexについて&#34;&gt;XeLaTeXについて&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;以下を参照されたい．特に最初にあげたZRさんの文書は必読！
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://zrbabbler.sp.land.to/xelatex.html&#34; target=&#34;_blank&#34;&gt;XeLaTeX で日本語する件について&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?XeTeX&#34; target=&#34;_blank&#34;&gt;TeXWiki XeTeX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://suzusime-log.hatenablog.jp/entry/2017/04/15/210327&#34; target=&#34;_blank&#34;&gt;XeLaTeXだとかな混植が簡単にできて最高だという話&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
