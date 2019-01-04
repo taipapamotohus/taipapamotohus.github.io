@@ -54,7 +54,7 @@
 &lt;li&gt;参考６：&lt;a href=&#34;http://pragmaticemacs.com/emacs/more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;参考７：&lt;a href=&#34;http://pragmaticemacs.com/emacs/even-more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;EVEN MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;参考８：&lt;a href=&#34;https://github.com/politza/pdf-tools/issues/189&#34; target=&#34;_blank&#34;&gt;pdf-tools pretty much unusable with linum-mode enabled&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考８：&lt;a href=&#34;https://www.youtube.com/watch?v=LFO2UbzbZhA&#34; target=&#34;_blank&#34;&gt;Using Emacs 44 - An Org mode and PDF-tools workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考９：&lt;a href=&#34;https://www.youtube.com/watch?v=LFO2UbzbZhA&#34; target=&#34;_blank&#34;&gt;Using Emacs 44 - An Org mode and PDF-tools workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;ご本家のイントロに書いてあるが，DocViewのようにghostscriptで予めrenderしておくのではなく，on demandでページを作成し，メモリーに貯めておく仕組みになっている．このrenderingは，popplerという名前の特別なライブラリーによって行われるが，これはepdfinfoと呼ばれるserver programの中で走っている．こいつの仕事はEmacsからの要求を連続して読んで適切な結果，すなわち，PDFのページのPNG imageを作成することである．&lt;/p&gt;
