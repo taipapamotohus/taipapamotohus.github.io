@@ -7,8 +7,142 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</title>
+      <link>https://taipapamotohus.com/post/auto_html_export/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
+      <description>
+
+&lt;p&gt;org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使用方法&#34;&gt;使用方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old&#34; target=&#34;_blank&#34;&gt;How to auto export html when saving in org-mode?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例によって，下記のようにinit.orgに書き込めばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(defun toggle-org-html-export-on-save ()
+  (interactive)
+  (if (memq &#39;org-html-export-to-html after-save-hook)
+      (progn
+        (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t)
+        (message &amp;quot;Disabled org html export on save for current buffer...&amp;quot;))
+    (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t)
+    (message &amp;quot;Enabled org html export on save for current buffer...&amp;quot;)))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．&lt;/p&gt;
+
+&lt;h2 id=&#34;directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/&#34; target=&#34;_blank&#34;&gt;Watch for file changes and refresh your browser automatically&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記サイトに有るrubyのスクリプトが使えそうなので，頂いた．&lt;/li&gt;
+&lt;li&gt;rubyのインストールについては，以下のようなサイトを参考
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b&#34; target=&#34;_blank&#34;&gt;MacにHomeBrew,rbenv,bundlerをインストールする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/prgseek/items/ff037cc6134ff9303c67&#34; target=&#34;_blank&#34;&gt;Ruby入門 01.導入（Macに最新版のRubyを入れる）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/TAByasu/items/47c6cfbeeafad39eda07&#34; target=&#34;_blank&#34;&gt;Ruby初学者のRuby On Rails 環境構築【Mac】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;しかし，上記サイトのスクリプトをそのまま使用するとと，reloadの際にページの先頭まで戻ってしまい不便！&lt;/li&gt;
+&lt;li&gt;結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/usr/bin/env ruby
+# watch.rb by Brett Terpstra, 2011 &amp;lt;http://brettterpstra.com&amp;gt;
+# with credit to Carlo Zottmann &amp;lt;https://github.com/carlo/haml-sass-file-watcher&amp;gt;
+
+trap(&amp;quot;SIGINT&amp;quot;) { exit }
+
+if ARGV.length &amp;lt; 2
+   puts &amp;quot;Usage: #{$0} watch_folder keyword&amp;quot;
+   puts &amp;quot;Example: #{$0} . mywebproject&amp;quot;
+   exit
+   end
+
+   dev_extension = &#39;dev&#39;
+   filetypes = [&#39;css&#39;,&#39;html&#39;,&#39;htm&#39;,&#39;php&#39;,&#39;rb&#39;,&#39;erb&#39;,&#39;less&#39;,&#39;js&#39;]
+   watch_folder = ARGV[0]
+   keyword = ARGV[1]
+   puts &amp;quot;Watching #{watch_folder} and subfolders for changes in project files...&amp;quot;
+
+   while true do
+         files = []
+         filetypes.each {|type|
+files += Dir.glob( File.join( watch_folder, &amp;quot;**&amp;quot;, &amp;quot;*.#{type}&amp;quot; ) )
+                        }
+         new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
+         hash ||= new_hash
+         diff_hash = new_hash - hash
+
+         unless diff_hash.empty?
+         hash = new_hash
+
+         diff_hash.each do |df|
+             puts &amp;quot;Detected change in #{df[0]}, refreshing&amp;quot;
+         %x{osascript&amp;lt;&amp;lt;ENDGAME
+                tell app &amp;quot;Safari&amp;quot; to activate
+                tell app &amp;quot;System Events&amp;quot;
+                     keystroke &amp;quot;r&amp;quot; using command down
+                end tell
+ENDGAME
+           }
+         end
+         end
+
+         sleep 1
+         end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usage: /usr/local/bin/watch_safari.rb watch_folder keyword&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/Hoge
+$ watch_safari.rb Hoge hogefuga.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．&lt;/li&gt;
+&lt;li&gt;最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．&lt;/li&gt;
+&lt;li&gt;以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上はOSX上のSafariを使用している場合であるが，他のブラウザーでも少し変更するだけで同じことができるはずである．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Emacsでpdfを読む (pdf-tools)</title>
@@ -2355,156 +2489,6 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>beamerでスライド原稿用pdfを作成する（その１）</title>
-      <link>https://taipapamotohus.com/post/beamer/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/beamer/</guid>
-      <description>
-
-&lt;p&gt;前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
-　&lt;/p&gt;
-
-&lt;h2 id=&#34;beamerによるスライド原稿の作成&#34;&gt;beamerによるスライド原稿の作成&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である．&lt;/li&gt;
-&lt;li&gt;下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う．&lt;/li&gt;
-&lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34; target=&#34;_blank&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;% -*-coding:utf-8-*-
-\documentclass[svgnames, table, 14pt]{beamer}
-\usepackage{zxjatype}
-\usepackage[hiragino-dx]{zxjafont}
-
-% ヒラギノ角ゴ Proを使う
-\setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
-\setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
-
-% themeを指定する
-\usetheme{Darmstadt}
-
-\usefonttheme[onlylarge]{structurebold}
-\setbeamerfont*{frametitle}{size=\large,series=\bfseries}
-\setbeamertemplate{navigation symbols}{}
-
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
-\usepackage{times}
-\usepackage[T1]{fontenc}
-\usepackage{hyperref}
-
-% Setup TikZ
-\usepackage{tikz}
-\usetikzlibrary{arrows}
-\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
-% Figure position
-\usepackage[absolute,overlay]{textpos}
-% math
-\usepackage{mathabx}
-
-\usefonttheme{professionalfonts}
-
-% Author, Title, etc.
-\title[hoge/fugaによる相補的な治療における高難度症例の治療と成績]
-{hoge/fugaによる相補的な治療における高難度症例の治療と成績}
-\author[taipapa]
-{taipapa, 織田信長, 豊臣秀吉, 徳川家康}
-\institute[hogefuga University]
-{hogefuga大学大学院 hogefuga研究科　hogefuga分野}
-
-
-\date[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]
-{\scriptsize{Symposium-02「とっーても難しいhogeとfuga」
-\\ \vspace{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
-完了しています．\\本演題の発表に関して開示すべきCOIはありません
-}}
-
-% 学会名，日付，スライド番号を挿入
-\setbeamertemplate{footline}
-{\color{gray} %
-\hspace{.075cm}
-\insertshortdate%
-\hspace{4cm}
-\insertframenumber{} / \inserttotalframenumber%
-}
-
-\begin{document}
-
-\begin{frame}
-\titlepage
-\end{frame}
-
-\section{Introduction}
-
-\begin{frame}{背景と目的}
-\begin{block}{}
-\begin{itemize}
-\item hogeとfugaを比較してみると，一方で難易度の高い症例で
-も他方では容易に行える場合も多い.
-\item 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
-用いることにより合併症の減少を目指す方針をとっている．
-\item そこで，自験例から高難度のhogefuga症例についての
-方針と成績を主にhogefuga surgeonの立場から検討した.
-\end{itemize}
-\end{block}
-\end{frame}
-
-\section{Results}
-\begin{frame}
-\frametitle{hogefuga症例の画像}
-\centering
-\includegraphics[width=3.5in]{hoge_fuga.pdf}
-\end{frame}
-\end{document}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする&lt;/a&gt;を参考　&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;latexmk -pvc -pdf -view=none beamer_test.tex
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで下記のようなpdfが出来上がるはず．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/beamer_test.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/beamer_test2.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;\includegraphics[width=2in]{/Data/hoge/fuga/......./hoge_fuga.pdf}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/beamer_test3.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;次回は，beamerで動画を走らせる件について書く予定．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

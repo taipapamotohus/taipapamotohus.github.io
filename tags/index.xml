@@ -22,11 +22,29 @@
     </item>
     
     <item>
+      <title>Autoexport</title>
+      <link>https://taipapamotohus.com/tags/autoexport/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/autoexport/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Automation</title>
       <link>https://taipapamotohus.com/tags/automation/</link>
       <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Autorefresh</title>
+      <link>https://taipapamotohus.com/tags/autorefresh/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/autorefresh/</guid>
       <description></description>
     </item>
     
@@ -76,6 +94,15 @@
     </item>
     
     <item>
+      <title>Browser</title>
+      <link>https://taipapamotohus.com/tags/browser/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/browser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Citation</title>
       <link>https://taipapamotohus.com/tags/citation/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
@@ -105,7 +132,7 @@
     <item>
       <title>Emacs</title>
       <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
@@ -150,7 +177,7 @@
     <item>
       <title>Html</title>
       <link>https://taipapamotohus.com/tags/html/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/html/</guid>
       <description></description>
@@ -267,7 +294,7 @@
     <item>
       <title>Org-mode</title>
       <link>https://taipapamotohus.com/tags/org-mode/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/org-mode/</guid>
       <description></description>
