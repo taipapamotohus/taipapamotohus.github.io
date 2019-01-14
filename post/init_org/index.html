@@ -108,7 +108,7 @@
   
   <meta property="article:published_time" content="2018-08-17T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-08-27T22:12:54&#43;09:00">
+  <meta property="article:modified_time" content="2019-01-14T14:05:55&#43;09:00">
   
 
   
@@ -263,8 +263,8 @@
         Last updated on
     
     <meta content="2018-08-17 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-08-27 22:12:54 &#43;0900 JST" itemprop="dateModified">
-      Aug 27, 2018
+    <time datetime="2019-01-14 14:05:55 &#43;0900 JST" itemprop="dateModified">
+      Jan 14, 2019
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -274,7 +274,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
@@ -298,28 +298,6 @@
       
 
 <p>自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．</p>
-
-<h2>Table of Contents</h2>
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#参考サイト">参考サイト</a></li>
-<li><a href="#preludeを使いながら-init-dot-orgから個人用のinit-dot-elを自動作成させてemacsを設定する方法">Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法</a>
-<ul>
-<li><a href="#基本方針">基本方針</a></li>
-<li><a href="#preludeの導入">Preludeの導入</a></li>
-<li><a href="#emac-init-dot-elの作成">emac-init.elの作成</a></li>
-<li><a href="#init-dot-orgの作成">init.orgの作成</a>
-<ul>
-<li><a href="#code-blockの挿入">Code blockの挿入</a></li>
-<li><a href="#codeの記述">Codeの記述</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-
 
 <h2 id="参考サイト">参考サイト</h2>
 
@@ -378,12 +356,42 @@
 
 <li><p>org-modeで以下のようにする．（後述する設定が必要）</p>
 
-<pre><code class="language-text">&lt;l （ここで&lt;TAB&gt;すると．．．）
+<pre><code class="language-lisp">&lt;l （ここで&lt;TAB&gt;すると．．．）
 以下のように展開される
 #+begin_src emacs-lisp
 
 #+end_src
 </code></pre></li>
+
+<li><p><strong>2019年1月14日追加</strong></p>
+
+<p>上記の「TABで展開」に関して，Disqusで，mickaushyさんから「&lt;lではなくて&lt;sではないのか」とのご指摘をいただいた．全くそのとおりで，（後述する設定が必要）と自分で書いておきながら，その設定を書き忘れていた．mickaushyさんが指摘されている通りの設定をしている．</p>
+
+<ul>
+<li>参考：<a href="http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3" target="_blank">http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3</a></li>
+</ul>
+
+<pre><code class="language-lisp">#+begin_src emacs-lisp
+(setq org-structure-template-alist
+      '((&quot;s&quot; &quot;#+begin_src ?\n\n#+end_src&quot; &quot;&lt;src lang=\&quot;?\&quot;&gt;\n\n&lt;/src&gt;&quot;)
+        (&quot;e&quot; &quot;#+begin_example\n?\n#+end_example&quot; &quot;&lt;example&gt;\n?\n&lt;/example&gt;&quot;)
+        (&quot;q&quot; &quot;#+begin_quote\n?\n#+end_quote&quot; &quot;&lt;quote&gt;\n?\n&lt;/quote&gt;&quot;)
+        (&quot;v&quot; &quot;#+BEGIN_VERSE\n?\n#+END_VERSE&quot; &quot;&lt;verse&gt;\n?\n&lt;/verse&gt;&quot;)
+        (&quot;c&quot; &quot;#+BEGIN_COMMENT\n?\n#+END_COMMENT&quot;)
+        (&quot;p&quot; &quot;#+BEGIN_PRACTICE\n?\n#+END_PRACTICE&quot;)
+        (&quot;l&quot; &quot;#+begin_src emacs-lisp\n?\n#+end_src&quot; &quot;&lt;src lang=\&quot;emacs-lisp\&quot;&gt;\n?\n&lt;/src&gt;&quot;)
+        ;; (&quot;l&quot; &quot;#+begin_src lisp\n?\n#+end_src&quot; &quot;&lt;src lang=\&quot;lisp\&quot;&gt;\n?\n&lt;/src&gt;&quot;)
+        (&quot;L&quot; &quot;#+latex: &quot; &quot;&lt;literal style=\&quot;latex\&quot;&gt;?&lt;/literal&gt;&quot;)
+        (&quot;h&quot; &quot;#+begin_html\n?\n#+end_html&quot; &quot;&lt;literal style=\&quot;html\&quot;&gt;\n?\n&lt;/literal&gt;&quot;)
+        (&quot;H&quot; &quot;#+html: &quot; &quot;&lt;literal style=\&quot;html\&quot;&gt;?&lt;/literal&gt;&quot;)
+        (&quot;a&quot; &quot;#+begin_ascii\n?\n#+end_ascii&quot;)
+        (&quot;A&quot; &quot;#+ascii: &quot;)
+        (&quot;i&quot; &quot;#+index: ?&quot; &quot;#+index: ?&quot;)
+        (&quot;I&quot; &quot;#+include %file ?&quot; &quot;&lt;include file=%file markup=\&quot;?\&quot;&gt;&quot;)))
+#+end_src
+</code></pre>
+
+<p>この設定を，init.orgに書き込んでおいて，「&lt;lのあとにTAB」とすれば，上述のように展開される．この次の記事でまとめて書こうと考えていたが，すっかり失念していた．ここに書いておいたほうが確かにわかりやすい．mickaushyさん，ご指摘ありがとうございました．</p></li>
 </ul>
 
 <h4 id="codeの記述">Codeの記述</h4>
