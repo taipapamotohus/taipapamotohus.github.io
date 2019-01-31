@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -15,10 +13,12 @@
   
   
   
-  <meta name="description" content="本人ではありません   (^^)">
+    
+  
+  <meta name="description" content="Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/tags/emacs/">
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/adaptive-wrap/">
 
   
 
@@ -88,32 +88,34 @@
   
 
   
-  <link rel="alternate" href="https://taipapamotohus.com/tags/emacs/index.xml" type="application/rss+xml" title="A perfect autumn day">
-  <link rel="feed" href="https://taipapamotohus.com/tags/emacs/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="alternate" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="feed" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
   
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://taipapamotohus.com/tags/emacs/">
+  <link rel="canonical" href="https://taipapamotohus.com/post/adaptive-wrap/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="https://taipapamotohus.com/tags/emacs/">
-  <meta property="og:title" content="Emacs | A perfect autumn day">
-  <meta property="og:description" content="本人ではありません   (^^)">
+  <meta property="og:url" content="https://taipapamotohus.com/post/adaptive-wrap/">
+  <meta property="og:title" content="Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines | A perfect autumn day">
+  <meta property="og:description" content="Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Femme.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2019-01-27T00:00:00&#43;09:00">
+  <meta property="article:published_time" content="2019-01-27T00:00:00&#43;09:00">
+  
+  <meta property="article:modified_time" content="2019-02-01T01:06:33&#43;09:00">
   
 
   
 
   
 
-  <title>Emacs | A perfect autumn day</title>
+  <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -228,121 +230,233 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/headers/Femme.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption">Femme piquée par un serpent</span>
+</div>
 
 
 
-<div class="article-container">
+  <div class="article-container">
+    <h1 itemprop="name">Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</h1>
 
-  <h1>Emacs</h1>
-
-  
-
-  
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/adaptive-wrap/">Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</a></h2>
-    <div class="article-style">
-      
-      Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/auto_html_export/">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a></h2>
-    <div class="article-style">
-      
-      org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/pdf-tools/">Emacsでpdfを読む (pdf-tools)</a></h2>
-    <div class="article-style">
-      
-      Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリと
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/org-mode_recursive-narrow/">Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</a></h2>
-    <div class="article-style">
-      
-      org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すこ
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/org-html-export-theme/">Org-modeでhtml exportの際のthemeについて</a></h2>
-    <div class="article-style">
-      
-      org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並へ
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/html_export/">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a></h2>
-    <div class="article-style">
-      
-      学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨なと
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/swiper_migemo/">Swiper, ivy, avy, migemoによるEmacsの検索強化</a></h2>
-    <div class="article-style">
-      
-      文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これ
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/synchronization/">Emacsとskimで，latexのソースとpdfの間を行ったり来たり</a></h2>
-    <div class="article-style">
-      
-      以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコ
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/org-mode_paper_1/">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></h2>
-    <div class="article-style">
-      
-      私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-mod
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="https://taipapamotohus.com/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></h2>
-    <div class="article-style">
-      
-      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新され
-      
-    </div>
-  </div>
-  
-
-  
-<nav>
-  <ul class="pager">
     
-    
-    <li><a href="/tags/emacs/page/2/">&gt;</a></li>
-    
-  </ul>
-</nav>
 
+<div class="article-metadata">
 
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2019-01-27 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-02-01 01:06:33 &#43;0900 JST" itemprop="dateModified">
+      Feb 1, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://taipapamotohus.com/post/adaptive-wrap/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
 
 </div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．</p>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#adaptive-wrap">adaptive-wrap</a>
+
+<ul>
+<li><a href="#インストールと設定">インストールと設定</a></li>
+<li><a href="#実際の使用例">実際の使用例</a></li>
+</ul></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="adaptive-wrap">adaptive-wrap</h2>
+
+<ul>
+<li>参照1：<a href="https://elpa.gnu.org/packages/adaptive-wrap.html" target="_blank">adaptive-wrap</a>　ご本家</li>
+<li>参照2：<a href="https://emacs.stackexchange.com/questions/14589/correct-indentation-for-wrapped-lines" target="_blank">Correct indentation for wrapped lines</a></li>
+<li>参照3：<a href="http://alainmathematics.blogspot.com/2013/07/emacs.html" target="_blank">Emacsの折り返しの挙動</a></li>
+<li>参照4：<a href="https://www.reddit.com/r/emacs/comments/1kw7ip/emacs%5Fsettings%5Floading%5Fissue/" target="_blank">.emacs settings loading issue</a>　</li>
+</ul>
+
+<p>長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．</p>
+
+<h3 id="インストールと設定">インストールと設定</h3>
+
+<p>例によって，use-packagを用いて以下のように，init.orgに書けばよい．</p>
+
+<pre><code class="language-lisp">#+begin_src emacs-lisp
+(use-package adaptive-wrap
+  :ensure t
+  :config
+  (setq-default adaptive-wrap-extra-indent 1)
+  (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+  (global-visual-line-mode +1)
+  (add-hook 'org-mode-hook 'visual-line-mode)  ;; For org macros
+  )
+#+end_src
+</code></pre>
+
+<p>なお，最後の行を入れておかないと，org-mode fileに</p>
+
+<pre><code class="language-lisp">#+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup
+</code></pre>
+
+<p>を追加してマクロのパッケージを使用する場合（<a href="../html_export">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a>を参照のこと）に，adaptive-wrapが効かなくなる．</p>
+
+<h3 id="実際の使用例">実際の使用例</h3>
+
+<p>adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．</p>
+
+<figure>
+
+<img src="/img/Before_adaptive.jpg" width="100%" />
+
+
+</figure>
+
+<figure>
+
+<img src="/img/After_adaptive.jpg" width="100%" />
+
+
+</figure>
+
+<p>これも一度使い始めると，無くてはならないモノとなるパッケージである．</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/org-mode/">org-mode</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/adaptive/">adaptive</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/wrap/">wrap</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/indentation/">indentation</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/auto_html_export/">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a></li>
+        
+        <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools)</a></li>
+        
+        <li><a href="/post/org-mode_recursive-narrow/">Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</a></li>
+        
+        <li><a href="/post/org-html-export-theme/">Org-modeでhtml exportの際のthemeについて</a></li>
+        
+        <li><a href="/post/html_export/">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="https://taipapamotohus.com/post/auto_html_export/" rel="prev">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
 <footer class="site-footer">
   <div class="container">
 
@@ -476,6 +590,4 @@
 
   </body>
 </html>
-
-
 

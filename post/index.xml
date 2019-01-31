@@ -14,11 +14,20 @@
     
     <item>
       <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</title>
-      <link>https://taipapamotohus.com/post/auto_html_export/</link>
+      <link>https://taipapamotohus.com/post/adaptive-wrap/</link>
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
+      <guid>https://taipapamotohus.com/post/adaptive-wrap/</guid>
       <description>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ</description>
+    </item>
+    
+    <item>
+      <title>Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</title>
+      <link>https://taipapamotohus.com/post/auto_html_export/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
+      <description>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある</description>
     </item>
     
     <item>

@@ -12,10 +12,10 @@
     
     <item>
       <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</title>
-      <link>https://taipapamotohus.com/post/auto_html_export/</link>
+      <link>https://taipapamotohus.com/post/adaptive-wrap/</link>
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
+      <guid>https://taipapamotohus.com/post/adaptive-wrap/</guid>
       <description>
 
 &lt;p&gt;Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．&lt;/p&gt;
@@ -90,6 +90,140 @@
 &lt;/figure&gt;
 
 &lt;p&gt;これも一度使い始めると，無くてはならないモノとなるパッケージである．&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</title>
+      <link>https://taipapamotohus.com/post/auto_html_export/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
+      <description>
+
+&lt;p&gt;org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使用方法&#34;&gt;使用方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old&#34; target=&#34;_blank&#34;&gt;How to auto export html when saving in org-mode?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例によって，下記のようにinit.orgに書き込めばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(defun toggle-org-html-export-on-save ()
+  (interactive)
+  (if (memq &#39;org-html-export-to-html after-save-hook)
+      (progn
+        (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t)
+        (message &amp;quot;Disabled org html export on save for current buffer...&amp;quot;))
+    (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t)
+    (message &amp;quot;Enabled org html export on save for current buffer...&amp;quot;)))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．&lt;/p&gt;
+
+&lt;h2 id=&#34;directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/&#34; target=&#34;_blank&#34;&gt;Watch for file changes and refresh your browser automatically&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記サイトに有るrubyのスクリプトが使えそうなので，頂いた．&lt;/li&gt;
+&lt;li&gt;rubyのインストールについては，以下のようなサイトを参考
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b&#34; target=&#34;_blank&#34;&gt;MacにHomeBrew,rbenv,bundlerをインストールする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/prgseek/items/ff037cc6134ff9303c67&#34; target=&#34;_blank&#34;&gt;Ruby入門 01.導入（Macに最新版のRubyを入れる）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/TAByasu/items/47c6cfbeeafad39eda07&#34; target=&#34;_blank&#34;&gt;Ruby初学者のRuby On Rails 環境構築【Mac】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;しかし，上記サイトのスクリプトをそのまま使用するとと，reloadの際にページの先頭まで戻ってしまい不便！&lt;/li&gt;
+&lt;li&gt;結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/usr/bin/env ruby
+# watch.rb by Brett Terpstra, 2011 &amp;lt;http://brettterpstra.com&amp;gt;
+# with credit to Carlo Zottmann &amp;lt;https://github.com/carlo/haml-sass-file-watcher&amp;gt;
+
+trap(&amp;quot;SIGINT&amp;quot;) { exit }
+
+if ARGV.length &amp;lt; 2
+   puts &amp;quot;Usage: #{$0} watch_folder keyword&amp;quot;
+   puts &amp;quot;Example: #{$0} . mywebproject&amp;quot;
+   exit
+   end
+
+   dev_extension = &#39;dev&#39;
+   filetypes = [&#39;css&#39;,&#39;html&#39;,&#39;htm&#39;,&#39;php&#39;,&#39;rb&#39;,&#39;erb&#39;,&#39;less&#39;,&#39;js&#39;]
+   watch_folder = ARGV[0]
+   keyword = ARGV[1]
+   puts &amp;quot;Watching #{watch_folder} and subfolders for changes in project files...&amp;quot;
+
+   while true do
+         files = []
+         filetypes.each {|type|
+files += Dir.glob( File.join( watch_folder, &amp;quot;**&amp;quot;, &amp;quot;*.#{type}&amp;quot; ) )
+                        }
+         new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
+         hash ||= new_hash
+         diff_hash = new_hash - hash
+
+         unless diff_hash.empty?
+         hash = new_hash
+
+         diff_hash.each do |df|
+             puts &amp;quot;Detected change in #{df[0]}, refreshing&amp;quot;
+         %x{osascript&amp;lt;&amp;lt;ENDGAME
+                tell app &amp;quot;Safari&amp;quot; to activate
+                tell app &amp;quot;System Events&amp;quot;
+                     keystroke &amp;quot;r&amp;quot; using command down
+                end tell
+ENDGAME
+           }
+         end
+         end
+
+         sleep 1
+         end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usage: /usr/local/bin/watch_safari.rb watch_folder keyword&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/Hoge
+$ watch_safari.rb Hoge hogefuga.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．&lt;/li&gt;
+&lt;li&gt;最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．&lt;/li&gt;
+&lt;li&gt;以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上はOSX上のSafariを使用している場合であるが，他のブラウザーでも少し変更するだけで同じことができるはずである．&lt;/p&gt;
 </description>
     </item>
     
@@ -2362,82 +2496,6 @@ hogefugaによる治療は有効である．
 &lt;li&gt;容量の小さな動画であれば，media9でも十分であろう．&lt;/li&gt;
 &lt;li&gt;私のように，容量の大きな動画を使用するような場合は，べた書きを使用するほうが良いであろう．&lt;/li&gt;
 &lt;li&gt;ということで，結局，元の木阿弥に戻ることとなった．&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
-      <link>https://taipapamotohus.com/post/beamer_movie/</link>
-      <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/beamer_movie/</guid>
-      <description>
-
-&lt;p&gt;実は，同じような内容について2010年に，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．&lt;/p&gt;
-
-&lt;h2 id=&#34;beamerで動画が走るスライド原稿を作る&#34;&gt;beamerで動画が走るスライド原稿を作る&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;前述した ，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） &lt;a href=&#34;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&#34; target=&#34;_blank&#34;&gt;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&lt;/a&gt; の以下の部分&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;3 Annotations
-
-An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;. DVIPDFM(x) provides the following special command for annotations............
-
- The following example shows a movie annotation that enables us to run the movie file ‘mymovie.avi’ inside a PDF viewer program.
-
- \special{pdf:ann bbox 0 0 360 180 &amp;lt;&amp;lt;
- /Subtype /Movie /Border [1 0 0]
- /T (My Movie) /Movie &amp;lt;&amp;lt;
- /F (mymovie.avi) /Aspect [720 360]
- /Poster true &amp;gt;&amp;gt;
- /A &amp;lt;&amp;lt; /ShowControls false &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;mymovie.aviのところに動かしたい動画を記入（パスも効く）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;私の作成したものは読んでいただければおわかりのように，非常にダサいベタ書きである．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;{
-    \usebackgroundtemplate{\put(20, -265){\includegraphics[scale=0.45]{/Data/.../..../Figures/hogefuga.pdf}}}
-    \begin{frame}
-    \frametitle{hogefugaの対策}
-    \special{pdf:ann bbox -10 -130 320 90 &amp;lt;&amp;lt;
-             /Subtype /Movie /Border [0 0 1]
-             /T (My Movie) /Movie &amp;lt;&amp;lt;
-             /F (/Data/.../hogefuga.mov)
-             %/Aspect [720 480]
-             /Aspect [640 480]
-             /Poster false &amp;gt;&amp;gt;
-             /A &amp;lt;&amp;lt; /ShowControls true /Mode /Repeat &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
-    \end{frame}
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;\putで背景画像（キャプチャー画像）の位置を直接指定し，\includegraphicsのscaleで倍率を指定して動画の大きさに合わせている．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで，画像をクリックすると（ほぼ）同じ大きさの動画が（ほぼ）同じ位置で動くようになる&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;プレゼンテーションにskimを使うと動画が動かないので注意．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;動画は同一directoryにある必要はなく，パスで指定すれば良い&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;動画自体はpdfの中に埋め込まれないので，pdfの容量がむやみに大きくならないという利点がある．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
