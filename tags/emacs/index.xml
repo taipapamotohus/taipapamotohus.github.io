@@ -7,18 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 27 Jan 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</title>
+      <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</title>
       <link>https://taipapamotohus.com/post/auto_html_export/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
-      <description>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある</description>
+      <description>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ</description>
     </item>
     
     <item>

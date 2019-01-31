@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Org-mode on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/org-mode/</link>
-    <description>Recent content in Org-mode on A perfect autumn day</description>
+    <title>Wrap on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/wrap/</link>
+    <description>Recent content in Wrap on A perfect autumn day</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Sun, 27 Jan 2019 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="https://taipapamotohus.com/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taipapamotohus.com/tags/wrap/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
       <description>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ</description>
-    </item>
-    
-    <item>
-      <title>Emacsでpdfを読む (pdf-tools)</title>
-      <link>https://taipapamotohus.com/post/pdf-tools/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/pdf-tools/</guid>
-      <description>Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリと</description>
     </item>
     
   </channel>

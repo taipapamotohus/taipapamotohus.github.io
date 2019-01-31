@@ -5,7 +5,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/post/auto_html_export/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
     </url>
     
   
@@ -189,7 +189,16 @@
     <url>
     
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/adaptive/</loc>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -206,26 +215,8 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/autoexport/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://taipapamotohus.com/tags/automation/</loc>
       <lastmod>2018-09-17T16:39:07+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/autorefresh/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -278,15 +269,6 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/browser/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://taipapamotohus.com/categories/</loc>
       <priority>0</priority>
     </url>
@@ -323,7 +305,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/emacs/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -368,7 +350,16 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/html/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
+      <lastmod>2018-12-22T12:13:19+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/indentation/</loc>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -485,7 +476,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/org-mode/</loc>
-      <lastmod>2019-01-06T15:53:55+09:00</lastmod>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -646,7 +637,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/</loc>
-      <lastmod>2018-09-03T22:46:10+09:00</lastmod>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -701,6 +692,15 @@
     
       <loc>https://taipapamotohus.com/tags/word/</loc>
       <lastmod>2018-09-29T12:37:33+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/wrap/</loc>
+      <lastmod>2019-01-31T22:30:46+09:00</lastmod>
       <priority>0</priority>
     </url>
     
