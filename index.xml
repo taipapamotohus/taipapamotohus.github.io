@@ -58,7 +58,7 @@ head(Melanoma)
 summary(Melanoma)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;  time status                    event invasion ici      epicel       ulcer
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;  time status                    event invasion ici      epicel       ulcer
 1   10      2       death.other.causes  level.1   2     present     present
 2   30      2       death.other.causes  level.0   0 not present not present
 3   35      0                 censored  level.1   2 not present not present
@@ -106,7 +106,7 @@ Results_cmprsk &amp;lt;- with(Melanoma, cuminc(time, event, group = sex, cencode
 Results_cmprsk
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;Tests:
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;Tests:
                               stat        pv df
 death.malignant.melanoma 5.8140209 0.0158989  1
 death.other.causes       0.8543656 0.3553203  1
@@ -144,7 +144,7 @@ Male death.other.causes         0.002950698          NA
 summary(CompRskAnalysis)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;
 
 ----------&amp;gt; Cause:  1
 
@@ -191,7 +191,7 @@ sex=Male :
 summary(CompRskAnalysis2)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;
 
 ----------&amp;gt; Cause:  death.malignant.melanoma
 
