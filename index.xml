@@ -272,7 +272,7 @@ plot(CompRskAnalysis2,
      atrisk.col=&amp;quot;black&amp;quot;,
      xlab=&amp;quot;Time to primary outcome (years)&amp;quot;
      )
-text(7.5,0.85,adj=0,paste(&amp;quot;Gray&#39;s test: p-value=&amp;quot;, round(Results_cmprsk$Tests[1,2],3)), cex = 1.2)
+text(6.5,0.85,adj=0,paste(&amp;quot;Gray&#39;s test: p-value=&amp;quot;, round(Results_cmprsk$Tests[1,2],3)), cex = 1.2)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;figure&gt;
