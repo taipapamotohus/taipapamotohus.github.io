@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</title>
+      <link>https://taipapamotohus.com/post/prodlim/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/prodlim/</guid>
+      <description>Rを用いて生存分析を行う際に， Kaplan-Meier curve に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（Dra</description>
+    </item>
+    
+    <item>
       <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</title>
       <link>https://taipapamotohus.com/post/adaptive-wrap/</link>
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>

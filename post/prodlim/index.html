@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.48" />
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="Rを用いて生存分析を行う際に， Kaplan-Meier curve に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（Dra">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/prodlim/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/emacs.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="feed" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://taipapamotohus.com/post/prodlim/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="https://taipapamotohus.com/post/prodlim/">
+  <meta property="og:title" content="How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table) | A perfect autumn day">
+  <meta property="og:description" content="Rを用いて生存分析を行う際に， Kaplan-Meier curve に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（Dra"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Honolulu.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-03-20T00:00:00&#43;09:00">
+  
+  <meta property="article:modified_time" content="2019-03-24T13:38:30&#43;09:00">
+  
+
+  
+
+  
+
+  <title>How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table) | A perfect autumn day</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#search">
+            
+            <span>Search</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/headers/Honolulu.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption">Honolulu</span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2019-03-20 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-03-24 13:38:30 &#43;0900 JST" itemprop="dateModified">
+      Mar 24, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://taipapamotohus.com/post/prodlim/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>Rを用いて生存分析を行う際に， <strong>Kaplan-Meier curve</strong> に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（<a href="http://rstudio-pubs-static.s3.amazonaws.com/5588%5F72eb65bfbe0a4cb7b655d2eee0751584.html" target="_blank">Drawing survival curves in R</a>, <a href="https://github.com/michaelway/ggkm" target="_blank">ggkm</a>, <a href="https://cran.r-project.org/web/packages/survminer/vignettes/Informative%5FSurvival%5FPlots.html" target="_blank">Survival plots have never been so informative</a>），competing riskのplotの場合はあまり情報がない．prodlimを使えば簡単なので，まとめておく．</p>
+
+<p>なお， <strong>competing risk</strong> については以下を参照．</p>
+
+<ul>
+<li><a href="https://www.nature.com/articles/1705727" target="_blank">Competing risk analysis using R: an easy guide for clinicians</a></li>
+<li><a href="https://www.nature.com/articles/bmt2009359" target="_blank">Regression modeling of competing risk using R: an in depth guide for clinicians</a></li>
+<li><a href="http://rstudio-pubs-static.s3.amazonaws.com/6600%5Fe6703101eb7441ccb792000f4193b3b9.html" target="_blank">Competing risk analysisのデモ</a></li>
+<li><a href="https://rpubs.com/alecri/258589" target="_blank">A not so short review on survival analysis in R</a></li>
+</ul>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#prepare-dataset-melanoma-from-riskregression-package">Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package</a></li>
+<li><a href="#competing-risk-analysis-with-cuminc-of-cmprsk-package">Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package</a></li>
+<li><a href="#competing-risk-analysis-with-prodlim">Competing risk analysis with prodlim</a>
+
+<ul>
+<li><a href="#days">Days</a></li>
+<li><a href="#years">Years</a></li>
+</ul></li>
+<li><a href="#plot-survival-curve-of-competing-risk-analysis-with-prodlim--default">Plot survival curve of competing risk analysis with prodlim (default)</a></li>
+<li><a href="#plot-survival-curve-of-competing-risk-analysis-with-prodlim--modified">Plot survival curve of competing risk analysis with prodlim (modified)</a></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="prepare-dataset-melanoma-from-riskregression-package">Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package</h2>
+
+<pre><code class="language-R">library(riskRegression)
+data(Melanoma)
+head(Melanoma)
+summary(Melanoma)
+</code></pre>
+
+<pre><code class="language-shell">  time status                    event invasion ici      epicel       ulcer
+1   10      2       death.other.causes  level.1   2     present     present
+2   30      2       death.other.causes  level.0   0 not present not present
+3   35      0                 censored  level.1   2 not present not present
+4   99      2       death.other.causes  level.0   2 not present not present
+5  185      1 death.malignant.melanoma  level.2   2     present     present
+6  204      1 death.malignant.melanoma  level.2   2 not present     present
+  thick    sex age   logthick
+1  6.76   Male  76  1.9110229
+2  0.65   Male  56 -0.4307829
+3  1.34   Male  41  0.2926696
+4  2.90 Female  71  1.0647107
+5 12.08   Male  52  2.4915512
+6  4.84   Male  28  1.5769147
+      time          status                            event        invasion
+ Min.   :  10   Min.   :0.0000   censored                :134   level.0:99
+ 1st Qu.:1525   1st Qu.:0.0000   death.malignant.melanoma: 57   level.1:77
+ Median :2005   Median :0.0000   death.other.causes      : 14   level.2:29
+ Mean   :2153   Mean   :0.4146
+ 3rd Qu.:3042   3rd Qu.:1.0000
+ Max.   :5565   Max.   :2.0000
+ ici             epicel            ulcer         thick           sex
+ 0: 17   not present:116   not present:115   Min.   : 0.10   Female:126
+ 1: 59   present    : 89   present    : 90   1st Qu.: 0.97   Male  : 79
+ 2:107                                       Median : 1.94
+ 3: 22                                       Mean   : 2.92
+                                             3rd Qu.: 3.56
+                                             Max.   :17.42
+      age           logthick
+ Min.   : 4.00   Min.   :-2.30259
+ 1st Qu.:42.00   1st Qu.:-0.03046
+ Median :54.00   Median : 0.66269
+ Mean   :52.46   Mean   : 0.61817
+ 3rd Qu.:65.00   3rd Qu.: 1.26976
+ Max.   :95.00   Max.   : 2.85762
+</code></pre>
+
+<h2 id="competing-risk-analysis-with-cuminc-of-cmprsk-package">Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package</h2>
+
+<ul>
+<li>cuminc is used to investigate whether a statistically significant difference is present between the groups (see &ldquo;Tests:&rdquo; below).</li>
+</ul>
+
+<pre><code class="language-R">library(cmprsk)
+Results_cmprsk &lt;- with(Melanoma, cuminc(time, event, group = sex, cencode = &quot;censored&quot;))
+Results_cmprsk
+</code></pre>
+
+<pre><code class="language-shell">Tests:
+                              stat        pv df
+death.malignant.melanoma 5.8140209 0.0158989  1
+death.other.causes       0.8543656 0.3553203  1
+Estimates and Variances:
+$est
+                                      1000       2000       3000       4000
+Female death.malignant.melanoma 0.08730159 0.18077594 0.23565169 0.28424490
+Male death.malignant.melanoma   0.19237175 0.31009828 0.42453587 0.42453587
+Female death.other.causes       0.03174603 0.03983516 0.05220642 0.08538385
+Male death.other.causes         0.03814124 0.06693942 0.06693942 0.13474271
+                                      5000
+Female death.malignant.melanoma 0.28424490
+Male death.malignant.melanoma           NA
+Female death.other.causes       0.08538385
+Male death.other.causes                 NA
+
+$var
+                                        1000         2000         3000
+Female death.malignant.melanoma 0.0006378135 0.0012450462 0.0018102025
+Male death.malignant.melanoma   0.0020223293 0.0028196248 0.0042695603
+Female death.other.causes       0.0002459647 0.0003073878 0.0004529114
+Male death.other.causes         0.0004727379 0.0008614343 0.0008614343
+                                       4000        5000
+Female death.malignant.melanoma 0.002755577 0.002755577
+Male death.malignant.melanoma   0.004269560          NA
+Female death.other.causes       0.001528480 0.001528480
+Male death.other.causes         0.002950698          NA
+</code></pre>
+
+<h2 id="competing-risk-analysis-with-prodlim">Competing risk analysis with prodlim</h2>
+
+<h3 id="days">Days</h3>
+
+<pre><code class="language-R">CompRskAnalysis &lt;- prodlim(Hist(time, status, cens.code=0) ~ sex, data = Melanoma)
+summary(CompRskAnalysis)
+</code></pre>
+
+<pre><code class="language-shell">
+
+----------&gt; Cause:  1
+
+sex=Female :
+  time n.risk n.event n.lost cuminc se.cuminc  lower upper
+1   10    126       0      0  0.000    0.0000 0.0000 0.000
+2 1513    104       0      0  0.127    0.0297 0.0688 0.185
+3 2006     67       0      0  0.181    0.0351 0.1120 0.250
+4 3042     34       0      0  0.236    0.0423 0.1528 0.318
+5 5565      1       0      1  0.284    0.0519 0.1826 0.386
+
+sex=Male :
+  time n.risk n.event n.lost cuminc se.cuminc lower upper
+1   10     79       0      0  0.000    0.0000 0.000 0.000
+2 1513     51       0      0  0.270    0.0503 0.171 0.368
+3 2006     35       0      0  0.310    0.0527 0.207 0.413
+4 3042     18       0      0  0.425    0.0644 0.298 0.551
+5 5565      0       0      0     NA        NA    NA    NA
+
+
+
+----------&gt; Cause:  2
+
+sex=Female :
+  time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+1   10    126       0      0 0.0000    0.0000 0.00000 0.0000
+2 1513    104       0      0 0.0317    0.0156 0.00113 0.0624
+3 2006     67       0      0 0.0398    0.0175 0.00562 0.0741
+4 3042     34       0      0 0.0522    0.0212 0.01073 0.0937
+5 5565      1       0      1 0.0854    0.0383 0.01027 0.1605
+
+sex=Male :
+  time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+1   10     79       1      0 0.0127    0.0126 0.00000 0.0373
+2 1513     51       0      0 0.0510    0.0248 0.00230 0.0996
+3 2006     35       0      0 0.0669    0.0291 0.00992 0.1240
+4 3042     18       0      0 0.0669    0.0291 0.00992 0.1240
+5 5565      0       0      0     NA        NA      NA     NA
+</code></pre>
+
+<h3 id="years">Years</h3>
+
+<pre><code class="language-R">CompRskAnalysis2 &lt;- prodlim(Hist(time/365.25, event, cens.code=&quot;censored&quot;) ~ sex, data = Melanoma)
+summary(CompRskAnalysis2)
+</code></pre>
+
+<pre><code class="language-shell">
+
+----------&gt; Cause:  death.malignant.melanoma
+
+sex=Female :
+     time n.risk n.event n.lost cuminc se.cuminc  lower upper
+1  0.0274    126       0      0  0.000    0.0000 0.0000 0.000
+2  4.1424    104       0      0  0.127    0.0297 0.0688 0.185
+3  5.4921     67       0      0  0.181    0.0351 0.1120 0.250
+4  8.3272     34       0      0  0.236    0.0423 0.1528 0.318
+5 15.2361      1       0      1  0.284    0.0519 0.1826 0.386
+
+sex=Male :
+     time n.risk n.event n.lost cuminc se.cuminc lower upper
+1  0.0274     79       0      0  0.000    0.0000 0.000 0.000
+2  4.1424     51       0      0  0.270    0.0503 0.171 0.368
+3  5.4921     35       0      0  0.310    0.0527 0.207 0.413
+4  8.3272     18       0      0  0.425    0.0644 0.298 0.551
+5 15.2361      0       0      0     NA        NA    NA    NA
+
+
+
+----------&gt; Cause:  death.other.causes
+
+sex=Female :
+     time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+1  0.0274    126       0      0 0.0000    0.0000 0.00000 0.0000
+2  4.1424    104       0      0 0.0317    0.0156 0.00113 0.0624
+3  5.4921     67       0      0 0.0398    0.0175 0.00562 0.0741
+4  8.3272     34       0      0 0.0522    0.0212 0.01073 0.0937
+5 15.2361      1       0      1 0.0854    0.0383 0.01027 0.1605
+
+sex=Male :
+     time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+1  0.0274     79       1      0 0.0127    0.0126 0.00000 0.0373
+2  4.1424     51       0      0 0.0510    0.0248 0.00230 0.0996
+3  5.4921     35       0      0 0.0669    0.0291 0.00992 0.1240
+4  8.3272     18       0      0 0.0669    0.0291 0.00992 0.1240
+5 15.2361      0       0      0     NA        NA      NA     NA
+</code></pre>
+
+<h2 id="plot-survival-curve-of-competing-risk-analysis-with-prodlim--default">Plot survival curve of competing risk analysis with prodlim (default)</h2>
+
+<pre><code class="language-R"># Default plot
+plot(CompRskAnalysis2)
+</code></pre>
+
+<figure>
+
+<img src="/img/DefaultPlot.png" width="75%" />
+
+
+</figure>
+
+<h2 id="plot-survival-curve-of-competing-risk-analysis-with-prodlim--modified">Plot survival curve of competing risk analysis with prodlim (modified)</h2>
+
+<ul>
+<li>adjust legend</li>
+<li>add tick-mark at right censoring times</li>
+<li>rotate labels of y-axis</li>
+<li>add statistical significance from results of cuminc described above</li>
+<li>etc</li>
+</ul>
+
+<pre><code class="language-R"># Plot with modification
+plot(CompRskAnalysis2,
+     cause = &quot;death.malignant.melanoma&quot;,
+     xlim=c(0, 15),
+     legend.x=&quot;topleft&quot;, # position of legend
+     legend.cex=1.5, # font size of legend
+     marktime = TRUE, # the curves are tick-marked at right censoring times by invoking the function markTime.
+     legend.title=&quot;&quot;,
+     atrisk.title=&quot;&quot;,
+     axis2.at=seq(0,1,0.2),
+     background.horizontal=seq(0,1,0.2),
+     axis2.las=2,                            # rotate labels of y-axis
+     percent = FALSE,
+     confint = FALSE,
+     atrisk.col=&quot;black&quot;,
+     xlab=&quot;Time to primary outcome (years)&quot;
+     )
+text(7.5,0.85,adj=0,paste(&quot;Gray's test: p-value=&quot;, round(Results_cmprsk$Tests[1,2],3)), cex = 1.4)
+</code></pre>
+
+<figure>
+
+<img src="/img/ModifiedPlot.png" width="75%" />
+
+
+</figure>
+
+<p>今回は，学会発表用のグラフ作成に必要であった．忘れないうちにまとめておく．以前は，at risk tableを別途作成してグラフに合体させるという荒業を行っていたが，これで非常に楽になった．</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/r/">R</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/competing/">competing</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/survival/">survival</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/curve/">curve</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/prodlim/">prodlim</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/censored/">censored</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/number/">number</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/at/">at</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/risk/">risk</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/r_homebrew_update_error/">RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="https://taipapamotohus.com/post/adaptive-wrap/" rel="prev">Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+    <p class="powered-by">
+      <a href="https://taipapamotohus.com/privacy/">Privacy Policy</a>
+    </p>
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/emacs-lisp.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/search.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>At on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/at/</link>
+    <description>Recent content in At on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/tags/at/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</title>
+      <link>https://taipapamotohus.com/post/prodlim/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/prodlim/</guid>
+      <description>Rを用いて生存分析を行う際に， Kaplan-Meier curve に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（Dra</description>
+    </item>
+    
+  </channel>
+</rss>
