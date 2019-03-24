@@ -240,7 +240,7 @@ plot(CompRskAnalysis2)
 
 &lt;figure&gt;
 
-&lt;img src=&#34;https://taipapamotohus.com/img/DefaultPlot.png&#34; width=&#34;75%&#34; /&gt;
+&lt;img src=&#34;https://taipapamotohus.com/ox-hugo/DefaultPlot.png&#34; /&gt;
 
 
 &lt;/figure&gt;
@@ -277,7 +277,7 @@ text(7.5,0.85,adj=0,paste(&amp;quot;Gray&#39;s test: p-value=&amp;quot;, round(R
 
 &lt;figure&gt;
 
-&lt;img src=&#34;https://taipapamotohus.com/img/ModifiedPlot.png&#34; width=&#34;75%&#34; /&gt;
+&lt;img src=&#34;https://taipapamotohus.com/ox-hugo/ModifiedPlot.png&#34; /&gt;
 
 
 &lt;/figure&gt;
