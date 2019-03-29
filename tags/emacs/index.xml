@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 27 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to automatically embed R plot into html exported by org-mode with org-babel</title>
+      <link>https://taipapamotohus.com/post/exportrplot/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/exportrplot/</guid>
+      <description>本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing</description>
+    </item>
     
     <item>
       <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</title>

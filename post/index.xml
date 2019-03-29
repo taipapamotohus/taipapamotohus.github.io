@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>How to automatically embed R plot into html exported by org-mode with org-babel</title>
+      <link>https://taipapamotohus.com/post/exportrplot/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/exportrplot/</guid>
+      <description>本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing</description>
+    </item>
+    
+    <item>
       <title>How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</title>
       <link>https://taipapamotohus.com/post/prodlim/</link>
       <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>

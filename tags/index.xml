@@ -177,7 +177,7 @@
     <item>
       <title>Emacs</title>
       <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
@@ -204,9 +204,18 @@
     <item>
       <title>Export</title>
       <link>https://taipapamotohus.com/tags/export/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/export/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graph</title>
+      <link>https://taipapamotohus.com/tags/graph/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/graph/</guid>
       <description></description>
     </item>
     
@@ -355,9 +364,18 @@
     </item>
     
     <item>
+      <title>Org-babel</title>
+      <link>https://taipapamotohus.com/tags/org-babel/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/org-babel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Org-mode</title>
       <link>https://taipapamotohus.com/tags/org-mode/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/org-mode/</guid>
       <description></description>
@@ -409,6 +427,15 @@
     </item>
     
     <item>
+      <title>Plot</title>
+      <link>https://taipapamotohus.com/tags/plot/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Prelude</title>
       <link>https://taipapamotohus.com/tags/prelude/</link>
       <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
@@ -438,7 +465,7 @@
     <item>
       <title>R</title>
       <link>https://taipapamotohus.com/tags/r/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/r/</guid>
       <description></description>
