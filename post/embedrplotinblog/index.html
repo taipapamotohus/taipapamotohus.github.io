@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing">
+  <meta name="description" content="（承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdf">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/exportrplot/">
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/embedrplotinblog/">
 
   
 
@@ -96,26 +96,26 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://taipapamotohus.com/post/exportrplot/">
+  <link rel="canonical" href="https://taipapamotohus.com/post/embedrplotinblog/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="https://taipapamotohus.com/post/exportrplot/">
-  <meta property="og:title" content="How to automatically embed R plot into html exported by org-mode with org-babel | A perfect autumn day">
-  <meta property="og:description" content="本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Wikiki-2.jpg">
+  <meta property="og:url" content="https://taipapamotohus.com/post/embedrplotinblog/">
+  <meta property="og:title" content="How to automatically embed R plot in blog created by Hugo via ox-hugo | A perfect autumn day">
+  <meta property="og:description" content="（承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdf"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Ho%CC%82tel_de_Ville_de_Bruxelles.jpg">
   <meta property="og:locale" content="en-us">
   
   <meta property="article:published_time" content="2019-03-25T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2019-03-30T12:01:01&#43;09:00">
+  <meta property="article:modified_time" content="2019-03-30T21:48:08&#43;09:00">
   
 
   
 
   
 
-  <title>How to automatically embed R plot into html exported by org-mode with org-babel | A perfect autumn day</title>
+  <title>How to automatically embed R plot in blog created by Hugo via ox-hugo | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -236,16 +236,16 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/Wikiki-2.jpg" class="article-banner" itemprop="image">
+    <img src="/img/headers/Ho%cc%82tel_de_Ville_de_Bruxelles.jpg" class="article-banner" itemprop="image">
   
 
-  <span class="article-header-caption">Wikiki</span>
+  <span class="article-header-caption">Hôtel de Ville de Bruxelles</span>
 </div>
 
 
 
   <div class="article-container">
-    <h1 itemprop="name">How to automatically embed R plot into html exported by org-mode with org-babel</h1>
+    <h1 itemprop="name">How to automatically embed R plot in blog created by Hugo via ox-hugo</h1>
 
     
 
@@ -263,7 +263,7 @@
         Last updated on
     
     <meta content="2019-03-25 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2019-03-30 12:01:01 &#43;0900 JST" itemprop="dateModified">
+    <time datetime="2019-03-30 21:48:08 &#43;0900 JST" itemprop="dateModified">
       Mar 30, 2019
     </time>
   </span>
@@ -274,14 +274,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    3 min read
+    5 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="https://taipapamotohus.com/post/exportrplot/#disqus_thread"></a>
+  <a href="https://taipapamotohus.com/post/embedrplotinblog/#disqus_thread"></a>
   
 
   
@@ -297,7 +297,7 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（<a href="../prodlim">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</a>）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．</p>
+<p>（承前）前回（<a href="../ExportRplot">How to automatically embed R plot into html exported by org-mode with org-babel</a>）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（<a href="../prodlim">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</a>）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．</p>
 
 <div class="ox-hugo-toc toc">
 <div></div>
@@ -305,85 +305,128 @@
 <div class="heading">Table of Contents</div>
 
 <ul>
-<li><a href="#org-babel-setup">Org-babel setup</a></li>
-<li><a href="#how-to-use-org-babel">How to use org-babel</a></li>
-<li><a href="#org-babel-evaluation-of-r-code-block">Org-babel evaluation of R code block</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#configuration-of-hugo-section">Configuration of Hugo section</a></li>
+<li><a href="#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo">Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo</a></li>
+<li><a href="#references-to-files-outside-the-static-directory">References to files outside the static directory</a></li>
 </ul>
 
 <p></div>
 <!--endtoc--></p>
 
-<h2 id="org-babel-setup">Org-babel setup</h2>
+<h2 id="references">References</h2>
 
-<p>org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;</p>
+<ul>
+<li><a href="https://gohugo.io" target="_blank">HUGO</a>  <br />
+Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;</li>
 
-<p>ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．</p>
+<li><p><a href="https://ox-hugo.scripter.co" target="_blank">ox-hugo</a>  <br />
+ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).</p>
 
-<p><strong>Ref:</strong> <a href="http://doc.norang.ca/org-mode.html#OrgBabel" target="_blank">Org-babel Setup</a>　ここからコピペ  (^^;;;</p>
+<p>要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;</p></li>
+</ul>
 
-<pre><code class="language-lisp">#+begin_src emacs-lisp
-(org-babel-do-load-languages
- (quote org-babel-load-languages)
- (quote ((emacs-lisp . t)
-         (dot . t)
-         (ditaa . t)
-         (R . t)
-         (python . t)
-         (ruby . t)
-         (gnuplot . t)
-         (clojure . t)
-         (shell . t)
-         (ledger . t)
-         (org . t)
-         (plantuml . t)
-         (latex . t))))
+<h2 id="configuration-of-hugo-section">Configuration of Hugo section</h2>
+
+<p><strong>Ref:</strong> <a href="https://sfus.net/blog/2018/12/org-mode-with-ox-hugo/" target="_blank">Org-mode で記事を書いて Hugo 向け markdown を ox-hugo で自動生成する話</a></p>
+
+<p>そもそも，まず，Hugoのディレクトリ・ファイルの構成を把握する必要があった．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.org に書き込んでおり，directory/file構成は以下の通りである．上記参考サイトと同じく，/hogehoge/hogeblog/hogefugablog/，つまり，Hugo の content/ と同じ階層に hogefugablog.org ファイルを置いている．なお，themeは <a href="https://themes.gohugo.io/academic/" target="_blank"><strong>academic</strong></a> を使用している．また，ox-hugoのdirectoryは今回の作業により新たに作成されたものであり，当初はなかった．</p>
+
+<pre><code class="language-shell">$ tree -L 2
+.
+├── config.toml
+├── content
+│   ├── home
+│   ├── post
+│   └── privacy.md
+├── data
+│   └── 6F
+├── hogefugablog.org
+├── layouts
+│   ├── js
+│   ├── partials
+│   └── search
+├── static
+│   ├── css
+│   ├── files
+│   ├── img
+│   └── ox-hugo
+└── themes
+    └── academic
+</code></pre>
+
+<h2 id="setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo">Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo</h2>
+
+<p><strong>Ref:</strong> <a href="https://ox-hugo.scripter.co/doc/usage/#before-you-export" target="_blank">Before you export</a></p>
+
+<p>本サイトでは，HUGO_SECTIONは特に設定しておらず，C-h v org-hugo-default-section-directoryの値は default valueであるpostsになっている．</p>
+
+<p>また，hogefugablog.orgの文頭に以下のように記述して，HUGO_BASE_DIRを設定している．</p>
+
+<pre><code class="language-lisp">#+HUGO_BASE_DIR: ./
+</code></pre>
+
+<p>ここまでで，ox-hugoからのexportの準備が整った．</p>
+
+<h2 id="references-to-files-outside-the-static-directory">References to files outside the static directory</h2>
+
+<p><strong>Ref:</strong> <a href="https://ox-hugo.scripter.co/doc/image-links/#references-to-files-outside-the-static-directory" target="_blank">References to files outside the static directory</a></p>
+
+<p>Hugoのstatic directory以外の場所にあるファイルへのreferenceを作成し，かつ，そのファイルが <strong>org-hugo-external-file-extensions-allowed-for-copying</strong> のリストに挙げられている拡張子を有している場合は，そのファイルはox-hugoによりstatic directoryにコピーされる．ちなみに，C-h v org-hugo-external-file-extensions-allowed-for-copyingとすると，以下のような値を得る．</p>
+
+<pre><code class="language-lisp">org-hugo-external-file-extensions-allowed-for-copying is a variable defined in ‘ox-hugo.el’.
+Its value is
+(&quot;jpg&quot; &quot;jpeg&quot; &quot;tiff&quot; &quot;png&quot; &quot;svg&quot; &quot;gif&quot; &quot;pdf&quot; &quot;odt&quot; &quot;doc&quot; &quot;ppt&quot; &quot;xls&quot; &quot;docx&quot; &quot;pptx&quot; &quot;xlsx&quot;)
+</code></pre>
+
+<p><a href="https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static" target="_blank">Source path does not contain <code>/static/</code></a>    <br />
+このサイトの <strong>Table 2: Where files get copied to if their path does not contain static/</strong> が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，</p>
+
+<pre><code class="language-lisp">/hogehoge/hogeblog/hogefugablog/foo.png
+</code></pre>
+
+<p>に作成される．そして，このファイルは，最終的に，</p>
+
+<pre><code class="language-lisp">/hogehoge/hogeblog/hogefugablog/static/ox-hugo/foo.png
+</code></pre>
+
+<p>にコピーされ，ブログ記事に挿入されるということになる．なお，ox-hugo directoryはこの時に自動的に作成される．</p>
+
+<p>つまり，前回の記事（<a href="../ExportRplot">How to automatically embed R plot into html exported by org-mode with org-babel</a>）のように，R plotのcode blockを含むorg ファイルを作成し，それをexportして，R plotが自動で組み込まれるようなら，そのorg-babelのcode blockをそのままox-hugoで書いたブログ記事のorg ファイルにコピペすれば，あとはox-hugoが良きにはからってくれるはずである．</p>
+
+<p>実は，できたグラフの画像を自分でいろいろな場所にコピーしては失敗していた．Hugoのroot directory，つまり，/hogehoge/hogeblog/hogefugablog/でRを動かして，できたグラフ画像に対して何もせずに放置しておけば，ox-hugoが全て面倒を見てくれるということに気がつかず，余計なことをしていたわけである．</p>
+
+<p>まとめとして，前回記事のcode blockをこの記事に挿入して試してみる．</p>
+
+<pre><code class="language-lisp">#+begin_src R :session *R* :results output graphics :file test1.png :exports both
+boxplot(islands)
 #+end_src
 </code></pre>
 
-<h2 id="how-to-use-org-babel">How to use org-babel</h2>
-
-<p>以下のサイトを参考にした．</p>
-
-<p><strong>Ref 1:</strong> Official manual <a href="https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code" target="_blank">14 Working with Source Code</a></p>
-
-<p><strong>Ref 2:</strong> <a href="http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html" target="_blank">org-modeのコードブロック(Babel)の使い方</a>   <br />
-このサイトが分かりやすい．特に， <strong>ヘッダー引数</strong> と <strong>言語毎の書き方</strong> の <strong>R</strong> の項は必読．</p>
-
-<h2 id="org-babel-evaluation-of-r-code-block">Org-babel evaluation of R code block</h2>
-
-<p><a href="http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/" target="_blank">R and Emacs with org mode</a>   <br />
-org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．</p>
-
-<pre><code class="language-lisp">#+TITLE: R-test
-#+AUTHOR: taipapa
-
-* Test
-
-  #+begin_src R :session *R* :results output graphics :file test1.png :exports both
-  boxplot(islands)
-  #+end_src
-
-  #+begin_src R :session *R* :results output graphics :file test2.png :exports both
-  library(&quot;ggplot2&quot;)
-  ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
-  geom_point()
-  #+END_SRC
-</code></pre>
-
-<p>C-c C-e h oとしてhtmlにexportすると，以下のように簡単にグラフがプロットされたhtmlが作成される．いちいちできたグラフ画像を挿入する必要はなく，自動で挿入される．便利である．</p>
-
 <figure>
 
-<img src="/img/R-test-html.png" width="100%" />
+<img src="/ox-hugo/test1.png" />
 
 
 </figure>
 
-<p>　　注意点としては，C-c C-e hoとしたときに， <strong>R starting project directory？</strong> と尋ねられるはずで，defaultの値として　/Data/hogehoge/hogefuga/ が既に表示されているはずである．これをそのままリターンすれば同じdirectoryにグラフが作成されて良きにはからってくれる．この際に異なるdirectoryを選んだりするとうまくいかないので注意．</p>
+<pre><code class="language-lisp">#+begin_src R :session *R* :results output graphics :file test2.png :exports both
+library(&quot;ggplot2&quot;)
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+geom_point()
+#+END_SRC
+</code></pre>
 
-<p>また，C-c C-e loとすると，自動でR plotの挿入されたpdfが作成されオープンする．</p>
+<figure>
 
-<p>これで準備が整った．次回はHugoで作成したブログにR plotを自動で差し込む方法をまとめる予定である．</p>
+<img src="/ox-hugo/test2.png" />
+
+
+</figure>
+
+<p>ちゃんとグラフが自動的に挿入されている．</p>
+
+<p>org-babelとRの組み合わせは強力で，ox-hugoも便利と改めて痛感．</p>
 
     </div>
 
@@ -392,17 +435,21 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 
 <div class="article-tags">
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/org-babel/">org-babel</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/export/">export</a>
-  
   <a class="label label-default" href="https://taipapamotohus.com/tags/r/">R</a>
   
   <a class="label label-default" href="https://taipapamotohus.com/tags/plot/">plot</a>
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/graph/">graph</a>
+  <a class="label label-default" href="https://taipapamotohus.com/tags/embed/">embed</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/hugo/">Hugo</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/ox/">ox</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/hugo/">hugo</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/blog/">blog</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
   
   <a class="label label-default" href="https://taipapamotohus.com/tags/org-mode/">org-mode</a>
   
@@ -418,7 +465,7 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
       <h3>Related</h3>
       <ul>
         
-        <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
+        <li><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></li>
         
         <li><a href="/post/adaptive-wrap/">Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</a></li>
         
@@ -426,7 +473,7 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
         
         <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools)</a></li>
         
-        <li><a href="/post/org-html-export-theme/">Org-modeでhtml exportの際のthemeについて</a></li>
+        <li><a href="/post/prodlim/">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</a></li>
         
       </ul>
     </div>
@@ -436,15 +483,10 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
     <div class="article-widget">
       <div class="post-nav">
   
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="https://taipapamotohus.com/post/embedrplotinblog/" rel="next">How to automatically embed R plot in blog created by Hugo via ox-hugo</a>
-  </div>
-  
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="https://taipapamotohus.com/post/prodlim/" rel="prev">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</a>
+    <a href="https://taipapamotohus.com/post/exportrplot/" rel="prev">How to automatically embed R plot into html exported by org-mode with org-babel</a>
   </div>
   
 </div>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Plot on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/plot/</link>
-    <description>Recent content in Plot on A perfect autumn day</description>
+    <title>Hugo on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/hugo/</link>
+    <description>Recent content in Hugo on A perfect autumn day</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="https://taipapamotohus.com/tags/plot/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://taipapamotohus.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>https://taipapamotohus.com/post/embedrplotinblog/</guid>
       <description>（承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdf</description>
-    </item>
-    
-    <item>
-      <title>How to automatically embed R plot into html exported by org-mode with org-babel</title>
-      <link>https://taipapamotohus.com/post/exportrplot/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/exportrplot/</guid>
-      <description>本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing</description>
     </item>
     
   </channel>
