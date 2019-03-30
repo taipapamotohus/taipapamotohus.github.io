@@ -108,7 +108,7 @@
   
   <meta property="article:published_time" content="2019-03-25T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2019-03-29T23:21:18&#43;09:00">
+  <meta property="article:modified_time" content="2019-03-30T11:50:27&#43;09:00">
   
 
   
@@ -263,8 +263,8 @@
         Last updated on
     
     <meta content="2019-03-25 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2019-03-29 23:21:18 &#43;0900 JST" itemprop="dateModified">
-      Mar 29, 2019
+    <time datetime="2019-03-30 11:50:27 &#43;0900 JST" itemprop="dateModified">
+      Mar 30, 2019
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -305,14 +305,15 @@
 <div class="heading">Table of Contents</div>
 
 <ul>
-<li><a href="#org-babel-setup">org-babel setup</a></li>
-<li><a href="#org-babel-evaluation-of-r-code-block">org-babel evaluation of R code block</a></li>
+<li><a href="#org-babel-setup">Org-babel setup</a></li>
+<li><a href="#how-to-use-org-babel">How to use org-babel</a></li>
+<li><a href="#org-babel-evaluation-of-r-code-block">Org-babel evaluation of R code block</a></li>
 </ul>
 
 <p></div>
 <!--endtoc--></p>
 
-<h2 id="org-babel-setup">org-babel setup</h2>
+<h2 id="org-babel-setup">Org-babel setup</h2>
 
 <p>org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;</p>
 
@@ -339,7 +340,16 @@
 #+end_src
 </code></pre>
 
-<h2 id="org-babel-evaluation-of-r-code-block">org-babel evaluation of R code block</h2>
+<h2 id="how-to-use-org-babel">How to use org-babel</h2>
+
+<p>以下のサイトを参考にした．</p>
+
+<p><strong>Ref 1:</strong> Official manual <a href="https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code" target="_blank">14 Working with Source Code</a></p>
+
+<p><strong>Ref 2:</strong> <a href="http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html" target="_blank">org-modeのコードブロック(Babel)の使い方</a>   <br />
+このサイトが分かりやすい．特に， <strong>ヘッダー引数</strong> と <strong>言語毎の書き方</strong> の <strong>R</strong> の項は必読．</p>
+
+<h2 id="org-babel-evaluation-of-r-code-block">Org-babel evaluation of R code block</h2>
 
 <p><a href="http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/" target="_blank">R and Emacs with org mode</a>   <br />
 org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．</p>
