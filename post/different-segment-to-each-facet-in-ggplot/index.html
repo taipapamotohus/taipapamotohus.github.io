@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.48" />
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分て">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/emacs.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="feed" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/">
+  <meta property="og:title" content="How to add different segment, annotation and color to each facet in ggplot | A perfect autumn day">
+  <meta property="og:description" content="今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分て"><meta property="og:image" content="https://taipapamotohus.com/img/headers/CasaRomana.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-04-06T00:00:00&#43;09:00">
+  
+  <meta property="article:modified_time" content="2019-04-07T16:30:49&#43;09:00">
+  
+
+  
+
+  
+
+  <title>How to add different segment, annotation and color to each facet in ggplot | A perfect autumn day</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#search">
+            
+            <span>Search</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/headers/CasaRomana.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption">Casa Romana dell&rsquo;Ara Coeli</span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">How to add different segment, annotation and color to each facet in ggplot</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2019-04-06 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-04-07 16:30:49 &#43;0900 JST" itemprop="dateModified">
+      Apr 7, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．</p>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#data-preparation">Data Preparation</a></li>
+<li><a href="#tukey-multiple-comparison">Tukey multiple comparison</a>
+
+<ul>
+<li><a href="#tukeyhsd">TukeyHSD</a></li>
+<li><a href="#テューキーの方法による多重比較">テューキーの方法による多重比較</a></li>
+</ul></li>
+<li><a href="#boxplot-by-ggplot2">Boxplot by ggplot2</a>
+
+<ul>
+<li><a href="#calculate-mean-and-se">Calculate mean and SE</a></li>
+<li><a href="#geom-jitter">geom_jitter</a></li>
+<li><a href="#geom-point">geom_point</a></li>
+<li><a href="#add-mean-bar">Add mean bar</a></li>
+</ul></li>
+<li><a href="#add-segment-and-asterisk-to-drug2-facet-of-boxplot">Add segment and asterisk to Drug2 facet of boxplot</a>
+
+<ul>
+<li><a href="#dataframe-for-annotation">Dataframe for annotation</a></li>
+<li><a href="#add-segment-with-geom-segment-and-asterisk-with-geom-text--black">Add segment with geom_segment and asterisk with geom_text (black)</a></li>
+<li><a href="#add-segment-with-geom-segment-and-asterisk-with-geom-text--color">Add segment with geom_segment and asterisk with geom_text (color)</a></li>
+</ul></li>
+<li><a href="#barplot-by-ggplot2">Barplot by ggplot2</a>
+
+<ul>
+<li><a href="#barplot">Barplot</a></li>
+</ul></li>
+<li><a href="#add-segment-and-asterisk-to-drug2-facet-of-barplot">Add segment and asterisk to Drug2 facet of barplot</a>
+
+<ul>
+<li><a href="#dataframe-for-annotation">Dataframe for annotation</a></li>
+<li><a href="#add-segment-with-geom-segment-and-asterisk-with-geom-text--color">Add segment with geom_segment and asterisk with geom_text (color)</a></li>
+</ul></li>
+<li><a href="#combine-boxplot-and-barplot-into-the-same-graphic">Combine boxplot and barplot into the same graphic</a></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://mukkujohn.hatenablog.com/entry/2016/09/29/212901" target="_blank">ggplot2を使って、注釈を入れる-2</a></li>
+<li><a href="https://buzzrbeeline.blog/2018/11/06/adding-different-annotation-to-each-facet-in-ggplot/" target="_blank">Adding different annotation to each facet in ggplot</a></li>
+<li><a href="https://stackoverflow.com/questions/24578352/add-a-segment-only-to-one-facet-using-ggplot2" target="_blank">Add a segment only to one facet using ggplot2</a></li>
+</ul>
+
+<h2 id="data-preparation">Data Preparation</h2>
+
+<p>まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．</p>
+
+<pre><code class="language-R">set.seed(100)
+data.df1 &lt;- data.frame(Control = rnorm(20, mean = 5, sd = 1),
+                       Day1 = rnorm(20, mean = 5, sd = 1.5),
+                       Day7 = rnorm(20, mean = 5, sd = 2))
+library(reshape)
+data_melt.df1 &lt;- melt(data.df1)
+
+data.df2 &lt;- data.frame(Control = rnorm(20, mean = 5, sd = 1.8),
+                       Day1 = rnorm(20, mean = 10, sd = 5),
+                       Day7 = rnorm(20, mean = 20, sd = 7))
+data_melt.df2 &lt;- melt(data.df2)
+
+data_melt.df &lt;- cbind.data.frame(data_melt.df1, data_melt.df2$value)
+colnames(data_melt.df) &lt;- c(&quot;Day&quot;,&quot;Drug1&quot;,&quot;Drug2&quot;) # chage column name of dataframe
+head(data_melt.df)
+</code></pre>
+
+<pre><code class="language-R">Using  as id variables
+Using  as id variables
+      Day    Drug1    Drug2
+1 Control 4.497808 4.528408
+2 Control 5.131531 4.876081
+3 Control 4.921083 4.318010
+4 Control 5.886785 9.647526
+5 Control 5.116971 5.233701
+6 Control 5.318630 3.716555
+</code></pre>
+
+<p>これで解析用のデータが出来上がった．一応，差を確認してみる．</p>
+
+<h2 id="tukey-multiple-comparison">Tukey multiple comparison</h2>
+
+<p>Tukeyの多重比較試験を行う．２つの方法で確認しておく．</p>
+
+<h3 id="tukeyhsd">TukeyHSD</h3>
+
+<pre><code class="language-R">TukeyHSD(aov(data_melt.df$Drug1~data_melt.df$Day))
+</code></pre>
+
+<pre><code class="language-R">  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = data_melt.df$Drug1 ~ data_melt.df$Day)
+
+$`data_melt.df$Day`
+                    diff       lwr      upr     p adj
+Day1-Control  0.03086351 -1.274284 1.336011 0.9982163
+Day7-Control -0.14426065 -1.449408 1.160887 0.9617765
+Day7-Day1    -0.17512416 -1.480272 1.130023 0.9442066
+</code></pre>
+
+<pre><code class="language-R">TukeyHSD(aov(data_melt.df$Drug2~data_melt.df$Day))
+</code></pre>
+
+<pre><code class="language-R">  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = data_melt.df$Drug2 ~ data_melt.df$Day)
+
+$`data_melt.df$Day`
+                  diff       lwr       upr     p adj
+Day1-Control  4.874433  1.128239  8.620628 0.0076229
+Day7-Control 15.114597 11.368403 18.860791 0.0000000
+Day7-Day1    10.240164  6.493970 13.986358 0.0000000
+</code></pre>
+
+<h3 id="テューキーの方法による多重比較"><a href="http://aoki2.si.gunma-u.ac.jp/R/tukey.html" target="_blank">テューキーの方法による多重比較</a></h3>
+
+<pre><code class="language-R">source(&quot;http://aoki2.si.gunma-u.ac.jp/R/src/tukey.R&quot;, encoding=&quot;euc-jp&quot;)
+tukey(data_melt.df$Drug1, data_melt.df$Day)
+</code></pre>
+
+<pre><code class="language-R">$result1
+        n     Mean Variance
+Group1 20 5.107867 0.516335
+Group2 20 5.138731 1.188671
+Group3 20 4.963606 7.119660
+
+$Tukey
+             t         p
+1:2 0.05690583 0.9982163
+1:3 0.26598637 0.9617765
+2:3 0.32289220 0.9442066
+
+$phi
+[1] 57
+
+$v
+[1] 2.941555
+</code></pre>
+
+<pre><code class="language-R">tukey(data_melt.df$Drug2, data_melt.df$Day)
+</code></pre>
+
+<pre><code class="language-R">$result1
+        n      Mean Variance
+Group1 20  4.811422  4.07251
+Group2 20  9.685855 32.74563
+Group3 20 19.926019 35.88609
+
+$Tukey
+           t            p
+1:2 3.131158 7.622857e-03
+1:3 9.709065 1.156397e-11
+2:3 6.577907 4.783876e-08
+
+$phi
+[1] 57
+
+$v
+[1] 24.23474
+</code></pre>
+
+<p>以上で，Drug1では物質Xの濃度はコントロールと差がないこと，Drug2ではコントロール，Day1，Day7の間に有意差が認められることが確認された．そのようにデータを作ったので当たり前である．．．(^^;;;;;</p>
+
+<h2 id="boxplot-by-ggplot2">Boxplot by ggplot2</h2>
+
+<p>ようやくここから上記のデータを使って，ggplot2でboxplotを描いてみる．まずはmeltを用いてwide formatからlong formatへのデータの整形を行う．</p>
+
+<pre><code class="language-R">DataM &lt;- melt(data_melt.df, id = &quot;Day&quot;)
+head(DataM)
+</code></pre>
+
+<pre><code class="language-R">      Day variable    value
+1 Control    Drug1 4.497808
+2 Control    Drug1 5.131531
+3 Control    Drug1 4.921083
+4 Control    Drug1 5.886785
+5 Control    Drug1 5.116971
+6 Control    Drug1 5.318630
+</code></pre>
+
+<h3 id="calculate-mean-and-se">Calculate mean and SE</h3>
+
+<p>平均とSEも求めておく．</p>
+
+<pre><code class="language-R">library(plyr)
+DataM_summary &lt;- ddply(DataM, .(variable, Day), summarise, N = length(value), mean = mean(value), sd = sd(value), se = sd(value)/sqrt(length(value)))
+DataM_summary
+</code></pre>
+
+<pre><code class="language-R">  variable     Day  N      mean        sd        se
+1    Drug1 Control 20  5.107867 0.7185645 0.1606759
+2    Drug1    Day1 20  5.138731 1.0902617 0.2437899
+3    Drug1    Day7 20  4.963606 2.6682692 0.5966431
+4    Drug2 Control 20  4.811422 2.0180460 0.4512488
+5    Drug2    Day1 20  9.685855 5.7223794 1.2795629
+6    Drug2    Day7 20 19.926019 5.9904997 1.3395165
+</code></pre>
+
+<p>ついで，ggplot2のggplotでboxplotを描く．個々のデータをgeom_jitter，あるいは，geom_pointを用いて重ねてプロットしておく．どちらの方法でも下記のように同じ図になる．</p>
+
+<h3 id="geom-jitter">geom_jitter</h3>
+
+<pre><code class="language-R">library(ggplot2)
+TestBoxPlot &lt;- ggplot(DataM, aes(x = Day, y = value, colour = Day, fill = Day)) +
+    geom_boxplot(alpha = 0.40) +
+    facet_wrap(~variable, ncol = 3, scales=&quot;fixed&quot;) +
+    coord_cartesian(ylim = c(0,38)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&quot;&quot;) +
+    ylab(&quot;Relative value to control&quot;) +
+    theme(legend.position = &quot;none&quot;) +   # delete legend
+    geom_jitter(shape=16, size=2, position=position_jitter(0.1))  # plot individual point with jittering
+
+TestBoxPlot
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Boxplot1.png" />
+
+
+</figure>
+
+<h3 id="geom-point">geom_point</h3>
+
+<pre><code class="language-R">TestBoxPlot2 &lt;- ggplot(DataM, aes(x = Day, y = value, colour = Day, fill = Day)) +
+    geom_boxplot(alpha = 0.40) +
+    facet_wrap(~variable, ncol = 3, scales=&quot;fixed&quot;) +
+    coord_cartesian(ylim = c(0,38)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&quot;&quot;) +
+    ylab(&quot;Relative value to control&quot;) +
+    theme(legend.position = &quot;none&quot;) +   # delete legend
+    geom_point(aes(fill = Day), size = 2, shape = 16, position = position_jitterdodge())  # plot individual point with jittering
+
+TestBoxPlot2
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Boxplot2.png" />
+
+
+</figure>
+
+<h3 id="add-mean-bar">Add mean bar</h3>
+
+<p><strong>Ref:</strong> <a href="https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot" target="_blank">combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot</a>   <br />
+平均値のバーを書き込む．これはgeom_segmentを使うが，すべてのfacetに書き込むので，単純である．</p>
+
+<pre><code class="language-R">TestBoxPlot3 &lt;- TestBoxPlot +
+    geom_segment(data = DataM_summary, aes(x=as.numeric(as.factor(Day)) - 0.5,
+                                           xend=as.numeric(as.factor(Day)) + 0.5,
+                                           yend=mean,
+                                           y=mean,
+                                           colour=Day,
+                                           alpha=0.7),
+                 size = 1.5, linetype = 1)
+
+TestBoxPlot3
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Boxplot1mean.png" />
+
+
+</figure>
+
+<h2 id="add-segment-and-asterisk-to-drug2-facet-of-boxplot">Add segment and asterisk to Drug2 facet of boxplot</h2>
+
+<h3 id="dataframe-for-annotation">Dataframe for annotation</h3>
+
+<p>ここからが本番である．上記で作成したグラフを見ながら，どこからどこに線を引けばよいのか，どこにasteriskを置けばよいのか大体の見当をつけたうえで，注釈用のデータフレームを別途作成する．これは手作業でやらざるを得ない．できたグラフを見て微調整をしていく．</p>
+
+<pre><code class="language-R">anno &lt;- data.frame(
+    x=c(0.9, 0.9, 3.1, 1.1, 1.1, 1.9, 2.1, 2.1, 2.9),
+    y=c(10.5, 37, 37, 10.5, 26, 26, 23.5, 34, 34),
+    xend=c(0.9, 3.1, 3.1, 1.1, 1.9, 1.9, 2.1, 2.9, 2.9),
+    yend=c(37, 37, 32.5, 26, 26, 23.5, 34, 34, 32.5),
+    variable=&quot;Drug2&quot;,
+    xstar = c(1.5, 2, 2.5, NA, NA, NA, NA, NA, NA),
+    ystar = c(27, 38, 35, NA, NA, NA, NA, NA, NA),
+    lab = c(&quot;**&quot;, &quot;***&quot;, &quot;***&quot;, NA, NA, NA, NA, NA, NA),
+    ast.color = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, NA, NA, NA, NA, NA, NA))
+
+anno
+</code></pre>
+
+<pre><code class="language-R">    x    y xend yend variable xstar ystar  lab ast.color
+1 0.9 10.5  0.9 37.0    Drug2   1.5    27   **       red
+2 0.9 37.0  3.1 37.0    Drug2   2.0    38  ***      blue
+3 3.1 37.0  3.1 32.5    Drug2   2.5    35  ***     green
+4 1.1 10.5  1.1 26.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+5 1.1 26.0  1.9 26.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+6 1.9 26.0  1.9 23.5    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+7 2.1 23.5  2.1 34.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+8 2.1 34.0  2.9 34.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+9 2.9 34.0  2.9 32.5    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+</code></pre>
+
+<p>x, y, xend, yendは各線分の始点と終点で，xstar, ystarは注釈，今回はasteriskの位置を示す．labはasteriskそのものを指示し，colorはasteriskの色を指定している．</p>
+
+<h3 id="add-segment-with-geom-segment-and-asterisk-with-geom-text--black">Add segment with geom_segment and asterisk with geom_text (black)</h3>
+
+<p>geom_segmentで線を引いて，geom_textでasteriskをつける．まずは黒色でやってみる． <strong>inherit.aes=FALSE</strong> をgeom_text()とgeom_segment()の内部に追加してggplot()内のfill=Dayを無視させる．</p>
+
+<pre><code class="language-R">TestBoxPlot3 +
+    geom_text(data = anno, aes(x = xstar, y = ystar, label = lab, colour = NULL), size = 7, family = &quot;Times New Roman&quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Boxplot1mean_anno.png" />
+
+
+</figure>
+
+<h3 id="add-segment-with-geom-segment-and-asterisk-with-geom-text--color">Add segment with geom_segment and asterisk with geom_text (color)</h3>
+
+<p>asteriskに色をつける．データフレーム annoに書き込んだ色データを明示的に指示して利用する．</p>
+
+<pre><code class="language-R">TestBoxPlot3 +
+    geom_text(data = anno, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &quot;Times New Roman&quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Boxplot1mean_anno_color.png" />
+
+
+</figure>
+
+<p>問題はここである．どうしても， <strong>colour = anno$ast.color</strong> とデータフレームと変数を明示的に指示しないと色がおかしくなるか，エラーになってしまう．もっとうまくggplotにデータを読ませる方法をどなたかご教示いただければ幸甚である．</p>
+
+<h2 id="barplot-by-ggplot2">Barplot by ggplot2</h2>
+
+<p>次にbarplotを描いて同じことをやってみる．エラーバーは慣例通りSEにする．</p>
+
+<h3 id="barplot">Barplot</h3>
+
+<pre><code class="language-R">TestBarPlot &lt;- ggplot(DataM_summary, aes(x = Day, y = mean, colour = Day, fill=Day)) +
+    geom_errorbar(aes(ymin = mean, ymax = mean + se), width = 0.2) +
+    geom_bar(position=position_dodge(), stat=&quot;identity&quot;, alpha=1/2, width=0.5) +
+    facet_wrap(~variable, scales = &quot;fixed&quot;, ncol=3) +
+    coord_cartesian(ylim = c(0,30)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&quot;&quot;) +
+    ylab(&quot;Relative value to control&quot;) +
+    theme(legend.position = &quot;none&quot;)   # delete legend
+
+TestBarPlot
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Barplot1.png" />
+
+
+</figure>
+
+<h2 id="add-segment-and-asterisk-to-drug2-facet-of-barplot">Add segment and asterisk to Drug2 facet of barplot</h2>
+
+<h3 id="dataframe-for-annotation-1">Dataframe for annotation</h3>
+
+<pre><code class="language-R">anno2 &lt;- data.frame(
+    x=c(0.9, 0.9, 3.1, 1.1, 1.1, 1.9, 2.1, 2.1, 2.9),
+    y=c(6.5, 29, 29, 6.5, 17, 17, 12.5, 25, 25),
+    xend=c(0.9, 3.1, 3.1, 1.1, 1.9, 1.9, 2.1, 2.9, 2.9),
+    yend=c(29, 29, 22.5, 17, 17, 12.5, 25, 25, 22.5),
+    variable=&quot;Drug2&quot;,
+    xstar = c(1.5, 2, 2.5, NA, NA, NA, NA, NA, NA),
+    ystar = c(17.5, 29.5, 25.5, NA, NA, NA, NA, NA, NA),
+    lab = c(&quot;**&quot;, &quot;***&quot;, &quot;***&quot;, NA, NA, NA, NA, NA, NA),
+    ast.color = c(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, NA, NA, NA, NA, NA, NA))
+
+anno2
+</code></pre>
+
+<pre><code class="language-R">    x    y xend yend variable xstar ystar  lab ast.color
+1 0.9  6.5  0.9 29.0    Drug2   1.5  17.5   **       red
+2 0.9 29.0  3.1 29.0    Drug2   2.0  29.5  ***      blue
+3 3.1 29.0  3.1 22.5    Drug2   2.5  25.5  ***     green
+4 1.1  6.5  1.1 17.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+5 1.1 17.0  1.9 17.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+6 1.9 17.0  1.9 12.5    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+7 2.1 12.5  2.1 25.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+8 2.1 25.0  2.9 25.0    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+9 2.9 25.0  2.9 22.5    Drug2    NA    NA &lt;NA&gt;      &lt;NA&gt;
+</code></pre>
+
+<h3 id="add-segment-with-geom-segment-and-asterisk-with-geom-text--color-1">Add segment with geom_segment and asterisk with geom_text (color)</h3>
+
+<pre><code class="language-R">TestBarPlot +
+    geom_text(data = anno2, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &quot;Times New Roman&quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno2, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Barplot1_anno_color.png" />
+
+
+</figure>
+
+<p>barplotでも全く同様のグラフを作成することができた．</p>
+
+<p>なお，通常のグラフをpdfで出力して，それをOmniGraffleなどのお絵かきソフトに持っていき，手作業で線やasteriskを描いて，再びpdfで出力する，という荒業も使えないことはない．しかし，ggplotの中で完結できるので，余分で面倒な手作業が不要になった．まぁ，上記の作業も面倒ではあるが，再現性があり，他の人にも渡せるというところが重要であると思う．</p>
+
+<h2 id="combine-boxplot-and-barplot-into-the-same-graphic">Combine boxplot and barplot into the same graphic</h2>
+
+<p><strong>Ref1:</strong> <a href="https://github.com/thomasp85/patchwork" target="_blank">patchwork</a>   <br />
+<strong>Ref2:</strong> <a href="https://qiita.com/nozma/items/4512623bea296ccb74ba" target="_blank">patchworkを使って複数のggplotを組み合わせる</a></p>
+
+<p>patchworkを使えば，上記の２種のグラフを簡単に一つの図にできる．比較しやすいようにbarplotのy軸のスケールをboxplotと同じに修正しておく．</p>
+
+<pre><code class="language-R"># Boxplot
+P1 &lt;- TestBoxPlot3 +
+    geom_text(data = anno, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &quot;Times New Roman&quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+
+# Barplot
+TestBarPlot2 &lt;- ggplot(DataM_summary, aes(x = Day, y = mean, colour = Day, fill=Day)) +
+    geom_errorbar(aes(ymin = mean, ymax = mean + se), width = 0.2) +
+    geom_bar(position=position_dodge(), stat=&quot;identity&quot;, alpha=1/2, width=0.5) +
+    facet_wrap(~variable, scales = &quot;fixed&quot;, ncol=3) +
+    coord_cartesian(ylim = c(0,38)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&quot;&quot;) +
+    ylab(&quot;Relative value to control&quot;) +
+    theme(legend.position = &quot;none&quot;)   # delete legend
+P2 &lt;- TestBarPlot2 +
+    geom_text(data = anno2, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &quot;Times New Roman&quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno2, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+
+library(patchwork)
+P1 + P2
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/Combined.png" />
+
+
+</figure>
+
+<p>このpatchworkは足し算だけで２つの図の合体ができてしまうすぐれもの．ちゃんと位置合わせなども自動的にしてくれる．素晴らしい．</p>
+
+<p>しかし，こうして並べて比べてみると，barplotが如何に情報量の少ないグラフであるかが一目瞭然である．</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/r/">R</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/ggplot2/">ggplot2</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/facet/">facet</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/segment/">segment</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/annotation/">annotation</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/colour/">colour</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/patchwork/">patchwork</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></li>
+        
+        <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
+        
+        <li><a href="/post/prodlim/">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</a></li>
+        
+        <li><a href="/post/r_homebrew_update_error/">RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="https://taipapamotohus.com/post/embedrplotinblog/" rel="prev">How to automatically embed R plot in blog created by Hugo via ox-hugo</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+    <p class="powered-by">
+      <a href="https://taipapamotohus.com/privacy/">Privacy Policy</a>
+    </p>
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/emacs-lisp.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/search.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>How to add different segment, annotation and color to each facet in ggplot</title>
+      <link>https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/</guid>
+      <description>今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分て</description>
+    </item>
+    
+    <item>
       <title>How to automatically embed R plot in blog created by Hugo via ox-hugo</title>
       <link>https://taipapamotohus.com/post/embedrplotinblog/</link>
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
