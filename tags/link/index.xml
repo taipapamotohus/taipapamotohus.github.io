@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Link on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/link/</link>
+    <description>Recent content in Link on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/tags/link/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</title>
+      <link>https://taipapamotohus.com/post/peep/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/peep/</guid>
+      <description>最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいこと</description>
+    </item>
+    
+  </channel>
+</rss>
