@@ -18,7 +18,7 @@
       <guid>https://taipapamotohus.com/post/mojave/</guid>
       <description>
 
-&lt;p&gt;世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく &lt;strong&gt;mojave&lt;/strong&gt; にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．&lt;/p&gt;
+&lt;p&gt;世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから &lt;strong&gt;Mojave&lt;/strong&gt; にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．&lt;/p&gt;
 
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
 &lt;div&gt;&lt;/div&gt;
@@ -26,7 +26,7 @@
 &lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#upgrade-to-mojave&#34;&gt;Upgrade to Mojave&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-xcode-10-dot-2-dot-1&#34;&gt;Upgrade to Xcode 10.2.1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-emacs-26-dot-2-from-26-dot-1&#34;&gt;Upgrade to Emacs 26.2 from 26.1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#latex&#34;&gt;LaTeX&lt;/a&gt;&lt;/li&gt;
@@ -36,7 +36,7 @@
 &lt;p&gt;&lt;/div&gt;
 &lt;!--endtoc--&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;upgrade-to-mojave&#34;&gt;Upgrade to Mojave&lt;/h2&gt;
+&lt;h2 id=&#34;upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://support.apple.com/ja-jp/HT201475&#34; target=&#34;_blank&#34;&gt;macOS Mojave にアップグレードする方法&lt;/a&gt;&lt;/p&gt;
 
