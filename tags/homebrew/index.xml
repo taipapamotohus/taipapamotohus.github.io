@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</title>
+      <link>https://taipapamotohus.com/post/mojave/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/mojave/</guid>
+      <description>世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく mojave にupg</description>
+    </item>
     
     <item>
       <title>RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</title>

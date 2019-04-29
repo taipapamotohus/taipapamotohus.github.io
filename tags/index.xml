@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 27 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>26-2</title>
+      <link>https://taipapamotohus.com/tags/26-2/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/26-2/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Adaptive</title>
@@ -213,7 +222,7 @@
     <item>
       <title>Emacs</title>
       <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
@@ -285,7 +294,7 @@
     <item>
       <title>Homebrew</title>
       <link>https://taipapamotohus.com/tags/homebrew/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/homebrew/</guid>
       <description></description>
@@ -423,6 +432,15 @@
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mojave</title>
+      <link>https://taipapamotohus.com/tags/mojave/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/mojave/</guid>
       <description></description>
     </item>
     
@@ -729,6 +747,15 @@
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/update/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Upgrade</title>
+      <link>https://taipapamotohus.com/tags/upgrade/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/upgrade/</guid>
       <description></description>
     </item>
     

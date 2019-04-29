@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいこと">
+  <meta name="description" content="世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく mojave にupg">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/peep/">
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/mojave/">
 
   
 
@@ -96,26 +96,26 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://taipapamotohus.com/post/peep/">
+  <link rel="canonical" href="https://taipapamotohus.com/post/mojave/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="https://taipapamotohus.com/post/peep/">
-  <meta property="og:title" content="peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法） | A perfect autumn day">
-  <meta property="og:description" content="最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいこと"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Ikaruga.jpg">
+  <meta property="og:url" content="https://taipapamotohus.com/post/mojave/">
+  <meta property="og:title" content="Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew | A perfect autumn day">
+  <meta property="og:description" content="世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく mojave にupg"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Vancouver.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-04-19T00:00:00&#43;09:00">
+  <meta property="article:published_time" content="2019-04-29T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2019-04-20T13:33:45&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2019-04-30T01:00:57&#43;09:00">
   
 
   
 
-  <title>peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法） | A perfect autumn day</title>
+  
+
+  <title>Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -236,16 +236,16 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/Ikaruga.jpg" class="article-banner" itemprop="image">
+    <img src="/img/headers/Vancouver.jpg" class="article-banner" itemprop="image">
   
 
-  <span class="article-header-caption">Ikaruga-cho</span>
+  <span class="article-header-caption">Vancouver</span>
 </div>
 
 
 
   <div class="article-container">
-    <h1 itemprop="name">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</h1>
+    <h1 itemprop="name">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</h1>
 
     
 
@@ -262,9 +262,9 @@
     
         Last updated on
     
-    <meta content="2019-04-19 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2019-04-20 13:33:45 &#43;0900 JST" itemprop="dateModified">
-      Apr 20, 2019
+    <meta content="2019-04-29 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-04-30 01:00:57 &#43;0900 JST" itemprop="dateModified">
+      Apr 30, 2019
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -274,14 +274,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    4 min read
+    5 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="https://taipapamotohus.com/post/peep/#disqus_thread"></a>
+  <a href="https://taipapamotohus.com/post/mojave/#disqus_thread"></a>
   
 
   
@@ -297,7 +297,7 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．</p>
+<p>世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく <strong>mojave</strong> にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．</p>
 
 <div class="ox-hugo-toc toc">
 <div></div>
@@ -305,64 +305,101 @@
 <div class="heading">Table of Contents</div>
 
 <ul>
-<li><a href="#references">References</a></li>
-<li><a href="#peep-diredのインストールと設定">peep-diredのインストールと設定</a></li>
-<li><a href="#peep-diredの使い方">peep-diredの使い方</a></li>
-<li><a href="#bjm-ivy-dired-recent-dirs-最近開けたdirectoryを一覧表示する方法-おまけ">bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）</a></li>
+<li><a href="#upgrade-to-mojave">Upgrade to Mojave</a></li>
+<li><a href="#upgrade-to-xcode-10-dot-2-dot-1">Upgrade to Xcode 10.2.1</a></li>
+<li><a href="#upgrade-to-emacs-26-dot-2-from-26-dot-1">Upgrade to Emacs 26.2 from 26.1</a></li>
+<li><a href="#latex">LaTeX</a></li>
+<li><a href="#感想">感想</a></li>
 </ul>
 
 <p></div>
 <!--endtoc--></p>
 
-<h2 id="references">References</h2>
+<h2 id="upgrade-to-mojave">Upgrade to Mojave</h2>
 
-<ul>
-<li><a href="https://github.com/asok/peep-dired" target="_blank">peep-dired</a></li>
-<li><a href="http://pragmaticemacs.com/emacs/quickly-preview-images-and-other-files-with-peep-dired/" target="_blank">QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED</a></li>
-</ul>
+<p><strong>Ref:</strong> <a href="https://support.apple.com/ja-jp/HT201475" target="_blank">macOS Mojave にアップグレードする方法</a></p>
 
-<h2 id="peep-diredのインストールと設定">peep-diredのインストールと設定</h2>
+<p>結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．</p>
 
-<p>例によって，use-packagを用いて以下のように，init.orgに書けばよい．</p>
+<h2 id="upgrade-to-xcode-10-dot-2-dot-1">Upgrade to Xcode 10.2.1</h2>
 
-<pre><code class="language-lisp">#+begin_src emacs-lisp
-(use-package peep-dired
-  :ensure t
-  :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded
-  :bind (:map dired-mode-map
-              (&quot;P&quot; . peep-dired)))
-#+end_src
+<p>早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして <strong>brew install</strong> すると以下のようなエラーが出る．</p>
+
+<pre><code class="language-sh">$ brew install hogehoge
+.........
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
 </code></pre>
 
-<p>設定は上記参照サイトのパクリで，diredで&rdquo;P&rdquo;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&rdquo;P&rdquo;と打つとpeep-dired modeは終了する．　</p>
+<p>これは，「<a href="https://gotohayato.com/content/487" target="_blank">macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題</a>」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．</p>
 
-<h2 id="peep-diredの使い方">peep-diredの使い方</h2>
+<pre><code class="language-sh">xcode-select --install
+</code></pre>
 
-<p>File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&rdquo;P&rdquo;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．</p>
+<p>さぁ，これでようやくと思って，再度 <strong>brew install</strong> すると，またもエラーである&hellip;..(ToT)</p>
 
-<figure>
-<a href="/img/peep-dired_ex1.jpeg" target="_self">
-<img src="/img/peep-dired_ex1.jpeg" width="100%" />
-</a>
+<pre><code class="language-sh">$ brew install hogehoge
+..........
+Error: parent directory is world writable but not sticky
+Please report this bug:
+https://docs.brew.sh/Troubleshooting
+</code></pre>
 
-</figure>
+<p>調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．</p>
 
-<p>ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．</p>
+<p><strong>Ref 1:</strong> <a href="https://qiita.com/analsky/items/20755a3ba10119e9a4b6" target="_blank">brew で `Error: parent directory is world writable but not sticky`</a> <br />
+<strong>Ref 2:</strong> <a href="https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky" target="_blank">Error: parent directory is world writable but not sticky</a> <br />
+上記サイトの記載に従って，ls -ld /tmpを行うと以下のようになる．</p>
 
-<figure>
-<a href="/img/peep-dired_ex3.jpg" target="_self">
-<img src="/img/peep-dired_ex3.jpg" width="100%" />
-</a>
+<pre><code class="language-sh">$ ls -ld /tmp
+lrwxr-xr-x@ 1 root  wheel  11  4 27 18:45 /tmp@ -&gt; private/tmp
+</code></pre>
 
-</figure>
+<p>これは，tmp directoryはprivate/tmpを使用しているということであり，以下のようにしてpermissionを付与する．</p>
 
-<p>文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．</p>
+<pre><code class="language-sh">$ sudo chmod +t /private/tmp
+</code></pre>
 
-<h2 id="bjm-ivy-dired-recent-dirs-最近開けたdirectoryを一覧表示する方法-おまけ">bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）</h2>
+<p>私の場合はこれでbrewが働くようになった．これらの操作は，今後のmajor upgradeの際にはまた必要になりそうなので，ここにまとめておく．</p>
 
-<p>diredでdirectoryを開けるときにその名前を入力する必要があるが，これが結構面倒である．特に深いところにあるファイルはフルパスを書くのが大変である．どうせ，同じファイルに何回も行くことが多いので，「最近訪れたdirectoryの履歴」みたいなのが一覧表示されると嬉しい．まさに，こんなのぞみにピッタリのものが，bjm/ivy-dired-recent-dirsである．これについては，以前に書いたのでそちらを参考にしていただきたい．というか，以前に書いた事自体を忘れていたので，自分への戒めとして記録しておく．．．(^^;;;</p>
+<h2 id="upgrade-to-emacs-26-dot-2-from-26-dot-1">Upgrade to Emacs 26.2 from 26.1</h2>
 
-<p><strong>Ref:</strong> <a href="https://taipapamotohus.com/post/swiper%5Fmigemo/#最近開いたディレクトリを開く" target="_blank">最近開いたディレクトリを開く</a></p>
+<p>ようやくEmacsのupgradeである．mojaveにupgradeした直後にemacs26.1を起動してみるとキーが効かなかったような気がするが，26.2にupgradeするので，気にせず先に進んだ&hellip;..(^^;;;　以前の記事（<a href="../emacs_install">Emacsのインストール</a>）に書いたようにhomebrewでemacs-macを入れればよいのだが，念の為に単なるupgradeは避けて，Emacs 26.1をuninstallし，~/.emac.dも退避させてから，インストールし直すことにした．<a href="https://github.com/railwaycat/homebrew-emacsmacport" target="_blank">Emacs Mac Port</a>の最終更新はわずか2週間前でありいろいろな問題が解決されていると期待してのupgradeである．</p>
+
+<pre><code class="language-sh">$ cd
+$ mv .emacs.d .emac.d.old  # change name of old .emacs.d
+$ brew tap railwaycat/emacsmacport
+$ brew uninstall emacs-mac  # uninstall old emacs-mac
+$ brew install emacs-mac --with-modern-icon --with-imagemagick  # install new emacs-mac
+$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
+</code></pre>
+
+<p>これで，<br />
+<strong>/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)</strong> <br />
+から <br />
+<strong>/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)</strong>  <br />
+へのupgradeが終了した．</p>
+
+<p>あとは，以前に書いた以下の記事に従ってセットアップした．<br />
+<a href="../prelude_install">Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</a> <br />
+<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>  <br />
+<a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></p>
+
+<h2 id="latex">LaTeX</h2>
+
+<p>これについては，以前の記事「<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a>」で書いたとおり <strong>MacTeX 2018</strong> のままである．正確に言うと，mojaveにupgradeする直前に以下のようにして最新版にアップデートしておいた．</p>
+
+<pre><code class="language-sh">$ sudo tlmgr update --self --all
+</code></pre>
+
+<p>400個ぐらいのパッケージのアップデートに30-40分を要した．</p>
+
+<p><strong>ヒラギノフォントの埋め込み</strong> についても上述の記事に書いたように，既に，<a href="https://github.com/munepi/bibunsho7-patch/releases" target="_blank">bibunsho7-patch</a>を適応済みなので，問題ないと考えた．</p>
+
+<p>mojaveにupgradeしてから，latexmkによるcompileやorg-modeからのlatex exportなどを試してみたが，pdfの生成に特に問題なく，また，pdfへのヒラギノフォントの埋め込みも問題なくできていた．</p>
+
+<h2 id="感想">感想</h2>
+
+<p>ネットでは，いろいろ問題ありとの情報が多く様子見をしていたのだが，待ってる間に色々と解決した部分も多いのか，ほとんど大きなトラブルもなくアップグレードできた．なお， <strong>Time Machine</strong> によるバックアップも問題なくできている．「案ずるより産むが易し」であった．</p>
 
     </div>
 
@@ -371,17 +408,15 @@
 
 <div class="article-tags">
   
+  <a class="label label-default" href="https://taipapamotohus.com/tags/mojave/">Mojave</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/upgrade/">upgrade</a>
+  
   <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/dired/">dired</a>
+  <a class="label label-default" href="https://taipapamotohus.com/tags/26-2/">26-2</a>
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/peep-dired/">peep-dired</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/org-mode/">org-mode</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/image/">image</a>
-  
-  <a class="label label-default" href="https://taipapamotohus.com/tags/link/">link</a>
+  <a class="label label-default" href="https://taipapamotohus.com/tags/homebrew/">homebrew</a>
   
 </div>
 
@@ -395,15 +430,15 @@
       <h3>Related</h3>
       <ul>
         
+        <li><a href="/post/emacs_install/">Emacsのインストール</a></li>
+        
+        <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
+        
         <li><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></li>
         
         <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
         
         <li><a href="/post/adaptive-wrap/">Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</a></li>
-        
-        <li><a href="/post/auto_html_export/">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a></li>
-        
-        <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools)</a></li>
         
       </ul>
     </div>
@@ -413,15 +448,10 @@
     <div class="article-widget">
       <div class="post-nav">
   
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="https://taipapamotohus.com/post/mojave/" rel="next">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a>
-  </div>
-  
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/" rel="prev">How to add different segment, annotation and color to each facet in ggplot</a>
+    <a href="https://taipapamotohus.com/post/peep/" rel="prev">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a>
   </div>
   
 </div>

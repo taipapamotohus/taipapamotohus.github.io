@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Upgrade on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/upgrade/</link>
+    <description>Recent content in Upgrade on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/tags/upgrade/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</title>
+      <link>https://taipapamotohus.com/post/mojave/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/mojave/</guid>
+      <description>世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく mojave にupg</description>
+    </item>
+    
+  </channel>
+</rss>
