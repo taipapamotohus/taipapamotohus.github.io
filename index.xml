@@ -29,7 +29,11 @@
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-xcode-10-dot-2-dot-1&#34;&gt;Upgrade to Xcode 10.2.1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-emacs-26-dot-2-from-26-dot-1&#34;&gt;Upgrade to Emacs 26.2 from 26.1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#latex&#34;&gt;LaTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#latex&#34;&gt;LaTeX&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#pdfにフォントが埋め込まれているかどうかを確認する方法&#34;&gt;pdfにフォントが埋め込まれているかどうかを確認する方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#感想&#34;&gt;感想&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -117,6 +121,33 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 &lt;p&gt;&lt;strong&gt;ヒラギノフォントの埋め込み&lt;/strong&gt; についても上述の記事に書いたように，既に，&lt;a href=&#34;https://github.com/munepi/bibunsho7-patch/releases&#34; target=&#34;_blank&#34;&gt;bibunsho7-patch&lt;/a&gt;を適応済みなので，問題ないと考えた．&lt;/p&gt;
 
 &lt;p&gt;mojaveにupgradeしてから，latexmkによるcompileやorg-modeからのlatex exportなどを試してみたが，pdfの生成に特に問題なく，また，pdfへのヒラギノフォントの埋め込みも問題なくできていた．&lt;/p&gt;
+
+&lt;h3 id=&#34;pdfにフォントが埋め込まれているかどうかを確認する方法&#34;&gt;pdfにフォントが埋め込まれているかどうかを確認する方法&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Ref:&lt;/strong&gt;&lt;a href=&#34;https://qiita.com/Aqua%5Fix/items/d277fb7e4667d6616c1e&#34; target=&#34;_blank&#34;&gt; PDFのフォント埋め込み&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以下のようにhomebrewでpopplerをインストールすれば，その中の &lt;strong&gt;pdffonts&lt;/strong&gt; というコマンドを使って確認することができる．このpopplerは以前の記事（&lt;a href=&#34;../pdf-tools&#34;&gt;Emacsでpdfを読む (pdf-tools)&lt;/a&gt;）で既にインストールしているが，もう一度書いておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install poppler
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;たとえば，latexで生成したhogehoge.pdfのフォントの埋め込みを調べるためには，pdffontsを以下のように使う．*emb* の項目で埋め込みの有無がわかる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pdffonts hogehoge.pdf
+name                                 type              encoding         emb sub
+------------------------------------ ----------------- ---------------- --- ---
+KQKHHV+LMSans10-Bold                 Type 1C           Custom           yes yes
+JQHYHW+LMRoman17-Regular             Type 1C           Custom           yes yes
+FENZQQ+HiraMinProN-W3-Identity-H     CID Type 0C       Identity-H       yes yes
+ZHPQAJ+LMRoman12-Regular             Type 1C           Custom           yes yes
+BMLTDB+HiraKakuProN-W6-Identity-H    CID Type 0C       Identity-H       yes yes
+NOWECW+LMRoman12-Regular             Type 1C           Custom           yes yes
+SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;確かに，すべてのフォントは &lt;strong&gt;emb = yes&lt;/strong&gt; になっており，埋め込まれているのが確認できた．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;感想&#34;&gt;感想&lt;/h2&gt;
 
