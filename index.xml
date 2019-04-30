@@ -132,7 +132,7 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install poppler
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;たとえば，latexで生成したhogehoge.pdfのフォントの埋め込みを調べるためには，pdffontsを以下のように使う．*emb* の項目で埋め込みの有無がわかる．&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;たとえば，latexで生成したhogehoge.pdfのフォントの埋め込みを調べるためには，pdffontsを以下のように使う． &lt;strong&gt;emb&lt;/strong&gt; の項目で埋め込みの有無がわかる．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pdffonts hogehoge.pdf
 name                                 type              encoding         emb sub
