@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>How to add horizontal scrollbar for codeblock in academic theme of hugo</title>
+      <link>https://taipapamotohus.com/post/horizontal_scrollbar/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/horizontal_scrollbar/</guid>
+      <description>いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中が</description>
+    </item>
+    
+    <item>
       <title>Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</title>
       <link>https://taipapamotohus.com/post/mojave/</link>
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
@@ -225,7 +234,7 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/latexmk/</guid>
-      <description>Table of Contents TeX Live 2018のインストール TeX Live 2018のインストール（2018年9月1日追記） ヒラギノフォントの埋め込みなど インストール後のパス</description>
+      <description>Table of Contents HAHAHUGOSHORTCODE-TOC0-HBHB TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 20</description>
     </item>
     
     <item>
@@ -234,7 +243,7 @@
       <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/japanese_setup/</guid>
-      <description>ようやく，ここからinit.orgの具体的な記述になる． Table of Contents Coding systemの設定 Inline-patchの設定 Coding systemの設定 まずは</description>
+      <description>ようやく，ここからinit.orgの具体的な記述になる． Table of Contents HAHAHUGOSHORTCODE-TOC0-HBHB Coding systemの設定 まずは，coding systemの設定，つまり，日本語</description>
     </item>
     
     <item>

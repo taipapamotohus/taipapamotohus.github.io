@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A perfect autumn day on A perfect autumn day</title>
@@ -7,8 +6,165 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 02 May 2019 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to add horizontal scrollbar for codeblock in academic theme of hugo</title>
+      <link>https://taipapamotohus.com/post/horizontal_scrollbar/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/horizontal_scrollbar/</guid>
+      <description>
+
+&lt;p&gt;いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中がみんなお祝いしてる，凄いぞ，TeX．．．．と思ったら，全然違った．．．これでまた年齢計算が複雑になる．システム担当者は大変である．まぁ，西暦を使用すればいいだけの話ではあるが．．．．．というわけで，今回はTeXの話，ではなくて，ブログのCodeBlockの長い行がwrapされるのは２行と間違うことがあるので，scrollbarをつけましょうという話である．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#wrap-or-scroll&#34;&gt;Wrap or scroll?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-add-horizontal-scrollbar&#34;&gt;How to add horizontal scrollbar&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ref&#34;&gt;Ref&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#academic-theme-version&#34;&gt;academic theme version&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cssの変更&#34;&gt;cssの変更&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-or-scroll&#34;&gt;Wrap or scroll?&lt;/h2&gt;
+
+&lt;p&gt;以前の記事でも触れたように（&lt;a href=&#34;../embedrplotinblog&#34;&gt;How to automatically embed R plot in blog created by Hugo via ox-hugo&lt;/a&gt;），このサイトは，ox-hugoというorg-modeのパッケージで書いて，Hugoという静的サイトジェネレーター（themeはacademic）で作っているのだが，code blockの長い行がwrapされて，つまり，折り畳まれて表示されるようになっていた．Rのcodeで示してみると，こんな感じである．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/wrap.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;これは３行のcodeであるが，はっきり言って見にくい．．．．．　&lt;/p&gt;
+
+&lt;p&gt;行番号を入れるという方法もあるが，それよりもscrollbarをつけて横にスライドさせる方が分かりやすい．つまり，こうである．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &amp;quot;&amp;quot;, main = &amp;quot;Drug1&amp;quot;, xaxt=&amp;quot;n&amp;quot;, cex.axis=1.5, ylab=&amp;quot;Relative value&amp;quot;, cex.lab = 1.5, pch=16, cex = 1.5)
+axis(1,at=c(1,2,3),formatC(c(&amp;quot;Control&amp;quot;, &amp;quot;Day1&amp;quot;, &amp;quot;Day7&amp;quot;)), cex.axis=1.5)
+beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, col=c(&amp;quot;black&amp;quot;, &amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これなら，確実に１行を把握できる．&lt;/p&gt;
+
+&lt;p&gt;ここ（&lt;a href=&#34;http://seankross.com/notes/css-for-code/&#34; target=&#34;_blank&#34;&gt;Fix How Your Blog’s Code is Displayed on Mobile&lt;/a&gt;）を見るともっと分かりやすく書いてある．&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-add-horizontal-scrollbar&#34;&gt;How to add horizontal scrollbar&lt;/h2&gt;
+
+&lt;h3 id=&#34;ref&#34;&gt;Ref&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://seankross.com/notes/css-for-code/&#34; target=&#34;_blank&#34;&gt;Fix How Your Blog’s Code is Displayed on Mobile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/467&#34; target=&#34;_blank&#34;&gt;Prevent wrapping in code blocks #467&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ShanEllis/ShanEllis.github.io/pull/1/commits/35c0f3064d3ec2d7b6e35790448994bdb1233f79&#34; target=&#34;_blank&#34;&gt;added horizontal scrolling for code #1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のサイトを参考に以下のようにscrollbarをセットアップすることにした．&lt;/p&gt;
+
+&lt;h3 id=&#34;academic-theme-version&#34;&gt;academic theme version&lt;/h3&gt;
+
+&lt;p&gt;まず，Hugoのthemeであるacademic のversionを以下のように調べてみると，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;less themes/academic/data/academic.toml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;# Academic
+
+version = &amp;quot;2.4.0&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ふ，古い．latest versionは，4.2である．2018年8月に導入してから8ヶ月ほどで2.4から4.2までreleaseされており，開発スピードが並ではない．それは喜ぶべきことなのだが，問題は，私が全くそれについて行けてないことである．（ToT)&lt;/p&gt;
+
+&lt;p&gt;最新版ではdirectory構造もかなり変わっている．horizontal scrollbarをつけるのを機会に全部をupgradeしようとしてみたが，なかなかうまくいかない．&lt;a href=&#34;https://sourcethemes.com/academic/docs/customization/#customize-style-css&#34; target=&#34;_blank&#34;&gt;Customize style (CSS)&lt;/a&gt; に書いてあるとおりにしようとしても，古いversionでは相当するdirectoryそのものが存在しない．&lt;/p&gt;
+
+&lt;h3 id=&#34;cssの変更&#34;&gt;cssの変更&lt;/h3&gt;
+
+&lt;p&gt;というわけで，academic themeのupgradeはサクッと諦めて姑息策を取ることにした． &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/467&#34; target=&#34;_blank&#34;&gt;Prevent wrapping in code blocks #467&lt;/a&gt; を参考にして，&lt;br /&gt;
+&lt;strong&gt;/Data/hogeblog/fugablog/themes/academic/layouts/partials/css/academic.css&lt;/strong&gt;
+を &lt;br /&gt;
+&lt;strong&gt;/Data/hogeblog/fugablog/static/css/academic_scrollbar.css&lt;/strong&gt;  &lt;br /&gt;
+として保存した．変更箇所は以下の通り&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;--- /Data/hogeblog/fugablog/themes/academic/layouts/partials/css/academic.css	2018-08-16 00:55:10.000000000 +0900
++++ /Data/hogeblog/fugablog/static/css/academic_scrollbar.css	2019-05-02 00:05:10.000000000 +0900
+@@ -178,9 +178,16 @@
+border-color: rgb(248, 248, 248);
+ }
+
++/* pre code { */
++/*   white-space: pre; /\* Override Bootstrap to preserve line breaks in code. *\/ */
++/*   overflow-x: auto; */
++/* } */
++
++/* See http://seankross.com/notes/css-for-code/  */
+ pre code {
+-  white-space: pre; /* Override Bootstrap to preserve line breaks in code. */
+-  overflow-x: auto;
++    overflow: auto;
++    word-wrap: normal;
++    white-space: pre;
+ }
+
+ hr {
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，ox-hugoでの&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/wrap2.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;は，以下のように表示されるようになる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &amp;quot;&amp;quot;, main = &amp;quot;Drug1&amp;quot;, xaxt=&amp;quot;n&amp;quot;, cex.axis=1.5, ylab=&amp;quot;Relative value&amp;quot;, cex.lab = 1.5, pch=16, cex = 1.5)
+axis(1,at=c(1,2,3),formatC(c(&amp;quot;Control&amp;quot;, &amp;quot;Day1&amp;quot;, &amp;quot;Day7&amp;quot;)), cex.axis=1.5)
+beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, col=c(&amp;quot;black&amp;quot;, &amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-nをつけて行番号をつけると&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/wrap3.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;こうなる．&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;boxplot(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+axis(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#66d9ef&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+beeswarm(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+   なんとか，これで，code blockにhorizontal scrollbarをつけることができた．次に時間ができたときにacademic themeをupgradeして追いつこう．．．いつになることやら．．．(^^;;;;;;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</title>
@@ -1709,17 +1865,8 @@ $ watch_safari.rb Hoge hogefuga.html
 
 &lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
 
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#readtheorg&#34;&gt;ReadTheOrg&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34; target=&#34;_blank&#34;&gt;org-spec&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;/p&gt;
 
 &lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
 
@@ -1784,20 +1931,8 @@ $ watch_safari.rb Hoge hogefuga.html
 
 &lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
 
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34; target=&#34;_blank&#34;&gt;Org Macros&lt;/a&gt;&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#上記に関しては-ox-hugoの作者であるkaushal-modi氏から以下のような指摘を頂いた-12月19日追記&#34;&gt;上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#exporting-org-mode-to-html-in-place-coloring&#34;&gt;&lt;a href=&#34;https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring&#34; target=&#34;_blank&#34;&gt;Exporting org-mode to HTML: In-place coloring&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
 
 &lt;h2 id=&#34;org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34; target=&#34;_blank&#34;&gt;Org Macros&lt;/a&gt;&lt;/h2&gt;
 
@@ -1910,23 +2045,8 @@ This is a formatted block of text...
 
 &lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
 
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34; target=&#34;_blank&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34; target=&#34;_blank&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#設定&#34;&gt;設定&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#tufte-org-modeのインストールと設定&#34;&gt;tufte-org-modeのインストールと設定&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#org-modeでtufte-latexの設定&#34;&gt;org-modeでtufte-latexの設定&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#tufteの使用の実例&#34;&gt;tufteの使用の実例&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;/p&gt;
 
 &lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34; target=&#34;_blank&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
 
@@ -2219,233 +2339,6 @@ installation of package ‘rsvg’ had non-zero exit status
 &lt;/ul&gt;
 
 &lt;p&gt;今回はいきなりのRネタになってしまった．&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Swiper, ivy, avy, migemoによるEmacsの検索強化</title>
-      <link>https://taipapamotohus.com/post/swiper_migemo/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/swiper_migemo/</guid>
-      <description>
-
-&lt;p&gt;文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;&lt;/p&gt;
-
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;nav id=&#34;TableOfContents&#34;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#swiper-dot-el&#34;&gt;swiper.el&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#使い方&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#migemo&#34;&gt;migemo&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#cmigemoのinstall&#34;&gt;cmigemoのinstall&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#migemo-dot-elのinstall-and-setup&#34;&gt;migemo.elのInstall &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#avy-migemo-swiperのmigemo対応&#34;&gt;avy-migemo（swiperのmigemo対応）&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#install-and-setup-1&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#使い方-1&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#最近開いたディレクトリを開く&#34;&gt;最近開いたディレクトリを開く&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-
-&lt;h2 id=&#34;swiper-dot-el&#34;&gt;swiper.el&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;参照1：&lt;a href=&#34;https://github.com/abo-abo/swiper&#34; target=&#34;_blank&#34;&gt;swiper&lt;/a&gt;  ご本家&lt;/li&gt;
-&lt;li&gt;参照2：&lt;a href=&#34;http://emacs.rubikitch.com/swiper/&#34; target=&#34;_blank&#34;&gt;swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参照3：&lt;a href=&#34;https://qiita.com/blue0513/items/c0dc35a880170997c3f5&#34; target=&#34;_blank&#34;&gt;Emacsの補完&amp;amp;検索を超強化する&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;以下を，int.orgに書き込む．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package swiper
-  :ensure t
-  :config
-  (defun isearch-forward-or-swiper (use-swiper)
-    (interactive &amp;quot;p&amp;quot;)
-    ;; (interactive &amp;quot;P&amp;quot;) ;; 大文字のPだと，C-u C-sでないと効かない
-    (let (current-prefix-arg)
-      (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward))))
-  (global-set-key (kbd &amp;quot;C-s&amp;quot;) &#39;isearch-forward-or-swiper)
-  )
-
-(use-package ivy
-  :ensure t
-  ;; :config
-  ;; (fset &#39;ivy--regex &#39;identity)
-  )
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ivyのコメントアウトしている部分については後述する．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;使い方&#34;&gt;使い方&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;現在開いているEmacsのバッファで，C-sとするだけでよい．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;下図は，ivyを検索しているところだが，下に&amp;rdquo;Swiper&amp;rdquo;と表示されるバッファが表示され，そこに”ivy”と打つと，上の本文の中のivyは黄色でハイライトされる．同時に下のバッファでは，現在見ているivyのある行に下線が引かれ，行数が横に示される．上下のArrow Keyでivyのある行から次の行に飛べる．リターンすれば本文のその行に行ける．非常に便利である．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/swiper-1a.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;migemo&#34;&gt;migemo&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;参照1：&lt;a href=&#34;http://0xcc.net/migemo/&#34; target=&#34;_blank&#34;&gt;Migemo: ローマ字のまま日本語をインクリメンタル検索&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参照2：&lt;a href=&#34;https://www.yokoweb.net/2017/03/05/emacs-macos-migemo/&#34; target=&#34;_blank&#34;&gt;【Emacs/macOS】migemoを有効にし、ローマ字のまま日本語検索する&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;migemoとは，「ローマ字のまま日本語をインクリメンタル検索するため のツールです。かな漢字変換をすることなく日本語のインクリメン タル検索を快適に行うことができます。」&lt;/li&gt;
-&lt;li&gt;一度使い始めるとやみつきになるので，オススメ！&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;cmigemoのinstall&#34;&gt;cmigemoのinstall&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;まず，C言語で再実装されたcmigemoをインストールする．homebrewで簡単にインストールできる．&amp;ndash;HEADのオプションが必要との記載もあるが，なくても同じであった．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew install cmigemo
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;migemo-dot-elのinstall-and-setup&#34;&gt;migemo.elのInstall &amp;amp; setup&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;以下を，int.orgに書き込む．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+BEGIN_SRC emacs-lisp
-(use-package migemo
-  :ensure t
-  :config
-  ;; C/Migemo を使う場合は次のような設定を .emacs に加えます．
-  (setq migemo-command &amp;quot;cmigemo&amp;quot;)
-  (setq migemo-options &#39;(&amp;quot;-q&amp;quot; &amp;quot;--emacs&amp;quot; &amp;quot;-i&amp;quot; &amp;quot;\a&amp;quot;))
-  (setq migemo-dictionary &amp;quot;/usr/local/Cellar/cmigemo/20110227/share/migemo/utf-8/migemo-dict&amp;quot;)  ;; 各自の辞書の在り処を指示
-  (setq migemo-user-dictionary nil)
-  (setq migemo-regex-dictionary nil)
-  ;; charset encoding
-  (setq migemo-coding-system &#39;utf-8-unix))
-#+END_SRC
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;avy-migemo-swiperのmigemo対応&#34;&gt;avy-migemo（swiperのmigemo対応）&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;参照１：&lt;a href=&#34;https://github.com/momomo5717/avy-migemo/blob/master/README.jp.org&#34; target=&#34;_blank&#34;&gt;avy-migemo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参照２：&lt;a href=&#34;https://dev.classmethod.jp/tool/emacs-avy-migemo/&#34; target=&#34;_blank&#34;&gt;avy と migemo を組み合わせたパッケージ avy-migemo.el のご紹介&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参照３：&lt;a href=&#34;https://qiita.com/ballforest/items/7810e229d6f771d0ab16&#34; target=&#34;_blank&#34;&gt;avyのmigemo対応およびswiperのmigemo対応&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;上記のswiperだけでも十分に便利であるが，swiperをmigemoに対応させることで，更に便利になる．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;前述したswiper.elでのコメントアウトした設定部分，つまり，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-emacs-lisp&#34;&gt;;; (fset &#39;ivy--regex &#39;identity)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;は，コメントアウトしておかないと，migemo化を無効にしてしまうので注意。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;install-and-setup-1&#34;&gt;Install &amp;amp; setup&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;以下を，int.orgに書き込む．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package avy-migemo
-  :ensure t
-  :config
-  (avy-migemo-mode 1)
-  (setq avy-timeout-seconds nil)
-  (require &#39;avy-migemo-e.g.swiper)
-  (global-set-key (kbd &amp;quot;C-M-;&amp;quot;) &#39;avy-migemo-goto-char-timer)
-  ;;  (global-set-key (kbd &amp;quot;M-g m m&amp;quot;) &#39;avy-migemo-mode)
-  )
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;使い方-1&#34;&gt;使い方&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;現在開いているEmacsのバッファで，C-sとするだけでよい．&lt;/li&gt;
-&lt;li&gt;下図は，&amp;rdquo;taiou&amp;rdquo;，つまり，「対応」を検索しているところである．migemo化する前と同じようにローマ字で日本語が検索できる．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;当たり前だが，漢字を入力しても検索できる．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/swiper-2a.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;最近開いたディレクトリを開く&#34;&gt;最近開いたディレクトリを開く&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;参照：&lt;a href=&#34;http://pragmaticemacs.com/emacs/open-a-recent-directory-in-dired-revisited/&#34; target=&#34;_blank&#34;&gt;OPEN A RECENT DIRECTORY IN DIRED: REVISITED&lt;/a&gt;　ネタ元&lt;/li&gt;
-&lt;li&gt;ivyを使って最近開いたディレクトリを動的に探索する方法をコード化してくれているので紹介する．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以下のコードをinit.orgに書き込めば良い．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(defun bjm/ivy-dired-recent-dirs ()
-  &amp;quot;Present a list of recently used directories and open the selected one in dired&amp;quot;
-  (interactive)
-  (let ((recent-dirs
-         (delete-dups
-          (mapcar (lambda (file)
-                    (if (file-directory-p file) file (file-name-directory file)))
-                  recentf-list))))
-
-    (let ((dir (ivy-read &amp;quot;Directory: &amp;quot;
-                         recent-dirs
-                         :re-builder #&#39;ivy--regex
-                         :sort nil
-                         :initial-input nil)))
-      (dired dir))))
-
-(global-set-key (kbd &amp;quot;C-x C-d&amp;quot;) &#39;bjm/ivy-dired-recent-dirs)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!--listend--&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/directory-1a.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;以上，今回は小ネタだが非常に有用なものばかりを紹介した．&lt;/p&gt;
 </description>
     </item>
     

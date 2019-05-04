@@ -7,10 +7,73 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 02 May 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>academic</title>
+      <link>https://taipapamotohus.com/tags/academic/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/academic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://taipapamotohus.com/tags/blog/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>codeblock</title>
+      <link>https://taipapamotohus.com/tags/codeblock/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/codeblock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>horizontal</title>
+      <link>https://taipapamotohus.com/tags/horizontal/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/horizontal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://taipapamotohus.com/tags/hugo/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scrollbar</title>
+      <link>https://taipapamotohus.com/tags/scrollbar/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/scrollbar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theme</title>
+      <link>https://taipapamotohus.com/tags/theme/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/theme/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>26-2</title>
@@ -18,420 +81,6 @@
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/26-2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Adaptive</title>
-      <link>https://taipapamotohus.com/tags/adaptive/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/adaptive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Annotation</title>
-      <link>https://taipapamotohus.com/tags/annotation/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/annotation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>At</title>
-      <link>https://taipapamotohus.com/tags/at/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/at/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Auctex</title>
-      <link>https://taipapamotohus.com/tags/auctex/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/auctex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Autoexport</title>
-      <link>https://taipapamotohus.com/tags/autoexport/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/autoexport/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Automation</title>
-      <link>https://taipapamotohus.com/tags/automation/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/automation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Autorefresh</title>
-      <link>https://taipapamotohus.com/tags/autorefresh/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/autorefresh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Avy</title>
-      <link>https://taipapamotohus.com/tags/avy/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/avy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Beamer</title>
-      <link>https://taipapamotohus.com/tags/beamer/</link>
-      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/beamer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bibdesk</title>
-      <link>https://taipapamotohus.com/tags/bibdesk/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/bibdesk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bibtex</title>
-      <link>https://taipapamotohus.com/tags/bibtex/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/bibtex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bioconductor</title>
-      <link>https://taipapamotohus.com/tags/bioconductor/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/bioconductor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>https://taipapamotohus.com/tags/blog/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Browser</title>
-      <link>https://taipapamotohus.com/tags/browser/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/browser/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Censored</title>
-      <link>https://taipapamotohus.com/tags/censored/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/censored/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Citation</title>
-      <link>https://taipapamotohus.com/tags/citation/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/citation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Color</title>
-      <link>https://taipapamotohus.com/tags/color/</link>
-      <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/color/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Colour</title>
-      <link>https://taipapamotohus.com/tags/colour/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/colour/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Competing</title>
-      <link>https://taipapamotohus.com/tags/competing/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/competing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Css</title>
-      <link>https://taipapamotohus.com/tags/css/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Curve</title>
-      <link>https://taipapamotohus.com/tags/curve/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/curve/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dired</title>
-      <link>https://taipapamotohus.com/tags/dired/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/dired/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Emacs</title>
-      <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Emacsclient</title>
-      <link>https://taipapamotohus.com/tags/emacsclient/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/emacsclient/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Embed</title>
-      <link>https://taipapamotohus.com/tags/embed/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/embed/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Error</title>
-      <link>https://taipapamotohus.com/tags/error/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/error/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Export</title>
-      <link>https://taipapamotohus.com/tags/export/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/export/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Facet</title>
-      <link>https://taipapamotohus.com/tags/facet/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/facet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ggplot2</title>
-      <link>https://taipapamotohus.com/tags/ggplot2/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/ggplot2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Graph</title>
-      <link>https://taipapamotohus.com/tags/graph/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Homebrew</title>
-      <link>https://taipapamotohus.com/tags/homebrew/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/homebrew/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Html</title>
-      <link>https://taipapamotohus.com/tags/html/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://taipapamotohus.com/tags/hugo/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>https://taipapamotohus.com/tags/hugo/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Image</title>
-      <link>https://taipapamotohus.com/tags/image/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/image/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Indentation</title>
-      <link>https://taipapamotohus.com/tags/indentation/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/indentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Init-el</title>
-      <link>https://taipapamotohus.com/tags/init-el/</link>
-      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/init-el/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Init-org</title>
-      <link>https://taipapamotohus.com/tags/init-org/</link>
-      <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/init-org/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Install</title>
-      <link>https://taipapamotohus.com/tags/install/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/install/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ivy</title>
-      <link>https://taipapamotohus.com/tags/ivy/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/ivy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Latex</title>
-      <link>https://taipapamotohus.com/tags/latex/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/latex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Latexmk</title>
-      <link>https://taipapamotohus.com/tags/latexmk/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/latexmk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Link</title>
-      <link>https://taipapamotohus.com/tags/link/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/link/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mactex</title>
-      <link>https://taipapamotohus.com/tags/mactex/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/mactex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Migemo</title>
-      <link>https://taipapamotohus.com/tags/migemo/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/migemo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mode</title>
-      <link>https://taipapamotohus.com/tags/mode/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/mode/</guid>
       <description></description>
     </item>
     
@@ -445,52 +94,61 @@
     </item>
     
     <item>
-      <title>Movie</title>
-      <link>https://taipapamotohus.com/tags/movie/</link>
-      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
+      <title>emacs</title>
+      <link>https://taipapamotohus.com/tags/emacs/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/movie/</guid>
+      <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Narrow</title>
-      <link>https://taipapamotohus.com/tags/narrow/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      <title>homebrew</title>
+      <link>https://taipapamotohus.com/tags/homebrew/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/narrow/</guid>
+      <guid>https://taipapamotohus.com/tags/homebrew/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Number</title>
-      <link>https://taipapamotohus.com/tags/number/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <title>upgrade</title>
+      <link>https://taipapamotohus.com/tags/upgrade/</link>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/number/</guid>
+      <guid>https://taipapamotohus.com/tags/upgrade/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Org</title>
-      <link>https://taipapamotohus.com/tags/org/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      <title>dired</title>
+      <link>https://taipapamotohus.com/tags/dired/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/org/</guid>
+      <guid>https://taipapamotohus.com/tags/dired/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Org-babel</title>
-      <link>https://taipapamotohus.com/tags/org-babel/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      <title>image</title>
+      <link>https://taipapamotohus.com/tags/image/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/org-babel/</guid>
+      <guid>https://taipapamotohus.com/tags/image/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Org-mode</title>
+      <title>link</title>
+      <link>https://taipapamotohus.com/tags/link/</link>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/link/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-mode</title>
       <link>https://taipapamotohus.com/tags/org-mode/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
       
@@ -499,101 +157,11 @@
     </item>
     
     <item>
-      <title>Orgmode</title>
-      <link>https://taipapamotohus.com/tags/orgmode/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/orgmode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ox</title>
-      <link>https://taipapamotohus.com/tags/ox/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/ox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pandoc</title>
-      <link>https://taipapamotohus.com/tags/pandoc/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/pandoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Patchwork</title>
-      <link>https://taipapamotohus.com/tags/patchwork/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/patchwork/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pdf</title>
-      <link>https://taipapamotohus.com/tags/pdf/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/pdf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pdf-tools</title>
-      <link>https://taipapamotohus.com/tags/pdf-tools/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/pdf-tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Peep-dired</title>
+      <title>peep-dired</title>
       <link>https://taipapamotohus.com/tags/peep-dired/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/peep-dired/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Plot</title>
-      <link>https://taipapamotohus.com/tags/plot/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/plot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prelude</title>
-      <link>https://taipapamotohus.com/tags/prelude/</link>
-      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/prelude/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Prodlim</title>
-      <link>https://taipapamotohus.com/tags/prodlim/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/prodlim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pubmed</title>
-      <link>https://taipapamotohus.com/tags/pubmed/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/pubmed/</guid>
       <description></description>
     </item>
     
@@ -607,7 +175,286 @@
     </item>
     
     <item>
-      <title>Recursive</title>
+      <title>annotation</title>
+      <link>https://taipapamotohus.com/tags/annotation/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/annotation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>colour</title>
+      <link>https://taipapamotohus.com/tags/colour/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/colour/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>facet</title>
+      <link>https://taipapamotohus.com/tags/facet/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/facet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot2</title>
+      <link>https://taipapamotohus.com/tags/ggplot2/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/ggplot2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>patchwork</title>
+      <link>https://taipapamotohus.com/tags/patchwork/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/patchwork/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>segment</title>
+      <link>https://taipapamotohus.com/tags/segment/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/segment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>embed</title>
+      <link>https://taipapamotohus.com/tags/embed/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/embed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>export</title>
+      <link>https://taipapamotohus.com/tags/export/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/export/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph</title>
+      <link>https://taipapamotohus.com/tags/graph/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-babel</title>
+      <link>https://taipapamotohus.com/tags/org-babel/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/org-babel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ox</title>
+      <link>https://taipapamotohus.com/tags/ox/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/ox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plot</title>
+      <link>https://taipapamotohus.com/tags/plot/</link>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>at</title>
+      <link>https://taipapamotohus.com/tags/at/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/at/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>censored</title>
+      <link>https://taipapamotohus.com/tags/censored/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/censored/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>competing</title>
+      <link>https://taipapamotohus.com/tags/competing/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/competing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>curve</title>
+      <link>https://taipapamotohus.com/tags/curve/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/curve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>number</title>
+      <link>https://taipapamotohus.com/tags/number/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/number/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prodlim</title>
+      <link>https://taipapamotohus.com/tags/prodlim/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/prodlim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>risk</title>
+      <link>https://taipapamotohus.com/tags/risk/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/risk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>survival</title>
+      <link>https://taipapamotohus.com/tags/survival/</link>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/survival/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>adaptive</title>
+      <link>https://taipapamotohus.com/tags/adaptive/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/adaptive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>indentation</title>
+      <link>https://taipapamotohus.com/tags/indentation/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/indentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wrap</title>
+      <link>https://taipapamotohus.com/tags/wrap/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/wrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>autoexport</title>
+      <link>https://taipapamotohus.com/tags/autoexport/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/autoexport/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>autorefresh</title>
+      <link>https://taipapamotohus.com/tags/autorefresh/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/autorefresh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>browser</title>
+      <link>https://taipapamotohus.com/tags/browser/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/browser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://taipapamotohus.com/tags/html/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf</title>
+      <link>https://taipapamotohus.com/tags/pdf/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf-tools</title>
+      <link>https://taipapamotohus.com/tags/pdf-tools/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pdf-tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>narrow</title>
+      <link>https://taipapamotohus.com/tags/narrow/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/narrow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>orgmode</title>
+      <link>https://taipapamotohus.com/tags/orgmode/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/orgmode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recursive</title>
       <link>https://taipapamotohus.com/tags/recursive/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
       
@@ -616,29 +463,56 @@
     </item>
     
     <item>
-      <title>Reference</title>
-      <link>https://taipapamotohus.com/tags/reference/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      <title>css</title>
+      <link>https://taipapamotohus.com/tags/css/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/reference/</guid>
+      <guid>https://taipapamotohus.com/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Reftex</title>
-      <link>https://taipapamotohus.com/tags/reftex/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <title>color</title>
+      <link>https://taipapamotohus.com/tags/color/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/reftex/</guid>
+      <guid>https://taipapamotohus.com/tags/color/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Risk</title>
-      <link>https://taipapamotohus.com/tags/risk/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <title>latex</title>
+      <link>https://taipapamotohus.com/tags/latex/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/risk/</guid>
+      <guid>https://taipapamotohus.com/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mode</title>
+      <link>https://taipapamotohus.com/tags/mode/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org</title>
+      <link>https://taipapamotohus.com/tags/org/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/org/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tufte</title>
+      <link>https://taipapamotohus.com/tags/tufte/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/tufte/</guid>
       <description></description>
     </item>
     
@@ -652,97 +526,34 @@
     </item>
     
     <item>
-      <title>Search</title>
-      <link>https://taipapamotohus.com/tags/search/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      <title>bioconductor</title>
+      <link>https://taipapamotohus.com/tags/bioconductor/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/search/</guid>
+      <guid>https://taipapamotohus.com/tags/bioconductor/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Segment</title>
-      <link>https://taipapamotohus.com/tags/segment/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      <title>error</title>
+      <link>https://taipapamotohus.com/tags/error/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/segment/</guid>
+      <guid>https://taipapamotohus.com/tags/error/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Skim</title>
-      <link>https://taipapamotohus.com/tags/skim/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      <title>install</title>
+      <link>https://taipapamotohus.com/tags/install/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/skim/</guid>
+      <guid>https://taipapamotohus.com/tags/install/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Survival</title>
-      <link>https://taipapamotohus.com/tags/survival/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/survival/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Swiper</title>
-      <link>https://taipapamotohus.com/tags/swiper/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/swiper/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Synchronization</title>
-      <link>https://taipapamotohus.com/tags/synchronization/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/synchronization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tex</title>
-      <link>https://taipapamotohus.com/tags/tex/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/tex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Texlive</title>
-      <link>https://taipapamotohus.com/tags/texlive/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/texlive/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Theme</title>
-      <link>https://taipapamotohus.com/tags/theme/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/theme/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tufte</title>
-      <link>https://taipapamotohus.com/tags/tufte/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/tufte/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Update</title>
+      <title>update</title>
       <link>https://taipapamotohus.com/tags/update/</link>
       <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
       
@@ -751,16 +562,106 @@
     </item>
     
     <item>
-      <title>Upgrade</title>
-      <link>https://taipapamotohus.com/tags/upgrade/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      <title>avy</title>
+      <link>https://taipapamotohus.com/tags/avy/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/upgrade/</guid>
+      <guid>https://taipapamotohus.com/tags/avy/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Word</title>
+      <title>ivy</title>
+      <link>https://taipapamotohus.com/tags/ivy/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/ivy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>migemo</title>
+      <link>https://taipapamotohus.com/tags/migemo/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/migemo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>search</title>
+      <link>https://taipapamotohus.com/tags/search/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swiper</title>
+      <link>https://taipapamotohus.com/tags/swiper/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/swiper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacsclient</title>
+      <link>https://taipapamotohus.com/tags/emacsclient/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/emacsclient/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>synchronization</title>
+      <link>https://taipapamotohus.com/tags/synchronization/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/synchronization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tex</title>
+      <link>https://taipapamotohus.com/tags/tex/</link>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/tex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>citation</title>
+      <link>https://taipapamotohus.com/tags/citation/</link>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/citation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandoc</title>
+      <link>https://taipapamotohus.com/tags/pandoc/</link>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pandoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reference</title>
+      <link>https://taipapamotohus.com/tags/reference/</link>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/reference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>word</title>
       <link>https://taipapamotohus.com/tags/word/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       
@@ -769,11 +670,137 @@
     </item>
     
     <item>
-      <title>Wrap</title>
-      <link>https://taipapamotohus.com/tags/wrap/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      <title>automation</title>
+      <link>https://taipapamotohus.com/tags/automation/</link>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
       
-      <guid>https://taipapamotohus.com/tags/wrap/</guid>
+      <guid>https://taipapamotohus.com/tags/automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bibtex</title>
+      <link>https://taipapamotohus.com/tags/bibtex/</link>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/bibtex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reftex</title>
+      <link>https://taipapamotohus.com/tags/reftex/</link>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/reftex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bibdesk</title>
+      <link>https://taipapamotohus.com/tags/bibdesk/</link>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/bibdesk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pubmed</title>
+      <link>https://taipapamotohus.com/tags/pubmed/</link>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pubmed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>beamer</title>
+      <link>https://taipapamotohus.com/tags/beamer/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/beamer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>movie</title>
+      <link>https://taipapamotohus.com/tags/movie/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/movie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latexmk</title>
+      <link>https://taipapamotohus.com/tags/latexmk/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/latexmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mactex</title>
+      <link>https://taipapamotohus.com/tags/mactex/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/mactex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>texlive</title>
+      <link>https://taipapamotohus.com/tags/texlive/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/texlive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>auctex</title>
+      <link>https://taipapamotohus.com/tags/auctex/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/auctex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>skim</title>
+      <link>https://taipapamotohus.com/tags/skim/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/skim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>init-el</title>
+      <link>https://taipapamotohus.com/tags/init-el/</link>
+      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/init-el/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>prelude</title>
+      <link>https://taipapamotohus.com/tags/prelude/</link>
+      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/prelude/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>init-org</title>
+      <link>https://taipapamotohus.com/tags/init-org/</link>
+      <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/init-org/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>horizontal on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/horizontal/</link>
+    <description>Recent content in horizontal on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Thu, 02 May 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/tags/horizontal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to add horizontal scrollbar for codeblock in academic theme of hugo</title>
+      <link>https://taipapamotohus.com/post/horizontal_scrollbar/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/horizontal_scrollbar/</guid>
+      <description>いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中が</description>
+    </item>
+    
+  </channel>
+</rss>
