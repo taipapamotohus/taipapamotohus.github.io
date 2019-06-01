@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/search/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deadgrep</title>
+      <link>https://taipapamotohus.com/post/deadgrep/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/deadgrep/</guid>
+      <description>次世代grepで最速と言われるripgrepをバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．</description>
+    </item>
     
     <item>
       <title>Swiper, ivy, avy, migemoによるEmacsの検索強化</title>

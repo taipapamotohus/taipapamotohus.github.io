@@ -15,10 +15,10 @@
   
     
   
-  <meta name="description" content="なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサク">
+  <meta name="description" content="次世代grepで最速と言われるripgrepをバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．">
 
   
-  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/emacs_install/">
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/deadgrep/">
 
   
 
@@ -96,26 +96,26 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="https://taipapamotohus.com/post/emacs_install/">
+  <link rel="canonical" href="https://taipapamotohus.com/post/deadgrep/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="https://taipapamotohus.com/post/emacs_install/">
-  <meta property="og:title" content="Emacsのインストール | A perfect autumn day">
-  <meta property="og:description" content="なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサク"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Paris.jpg">
+  <meta property="og:url" content="https://taipapamotohus.com/post/deadgrep/">
+  <meta property="og:title" content="Deadgrep | A perfect autumn day">
+  <meta property="og:description" content="次世代grepで最速と言われるripgrepをバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Orvieto.jpg">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-08-14T00:00:00&#43;09:00">
+  <meta property="article:published_time" content="2019-06-01T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2018-08-27T22:12:54&#43;09:00">
-  
-
+  <meta property="article:modified_time" content="2019-06-01T15:02:44&#43;09:00">
   
 
   
 
-  <title>Emacsのインストール | A perfect autumn day</title>
+  
+
+  <title>Deadgrep | A perfect autumn day</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -236,16 +236,16 @@
 <div class="article-header">
   
   
-    <img src="/img/headers/Paris.jpg" class="article-banner" itemprop="image">
+    <img src="/img/headers/Orvieto.jpg" class="article-banner" itemprop="image">
   
 
-  <span class="article-header-caption">Paris</span>
+  <span class="article-header-caption">Orvieto</span>
 </div>
 
 
 
   <div class="article-container">
-    <h1 itemprop="name">Emacsのインストール</h1>
+    <h1 itemprop="name">Deadgrep</h1>
 
     
 
@@ -262,9 +262,9 @@
     
         Last updated on
     
-    <meta content="2018-08-14 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2018-08-27 22:12:54 &#43;0900 JST" itemprop="dateModified">
-      Aug 27, 2018
+    <meta content="2019-06-01 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-06-01 15:02:44 &#43;0900 JST" itemprop="dateModified">
+      Jun 1, 2019
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -274,14 +274,14 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
   
   
   <span class="middot-divider"></span>
-  <a href="https://taipapamotohus.com/post/emacs_install/#disqus_thread"></a>
+  <a href="https://taipapamotohus.com/post/deadgrep/#disqus_thread"></a>
   
 
   
@@ -295,28 +295,49 @@
 
 
     <div class="article-style" itemprop="articleBody">
-      <p>なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここでは<a href="https://brew.sh/index%5Fja" target="_blank">Homebrew</a>を使ってサクッとインストール．Homebrew自体のインストールはそちらのサイトを参照．</p>
+      
 
-<p>Emacsで日本語を書いてると，M-xしたときに面倒なことになるので，<a href="https://ja.wikipedia.org/wiki/インプット%5Fメソッド%5Fエディタ" target="_blank">Imput Method Editor (IME)</a>用のパッチを当てる．既にパッチの当たっているYAMAMOTO Mitsuharu版のMac Port用のemacs-macがよい．railwaycatさんがHomebrewでインストールできるようにしてくれているので，これを使わせていただく（<a href="https://github.com/railwaycat/homebrew-emacsmacport" target="_blank">Emacs Mac Port</a>）．ありがたい．</p>
+<p>次世代grepで最速と言われる<a href="https://github.com/BurntSushi/ripgrep" target="_blank">ripgrep</a>をバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．</p>
 
-<pre><code class="language-shell">$ brew tap railwaycat/emacsmacport
-$ brew install emacs-mac --with-modern-icon --with-imagemagick
-$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-</code></pre>
+<h2 id="ref">Ref</h2>
 
 <ul>
-<li>&ndash;with-modern-iconを指定すると、新しいアイコンになる。</li>
+<li><a href="https://github.com/Wilfred/deadgrep" target="_blank">deadgrep: use ripgrep from Emacs</a> ご本家</li>
+<li><a href="https://solist.work/blog/posts/deadgrep/" target="_blank">複雑になった時使うツール</a> とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．．</li>
 </ul>
 
-<!--listend-->
+<h2 id="install">Install</h2>
 
-<ul>
-<li>なお，他のoptionは以下のように打てば分かる．</li>
-</ul>
+<p>まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．</p>
 
-<pre><code class="language-sh">$ brew tap railwaycat/emacsmacport
-$ brew info emacs-mac
+<pre><code class="language-sh">$ brew install ripgrep
 </code></pre>
+
+<p>ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．</p>
+
+<pre><code class="language-lisp">#+begin_src emacs-lisp
+(use-package deadgrep
+  :ensure t
+  :config
+  (global-set-key (kbd &quot;&lt;f5&gt;&quot;) #'deadgrep)
+  )
+#+end_src
+</code></pre>
+
+<h2 id="how-to-use">How to use</h2>
+
+<p>使用方法の詳細はご本家に書いてあるが，f5を叩いて，検索キーワードを入れるだけである．下の画像は，このブログのあるdirectoryで，「検索」をキーワードとしてdeadgrepを走らせたところである．defaultでdirectory内を再帰的に検索する．キーワードは青くハイライトされており，左端の数字はその文書での行番号である． <strong>o</strong> を叩くと下のバッファに該当箇所にカーソルがある状態でその文書が開く． <strong>C-c C-k</strong> で検索を止めることができる．また，swiperとの併用も可能である．</p>
+
+<figure>
+
+<img src="/img/deadgrep.jpg" width="100%" />
+
+
+</figure>
+
+<p>一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．</p>
+
+<p>個人的には，swiperでほぼ事足りているのだが，大きなプロジェクト内の複数のファイルを一気に検索する必要がある人には非常に有益なツールだと思う．</p>
 
     </div>
 
@@ -325,9 +346,13 @@ $ brew info emacs-mac
 
 <div class="article-tags">
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
+  <a class="label label-default" href="https://taipapamotohus.com/tags/deadgrep/">deadgrep</a>
   
-  <a class="label label-default" href="https://taipapamotohus.com/tags/homebrew/">homebrew</a>
+  <a class="label label-default" href="https://taipapamotohus.com/tags/ripgrep/">ripgrep</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/search/">search</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
   
 </div>
 
@@ -336,16 +361,34 @@ $ brew info emacs-mac
 
     
     
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/swiper_migemo/">Swiper, ivy, avy, migemoによるEmacsの検索強化</a></li>
+        
+        <li><a href="/post/mojave/">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></li>
+        
+        <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
+        
+        <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
+        
+        <li><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></li>
+        
+      </ul>
+    </div>
+    
 
     
     <div class="article-widget">
       <div class="post-nav">
   
-  <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="https://taipapamotohus.com/post/prelude_install/" rel="next">Emacsの設定（その1）Preludeの導入（2018年10月9日修正，2019年6月1日追記）</a>
-  </div>
   
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="https://taipapamotohus.com/post/horizontal_scrollbar/" rel="prev">How to add horizontal scrollbar for codeblock in academic theme of hugo</a>
+  </div>
   
 </div>
 

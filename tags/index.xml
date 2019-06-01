@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 02 May 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>deadgrep</title>
+      <link>https://taipapamotohus.com/tags/deadgrep/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/deadgrep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>https://taipapamotohus.com/tags/emacs/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ripgrep</title>
+      <link>https://taipapamotohus.com/tags/ripgrep/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/ripgrep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>search</title>
+      <link>https://taipapamotohus.com/tags/search/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/search/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>academic</title>
@@ -90,15 +126,6 @@
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/mojave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
     </item>
     
@@ -585,15 +612,6 @@
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/migemo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>search</title>
-      <link>https://taipapamotohus.com/tags/search/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/search/</guid>
       <description></description>
     </item>
     
