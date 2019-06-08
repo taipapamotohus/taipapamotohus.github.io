@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>line-number on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/line-number/</link>
+    <description>Recent content in line-number on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/tags/line-number/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</title>
+      <link>https://taipapamotohus.com/post/gleanings/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/gleanings/</guid>
+      <description>前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめてお</description>
+    </item>
+    
+  </channel>
+</rss>

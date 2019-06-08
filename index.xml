@@ -6,8 +6,139 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</title>
+      <link>https://taipapamotohus.com/post/gleanings/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/gleanings/</guid>
+      <description>
+
+&lt;p&gt;前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#display-line-numbers&#34;&gt;display-line-numbers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#whitespace-mode&#34;&gt;Whitespace-mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iterm2の権限の変更-mojaveで必要&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iterm2のcolor-schemeが効かない&#34;&gt;iTerm2のColor Schemeが効かない&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;display-line-numbers&#34;&gt;display-line-numbers&lt;/h2&gt;
+
+&lt;p&gt;emacs 26から入った行番号を表示させる機能．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ref 1: &lt;a href=&#34;http://garaemon.hatenadiary.jp/entry/2018/07/08/181003&#34; target=&#34;_blank&#34;&gt;emacs 26で入ったdisplay-line-numbersを利用する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 2: &lt;a href=&#34;https://www.emacswiki.org/emacs/LineNumbers&#34; target=&#34;_blank&#34;&gt;LineNumbers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 3: &lt;a href=&#34;https://blog.piyo.tech/posts/2019-01-24-emacs-display-line-numbers/&#34; target=&#34;_blank&#34;&gt;Emacs26のdisplay-line-numbers-modeがlinum-modeよりちょっと速くて快適になりそう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 4: &lt;a href=&#34;https://qiita.com/mamo3gr/items/1c6862cba09d5876e52c&#34; target=&#34;_blank&#34;&gt;Emacsの行番号表示にモヤモヤした話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;設定は，いつものように，init.orgに下記のとおりに書き込めばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(global-display-line-numbers-mode)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/display-line-number.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;行番号に必要な表示領域は自動的に確保される．3桁，4桁の番号になるに連れて表示領域が広くなるのが上の画像からわかるであろう．また，adaptive-wrapによって折り畳まれている行は行番号が空白になって1行であることがわかるようになっている（383行目）．&lt;/p&gt;
+
+&lt;h2 id=&#34;whitespace-mode&#34;&gt;Whitespace-mode&lt;/h2&gt;
+
+&lt;p&gt;かなり前から，Emacsの長い行の途中でフォントの色が赤くなってしまうようになった．つまり，下の画像のようになってしまう．短い行でもフォントが赤くなってるな．．．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/swiper-2a.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;何が原因かよくわからなかったのだが，redditの&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/butal1/how%5Fdo%5Fi%5Fstop%5Femacs%5Ffrom%5Fcoloring%5Ftext%5Fbeyond%5F80/&#34; target=&#34;_blank&#34;&gt;How do I stop Emacs from coloring text beyond 80 columns differently&lt;/a&gt;を読んで，もしかしたら，whitespace-modeのせいかもしれないと思ってやってみたらドンピシャであった．M-x customizeとして，Whitespace Styleをサーチして，(Face) Lines, only overlong partのチェックを外せばよい．下の画像の矢印で示した部分である．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/whitespace.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;下に，設定変更後の上の画像と同じところを示すが，行の途中でフォントの色が変わらなくなっている．これで目がおかしくなりそうな画面からようやく離れることができた．😀&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/swiper-3.jpg&#34; width=&#34;100%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;iterm2の権限の変更-mojaveで必要&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/h2&gt;
+
+&lt;p&gt;以前の記事（&lt;a href=&#34;../auto_html_export&#34;&gt;Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする&lt;/a&gt;）の中で，directoryの内容が変更されると，自動でhtmlを再読込するwatch_safari.rbというスクリプトを紹介した．しかし，mojaveにupgradeしたあとは&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 (1002)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ref 1: &lt;a href=&#34;https://minatokobe.com/wp/os-x/macos-mojave/post-51360.html&#34; target=&#34;_blank&#34;&gt;macOS Mojaveでのアプリケーションの権限、アクセシビリティとフルディスクアクセスの違いは何か？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 2: &lt;a href=&#34;https://www.softantenna.com/wp/tips/macos-mojave-iterm2-full-disk-access/&#34; target=&#34;_blank&#34;&gt;macOS MojaveでiTerm2を利用する場合にフルディスクアクセスを許可する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 3: &lt;a href=&#34;https://rcmdnk.com/blog/2019/04/29/computer-mac/&#34; target=&#34;_blank&#34;&gt;MacのターミナルやiTermでOperation not permittedが出る場合の対処法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 4: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/wikis/Whyfulldiskaccess&#34; target=&#34;_blank&#34;&gt;Why Full Disk Access is Useful for iTerm2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;AccessibilityとFull Disk Accessのいずれか，あるいは，両方を変更すればよい．試してみた結果，iTerm2にFull Disk Accessを許可しても自動更新しないが，Accessiblityで「アプリケーションにコンピュータの制御を許可」すれば自動更新することがわかった．「システム環境設定」&amp;gt;「セキュリティ＆プライバシー」の「プライバシー」タブに行き，下の画像にあるように，iTerm2にcheckを入れればよい．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/Privacy.jpg&#34; width=&#34;80%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;crontabが働き，~/Library/Safari folderへのアクセスができるように，iTerm2にFull Disk Accessも与えておいた．方法は，上記とほぼ同じで，「プライバシー」タブに行き，フルディスクアクセスを選択し，iTerm2にcheckを入れればよい．&lt;/p&gt;
+
+&lt;h2 id=&#34;iterm2のcolor-schemeが効かない&#34;&gt;iTerm2のColor Schemeが効かない&lt;/h2&gt;
+
+&lt;p&gt;いつのまにかiTerm2のcolor schemeを変えても反映されなくなってしまった．ネットを探ると，同じようなことで悩んでいる人が結構いるようで，すぐに解決法が見つかった．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34; target=&#34;_blank&#34;&gt;Profile colors won&amp;rsquo;t change&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のサイトによれば，terminal windowがprofileと連絡を失ってしまったことが原因とのことで，iTerm2の Session &amp;gt; Edit Sessionで下の画像のようにdialogue boxがpop upするので，そこで，好きなcolor scheme (下の画像ではJapanesque) を選択し，右下のUse Selected Profileをクリックすればよい．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/iTerm2.jpg&#34; width=&#34;80%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;これでリンクが再確立される．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Deadgrep</title>
@@ -2115,199 +2246,6 @@ This is a formatted block of text...
 &lt;p&gt;こちらは設定を必要としないが，やはり，最初に説明したマクロの方がいろいろ出来て便利である．&lt;/p&gt;
 
 &lt;p&gt;次回は，htmlをexportする際のCSSについてまとめてみたい．&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Tufte-LaTeXとtufte-org-modeについて</title>
-      <link>https://taipapamotohus.com/post/tufte/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/tufte/</guid>
-      <description>
-
-&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34; target=&#34;_blank&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34; target=&#34;_blank&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;
-&lt;li&gt;さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい．&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34; target=&#34;_blank&#34;&gt;Tufte-LaTeX&lt;/a&gt;のサイトには，&amp;rdquo;the style of Edward R. Tufte and Richard Feynman&amp;rdquo;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない．&lt;/li&gt;
-&lt;li&gt;以前の記事（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34; target=&#34;_blank&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode/blob/master/README.md&#34; target=&#34;_blank&#34;&gt;tufte-org-mode&lt;/a&gt;は，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;設定&#34;&gt;設定&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;tufte-org-modeのインストールと設定&#34;&gt;tufte-org-modeのインストールと設定&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;以下のようにinit.orgに書き込んで設定する．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ox-tufte-latex.elは上記の &lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34; target=&#34;_blank&#34;&gt;tufte-org-mode&lt;/a&gt;からダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(quelpa
- &#39;(ox-tufte-latex :fetcher file :path &amp;quot;/path/to/ox-tufte-latex.el&amp;quot;)
- )
-(use-package ox-tufte-latex)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;quelpaは，use-packageでうまくインストール出来ないときに重宝する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;quelpaについては以下を参照&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/quelpa/quelpa&#34; target=&#34;_blank&#34;&gt;Quelpa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://emacs.rubikitch.com/quelpa/&#34; target=&#34;_blank&#34;&gt;quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/tadsan/items/99bd9a5bbdb36def13e2&#34; target=&#34;_blank&#34;&gt;CaskからQuelpaに移行する&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;org-modeでtufte-latexの設定&#34;&gt;org-modeでtufte-latexの設定&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ox-latexの設定などは以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）に書いたようにinit.orgに記述しておく．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以下のようにinit.orgに書き込んで設定する．これは以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）と重複するが，念のためにここにも書いておく．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-;; tufte-handout class for writing classy handouts and papers
-(add-to-list &#39;org-latex-classes
-             &#39;(&amp;quot;tufte-handout&amp;quot;
-               &amp;quot;\\documentclass[twoside,nobib]{tufte-handout}
-                                   [NO-DEFAULT-PACKAGES]
-                                                                    \\usepackage{zxjatype}
-                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;quot;
-               (&amp;quot;\\section{%s}&amp;quot; . &amp;quot;\\section*{%s}&amp;quot;)
-               (&amp;quot;\\subsection{%s}&amp;quot; . &amp;quot;\\subsection*{%s}&amp;quot;)))
-;; tufte-book class
-(add-to-list &#39;org-latex-classes
-             &#39;(&amp;quot;tufte-book&amp;quot;
-               &amp;quot;\\documentclass[twoside,nobib]{tufte-book}
-                                  [NO-DEFAULT-PACKAGES]
-                                                                   \\usepackage{zxjatype}
-                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;quot;
-               (&amp;quot;\\part{%s}&amp;quot; . &amp;quot;\\part*{%s}&amp;quot;)
-               (&amp;quot;\\chapter{%s}&amp;quot; . &amp;quot;\\chapter*{%s}&amp;quot;)
-               (&amp;quot;\\section{%s}&amp;quot; . &amp;quot;\\section*{%s}&amp;quot;)
-               (&amp;quot;\\subsection{%s}&amp;quot; . &amp;quot;\\subsection*{%s}&amp;quot;)
-               (&amp;quot;\\paragraph{%s}&amp;quot; . &amp;quot;\\paragraph*{%s}&amp;quot;)))
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/org-C-c-C-e.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ここで，l oと打つと普通（Tufte styleではない）のpdfがオープンされてしまう．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Tufte styleのpdfを得るためには，T pと打って，Export to Tufte LaTeX の中からAs PDF file and openを選択しなければならない．これで，原稿が得られ，skimでオープンされる．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;tufteの使用の実例&#34;&gt;tufteの使用の実例&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;それでは実例を示してみる．以下のような書類を作成し，Tufte_test.orgとして保存する．hoge_fuga.jpgなどの画像は全てTufte_test.orgファイルと同じdirectoryにあるものとする．&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;前半の＃で始まる行が続く部分はorg-modeの設定であり，latexのこのパッケージを使うぞ，とか，org-modeのヘッダーをどの深さまで表示するかなどを決めている．詳細はググればすぐに分かるので略&amp;hellip;..(^^;;;&lt;/li&gt;
-&lt;li&gt;:offset -8inによって，図の位置を上にずらしてバランスをとるようにしているのにご注意いただきたい．&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+LaTeX_CLASS: tufte-handout
-#+LaTeX_CLASS_OPTIONS: [12pt]
-#+LATEX_HEADER: \usepackage{geometry}
-#+LATEX_HEADER: \geometry{left=0.6in,top=1in,bottom=1in}
-#+LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-#+STARTUP:  overview
-#+STARTUP:  hidestars
-#+OPTIONS:   H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+LINK_UP:
-#+LINK_HOME:
-#+OPTIONS: author:nil date:nil
-
-#+begin_fullwidth
-\centering
-#+LATEX: \huge{\textbf{hoge/fugaによる相補的な治療における高難度症例の治療と成績}}
-\vspace{0.5cm}\\
-#+LATEX: \normalsize{taipapa, 織田信長, 豊臣秀吉, 徳川家康}\\
-\vspace{0.5cm}\\
-#+LATEX: \normalsize{hogefuga大学大学院 hogefuga研究科 hogefuga分野}
-#+end_fullwidth
-
-* *背景と目的*
-hogeとfugaを比較し，治療成績を比較する．
-​* *結果*
-まず，hogefugaの軽症例の画像を呈示する (*Fig. [[hoge_fuga2]]*)．
-
-\vspace{0.25cm}
-
-そのころわたくしは、モリーオ市の博物局に勤めて居りました。
-
-十八等官でしたから役所のなかでも、ずうっと下の方でしたし俸給もほんのわずかでしたが、受持ちが標本の採集や整理で生れ付き好きなことでしたから、わたくしは毎日ずいぶん愉快にはたらきました。殊にそのころ、モリーオ市では競馬場を植物園に拵え直すというので、その景色のいいまわりにアカシヤを植え込んだ広い地面が、切符売場や信号所の建物のついたまま、わたくしどもの役所の方へまわって来たものですから、わたくしはすぐ宿直という名前で月賦で買った小さな蓄音器と二十枚ばかりのレコードをもって、その番小屋にひとり住むことになりました。わたくしはそこの馬を置く場所に板で小さなしきいをつけて一疋の山羊を飼いました。毎朝その乳をしぼってつめたいパンをひたしてたべ、それから黒い革のかばんへすこしの書類や雑誌を入れ、靴もきれいにみがき、並木のポプラの影法師を大股にわたって市の役所へ出て行くのでした。
-
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-
-またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
-
-\vspace{0.25cm}
-
-ついで，hogefugaの重症例の画像を呈示する (*Fig. [[hoge_fuga]]*)．
-
-#+NAME: hoge_fuga2
-#+caption: hoge-fuga（軽症例である）
-#+attr_latex: :float margin :width 2.8in :offset -8in
-#+attr_latex: :vertical-alignment t
-[[./hoge_fuga2.jpg]]
-
-#+NAME: hoge_fuga
-#+caption: hoge-fuga（重症例である）
-#+attr_latex: :float margin :width 2.8in :offset -2in
-#+attr_latex: :vertical-alignment t
-[[./hoge_fuga.jpg]]
-
-
-* *結論*
-hogefugaによる治療は有効である．
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ついで，前述のごとく，Emacsでこの文書を開いた状態で，C-c C-e T pと打てば，以下のようなpdfがskimで開かれる．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/Tufte_test_v5.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上述のように，:offset の部分で図の位置を調整している．これなしだと，かなり下の方に位置してしまう．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;なかなか良い感じになっている．(^o^)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;今回は，Tufte styleの紹介であった．実は，このスタイルを手術所見を書くのに使用している．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

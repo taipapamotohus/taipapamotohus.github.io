@@ -7,10 +7,64 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>accessibility</title>
+      <link>https://taipapamotohus.com/tags/accessibility/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/accessibility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>https://taipapamotohus.com/tags/emacs/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iTerm2</title>
+      <link>https://taipapamotohus.com/tags/iterm2/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/iterm2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>line-number</title>
+      <link>https://taipapamotohus.com/tags/line-number/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/line-number/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>thunderbird</title>
+      <link>https://taipapamotohus.com/tags/thunderbird/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/thunderbird/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>whitespace</title>
+      <link>https://taipapamotohus.com/tags/whitespace/</link>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/whitespace/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>deadgrep</title>
@@ -18,15 +72,6 @@
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/deadgrep/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
     </item>
     
@@ -45,6 +90,15 @@
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://taipapamotohus.com/tags/hugo/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/hugo/</guid>
       <description></description>
     </item>
     
@@ -81,15 +135,6 @@
       <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/horizontal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://taipapamotohus.com/tags/hugo/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/hugo/</guid>
       <description></description>
     </item>
     

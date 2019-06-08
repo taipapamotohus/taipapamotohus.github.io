@@ -3,6 +3,14 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/post/gleanings/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/post/deadgrep/</loc>
       <lastmod>2019-06-02T17:08:05+09:00</lastmod>
     </url>
@@ -244,7 +252,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2019-06-02T17:08:05+09:00</lastmod>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -253,7 +261,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/</loc>
-      <lastmod>2019-06-02T17:08:05+09:00</lastmod>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -261,8 +269,8 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/deadgrep/</loc>
-      <lastmod>2019-06-02T17:08:05+09:00</lastmod>
+      <loc>https://taipapamotohus.com/tags/accessibility/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -271,6 +279,51 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/emacs/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/iterm2/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/line-number/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/thunderbird/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/whitespace/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/deadgrep/</loc>
       <lastmod>2019-06-02T17:08:05+09:00</lastmod>
       <priority>0</priority>
     </url>
@@ -290,6 +343,15 @@
     
       <loc>https://taipapamotohus.com/tags/search/</loc>
       <lastmod>2019-06-02T17:08:05+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/hugo/</loc>
+      <lastmod>2019-05-04T20:28:26+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -325,15 +387,6 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/horizontal/</loc>
-      <lastmod>2019-05-04T20:28:26+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/hugo/</loc>
       <lastmod>2019-05-04T20:28:26+09:00</lastmod>
       <priority>0</priority>
     </url>

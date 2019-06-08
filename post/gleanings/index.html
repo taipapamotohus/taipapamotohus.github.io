@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.55.4" />
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめてお">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/gleanings/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/academic_scrollbar.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="feed" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://taipapamotohus.com/post/gleanings/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="https://taipapamotohus.com/post/gleanings/">
+  <meta property="og:title" content="Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc) | A perfect autumn day">
+  <meta property="og:description" content="前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめてお"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Galata.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-06-02T00:00:00&#43;09:00">
+  
+  <meta property="article:modified_time" content="2019-06-08T23:16:25&#43;09:00">
+  
+
+  
+
+  
+
+  <title>Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc) | A perfect autumn day</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#search">
+            
+            <span>Search</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/headers/Galata.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption">Galata Kulesi</span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2019-06-02 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-06-08 23:16:25 &#43;0900 JST" itemprop="dateModified">
+      Jun 8, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://taipapamotohus.com/post/gleanings/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．</p>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#display-line-numbers">display-line-numbers</a></li>
+<li><a href="#whitespace-mode">Whitespace-mode</a></li>
+<li><a href="#iterm2の権限の変更-mojaveで必要">iTerm2の権限の変更（mojaveで必要）</a></li>
+<li><a href="#iterm2のcolor-schemeが効かない">iTerm2のColor Schemeが効かない</a></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="display-line-numbers">display-line-numbers</h2>
+
+<p>emacs 26から入った行番号を表示させる機能．</p>
+
+<ul>
+<li>Ref 1: <a href="http://garaemon.hatenadiary.jp/entry/2018/07/08/181003" target="_blank">emacs 26で入ったdisplay-line-numbersを利用する</a></li>
+<li>Ref 2: <a href="https://www.emacswiki.org/emacs/LineNumbers" target="_blank">LineNumbers</a></li>
+<li>Ref 3: <a href="https://blog.piyo.tech/posts/2019-01-24-emacs-display-line-numbers/" target="_blank">Emacs26のdisplay-line-numbers-modeがlinum-modeよりちょっと速くて快適になりそう</a></li>
+<li>Ref 4: <a href="https://qiita.com/mamo3gr/items/1c6862cba09d5876e52c" target="_blank">Emacsの行番号表示にモヤモヤした話</a></li>
+</ul>
+
+<p>設定は，いつものように，init.orgに下記のとおりに書き込めばよい．</p>
+
+<pre><code class="language-lisp">#+begin_src emacs-lisp
+(global-display-line-numbers-mode)
+#+end_src
+</code></pre>
+
+<p>これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．</p>
+
+<figure>
+
+<img src="/img/display-line-number.jpg" width="100%" />
+
+
+</figure>
+
+<p>行番号に必要な表示領域は自動的に確保される．3桁，4桁の番号になるに連れて表示領域が広くなるのが上の画像からわかるであろう．また，adaptive-wrapによって折り畳まれている行は行番号が空白になって1行であることがわかるようになっている（383行目）．</p>
+
+<h2 id="whitespace-mode">Whitespace-mode</h2>
+
+<p>かなり前から，Emacsの長い行の途中でフォントの色が赤くなってしまうようになった．つまり，下の画像のようになってしまう．短い行でもフォントが赤くなってるな．．．</p>
+
+<figure>
+
+<img src="/img/swiper-2a.jpg" width="100%" />
+
+
+</figure>
+
+<p>何が原因かよくわからなかったのだが，redditの<a href="https://www.reddit.com/r/emacs/comments/butal1/how%5Fdo%5Fi%5Fstop%5Femacs%5Ffrom%5Fcoloring%5Ftext%5Fbeyond%5F80/" target="_blank">How do I stop Emacs from coloring text beyond 80 columns differently</a>を読んで，もしかしたら，whitespace-modeのせいかもしれないと思ってやってみたらドンピシャであった．M-x customizeとして，Whitespace Styleをサーチして，(Face) Lines, only overlong partのチェックを外せばよい．下の画像の矢印で示した部分である．</p>
+
+<figure>
+
+<img src="/img/whitespace.jpg" width="100%" />
+
+
+</figure>
+
+<p>下に，設定変更後の上の画像と同じところを示すが，行の途中でフォントの色が変わらなくなっている．これで目がおかしくなりそうな画面からようやく離れることができた．😀</p>
+
+<figure>
+
+<img src="/img/swiper-3.jpg" width="100%" />
+
+
+</figure>
+
+<h2 id="iterm2の権限の変更-mojaveで必要">iTerm2の権限の変更（mojaveで必要）</h2>
+
+<p>以前の記事（<a href="../auto_html_export">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a>）の中で，directoryの内容が変更されると，自動でhtmlを再読込するwatch_safari.rbというスクリプトを紹介した．しかし，mojaveにupgradeしたあとは</p>
+
+<pre><code class="language-sh">85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 (1002)
+</code></pre>
+
+<p>というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．</p>
+
+<ul>
+<li>Ref 1: <a href="https://minatokobe.com/wp/os-x/macos-mojave/post-51360.html" target="_blank">macOS Mojaveでのアプリケーションの権限、アクセシビリティとフルディスクアクセスの違いは何か？</a></li>
+<li>Ref 2: <a href="https://www.softantenna.com/wp/tips/macos-mojave-iterm2-full-disk-access/" target="_blank">macOS MojaveでiTerm2を利用する場合にフルディスクアクセスを許可する方法</a></li>
+<li>Ref 3: <a href="https://rcmdnk.com/blog/2019/04/29/computer-mac/" target="_blank">MacのターミナルやiTermでOperation not permittedが出る場合の対処法</a></li>
+<li>Ref 4: <a href="https://gitlab.com/gnachman/iterm2/wikis/Whyfulldiskaccess" target="_blank">Why Full Disk Access is Useful for iTerm2</a></li>
+</ul>
+
+<p>AccessibilityとFull Disk Accessのいずれか，あるいは，両方を変更すればよい．試してみた結果，iTerm2にFull Disk Accessを許可しても自動更新しないが，Accessiblityで「アプリケーションにコンピュータの制御を許可」すれば自動更新することがわかった．「システム環境設定」&gt;「セキュリティ＆プライバシー」の「プライバシー」タブに行き，下の画像にあるように，iTerm2にcheckを入れればよい．</p>
+
+<figure>
+
+<img src="/img/Privacy.jpg" width="80%" />
+
+
+</figure>
+
+<p>crontabが働き，~/Library/Safari folderへのアクセスができるように，iTerm2にFull Disk Accessも与えておいた．方法は，上記とほぼ同じで，「プライバシー」タブに行き，フルディスクアクセスを選択し，iTerm2にcheckを入れればよい．</p>
+
+<h2 id="iterm2のcolor-schemeが効かない">iTerm2のColor Schemeが効かない</h2>
+
+<p>いつのまにかiTerm2のcolor schemeを変えても反映されなくなってしまった．ネットを探ると，同じようなことで悩んでいる人が結構いるようで，すぐに解決法が見つかった．</p>
+
+<ul>
+<li>Ref: <a href="https://gitlab.com/gnachman/iterm2/issues/4844" target="_blank">Profile colors won&rsquo;t change</a></li>
+</ul>
+
+<p>上記のサイトによれば，terminal windowがprofileと連絡を失ってしまったことが原因とのことで，iTerm2の Session &gt; Edit Sessionで下の画像のようにdialogue boxがpop upするので，そこで，好きなcolor scheme (下の画像ではJapanesque) を選択し，右下のUse Selected Profileをクリックすればよい．</p>
+
+<figure>
+
+<img src="/img/iTerm2.jpg" width="80%" />
+
+
+</figure>
+
+<p>これでリンクが再確立される．</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/line-number/">line-number</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/whitespace/">whitespace</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/thunderbird/">thunderbird</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/emacs/">emacs</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/iterm2/">iTerm2</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/accessibility/">accessibility</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/deadgrep/">Deadgrep</a></li>
+        
+        <li><a href="/post/mojave/">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></li>
+        
+        <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
+        
+        <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
+        
+        <li><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="https://taipapamotohus.com/post/deadgrep/" rel="prev">Deadgrep</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+    <p class="powered-by">
+      <a href="https://taipapamotohus.com/privacy/">Privacy Policy</a>
+    </p>
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/emacs-lisp.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/search.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+
