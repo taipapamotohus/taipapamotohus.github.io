@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/posts/</link>
+    <description>Recent content in Posts on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Posts</title>
+      <link>https://taipapamotohus.com/posts/annotation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://taipapamotohus.com/posts/annotation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hogehoge (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</title>
+      <link>https://taipapamotohus.com/posts/hogehohge/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/posts/hogehohge/</guid>
+      <description>前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめてお</description>
+    </item>
+    
+  </channel>
+</rss>

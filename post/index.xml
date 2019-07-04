@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>How to add annotation (ex. KEGG orthology) box to a plot in ggplot2</title>
+      <link>https://taipapamotohus.com/post/annotation/</link>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/annotation/</guid>
+      <description>またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つ</description>
+    </item>
+    
+    <item>
       <title>Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</title>
       <link>https://taipapamotohus.com/post/gleanings/</link>
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>

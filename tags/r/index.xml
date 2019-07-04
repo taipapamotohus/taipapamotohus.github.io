@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to add annotation (ex. KEGG orthology) box to a plot in ggplot2</title>
+      <link>https://taipapamotohus.com/post/annotation/</link>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/annotation/</guid>
+      <description>またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つ</description>
+    </item>
     
     <item>
       <title>How to add different segment, annotation and color to each facet in ggplot</title>

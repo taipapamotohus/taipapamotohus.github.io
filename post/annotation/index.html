@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.55.4" />
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つ">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/annotation/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/academic_scrollbar.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="feed" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://taipapamotohus.com/post/annotation/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="https://taipapamotohus.com/post/annotation/">
+  <meta property="og:title" content="How to add annotation (ex. KEGG orthology) box to a plot in ggplot2 | A perfect autumn day">
+  <meta property="og:description" content="またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つ"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Vaticano.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-06-30T00:00:00&#43;09:00">
+  
+  <meta property="article:modified_time" content="2019-07-04T20:58:57&#43;09:00">
+  
+
+  
+
+  
+
+  <title>How to add annotation (ex. KEGG orthology) box to a plot in ggplot2 | A perfect autumn day</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#search">
+            
+            <span>Search</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/headers/Vaticano.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption">Città del Vaticano</span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">How to add annotation (ex. KEGG orthology) box to a plot in ggplot2</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2019-06-30 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-07-04 20:58:57 &#43;0900 JST" itemprop="dateModified">
+      Jul 4, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://taipapamotohus.com/post/annotation/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つけたので，まとめておく．例として，代謝経路の変化を縦型の折れ線グラフで描きKEGG orthologyによって分類したグラフを作成してみる．うーむ，自分で書いていてなんだが，マニアックなネタである．．．(^^;;;</p>
+
+<p>ま，備忘録として書いておこう．</p>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#data-preparation">Data Preparation</a></li>
+<li><a href="#plot-vertical-line-graph">Plot vertical line graph</a></li>
+<li><a href="#flip-the-plot-so-that-horizontal-becomes-vertical-with-coord-flip">Flip the plot so that horizontal becomes vertical with coord_flip</a></li>
+<li><a href="#add-annotation-box-by-geom-rect">Add annotation box by geom_rect</a>
+
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#remove-right-margin-with-expand-c--0-0">Remove right margin with expand=c(0,0)</a></li>
+<li><a href="#customize-tick-marks-with-limits-and-breaks-of-scale-y-continuous">customize tick marks with limits and breaks of scale_y_continuous</a></li>
+<li><a href="#add-kegg-orthology--ko">Add KEGG orthology (KO)</a></li>
+</ul></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="references">References</h2>
+
+<p>Kyoto Encyclopedia of Genes and Genomes (KEGG) に関しては以下のサイトを参照</p>
+
+<ul>
+<li><a href="https://www.genome.jp/kegg/docs/plea.html" target="_blank">KEGG</a></li>
+<li><a href="https://www.kegg.jp/kegg-bin/get%5Fhtext?br08902.keg" target="_blank">KEGG BRITE Hierarchy Files</a></li>
+<li><a href="https://www.genome.jp/kegg-bin/show%5Fpathway?map01100" target="_blank">KEGG Metabolic pathways</a></li>
+<li><a href="https://www.genome.jp/kegg/ko.html" target="_blank">KO (KEGG ORTHOLOGY) Database</a></li>
+</ul>
+
+<h2 id="data-preparation">Data Preparation</h2>
+
+<p>例によって，まず，架空のデータを作成する．Drugを投与して1，5，12，24時間後の代謝物の血中濃度変化を対照，つまり偽薬を投与した群と比較するという実験の結果を適当に作成する．代謝経路はKEGGのデータベースから適当に名前を充てがっておく．</p>
+
+<pre><code class="language-R">set.seed(100)
+data.df1 &lt;- data.frame(
+  Pathwayname = c(&quot;Cysteine and methionine metabolism&quot;,&quot;Histidine metabolism&quot;,&quot;Glucosinolate biosynthesis&quot;,&quot;Novobiocin biosynthesis&quot;,&quot;Phenylpropanoid biosynthesis&quot;,&quot;Pentose phosphate pathway&quot;,&quot;Cell cycle - yeast&quot;,&quot;Mineral absorption&quot;,&quot;Protein digestion and absorption&quot;,&quot;Type II diabetes mellitus&quot;,&quot;Insulin secretion&quot;,&quot;Carbon fixation in photosynthetic organisms&quot;,&quot;Photosynthesis&quot;,&quot;Peptidoglycan biosynthesis&quot;,&quot;Synthesis and degradation of ketone bodies&quot;,&quot;Cyanoamino acid metabolism&quot;,&quot;D-Glutamine and D-glutamate metabolism&quot;,&quot;Taurine and hypotaurine metabolism&quot;,&quot;GABAergic synapse&quot;,&quot;Retrograde endocannabinoid signaling&quot;,&quot;Synaptic vesicle cycle&quot;,&quot;Pyrimidine metabolism&quot;,&quot;HIF-1 signaling pathway&quot;,&quot;Morphine addiction&quot;,&quot;Nicotine addiction&quot;,&quot;Aminoacyl-tRNA biosynthesis&quot;),
+  C = rnorm(26, mean = 0, sd = 0.1),   # C: control
+  OneH = rnorm(26, mean = 2, sd = 2),
+  FiveH = rnorm(26, mean = 2, sd = 5),
+  TwH = rnorm(26, mean = 4, sd = 10),
+  TFH = rnorm(26, mean = 5, sd = 20))
+
+data.df1
+levels(data.df1$Pathwayname)
+</code></pre>
+
+<pre><code class="language-R">
+                                   Pathwayname            C       OneH
+1           Cysteine and methionine metabolism -0.050219235  0.5595569
+2                         Histidine metabolism  0.013153117  2.4618891
+3                   Glucosinolate biosynthesis -0.007891709 -0.3154589
+4                      Novobiocin biosynthesis  0.088678481  2.4941520
+5                 Phenylpropanoid biosynthesis  0.011697127  1.8177729
+6                    Pentose phosphate pathway  0.031863009  5.5147512
+7                           Cell cycle - yeast -0.058179068  1.7241408
+8                           Mineral absorption  0.071453271  1.7776130
+9             Protein digestion and absorption -0.082525943  0.6199714
+10                   Type II diabetes mellitus -0.035986213  1.5564115
+11                           Insulin secretion  0.008988614  2.3658154
+12 Carbon fixation in photosynthetic organisms  0.009627446  2.8346466
+13                              Photosynthesis -0.020163395  4.1308047
+14                  Peptidoglycan biosynthesis  0.073984050  3.9404040
+15  Synthesis and degradation of ketone bodies  0.012337950  1.7967415
+16                  Cyanoamino acid metabolism -0.002931671  4.8064070
+17      D-Glutamine and D-glutamate metabolism -0.038885425 -1.5535513
+18          Taurine and hypotaurine metabolism  0.051085626  3.2457348
+19                           GABAergic synapse -0.091381419  0.9554333
+20        Retrograde endocannabinoid signaling  0.231029682  4.6444619
+21                      Synaptic vesicle cycle -0.043808998  1.2731193
+22                       Pyrimidine metabolism  0.076406062  4.6381315
+23                     HIF-1 signaling pathway  0.026196129  2.0875581
+24                          Morphine addiction  0.077340460 -1.7573118
+25                          Nicotine addiction -0.081437912  1.1058756
+26                 Aminoacyl-tRNA biosynthesis -0.043845057 -1.4771959
+        FiveH         TwH         TFH
+1   2.8943242  14.0845187 -24.1598745
+2  11.4873285 -16.7440475  -3.0061184
+3  -9.3596274  12.9682227 -10.5283457
+4   6.9023207   3.5000423  -2.3859302
+5  -4.9941281  -9.4534931  29.8020292
+6  11.1243621 -15.3121153   2.8513238
+7   8.9064936  11.0958158   8.4518701
+8  -2.1942594   2.4209497  10.0920254
+9   0.6900211   6.1636787  -7.2906766
+10  1.6557799  12.1736208 -23.5843019
+11  0.1055822  21.2717575  -1.6195087
+12 14.9097946   2.9622971   7.5677213
+13  2.6491707  -1.5712229  25.3623998
+14 -1.5651249  18.2830143  -0.1114738
+15  5.1899712  -4.9295740  -1.0508202
+16  3.0084580  -7.5757124  37.3038137
+17  1.6504153  -1.3029645 -10.4742671
+18  1.5375506  28.4568276  13.4800480
+19  4.2445164  -4.3249580  -6.6789396
+20 -3.3217784   8.1351985  13.3007136
+21 -3.8120966  -7.7868314 -25.9052331
+22 10.2426087  -7.7403476  -5.3749901
+23 -8.3104801   0.6707665  -0.5958311
+24  2.0637486  17.6311371  25.1491476
+25 -3.4376417  -0.6914734  -4.3913991
+26  3.3526975  12.4287563  10.9579408
+
+ [1] &quot;Aminoacyl-tRNA biosynthesis&quot;
+ [2] &quot;Carbon fixation in photosynthetic organisms&quot;
+ [3] &quot;Cell cycle - yeast&quot;
+ [4] &quot;Cyanoamino acid metabolism&quot;
+ [5] &quot;Cysteine and methionine metabolism&quot;
+ [6] &quot;D-Glutamine and D-glutamate metabolism&quot;
+ [7] &quot;GABAergic synapse&quot;
+ [8] &quot;Glucosinolate biosynthesis&quot;
+ [9] &quot;HIF-1 signaling pathway&quot;
+[10] &quot;Histidine metabolism&quot;
+[11] &quot;Insulin secretion&quot;
+[12] &quot;Mineral absorption&quot;
+[13] &quot;Morphine addiction&quot;
+[14] &quot;Nicotine addiction&quot;
+[15] &quot;Novobiocin biosynthesis&quot;
+[16] &quot;Pentose phosphate pathway&quot;
+[17] &quot;Peptidoglycan biosynthesis&quot;
+[18] &quot;Phenylpropanoid biosynthesis&quot;
+[19] &quot;Photosynthesis&quot;
+[20] &quot;Protein digestion and absorption&quot;
+[21] &quot;Pyrimidine metabolism&quot;
+[22] &quot;Retrograde endocannabinoid signaling&quot;
+[23] &quot;Synaptic vesicle cycle&quot;
+[24] &quot;Synthesis and degradation of ketone bodies&quot;
+[25] &quot;Taurine and hypotaurine metabolism&quot;
+[26] &quot;Type II diabetes mellitus&quot;
+</code></pre>
+
+<p>Pathwaynameのlevelsを変更する．KEGG orthologyに合わせた配置にするためである．</p>
+
+<pre><code class="language-R">data.df1$Pathwayname &lt;- factor(data.df1$Pathwayname,
+                               levels = c(&quot;Aminoacyl-tRNA biosynthesis&quot;, &quot;Nicotine addiction&quot;, &quot;Morphine addiction&quot;, &quot;HIF-1 signaling pathway&quot;, &quot;Pyrimidine metabolism&quot;, &quot;Synaptic vesicle cycle&quot;, &quot;Retrograde endocannabinoid signaling&quot;, &quot;GABAergic synapse&quot;, &quot;Taurine and hypotaurine metabolism&quot;, &quot;D-Glutamine and D-glutamate metabolism&quot;, &quot;Cyanoamino acid metabolism&quot;, &quot;Synthesis and degradation of ketone bodies&quot;, &quot;Peptidoglycan biosynthesis&quot;, &quot;Photosynthesis&quot;, &quot;Carbon fixation in photosynthetic organisms&quot;, &quot;Insulin secretion&quot;, &quot;Type II diabetes mellitus&quot;, &quot;Protein digestion and absorption&quot;, &quot;Mineral absorption&quot;, &quot;Cell cycle - yeast&quot;, &quot;Pentose phosphate pathway&quot;, &quot;Phenylpropanoid biosynthesis&quot;, &quot;Novobiocin biosynthesis&quot;, &quot;Glucosinolate biosynthesis&quot;, &quot;Histidine metabolism&quot;, &quot;Cysteine and methionine metabolism&quot;),
+                               labels = c(&quot;Aminoacyl-tRNA biosynthesis&quot;, &quot;Nicotine addiction&quot;, &quot;Morphine addiction&quot;, &quot;HIF-1 signaling pathway&quot;, &quot;Pyrimidine metabolism&quot;, &quot;Synaptic vesicle cycle&quot;, &quot;Retrograde endocannabinoid signaling&quot;, &quot;GABAergic synapse&quot;, &quot;Taurine and hypotaurine metabolism&quot;, &quot;D-Glutamine and D-glutamate metabolism&quot;, &quot;Cyanoamino acid metabolism&quot;, &quot;Synthesis and degradation of ketone bodies&quot;, &quot;Peptidoglycan biosynthesis&quot;, &quot;Photosynthesis&quot;, &quot;Carbon fixation in photosynthetic organisms&quot;, &quot;Insulin secretion&quot;, &quot;Type II diabetes mellitus&quot;, &quot;Protein digestion and absorption&quot;, &quot;Mineral absorption&quot;, &quot;Cell cycle - yeast&quot;, &quot;Pentose phosphate pathway&quot;, &quot;Phenylpropanoid biosynthesis&quot;, &quot;Novobiocin biosynthesis&quot;, &quot;Glucosinolate biosynthesis&quot;, &quot;Histidine metabolism&quot;, &quot;Cysteine and methionine metabolism&quot;))
+levels(data.df1$Pathwayname)
+</code></pre>
+
+<pre><code class="language-R">
+ [1] &quot;Aminoacyl-tRNA biosynthesis&quot;
+ [2] &quot;Nicotine addiction&quot;
+ [3] &quot;Morphine addiction&quot;
+ [4] &quot;HIF-1 signaling pathway&quot;
+ [5] &quot;Pyrimidine metabolism&quot;
+ [6] &quot;Synaptic vesicle cycle&quot;
+ [7] &quot;Retrograde endocannabinoid signaling&quot;
+ [8] &quot;GABAergic synapse&quot;
+ [9] &quot;Taurine and hypotaurine metabolism&quot;
+[10] &quot;D-Glutamine and D-glutamate metabolism&quot;
+[11] &quot;Cyanoamino acid metabolism&quot;
+[12] &quot;Synthesis and degradation of ketone bodies&quot;
+[13] &quot;Peptidoglycan biosynthesis&quot;
+[14] &quot;Photosynthesis&quot;
+[15] &quot;Carbon fixation in photosynthetic organisms&quot;
+[16] &quot;Insulin secretion&quot;
+[17] &quot;Type II diabetes mellitus&quot;
+[18] &quot;Protein digestion and absorption&quot;
+[19] &quot;Mineral absorption&quot;
+[20] &quot;Cell cycle - yeast&quot;
+[21] &quot;Pentose phosphate pathway&quot;
+[22] &quot;Phenylpropanoid biosynthesis&quot;
+[23] &quot;Novobiocin biosynthesis&quot;
+[24] &quot;Glucosinolate biosynthesis&quot;
+[25] &quot;Histidine metabolism&quot;
+[26] &quot;Cysteine and methionine metabolism&quot;
+</code></pre>
+
+<p>データの整形を行う．reshapeのmeltでlong formatのデータにする．</p>
+
+<pre><code class="language-R">library(reshape)
+data_melt.df1 &lt;- melt(data.df1)
+head(data_melt.df1)
+</code></pre>
+
+<pre><code class="language-R">
+Using Pathwayname as id variables
+
+                         Pathwayname variable        value
+1 Cysteine and methionine metabolism        C -0.050219235
+2               Histidine metabolism        C  0.013153117
+3         Glucosinolate biosynthesis        C -0.007891709
+4            Novobiocin biosynthesis        C  0.088678481
+5       Phenylpropanoid biosynthesis        C  0.011697127
+6          Pentose phosphate pathway        C  0.031863009
+</code></pre>
+
+<p>これで解析用のデータが出来上がった．</p>
+
+<h2 id="plot-vertical-line-graph">Plot vertical line graph</h2>
+
+<p>いきなり，Pathwaynameをy軸に設定すると全てのポイントが連結されたグラフになってしまうので，まず，Pathwaynameをｘ軸に設定して折れ線グラフを描く．</p>
+
+<pre><code class="language-R">library(ggplot2)
+LinePlot_H &lt;- ggplot(data_melt.df1, aes(x = Pathwayname, y = value, group = variable)) +
+  theme_bw()
+LinePlot_H + geom_line(aes(colour = variable))
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/horizontal_lineplot.png" />
+
+
+</figure>
+
+<h2 id="flip-the-plot-so-that-horizontal-becomes-vertical-with-coord-flip">Flip the plot so that horizontal becomes vertical with coord_flip</h2>
+
+<p>勿論，これではダメなので，coord_flipでｘ軸とｙ軸をひっくり返す．また，色もかえる．さらに，x軸とy軸のタイトルを除き，凡例を中に入れて，そのタイトルを除く．</p>
+
+<pre><code class="language-R">LinePlot_V &lt;- ggplot(data_melt.df1, aes(x = Pathwayname, y = value, group = variable)) +
+  theme_bw()
+P1 &lt;- LinePlot_V +
+  geom_line(aes(colour = variable)) +
+  scale_color_manual(values = c(&quot;black&quot;, &quot;green&quot;, &quot;orange&quot;, &quot;blue&quot;, &quot;red&quot;)) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;&quot;) +
+  coord_flip()
+
+P1 + theme(legend.position = c(0.9, 0.7)) + theme(legend.title = element_blank())
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/vertical_lineplot.png" />
+
+
+</figure>
+
+<h2 id="add-annotation-box-by-geom-rect">Add annotation box by geom_rect</h2>
+
+<p>とりあえずは，それなりの縦向き折れ線グラフが出来上がった．このグラフに注釈ボックスをつけてみる．試行錯誤の結果，ggplot2の場合，geom_rectを使用すれば良いことがわかった．</p>
+
+<h3 id="references-1">References</h3>
+
+<ul>
+<li><a href="https://stackoverflow.com/questions/24536651/what-is-a-good-way-to-fit-text-inside-a-plotting-area-with-ggplot2-using-a-pre-d" target="_blank">What is a good way to fit text inside a plotting area with ggplot2 using a pre-defined width for the text?</a></li>
+<li><a href="http://sape.inf.usi.ch/quick-reference/ggplot2/geom%5Frect" target="_blank">ggplot2 Quick Reference: geom_rect</a></li>
+<li><a href="https://stackoverflow.com/questions/26741703/adding-multiple-shadows-rectangles-to-ggplot2-graph" target="_blank">Adding multiple shadows/rectangles to ggplot2 graph</a></li>
+</ul>
+
+<p>まず，注釈ボックスとするrectangle用のデータを用意する．</p>
+
+<pre><code class="language-R">rect1 &lt;- data.frame (xmin=24.55, xmax=26.75, ymin=40, ymax=90, text = data_melt.df1[1,1])
+rect2 &lt;- data.frame (xmin=21.55, xmax=24.45, ymin=40, ymax=90, text = data_melt.df1[2,1])
+rect3 &lt;- data.frame (xmin=20.55, xmax=21.45, ymin=40, ymax=90, text = data_melt.df1[3,1])
+rect4 &lt;- data.frame (xmin=19.55, xmax=20.45, ymin=40, ymax=90, text = data_melt.df1[4,1])
+rect5 &lt;- data.frame (xmin=17.55, xmax=19.45, ymin=40, ymax=90, text = data_melt.df1[5,1])
+rect6 &lt;- data.frame (xmin=16.55, xmax=17.45, ymin=40, ymax=90, text = data_melt.df1[6,1])
+rect7 &lt;- data.frame (xmin=15.55, xmax=16.45, ymin=40, ymax=90, text = data_melt.df1[7,1])
+rect8 &lt;- data.frame (xmin=13.55, xmax=15.45, ymin=40, ymax=90, text = data_melt.df1[8,1])
+rect9 &lt;- data.frame (xmin=12.55, xmax=13.45, ymin=40, ymax=90, text = data_melt.df1[9,1])
+rect10 &lt;- data.frame (xmin=11.55, xmax=12.45, ymin=40, ymax=90, text = data_melt.df1[10,1])
+rect11 &lt;- data.frame (xmin=8.55, xmax=11.45, ymin=40, ymax=90, text = data_melt.df1[11,1])
+rect12 &lt;- data.frame (xmin=5.55, xmax=8.45, ymin=40, ymax=90, text = data_melt.df1[12,1])
+rect13 &lt;- data.frame (xmin=4.55, xmax=5.45, ymin=40, ymax=90, text = data_melt.df1[13,1])
+rect14 &lt;- data.frame (xmin=3.55, xmax=4.45, ymin=40, ymax=90, text = data_melt.df1[14,1])
+rect15 &lt;- data.frame (xmin=1.55, xmax=3.45, ymin=40, ymax=90, text = data_melt.df1[15,1])
+rect16 &lt;- data.frame (xmin=0, xmax=1.45, ymin=40, ymax=90, text = data_melt.df1[16,1])
+</code></pre>
+
+<h3 id="remove-right-margin-with-expand-c--0-0">Remove right margin with expand=c(0,0)</h3>
+
+<p>ボックスの右端を90にしたので，グラフがはみ出さないように，scale_y_continuousを用いて，expand=c(0,0)で余白を省き，limitsで軸の範囲を指定する．凡例の位置も変え，背景を透明にして，フォントサイズも小さくする．</p>
+
+<pre><code class="language-R">P2 &lt;- P1 + theme(legend.position = c(0.0825, 0.43)) +
+  theme(legend.title = element_blank(),
+        legend.text =  element_text(size = 6),
+        legend.background = element_blank())       # legendの背景を透明にする
+P2
+
+P3 &lt;- P2 +
+  geom_rect(data=rect1, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect2, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect3, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect4, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect5, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect6, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect7, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect8, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect9, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect10, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect11, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect12, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect13, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect14, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect15, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect16, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&quot;grey90&quot;, alpha=1, color=&quot;black&quot;, lwd = 0.25, inherit.aes = FALSE)
+
+P3 + scale_y_continuous(expand=c(0,0), limits = c(-30, 90))
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/vertical_lineplot2.png" />
+
+
+</figure>
+
+<h3 id="customize-tick-marks-with-limits-and-breaks-of-scale-y-continuous">customize tick marks with limits and breaks of scale_y_continuous</h3>
+
+<p><a href="http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels" target="_blank">ggplot2 axis ticks : A guide to customize tick marks and labels</a></p>
+
+<p>ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．<br />
+<a href="https://stackoverflow.com/questions/38313204/r-ggplot2-scale-y-continuous-combining-breaks-limits/38313454#38313454" target="_blank">R ggplot2 scale_y_continuous : Combining breaks &amp; limits</a></p>
+
+<pre><code class="language-R">P4 &lt;- P3 +
+  scale_y_continuous(expand=c(0,0), limits = c(-30, 90), breaks=c(-20, 0, 20, 40))
+P4
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/vertical_lineplot3.png" />
+
+
+</figure>
+
+<p>これで空白の注釈用ボックスができた．</p>
+
+<h3 id="add-kegg-orthology--ko">Add KEGG orthology (KO)</h3>
+
+<p><a href="http://sape.inf.usi.ch/quick-reference/ggplot2/geom%5Frect" target="_blank">ggplot2 Quick Reference: geom_rect</a></p>
+
+<p>上記サイトを参考にして，空白のボックスに該当するKOを記入する．</p>
+
+<pre><code class="language-R">P4 +
+  geom_text(data = rect1, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Amino acid metabolism&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect2, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Biosynthesis of \n other secondary metabolites&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect3, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Carbohydrate metabolism&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect4, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Cell growth and death&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect5, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Digestive system&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect6, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Endocrine and metabolic disease&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect7, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Endocrine system&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect8, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Energy metabolism&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect9, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Glycan biosynthesis and metabolism&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect10, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Lipid metabolism&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect11, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Metabolism of other amino acids&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect12, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Nervous system&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect13, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Nucleotide metabolism&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect14, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Signal transduction&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect15, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Substance dependence&quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect16, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &quot;Translation&quot;), inherit.aes = FALSE, size = 2.4)
+</code></pre>
+
+<figure>
+
+<img src="/ox-hugo/vertical_lineplot4.png" />
+
+
+</figure>
+
+<p>ようやく完成である．この方法は他のタイプのグラフにも使えると思う．もっと簡単な方法があれば良いのだが．．．</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/r/">R</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/ggplot2/">ggplot2</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/annotation/">annotation</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/box/">box</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/vertical/">vertical</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/line/">line</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/plot/">plot</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/different-segment-to-each-facet-in-ggplot/">How to add different segment, annotation and color to each facet in ggplot</a></li>
+        
+        <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
+        
+        <li><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></li>
+        
+        <li><a href="/post/prodlim/">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</a></li>
+        
+        <li><a href="/post/r_homebrew_update_error/">RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="https://taipapamotohus.com/post/gleanings/" rel="prev">Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+    <p class="powered-by">
+      <a href="https://taipapamotohus.com/privacy/">Privacy Policy</a>
+    </p>
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/emacs-lisp.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/search.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

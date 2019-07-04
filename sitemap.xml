@@ -3,6 +3,14 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/post/annotation/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/post/gleanings/</loc>
       <lastmod>2019-06-08T23:16:25+09:00</lastmod>
     </url>
@@ -251,8 +259,32 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/posts/annotation/</loc>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/posts/hogehohge/</loc>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/posts/</loc>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -261,7 +293,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -270,7 +302,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/accessibility/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -279,7 +311,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/emacs/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -288,7 +320,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/iterm2/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -297,7 +329,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/line-number/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -306,7 +338,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/thunderbird/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -315,7 +347,70 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/whitespace/</loc>
-      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/r/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/annotation/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/box/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/ggplot2/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/line/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/plot/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/vertical/</loc>
+      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -343,15 +438,6 @@
     
       <loc>https://taipapamotohus.com/tags/search/</loc>
       <lastmod>2019-06-02T17:08:05+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/hugo/</loc>
-      <lastmod>2019-05-04T20:28:26+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -387,6 +473,15 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/horizontal/</loc>
+      <lastmod>2019-05-04T20:28:26+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/hugo/</loc>
       <lastmod>2019-05-04T20:28:26+09:00</lastmod>
       <priority>0</priority>
     </url>
@@ -494,24 +589,6 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/r/</loc>
-      <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/annotation/</loc>
-      <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://taipapamotohus.com/tags/colour/</loc>
       <lastmod>2019-04-07T16:30:49+09:00</lastmod>
       <priority>0</priority>
@@ -522,15 +599,6 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/facet/</loc>
-      <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/ggplot2/</loc>
       <lastmod>2019-04-07T16:30:49+09:00</lastmod>
       <priority>0</priority>
     </url>
@@ -594,15 +662,6 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/ox/</loc>
-      <lastmod>2019-03-30T21:54:40+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/plot/</loc>
       <lastmod>2019-03-30T21:54:40+09:00</lastmod>
       <priority>0</priority>
     </url>
