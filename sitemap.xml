@@ -3,6 +3,14 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/post/symbol-overlay/</loc>
+      <lastmod>2019-07-10T20:24:34+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/post/annotation/</loc>
       <lastmod>2019-07-04T20:58:57+09:00</lastmod>
     </url>
@@ -267,24 +275,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/posts/hogehohge/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/posts/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+      <lastmod>2019-07-10T20:24:34+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -293,16 +284,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/</loc>
-      <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/accessibility/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+      <lastmod>2019-07-10T20:24:34+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -311,7 +293,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/emacs/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+      <lastmod>2019-07-10T20:24:34+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -319,8 +301,8 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/iterm2/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+      <loc>https://taipapamotohus.com/tags/highlight/</loc>
+      <lastmod>2019-07-10T20:24:34+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -328,8 +310,8 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/line-number/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+      <loc>https://taipapamotohus.com/tags/replace/</loc>
+      <lastmod>2019-07-10T20:24:34+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -337,17 +319,8 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/thunderbird/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/whitespace/</loc>
-      <lastmod>2019-06-30T17:13:27+09:00</lastmod>
+      <loc>https://taipapamotohus.com/tags/symbol/</loc>
+      <lastmod>2019-07-10T20:24:34+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -411,6 +384,51 @@
     
       <loc>https://taipapamotohus.com/tags/vertical/</loc>
       <lastmod>2019-07-04T20:58:57+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/accessibility/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/iterm2/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/line-number/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/thunderbird/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/whitespace/</loc>
+      <lastmod>2019-06-08T23:16:25+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -1200,6 +1218,14 @@
     <url>
     
       <loc>https://taipapamotohus.com/categories/</loc>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/posts/</loc>
       <priority>0</priority>
     </url>
     

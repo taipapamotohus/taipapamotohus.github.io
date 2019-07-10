@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/accessibility/index.xml" rel="self" type="application/rss+xml" />
     
@@ -18,15 +18,6 @@
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/gleanings/</guid>
-      <description>前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめてお</description>
-    </item>
-    
-    <item>
-      <title>Hogehoge (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</title>
-      <link>https://taipapamotohus.com/posts/hogehohge/</link>
-      <pubDate>Mon, 01 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/posts/hogehohge/</guid>
       <description>前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめてお</description>
     </item>
     

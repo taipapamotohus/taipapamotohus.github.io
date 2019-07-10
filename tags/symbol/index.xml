@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>symbol on A perfect autumn day</title>
+    <link>https://taipapamotohus.com/tags/symbol/</link>
+    <description>Recent content in symbol on A perfect autumn day</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://taipapamotohus.com/tags/symbol/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Symbol Overlay (Highlight symbols at cursor point with keymap-enabled overlays in Emacs)</title>
+      <link>https://taipapamotohus.com/post/symbol-overlay/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/symbol-overlay/</guid>
+      <description>今回は（も？），redditで拾ってきたネタ（How to highlight occurences at cursor point in Emacs）．カーソルの位置にあるシンボル（単語と思えば良い）をバ</description>
+    </item>
+    
+  </channel>
+</rss>

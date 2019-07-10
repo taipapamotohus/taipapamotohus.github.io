@@ -6,8 +6,92 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Symbol Overlay (Highlight symbols at cursor point with keymap-enabled overlays in Emacs)</title>
+      <link>https://taipapamotohus.com/post/symbol-overlay/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/symbol-overlay/</guid>
+      <description>
+
+&lt;p&gt;今回は（も？），redditで拾ってきたネタ（&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/c95cm5/how%5Fto%5Fhighlight%5Foccurences%5Fat%5Fcursor%5Fpoint%5Fin/&#34; target=&#34;_blank&#34;&gt;How to highlight occurences at cursor point in Emacs&lt;/a&gt;）．カーソルの位置にあるシンボル（単語と思えば良い）をバッファ内ですべてハイライトしてくれるEmacsのパッケージを訊いているのだが，いくつか答えがあって，一番便利そうだったのが，今回紹介する &lt;strong&gt;symbol-overlay&lt;/strong&gt; である．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-use&#34;&gt;How to use&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wolray/symbol-overlay&#34; target=&#34;_blank&#34;&gt;symbol-overlay&lt;/a&gt; （ご本家）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://manuel-uberti.github.io/emacs/2019/02/14/avy/&#34; target=&#34;_blank&#34;&gt;Jump around&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/blue0513/items/c0dc35a880170997c3f5&#34; target=&#34;_blank&#34;&gt;Emacsの補完と検索を超強化する&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+
+&lt;p&gt;例によって，以下のようにinit.orgに書き込んでMELPAからsymbol-overlayをインストールする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package symbol-overlay             ; Highlight symbols
+  :ensure t
+  :config
+  (global-set-key (kbd &amp;quot;M-i&amp;quot;) &#39;symbol-overlay-put)
+  (global-set-key (kbd &amp;quot;&amp;lt;f7&amp;gt;&amp;quot;) &#39;symbol-overlay-mode)
+  (global-set-key (kbd &amp;quot;&amp;lt;f8&amp;gt;&amp;quot;) &#39;symbol-overlay-remove-all)
+  )
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;how-to-use&#34;&gt;How to use&lt;/h2&gt;
+
+&lt;p&gt;使用法はご本家に書いてあるが，まず，”M-i”を叩けば，カーソルが位置しているシンボル（単語と思えば良い）が色付きでハイライトされる．同時に，同一バッファ内での全ての同じ単語も同様にハイライトされる．カーソルを動かしてもハイライトされた状態はそのままである．続けて，別の単語にカーソルを持って行って，&amp;rdquo;M-i&amp;rdquo;とすれば，その単語が別の色でハイライトされる．勿論，バッファ内の同一の単語も全て同じ色でハイライトされる．しかも，最初にハイライトした単語は，カーソルが離れた後もハイライトされた状態を維持している．文章で書くとわかりにくいが，要するに下図のような状態になる．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/symbol-overlay.jpg&#34; width=&#34;80%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;さらに，各単語間は &amp;ldquo;n&amp;rdquo; で先に進み， &amp;ldquo;p&amp;rdquo; で逆戻りできる．別の色のハイライトの単語にカーソルを移動させれば，今度はその単語間で同様に移動できる．そのほかご本家サイトによれば，以下のようなキーバインドになっている．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;&amp;quot;n&amp;quot; -&amp;gt; symbol-overlay-jump-next
+&amp;quot;p&amp;quot; -&amp;gt; symbol-overlay-jump-prev
+&amp;quot;w&amp;quot; -&amp;gt; symbol-overlay-save-symbol
+&amp;quot;t&amp;quot; -&amp;gt; symbol-overlay-toggle-in-scope
+&amp;quot;e&amp;quot; -&amp;gt; symbol-overlay-echo-mark
+&amp;quot;d&amp;quot; -&amp;gt; symbol-overlay-jump-to-definition
+&amp;quot;s&amp;quot; -&amp;gt; symbol-overlay-isearch-literally
+&amp;quot;q&amp;quot; -&amp;gt; symbol-overlay-query-replace
+&amp;quot;r&amp;quot; -&amp;gt; symbol-overlay-rename
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なかでも特筆すべきは &amp;ldquo;r&amp;rdquo; のsymbol-overlay-renameで，ハイライトされた単語を一気に書き換えることができる．例えば下図のように &amp;ldquo;global-set-key&amp;rdquo; が赤くハイライトされている時，どれかの&amp;rdquo;global-set-key&amp;rdquo;にカーソルを置いて &amp;ldquo;r&amp;rdquo; を叩けば，minibufferにRenameが表示され，これを消去して新しい名前を書くと赤くハイライトされている単語は一気に新しい名前に変わる．この機能は場合によっては非常に便利である．&lt;/p&gt;
+
+&lt;figure&gt;
+
+&lt;img src=&#34;https://taipapamotohus.com/img/Rename.jpg&#34; width=&#34;80%&#34; /&gt;
+
+
+&lt;/figure&gt;
+
+&lt;p&gt;こういうパッケージを教えてくれるので，redditは有難い．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>How to add annotation (ex. KEGG orthology) box to a plot in ggplot2</title>
@@ -2427,83 +2511,6 @@ $ watch_safari.rb Hoge hogefuga.html
 &lt;p&gt;つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．&lt;/p&gt;
 
 &lt;p&gt;広い領域の表示が必要となれば，&amp;rdquo;C-x n w&amp;rdquo;とやると，1つ前の画像の状態に戻る．そして，もう一度&amp;rdquo;C-x n w&amp;rdquo;とやると，最初の状態に戻る．なんということはないのであるが，便利である．&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Org-modeでhtml exportの際のthemeについて</title>
-      <link>https://taipapamotohus.com/post/org-html-export-theme/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/org-html-export-theme/</guid>
-      <description>
-
-&lt;p&gt;org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並べていくときは，side columnなどがあって，すぐに行きたいところに飛べるようになっていると嬉しい．ということで，今回はorg-modeをhtmlにexportするときのthemeがテーマである．．．．．&lt;/p&gt;
-
-&lt;p&gt;とにかく，たくさんのthemesが存在する．まずは以下のサイトをチェック，というか以下を読めばこのブログは読まなくても良いような．．．(^^;;;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/sambatriste/items/2dc9f81cbf1e82d7429a&#34; target=&#34;_blank&#34;&gt;org-modeのHTMLテーマ&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/sambatriste/items/c8e70368ee5fd092096b&#34; target=&#34;_blank&#34;&gt;org-modeのHTMLテーマ第2弾&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/fniessen/org-html-themes#how-to-export-org-mode-files-into-awesome-html-in-2-minutes&#34; target=&#34;_blank&#34;&gt;How to export Org mode files into awesome HTML in 2 minutes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34; target=&#34;_blank&#34;&gt;org-spec&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
-
-&lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34; target=&#34;_blank&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;あるいは，3からOrg-HTML themes projectをダウンロードしてきて解凍しローカルの&amp;rdquo;setup file&amp;rdquo;へのパスを書き込めば，ネットの接続に依存せずにexportできるようになる．たとえば，/Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setupに設定ファイルがあるとすると以下のようにすれば良い．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+SETUPFILE: /Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setup
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以下に研究会で発表するスライド原稿を作る下準備として，実際に10個の論文をまとめたorg fileの一部を掲示しておく．左に論文のタイトルが並び，見ている論文の小見出しが自動的に展開される．subheadの色も設定されており，読みやすい．デザインもプロっぽい印象である．書いた内容にかかわらず，なんとなく賢くなったような気分になれる（笑）．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/ReadTheOrg.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;
-
-&lt;h2 id=&#34;org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34; target=&#34;_blank&#34;&gt;org-spec&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;An Org-mode template for technical specification documents and HTML publishing. とのことで，技術よりのthemeである．特徴としては，Ditaa, Graphviz &amp;amp; PlantUMLなどによりテキストベースで図が書ける．表に対応，自動的にアップデートするフィールド，PDF生成にも対応，コードブロックの基本的なsyntax highlightingなどがある．実際の例として&lt;a href=&#34;https://demo.thi.ng/org-spec/&#34; target=&#34;_blank&#34;&gt;https://demo.thi.ng/org-spec/&lt;/a&gt;がある．&lt;/p&gt;
-
-&lt;p&gt;こちらの使い方は少しだけ面倒である．リンク先からorg-specをダウンロードして解凍する．ここで，style.cssが/Hoge/Fuga/org-spec-master/css/style.cssに保存されたとする．ダウンロードして来たファイルに含まれているindex.orgに全て書いてあるので，それを真似てorg fileのpreambleに次のように書いておく．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+HTML_HEAD: &amp;lt;link href=&amp;quot;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
-#+HTML_HEAD: &amp;lt;link href=&amp;quot;/Hoge/Fuga/org-spec-master/css/style.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
-#+AUTHOR: taipapa
-#+EMAIL: your@mail.address
-
-#+HTML: &amp;lt;div class=&amp;quot;outline-2&amp;quot; id=&amp;quot;meta&amp;quot;&amp;gt;
-| *Author* | {{{author}}} ({{{email}}})    |
-| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
-#+HTML: &amp;lt;/div&amp;gt;
-
-#+TOC: headlines 2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以下に前述の論文のまとめをこのcssでexportしたものを掲示しておく．印象がかなり変わると思う．subheadなどは最初から展開されている．ReadTheOrgよりもビジネスライクな感じであるが，よりスマートな気もする．その日の気分によって，この2つを使い分けている．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/org-spec.png&#34; /&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;以上あげた2つ以外にも無数のthemeが存在する．また，自分でthemeを作ってしまう剛の者もいらっしゃるので，あちこちを探してみるのも一興．．．(^o^)&lt;/p&gt;
 </description>
     </item>
     
