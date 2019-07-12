@@ -238,15 +238,6 @@
     </item>
     
     <item>
-      <title>Hugo</title>
-      <link>https://taipapamotohus.com/tags/hugo/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>academic</title>
       <link>https://taipapamotohus.com/tags/academic/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
@@ -279,6 +270,15 @@
       <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/horizontal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://taipapamotohus.com/tags/hugo/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/hugo/</guid>
       <description></description>
     </item>
     
