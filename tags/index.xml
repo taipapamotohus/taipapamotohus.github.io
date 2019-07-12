@@ -7,17 +7,71 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>color</title>
+      <link>https://taipapamotohus.com/tags/color/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/color/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cursor</title>
+      <link>https://taipapamotohus.com/tags/cursor/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/cursor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>emacs</title>
       <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>input</title>
+      <link>https://taipapamotohus.com/tags/input/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/input/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>japanese</title>
+      <link>https://taipapamotohus.com/tags/japanese/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/japanese/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macos</title>
+      <link>https://taipapamotohus.com/tags/macos/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mojave</title>
+      <link>https://taipapamotohus.com/tags/mojave/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/mojave/</guid>
       <description></description>
     </item>
     
@@ -184,6 +238,15 @@
     </item>
     
     <item>
+      <title>Hugo</title>
+      <link>https://taipapamotohus.com/tags/hugo/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>academic</title>
       <link>https://taipapamotohus.com/tags/academic/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
@@ -220,15 +283,6 @@
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://taipapamotohus.com/tags/hugo/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>scrollbar</title>
       <link>https://taipapamotohus.com/tags/scrollbar/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
@@ -252,15 +306,6 @@
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/26-2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mojave</title>
-      <link>https://taipapamotohus.com/tags/mojave/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/mojave/</guid>
       <description></description>
     </item>
     
@@ -594,15 +639,6 @@
       <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>color</title>
-      <link>https://taipapamotohus.com/tags/color/</link>
-      <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/color/</guid>
       <description></description>
     </item>
     

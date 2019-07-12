@@ -6,8 +6,68 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</title>
+      <link>https://taipapamotohus.com/post/live/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/live/</guid>
+      <description>
+
+&lt;p&gt;最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle imputに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-set-up&#34;&gt;How to set up&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#shortcut&#34;&gt;Shortcut&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-set-up&#34;&gt;How to set up&lt;/h2&gt;
+
+&lt;p&gt;以前の記事（&lt;a href=&#34;../japanese_setup&#34;&gt;Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など&lt;/a&gt;）の設定をほんの少し変えるだけである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+BEGIN_SRC emacs-lisp
+(when (fboundp &#39;mac-input-source)
+  (defun my-mac-selected-keyboard-input-source-chage-function ()
+    (let ((mac-input-source (mac-input-source)))
+      (set-cursor-color
+       (if (string-match &amp;quot;com.apple.inputmethod.Kotoeri.Roman&amp;quot; mac-input-source)
+           ;; (if (string-match &amp;quot;com.google.inputmethod.Japanese.Roman&amp;quot; mac-input-source)
+           &amp;quot;#91C3FF&amp;quot; &amp;quot;#FF9300&amp;quot;))))
+  (add-hook &#39;mac-selected-keyboard-input-source-change-hook
+            &#39;my-mac-selected-keyboard-input-source-chage-function))
+#+END_SRC
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでEmacsでライブ変換を使用している際に，日本語入力の時は赤色のカーソル，英語入力の時は青色のカーソルになる．&lt;/p&gt;
+
+&lt;h2 id=&#34;shortcut&#34;&gt;Shortcut&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考：&lt;a href=&#34;https://qiita.com/YumaInaura/items/8c74cdf32ad2f5ed57fa&#34; target=&#34;_blank&#34;&gt;#Mac のライブ変換で入力をひらがなのままで確定させる ( Control + J )&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;「Control」＋「J」  →   ひらがなに変換&lt;/li&gt;
+&lt;li&gt;「Control」＋「K」  →   カタカナに変換&lt;/li&gt;
+&lt;li&gt;「Control」＋「L」  →   全角英字に変換&lt;/li&gt;
+&lt;li&gt;「Control」＋「;（セミコロン）」  →   半角英字に変換&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;私のところでは何故か参考サイトと異なり，セミコロンで半角カタカナではなく半角英字に変換される．半角カタカナなんか使わないからいいけど．．．&lt;/p&gt;
+
+&lt;p&gt;J, K, L, ; はキーボード上の位置が一直線であり，かつ，左から順番になっているので，指に優しい．&lt;/p&gt;
+
+&lt;p&gt;mojaveのライブ変換，とにかく一度使ってみることをお勧めする．&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Symbol Overlay (Highlight symbols at cursor point with keymap-enabled overlays in Emacs)</title>
@@ -2454,63 +2514,6 @@ $ watch_safari.rb Hoge hogefuga.html
 &lt;/ul&gt;
 
 &lt;p&gt;以上のことより，学会発表用のスライドなどを作成している際は，skimなどの方がpdf viewerとして便利であるが，文献のまとめなどpdfを読み込む際には，pdf-toolsの方が向いているのではないかと考えている．&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</title>
-      <link>https://taipapamotohus.com/post/org-mode_recursive-narrow/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/org-mode_recursive-narrow/</guid>
-      <description>
-
-&lt;p&gt;org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すことができれば便利である．これを実現してくれるパッケージが&lt;a href=&#34;https://github.com/nflath/recursive-narrow&#34; target=&#34;_blank&#34;&gt;recursive-narrow&lt;/a&gt;である．&lt;/p&gt;
-
-&lt;h2 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h2&gt;
-
-&lt;p&gt;インストールは例によって，init.orgに以下のように書き込むだけである．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package recursive-narrow
-  :ensure t)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これでインストールと設定は終了である．&lt;/p&gt;
-
-&lt;h2 id=&#34;使用法&#34;&gt;使用法&lt;/h2&gt;
-
-&lt;p&gt;使い方も実に簡単であり，&amp;rdquo;C-x n n&amp;rdquo;で現在カーソルがあるsubtree以下のみが表示されるようになり，&amp;rdquo;C-x n w&amp;rdquo;で元の表示に戻る．これではよくわからないので，実際の画像を示す．まず，最初の画像では全体の画面が表示されており，1951行目の「Org-modeで再帰的に」の行にカーソルがある．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/narrow-1.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;ここで，&amp;rdquo;C-x n n&amp;rdquo;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/narrow-2.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&amp;rdquo;C-x n n&amp;rdquo;とやると，以下の画像のようになる．&lt;/p&gt;
-
-&lt;figure&gt;
-
-&lt;img src=&#34;https://taipapamotohus.com/img/narrow-3.jpg&#34; width=&#34;100%&#34; /&gt;
-
-
-&lt;/figure&gt;
-
-&lt;p&gt;つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．&lt;/p&gt;
-
-&lt;p&gt;広い領域の表示が必要となれば，&amp;rdquo;C-x n w&amp;rdquo;とやると，1つ前の画像の状態に戻る．そして，もう一度&amp;rdquo;C-x n w&amp;rdquo;とやると，最初の状態に戻る．なんということはないのであるが，便利である．&lt;/p&gt;
 </description>
     </item>
     

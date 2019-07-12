@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</title>
+      <link>https://taipapamotohus.com/post/live/</link>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/live/</guid>
+      <description>最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle imputに戻してしまった．今年の5月にmo</description>
+    </item>
     
     <item>
       <title>Symbol Overlay (Highlight symbols at cursor point with keymap-enabled overlays in Emacs)</title>
