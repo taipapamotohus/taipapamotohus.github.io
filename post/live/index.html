@@ -108,7 +108,7 @@
   
   <meta property="article:published_time" content="2019-07-11T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2019-07-12T18:04:43&#43;09:00">
+  <meta property="article:modified_time" content="2019-07-12T19:22:48&#43;09:00">
   
 
   
@@ -263,7 +263,7 @@
         Last updated on
     
     <meta content="2019-07-11 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2019-07-12 18:04:43 &#43;0900 JST" itemprop="dateModified">
+    <time datetime="2019-07-12 19:22:48 &#43;0900 JST" itemprop="dateModified">
       Jul 12, 2019
     </time>
   </span>
@@ -314,7 +314,10 @@
 
 <h2 id="how-to-set-up">How to set up</h2>
 
-<p>以前の記事（<a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>）の設定をほんの少し変えるだけである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．</p>
+<ul>
+<li>まず，デスクトップの日本語入力のライブ変換にチェックを入れてオンにする．</li>
+<li>ついで，カーソルの色の設定をする．これは以前の記事（<a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>）の設定をほんの少し変えるだけのことである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．</li>
+</ul>
 
 <pre><code class="language-lisp">#+BEGIN_SRC emacs-lisp
 (when (fboundp 'mac-input-source)
