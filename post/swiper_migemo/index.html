@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.4" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="author" content="taipapa">
 
   
@@ -430,8 +430,7 @@
 <pre><code class="language-emacs-lisp">;; (fset 'ivy--regex 'identity)
 </code></pre>
 
-<p>は，コメントアウトしておかないと，migemo化を無効にしてしまうので注意。</p></li>
-</ul>
+<p>は，コメントアウトしておかないと，migemo化を無効にしてしまうので注意。</p>
 
 <h3 id="install-and-setup-1">Install &amp; setup</h3>
 
@@ -441,16 +440,17 @@
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 (use-package avy-migemo
-  :ensure t
-  :config
-  (avy-migemo-mode 1)
-  (setq avy-timeout-seconds nil)
-  (require 'avy-migemo-e.g.swiper)
-  (global-set-key (kbd &quot;C-M-;&quot;) 'avy-migemo-goto-char-timer)
-  ;;  (global-set-key (kbd &quot;M-g m m&quot;) 'avy-migemo-mode)
-  )
+:ensure t
+:config
+(avy-migemo-mode 1)
+(setq avy-timeout-seconds nil)
+(require 'avy-migemo-e.g.swiper)
+(global-set-key (kbd &quot;C-M-;&quot;) 'avy-migemo-goto-char-timer)
+;;  (global-set-key (kbd &quot;M-g m m&quot;) 'avy-migemo-mode)
+)
 #+end_src
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="使い方-1">使い方</h3>
 
@@ -495,23 +495,23 @@
 
 (global-set-key (kbd &quot;C-x C-d&quot;) 'bjm/ivy-dired-recent-dirs)
 #+end_src
-</code></pre></li>
-</ul>
+</code></pre>
 
 <!--listend-->
 
 <ul>
-<li><p>C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．</p>
+<li>C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．</li>
+</ul>
 
 <figure>
 
 <img src="/img/directory-1a.jpg" width="100%" />
 
 
-</figure></li>
-</ul>
+</figure>
 
-<p>以上，今回は小ネタだが非常に有用なものばかりを紹介した．</p>
+<p>以上，今回は小ネタだが非常に有用なものばかりを紹介した．</p></li>
+</ul>
 
     </div>
 

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.4" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="author" content="taipapa">
 
   
@@ -379,15 +379,15 @@
   :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h3 id="org-modeのinit-dot-elの設定-pdf出力用">org-modeのinit.elの設定（pdf出力用）</h3>
 
 <ul>
 <li><p>前述のごとく，koma-scriptとTufte-LaTeXについて設定する．</p></li>
 
-<li><p>何回もしつこいようだが，これも以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）で説明したように，init.orgに書いたものから生成されたinit.elである．</p>
+<li><p>何回もしつこいようだが，これも以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）で説明したように，init.orgに書いたものから生成されたinit.elである．</p></li>
+</ul>
 
 <pre><code class="language-lisp">(require 'ox-latex)
 (add-to-list 'auto-mode-alist '(&quot;\\.org$&quot; . org-mode))
@@ -454,17 +454,20 @@
         &quot;bibtex %b&quot;
         &quot;xelatex -interaction nontopmode -output-directory %o %f&quot;
         &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;))
-</code></pre></li>
+</code></pre>
 
-<li><p>ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．なお，pandocやTufteの項は別途記事にするので，とりあえずは無視してほしい．</p>
+<ul>
+<li>ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．なお，pandocやTufteの項は別途記事にするので，とりあえずは無視してほしい．</li>
+</ul>
 
 <figure>
 
 <img src="/img/org-C-c-C-e.jpg" width="100%" />
 
 
-</figure></li>
+</figure>
 
+<ul>
 <li><p>pdfで出力したければ，さらに，l o と打つと，As PDF file and openを選択したことになり，原稿がpdfとして出力され，かつ，skimでそのpdfがオープンされる．</p></li>
 
 <li><p>同じく，htmlで出力したければ，h o と打つと，As HTML file and openを選択したことになり，ブラウザーでそのhtmlがオープンされる．</p></li>
@@ -508,9 +511,8 @@ hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)．
 
 * 結論
 hogefugaによる治療は有効である．
-</code></pre>
+</code></pre></li>
 
-<ul>
 <li><p>ついで，前述のごとく，Emacsでこの文書を開いた状態で，C-c C-e l oと打てば，以下のようなpdfがskimで開かれる．</p>
 
 <figure>

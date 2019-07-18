@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.4" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="author" content="taipapa">
 
   
@@ -335,9 +335,10 @@
   )
 (add-hook 'org-mode-hook 'org-mode-reftex-setup)
 #+end_src
-</code></pre></li>
+</code></pre>
 
-<li><p>上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．</p></li>
+<ul>
+<li>上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．</li>
 </ul>
 
 <h3 id="org-mode-reftex-setupの使用方法">org-mode-reftex-setupの使用方法</h3>
@@ -345,25 +346,26 @@
 <ul>
 <li>org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ</li>
 <li>すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．</li>
-
-<li><p>次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．</p>
+<li>次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．</li>
+</ul>
 
 <figure>
 
 <img src="/img/reftex.jpg" width="100%" />
 
 
-</figure></li>
+</figure>
 
-<li><p>上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（<a href="../prelude_install">Emacsの設定（その1）Preludeの導入</a>）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）</p>
+<ul>
+<li>上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（<a href="../prelude_install">Emacsの設定（その1）Preludeの導入</a>）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）</li>
+</ul>
 
 <figure>
 
 <img src="/img/reftex-2.jpg" width="100%" />
 
 
-</figure></li>
-</ul>
+</figure>
 
 <h2 id="ox-bibtex-dot-el"><a href="https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el" target="_blank">ox-bibtex.el</a></h2>
 
@@ -371,8 +373,8 @@
 <li>参考サイト：<a href="https://aliquote.org/post/org-and-bibtex/" target="_blank">Org and Bibtex</a></li>
 <li>上述の作業で，文献を本文中にcite-keyとして引用することはできた．次に必要なのはorg-modeからpdfやhtmlにexportする際に，cite-keyをもとに，文献が雑誌の規定の様式で引用され，最後に文献リストが規定の様式で記述されるようにすることである．この面倒をみてくれるのが，<a href="https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el" target="_blank">ox-bibtex.el</a> である．</li>
 <li>ox-bibtex.elは，org-plus-contrib packageの中に含まれているので，まず，org-plus-contribをインストールする．これは，<a href="http://emacs-jp.github.io/packages/package-management/package-el.html" target="_blank">package.el</a> を使えば簡単である．</li>
-
-<li><p>次いで，use-packageを使って，ox-bibtexを設定する．と言っても以下のようにinit.orgに書くだけである．</p>
+<li>次いで，use-packageを使って，ox-bibtexを設定する．と言っても以下のようにinit.orgに書くだけである．</li>
+</ul>
 
 <pre><code class="language-lisp">(use-package ox-bibtex)
 </code></pre></li>
@@ -389,9 +391,11 @@
 <li><p>ox-bibtex.elはbibtexをLaTeX, html, asciiにexportしてくれる．HTMLへのexportには，<a href="https://www.lri.fr/~filliatr/bibtex2html/" target="_blank">bibtex2html</a> が使われる．そこで，bibtex2htmlをインストールしておく．homebrewがインストールされていれば以下のようにすれば良い．</p>
 
 <pre><code class="language-shell">brew install bibtex2html
-</code></pre></li>
+</code></pre>
 
-<li><p>ox-bibtexの使い方はソースの最初に書いてあるとおりである．すなわち，文献をexportするためには，org-mode文書の冒頭に例えば以下を追加し，</p>
+<ul>
+<li>ox-bibtexの使い方はソースの最初に書いてあるとおりである．すなわち，文献をexportするためには，org-mode文書の冒頭に例えば以下を追加し，</li>
+</ul>
 
 <pre><code class="language-lisp">#+LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
 </code></pre>
@@ -401,13 +405,10 @@
 <pre><code class="language-lisp">#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-references.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
 </code></pre>
 
-<p>を追加する．</p></li>
-
-<li><p>#+LaTeX_HEADER: の行の最後の<a href="https://ctan.org/pkg/natbib" target="_blank">natbib</a> は，texliveに含まれる文献サポートのパッケージであり，1, 2, 3,&hellip;.というような番号付タイプの文献引用や author-yearタイプの文献引用の両方に（それ以外にも）対応している．その手前はnatbibのオプションである．</p></li>
-
-<li><p>#+BIBLIOGRAPHY: のあとにfoo.bibを書くわけだが，この部分はフルパスで書いて良い．その後にはスタイルを書く．上記のStroke_3-authors_alphabetical.bstは自作だが，これは投稿ジャーナルの規定に合わせて作成する．ジャーナルによってはbst ファイルを用意してあるかもしれない．</p></li>
-
-<li><p>option: -foobar はbibtex2htmlに &lsquo;foobar&rsquo; を渡す．つまり</p>
+<p>を追加する．
+-   #+LaTeX_HEADER: の行の最後の<a href="https://ctan.org/pkg/natbib" target="_blank">natbib</a> は，texliveに含まれる文献サポートのパッケージであり，1, 2, 3,&hellip;.というような番号付タイプの文献引用や author-yearタイプの文献引用の両方に（それ以外にも）対応している．その手前はnatbibのオプションである．
+-   #+BIBLIOGRAPHY: のあとにfoo.bibを書くわけだが，この部分はフルパスで書いて良い．その後にはスタイルを書く．上記のStroke_3-authors_alphabetical.bstは自作だが，これは投稿ジャーナルの規定に合わせて作成する．ジャーナルによってはbst ファイルを用意してあるかもしれない．
+-   option: -foobar はbibtex2htmlに &lsquo;foobar&rsquo; を渡す．つまり</p>
 
 <pre><code class="language-lisp">option:-d    sort by date
 option:-a    sort as BibTeX (usually by author) *default*
@@ -418,28 +419,26 @@ option:-r    reverse the sort
 <li><p>複数のオプションを使用することも可能</p>
 
 <pre><code class="language-lisp">option:-d option:-r
-</code></pre></li>
+</code></pre>
 
-<li><p>上述のように， <strong>limit:t</strong> とすることにより，引用された文献のみのリストになる．これをしないと bib ファイルの中のすべての論文がリストになってしまう．</p></li>
+<ul>
+<li>上述のように， <strong>limit:t</strong> とすることにより，引用された文献のみのリストになる．これをしないと bib ファイルの中のすべての論文がリストになってしまう．</li>
 </ul>
 
 <h2 id="bst-ファイルについて">bst ファイルについて</h2>
 
 <ul>
-<li>bibtexにおいて引用のスタイルを決めているファイルであり，これを目指すジャーナルの投稿規定に合わせる．既にそのようなbst ファイルがあれば極楽だが，ない場合は大変である．この辺は以下のサイトを参照．
-
-<ul>
+<li>bibtexにおいて引用のスタイルを決めているファイルであり，これを目指すジャーナルの投稿規定に合わせる．既にそのようなbst ファイルがあれば極楽だが，ない場合は大変である．この辺は以下のサイトを参照．</li>
 <li><a href="http://www.ketsuago.com/entry/2015/03/16/231806" target="_blank">LaTeXで参考文献の形式を変更する方法（bstファイルの編集）</a></li>
 <li><a href="http://www.med.osaka-u.ac.jp/pub/anes/www/html/manual/bibtex.html" target="_blank">BibTeXのドキュメント</a></li>
-</ul></li>
 </ul>
 
 <h3 id="bst-ファイルの置き場所">bst ファイルの置き場所</h3>
 
 <ul>
 <li>これにはかなり悩まされたが，なんのことはないMacTeXのFAQサイトに書いてあった．</li>
-
-<li><p><a href="http://www.tug.org/mactex/2013/faq/#qm05" target="_blank">The Most Frequently Asked Questions (FAQ)</a></p>
+<li><a href="http://www.tug.org/mactex/2013/faq/#qm05" target="_blank">The Most Frequently Asked Questions (FAQ)</a></li>
+</ul>
 
 <p><strong>QM.06 :</strong> Why can&rsquo;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  <br />
 <br />
@@ -447,10 +446,8 @@ option:-r    reverse the sort
  <strong>~/Library/texmf/bibtex/bib</strong> <br />
  or subfolders of this directory, and &ldquo;.bst&rdquo; files go in <br />
  <strong>~/Library/texmf/bibtex/bst</strong> <br />
- or subfolders of this directory.</p></li>
-
-<li><p>ここにおいておけば，パスを指定することなく，どこからでもbstファイルを指定してスタイルを決められる．</p></li>
-</ul>
+ or subfolders of this directory.
+-   ここにおいておけば，パスを指定することなく，どこからでもbstファイルを指定してスタイルを決められる．</p>
 
 <h2 id="文献を引用したorg-modeからのexportの実例">文献を引用したorg-modeからのexportの実例</h2>
 
@@ -491,12 +488,13 @@ hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)．\cite{Cosentino:201
 hogefugaによる治療は有効である．
 
 #+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>hogefuga-References.bibの部分やbstの部分は，それぞれ該当するファイルに置き換えていただきたい．</li>
-<li>\cite{Stetler:2012jt,Cosentino:2011dn} の部分は私のbibファイルにおけるcite-keyである．</li>
-<li>C-c C-e l o で，文献が番号付きで引用されたpdfが作成され，skimで開く．</li>
+<li><p>hogefuga-References.bibの部分やbstの部分は，それぞれ該当するファイルに置き換えていただきたい．</p></li>
+
+<li><p>\cite{Stetler:2012jt,Cosentino:2011dn} の部分は私のbibファイルにおけるcite-keyである．</p></li>
+
+<li><p>C-c C-e l o で，文献が番号付きで引用されたpdfが作成され，skimで開く．</p></li>
 
 <li><p>下図のように，文献リストも付いているし，本文中の番号をクリックすれば文献リストの該当論文にジャンプするリンク付きである．また，このbstでは著者名のアルファベット順を指定しているので，最初にでてきた文献が2に，二番目にでてきた文献が1になっていることに注意してほしい．さらに，著者名は3人までは全員記載し，4人以上の論文では4人目以降はet alになっている．bibtexの活用により，これらのことが自動的になされている．</p>
 

@@ -13,6 +13,15 @@
     
     
     <item>
+      <title>Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</title>
+      <link>https://taipapamotohus.com/post/pdf-tools/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/post/pdf-tools/</guid>
+      <description>Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリと</description>
+    </item>
+    
+    <item>
       <title>mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</title>
       <link>https://taipapamotohus.com/post/live/</link>
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
@@ -136,15 +145,6 @@
       
       <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
       <description>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある</description>
-    </item>
-    
-    <item>
-      <title>Emacsでpdfを読む (pdf-tools)</title>
-      <link>https://taipapamotohus.com/post/pdf-tools/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/pdf-tools/</guid>
-      <description>Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリと</description>
     </item>
     
     <item>

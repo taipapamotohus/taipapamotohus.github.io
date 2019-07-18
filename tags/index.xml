@@ -7,10 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>emacs</title>
+      <link>https://taipapamotohus.com/tags/emacs/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-mode</title>
+      <link>https://taipapamotohus.com/tags/org-mode/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/org-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf</title>
+      <link>https://taipapamotohus.com/tags/pdf/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf-tools</title>
+      <link>https://taipapamotohus.com/tags/pdf-tools/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pdf-tools/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>color</title>
@@ -27,15 +63,6 @@
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/cursor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>https://taipapamotohus.com/tags/emacs/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/emacs/</guid>
       <description></description>
     </item>
     
@@ -355,15 +382,6 @@
     </item>
     
     <item>
-      <title>org-mode</title>
-      <link>https://taipapamotohus.com/tags/org-mode/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/org-mode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>peep-dired</title>
       <link>https://taipapamotohus.com/tags/peep-dired/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
@@ -585,24 +603,6 @@
       <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pdf</title>
-      <link>https://taipapamotohus.com/tags/pdf/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/pdf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pdf-tools</title>
-      <link>https://taipapamotohus.com/tags/pdf-tools/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/pdf-tools/</guid>
       <description></description>
     </item>
     

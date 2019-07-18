@@ -3,6 +3,14 @@
     
     <url>
     
+      <loc>https://taipapamotohus.com/post/pdf-tools/</loc>
+      <lastmod>2019-07-18T20:05:23+09:00</lastmod>
+    </url>
+    
+  
+    
+    <url>
+    
       <loc>https://taipapamotohus.com/post/live/</loc>
       <lastmod>2019-07-13T14:50:27+09:00</lastmod>
     </url>
@@ -109,14 +117,6 @@
     
       <loc>https://taipapamotohus.com/post/auto_html_export/</loc>
       <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/post/pdf-tools/</loc>
-      <lastmod>2019-01-04T21:27:24+09:00</lastmod>
     </url>
     
   
@@ -283,7 +283,7 @@
     <url>
     
       <loc>https://taipapamotohus.com/</loc>
-      <lastmod>2019-07-13T14:50:27+09:00</lastmod>
+      <lastmod>2019-07-18T20:05:23+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -292,7 +292,43 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/</loc>
-      <lastmod>2019-07-13T14:50:27+09:00</lastmod>
+      <lastmod>2019-07-18T20:05:23+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/emacs/</loc>
+      <lastmod>2019-07-18T20:05:23+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/org-mode/</loc>
+      <lastmod>2019-07-18T20:05:23+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/pdf/</loc>
+      <lastmod>2019-07-18T20:05:23+09:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    <url>
+    
+      <loc>https://taipapamotohus.com/tags/pdf-tools/</loc>
+      <lastmod>2019-07-18T20:05:23+09:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -310,15 +346,6 @@
     <url>
     
       <loc>https://taipapamotohus.com/tags/cursor/</loc>
-      <lastmod>2019-07-13T14:50:27+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/emacs/</loc>
       <lastmod>2019-07-13T14:50:27+09:00</lastmod>
       <priority>0</priority>
     </url>
@@ -642,15 +669,6 @@
     
     <url>
     
-      <loc>https://taipapamotohus.com/tags/org-mode/</loc>
-      <lastmod>2019-04-20T13:33:45+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
       <loc>https://taipapamotohus.com/tags/peep-dired/</loc>
       <lastmod>2019-04-20T13:33:45+09:00</lastmod>
       <priority>0</priority>
@@ -869,24 +887,6 @@
     
       <loc>https://taipapamotohus.com/tags/html/</loc>
       <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/pdf/</loc>
-      <lastmod>2019-01-04T21:27:24+09:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    <url>
-    
-      <loc>https://taipapamotohus.com/tags/pdf-tools/</loc>
-      <lastmod>2019-01-04T21:27:24+09:00</lastmod>
       <priority>0</priority>
     </url>
     

@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/pdf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Emacsでpdfを読む (pdf-tools)</title>
+      <title>Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</title>
       <link>https://taipapamotohus.com/post/pdf-tools/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/post/pdf-tools/</guid>
       <description>Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリと</description>

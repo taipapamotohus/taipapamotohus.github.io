@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.4" />
+  <meta name="generator" content="Hugo 0.55.6" />
   <meta name="author" content="taipapa">
 
   
@@ -347,9 +347,11 @@
 <li><p>MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記の<a href="https://texwiki.texjp.org/?TeX%20Live%2FMac" target="_blank">TeX Wiki TeX LiveMac</a>に書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．</p>
 
 <pre><code class="language-shell">$ sudo /usr/local/texlive/????/bin/*/tlmgr path add
-</code></pre></li>
+</code></pre>
 
-<li><p>上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．</p>
+<ul>
+<li>上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．</li>
+</ul>
 
 <pre><code class="language-shell">$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add
 </code></pre></li>
@@ -385,15 +387,14 @@ $pdf_mode = 1;
 $postscript_mode = $dvi_mode = 0;
 $pdf_previewer  = 'open -a Skim';
 $preview_continuous_mode = 1;  # equivalent to -pvc
-</code></pre></li>
-</ul>
+</code></pre>
 
 <h2 id="実際の作業">実際の作業</h2>
 
 <ul>
 <li>上記のようにセットアップしていることとする．</li>
-
-<li><p>ターミナルで，texファイルが有るdirectoryに移動し，</p>
+<li>ターミナルで，texファイルが有るdirectoryに移動し，</li>
+</ul>
 
 <pre><code class="language-shell">latexmk -pvc -pdf -view=none document.tex
 </code></pre></li>
