@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -327,18 +327,17 @@
 <h3 id="emac-init-dot-elの作成">emac-init.elの作成</h3>
 
 <ul>
-<li>~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む</li>
-</ul>
+<li><p>~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む</p>
 
 <pre><code class="language-lisp">(require 'org)
 (defvar my-config-dir (concat user-emacs-directory &quot;personal/&quot;))
 (org-babel-load-file
- (expand-file-name &quot;init.org&quot; my-config-dir))
-</code></pre>
+(expand-file-name &quot;init.org&quot; my-config-dir))
+</code></pre></li>
 
-<ul>
-<li>工夫と言っても， <strong>init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう</strong>  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．</li>
-<li>これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．</li>
+<li><p>工夫と言っても， <strong>init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう</strong>  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．</p></li>
+
+<li><p>これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．</p></li>
 </ul>
 
 <h3 id="init-dot-orgの作成">init.orgの作成</h3>
@@ -361,37 +360,35 @@
 #+begin_src emacs-lisp
 
 #+end_src
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li><strong>2019年1月14日追加</strong></li>
-</ul>
+<li><p><strong>2019年1月14日追加</strong></p>
 
 <p>上記の「TABで展開」に関して，Disqusで，mickaushyさんから「&lt;lではなくて&lt;sではないのか」とのご指摘をいただいた．全くそのとおりで，（後述する設定が必要）と自分で書いておきながら，その設定を書き忘れていた．mickaushyさんが指摘されている通りの設定をしている．</p>
 
 <ul>
-<li>参考：<a href="http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3" target="_blank">http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3</a></li>
-</ul>
+<li><p>参考：<a href="http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3" target="_blank">http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3</a></p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 (setq org-structure-template-alist
-      '((&quot;s&quot; &quot;#+begin_src ?\n\n#+end_src&quot; &quot;&lt;src lang=\&quot;?\&quot;&gt;\n\n&lt;/src&gt;&quot;)
-        (&quot;e&quot; &quot;#+begin_example\n?\n#+end_example&quot; &quot;&lt;example&gt;\n?\n&lt;/example&gt;&quot;)
-        (&quot;q&quot; &quot;#+begin_quote\n?\n#+end_quote&quot; &quot;&lt;quote&gt;\n?\n&lt;/quote&gt;&quot;)
-        (&quot;v&quot; &quot;#+BEGIN_VERSE\n?\n#+END_VERSE&quot; &quot;&lt;verse&gt;\n?\n&lt;/verse&gt;&quot;)
-        (&quot;c&quot; &quot;#+BEGIN_COMMENT\n?\n#+END_COMMENT&quot;)
-        (&quot;p&quot; &quot;#+BEGIN_PRACTICE\n?\n#+END_PRACTICE&quot;)
-        (&quot;l&quot; &quot;#+begin_src emacs-lisp\n?\n#+end_src&quot; &quot;&lt;src lang=\&quot;emacs-lisp\&quot;&gt;\n?\n&lt;/src&gt;&quot;)
-        ;; (&quot;l&quot; &quot;#+begin_src lisp\n?\n#+end_src&quot; &quot;&lt;src lang=\&quot;lisp\&quot;&gt;\n?\n&lt;/src&gt;&quot;)
-        (&quot;L&quot; &quot;#+latex: &quot; &quot;&lt;literal style=\&quot;latex\&quot;&gt;?&lt;/literal&gt;&quot;)
-        (&quot;h&quot; &quot;#+begin_html\n?\n#+end_html&quot; &quot;&lt;literal style=\&quot;html\&quot;&gt;\n?\n&lt;/literal&gt;&quot;)
-        (&quot;H&quot; &quot;#+html: &quot; &quot;&lt;literal style=\&quot;html\&quot;&gt;?&lt;/literal&gt;&quot;)
-        (&quot;a&quot; &quot;#+begin_ascii\n?\n#+end_ascii&quot;)
-        (&quot;A&quot; &quot;#+ascii: &quot;)
-        (&quot;i&quot; &quot;#+index: ?&quot; &quot;#+index: ?&quot;)
-        (&quot;I&quot; &quot;#+include %file ?&quot; &quot;&lt;include file=%file markup=\&quot;?\&quot;&gt;&quot;)))
+  '((&quot;s&quot; &quot;#+begin_src ?\n\n#+end_src&quot; &quot;&lt;src lang=\&quot;?\&quot;&gt;\n\n&lt;/src&gt;&quot;)
+    (&quot;e&quot; &quot;#+begin_example\n?\n#+end_example&quot; &quot;&lt;example&gt;\n?\n&lt;/example&gt;&quot;)
+    (&quot;q&quot; &quot;#+begin_quote\n?\n#+end_quote&quot; &quot;&lt;quote&gt;\n?\n&lt;/quote&gt;&quot;)
+    (&quot;v&quot; &quot;#+BEGIN_VERSE\n?\n#+END_VERSE&quot; &quot;&lt;verse&gt;\n?\n&lt;/verse&gt;&quot;)
+    (&quot;c&quot; &quot;#+BEGIN_COMMENT\n?\n#+END_COMMENT&quot;)
+    (&quot;p&quot; &quot;#+BEGIN_PRACTICE\n?\n#+END_PRACTICE&quot;)
+    (&quot;l&quot; &quot;#+begin_src emacs-lisp\n?\n#+end_src&quot; &quot;&lt;src lang=\&quot;emacs-lisp\&quot;&gt;\n?\n&lt;/src&gt;&quot;)
+    ;; (&quot;l&quot; &quot;#+begin_src lisp\n?\n#+end_src&quot; &quot;&lt;src lang=\&quot;lisp\&quot;&gt;\n?\n&lt;/src&gt;&quot;)
+    (&quot;L&quot; &quot;#+latex: &quot; &quot;&lt;literal style=\&quot;latex\&quot;&gt;?&lt;/literal&gt;&quot;)
+    (&quot;h&quot; &quot;#+begin_html\n?\n#+end_html&quot; &quot;&lt;literal style=\&quot;html\&quot;&gt;\n?\n&lt;/literal&gt;&quot;)
+    (&quot;H&quot; &quot;#+html: &quot; &quot;&lt;literal style=\&quot;html\&quot;&gt;?&lt;/literal&gt;&quot;)
+    (&quot;a&quot; &quot;#+begin_ascii\n?\n#+end_ascii&quot;)
+    (&quot;A&quot; &quot;#+ascii: &quot;)
+    (&quot;i&quot; &quot;#+index: ?&quot; &quot;#+index: ?&quot;)
+    (&quot;I&quot; &quot;#+include %file ?&quot; &quot;&lt;include file=%file markup=\&quot;?\&quot;&gt;&quot;)))
 #+end_src
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>この設定を，init.orgに書き込んでおいて，「&lt;lのあとにTAB」とすれば，上述のように展開される．この次の記事でまとめて書こうと考えていたが，すっかり失念していた．ここに書いておいたほうが確かにわかりやすい．mickaushyさん，ご指摘ありがとうございました．</p></li>
 </ul>
@@ -586,7 +583,7 @@
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

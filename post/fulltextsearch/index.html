@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 2.4.0">
+  <meta name="generator" content="Hugo 0.56.0" />
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+  
+    
+  
+  <meta name="description" content="論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てた">
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://taipapamotohus.com/post/fulltextsearch/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/zenburn.min.css" crossorigin="anonymous">
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+
+  <link rel="stylesheet" href="/styles.css">
+  
+  <link rel="stylesheet" href="/css/academic_scrollbar.css">
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+  <link rel="alternate" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  <link rel="feed" href="https://taipapamotohus.com/index.xml" type="application/rss+xml" title="A perfect autumn day">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="https://taipapamotohus.com/post/fulltextsearch/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="https://taipapamotohus.com/post/fulltextsearch/">
+  <meta property="og:title" content="Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う | A perfect autumn day">
+  <meta property="og:description" content="論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てた"><meta property="og:image" content="https://taipapamotohus.com/img/headers/Attica.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-07-24T00:00:00&#43;09:00">
+  
+  <meta property="article:modified_time" content="2019-08-10T22:11:47&#43;09:00">
+  
+
+  
+
+  
+
+  <title>Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う | A perfect autumn day</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#tags">
+            
+            <span>Tags</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#search">
+            
+            <span>Search</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/headers/Attica.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption">Attica, Greece</span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</h1>
+
+    
+
+<div class="article-metadata">
+
+  
+  
+  <span itemscope itemprop="author" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+  
+
+  <span class="article-date">
+    
+        Last updated on
+    
+    <meta content="2019-07-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
+    <time datetime="2019-08-10 22:11:47 &#43;0900 JST" itemprop="dateModified">
+      Aug 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="taipapa">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    21 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="https://taipapamotohus.com/post/fulltextsearch/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<p>論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」</p>
+
+<p>という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．</p>
+
+<p><strong>セットアップは結構面倒だが，非常に便利で，オススメである！</strong></p>
+
+<p>なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．</p>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#hyper-estraier">Hyper Estraier</a>
+
+<ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#pdftotext">pdftotext</a></li>
+<li><a href="#ユーザー用のウェブディレクトリの作成">ユーザー用のウェブディレクトリの作成</a></li>
+<li><a href="#全文検索用のディレクトリの作成">全文検索用のディレクトリの作成</a></li>
+<li><a href="#全文検索用のindexの作成">全文検索用のindexの作成</a></li>
+<li><a href="#indexの更新">indexの更新</a></li>
+<li><a href="#検索のテスト">検索のテスト</a></li>
+</ul></li>
+<li><a href="#apache-set-up">Apache set up</a>
+
+<ul>
+<li><a href="#cgi-を許可するように-apache-を設定する">CGI を許可するように Apache を設定する</a></li>
+<li><a href="#apacheの起動-再起動">Apacheの起動，再起動</a></li>
+<li><a href="#cgiが動くかどうかのテスト">CGIが動くかどうかのテスト</a></li>
+<li><a href="#documentroot">DocumentRoot</a></li>
+<li><a href="#ユーザ毎のウェブディレクトリ">ユーザ毎のウェブディレクトリ</a></li>
+</ul></li>
+<li><a href="#hyperestraier付属の全文検索用cgi-scriptのset-up">Hyperestraier付属の全文検索用CGI scriptのset up</a></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="https://skalldan.wordpress.com/2011/06/28/hyper-estraier-で仏典探索/" target="_blank">Hyper Estraier で仏典探索</a>     Amrtaさんのものすごく役に立つサイト</li>
+<li><a href="https://skalldan.wordpress.com/2011/07/01/hyper-estraier-で-pdf-文書管理/" target="_blank">Hyper Estraier で PDF 管理</a>    これまた，Amrtaさんの物凄く役に立つサイト．以上の2つを読めば，このサイトを見る必要はないような．．．(^^;;;</li>
+</ul>
+
+<p>sudoしてrootになるのはイヤ，普通のユーザーとしてapacheを使ってブラウザで全文検索をしたいという人は，この先を読むと参考になるかもしれない．</p>
+
+<h2 id="hyper-estraier">Hyper Estraier</h2>
+
+<p>今回用いるのは<a href="https://fallabs.com/hyperestraier/index.ja.html" target="_blank">Hyper Estraier</a>という全文検索システムである．これがどんなものかはリンク先の文書を読んでもらうとして，早速インストールである．</p>
+
+<h3 id="install">Install</h3>
+
+<p>homebrewを使用すれば一発である．qdbmなどの依存関係も全部面倒を見てくれるので楽である．</p>
+
+<pre><code class="language-sh">$ brew install hyperestraier
+</code></pre>
+
+<p>インストールされたものを見るとこうなっている．</p>
+
+<pre><code class="language-sh">$ brew info hyperestraier
+
+hyperestraier: stable 1.4.13 (bottled)
+Full-text search system for communities
+https://fallabs.com/hyperestraier/
+/usr/local/Cellar/hyperestraier/1.4.13 (278 files, 3.1MB) *
+Built from source on 2016-12-24 at 22:34:54 with: --with-mecab
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hyperestraier.rb
+==&gt; Dependencies
+Required: qdbm
+==&gt; Analytics
+install: 3 (30 days), 16 (90 days), 64 (365 days)
+install_on_request: 3 (30 days), 16 (90 days), 64 (365 days)
+build_error: 0 (30 days)
+</code></pre>
+
+<p>pdfのindexを作成する際に，hyperestraierに含まれているestfxpdftohtmlというフィルタでPDFのファイルをHTML形式に変換する．しかし，このフィルタは/usr/local/bin/などには入ってくれないので，brewによりインストールされた場所を探して，pathの通るところにsymbolic linkを張っておく．</p>
+
+<pre><code class="language-sh">$ mdfind -name filter | grep hyperestraier
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
+
+$ ls -al /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
+total 48
+drwxr-xr-x   8 kohkichi  admin   256 Feb 16  2017 ./
+drwxr-xr-x  19 kohkichi  admin   608 Dec 24  2016 ../
+-rwxr-xr-x   1 kohkichi  admin  1118 Dec 24  2016 estfxasis*
+-rwxr-xr-x   1 kohkichi  admin  1063 Dec 24  2016 estfxmantotxt*
+-rwxr-xr-x   1 kohkichi  admin  1263 Dec 24  2016 estfxmsotohtml*
+-rwxr-xr-x   1 kohkichi  admin  1016 Dec 24  2016 estfxpdftohtml*
+-rwxr-xr-x   1 kohkichi  admin  1007 Dec 24  2016 estfxxdwtotxt*
+-rwxr-xr-x   1 kohkichi  admin  1057 Dec 24  2016 estwnetxpnd*
+
+$ ln -s /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter/* /usr/local/bin/
+</code></pre>
+
+<h3 id="pdftotext">pdftotext</h3>
+
+<p>上述のestfxpdftohtmlであるが，内部でpdftotextを使用している．そして，厄介なことに，このpdftotextはxpdfとpopplerの両方に含まれている．しかも，xpdfに含まれているpdftotextには <strong>-htmlmeta</strong> optionがないのである．つまり， <strong>xpdfに含まれているpdftotextを使用するとpdf文書のindexができない</strong> ということになる．実際にそれぞれのversionを見てみると，</p>
+
+<pre><code class="language-sh">&lt;&lt;xpdf&gt;&gt;
+$ pdftotext -h
+pdftotext version 4.01.01
+Copyright 1996-2019 Glyph &amp; Cog, LLC
+..........
+
+&lt;&lt;poppler&gt;&gt;
+$ pdftotext -h
+pdftotext version 0.77.0
+Copyright 2005-2019 The Poppler Developers - http://poppler.freedesktop.org
+Copyright 1996-2011 Glyph &amp; Cog, LLC
+..........
+</code></pre>
+
+<p>このように，全く異なったものになっているが，どうやら，xpdfのものの方が古いらしい．もし，xpdfをすでに入れている場合は，popplerをインストールしようとすると，</p>
+
+<pre><code class="language-sh">$ brew install poppler
+
+Error: Cannot install poppler because conflicting formulae are installed.
+xpdf: because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables
+
+Please `brew unlink xpdf` before continuing.
+</code></pre>
+
+<p>と怒られるので，言われる通りに brew unlink xpdf してから，再度，brew install popplerを行えば良い．これで，popplerの方のpdftotextが使われるようになって，ちゃんとindexができるようになる．私は2台あるMacの片方でだけ何故かindexが作成できないので，原因を調べているうちにこのことに気がついたが，ネットで他に触れている記事が見当たらないので，ここにまとめておく．</p>
+
+<p>また，このようにしてxpdfとpopplerをインストールしていると，<a href="../pdf-tools/#追記-2019年7月17日"> Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a>に書いたように，pdf-toolをコンパイルする際に「libffiがどこにあるか分からん」というようなエラーメッセージが出ることがある．その際の対処法は，<a href="../pdf-tools/#追記-2019年7月17日"> Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a>に書いたとおりである．</p>
+
+<h3 id="ユーザー用のウェブディレクトリの作成">ユーザー用のウェブディレクトリの作成</h3>
+
+<p>まず，Apacheを用いてブラウザで検索できるように（これについては後述），自分のhome directoryにSitesというdirectoryを作成する．</p>
+
+<pre><code class="language-sh">$ cd ~
+$ mkdir Sites
+$ cd Sites
+$ pwd
+/Users/taipapa/Sites
+</code></pre>
+
+<p>Apacheの設定のところで述べるが，このSitesというディレクトリにウェブサイトを構築できるように設定し，WWW ブラウザで全文検索できるようにする．</p>
+
+<h3 id="全文検索用のディレクトリの作成">全文検索用のディレクトリの作成</h3>
+
+<p>Sites ディレクトリの中に全文検索用のディレクトリを作成する．ここではpdfファイルの全文検索を行うので，pdfという名前にした．さらに，pdf ディレクトリの中に全文検索の対象となるpdfを集約するためのPDFsというディレクトリを作成する．</p>
+
+<pre><code class="language-sh">$ cd ~/Sites
+$ mkdir pdf
+$ cd pdf
+$ mkdir PDFs
+</code></pre>
+
+<h4 id="pdfsディレクトリへのpdfの集約">PDFsディレクトリへのpdfの集約</h4>
+
+<p>さて，pdfは，大抵の場合，いくつかのディレクトリに分けて置いてあるであろう．それを全て1箇所に集約して全文検索ができるようにするために，シンボリックリンクを使用する．具体的には，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc とすると，以下のようにする．</p>
+
+<pre><code class="language-sh">$ cd /Users/taipapa/Sites/pdf/PDFs
+$ sudo ln -s /Data/hogehoge .
+$ sudo ln -s /Data/fugafuga .
+$ sudo ln -s /Data/misc .
+</code></pre>
+
+<h3 id="全文検索用のindexの作成">全文検索用のindexの作成</h3>
+
+<p>hyperestraierのestcmdを用いて，空のindexを作成する．名前はマニュアルの真似をしてcasketとする（わかれば何でも良いと思う）．これはpdfの配下でPDFsと同じレベルに置く</p>
+
+<pre><code class="language-sh">$ pwd
+/Users/taipapa/Sites/pdf
+$ estcmd create casket
+$ ls -la
+total 24
+drwxr-xr-x   5 taipapa  staff   160 Jul 29 20:34 .
+drwxr-xr-x   8 taipapa  staff   256 Aug  4 22:19 ..
+-rw-r--r--@  1 taipapa  staff  8196 Aug  5 22:12 .DS_Store
+drwxr-xr-x  10 taipapa  staff   320 Jul 29 20:21 PDFs
+drwxr-xr-x  11 taipapa  staff   352 Jul 29 21:14 casket
+</code></pre>
+
+<p>これでようやく，indexを作成する準備が整った．後は以下のように叩けば良い．optionについてはマニュアルを参照．</p>
+
+<pre><code class="language-sh">$ cd /Users/taipapa/Sites/pdf
+$ estcmd gather -pc UTF-8 -cl -fx &quot;.pdf&quot; &quot;H@estfxpdftohtml&quot; -il ja -lf -1 -sd -cm -um casket PDFs
+</code></pre>
+
+<p>document数が11734個，語数が1351563のindex作成に要した時間は約40分強であった．これは，MacBook Pro (15-inch, Late 2016)でもiMac 2012 でも，ほとんど変わらなかった．</p>
+
+<p>optionとしては，optimizeがインデックスを最適化して、不要な領域を削除，purgeはインデックス内にあってファイルシステム上にない文書の情報を削除する．</p>
+
+<pre><code class="language-sh">$ cd /Users/taipapa/Sites/pdf
+$ estcmd optimize /Library/WebServer/Documents/pdf/casket
+$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
+</code></pre>
+
+<h3 id="indexの更新">indexの更新</h3>
+
+<p>前述の3つのコマンドを打てば良い．</p>
+
+<pre><code class="language-sh">$ cd /Users/taipapa/Sites/pdf
+$ estcmd gather -pc UTF-8 -cl -fx &quot;.pdf&quot; &quot;H@estfxpdftohtml&quot; -il ja -lf -1 -sd -cm -um casket PDFs
+$ estcmd optimize /Library/WebServer/Documents/pdf/casket
+$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
+</code></pre>
+
+<p>最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの <a href="https://skalldan.wordpress.com/2011/07/01/hyper-estraier-で-pdf-文書管理/#sec-3" target="_blank">インデックス更新の自動化</a> を参考にされたい．</p>
+
+<h3 id="検索のテスト">検索のテスト</h3>
+
+<p>試しにterminalで検索してみる．</p>
+
+<pre><code class="language-sh">$ cd /Users/taipapa/Sites/pdf
+$ estcmd search -vh casket HSP27
+--------[02D18ACF711B9586]--------
+VERSION	1.0
+NODE	local
+HIT	288
+HINT#1	hsp27	288
+TIME	0.001226
+DOCNUM	11734
+WORDNUM	1354563
+VIEW	HUMAN
+..........
+</code></pre>
+
+<p>うん，ちゃんと動いている．それに速い！</p>
+
+<h2 id="apache-set-up">Apache set up</h2>
+
+<p>terminalで検索ではあまりに寂しいので，ブラウザで検索できるようにするために，Web serverを立ち上げる．MacにはデフォルトでApacheがインストールされているというありがたい状態になっているので，これを使う．なお，Apacheについては，<a href="https://www.kagoya.jp/howto/rentalserver/apache/" target="_blank">Apacheとは？Webサーバーの仕組みと人気サーバーソフトを徹底解説</a>などを参考にされたい．</p>
+
+<p>Apacheの設定については，以下を参考にした．</p>
+
+<ul>
+<li>参考1：<a href="https://qiita.com/shuntaro%5Ftamura/items/bdabcb77926dc92617b1" target="_blank">Macでローカルサーバを立ち上げる方法</a></li>
+<li>参考2：<a href="https://qiita.com/kid%5Fdrill/items/5c85917068490177b6ab" target="_blank">MacでApacheを立ち上げてみる</a></li>
+<li>参考3：<a href="https://qiita.com/YuukiWatanabe/items/f89fe047ace61d2d2b45" target="_blank">Macでローカルサーバー構築あれこれ</a></li>
+<li>参考4：<a href="https://httpd.apache.org/docs/2.4/ja/howto/cgi.html" target="_blank">Apache Tutorial: CGI による動的コンテンツ</a>  （結局，きちんと理解する為には，これをはじめとするApacheのチュートリアルを読むのが一番であった）</li>
+</ul>
+
+<p>これらのサイトを読んだ方が早いのだが，自分のために設定などをまとめておく．</p>
+
+<p>まず，念のためにApacheが既にインストールされているかどうかを確かめてみる．</p>
+
+<pre><code class="language-sh">$ httpd -v
+Server version: Apache/2.4.34 (Unix)
+Server built:   Feb 22 2019 20:20:11
+</code></pre>
+
+<p>確かにインストールされている．</p>
+
+<h3 id="cgi-を許可するように-apache-を設定する">CGI を許可するように Apache を設定する</h3>
+
+<ul>
+<li>参照：<a href="https://httpd.apache.org/docs/2.4/ja/howto/cgi.html" target="_blank">Apache Tutorial: CGI による動的コンテンツ</a></li>
+<li><strong>Apacheの設定ファイルの場所は、/etc/apache2/httpd.conf</strong></li>
+<li>CGI (Common Gateway Interface) は，ウェブサーバが コンテンツ生成をする外部プログラムと協調して動作するための方法を 定義している．</li>
+<li>CGI プログラムを正しく動作させるには、CGI を許可するように Apache の設定を行う必要がある．</li>
+
+<li><p>Apache が共有モジュール機能付きでビルドされている場合、モジュールがロードされていることを確認する．具体的には，/etc/apache2/httpd.conf をviを使って以下のように書き換えれば良い（root権限が必要なので sudo している）．</p>
+
+<pre><code class="language-shell">sudo vi /etc/apache2/httpd.conf
+....
+165 #LoadModule cgi_module libexec/apache2/mod_cgi.so
+-----&gt;
+LoadModule cgi_module libexec/apache2/mod_cgi.so
+</code></pre>
+
+<p>165行目の行頭の＃を外してアンコメントし，有効化しておく．<br />
+これをやらないと，cgiが働かず，そのファイル自体がダウンロードされてしまう．</p></li>
+
+<li><p>設定ファイルの更新内容を反映させるためにはApacheの再起動が必要</p></li>
+</ul>
+
+<h3 id="apacheの起動-再起動">Apacheの起動，再起動</h3>
+
+<ul>
+<li><p>Apacheの起動</p>
+
+<pre><code class="language-sh">$ sudo apachectl start
+</code></pre></li>
+
+<li><p>Apacheの停止</p>
+
+<pre><code class="language-sh">$ sudo apachectl stop
+</code></pre></li>
+
+<li><p>Apacheの再起動</p>
+
+<pre><code class="language-sh">$ sudo apachectl restart
+</code></pre></li>
+</ul>
+
+<p>これでApacheを起動したので，hyperestraierに含まれている検索用CGI scriptを利用する．</p>
+
+<h3 id="cgiが動くかどうかのテスト">CGIが動くかどうかのテスト</h3>
+
+<p><a href="https://httpd.apache.org/docs/2.4/ja/howto/cgi.html" target="_blank">Apache Tutorial: CGI による動的コンテンツ</a> には，「ScriptAlias ディレクティブを使用して、 CGI プログラム用の特別な別ディレクトリを Apache に設定します。 Apache は、このディレクトリ中の全てのファイルを CGI プログラムであると仮定します。 そして、この特別なリソースがクライアントから要求されると、 そのプログラムの実行を試みます。」と記載されている．一方, mojaveのデフォルトの /etc/apache2/httpd.confでは，ScriptAliasではなく，以下のようにScriptAliasMatchを用いている．</p>
+
+<pre><code class="language-sh">373  ScriptAliasMatch ^/cgi-bin/((?!(?i:webobjects)).*$) &quot;/Library/WebServer/CGI-Executables/$1&quot;
+</code></pre>
+
+<p>この正規表現の記述により，cgi-bin/というパスが/Library/WebServer/CGI-Executables/に対応するようになっている（詳細は，<a href="http://httpd.apache.org/docs/2.4/mod/mod%5Falias.html#scriptalias" target="_blank">ScriptAlias ディレクティブ</a>  のScriptAliasMatch ディレクティブを参照）</p>
+
+<p>ということで，/Library/WebServer/CGI-Executables/にcgi scriptを置けば，CGI programとして動くはずである．macでは最初からperlがインストールされているので，以下のようなperl script（&rdquo;Hello&rdquo;と表示するだけ）を作成して試してみる．</p>
+
+<pre><code class="language-perl">#!/usr/bin/perl
+print &quot;Content-type: text/html \n\n&quot;;
+print &quot;Hello&quot;;
+</code></pre>
+
+<p>これを，test.cgiとして保存し，</p>
+
+<pre><code class="language-sh">$ chomod 755 test.cgi
+</code></pre>
+
+<p>して，実行権限を付与した上で，/Library/WebServer/CGI-Executables/に置く．この状態で，ブラウザのurl windowに localhost/cgi-bin/test.cgi と打ち込むと，&rdquo;Hello&rdquo; と表示される．</p>
+
+<p>さて，次の段階に進む前にDocumentRootについて，ちょっと説明が必要（後日の自分のため）．</p>
+
+<h3 id="documentroot">DocumentRoot</h3>
+
+<ul>
+<li>参考：<a href="https://www.adminweb.jp/apache/docroot/index1.html" target="_blank">ドキュメントルート(DocumentRoot)</a></li>
+</ul>
+
+<p>/etc/apache2/httpd.confを，lessを使って読んでみると以下のように書かれている．</p>
+
+<pre><code class="language-sh">$ less -N /etc/apache2/httpd.conf
+..........
+240 #
+241 # DocumentRoot: The directory out of which you will serve your
+242 # documents. By default, all requests are taken from this directory, but
+243 # symbolic links and aliases may be used to point to other locations.
+244 #
+245 DocumentRoot &quot;/Library/WebServer/Documents&quot;
+246 &lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;
+..........
+</code></pre>
+
+<p>要するにDocumentRootというのは文書やコンテンツの置き場所として使われるディレクトリである．Macの場合は， <strong>DocumentRoot &ldquo;/Library/WebServer/Documents&rdquo;</strong> と指定されており，WWW serverとして公開する内容は，/Library/WebServer/Documents 以下に配置していくことになる．他の場所を参照するためにシンボリックリンクやエーリアスを使用しても良いと書かれている．</p>
+
+<p>先ほど起動したApacheへブラウザからアクセスすると（ブラウザのurl が表示されているところにlocalhostと打てば良い）以下のような画面が表示される．</p>
+
+<figure>
+
+<img src="/img/Apache.jpg" width="80%" />
+
+
+</figure>
+
+<p>これは，/Library/WebServer/Documents/index.html.en が表示されているのである．</p>
+
+<pre><code class="language-sh">$ less /Library/WebServer/Documents/index.html.en
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+/Library/WebServer/Documents/index.html.en (END)
+</code></pre>
+
+<p>つまり，この  /Library/WebServer/Documents ディレクトリの配下が， <a href="http://localhost" target="_blank">http://localhost</a> のroot直下となる．pdfを含むディレクトリ，あるいはそのシンボリックリンクを/Library/WebServer/Documents ディレクトリの配下に置けば全文検索を行うcgi scriptの対象とできるわけである．</p>
+
+<p>しかし，そうなると，前述の/Library/WebServer/CGI-Executables/に於いても同じであるが，全ての作業をrootとして行わなければならなくなり，何をするにもsudoしないといけないのが面倒であるし，secirity上でも問題であろう．そこで，UserDir ディレクティブを使って 各ユーザがホームディレクトリにSites directoryを作成し，ウェブサイトを構築できるように設定する．要するに，先ほど作成した/Users/taipapa/Sites/pdf/以下のディレクトリで全文検索ができるように設定するということである．</p>
+
+<h3 id="ユーザ毎のウェブディレクトリ">ユーザ毎のウェブディレクトリ</h3>
+
+<ul>
+<li>参照1：<a href="http://motw.mods.jp/Mac/local%5Fserver.html" target="_blank">apacheを使ってローカルサーバーを構築する方法</a></li>
+<li>参照2：<a href="http://neos21.hatenablog.com/entry/2019/01/27/080000" target="_blank">MacOS 同梱の Apache が参照するドキュメントルートを変更する</a></li>
+<li>参照3：<a href="https://qiita.com/colorrabbit/items/3ab4c2d863a55ca72d35" target="_blank">MacOS X の Yosemite (10.10) で Sites ディレクトリを使って localhost をアカウント別に利用する方法</a></li>
+<li>参照4：<a href="https://httpd.apache.org/docs/2.4/ja/howto/public%5Fhtml.html" target="_blank">ユーザ毎のウェブディレクトリ</a></li>
+</ul>
+
+<p>やはりApacheのチュートリアル（<a href="https://httpd.apache.org/docs/2.4/ja/howto/public%5Fhtml.html" target="_blank">ユーザ毎のウェブディレクトリ</a>）を読むのが一番分かりやすかった．以下はこのサイトからの引用</p>
+
+<ul>
+<li>「複数のユーザのいるシステムでは、UserDir ディレクティブを使って 各ユーザがホームディレクトリにウェブサイトを構築できるように設定することが 可能です。URL <a href="http://example.com/~username/" target="_blank">http://example.com/~username/</a> を訪れた人は &ldquo;username&rdquo; というユーザの UserDir ディレクティブで指定された サブディレクトリからコンテンツを得ることになります。」</li>
+<li>「デフォルトではこれらのディレクトリへのアクセスは許可されていません。 UserDir を使って有効にできます。 有効にするには、デフォルトの設定ファイルで付随する httpd-userdir.conf ファイルが必要」という翻訳になっている．意味はなんとなくわかるが，後半部分は「デフォルトの設定ファイルであるhttpd-userdir.conf ファイルの中の次の行をアンコメントすることによりアクセスが可能となる．また，必要に応じてhttpd-userdir.confも適切に変更する」と訳すべきと思う．</li>
+</ul>
+
+<h4 id="httpd-userdir-dot-confの有効化">httpd-userdir.confの有効化</h4>
+
+<p>手順としては，まず，/etc/apache2/httpd.confの511行目の行頭の#を外し，コメントアウトを外してhttpd-userdir.confを有効にする．</p>
+
+<pre><code class="language-sh">$ sudo vi /etc/apache2/httpd.conf
+..........
+510 # User home directories
+511 #Include /private/etc/apache2/extra/httpd-userdir.conf
+-----&gt;
+511 Include /private/etc/apache2/extra/httpd-userdir.conf
+..........
+</code></pre>
+
+<h4 id="httpd-userdir-dot-confの編集-ユーザー毎の設定ファイルを読み込む様にする">httpd-userdir.confの編集（ユーザー毎の設定ファイルを読み込む様にする）</h4>
+
+<p>ついで，有効にした /etc/apache2/extra/httpd-userdir.confを見て，編集する．</p>
+
+<pre><code class="language-shell">$ sudo vi /etc/apache2/extra/httpd-userdir.conf
+
+1 # Settings for user home directories
+2 #
+3 # Required module: mod_authz_core, mod_authz_host, mod_userdir
+4
+5 #
+6 # UserDir: The name of the directory that is appended onto a user's home
+7 # directory if a ~user request is received.  Note that you must also set
+8 # the default access control for these directories, as in the example below.
+9 #
+10 UserDir Sites
+11
+12 #
+13 # Control access to UserDir directories.  The following is an example
+14 # for a site where these directories are restricted to read-only.
+15 #
+16 # Include /private/etc/apache2/users/*.conf
+17 &lt;IfModule bonjour_module&gt;
+18        RegisterUserSite customized-users
+19 &lt;/IfModule&gt;
+</code></pre>
+
+<p>10行目の&rdquo;UserDir Sites&rdquo;は デフォルトでアンコメントされており，そのままで良い．これにより，~usernameでSites directoryにアクセスできるようになる．編集する部分は，16行目の &ldquo; # Include /private/etc/apache2/users/*.conf&rdquo; であり，行頭の＃を外してアンコメントし，有効化しておく．これによりユーザーごとの設定ファイルを読み込む様になる（<a href="https://qiita.com/colorrabbit/items/3ab4c2d863a55ca72d35" target="_blank">MacOS X の Yosemite (10.10) で Sites ディレクトリを使って localhost をアカウント別に利用する方法</a>）．</p>
+
+<p>また，3行目にあるように，ユーザーのホームディレクトリのセットアップのために， <strong>mod_authz_core, mod_authz_host, mod_userdirを全て有効</strong> にしておく必要がある．以下のように， <strong>/etc/apache2/httpd.conf</strong> を編集する．</p>
+
+<pre><code class="language-sh">sudo vi /etc/apache2/httpd.conf
+......
+77 LoadModule authz_host_module libexec/apache2/mod_authz_host.so
+78 LoadModule authz_groupfile_module libexec/apache2/mod_authz_groupfile.so
+79 LoadModule authz_user_module libexec/apache2/mod_authz_user.so
+80 #LoadModule authz_dbm_module libexec/apache2/mod_authz_dbm.so
+81 #LoadModule authz_owner_module libexec/apache2/mod_authz_owner.so
+82 #LoadModule authz_dbd_module libexec/apache2/mod_authz_dbd.so
+83 LoadModule authz_core_module libexec/apache2/mod_authz_core.so
+......
+173 #LoadModule speling_module libexec/apache2/mod_speling.so
+174 #LoadModule userdir_module libexec/apache2/mod_userdir.so
+175 LoadModule alias_module libexec/apache2/mod_alias.so
+...
+</code></pre>
+
+<p>77行目の &ldquo;LoadModule authz_host_module libexec/apache2/mod_authz_host.so&rdquo; と83行目の &ldquo;LoadModule authz_core_module libexec/apache2/mod_authz_core.so&rdquo;はデフォルトでアンコメントされていたが，174行目の &ldquo;#LoadModule userdir_module libexec/apache2/mod_userdir.so&rdquo; はコメントアウトされていたので，#を外して有効化した．これらの設定で， <strong>ユーザーディレクトリが有効</strong> になる．</p>
+
+<h4 id="ユーザー毎の設定ファイルを作成">ユーザー毎の設定ファイルを作成</h4>
+
+<p>自分の使っているusernameを知らない人はいないと思うが，万一分からなければ以下のコマンドを使う．</p>
+
+<pre><code class="language-sh">$ whoami
+taipapa
+</code></pre>
+
+<p>ついで，/etc/apache2/users にユーザー毎の設定ファイルを作成する．今回はtaipapaの設定ファイルということになる．</p>
+
+<pre><code class="language-sh">$ sudo vi /etc/apache2/users/taipapa.conf
+
+&lt;Directory &quot;/Users/taipapa/Sites/&quot;&gt;
+AddHandler cgi-script cgi
+AllowOverride All
+Options Indexes FollowSymLinks Multiviews ExecCGI
+Require all granted
+&lt;/Directory&gt;
+</code></pre>
+
+<p>内容を簡単に説明する．</p>
+
+<ul>
+<li>Directory (<a href="https://httpd.apache.org/docs/2.4/ja/mod/core.html#directory" target="_blank">Directory ディレクティブ</a>): 指定されたディレクトリとそのサブディレクトリにのみ ディレクティブを適用させるためには、 Directory と /Directory を対として、ディレクティブ群を囲む．以下はディレクティブの説明</li>
+<li>AddHandler (<a href="https://httpd.apache.org/docs/2.4/ja/mod/mod%5Fmime.html#addhandler" target="_blank">AddHandler ディレクティブ</a> ): ファイル名の拡張子を指定されたハンドラにマップする．&rdquo;AddHandler cgi-script cgi&rdquo; により，/Users/taipapa/Sites/の配下にある拡張子 &ldquo;.cgi&rdquo; で終わるファイルを CGI スクリプトとして扱うようになる．</li>
+<li>AllowOverride (<a href="https://httpd.apache.org/docs/2.4/ja/mod/core.html#allowoverride" target="_blank">AllowOverride ディレクティブ</a>): このディレクティブが All に設定されている時には、 .htaccess という コンテキスト を持つ 全てのディレクティブが利用できる．</li>
+<li>Options (<a href="https://httpd.apache.org/docs/2.4/ja/mod/core.html#options" target="_blank">Options ディレクティブ</a>): ディレクトリに対して使用可能な機能を設定する．個々の機能はリンク先を参照．今回重要なのは， <strong>ExecCGI</strong> で，これはmod_cgiによるCGI scriptの実行を許可する．</li>
+<li>Require (参照：<a href="https://qiita.com/100/items/ab31e57fcc66ac661d5c" target="_blank">Apache 2.4 設定ファイルの記述例</a>): サーバーのディレクトリに接続してくるクライアントについて、許可・拒否する条件を指定するディレクティブ．昔はAllow ディレクティブやDeny ディレクティブを利用していた． <strong>&ldquo;Require all granted&rdquo; は、すべてのクライアントからの接続を許可する．</strong> &ldquo;Require all denied&rdquo; は、すべてのクライアントからの接続を拒否する．</li>
+</ul>
+
+<p>これで，Apache関連の設定が終了した．次はいよいよCGI scriptの設定である．</p>
+
+<h2 id="hyperestraier付属の全文検索用cgi-scriptのset-up">Hyperestraier付属の全文検索用CGI scriptのset up</h2>
+
+<p>ようやく，ブラウザによる全文検索ができるようにするためにCGI scriptのset upをするところまでたどり着いた．hyperestraierに含まれている検索用CGI scriptは，<a href="https://fallabs.com/hyperestraier/uguide-ja.html#estseek" target="_blank">estseek.cgi</a>である．詳細はリンク先のマニュアルを参照していただきたい．そこにはこうある．「estseek.cgiが動作するには、設定ファイルとテンプレートファイルとトップページファイルとヘルプファイルが必要です。それぞれestseek.conf、estseek.tmpl、estseek.top、estseek.helpというのが標準的な名前です。」これらのscriptおよび関連ファイルは，brewでインストールした場合は，以下のような場所に入る．</p>
+
+<pre><code class="language-sh">$ mdfind -name estseek
+/usr/local/Cellar/hyperestraier/1.4.13/libexec/estseek.cgi
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.top
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.tmpl
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.help
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.conf
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-frame.html
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-form.html
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.top
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.tmpl
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.help
+/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.conf
+
+$ ls /usr/local/Cellar/hyperestraier/1.4.13/libexec/
+estfraud.cgi* estproxy.cgi* estscout.cgi* estseek.cgi*  estsupt.cgi*
+
+$ ls /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/
+COPYING        estfraud.conf  estscout.conf  estseek.top    locale/
+ChangeLog      estproxy.conf  estseek.conf   estsupt.conf
+THANKS         estraier.idl   estseek.help   filter/
+doc/           estresult.dtd  estseek.tmpl   increm/
+</code></pre>
+
+<p>そこで，これらのscriptをユーザーディレクトリのしかるべき場所にコピーする．今回は，まず，前半部で作成した/Users/taipapa/Sitesにcgi-bin というディレクトリを作成し，CGI scriptの置き場所とした．そして，その配下にestというディレクトリを作って，そこにhyperestraierによる全文検索用のscript などをコピーした．</p>
+
+<pre><code class="language-sh">$ cd /Users/taipapa/Sites
+$ mkdir -p cgi-bin/est
+$ tree -L 2
+.
+├── cgi-bin
+│   ├── est
+│   └── test.cgi
+├── index.html
+├── pdf
+│   ├── PDFs
+│   └── casket
+└── test.cgi
+$ cd cgi-bin/est
+$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/libexec/* .
+$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/est* .
+$ ls
+estfraud.cgi*  estproxy.conf  estscout.cgi*  estseek.conf   estseek.top
+estfraud.conf  estraier.idl   estscout.conf  estseek.help   estsupt.cgi*
+estproxy.cgi*  estresult.dtd  estseek.cgi*   estseek.tmpl   estsupt.conf
+</code></pre>
+
+<p>設定ファイルであるestseek.confはdefaultでは以下のようになっている．</p>
+
+<pre><code class="language-sh">$ cd /Users/taipapa/Sites/cgi-bin/est
+$ less -N estseek.conf
+..........
+1 indexname: casket
+2
+3 tmplfile: estseek.tmpl
+4
+5 topfile: estseek.top
+6
+7 helpfile: estseek.help
+8
+9 lockindex: true
+10
+11 pseudoindex:
+12
+13 replace: ^file:///home/mikio/public_html/{{!}}http://localhost/
+14 replace: /index\.html?${{!}}/
+15
+16 showlreal: false
+..........
+</code></pre>
+
+<p>これを以下のように編集する．</p>
+
+<pre><code class="language-sh">1 #indexname: casket
+2 indexname: /Users/taipapa/Sites/pdf/casket
+3
+4 tmplfile: estseek.tmpl
+5
+6 topfile: estseek.top
+7
+8 helpfile: estseek.help
+9
+10 lockindex: true
+11
+12 pseudoindex:
+13
+14 #replace: ^file:///home/mikio/public_html/{{!}}http://localhost/
+15 #replace: /index\.html?${{!}}/
+16
+17 replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/
+18
+</code></pre>
+
+<p>17行目の <strong>replace:</strong> の部分はかなりの試行錯誤が必要であった．マニュアルでは，「replaceは正規表現によってURIを変換するのに使います。複数回指定できます。先頭にマッチする「^」を駆使すれば接頭辞（ディレクトリ）の変換ができますし、末尾にマッチする「$」を駆使すれば接尾辞（拡張子）の変換ができます。」とあるように，どこにpdf文書を置くかで適切に変更する必要がある．私の場合は，前述のごとく，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc で，/Users/taipapa/Sites/pdf/PDFs にシンボリックリンクで集約したので，このような設定になった．他のファイルはdefaultのままとした．</p>
+
+<p>これで，全ての準備は整った．Sites ディレクトリには前半部で説明した通り，pdf archiveへのシンボリックリンクが集約されており，かつ，全文検索用の索引であるcasketも置いてある．全てが正しく設定されていれば，ブラウザのurl windowに <strong><a href="http://localhost/~username/cgi-bin/est/estseek.cgi" target="_blank">http://localhost/~username/cgi-bin/est/estseek.cgi</a></strong> （今回は~usernameは~taipapa） と打ち込むと，以下のような全文検索の画面になるはずである．</p>
+
+<figure>
+
+<img src="/img/FTsearch_view.jpg" width="80%" />
+
+
+</figure>
+
+<p>早速検索してみよう．HSP27と入れてみると，結果は以下の通り．検索に用いたキーワードが黄色でハイライトされている．</p>
+
+<figure>
+
+<img src="/img/FTsearch_view2.jpg" width="80%" />
+
+
+</figure>
+
+<p>一番最初の2667.full.pdfを右クリックすると，下のように別タブでpdfが開く．</p>
+
+<figure>
+
+<img src="/img/FTsearch_view3.jpg" width="80%" />
+
+
+</figure>
+
+<p>また，各結果の[detail]の部分を右クリックすると以下のような画面が別タブで開く．</p>
+
+<figure>
+
+<img src="/img/FTsearch_view4.jpg" width="80%" />
+
+
+</figure>
+
+<p>これは，pdfの内容をテキストで出力したものである．一見，見にくくて何の役にたつと思うかもしれないが，検索キーワードが黄色にハイライトされており，この単語の使い方が一目でわかるようになっている．論文を書くときに参考になる．</p>
+
+<p>この全文検索を使い始めてもう5-6年になるが，一旦セットアップしてしまえば，時々indexを更新する以外は手間いらずで，重宝している．更新の自動化については，前述の通り．</p>
+
+<p>今回は，このブログを始めて以来の長文になってしまった．後日の自分のためにできるだけ細かいところまで書き留めておいた．半分以上はApacheの設定に関する記述になっている（笑）．</p>
+
+    </div>
+
+    
+
+
+<div class="article-tags">
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/macos/">macos</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/mojave/">mojave</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/full-text-search/">full-text-search</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/hyperestraier/">hyperestraier</a>
+  
+  <a class="label label-default" href="https://taipapamotohus.com/tags/pdf/">pdf</a>
+  
+</div>
+
+
+
+
+    
+    
+    <div class="article-widget">
+      <div class="hr-light"></div>
+      <h3>Related</h3>
+      <ul>
+        
+        <li><a href="/post/live/">mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</a></li>
+        
+        <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></li>
+        
+        <li><a href="/post/synchronization/">Emacsとskimで，latexのソースとpdfの間を行ったり来たり</a></li>
+        
+        <li><a href="/post/org-mode_paper_2/">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a></li>
+        
+        <li><a href="/post/beamer_movie2/">beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</a></li>
+        
+      </ul>
+    </div>
+    
+
+    
+    <div class="article-widget">
+      <div class="post-nav">
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="https://taipapamotohus.com/post/pdf-tools/" rel="prev">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+
+    
+    <p class="powered-by">
+      <a href="https://taipapamotohus.com/privacy/">Privacy Policy</a>
+    </p>
+    
+
+    <p class="powered-by">
+
+      &copy; 2018 &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/lisp.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/emacs-lisp.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+
+    
+    
+    
+    <script id="dsq-count-scr" src="//a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/search.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    <script src="/js/search.js"></script>
+    
+
+    
+    
+
+  </body>
+</html>
+

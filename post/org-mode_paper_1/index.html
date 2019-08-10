@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -379,15 +379,15 @@
   :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="org-modeのinit-dot-elの設定-pdf出力用">org-modeのinit.elの設定（pdf出力用）</h3>
 
 <ul>
 <li><p>前述のごとく，koma-scriptとTufte-LaTeXについて設定する．</p></li>
 
-<li><p>何回もしつこいようだが，これも以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）で説明したように，init.orgに書いたものから生成されたinit.elである．</p></li>
-</ul>
+<li><p>何回もしつこいようだが，これも以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）で説明したように，init.orgに書いたものから生成されたinit.elである．</p>
 
 <pre><code class="language-lisp">(require 'ox-latex)
 (add-to-list 'auto-mode-alist '(&quot;\\.org$&quot; . org-mode))
@@ -454,20 +454,17 @@
         &quot;bibtex %b&quot;
         &quot;xelatex -interaction nontopmode -output-directory %o %f&quot;
         &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;))
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．なお，pandocやTufteの項は別途記事にするので，とりあえずは無視してほしい．</li>
-</ul>
+<li><p>ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．なお，pandocやTufteの項は別途記事にするので，とりあえずは無視してほしい．</p>
 
 <figure>
 
 <img src="/img/org-C-c-C-e.jpg" width="100%" />
 
 
-</figure>
+</figure></li>
 
-<ul>
 <li><p>pdfで出力したければ，さらに，l o と打つと，As PDF file and openを選択したことになり，原稿がpdfとして出力され，かつ，skimでそのpdfがオープンされる．</p></li>
 
 <li><p>同じく，htmlで出力したければ，h o と打つと，As HTML file and openを選択したことになり，ブラウザーでそのhtmlがオープンされる．</p></li>
@@ -477,8 +474,8 @@
 
 <ul>
 <li>それでは実例を示してみる．以下のような書類を作成し，hogefuga.orgとして保存する．hoge_fuga.jpgはorg fileと同じdirectoryにあるものとする．</li>
-<li>前半の＃で始まる行が続く部分はorg-modeの設定であり，latexのこのパッケージを使うぞ，とか，org-modeのヘッダーをどの深さまで表示するかなどを決めている．詳細はググればすぐに分かるので略&hellip;..(^^;;;</li>
-</ul>
+
+<li><p>前半の＃で始まる行が続く部分はorg-modeの設定であり，latexのこのパッケージを使うぞ，とか，org-modeのヘッダーをどの深さまで表示するかなどを決めている．詳細はググればすぐに分かるので略&hellip;..(^^;;;</p>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: koma-jarticle
 #+LaTeX_CLASS_OPTIONS: [12pt]
@@ -707,7 +704,7 @@ hogefugaによる治療は有効である．
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

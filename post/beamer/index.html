@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -306,8 +306,8 @@
 <li>基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である．</li>
 <li>下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う．</li>
 <li>なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729" target="_blank">beamerでの数式フォントの変更</a></li>
-<li>また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．</li>
-</ul>
+
+<li><p>また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．</p>
 
 <pre><code class="language-tex">% -*-coding:utf-8-*-
 \documentclass[svgnames, table, 14pt]{beamer}
@@ -394,17 +394,14 @@
 \includegraphics[width=3.5in]{hoge_fuga.pdf}
 \end{frame}
 \end{document}
-</code></pre>
+</code></pre></li>
 
-<ul>
 <li><p>ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</a>を参考　</p>
 
 <pre><code class="language-shell">latexmk -pvc -pdf -view=none beamer_test.tex
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>これで下記のようなpdfが出来上がるはず．</li>
-</ul>
+<li><p>これで下記のようなpdfが出来上がるはず．</p>
 
 <figure>
 
@@ -418,11 +415,9 @@
 <img src="/img/beamer_test2.jpg" width="100%" />
 
 
-</figure>
+</figure></li>
 
-<ul>
-<li>画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，</li>
-</ul>
+<li><p>画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，</p>
 
 <pre><code class="language-shell">\includegraphics[width=2in]{/Data/hoge/fuga/......./hoge_fuga.pdf}
 </code></pre>
@@ -612,7 +607,7 @@
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

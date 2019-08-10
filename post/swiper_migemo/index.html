@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -336,31 +336,29 @@
 <h3 id="install-and-setup">Install &amp; setup</h3>
 
 <ul>
-<li>以下を，int.orgに書き込む．</li>
-</ul>
+<li><p>以下を，int.orgに書き込む．</p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 (use-package swiper
-  :ensure t
-  :config
-  (defun isearch-forward-or-swiper (use-swiper)
-    (interactive &quot;p&quot;)
-    ;; (interactive &quot;P&quot;) ;; 大文字のPだと，C-u C-sでないと効かない
-    (let (current-prefix-arg)
-      (call-interactively (if use-swiper 'swiper 'isearch-forward))))
-  (global-set-key (kbd &quot;C-s&quot;) 'isearch-forward-or-swiper)
-  )
+:ensure t
+:config
+(defun isearch-forward-or-swiper (use-swiper)
+(interactive &quot;p&quot;)
+;; (interactive &quot;P&quot;) ;; 大文字のPだと，C-u C-sでないと効かない
+(let (current-prefix-arg)
+  (call-interactively (if use-swiper 'swiper 'isearch-forward))))
+(global-set-key (kbd &quot;C-s&quot;) 'isearch-forward-or-swiper)
+)
 
 (use-package ivy
-  :ensure t
-  ;; :config
-  ;; (fset 'ivy--regex 'identity)
-  )
+:ensure t
+;; :config
+;; (fset 'ivy--regex 'identity)
+)
 #+end_src
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>ivyのコメントアウトしている部分については後述する．</li>
+<li><p>ivyのコメントアウトしている部分については後述する．</p></li>
 </ul>
 
 <h3 id="使い方">使い方</h3>
@@ -390,32 +388,32 @@
 <h3 id="cmigemoのinstall">cmigemoのinstall</h3>
 
 <ul>
-<li>まず，C言語で再実装されたcmigemoをインストールする．homebrewで簡単にインストールできる．&ndash;HEADのオプションが必要との記載もあるが，なくても同じであった．</li>
-</ul>
+<li><p>まず，C言語で再実装されたcmigemoをインストールする．homebrewで簡単にインストールできる．&ndash;HEADのオプションが必要との記載もあるが，なくても同じであった．</p>
 
 <pre><code class="language-shell">$ brew install cmigemo
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="migemo-dot-elのinstall-and-setup">migemo.elのInstall &amp; setup</h3>
 
 <ul>
-<li>以下を，int.orgに書き込む．</li>
-</ul>
+<li><p>以下を，int.orgに書き込む．</p>
 
 <pre><code class="language-lisp">#+BEGIN_SRC emacs-lisp
 (use-package migemo
-  :ensure t
-  :config
-  ;; C/Migemo を使う場合は次のような設定を .emacs に加えます．
-  (setq migemo-command &quot;cmigemo&quot;)
-  (setq migemo-options '(&quot;-q&quot; &quot;--emacs&quot; &quot;-i&quot; &quot;\a&quot;))
-  (setq migemo-dictionary &quot;/usr/local/Cellar/cmigemo/20110227/share/migemo/utf-8/migemo-dict&quot;)  ;; 各自の辞書の在り処を指示
-  (setq migemo-user-dictionary nil)
-  (setq migemo-regex-dictionary nil)
-  ;; charset encoding
-  (setq migemo-coding-system 'utf-8-unix))
+:ensure t
+:config
+;; C/Migemo を使う場合は次のような設定を .emacs に加えます．
+(setq migemo-command &quot;cmigemo&quot;)
+(setq migemo-options '(&quot;-q&quot; &quot;--emacs&quot; &quot;-i&quot; &quot;\a&quot;))
+(setq migemo-dictionary &quot;/usr/local/Cellar/cmigemo/20110227/share/migemo/utf-8/migemo-dict&quot;)  ;; 各自の辞書の在り処を指示
+(setq migemo-user-dictionary nil)
+(setq migemo-regex-dictionary nil)
+;; charset encoding
+(setq migemo-coding-system 'utf-8-unix))
 #+END_SRC
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="avy-migemo-swiperのmigemo対応">avy-migemo（swiperのmigemo対応）</h2>
 
@@ -430,13 +428,13 @@
 <pre><code class="language-emacs-lisp">;; (fset 'ivy--regex 'identity)
 </code></pre>
 
-<p>は，コメントアウトしておかないと，migemo化を無効にしてしまうので注意。</p>
+<p>は，コメントアウトしておかないと，migemo化を無効にしてしまうので注意。</p></li>
+</ul>
 
 <h3 id="install-and-setup-1">Install &amp; setup</h3>
 
 <ul>
-<li>以下を，int.orgに書き込む．</li>
-</ul>
+<li><p>以下を，int.orgに書き込む．</p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 (use-package avy-migemo
@@ -495,23 +493,23 @@
 
 (global-set-key (kbd &quot;C-x C-d&quot;) 'bjm/ivy-dired-recent-dirs)
 #+end_src
-</code></pre>
+</code></pre></li>
+</ul>
 
 <!--listend-->
 
 <ul>
-<li>C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．</li>
-</ul>
+<li><p>C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．</p>
 
 <figure>
 
 <img src="/img/directory-1a.jpg" width="100%" />
 
 
-</figure>
-
-<p>以上，今回は小ネタだが非常に有用なものばかりを紹介した．</p></li>
+</figure></li>
 </ul>
+
+<p>以上，今回は小ネタだが非常に有用なものばかりを紹介した．</p>
 
     </div>
 
@@ -684,7 +682,7 @@
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

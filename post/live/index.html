@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -316,21 +316,22 @@
 
 <ul>
 <li>まず画面トップの右端の方の日本語入力のライブ変換にチェックを入れてオンにする．</li>
-<li>ついで，Emacsのカーソルの色の設定をする．これは以前の記事（<a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>）の設定をほんの少し変えるだけのことである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．</li>
-</ul>
+
+<li><p>ついで，Emacsのカーソルの色の設定をする．これは以前の記事（<a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>）の設定をほんの少し変えるだけのことである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．</p>
 
 <pre><code class="language-lisp">#+BEGIN_SRC emacs-lisp
 (when (fboundp 'mac-input-source)
-  (defun my-mac-selected-keyboard-input-source-chage-function ()
-    (let ((mac-input-source (mac-input-source)))
-      (set-cursor-color
-       (if (string-match &quot;com.apple.inputmethod.Kotoeri.Roman&quot; mac-input-source)
-           ;; (if (string-match &quot;com.google.inputmethod.Japanese.Roman&quot; mac-input-source)
-           &quot;#91C3FF&quot; &quot;#FF9300&quot;))))
-  (add-hook 'mac-selected-keyboard-input-source-change-hook
-            'my-mac-selected-keyboard-input-source-chage-function))
+(defun my-mac-selected-keyboard-input-source-chage-function ()
+(let ((mac-input-source (mac-input-source)))
+  (set-cursor-color
+   (if (string-match &quot;com.apple.inputmethod.Kotoeri.Roman&quot; mac-input-source)
+       ;; (if (string-match &quot;com.google.inputmethod.Japanese.Roman&quot; mac-input-source)
+       &quot;#91C3FF&quot; &quot;#FF9300&quot;))))
+(add-hook 'mac-selected-keyboard-input-source-change-hook
+        'my-mac-selected-keyboard-input-source-chage-function))
 #+END_SRC
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>これでEmacsでライブ変換を使用している際に，日本語入力の時は赤色のカーソル，英語入力の時は青色のカーソルになる．</p>
 
@@ -523,7 +524,7 @@
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

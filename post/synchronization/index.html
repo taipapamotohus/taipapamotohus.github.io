@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -326,12 +326,11 @@
 <li><p>この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．</p>
 
 <pre><code class="language-shell">$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．</li>
-<li>引数のところには，以下のように打ち込む．</li>
-</ul>
+<li><p>defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．</p></li>
+
+<li><p>引数のところには，以下のように打ち込む．</p>
 
 <pre><code class="language-shell">$ --no-wait +%line &quot;%file&quot;
 </code></pre></li>
@@ -351,12 +350,13 @@
 ;; Starts the Emacs server
 (server-start)
 #+end_src
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．<del>もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！</del> これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．</li>
-<li>この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．</li>
-<li>該当箇所が少しずれることがあるのが欠点であるが，それでも十分に役に立つ．</li>
+<li><p>これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．<del>もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！</del> これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．</p></li>
+
+<li><p>この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．</p></li>
+
+<li><p>該当箇所が少しずれることがあるのが欠点であるが，それでも十分に役に立つ．</p></li>
 </ul>
 
 <h2 id="forward-search">forward search</h2>
@@ -364,8 +364,8 @@
 <ul>
 <li>こちらも，backward searchほどではないが，役に立つ．</li>
 <li>Emacs上のlatex document上の特定の箇所に該当するpdfの箇所を探して示してくれる．</li>
-<li>この機能を可能にするには，init.orgに以下のように記述する．</li>
-</ul>
+
+<li><p>この機能を可能にするには，init.orgに以下のように記述する．</p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 (add-hook 'LaTeX-mode-hook
@@ -554,7 +554,7 @@
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

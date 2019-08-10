@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -348,8 +348,8 @@
 <li><a href="https://qiita.com/TAByasu/items/47c6cfbeeafad39eda07" target="_blank">Ruby初学者のRuby On Rails 環境構築【Mac】</a></li>
 </ul></li>
 <li>しかし，上記サイトのスクリプトをそのまま使用するとと，reloadの際にページの先頭まで戻ってしまい不便！</li>
-<li>結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．</li>
-</ul>
+
+<li><p>結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．</p>
 
 <pre><code class="language-sh">#!/usr/bin/env ruby
 # watch.rb by Brett Terpstra, 2011 &lt;http://brettterpstra.com&gt;
@@ -358,65 +358,66 @@
 trap(&quot;SIGINT&quot;) { exit }
 
 if ARGV.length &lt; 2
-   puts &quot;Usage: #{$0} watch_folder keyword&quot;
-   puts &quot;Example: #{$0} . mywebproject&quot;
-   exit
-   end
+puts &quot;Usage: #{$0} watch_folder keyword&quot;
+puts &quot;Example: #{$0} . mywebproject&quot;
+exit
+end
 
-   dev_extension = 'dev'
-   filetypes = ['css','html','htm','php','rb','erb','less','js']
-   watch_folder = ARGV[0]
-   keyword = ARGV[1]
-   puts &quot;Watching #{watch_folder} and subfolders for changes in project files...&quot;
+dev_extension = 'dev'
+filetypes = ['css','html','htm','php','rb','erb','less','js']
+watch_folder = ARGV[0]
+keyword = ARGV[1]
+puts &quot;Watching #{watch_folder} and subfolders for changes in project files...&quot;
 
-   while true do
-         files = []
-         filetypes.each {|type|
+while true do
+     files = []
+     filetypes.each {|type|
 files += Dir.glob( File.join( watch_folder, &quot;**&quot;, &quot;*.#{type}&quot; ) )
-                        }
-         new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
-         hash ||= new_hash
-         diff_hash = new_hash - hash
+                    }
+     new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
+     hash ||= new_hash
+     diff_hash = new_hash - hash
 
-         unless diff_hash.empty?
-         hash = new_hash
+     unless diff_hash.empty?
+     hash = new_hash
 
-         diff_hash.each do |df|
-             puts &quot;Detected change in #{df[0]}, refreshing&quot;
-         %x{osascript&lt;&lt;ENDGAME
-                tell app &quot;Safari&quot; to activate
-                tell app &quot;System Events&quot;
-                     keystroke &quot;r&quot; using command down
-                end tell
+     diff_hash.each do |df|
+         puts &quot;Detected change in #{df[0]}, refreshing&quot;
+     %x{osascript&lt;&lt;ENDGAME
+            tell app &quot;Safari&quot; to activate
+            tell app &quot;System Events&quot;
+                 keystroke &quot;r&quot; using command down
+            end tell
 ENDGAME
-           }
-         end
-         end
+       }
+     end
+     end
 
-         sleep 1
-         end
-</code></pre>
+     sleep 1
+     end
+</code></pre></li>
 
-<ul>
-<li>このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．</li>
-<li><strong>Usage: /usr/local/bin/watch_safari.rb watch_folder keyword</strong></li>
-<li>パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫</li>
+<li><p>このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．</p></li>
+
+<li><p><strong>Usage: /usr/local/bin/watch_safari.rb watch_folder keyword</strong></p></li>
+
+<li><p>パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫</p></li>
 </ul>
 
 <h2 id="使用方法">使用方法</h2>
 
 <ul>
-<li>/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．</li>
-</ul>
+<li><p>/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．</p>
 
 <pre><code class="language-sh">$ cd /Data/Hoge
 $ watch_safari.rb Hoge hogefuga.html
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．</li>
-<li>最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．</li>
-<li>以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．</li>
+<li><p>org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．</p></li>
+
+<li><p>最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．</p></li>
+
+<li><p>以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．</p></li>
 </ul>
 
 <p>以上はOSX上のSafariを使用している場合であるが，他のブラウザーでも少し変更するだけで同じことができるはずである．</p>
@@ -592,7 +593,7 @@ $ watch_safari.rb Hoge hogefuga.html
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

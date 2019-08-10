@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -377,8 +377,7 @@ summary(Melanoma)
 <h2 id="competing-risk-analysis-with-cuminc-of-cmprsk-package">Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package</h2>
 
 <ul>
-<li>cuminc is used to investigate whether a statistically significant difference is present between the groups (see &ldquo;Tests:&rdquo; below).</li>
-</ul>
+<li><p>cuminc is used to investigate whether a statistically significant difference is present between the groups (see &ldquo;Tests:&rdquo; below).</p>
 
 <pre><code class="language-R">library(cmprsk)
 Results_cmprsk &lt;- with(Melanoma, cuminc(time, event, group = sex, cencode = &quot;censored&quot;))
@@ -386,34 +385,35 @@ Results_cmprsk
 </code></pre>
 
 <pre><code class="language-shell">Tests:
-                              stat        pv df
+                          stat        pv df
 death.malignant.melanoma 5.8140209 0.0158989  1
 death.other.causes       0.8543656 0.3553203  1
 Estimates and Variances:
 $est
-                                      1000       2000       3000       4000
+                                  1000       2000       3000       4000
 Female death.malignant.melanoma 0.08730159 0.18077594 0.23565169 0.28424490
 Male death.malignant.melanoma   0.19237175 0.31009828 0.42453587 0.42453587
 Female death.other.causes       0.03174603 0.03983516 0.05220642 0.08538385
 Male death.other.causes         0.03814124 0.06693942 0.06693942 0.13474271
-                                      5000
+                                  5000
 Female death.malignant.melanoma 0.28424490
 Male death.malignant.melanoma           NA
 Female death.other.causes       0.08538385
 Male death.other.causes                 NA
 
 $var
-                                        1000         2000         3000
+                                    1000         2000         3000
 Female death.malignant.melanoma 0.0006378135 0.0012450462 0.0018102025
 Male death.malignant.melanoma   0.0020223293 0.0028196248 0.0042695603
 Female death.other.causes       0.0002459647 0.0003073878 0.0004529114
 Male death.other.causes         0.0004727379 0.0008614343 0.0008614343
-                                       4000        5000
+                                   4000        5000
 Female death.malignant.melanoma 0.002755577 0.002755577
 Male death.malignant.melanoma   0.004269560          NA
 Female death.other.causes       0.001528480 0.001528480
 Male death.other.causes         0.002950698          NA
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="competing-risk-analysis-with-prodlim">Competing risk analysis with prodlim</h2>
 
@@ -531,28 +531,29 @@ plot(CompRskAnalysis2)
 <li>add tick-mark at right censoring times</li>
 <li>rotate labels of y-axis</li>
 <li>add statistical significance from results of cuminc described above</li>
-<li>etc</li>
-</ul>
+
+<li><p>etc</p>
 
 <pre><code class="language-R"># Plot with modification
 plot(CompRskAnalysis2,
-     cause = &quot;death.malignant.melanoma&quot;,
-     xlim=c(0, 15),
-     legend.x=&quot;topleft&quot;, # position of legend
-     legend.cex=1.5, # font size of legend
-     marktime = TRUE, # the curves are tick-marked at right censoring times by invoking the function markTime.
-     legend.title=&quot;&quot;,
-     atrisk.title=&quot;&quot;,
-     axis2.at=seq(0,1,0.2),
-     background.horizontal=seq(0,1,0.2),
-     axis2.las=2,                            # rotate labels of y-axis
-     percent = FALSE,
-     confint = FALSE,
-     atrisk.col=&quot;black&quot;,
-     xlab=&quot;Time to primary outcome (years)&quot;
-     )
+ cause = &quot;death.malignant.melanoma&quot;,
+ xlim=c(0, 15),
+ legend.x=&quot;topleft&quot;, # position of legend
+ legend.cex=1.5, # font size of legend
+ marktime = TRUE, # the curves are tick-marked at right censoring times by invoking the function markTime.
+ legend.title=&quot;&quot;,
+ atrisk.title=&quot;&quot;,
+ axis2.at=seq(0,1,0.2),
+ background.horizontal=seq(0,1,0.2),
+ axis2.las=2,                            # rotate labels of y-axis
+ percent = FALSE,
+ confint = FALSE,
+ atrisk.col=&quot;black&quot;,
+ xlab=&quot;Time to primary outcome (years)&quot;
+ )
 text(6.5,0.85,adj=0,paste(&quot;Gray's test: p-value=&quot;, round(Results_cmprsk$Tests[1,2],3)), cex = 1.2)
-</code></pre>
+</code></pre></li>
+</ul>
 
 <figure>
 
@@ -732,7 +733,7 @@ text(6.5,0.85,adj=0,paste(&quot;Gray's test: p-value=&quot;, round(Results_cmprs
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

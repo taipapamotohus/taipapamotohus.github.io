@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -339,11 +339,9 @@
        (setq face-font-rescale-alist
              '((&quot;.*Hiragino Kaku Gothic ProN.*&quot; . 1.1))))
    #+END_SRC
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>これがEmacs起動時にorg-babel-load-fileにより変換されて下記のようなinit.elとなる．</li>
-</ul>
+<li><p>これがEmacs起動時にorg-babel-load-fileにより変換されて下記のようなinit.elとなる．</p>
 
 <pre><code class="language-lisp">(set-language-environment 'Japanese)
 
@@ -394,11 +392,9 @@
        (add-hook 'mac-selected-keyboard-input-source-change-hook
                  'my-mac-selected-keyboard-input-source-chage-function))
    #+END_SRC
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>これがEmacsの起動時に，org-babel-load-fileによって，下記のようにcodeだけ抜き出されて，init.elに書き込まれる．</li>
-</ul>
+<li><p>これがEmacsの起動時に，org-babel-load-fileによって，下記のようにcodeだけ抜き出されて，init.elに書き込まれる．</p>
 
 <pre><code class="language-lisp">(when (functionp 'mac-auto-ascii-mode)  ;; ミニバッファに入力時、自動的に英語モード
   (mac-auto-ascii-mode 1))
@@ -580,7 +576,7 @@
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

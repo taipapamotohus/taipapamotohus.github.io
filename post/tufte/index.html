@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -350,22 +350,25 @@
  )
 (use-package ox-tufte-latex)
 #+end_src
-</code></pre>
+</code></pre></li>
+
+<li><p>quelpaは，use-packageでうまくインストール出来ないときに重宝する．</p></li>
+
+<li><p>quelpaについては以下を参照</p>
 
 <ul>
-<li>quelpaは，use-packageでうまくインストール出来ないときに重宝する．</li>
-<li>quelpaについては以下を参照</li>
 <li><a href="https://github.com/quelpa/quelpa" target="_blank">Quelpa</a></li>
 <li><a href="http://emacs.rubikitch.com/quelpa/" target="_blank">quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム</a></li>
 <li><a href="https://qiita.com/tadsan/items/99bd9a5bbdb36def13e2" target="_blank">CaskからQuelpaに移行する</a></li>
+</ul></li>
 </ul>
 
 <h3 id="org-modeでtufte-latexの設定">org-modeでtufte-latexの設定</h3>
 
 <ul>
 <li>ox-latexの設定などは以前の記事（<a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a>）に書いたようにinit.orgに記述しておく．</li>
-<li>以下のようにinit.orgに書き込んで設定する．これは以前の記事（<a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a>）と重複するが，念のためにここにも書いておく．</li>
-</ul>
+
+<li><p>以下のようにinit.orgに書き込んで設定する．これは以前の記事（<a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a>）と重複するが，念のためにここにも書いておく．</p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 ;; tufte-handout class for writing classy handouts and papers
@@ -413,8 +416,8 @@
 
 <ul>
 <li>前半の＃で始まる行が続く部分はorg-modeの設定であり，latexのこのパッケージを使うぞ，とか，org-modeのヘッダーをどの深さまで表示するかなどを決めている．詳細はググればすぐに分かるので略&hellip;..(^^;;;</li>
-<li>:offset -8inによって，図の位置を上にずらしてバランスをとるようにしているのにご注意いただきたい．</li>
-</ul>
+
+<li><p>:offset -8inによって，図の位置を上にずらしてバランスをとるようにしているのにご注意いただきたい．</p>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: tufte-handout
 #+LaTeX_CLASS_OPTIONS: [12pt]
@@ -471,9 +474,8 @@ hogeとfugaを比較し，治療成績を比較する．
 
 * *結論*
 hogefugaによる治療は有効である．
-</code></pre>
+</code></pre></li>
 
-<ul>
 <li><p>ついで，前述のごとく，Emacsでこの文書を開いた状態で，C-c C-e T pと打てば，以下のようなpdfがskimで開かれる．</p>
 
 <figure>
@@ -658,7 +660,7 @@ hogefugaによる治療は有効である．
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

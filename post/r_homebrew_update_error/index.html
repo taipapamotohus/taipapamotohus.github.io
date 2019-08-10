@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -305,13 +305,13 @@
 <li><p>大体は以下で直ることが多い（<a href="https://github.com/Homebrew/homebrew-science/issues/5587" target="_blank">r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587</a>）</p>
 
 <pre><code class="language-shell">$ brew link --overwrite gcc
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="xmlが入らない">XMLが入らない</h2>
 
 <ul>
-<li>XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，<a href="https://medium.com/biosyntax/installing-r-package-xml-on-macos-10-13-6-1738146d4ee0" target="_blank">Installing R package XML on MacOS 10.13.6</a>と同じである．対処法は，同サイトや引用元の<a href="https://stackoverflow.com/questions/40682615/cannot-install-xml-package-in-r" target="_blank">Cannot install XML package in r</a>にある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．</li>
-</ul>
+<li><p>XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，<a href="https://medium.com/biosyntax/installing-r-package-xml-on-macos-10-13-6-1738146d4ee0" target="_blank">Installing R package XML on MacOS 10.13.6</a>と同じである．対処法は，同サイトや引用元の<a href="https://stackoverflow.com/questions/40682615/cannot-install-xml-package-in-r" target="_blank">Cannot install XML package in r</a>にある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．</p>
 
 <pre><code class="language-shell">Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&quot;)
 </code></pre>
@@ -379,11 +379,9 @@ Making 'packages.html' ... done
 警告メッセージ:
 install.packages(pkgs = doing, lib = lib, ...) で:
 installation of package ‘rsvg’ had non-zero exit status
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>要するに，xcb-shm.pcのあるディレクトリをPKG＿CONFIG＿DIRに追加しろと言ってるので，xcb-shm.pcがどこにあるかをmdfindで探してから，言われるとおり追加する．</li>
-</ul>
+<li><p>要するに，xcb-shm.pcのあるディレクトリをPKG＿CONFIG＿DIRに追加しろと言ってるので，xcb-shm.pcがどこにあるかをmdfindで探してから，言われるとおり追加する．</p>
 
 <pre><code class="language-sh">$ mdfind -name xcb-shm.pc
 /opt/X11/lib/pkgconfig/cairo-xcb-shm.pc
@@ -396,14 +394,12 @@ installation of package ‘rsvg’ had non-zero exit status
 <li><p>上記のように，/opt/X11/lib/pkgconfig/xcb-shm.pcとなっているので，これを追加する．このときも上述のごとく，RのコンソールでSys.setenvを使う．</p>
 
 <pre><code class="language-sh">&gt; Sys.setenv(PKG_CONFIG_PATH = &quot;/opt/X11/lib/pkgconfig&quot;)
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>これで，rsvgはうまくコンパイルされる．</li>
+<li><p>これで，rsvgはうまくコンパイルされる．</p></li>
 </ul>
 
-<p>今回はいきなりのRネタになってしまった．</p></li>
-</ul>
+<p>今回はいきなりのRネタになってしまった．</p>
 
     </div>
 
@@ -570,7 +566,7 @@ installation of package ‘rsvg’ had non-zero exit status
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         

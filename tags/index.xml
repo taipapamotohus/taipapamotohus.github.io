@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 00:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://taipapamotohus.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>full-text-search</title>
+      <link>https://taipapamotohus.com/tags/full-text-search/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/full-text-search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hyperestraier</title>
+      <link>https://taipapamotohus.com/tags/hyperestraier/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/hyperestraier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macos</title>
+      <link>https://taipapamotohus.com/tags/macos/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mojave</title>
+      <link>https://taipapamotohus.com/tags/mojave/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/mojave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf</title>
+      <link>https://taipapamotohus.com/tags/pdf/</link>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://taipapamotohus.com/tags/pdf/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>emacs</title>
@@ -27,15 +72,6 @@
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/org-mode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pdf</title>
-      <link>https://taipapamotohus.com/tags/pdf/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/pdf/</guid>
       <description></description>
     </item>
     
@@ -81,24 +117,6 @@
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
       
       <guid>https://taipapamotohus.com/tags/japanese/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>macos</title>
-      <link>https://taipapamotohus.com/tags/macos/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mojave</title>
-      <link>https://taipapamotohus.com/tags/mojave/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/tags/mojave/</guid>
       <description></description>
     </item>
     

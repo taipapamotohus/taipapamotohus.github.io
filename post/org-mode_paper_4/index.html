@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 2.4.0">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.56.0" />
   <meta name="author" content="taipapa">
 
   
@@ -344,11 +344,9 @@
 
 <pre><code class="language-shell">$  brew install pandoc
 $  brew install pandoc-citeproc
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．</li>
-</ul>
+<li><p>init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．</p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 (use-package ox-pandoc
@@ -427,7 +425,8 @@ Advanced options:
 <li><p>例えばこんなふうにshellで打つ</p>
 
 <pre><code class="language-sh">$ bibexport -o extract2.bib hogefuga_English.aux
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="pandocのための設定">pandocのための設定</h2>
 
@@ -457,8 +456,8 @@ Advanced options:
 <ul>
 <li>ここからは，個々のorg-mode file側の設定である．</li>
 <li>英語の場合は殆どなんの問題もなくexportされる．</li>
-<li>早速実例を見てみる．まず下のorg fileをhogefuga_English.orgとして保存する．</li>
-</ul>
+
+<li><p>早速実例を見てみる．まず下のorg fileをhogefuga_English.orgとして保存する．</p>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: koma-article
 #+LaTeX_CLASS_OPTIONS: [12pt]
@@ -522,11 +521,9 @@ The profiling of low molecular weight biochemicals that serve as substrates and 
 
 <pre><code class="language-sh">$ latexmk -pvc -pdf -view=none hogefuga_English.tex
 $ bibexport -o extract2.bib hogefuga_English.aux
-</code></pre>
+</code></pre></li>
 
-<ol>
-<li>これで，８つの文献をすべて含むextract2.bibが生成された．</li>
-</ol></li>
+<li><p>これで，８つの文献をすべて含むextract2.bibが生成された．</p></li>
 </ol></li>
 </ul>
 
@@ -540,11 +537,9 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 <pre><code class="language-lisp">#+PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
 #+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
 #+BIBLIOGRAPHY: extract2.bib
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>さらに，最後の文献についての以下の部分は削除する．</li>
-</ul>
+<li><p>さらに，最後の文献についての以下の部分は削除する．</p>
 
 <pre><code class="language-lisp">#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
 </code></pre></li>
@@ -607,28 +602,24 @@ $ bibexport -o extract2.bib hogefuga_English.aux
   blood.\cite{kim2013biomarkers} In addition, most of the studies
   focused on acute stage of
   stroke.\cite{Jiang:2011uq, Jung:2011fk, Kimberly:2013mq}
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>*Introductionの前のコンマについては前述のとおりである．</li>
+<li><p>*Introductionの前のコンマについては前述のとおりである．</p></li>
 </ul>
 
 <h3 id="org-modeからword-fileへのexportの方法">org-modeからWord fileへのexportの方法</h3>
 
 <ul>
-<li>ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, <strong>export via pandoc</strong> のメニューが見える．そこで，p xとして，export via pandoc &mdash;&gt; to docx and openを選択する．</li>
-</ul>
+<li><p>ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, <strong>export via pandoc</strong> のメニューが見える．そこで，p xとして，export via pandoc &mdash;&gt; to docx and openを選択する．</p>
 
 <figure>
 
 <img src="/img/org-C-c-C-e.jpg" width="100%" />
 
 
-</figure>
+</figure></li>
 
-<ul>
-<li>暫く待つと，下図のようにWordが立ち上がって，docx file（ <strong>hogefuga_English_WORD.docx</strong> ）が開かれる．</li>
-</ul>
+<li><p>暫く待つと，下図のようにWordが立ち上がって，docx file（ <strong>hogefuga_English_WORD.docx</strong> ）が開かれる．</p>
 
 <figure>
 
@@ -647,13 +638,13 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 <li><p>org-modeのオプションが見えてしまっているが，この程度であれば僅かな手作業で消去できる．</p></li>
 
 <li><p><strong>英語に関しては，pdfと比べると多少見劣りがするが，まず問題ないレベルのWord fileが出力できた．</strong></p></li>
+</ul></li>
 </ul>
 
 <h2 id="日本語論文の場合のorg-fileの設定">日本語論文の場合のorg fileの設定</h2>
 
 <ul>
-<li>前回の記事（<a href="../org-mode_paper_3">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化</a>）の際に作成したhogefuga.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．</li>
-</ul>
+<li><p>前回の記事（<a href="../org-mode_paper_3">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化</a>）の際に作成したhogefuga.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．</p>
 
 <pre><code class="language-lisp">#+PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
 #+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
@@ -663,11 +654,9 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 <li><p>さらに，最後の文献についての以下の部分は削除する．</p>
 
 <pre><code class="language-lisp">#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-</code></pre>
+</code></pre></li>
 
-<ul>
-<li>以上で，下図のようになるので，hogefuga_WORD.org として保存する．</li>
-</ul>
+<li><p>以上で，下図のようになるので，hogefuga_WORD.org として保存する．</p>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: koma-jarticle
 #+LaTeX_CLASS_OPTIONS: [12pt]
@@ -759,7 +748,8 @@ hogefugaによる治療は有効である．
 <li><p>homebrew でpython3をインストール</p>
 
 <pre><code class="language-shell">$ brew install python3
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="docx-normarize-nfcの導入">docx-normarize-nfcの導入</h3>
 
@@ -772,8 +762,8 @@ hogefugaによる治療は有効である．
 <ul>
 <li>これでWord fileに対して上記のスクリプトを使用すれば良い．</li>
 <li>念のために，Word fileの名前を，hogefuga_WORD_濁点分離修正済み.docxに変更し新規保存しておく．</li>
-<li>そのうえで，shellで以下の操作を行う</li>
-</ul>
+
+<li><p>そのうえで，shellで以下の操作を行う</p>
 
 <pre><code class="language-shell">$ docx-normarize-nfc hogefuga_WORD_濁点分離修正済み.docx
 </code></pre></li>
@@ -965,7 +955,7 @@ hogefugaによる治療は有効である．
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ocaml.min.js"></script>
         
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sh.min.js"></script>
         
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/tex.min.js"></script>
         
