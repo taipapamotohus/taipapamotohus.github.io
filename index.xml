@@ -175,9 +175,9 @@ $ mkdir PDFs
 &lt;p&gt;さて，pdfは，大抵の場合，いくつかのディレクトリに分けて置いてあるであろう．それを全て1箇所に集約して全文検索ができるようにするために，シンボリックリンクを使用する．具体的には，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc とすると，以下のようにする．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf/PDFs
-$ sudo ln -s /Data/hogehoge .
-$ sudo ln -s /Data/fugafuga .
-$ sudo ln -s /Data/misc .
+$ ln -s /Data/hogehoge .
+$ ln -s /Data/fugafuga .
+$ ln -s /Data/misc .
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;全文検索用のindexの作成&#34;&gt;全文検索用のindexの作成&lt;/h3&gt;

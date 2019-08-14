@@ -108,7 +108,7 @@
   
   <meta property="article:published_time" content="2019-07-24T00:00:00&#43;09:00">
   
-  <meta property="article:modified_time" content="2019-08-10T22:18:03&#43;09:00">
+  <meta property="article:modified_time" content="2019-08-14T14:54:20&#43;09:00">
   
 
   
@@ -263,8 +263,8 @@
         Last updated on
     
     <meta content="2019-07-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
-    <time datetime="2019-08-10 22:18:03 &#43;0900 JST" itemprop="dateModified">
-      Aug 10, 2019
+    <time datetime="2019-08-14 14:54:20 &#43;0900 JST" itemprop="dateModified">
+      Aug 14, 2019
     </time>
   </span>
   <span itemscope itemprop="publisher" itemtype="http://schema.org/Person">
@@ -455,9 +455,9 @@ $ mkdir PDFs
 <p>さて，pdfは，大抵の場合，いくつかのディレクトリに分けて置いてあるであろう．それを全て1箇所に集約して全文検索ができるようにするために，シンボリックリンクを使用する．具体的には，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc とすると，以下のようにする．</p>
 
 <pre><code class="language-sh">$ cd /Users/taipapa/Sites/pdf/PDFs
-$ sudo ln -s /Data/hogehoge .
-$ sudo ln -s /Data/fugafuga .
-$ sudo ln -s /Data/misc .
+$ ln -s /Data/hogehoge .
+$ ln -s /Data/fugafuga .
+$ ln -s /Data/misc .
 </code></pre>
 
 <h3 id="全文検索用のindexの作成">全文検索用のindexの作成</h3>
