@@ -455,7 +455,7 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 
 &lt;p&gt;deployした時に，以下のようなエラーが生じた．&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;warning: adding embedded git repository: themes/academic
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;warning: adding embedded git repository: themes/academic
 hint: You&#39;ve added another git repository inside your current repository.
 hint: Clones of the outer repository will not contain the contents of
 hint: the embedded repository and will not know how to obtain it.
