@@ -1,24 +1,428 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>vertical on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/vertical/</link>
-    <description>Recent content in vertical on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 30 Jun 2019 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/vertical/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>vertical | A perfect autumn day</title>
+    <link>/tags/vertical/</link>
+      <atom:link href="/tags/vertical/index.xml" rel="self" type="application/rss+xml" />
+    <description>vertical</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 30 Jun 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>vertical</title>
+      <link>/tags/vertical/</link>
+    </image>
     
     <item>
       <title>How to add annotation (ex. KEGG orthology) box to a plot in ggplot2</title>
-      <link>https://taipapamotohus.com/post/annotation/</link>
+      <link>/post/annotation/</link>
       <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/annotation/</guid>
-      <description>またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つ</description>
+      <guid>/post/annotation/</guid>
+      <description>&lt;p&gt;またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つけたので，まとめておく．例として，代謝経路の変化を縦型の折れ線グラフで描きKEGG orthologyによって分類したグラフを作成してみる．うーむ，自分で書いていてなんだが，マニアックなネタである．．．(^^;;;&lt;/p&gt;
+
+&lt;p&gt;ま，備忘録として書いておこう．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-preparation&#34;&gt;Data Preparation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#plot-vertical-line-graph&#34;&gt;Plot vertical line graph&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#flip-the-plot-so-that-horizontal-becomes-vertical-with-coord-flip&#34;&gt;Flip the plot so that horizontal becomes vertical with coord_flip&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-annotation-box-by-geom-rect&#34;&gt;Add annotation box by geom_rect&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#remove-right-margin-with-expand-c--0-0&#34;&gt;Remove right margin with expand=c(0,0)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#customize-tick-marks-with-limits-and-breaks-of-scale-y-continuous&#34;&gt;customize tick marks with limits and breaks of scale_y_continuous&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-kegg-orthology--ko&#34;&gt;Add KEGG orthology (KO)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;Kyoto Encyclopedia of Genes and Genomes (KEGG) に関しては以下のサイトを参照&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.genome.jp/kegg/docs/plea.html&#34; target=&#34;_blank&#34;&gt;KEGG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.kegg.jp/kegg-bin/get%5Fhtext?br08902.keg&#34; target=&#34;_blank&#34;&gt;KEGG BRITE Hierarchy Files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.genome.jp/kegg-bin/show%5Fpathway?map01100&#34; target=&#34;_blank&#34;&gt;KEGG Metabolic pathways&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.genome.jp/kegg/ko.html&#34; target=&#34;_blank&#34;&gt;KO (KEGG ORTHOLOGY) Database&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;data-preparation&#34;&gt;Data Preparation&lt;/h2&gt;
+
+&lt;p&gt;例によって，まず，架空のデータを作成する．Drugを投与して1，5，12，24時間後の代謝物の血中濃度変化を対照，つまり偽薬を投与した群と比較するという実験の結果を適当に作成する．代謝経路はKEGGのデータベースから適当に名前を充てがっておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;set.seed(100)
+data.df1 &amp;lt;- data.frame(
+  Pathwayname = c(&amp;quot;Cysteine and methionine metabolism&amp;quot;,&amp;quot;Histidine metabolism&amp;quot;,&amp;quot;Glucosinolate biosynthesis&amp;quot;,&amp;quot;Novobiocin biosynthesis&amp;quot;,&amp;quot;Phenylpropanoid biosynthesis&amp;quot;,&amp;quot;Pentose phosphate pathway&amp;quot;,&amp;quot;Cell cycle - yeast&amp;quot;,&amp;quot;Mineral absorption&amp;quot;,&amp;quot;Protein digestion and absorption&amp;quot;,&amp;quot;Type II diabetes mellitus&amp;quot;,&amp;quot;Insulin secretion&amp;quot;,&amp;quot;Carbon fixation in photosynthetic organisms&amp;quot;,&amp;quot;Photosynthesis&amp;quot;,&amp;quot;Peptidoglycan biosynthesis&amp;quot;,&amp;quot;Synthesis and degradation of ketone bodies&amp;quot;,&amp;quot;Cyanoamino acid metabolism&amp;quot;,&amp;quot;D-Glutamine and D-glutamate metabolism&amp;quot;,&amp;quot;Taurine and hypotaurine metabolism&amp;quot;,&amp;quot;GABAergic synapse&amp;quot;,&amp;quot;Retrograde endocannabinoid signaling&amp;quot;,&amp;quot;Synaptic vesicle cycle&amp;quot;,&amp;quot;Pyrimidine metabolism&amp;quot;,&amp;quot;HIF-1 signaling pathway&amp;quot;,&amp;quot;Morphine addiction&amp;quot;,&amp;quot;Nicotine addiction&amp;quot;,&amp;quot;Aminoacyl-tRNA biosynthesis&amp;quot;),
+  C = rnorm(26, mean = 0, sd = 0.1),   # C: control
+  OneH = rnorm(26, mean = 2, sd = 2),
+  FiveH = rnorm(26, mean = 2, sd = 5),
+  TwH = rnorm(26, mean = 4, sd = 10),
+  TFH = rnorm(26, mean = 5, sd = 20))
+
+data.df1
+levels(data.df1$Pathwayname)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;
+                                   Pathwayname            C       OneH
+1           Cysteine and methionine metabolism -0.050219235  0.5595569
+2                         Histidine metabolism  0.013153117  2.4618891
+3                   Glucosinolate biosynthesis -0.007891709 -0.3154589
+4                      Novobiocin biosynthesis  0.088678481  2.4941520
+5                 Phenylpropanoid biosynthesis  0.011697127  1.8177729
+6                    Pentose phosphate pathway  0.031863009  5.5147512
+7                           Cell cycle - yeast -0.058179068  1.7241408
+8                           Mineral absorption  0.071453271  1.7776130
+9             Protein digestion and absorption -0.082525943  0.6199714
+10                   Type II diabetes mellitus -0.035986213  1.5564115
+11                           Insulin secretion  0.008988614  2.3658154
+12 Carbon fixation in photosynthetic organisms  0.009627446  2.8346466
+13                              Photosynthesis -0.020163395  4.1308047
+14                  Peptidoglycan biosynthesis  0.073984050  3.9404040
+15  Synthesis and degradation of ketone bodies  0.012337950  1.7967415
+16                  Cyanoamino acid metabolism -0.002931671  4.8064070
+17      D-Glutamine and D-glutamate metabolism -0.038885425 -1.5535513
+18          Taurine and hypotaurine metabolism  0.051085626  3.2457348
+19                           GABAergic synapse -0.091381419  0.9554333
+20        Retrograde endocannabinoid signaling  0.231029682  4.6444619
+21                      Synaptic vesicle cycle -0.043808998  1.2731193
+22                       Pyrimidine metabolism  0.076406062  4.6381315
+23                     HIF-1 signaling pathway  0.026196129  2.0875581
+24                          Morphine addiction  0.077340460 -1.7573118
+25                          Nicotine addiction -0.081437912  1.1058756
+26                 Aminoacyl-tRNA biosynthesis -0.043845057 -1.4771959
+        FiveH         TwH         TFH
+1   2.8943242  14.0845187 -24.1598745
+2  11.4873285 -16.7440475  -3.0061184
+3  -9.3596274  12.9682227 -10.5283457
+4   6.9023207   3.5000423  -2.3859302
+5  -4.9941281  -9.4534931  29.8020292
+6  11.1243621 -15.3121153   2.8513238
+7   8.9064936  11.0958158   8.4518701
+8  -2.1942594   2.4209497  10.0920254
+9   0.6900211   6.1636787  -7.2906766
+10  1.6557799  12.1736208 -23.5843019
+11  0.1055822  21.2717575  -1.6195087
+12 14.9097946   2.9622971   7.5677213
+13  2.6491707  -1.5712229  25.3623998
+14 -1.5651249  18.2830143  -0.1114738
+15  5.1899712  -4.9295740  -1.0508202
+16  3.0084580  -7.5757124  37.3038137
+17  1.6504153  -1.3029645 -10.4742671
+18  1.5375506  28.4568276  13.4800480
+19  4.2445164  -4.3249580  -6.6789396
+20 -3.3217784   8.1351985  13.3007136
+21 -3.8120966  -7.7868314 -25.9052331
+22 10.2426087  -7.7403476  -5.3749901
+23 -8.3104801   0.6707665  -0.5958311
+24  2.0637486  17.6311371  25.1491476
+25 -3.4376417  -0.6914734  -4.3913991
+26  3.3526975  12.4287563  10.9579408
+
+ [1] &amp;quot;Aminoacyl-tRNA biosynthesis&amp;quot;
+ [2] &amp;quot;Carbon fixation in photosynthetic organisms&amp;quot;
+ [3] &amp;quot;Cell cycle - yeast&amp;quot;
+ [4] &amp;quot;Cyanoamino acid metabolism&amp;quot;
+ [5] &amp;quot;Cysteine and methionine metabolism&amp;quot;
+ [6] &amp;quot;D-Glutamine and D-glutamate metabolism&amp;quot;
+ [7] &amp;quot;GABAergic synapse&amp;quot;
+ [8] &amp;quot;Glucosinolate biosynthesis&amp;quot;
+ [9] &amp;quot;HIF-1 signaling pathway&amp;quot;
+[10] &amp;quot;Histidine metabolism&amp;quot;
+[11] &amp;quot;Insulin secretion&amp;quot;
+[12] &amp;quot;Mineral absorption&amp;quot;
+[13] &amp;quot;Morphine addiction&amp;quot;
+[14] &amp;quot;Nicotine addiction&amp;quot;
+[15] &amp;quot;Novobiocin biosynthesis&amp;quot;
+[16] &amp;quot;Pentose phosphate pathway&amp;quot;
+[17] &amp;quot;Peptidoglycan biosynthesis&amp;quot;
+[18] &amp;quot;Phenylpropanoid biosynthesis&amp;quot;
+[19] &amp;quot;Photosynthesis&amp;quot;
+[20] &amp;quot;Protein digestion and absorption&amp;quot;
+[21] &amp;quot;Pyrimidine metabolism&amp;quot;
+[22] &amp;quot;Retrograde endocannabinoid signaling&amp;quot;
+[23] &amp;quot;Synaptic vesicle cycle&amp;quot;
+[24] &amp;quot;Synthesis and degradation of ketone bodies&amp;quot;
+[25] &amp;quot;Taurine and hypotaurine metabolism&amp;quot;
+[26] &amp;quot;Type II diabetes mellitus&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pathwaynameのlevelsを変更する．KEGG orthologyに合わせた配置にするためである．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;data.df1$Pathwayname &amp;lt;- factor(data.df1$Pathwayname,
+                               levels = c(&amp;quot;Aminoacyl-tRNA biosynthesis&amp;quot;, &amp;quot;Nicotine addiction&amp;quot;, &amp;quot;Morphine addiction&amp;quot;, &amp;quot;HIF-1 signaling pathway&amp;quot;, &amp;quot;Pyrimidine metabolism&amp;quot;, &amp;quot;Synaptic vesicle cycle&amp;quot;, &amp;quot;Retrograde endocannabinoid signaling&amp;quot;, &amp;quot;GABAergic synapse&amp;quot;, &amp;quot;Taurine and hypotaurine metabolism&amp;quot;, &amp;quot;D-Glutamine and D-glutamate metabolism&amp;quot;, &amp;quot;Cyanoamino acid metabolism&amp;quot;, &amp;quot;Synthesis and degradation of ketone bodies&amp;quot;, &amp;quot;Peptidoglycan biosynthesis&amp;quot;, &amp;quot;Photosynthesis&amp;quot;, &amp;quot;Carbon fixation in photosynthetic organisms&amp;quot;, &amp;quot;Insulin secretion&amp;quot;, &amp;quot;Type II diabetes mellitus&amp;quot;, &amp;quot;Protein digestion and absorption&amp;quot;, &amp;quot;Mineral absorption&amp;quot;, &amp;quot;Cell cycle - yeast&amp;quot;, &amp;quot;Pentose phosphate pathway&amp;quot;, &amp;quot;Phenylpropanoid biosynthesis&amp;quot;, &amp;quot;Novobiocin biosynthesis&amp;quot;, &amp;quot;Glucosinolate biosynthesis&amp;quot;, &amp;quot;Histidine metabolism&amp;quot;, &amp;quot;Cysteine and methionine metabolism&amp;quot;),
+                               labels = c(&amp;quot;Aminoacyl-tRNA biosynthesis&amp;quot;, &amp;quot;Nicotine addiction&amp;quot;, &amp;quot;Morphine addiction&amp;quot;, &amp;quot;HIF-1 signaling pathway&amp;quot;, &amp;quot;Pyrimidine metabolism&amp;quot;, &amp;quot;Synaptic vesicle cycle&amp;quot;, &amp;quot;Retrograde endocannabinoid signaling&amp;quot;, &amp;quot;GABAergic synapse&amp;quot;, &amp;quot;Taurine and hypotaurine metabolism&amp;quot;, &amp;quot;D-Glutamine and D-glutamate metabolism&amp;quot;, &amp;quot;Cyanoamino acid metabolism&amp;quot;, &amp;quot;Synthesis and degradation of ketone bodies&amp;quot;, &amp;quot;Peptidoglycan biosynthesis&amp;quot;, &amp;quot;Photosynthesis&amp;quot;, &amp;quot;Carbon fixation in photosynthetic organisms&amp;quot;, &amp;quot;Insulin secretion&amp;quot;, &amp;quot;Type II diabetes mellitus&amp;quot;, &amp;quot;Protein digestion and absorption&amp;quot;, &amp;quot;Mineral absorption&amp;quot;, &amp;quot;Cell cycle - yeast&amp;quot;, &amp;quot;Pentose phosphate pathway&amp;quot;, &amp;quot;Phenylpropanoid biosynthesis&amp;quot;, &amp;quot;Novobiocin biosynthesis&amp;quot;, &amp;quot;Glucosinolate biosynthesis&amp;quot;, &amp;quot;Histidine metabolism&amp;quot;, &amp;quot;Cysteine and methionine metabolism&amp;quot;))
+levels(data.df1$Pathwayname)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;
+ [1] &amp;quot;Aminoacyl-tRNA biosynthesis&amp;quot;
+ [2] &amp;quot;Nicotine addiction&amp;quot;
+ [3] &amp;quot;Morphine addiction&amp;quot;
+ [4] &amp;quot;HIF-1 signaling pathway&amp;quot;
+ [5] &amp;quot;Pyrimidine metabolism&amp;quot;
+ [6] &amp;quot;Synaptic vesicle cycle&amp;quot;
+ [7] &amp;quot;Retrograde endocannabinoid signaling&amp;quot;
+ [8] &amp;quot;GABAergic synapse&amp;quot;
+ [9] &amp;quot;Taurine and hypotaurine metabolism&amp;quot;
+[10] &amp;quot;D-Glutamine and D-glutamate metabolism&amp;quot;
+[11] &amp;quot;Cyanoamino acid metabolism&amp;quot;
+[12] &amp;quot;Synthesis and degradation of ketone bodies&amp;quot;
+[13] &amp;quot;Peptidoglycan biosynthesis&amp;quot;
+[14] &amp;quot;Photosynthesis&amp;quot;
+[15] &amp;quot;Carbon fixation in photosynthetic organisms&amp;quot;
+[16] &amp;quot;Insulin secretion&amp;quot;
+[17] &amp;quot;Type II diabetes mellitus&amp;quot;
+[18] &amp;quot;Protein digestion and absorption&amp;quot;
+[19] &amp;quot;Mineral absorption&amp;quot;
+[20] &amp;quot;Cell cycle - yeast&amp;quot;
+[21] &amp;quot;Pentose phosphate pathway&amp;quot;
+[22] &amp;quot;Phenylpropanoid biosynthesis&amp;quot;
+[23] &amp;quot;Novobiocin biosynthesis&amp;quot;
+[24] &amp;quot;Glucosinolate biosynthesis&amp;quot;
+[25] &amp;quot;Histidine metabolism&amp;quot;
+[26] &amp;quot;Cysteine and methionine metabolism&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;データの整形を行う．reshapeのmeltでlong formatのデータにする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;library(reshape)
+data_melt.df1 &amp;lt;- melt(data.df1)
+head(data_melt.df1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;
+Using Pathwayname as id variables
+
+                         Pathwayname variable        value
+1 Cysteine and methionine metabolism        C -0.050219235
+2               Histidine metabolism        C  0.013153117
+3         Glucosinolate biosynthesis        C -0.007891709
+4            Novobiocin biosynthesis        C  0.088678481
+5       Phenylpropanoid biosynthesis        C  0.011697127
+6          Pentose phosphate pathway        C  0.031863009
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで解析用のデータが出来上がった．&lt;/p&gt;
+
+&lt;h2 id=&#34;plot-vertical-line-graph&#34;&gt;Plot vertical line graph&lt;/h2&gt;
+
+&lt;p&gt;いきなり，Pathwaynameをy軸に設定すると全てのポイントが連結されたグラフになってしまうので，まず，Pathwaynameをｘ軸に設定して折れ線グラフを描く．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;library(ggplot2)
+LinePlot_H &amp;lt;- ggplot(data_melt.df1, aes(x = Pathwayname, y = value, group = variable)) +
+  theme_bw()
+LinePlot_H + geom_line(aes(colour = variable))
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/horizontal_lineplot.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/horizontal_lineplot.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;flip-the-plot-so-that-horizontal-becomes-vertical-with-coord-flip&#34;&gt;Flip the plot so that horizontal becomes vertical with coord_flip&lt;/h2&gt;
+
+&lt;p&gt;勿論，これではダメなので，coord_flipでｘ軸とｙ軸をひっくり返す．また，色もかえる．さらに，x軸とy軸のタイトルを除き，凡例を中に入れて，そのタイトルを除く．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;LinePlot_V &amp;lt;- ggplot(data_melt.df1, aes(x = Pathwayname, y = value, group = variable)) +
+  theme_bw()
+P1 &amp;lt;- LinePlot_V +
+  geom_line(aes(colour = variable)) +
+  scale_color_manual(values = c(&amp;quot;black&amp;quot;, &amp;quot;green&amp;quot;, &amp;quot;orange&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;red&amp;quot;)) +
+  xlab(&amp;quot;&amp;quot;) +
+  ylab(&amp;quot;&amp;quot;) +
+  coord_flip()
+
+P1 + theme(legend.position = c(0.9, 0.7)) + theme(legend.title = element_blank())
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/vertical_lineplot.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/vertical_lineplot.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;add-annotation-box-by-geom-rect&#34;&gt;Add annotation box by geom_rect&lt;/h2&gt;
+
+&lt;p&gt;とりあえずは，それなりの縦向き折れ線グラフが出来上がった．このグラフに注釈ボックスをつけてみる．試行錯誤の結果，ggplot2の場合，geom_rectを使用すれば良いことがわかった．&lt;/p&gt;
+
+&lt;h3 id=&#34;references-1&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/24536651/what-is-a-good-way-to-fit-text-inside-a-plotting-area-with-ggplot2-using-a-pre-d&#34; target=&#34;_blank&#34;&gt;What is a good way to fit text inside a plotting area with ggplot2 using a pre-defined width for the text?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sape.inf.usi.ch/quick-reference/ggplot2/geom%5Frect&#34; target=&#34;_blank&#34;&gt;ggplot2 Quick Reference: geom_rect&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/26741703/adding-multiple-shadows-rectangles-to-ggplot2-graph&#34; target=&#34;_blank&#34;&gt;Adding multiple shadows/rectangles to ggplot2 graph&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まず，注釈ボックスとするrectangle用のデータを用意する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;rect1 &amp;lt;- data.frame (xmin=24.55, xmax=26.75, ymin=40, ymax=90, text = data_melt.df1[1,1])
+rect2 &amp;lt;- data.frame (xmin=21.55, xmax=24.45, ymin=40, ymax=90, text = data_melt.df1[2,1])
+rect3 &amp;lt;- data.frame (xmin=20.55, xmax=21.45, ymin=40, ymax=90, text = data_melt.df1[3,1])
+rect4 &amp;lt;- data.frame (xmin=19.55, xmax=20.45, ymin=40, ymax=90, text = data_melt.df1[4,1])
+rect5 &amp;lt;- data.frame (xmin=17.55, xmax=19.45, ymin=40, ymax=90, text = data_melt.df1[5,1])
+rect6 &amp;lt;- data.frame (xmin=16.55, xmax=17.45, ymin=40, ymax=90, text = data_melt.df1[6,1])
+rect7 &amp;lt;- data.frame (xmin=15.55, xmax=16.45, ymin=40, ymax=90, text = data_melt.df1[7,1])
+rect8 &amp;lt;- data.frame (xmin=13.55, xmax=15.45, ymin=40, ymax=90, text = data_melt.df1[8,1])
+rect9 &amp;lt;- data.frame (xmin=12.55, xmax=13.45, ymin=40, ymax=90, text = data_melt.df1[9,1])
+rect10 &amp;lt;- data.frame (xmin=11.55, xmax=12.45, ymin=40, ymax=90, text = data_melt.df1[10,1])
+rect11 &amp;lt;- data.frame (xmin=8.55, xmax=11.45, ymin=40, ymax=90, text = data_melt.df1[11,1])
+rect12 &amp;lt;- data.frame (xmin=5.55, xmax=8.45, ymin=40, ymax=90, text = data_melt.df1[12,1])
+rect13 &amp;lt;- data.frame (xmin=4.55, xmax=5.45, ymin=40, ymax=90, text = data_melt.df1[13,1])
+rect14 &amp;lt;- data.frame (xmin=3.55, xmax=4.45, ymin=40, ymax=90, text = data_melt.df1[14,1])
+rect15 &amp;lt;- data.frame (xmin=1.55, xmax=3.45, ymin=40, ymax=90, text = data_melt.df1[15,1])
+rect16 &amp;lt;- data.frame (xmin=0, xmax=1.45, ymin=40, ymax=90, text = data_melt.df1[16,1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;remove-right-margin-with-expand-c--0-0&#34;&gt;Remove right margin with expand=c(0,0)&lt;/h3&gt;
+
+&lt;p&gt;ボックスの右端を90にしたので，グラフがはみ出さないように，scale_y_continuousを用いて，expand=c(0,0)で余白を省き，limitsで軸の範囲を指定する．凡例の位置も変え，背景を透明にして，フォントサイズも小さくする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;P2 &amp;lt;- P1 + theme(legend.position = c(0.0825, 0.43)) +
+  theme(legend.title = element_blank(),
+        legend.text =  element_text(size = 6),
+        legend.background = element_blank())       # legendの背景を透明にする
+P2
+
+P3 &amp;lt;- P2 +
+  geom_rect(data=rect1, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect2, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect3, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect4, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect5, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect6, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect7, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect8, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect9, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect10, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect11, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect12, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect13, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect14, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect15, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE) +
+  geom_rect(data=rect16, aes(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax), fill=&amp;quot;grey90&amp;quot;, alpha=1, color=&amp;quot;black&amp;quot;, lwd = 0.25, inherit.aes = FALSE)
+
+P3 + scale_y_continuous(expand=c(0,0), limits = c(-30, 90))
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/vertical_lineplot2.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/vertical_lineplot2.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;customize-tick-marks-with-limits-and-breaks-of-scale-y-continuous&#34;&gt;customize tick marks with limits and breaks of scale_y_continuous&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels&#34; target=&#34;_blank&#34;&gt;ggplot2 axis ticks : A guide to customize tick marks and labels&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．&lt;br /&gt;
+&lt;a href=&#34;https://stackoverflow.com/questions/38313204/r-ggplot2-scale-y-continuous-combining-breaks-limits/38313454#38313454&#34; target=&#34;_blank&#34;&gt;R ggplot2 scale_y_continuous : Combining breaks &amp;amp; limits&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;P4 &amp;lt;- P3 +
+  scale_y_continuous(expand=c(0,0), limits = c(-30, 90), breaks=c(-20, 0, 20, 40))
+P4
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/vertical_lineplot3.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/vertical_lineplot3.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;これで空白の注釈用ボックスができた．&lt;/p&gt;
+
+&lt;h3 id=&#34;add-kegg-orthology--ko&#34;&gt;Add KEGG orthology (KO)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sape.inf.usi.ch/quick-reference/ggplot2/geom%5Frect&#34; target=&#34;_blank&#34;&gt;ggplot2 Quick Reference: geom_rect&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上記サイトを参考にして，空白のボックスに該当するKOを記入する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;P4 +
+  geom_text(data = rect1, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Amino acid metabolism&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect2, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Biosynthesis of \n other secondary metabolites&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect3, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Carbohydrate metabolism&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect4, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Cell growth and death&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect5, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Digestive system&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect6, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Endocrine and metabolic disease&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect7, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Endocrine system&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect8, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Energy metabolism&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect9, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Glycan biosynthesis and metabolism&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect10, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Lipid metabolism&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect11, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Metabolism of other amino acids&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect12, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Nervous system&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect13, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Nucleotide metabolism&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect14, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Signal transduction&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect15, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Substance dependence&amp;quot;), inherit.aes = FALSE, size = 2.4) +
+  geom_text(data = rect16, aes(x=xmin+(xmax-xmin)/2, y=ymin+(ymax-ymin)/2, label= &amp;quot;Translation&amp;quot;), inherit.aes = FALSE, size = 2.4)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/vertical_lineplot4.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/vertical_lineplot4.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;ようやく完成である．この方法は他のタイプのグラフにも使えると思う．もっと簡単な方法があれば良いのだが．．．&lt;/p&gt;</description>
     </item>
     
   </channel>

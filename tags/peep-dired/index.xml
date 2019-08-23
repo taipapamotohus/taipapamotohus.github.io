@@ -1,24 +1,109 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>peep-dired on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/peep-dired/</link>
-    <description>Recent content in peep-dired on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/peep-dired/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>peep-dired | A perfect autumn day</title>
+    <link>/tags/peep-dired/</link>
+      <atom:link href="/tags/peep-dired/index.xml" rel="self" type="application/rss+xml" />
+    <description>peep-dired</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>peep-dired</title>
+      <link>/tags/peep-dired/</link>
+    </image>
     
     <item>
       <title>peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</title>
-      <link>https://taipapamotohus.com/post/peep/</link>
+      <link>/post/peep/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/peep/</guid>
-      <description>最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいこと</description>
+      <guid>/post/peep/</guid>
+      <description>
+
+&lt;p&gt;最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#peep-diredのインストールと設定&#34;&gt;peep-diredのインストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#peep-diredの使い方&#34;&gt;peep-diredの使い方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bjm-ivy-dired-recent-dirs-最近開けたdirectoryを一覧表示する方法-おまけ&#34;&gt;bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/asok/peep-dired&#34; target=&#34;_blank&#34;&gt;peep-dired&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pragmaticemacs.com/emacs/quickly-preview-images-and-other-files-with-peep-dired/&#34; target=&#34;_blank&#34;&gt;QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;peep-diredのインストールと設定&#34;&gt;peep-diredのインストールと設定&lt;/h2&gt;
+
+&lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package peep-dired
+  :ensure t
+  :defer t ; don&#39;t access `dired-mode-map&#39; until `peep-dired&#39; is loaded
+  :bind (:map dired-mode-map
+              (&amp;quot;P&amp;quot; . peep-dired)))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;設定は上記参照サイトのパクリで，diredで&amp;rdquo;P&amp;rdquo;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&amp;rdquo;P&amp;rdquo;と打つとpeep-dired modeは終了する．　&lt;/p&gt;
+
+&lt;h2 id=&#34;peep-diredの使い方&#34;&gt;peep-diredの使い方&lt;/h2&gt;
+
+&lt;p&gt;File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&amp;rdquo;P&amp;rdquo;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/peep-dired_ex1.jpeg&#34; &gt;
+
+&lt;img src=&#34;/img/peep-dired_ex1.jpeg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/peep-dired_ex3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/peep-dired_ex3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．&lt;/p&gt;
+
+&lt;h2 id=&#34;bjm-ivy-dired-recent-dirs-最近開けたdirectoryを一覧表示する方法-おまけ&#34;&gt;bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）&lt;/h2&gt;
+
+&lt;p&gt;diredでdirectoryを開けるときにその名前を入力する必要があるが，これが結構面倒である．特に深いところにあるファイルはフルパスを書くのが大変である．どうせ，同じファイルに何回も行くことが多いので，「最近訪れたdirectoryの履歴」みたいなのが一覧表示されると嬉しい．まさに，こんなのぞみにピッタリのものが，bjm/ivy-dired-recent-dirsである．これについては，以前に書いたのでそちらを参考にしていただきたい．というか，以前に書いた事自体を忘れていたので，自分への戒めとして記録しておく．．．(^^;;;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://taipapamotohus.com/post/swiper%5Fmigemo/#最近開いたディレクトリを開く&#34; target=&#34;_blank&#34;&gt;最近開いたディレクトリを開く&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>

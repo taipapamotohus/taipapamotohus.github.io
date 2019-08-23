@@ -1,24 +1,115 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>adaptive on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/adaptive/</link>
-    <description>Recent content in adaptive on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 27 Jan 2019 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/adaptive/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>adaptive | A perfect autumn day</title>
+    <link>/tags/adaptive/</link>
+      <atom:link href="/tags/adaptive/index.xml" rel="self" type="application/rss+xml" />
+    <description>adaptive</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 27 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>adaptive</title>
+      <link>/tags/adaptive/</link>
+    </image>
     
     <item>
       <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</title>
-      <link>https://taipapamotohus.com/post/adaptive-wrap/</link>
+      <link>/post/adaptive-wrap/</link>
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/adaptive-wrap/</guid>
-      <description>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ</description>
+      <guid>/post/adaptive-wrap/</guid>
+      <description>
+
+&lt;p&gt;Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#adaptive-wrap&#34;&gt;adaptive-wrap&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#インストールと設定&#34;&gt;インストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#実際の使用例&#34;&gt;実際の使用例&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;adaptive-wrap&#34;&gt;adaptive-wrap&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照1：&lt;a href=&#34;https://elpa.gnu.org/packages/adaptive-wrap.html&#34; target=&#34;_blank&#34;&gt;adaptive-wrap&lt;/a&gt;　ご本家&lt;/li&gt;
+&lt;li&gt;参照2：&lt;a href=&#34;https://emacs.stackexchange.com/questions/14589/correct-indentation-for-wrapped-lines&#34; target=&#34;_blank&#34;&gt;Correct indentation for wrapped lines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照3：&lt;a href=&#34;http://alainmathematics.blogspot.com/2013/07/emacs.html&#34; target=&#34;_blank&#34;&gt;Emacsの折り返しの挙動&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照4：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/1kw7ip/emacs%5Fsettings%5Floading%5Fissue/&#34; target=&#34;_blank&#34;&gt;.emacs settings loading issue&lt;/a&gt;　&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．&lt;/p&gt;
+
+&lt;h3 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h3&gt;
+
+&lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package adaptive-wrap
+  :ensure t
+  :config
+  (setq-default adaptive-wrap-extra-indent 1)
+  (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode)
+  (global-visual-line-mode +1)
+  (add-hook &#39;org-mode-hook &#39;visual-line-mode)  ;; For org macros
+  )
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なお，最後の行を入れておかないと，org-mode fileに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を追加してマクロのパッケージを使用する場合（&lt;a href=&#34;../html_export&#34;&gt;Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）&lt;/a&gt;を参照のこと）に，adaptive-wrapが効かなくなる．&lt;/p&gt;
+
+&lt;h3 id=&#34;実際の使用例&#34;&gt;実際の使用例&lt;/h3&gt;
+
+&lt;p&gt;adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/Before_adaptive.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/Before_adaptive.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/After_adaptive.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/After_adaptive.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;これも一度使い始めると，無くてはならないモノとなるパッケージである．&lt;/p&gt;
+</description>
     </item>
     
   </channel>

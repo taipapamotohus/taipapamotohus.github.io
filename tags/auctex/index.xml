@@ -1,24 +1,124 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>auctex on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/auctex/</link>
-    <description>Recent content in auctex on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/auctex/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>auctex | A perfect autumn day</title>
+    <link>/tags/auctex/</link>
+      <atom:link href="/tags/auctex/index.xml" rel="self" type="application/rss+xml" />
+    <description>auctex</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>auctex</title>
+      <link>/tags/auctex/</link>
+    </image>
     
     <item>
       <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</title>
-      <link>https://taipapamotohus.com/post/latexmk/</link>
+      <link>/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/latexmk/</guid>
-      <description>Table of Contents HAHAHUGOSHORTCODE-TOC0-HBHB TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 20</description>
+      <guid>/post/latexmk/</guid>
+      <description>
+
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
+
+&lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト２：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト３：&lt;a href=&#34;http://www.tug.org/mactex/&#34; target=&#34;_blank&#34;&gt;The MacTeX-2018 Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする．&lt;/li&gt;
+&lt;li&gt;これでスライド作成ソフトであるbeamerも一緒にインストールされる．&lt;/li&gt;
+&lt;li&gt;beamerに固有の設定は特に必要なし．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/h2&gt;
+
+&lt;p&gt;大事なことを２つ忘れていたので追記する．&lt;/p&gt;
+
+&lt;h3 id=&#34;ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;http://doratex.hatenablog.jp/entry/20180501/1525144736&#34; target=&#34;_blank&#34;&gt;MacTeX 2018のインストール&amp;amp;日本語環境構築法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい．&lt;/li&gt;
+&lt;li&gt;マックユーザーにとっての最大の問題点は &lt;strong&gt;「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」&lt;/strong&gt; ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記の&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;に書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/????/bin/*/tlmgr path add
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見）&lt;/li&gt;
+&lt;li&gt;preludeをインストールした時点で，auctexもインストールされる．&lt;/li&gt;
+&lt;li&gt;auctexの設定などについては以下を参照（手抜き&amp;hellip;.. (^^;;; ）
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.gnu.org/software/auctex/&#34; target=&#34;_blank&#34;&gt;AUCTEX – Sophisticated document creation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX&#34; target=&#34;_blank&#34;&gt;TeX Wiki AUCTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mytexpert.osdn.jp/index.php?Emacs/AUCTeX&#34; target=&#34;_blank&#34;&gt;Emacs/AUCTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://skalldan.wordpress.com/2011/07/20/auctex-の設定と便利な機能/&#34; target=&#34;_blank&#34;&gt;AUCTeX の設定と便利な機能&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;しかし，org-modeを使うようになってからは直接latex文書を打つことはめっきり少なくなってしまった．それでも，学会発表用のスライドなどはlatexを直接打って，beamer文書を作成し，pdf原稿に変換している．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;latexmk&#34;&gt;latexmk&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原稿が出来上がるのを待たなければならず，この待ち時間が結構辛い．そこで，tex ファイルの変更が保存されるたびに自動で裏でlatexmkがcompileしてくれるようにする．latexmkを使う．&lt;/li&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34; target=&#34;_blank&#34;&gt;TeX Wiki Latexmk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;texlive2018, MacTeXに入っているので，これらを入れていれば別途インストールする必要なし．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;~/.latexmkrcの中に以下のように記述する（ちなみに私はxelatexを使用している）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;$pdflatex = &#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&#39;;
+$pdf_mode = 1;
+$postscript_mode = $dvi_mode = 0;
+$pdf_previewer  = &#39;open -a Skim&#39;;
+$preview_continuous_mode = 1;  # equivalent to -pvc
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実際の作業&#34;&gt;実際の作業&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記のようにセットアップしていることとする．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ターミナルで，texファイルが有るdirectoryに移動し，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;latexmk -pvc -pdf -view=none document.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで，texファイルへの変更を保存すると自動でコンパイルされて，設定にもよるが，skimで開いているpdfファイルも更新される．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;xelatexについて&#34;&gt;XeLaTeXについて&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以下を参照されたい．特に最初にあげたZRさんの文書は必読！
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://zrbabbler.sp.land.to/xelatex.html&#34; target=&#34;_blank&#34;&gt;XeLaTeX で日本語する件について&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?XeTeX&#34; target=&#34;_blank&#34;&gt;TeXWiki XeTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://suzusime-log.hatenablog.jp/entry/2017/04/15/210327&#34; target=&#34;_blank&#34;&gt;XeLaTeXだとかな混植が簡単にできて最高だという話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

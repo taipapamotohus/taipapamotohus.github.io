@@ -1,24 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>japanese on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/japanese/</link>
-    <description>Recent content in japanese on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/japanese/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>japanese | A perfect autumn day</title>
+    <link>/tags/japanese/</link>
+      <atom:link href="/tags/japanese/index.xml" rel="self" type="application/rss+xml" />
+    <description>japanese</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Thu, 11 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>japanese</title>
+      <link>/tags/japanese/</link>
+    </image>
     
     <item>
       <title>mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</title>
-      <link>https://taipapamotohus.com/post/live/</link>
+      <link>/post/live/</link>
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/live/</guid>
-      <description>最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年</description>
+      <guid>/post/live/</guid>
+      <description>&lt;p&gt;最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-set-up&#34;&gt;How to set up&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#shortcut&#34;&gt;Shortcut&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-set-up&#34;&gt;How to set up&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;まず画面トップの右端の方の日本語入力のライブ変換にチェックを入れてオンにする．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ついで，Emacsのカーソルの色の設定をする．これは以前の記事（&lt;a href=&#34;../japanese_setup&#34;&gt;Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など&lt;/a&gt;）の設定をほんの少し変えるだけのことである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+BEGIN_SRC emacs-lisp
+(when (fboundp &#39;mac-input-source)
+(defun my-mac-selected-keyboard-input-source-chage-function ()
+(let ((mac-input-source (mac-input-source)))
+  (set-cursor-color
+   (if (string-match &amp;quot;com.apple.inputmethod.Kotoeri.Roman&amp;quot; mac-input-source)
+       ;; (if (string-match &amp;quot;com.google.inputmethod.Japanese.Roman&amp;quot; mac-input-source)
+       &amp;quot;#91C3FF&amp;quot; &amp;quot;#FF9300&amp;quot;))))
+(add-hook &#39;mac-selected-keyboard-input-source-change-hook
+        &#39;my-mac-selected-keyboard-input-source-chage-function))
+#+END_SRC
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これでEmacsでライブ変換を使用している際に，日本語入力の時は赤色のカーソル，英語入力の時は青色のカーソルになる．&lt;/p&gt;
+
+&lt;h2 id=&#34;shortcut&#34;&gt;Shortcut&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考：&lt;a href=&#34;https://qiita.com/YumaInaura/items/8c74cdf32ad2f5ed57fa&#34; target=&#34;_blank&#34;&gt;#Mac のライブ変換で入力をひらがなのままで確定させる ( Control + J )&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;「Control」＋「J」  →   ひらがなに変換&lt;/li&gt;
+&lt;li&gt;「Control」＋「K」  →   カタカナに変換&lt;/li&gt;
+&lt;li&gt;「Control」＋「L」  →   全角英字に変換&lt;/li&gt;
+&lt;li&gt;「Control」＋「;（セミコロン）」  →   半角英字に変換&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;私のところでは何故か参考サイトと異なり，セミコロンで半角カタカナではなく半角英字に変換される．半角カタカナなんか使わないからいいけど．．．&lt;/p&gt;
+
+&lt;p&gt;J, K, L, ; はキーボード上の位置が一直線であり，かつ，左から順番になっているので，指に優しい．&lt;/p&gt;
+
+&lt;p&gt;mojaveのライブ変換，とにかく一度使ってみることをお勧めする．&lt;/p&gt;</description>
     </item>
     
   </channel>

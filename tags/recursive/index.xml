@@ -1,24 +1,98 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>recursive on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/recursive/</link>
-    <description>Recent content in recursive on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/recursive/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>recursive | A perfect autumn day</title>
+    <link>/tags/recursive/</link>
+      <atom:link href="/tags/recursive/index.xml" rel="self" type="application/rss+xml" />
+    <description>recursive</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>recursive</title>
+      <link>/tags/recursive/</link>
+    </image>
     
     <item>
       <title>Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</title>
-      <link>https://taipapamotohus.com/post/org-mode_recursive-narrow/</link>
+      <link>/post/org-mode_recursive-narrow/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/org-mode_recursive-narrow/</guid>
-      <description>org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すこ</description>
+      <guid>/post/org-mode_recursive-narrow/</guid>
+      <description>
+
+&lt;p&gt;org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すことができれば便利である．これを実現してくれるパッケージが&lt;a href=&#34;https://github.com/nflath/recursive-narrow&#34; target=&#34;_blank&#34;&gt;recursive-narrow&lt;/a&gt;である．&lt;/p&gt;
+
+&lt;h2 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h2&gt;
+
+&lt;p&gt;インストールは例によって，init.orgに以下のように書き込むだけである．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package recursive-narrow
+  :ensure t)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでインストールと設定は終了である．&lt;/p&gt;
+
+&lt;h2 id=&#34;使用法&#34;&gt;使用法&lt;/h2&gt;
+
+&lt;p&gt;使い方も実に簡単であり，&amp;rdquo;C-x n n&amp;rdquo;で現在カーソルがあるsubtree以下のみが表示されるようになり，&amp;rdquo;C-x n w&amp;rdquo;で元の表示に戻る．これではよくわからないので，実際の画像を示す．まず，最初の画像では全体の画面が表示されており，1951行目の「Org-modeで再帰的に」の行にカーソルがある．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/narrow-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/narrow-1.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;ここで，&amp;rdquo;C-x n n&amp;rdquo;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/narrow-2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/narrow-2.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&amp;rdquo;C-x n n&amp;rdquo;とやると，以下の画像のようになる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/narrow-3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/narrow-3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．&lt;/p&gt;
+
+&lt;p&gt;広い領域の表示が必要となれば，&amp;rdquo;C-x n w&amp;rdquo;とやると，1つ前の画像の状態に戻る．そして，もう一度&amp;rdquo;C-x n w&amp;rdquo;とやると，最初の状態に戻る．なんということはないのであるが，便利である．&lt;/p&gt;
+</description>
     </item>
     
   </channel>

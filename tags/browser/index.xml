@@ -1,24 +1,149 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>browser on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/browser/</link>
-    <description>Recent content in browser on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/browser/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>browser | A perfect autumn day</title>
+    <link>/tags/browser/</link>
+      <atom:link href="/tags/browser/index.xml" rel="self" type="application/rss+xml" />
+    <description>browser</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>browser</title>
+      <link>/tags/browser/</link>
+    </image>
     
     <item>
       <title>Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</title>
-      <link>https://taipapamotohus.com/post/auto_html_export/</link>
+      <link>/post/auto_html_export/</link>
       <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
-      <description>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある</description>
+      <guid>/post/auto_html_export/</guid>
+      <description>
+
+&lt;p&gt;org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使用方法&#34;&gt;使用方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old&#34; target=&#34;_blank&#34;&gt;How to auto export html when saving in org-mode?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例によって，下記のようにinit.orgに書き込めばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(defun toggle-org-html-export-on-save ()
+  (interactive)
+  (if (memq &#39;org-html-export-to-html after-save-hook)
+      (progn
+        (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t)
+        (message &amp;quot;Disabled org html export on save for current buffer...&amp;quot;))
+    (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t)
+    (message &amp;quot;Enabled org html export on save for current buffer...&amp;quot;)))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．&lt;/p&gt;
+
+&lt;h2 id=&#34;directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/&#34; target=&#34;_blank&#34;&gt;Watch for file changes and refresh your browser automatically&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記サイトに有るrubyのスクリプトが使えそうなので，頂いた．&lt;/li&gt;
+&lt;li&gt;rubyのインストールについては，以下のようなサイトを参考
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b&#34; target=&#34;_blank&#34;&gt;MacにHomeBrew,rbenv,bundlerをインストールする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/prgseek/items/ff037cc6134ff9303c67&#34; target=&#34;_blank&#34;&gt;Ruby入門 01.導入（Macに最新版のRubyを入れる）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/TAByasu/items/47c6cfbeeafad39eda07&#34; target=&#34;_blank&#34;&gt;Ruby初学者のRuby On Rails 環境構築【Mac】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;しかし，上記サイトのスクリプトをそのまま使用するとと，reloadの際にページの先頭まで戻ってしまい不便！&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/usr/bin/env ruby
+# watch.rb by Brett Terpstra, 2011 &amp;lt;http://brettterpstra.com&amp;gt;
+# with credit to Carlo Zottmann &amp;lt;https://github.com/carlo/haml-sass-file-watcher&amp;gt;
+
+trap(&amp;quot;SIGINT&amp;quot;) { exit }
+
+if ARGV.length &amp;lt; 2
+puts &amp;quot;Usage: #{$0} watch_folder keyword&amp;quot;
+puts &amp;quot;Example: #{$0} . mywebproject&amp;quot;
+exit
+end
+
+dev_extension = &#39;dev&#39;
+filetypes = [&#39;css&#39;,&#39;html&#39;,&#39;htm&#39;,&#39;php&#39;,&#39;rb&#39;,&#39;erb&#39;,&#39;less&#39;,&#39;js&#39;]
+watch_folder = ARGV[0]
+keyword = ARGV[1]
+puts &amp;quot;Watching #{watch_folder} and subfolders for changes in project files...&amp;quot;
+
+while true do
+     files = []
+     filetypes.each {|type|
+files += Dir.glob( File.join( watch_folder, &amp;quot;**&amp;quot;, &amp;quot;*.#{type}&amp;quot; ) )
+                    }
+     new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
+     hash ||= new_hash
+     diff_hash = new_hash - hash
+
+     unless diff_hash.empty?
+     hash = new_hash
+
+     diff_hash.each do |df|
+         puts &amp;quot;Detected change in #{df[0]}, refreshing&amp;quot;
+     %x{osascript&amp;lt;&amp;lt;ENDGAME
+            tell app &amp;quot;Safari&amp;quot; to activate
+            tell app &amp;quot;System Events&amp;quot;
+                 keystroke &amp;quot;r&amp;quot; using command down
+            end tell
+ENDGAME
+       }
+     end
+     end
+
+     sleep 1
+     end
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Usage: /usr/local/bin/watch_safari.rb watch_folder keyword&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/Hoge
+$ watch_safari.rb Hoge hogefuga.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上はOSX上のSafariを使用している場合であるが，他のブラウザーでも少し変更するだけで同じことができるはずである．&lt;/p&gt;
+</description>
     </item>
     
   </channel>

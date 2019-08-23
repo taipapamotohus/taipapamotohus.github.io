@@ -1,33 +1,731 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>theme on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/theme/</link>
-    <description>Recent content in theme on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Thu, 02 May 2019 00:00:00 +0900</lastBuildDate>
+    <title>theme | A perfect autumn day</title>
+    <link>/tags/theme/</link>
+      <atom:link href="/tags/theme/index.xml" rel="self" type="application/rss+xml" />
+    <description>theme</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 18 Aug 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>theme</title>
+      <link>/tags/theme/</link>
+    </image>
     
-	<atom:link href="https://taipapamotohus.com/tags/theme/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>How to update hugo and academic theme</title>
+      <link>/post/how-to-upgrade-hugo-and-academic-theme/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-upgrade-hugo-and-academic-theme/</guid>
+      <description>&lt;p&gt;最近のニュースを見ていて思い出した言葉がある．&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Patriotism is the last refuge of a scoundrel.&amp;rdquo; ― Samuel Johnson&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Violence is the last refuge of the incompetent.&amp;rdquo;&amp;rdquo; ― Salvor Hardin ( Isaac Asimov)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;3番目はオマケ&lt;/p&gt;
+
+&lt;p&gt;閑話休題，以前の記事（&lt;a href=&#34;../horizontal_scrollbar&#34;&gt;How to add horizontal scrollbar for codeblock in academic theme of hugo&lt;/a&gt;）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．&lt;/p&gt;
+
+&lt;p&gt;実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．&lt;/p&gt;
+
+&lt;p&gt;本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hugoのupdate&#34;&gt;Hugoのupdate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ox-hugo-update&#34;&gt;ox-hugo update&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#academic-theme-update&#34;&gt;Academic theme update&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#migrate-content&#34;&gt;Migrate Content&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#front-matter&#34;&gt;Front matter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#featured-image&#34;&gt;Featured image&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#recent-postsの画像表示のフォーマット変更&#34;&gt;Recent Postsの画像表示のフォーマット変更&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#alerts&#34;&gt;Alerts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic&lt;/a&gt;  academic themeのご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt;  academic themeのインストール&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt;  academic themeのupdateについて&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34; target=&#34;_blank&#34;&gt;ox-hugo&lt;/a&gt;  ox-hugoのご本家&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;hugoのupdate&#34;&gt;Hugoのupdate&lt;/h2&gt;
+
+&lt;p&gt;hugoを最新版にする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew upgrade hugo
+..........
+$ hugo version
+Hugo Static Site Generator v0.57.2/extended darwin/amd64 BuildDate: unknown
+
+$ brew info hugo
+hugo: stable 0.57.2 (bottled), HEAD
+Configurable static site generator
+https://gohugo.io/
+/usr/local/Cellar/hugo/0.57.2 (41 files, 59.2MB) *
+Poured from bottle on 2019-08-19 at 21:45:45
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
+==&amp;gt; Dependencies
+Build: go ✘
+==&amp;gt; Options
+--HEAD
+Install HEAD version
+==&amp;gt; Caveats
+Bash completion has been installed to:
+/usr/local/etc/bash_completion.d
+==&amp;gt; Analytics
+install: 23,734 (30 days), 46,557 (90 days), 196,750 (365 days)
+install_on_request: 22,865 (30 days), 45,011 (90 days), 186,183 (365 days)
+build_error: 0 (30 days)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ox-hugo-update&#34;&gt;ox-hugo update&lt;/h2&gt;
+
+&lt;p&gt;ox-hugoを最新版にする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;M-x package-utils-upgrade-by-name
+...........
+ox-hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C-h C-l ox-hugo-pkg.elすると，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(define-package &amp;quot;ox-hugo&amp;quot; &amp;quot;20190802.1755&amp;quot; &amp;quot;Hugo Markdown Back-End for Org Export Engine&amp;quot;
+  &#39;((emacs &amp;quot;24.4&amp;quot;)
+    (org &amp;quot;9.0&amp;quot;))
+  :keywords
+  &#39;(&amp;quot;org&amp;quot; &amp;quot;markdown&amp;quot; &amp;quot;docs&amp;quot;)
+  :url &amp;quot;https://ox-hugo.scripter.co&amp;quot;)
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最新版であることが確認できる．&lt;/p&gt;
+
+&lt;h2 id=&#34;academic-theme-update&#34;&gt;Academic theme update&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt; のサイトには，以下の3つの場合でのupdateの方法が書かれている．&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;If you installed Academic Kickstart&lt;/li&gt;
+&lt;li&gt;If you installed by Git cloning hugo-academic&lt;/li&gt;
+&lt;li&gt;If you installed from a ZIP&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
+
+&lt;p&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/p&gt;
+
+&lt;p&gt;以下，&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt; に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
+$ hugo new site Taipapablog
+$ cd Taipapablog
+$ pwd
+/Data/hoge/Taipapablog
+$ git clone https://github.com/gcushen/hugo-academic.git themes/academic
+$ less themes/academic/data/academic.toml
+# Academic
+
+version = &amp;quot;4.4.0&amp;quot;
+themes/academic/data/academic.toml (END)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
+/Data/hoge/Taipapablog
+$ ls themes/academic/exampleSite/
+config/  content/ static/
+$ cp -av themes/academic/exampleSite/* .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここで，Hugo serverをwebsite root folderから立ち上げる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
+/Data/hoge/Taipapablog
+$ hugo server --watch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．&lt;/p&gt;
+
+&lt;h2 id=&#34;migrate-content&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/#migrate-content&#34; target=&#34;_blank&#34;&gt;Migrate Content&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を &lt;strong&gt;&amp;ldquo;Breaking changes&amp;rdquo;&lt;/strong&gt; と呼んでいる．これを乗り越えてブログの内容を移行するための&lt;a href=&#34;https://github.com/sourcethemes/academic-scripts&#34; target=&#34;_blank&#34;&gt;academic-scripts&lt;/a&gt; のリンクが上記ページにある．これは，hugoの新しい機能である&lt;a href=&#34;https://gohugo.io/content-management/page-bundles/&#34; target=&#34;_blank&#34;&gt;Page Bundles&lt;/a&gt; への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，&lt;a href=&#34;https://gohugo.io/content-management/page-resources/&#34; target=&#34;_blank&#34;&gt;Page Resources&lt;/a&gt; をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Old version
+$ tree -L 2
+.
+├── Different-segment-to-each-facet-in-ggplot.md
+├── Emacs_Install.md
+├── EmbedRplotInBlog.md
+├── ExportRplot.md
+├── FullTextSearch.md
+├── Japanese_setup.md
+..........
+
+Current version
+$ tree -L 2
+.
+├── Different-segment-to-each-facet-in-ggplot
+│   ├── featured.jpg
+│   └── index.md
+├── Emacs_Install
+│   ├── featured.jpg
+│   └── index.md
+├── EmbedRplotInBlog
+│   ├── featured.jpg
+│   └── index.md
+├── ExportRplot
+│   ├── featured.jpg
+│   └── index.md
+├── FullTextSearch
+│   ├── featured.jpg
+│   └── index.md
+├── Japanese_setup
+│   ├── featured.jpg
+│   └── index.md
+..........
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
+$ ls
+Taipapablog
+$ git clone https://github.com/sourcethemes/academic-scripts.git
+Cloning into &#39;academic-scripts&#39;...
+remote: Enumerating objects: 27, done.
+remote: Total 27 (delta 0), reused 0 (delta 0), pack-reused 27
+Unpacking objects: 100% (27/27), done.
+$ ls
+Taipapablog
+academic-scripts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このacademic-scriptsの中身を見ると，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd academic-scripts/
+$ ls
+LICENSE.md
+README.md
+refactor-homepage-sections-to-bundles.sh*
+refactor-pages-to-page-bundles.sh*
+refactor_page_bundles_to_pages.sh*
+$ less refactor-pages-to-page-bundles.sh
+#!/bin/sh
+
+# Helps migrate from v2.4.0 to v3.0.0
+#
+# Refactor a page named `X.md` to `content/&amp;lt;section&amp;gt;/X/index.md` to use the
+# new page bundles and featured image system
+#
+..........
+$ less refactor-homepage-sections-to-bundles.sh
+#!/usr/bin/env bash
+
+# Helps migrate from v4.1 to v4.2
+#
+# Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,
+# treating homepage sections as headless page bundles in Hugo.
+#
+# - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`
+..........
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
+$ ls
+Taipapablog
+Taipapablog_OLD
+academic-scripts
+$ cd Taipapablog_OLD/
+$ pwd
+/Data/hoge/Taipapablog_OLD
+$ ../academic-scripts/refactor-pages-to-page-bundles.sh
+./content/posts/annotation.md -&amp;gt; ./content/posts/annotation/index.md
+./content/post/org-html-export-theme.md -&amp;gt; ./content/post/org-html-export-theme/index.md
+./content/post/org-mode_paper_2.md -&amp;gt; ./content/post/org-mode_paper_2/index.md
+..........
+$ cp -a content/post/* ../Taipapablog/content/post/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
+./content/home/search.md -&amp;gt; ./content/home/search/index.md
+./content/home/hero_carousel.md -&amp;gt; ./content/home/hero_carousel/index.md
+./content/home/hero.md -&amp;gt; ./content/home/hero/index.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．&lt;/p&gt;
+
+&lt;p&gt;ここから先は，config/, content/, content/home/, content/post/の中身を弄って，アップデートする前と同じになるように修正していく．私は，blogをhugoのmarkdown自体はほとんど弄ることなく，org-modeのパッケージであるox-hugoで書いているので，そちらを中心に述べる．&lt;/p&gt;
+
+&lt;h3 id=&#34;front-matter&#34;&gt;Front matter&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;content/home/には，demo, experienceなど多くのwidgetが入っているが，ほとんど使用してないので，それぞれのindex.mdのfront matterの最初の方にあるactive = trueを &lt;strong&gt;active = false&lt;/strong&gt; にする．&lt;/li&gt;
+&lt;li&gt;上記のスクリプトを適用した際に，headless = true  # This file represents a page section. が二重になることがあったので，余分な部分は全て削除した．&lt;/li&gt;
+&lt;li&gt;新規ポストを投稿する際に，page bundlesの形式になるようにするために，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使用する．詳細は次節で述べる．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;subtitle&lt;/strong&gt; を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;featured-image&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34;&gt;Featured image&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;各ポストの冒頭に掲げていた画像は，アップデート前は明示的に場所と名前を指示しないといけなかったが，アップデート後はPage Bundlesとなり，同じフォルダにfeatured.jpgとして置いておけば，自動的にその記事の冒頭に表示されるようになる．各画像の移動が面倒であったが，今後は楽になりそう．．．(^^&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ox-hugoから，Page Bundlesとしてexportするためには，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;:PROPERTIES:
+:EXPORT_HUGO_BUNDLE: how-to-upgrade-hugo-and-academic-theme
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image &#39;((placement . 3) (caption . &amp;quot;Ancient greek pottery, Musée du Louvre&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# Featured image
+# To use, place an image named `featured.jpg/png` in your page&#39;s folder.
+# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
+# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+# Set `preview_only` to `true` to just use the image for thumbnails.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/h3&gt;
+
+&lt;p&gt;Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/#view&#34; target=&#34;_blank&#34;&gt;View&lt;/a&gt;）．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
+
+1 = List (previously Simple)
+2 = Compact (previously Stream)
+3 = Card (previously Detailed)
+4 = Citation (previously APA and MLA), only available for publications
+Optionally, edit the value of citation_style in params.toml to APA or MLA
+5 = Showcase (large images), only available for projects
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34; target=&#34;_blank&#34;&gt;Create a blog post&lt;/a&gt; に記載されているように， &lt;strong&gt;&amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;&lt;/strong&gt; を記事本文の適当なところに挿入して，サマリの長さを調整することにした．&lt;/p&gt;
+
+&lt;h3 id=&#34;recent-postsの画像表示のフォーマット変更&#34;&gt;Recent Postsの画像表示のフォーマット変更&lt;/h3&gt;
+
+&lt;h4 id=&#34;references-1&#34;&gt;References&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://discourse.gohugo.io/t/crop-less-with-focal-point/15387&#34; target=&#34;_blank&#34;&gt;Crop Less with Focal Point&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34; target=&#34;_blank&#34;&gt;Image Processing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/templates/partials/&#34; target=&#34;_blank&#34;&gt;Partial Templates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ottan.xyz/hugo-template-partial-define-block-20190101/&#34; target=&#34;_blank&#34;&gt;Hugoのテンプレート構文「template」「partial」「block」「define」のわかりやすい解説&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上述のfeatured imageを記事のheader imageとして表示する際のサイズやクロップのやり方が気に入らないので，変更することにした．cardでacademic themeに全文検索をかけると， &lt;strong&gt;li_card.html&lt;/strong&gt; というファイルが見つかり，どうやら，これが，カード形式のテンプレート（&lt;a href=&#34;https://gohugo.io/templates/partials/&#34; target=&#34;_blank&#34;&gt;Partial Templates&lt;/a&gt;）と推察され，これを変更すれば良いと気がついた．&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Data/hoge/Taipapablog/layouts&lt;/em&gt; に &lt;strong&gt;partials&lt;/strong&gt; directoryを作成し，/Data/hoge/Taipapablog/themes/academic/layouts/partials/ &lt;strong&gt;li_card.html&lt;/strong&gt; をコピーする．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Hugoは以下の優先順位で読み込まれる．（&lt;a href=&#34;https://gohugo.io/templates/partials/#partial-template-lookup-order&#34; target=&#34;_blank&#34;&gt;Partial Template Lookup Order&lt;/a&gt;）&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
+&lt;li&gt;themes/&lt;THEME&gt;/layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以下のように，li_card.htmlの53行目を変更する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;.....
+52 {{ with $resource }}
+53 {{ $image := .Fill (printf &amp;quot;918x517 q90 %s&amp;quot; $anchor) }}
+54 &amp;lt;a href=&amp;quot;{{ $item.RelPermalink }}&amp;quot;&amp;gt;
+.....
+
+-----&amp;gt;
+.....
+53 {{ $image := .Resize &amp;quot;900x&amp;quot;  }}
+.....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これは， &lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34; target=&#34;_blank&#34;&gt;Image Processing&lt;/a&gt; に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;alerts&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts&#34; target=&#34;_blank&#34;&gt;Alerts&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;これは今回見つけた新たな小道具&lt;/li&gt;
+&lt;li&gt;ノート，ヒント，警告などに有用．&lt;/li&gt;
+&lt;li&gt;いくつか方法はあるが，shortcodeを使うのが一番簡単．&lt;br /&gt;
+｛{% alert note %}}&lt;br /&gt;
+  A Markdown aside is useful for displaying notices, hints, or definitions to your readers.&lt;br /&gt;
+  ｛{% alert  %}}&lt;br /&gt;
+により，（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;となる．&lt;/p&gt;
+
+&lt;p&gt;｛{% alert warning %}}&lt;br /&gt;
+ A Markdown aside is useful for displaying notices, hints, or definitions to your readers.&lt;br /&gt;
+ ｛{% /alert %}}&lt;br /&gt;
+ は，以下のようになる．（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;br /&gt;
+ &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;また，使ってみよう．&lt;/p&gt;
+
+&lt;h3 id=&#34;warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/h3&gt;
+
+&lt;p&gt;アップデートしていじっているうちに，
+  &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    WARN 2019/08/23 0028 found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34; target=&#34;_blank&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You have updated to the unreleased version. You&amp;rsquo;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ということなので，以下のように作業した．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ vi /Data/hoge/Taipapablog/config/_default/config.toml
+.....
+45 [outputs]
+46   home = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;WebAppManifest&amp;quot;, &amp;quot;CSS&amp;quot;]
+47   section = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot; ]
+.....
+-----&amp;gt;
+.....
+45 [outputs]
+46 #  home = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;WebAppManifest&amp;quot;, &amp;quot;CSS&amp;quot;]
+47   home = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;WebAppManifest&amp;quot;]
+48   section = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot; ]
+.....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;46行目の&amp;rdquo;CSS&amp;rdquo;を削除するだけで，警告が出なくなった．(^o^)&lt;/p&gt;
+
+&lt;p&gt;見え方にまだまだ不満はあるが，こんなところだろうか．アップデートしてから，貼り付けた画像の上にマウスを持っていくと，拡大鏡のアイコンになり，クリックすると2段階で拡大されるようになった．他にも変化はあるようだが，全然活用できていない．ぼちぼち触っていって，面白いことがあれば，また，まとめてみよう．．．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to add horizontal scrollbar for codeblock in academic theme of hugo</title>
-      <link>https://taipapamotohus.com/post/horizontal_scrollbar/</link>
+      <link>/post/horizontal_scrollbar/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/horizontal_scrollbar/</guid>
-      <description>いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中が</description>
+      <guid>/post/horizontal_scrollbar/</guid>
+      <description>
+
+&lt;p&gt;いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中がみんなお祝いしてる，凄いぞ，TeX．．．．と思ったら，全然違った．．．これでまた年齢計算が複雑になる．システム担当者は大変である．まぁ，西暦を使用すればいいだけの話ではあるが．．．．．というわけで，今回はTeXの話，ではなくて，ブログのCodeBlockの長い行がwrapされるのは２行と間違うことがあるので，scrollbarをつけましょうという話である．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#wrap-or-scroll&#34;&gt;Wrap or scroll?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-add-horizontal-scrollbar&#34;&gt;How to add horizontal scrollbar&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ref&#34;&gt;Ref&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#academic-theme-version&#34;&gt;academic theme version&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#cssの変更&#34;&gt;cssの変更&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-or-scroll&#34;&gt;Wrap or scroll?&lt;/h2&gt;
+
+&lt;p&gt;以前の記事でも触れたように（&lt;a href=&#34;../embedrplotinblog&#34;&gt;How to automatically embed R plot in blog created by Hugo via ox-hugo&lt;/a&gt;），このサイトは，ox-hugoというorg-modeのパッケージで書いて，Hugoという静的サイトジェネレーター（themeはacademic）で作っているのだが，code blockの長い行がwrapされて，つまり，折り畳まれて表示されるようになっていた．Rのcodeで示してみると，こんな感じである．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/wrap.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/wrap.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;これは３行のcodeであるが，はっきり言って見にくい．．．．．　&lt;/p&gt;
+
+&lt;p&gt;行番号を入れるという方法もあるが，それよりもscrollbarをつけて横にスライドさせる方が分かりやすい．つまり，こうである．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &amp;quot;&amp;quot;, main = &amp;quot;Drug1&amp;quot;, xaxt=&amp;quot;n&amp;quot;, cex.axis=1.5, ylab=&amp;quot;Relative value&amp;quot;, cex.lab = 1.5, pch=16, cex = 1.5)
+axis(1,at=c(1,2,3),formatC(c(&amp;quot;Control&amp;quot;, &amp;quot;Day1&amp;quot;, &amp;quot;Day7&amp;quot;)), cex.axis=1.5)
+beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, col=c(&amp;quot;black&amp;quot;, &amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これなら，確実に１行を把握できる．&lt;/p&gt;
+
+&lt;p&gt;ここ（&lt;a href=&#34;http://seankross.com/notes/css-for-code/&#34; target=&#34;_blank&#34;&gt;Fix How Your Blog’s Code is Displayed on Mobile&lt;/a&gt;）を見るともっと分かりやすく書いてある．&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-add-horizontal-scrollbar&#34;&gt;How to add horizontal scrollbar&lt;/h2&gt;
+
+&lt;h3 id=&#34;ref&#34;&gt;Ref&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://seankross.com/notes/css-for-code/&#34; target=&#34;_blank&#34;&gt;Fix How Your Blog’s Code is Displayed on Mobile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/467&#34; target=&#34;_blank&#34;&gt;Prevent wrapping in code blocks #467&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ShanEllis/ShanEllis.github.io/pull/1/commits/35c0f3064d3ec2d7b6e35790448994bdb1233f79&#34; target=&#34;_blank&#34;&gt;added horizontal scrolling for code #1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記のサイトを参考に以下のようにscrollbarをセットアップすることにした．&lt;/p&gt;
+
+&lt;h3 id=&#34;academic-theme-version&#34;&gt;academic theme version&lt;/h3&gt;
+
+&lt;p&gt;まず，Hugoのthemeであるacademic のversionを以下のように調べてみると，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;less themes/academic/data/academic.toml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;# Academic
+
+version = &amp;quot;2.4.0&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ふ，古い．latest versionは，4.2である．2018年8月に導入してから8ヶ月ほどで2.4から4.2までreleaseされており，開発スピードが並ではない．それは喜ぶべきことなのだが，問題は，私が全くそれについて行けてないことである．（ToT)&lt;/p&gt;
+
+&lt;p&gt;最新版ではdirectory構造もかなり変わっている．horizontal scrollbarをつけるのを機会に全部をupgradeしようとしてみたが，なかなかうまくいかない．&lt;a href=&#34;https://sourcethemes.com/academic/docs/customization/#customize-style-css&#34; target=&#34;_blank&#34;&gt;Customize style (CSS)&lt;/a&gt; に書いてあるとおりにしようとしても，古いversionでは相当するdirectoryそのものが存在しない．&lt;/p&gt;
+
+&lt;h3 id=&#34;cssの変更&#34;&gt;cssの変更&lt;/h3&gt;
+
+&lt;p&gt;というわけで，academic themeのupgradeはサクッと諦めて姑息策を取ることにした． &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/467&#34; target=&#34;_blank&#34;&gt;Prevent wrapping in code blocks #467&lt;/a&gt; を参考にして，&lt;br /&gt;
+&lt;strong&gt;/Data/hogeblog/fugablog/themes/academic/layouts/partials/css/academic.css&lt;/strong&gt;
+を &lt;br /&gt;
+&lt;strong&gt;/Data/hogeblog/fugablog/static/css/academic_scrollbar.css&lt;/strong&gt;  &lt;br /&gt;
+として保存した．変更箇所は以下の通り&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;--- /Data/hogeblog/fugablog/themes/academic/layouts/partials/css/academic.css	2018-08-16 00:55:10.000000000 +0900
++++ /Data/hogeblog/fugablog/static/css/academic_scrollbar.css	2019-05-02 00:05:10.000000000 +0900
+@@ -178,9 +178,16 @@
+border-color: rgb(248, 248, 248);
+ }
+
++/* pre code { */
++/*   white-space: pre; /\* Override Bootstrap to preserve line breaks in code. *\/ */
++/*   overflow-x: auto; */
++/* } */
++
++/* See http://seankross.com/notes/css-for-code/  */
+ pre code {
+-  white-space: pre; /* Override Bootstrap to preserve line breaks in code. */
+-  overflow-x: auto;
++    overflow: auto;
++    word-wrap: normal;
++    white-space: pre;
+ }
+
+ hr {
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，ox-hugoでの&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/wrap2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/wrap2.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;は，以下のように表示されるようになる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &amp;quot;&amp;quot;, main = &amp;quot;Drug1&amp;quot;, xaxt=&amp;quot;n&amp;quot;, cex.axis=1.5, ylab=&amp;quot;Relative value&amp;quot;, cex.lab = 1.5, pch=16, cex = 1.5)
+axis(1,at=c(1,2,3),formatC(c(&amp;quot;Control&amp;quot;, &amp;quot;Day1&amp;quot;, &amp;quot;Day7&amp;quot;)), cex.axis=1.5)
+beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.5, col=c(&amp;quot;black&amp;quot;, &amp;quot;green&amp;quot;,&amp;quot;blue&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-nをつけて行番号をつけると&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/wrap3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/wrap3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;こうなる．&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;boxplot(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+axis(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#66d9ef&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+beeswarm(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+   なんとか，これで，code blockにhorizontal scrollbarをつけることができた．次に時間ができたときにacademic themeをupgradeして追いつこう．．．いつになることやら．．．(^^;;;;;;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Org-modeでhtml exportの際のthemeについて</title>
-      <link>https://taipapamotohus.com/post/org-html-export-theme/</link>
+      <link>/post/org-html-export-theme/</link>
       <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/org-html-export-theme/</guid>
-      <description>org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並へ</description>
+      <guid>/post/org-html-export-theme/</guid>
+      <description>
+
+&lt;p&gt;org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並べていくときは，side columnなどがあって，すぐに行きたいところに飛べるようになっていると嬉しい．ということで，今回はorg-modeをhtmlにexportするときのthemeがテーマである．．．．．&lt;/p&gt;
+
+&lt;p&gt;とにかく，たくさんのthemesが存在する．まずは以下のサイトをチェック，というか以下を読めばこのブログは読まなくても良いような．．．(^^;;;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/sambatriste/items/2dc9f81cbf1e82d7429a&#34; target=&#34;_blank&#34;&gt;org-modeのHTMLテーマ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/sambatriste/items/c8e70368ee5fd092096b&#34; target=&#34;_blank&#34;&gt;org-modeのHTMLテーマ第2弾&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fniessen/org-html-themes#how-to-export-org-mode-files-into-awesome-html-in-2-minutes&#34; target=&#34;_blank&#34;&gt;How to export Org mode files into awesome HTML in 2 minutes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34; target=&#34;_blank&#34;&gt;org-spec&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
+
+&lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34; target=&#34;_blank&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あるいは，3からOrg-HTML themes projectをダウンロードしてきて解凍しローカルの&amp;rdquo;setup file&amp;rdquo;へのパスを書き込めば，ネットの接続に依存せずにexportできるようになる．たとえば，/Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setupに設定ファイルがあるとすると以下のようにすれば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+SETUPFILE: /Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下に研究会で発表するスライド原稿を作る下準備として，実際に10個の論文をまとめたorg fileの一部を掲示しておく．左に論文のタイトルが並び，見ている論文の小見出しが自動的に展開される．subheadの色も設定されており，読みやすい．デザインもプロっぽい印象である．書いた内容にかかわらず，なんとなく賢くなったような気分になれる（笑）．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/ReadTheOrg.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/ReadTheOrg.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34; target=&#34;_blank&#34;&gt;org-spec&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;An Org-mode template for technical specification documents and HTML publishing. とのことで，技術よりのthemeである．特徴としては，Ditaa, Graphviz &amp;amp; PlantUMLなどによりテキストベースで図が書ける．表に対応，自動的にアップデートするフィールド，PDF生成にも対応，コードブロックの基本的なsyntax highlightingなどがある．実際の例として&lt;a href=&#34;https://demo.thi.ng/org-spec/&#34; target=&#34;_blank&#34;&gt;https://demo.thi.ng/org-spec/&lt;/a&gt;がある．&lt;/p&gt;
+
+&lt;p&gt;こちらの使い方は少しだけ面倒である．リンク先からorg-specをダウンロードして解凍する．ここで，style.cssが/Hoge/Fuga/org-spec-master/css/style.cssに保存されたとする．ダウンロードして来たファイルに含まれているindex.orgに全て書いてあるので，それを真似てorg fileのpreambleに次のように書いておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+HTML_HEAD: &amp;lt;link href=&amp;quot;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
+#+HTML_HEAD: &amp;lt;link href=&amp;quot;/Hoge/Fuga/org-spec-master/css/style.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
+#+AUTHOR: taipapa
+#+EMAIL: your@mail.address
+
+#+HTML: &amp;lt;div class=&amp;quot;outline-2&amp;quot; id=&amp;quot;meta&amp;quot;&amp;gt;
+| *Author* | {{{author}}} ({{{email}}})    |
+| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+#+HTML: &amp;lt;/div&amp;gt;
+
+#+TOC: headlines 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下に前述の論文のまとめをこのcssでexportしたものを掲示しておく．印象がかなり変わると思う．subheadなどは最初から展開されている．ReadTheOrgよりもビジネスライクな感じであるが，よりスマートな気もする．その日の気分によって，この2つを使い分けている．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-spec.png&#34; &gt;
+
+&lt;img src=&#34;/img/org-spec.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;以上あげた2つ以外にも無数のthemeが存在する．また，自分でthemeを作ってしまう剛の者もいらっしゃるので，あちこちを探してみるのも一興．．．(^o^)&lt;/p&gt;
+</description>
     </item>
     
   </channel>

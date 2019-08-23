@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="最近のニュースを見ていて思い出した言葉がある．
+
+
+&ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow
+
+&ldquo;Patriotism is the last refuge of a scoundrel.&rdquo; ― Samuel Johnson
+
+&ldquo;Violence is the last refuge of the incompetent.&rdquo;&rdquo; ― Salvor Hardin ( Isaac Asimov)
+
+
+3番目はオマケ
+
+閑話休題，以前の記事（How to add horizontal scrollbar for codeblock in academic theme of hugo）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/how-to-upgrade-hugo-and-academic-theme/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/how-to-upgrade-hugo-and-academic-theme/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="/post/how-to-upgrade-hugo-and-academic-theme/">
+  <meta property="og:title" content="How to update hugo and academic theme | A perfect autumn day">
+  <meta property="og:description" content="最近のニュースを見ていて思い出した言葉がある．
+
+
+&ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow
+
+&ldquo;Patriotism is the last refuge of a scoundrel.&rdquo; ― Samuel Johnson
+
+&ldquo;Violence is the last refuge of the incompetent.&rdquo;&rdquo; ― Salvor Hardin ( Isaac Asimov)
+
+
+3番目はオマケ
+
+閑話休題，以前の記事（How to add horizontal scrollbar for codeblock in academic theme of hugo）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．"><meta property="og:image" content="/post/how-to-upgrade-hugo-and-academic-theme/featured.jpg">
+  <meta property="twitter:image" content="/post/how-to-upgrade-hugo-and-academic-theme/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-08-18T00:00:00&#43;09:00">
+    
+    <meta property="article:modified_time" content="2019-08-23T16:08:12&#43;09:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>How to update hugo and academic theme | A perfect autumn day</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1 itemprop="name">How to update hugo and academic theme</h1>
+
+  
+  <p class="page-subtitle">Hugoとacademic テーマのアップデート</p>
+  
+
+  
+
+
+
+<meta content="2019-08-18 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-08-23 16:08:12 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Aug 23, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/how-to-upgrade-hugo-and-academic-theme/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+    
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 3264px; max-height: 1602px;">
+  <div style="position: relative">
+    <img src="/post/how-to-upgrade-hugo-and-academic-theme/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Ancient greek pottery, Musée du Louvre</span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>最近のニュースを見ていて思い出した言葉がある．</p>
+
+<blockquote>
+<p>&ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow</p>
+
+<p>&ldquo;Patriotism is the last refuge of a scoundrel.&rdquo; ― Samuel Johnson</p>
+
+<p>&ldquo;Violence is the last refuge of the incompetent.&rdquo;&rdquo; ― Salvor Hardin ( Isaac Asimov)</p>
+</blockquote>
+
+<p>3番目はオマケ</p>
+
+<p>閑話休題，以前の記事（<a href="../horizontal_scrollbar">How to add horizontal scrollbar for codeblock in academic theme of hugo</a>）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．</p>
+
+<p>実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．</p>
+
+<p>本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;</p>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#hugoのupdate">Hugoのupdate</a></li>
+<li><a href="#ox-hugo-update">ox-hugo update</a></li>
+<li><a href="#academic-theme-update">Academic theme update</a></li>
+<li><a href="#migrate-content">Migrate Content</a>
+
+<ul>
+<li><a href="#front-matter">Front matter</a></li>
+<li><a href="#featured-image">Featured image</a></li>
+<li><a href="#recent-postsのサマリが長すぎる">Recent Postsのサマリが長すぎる！</a></li>
+<li><a href="#recent-postsの画像表示のフォーマット変更">Recent Postsの画像表示のフォーマット変更</a></li>
+<li><a href="#alerts">Alerts</a></li>
+<li><a href="#warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home">WARN &hellip;.. found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;</a></li>
+</ul></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li><a href="https://gohugo.io" target="_blank">HUGO</a>  ご本家</li>
+<li><a href="https://sourcethemes.com/academic/" target="_blank">Academic</a>  academic themeのご本家</li>
+<li><a href="http://www.mit.edu/~k2smith/post/getting-started/" target="_blank">Getting started with the Academic framework for Hugo</a>  academic themeのインストール</li>
+<li><a href="https://sourcethemes.com/academic/docs/update/" target="_blank">Update</a>  academic themeのupdateについて</li>
+<li><a href="https://ox-hugo.scripter.co" target="_blank">ox-hugo</a>  ox-hugoのご本家</li>
+</ol>
+
+<h2 id="hugoのupdate">Hugoのupdate</h2>
+
+<p>hugoを最新版にする．</p>
+
+<pre><code class="language-sh">$ brew upgrade hugo
+..........
+$ hugo version
+Hugo Static Site Generator v0.57.2/extended darwin/amd64 BuildDate: unknown
+
+$ brew info hugo
+hugo: stable 0.57.2 (bottled), HEAD
+Configurable static site generator
+https://gohugo.io/
+/usr/local/Cellar/hugo/0.57.2 (41 files, 59.2MB) *
+Poured from bottle on 2019-08-19 at 21:45:45
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
+==&gt; Dependencies
+Build: go ✘
+==&gt; Options
+--HEAD
+Install HEAD version
+==&gt; Caveats
+Bash completion has been installed to:
+/usr/local/etc/bash_completion.d
+==&gt; Analytics
+install: 23,734 (30 days), 46,557 (90 days), 196,750 (365 days)
+install_on_request: 22,865 (30 days), 45,011 (90 days), 186,183 (365 days)
+build_error: 0 (30 days)
+</code></pre>
+
+<h2 id="ox-hugo-update">ox-hugo update</h2>
+
+<p>ox-hugoを最新版にする．</p>
+
+<pre><code class="language-lisp">M-x package-utils-upgrade-by-name
+...........
+ox-hugo
+</code></pre>
+
+<p>C-h C-l ox-hugo-pkg.elすると，</p>
+
+<pre><code class="language-lisp">(define-package &quot;ox-hugo&quot; &quot;20190802.1755&quot; &quot;Hugo Markdown Back-End for Org Export Engine&quot;
+  '((emacs &quot;24.4&quot;)
+    (org &quot;9.0&quot;))
+  :keywords
+  '(&quot;org&quot; &quot;markdown&quot; &quot;docs&quot;)
+  :url &quot;https://ox-hugo.scripter.co&quot;)
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
+</code></pre>
+
+<p>最新版であることが確認できる．</p>
+
+<h2 id="academic-theme-update">Academic theme update</h2>
+
+<p><a href="https://sourcethemes.com/academic/docs/update/" target="_blank">Update</a> のサイトには，以下の3つの場合でのupdateの方法が書かれている．</p>
+
+<ol>
+<li>If you installed Academic Kickstart</li>
+<li>If you installed by Git cloning hugo-academic</li>
+<li>If you installed from a ZIP</li>
+</ol>
+
+<p>問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．</p>
+
+<p>色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．</p>
+
+<p>以下，<a href="http://www.mit.edu/~k2smith/post/getting-started/" target="_blank">Getting started with the Academic framework for Hugo</a> に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．</p>
+
+<pre><code class="language-sh">$ cd /Data/hoge
+$ hugo new site Taipapablog
+$ cd Taipapablog
+$ pwd
+/Data/hoge/Taipapablog
+$ git clone https://github.com/gcushen/hugo-academic.git themes/academic
+$ less themes/academic/data/academic.toml
+# Academic
+
+version = &quot;4.4.0&quot;
+themes/academic/data/academic.toml (END)
+</code></pre>
+
+<p>そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．</p>
+
+<pre><code class="language-sh">$ pwd
+/Data/hoge/Taipapablog
+$ ls themes/academic/exampleSite/
+config/  content/ static/
+$ cp -av themes/academic/exampleSite/* .
+</code></pre>
+
+<p>ここで，Hugo serverをwebsite root folderから立ち上げる．</p>
+
+<pre><code class="language-sh">$ pwd
+/Data/hoge/Taipapablog
+$ hugo server --watch
+</code></pre>
+
+<p>これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．</p>
+
+<h2 id="migrate-content"><a href="https://sourcethemes.com/academic/docs/update/#migrate-content" target="_blank">Migrate Content</a></h2>
+
+<p>ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を <strong>&ldquo;Breaking changes&rdquo;</strong> と呼んでいる．これを乗り越えてブログの内容を移行するための<a href="https://github.com/sourcethemes/academic-scripts" target="_blank">academic-scripts</a> のリンクが上記ページにある．これは，hugoの新しい機能である<a href="https://gohugo.io/content-management/page-bundles/" target="_blank">Page Bundles</a> への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，<a href="https://gohugo.io/content-management/page-resources/" target="_blank">Page Resources</a> をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．</p>
+
+<pre><code class="language-sh">Old version
+$ tree -L 2
+.
+├── Different-segment-to-each-facet-in-ggplot.md
+├── Emacs_Install.md
+├── EmbedRplotInBlog.md
+├── ExportRplot.md
+├── FullTextSearch.md
+├── Japanese_setup.md
+..........
+
+Current version
+$ tree -L 2
+.
+├── Different-segment-to-each-facet-in-ggplot
+│   ├── featured.jpg
+│   └── index.md
+├── Emacs_Install
+│   ├── featured.jpg
+│   └── index.md
+├── EmbedRplotInBlog
+│   ├── featured.jpg
+│   └── index.md
+├── ExportRplot
+│   ├── featured.jpg
+│   └── index.md
+├── FullTextSearch
+│   ├── featured.jpg
+│   └── index.md
+├── Japanese_setup
+│   ├── featured.jpg
+│   └── index.md
+..........
+</code></pre>
+
+<p>先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．</p>
+
+<pre><code class="language-sh">$ cd /Data/hoge
+$ ls
+Taipapablog
+$ git clone https://github.com/sourcethemes/academic-scripts.git
+Cloning into 'academic-scripts'...
+remote: Enumerating objects: 27, done.
+remote: Total 27 (delta 0), reused 0 (delta 0), pack-reused 27
+Unpacking objects: 100% (27/27), done.
+$ ls
+Taipapablog
+academic-scripts
+</code></pre>
+
+<p>このacademic-scriptsの中身を見ると，</p>
+
+<pre><code class="language-sh">$ cd academic-scripts/
+$ ls
+LICENSE.md
+README.md
+refactor-homepage-sections-to-bundles.sh*
+refactor-pages-to-page-bundles.sh*
+refactor_page_bundles_to_pages.sh*
+$ less refactor-pages-to-page-bundles.sh
+#!/bin/sh
+
+# Helps migrate from v2.4.0 to v3.0.0
+#
+# Refactor a page named `X.md` to `content/&lt;section&gt;/X/index.md` to use the
+# new page bundles and featured image system
+#
+..........
+$ less refactor-homepage-sections-to-bundles.sh
+#!/usr/bin/env bash
+
+# Helps migrate from v4.1 to v4.2
+#
+# Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,
+# treating homepage sections as headless page bundles in Hugo.
+#
+# - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`
+..........
+</code></pre>
+
+<p>という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．</p>
+
+<pre><code class="language-sh">$ cd /Data/hoge
+$ ls
+Taipapablog
+Taipapablog_OLD
+academic-scripts
+$ cd Taipapablog_OLD/
+$ pwd
+/Data/hoge/Taipapablog_OLD
+$ ../academic-scripts/refactor-pages-to-page-bundles.sh
+./content/posts/annotation.md -&gt; ./content/posts/annotation/index.md
+./content/post/org-html-export-theme.md -&gt; ./content/post/org-html-export-theme/index.md
+./content/post/org-mode_paper_2.md -&gt; ./content/post/org-mode_paper_2/index.md
+..........
+$ cp -a content/post/* ../Taipapablog/content/post/
+</code></pre>
+
+<p>以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．</p>
+
+<pre><code class="language-sh">$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
+./content/home/search.md -&gt; ./content/home/search/index.md
+./content/home/hero_carousel.md -&gt; ./content/home/hero_carousel/index.md
+./content/home/hero.md -&gt; ./content/home/hero/index.md
+</code></pre>
+
+<p>これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．</p>
+
+<p>ここから先は，config/, content/, content/home/, content/post/の中身を弄って，アップデートする前と同じになるように修正していく．私は，blogをhugoのmarkdown自体はほとんど弄ることなく，org-modeのパッケージであるox-hugoで書いているので，そちらを中心に述べる．</p>
+
+<h3 id="front-matter">Front matter</h3>
+
+<ul>
+<li>content/home/には，demo, experienceなど多くのwidgetが入っているが，ほとんど使用してないので，それぞれのindex.mdのfront matterの最初の方にあるactive = trueを <strong>active = false</strong> にする．</li>
+<li>上記のスクリプトを適用した際に，headless = true  # This file represents a page section. が二重になることがあったので，余分な部分は全て削除した．</li>
+<li>新規ポストを投稿する際に，page bundlesの形式になるようにするために，propertiesに <strong>EXPORT_HUGO_BUNDLE</strong> を使用する．詳細は次節で述べる．</li>
+
+<li><p><strong>subtitle</strong> を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．</p>
+
+<pre><code class="language-lisp">:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &quot;Hugoとacademic テーマのアップデート&quot;
+</code></pre></li>
+</ul>
+
+<h3 id="featured-image"><a href="https://sourcethemes.com/academic/docs/managing-content/#featured-image" target="_blank">Featured image</a></h3>
+
+<ul>
+<li>各ポストの冒頭に掲げていた画像は，アップデート前は明示的に場所と名前を指示しないといけなかったが，アップデート後はPage Bundlesとなり，同じフォルダにfeatured.jpgとして置いておけば，自動的にその記事の冒頭に表示されるようになる．各画像の移動が面倒であったが，今後は楽になりそう．．．(^^</li>
+
+<li><p>ox-hugoから，Page Bundlesとしてexportするためには，propertiesに <strong>EXPORT_HUGO_BUNDLE</strong> を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．</p>
+
+<pre><code class="language-lisp">:PROPERTIES:
+:EXPORT_HUGO_BUNDLE: how-to-upgrade-hugo-and-academic-theme
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &quot;Hugoとacademic テーマのアップデート&quot;
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . &quot;Ancient greek pottery, Musée du Louvre&quot;))
+</code></pre></li>
+
+<li><p>Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．</p>
+
+<pre><code class="language-sh"># Featured image
+# To use, place an image named `featured.jpg/png` in your page's folder.
+# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
+# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+# Set `preview_only` to `true` to just use the image for thumbnails.
+</code></pre>
+
+<p>とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．</p></li>
+</ul>
+
+<h3 id="recent-postsのサマリが長すぎる">Recent Postsのサマリが長すぎる！</h3>
+
+<p>Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（<a href="https://sourcethemes.com/academic/docs/page-builder/#view" target="_blank">View</a>）．</p>
+
+<pre><code class="language-sh">Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
+
+1 = List (previously Simple)
+2 = Compact (previously Stream)
+3 = Card (previously Detailed)
+4 = Citation (previously APA and MLA), only available for publications
+Optionally, edit the value of citation_style in params.toml to APA or MLA
+5 = Showcase (large images), only available for projects
+</code></pre>
+
+<p>この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．<a href="https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post" target="_blank">Create a blog post</a> に記載されているように， <strong>&lt;!&ndash;more&ndash;&gt;</strong> を記事本文の適当なところに挿入して，サマリの長さを調整することにした．</p>
+
+<h3 id="recent-postsの画像表示のフォーマット変更">Recent Postsの画像表示のフォーマット変更</h3>
+
+<h4 id="references-1">References</h4>
+
+<ul>
+<li><a href="https://discourse.gohugo.io/t/crop-less-with-focal-point/15387" target="_blank">Crop Less with Focal Point</a></li>
+<li><a href="https://gohugo.io/content-management/image-processing/" target="_blank">Image Processing</a></li>
+<li><a href="https://gohugo.io/templates/partials/" target="_blank">Partial Templates</a></li>
+<li><a href="https://ottan.xyz/hugo-template-partial-define-block-20190101/" target="_blank">Hugoのテンプレート構文「template」「partial」「block」「define」のわかりやすい解説</a></li>
+</ul>
+
+<p>上述のfeatured imageを記事のheader imageとして表示する際のサイズやクロップのやり方が気に入らないので，変更することにした．cardでacademic themeに全文検索をかけると， <strong>li_card.html</strong> というファイルが見つかり，どうやら，これが，カード形式のテンプレート（<a href="https://gohugo.io/templates/partials/" target="_blank">Partial Templates</a>）と推察され，これを変更すれば良いと気がついた．</p>
+
+<ol>
+<li><p><em>Data/hoge/Taipapablog/layouts</em> に <strong>partials</strong> directoryを作成し，/Data/hoge/Taipapablog/themes/academic/layouts/partials/ <strong>li_card.html</strong> をコピーする．</p></li>
+
+<li><p>Hugoは以下の優先順位で読み込まれる．（<a href="https://gohugo.io/templates/partials/#partial-template-lookup-order" target="_blank">Partial Template Lookup Order</a>）</p>
+
+<ol>
+<li>layouts/partials/*<PARTIALNAME>.html</li>
+<li>themes/<THEME>/layouts/partials/*<PARTIALNAME>.html</li>
+</ol>
+
+<p>したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．</p></li>
+
+<li><p>以下のように，li_card.htmlの53行目を変更する．</p>
+
+<pre><code class="language-sh">.....
+52 {{ with $resource }}
+53 {{ $image := .Fill (printf &quot;918x517 q90 %s&quot; $anchor) }}
+54 &lt;a href=&quot;{{ $item.RelPermalink }}&quot;&gt;
+.....
+
+-----&gt;
+.....
+53 {{ $image := .Resize &quot;900x&quot;  }}
+.....
+</code></pre>
+
+<p>これは， <a href="https://gohugo.io/content-management/image-processing/" target="_blank">Image Processing</a> に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．</p></li>
+</ol>
+
+<h3 id="alerts"><a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts" target="_blank">Alerts</a></h3>
+
+<ul>
+<li>これは今回見つけた新たな小道具</li>
+<li>ノート，ヒント，警告などに有用．</li>
+<li>いくつか方法はあるが，shortcodeを使うのが一番簡単．<br />
+｛{% alert note %}}<br />
+  A Markdown aside is useful for displaying notices, hints, or definitions to your readers.<br />
+  ｛{% alert  %}}<br />
+により，（最初の <strong>&rdquo;{&rdquo;</strong> はescapeできないので全角の <strong>&ldquo;｛&rdquo;</strong> にしていることに注意）</li>
+</ul>
+
+<div class="alert alert-note">
+  <div>
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  </div>
+</div>
+
+<p>となる．</p>
+
+<p>｛{% alert warning %}}<br />
+ A Markdown aside is useful for displaying notices, hints, or definitions to your readers.<br />
+ ｛{% /alert %}}<br />
+ は，以下のようになる．（最初の <strong>&rdquo;{&rdquo;</strong> はescapeできないので全角の <strong>&ldquo;｛&rdquo;</strong> にしていることに注意）<br />
+ <div class="alert alert-warning">
+  <div>
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  </div>
+</div></p>
+
+<p>また，使ってみよう．</p>
+
+<h3 id="warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home">WARN &hellip;.. found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;</h3>
+
+<p>アップデートしていじっているうちに，
+  <div class="alert alert-warning">
+  <div>
+    WARN 2019/08/23 0028 found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+  </div>
+</div></p>
+
+<p>のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの <a href="https://github.com/gcushen/hugo-academic/issues/1060" target="_blank">Featurette widget does not change from example #1060</a> があった．</p>
+
+<blockquote>
+<p>You have updated to the unreleased version. You&rsquo;ll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>
+</blockquote>
+
+<p>ということなので，以下のように作業した．</p>
+
+<pre><code class="language-sh">$ vi /Data/hoge/Taipapablog/config/_default/config.toml
+.....
+45 [outputs]
+46   home = [ &quot;HTML&quot;, &quot;RSS&quot;, &quot;JSON&quot;, &quot;WebAppManifest&quot;, &quot;CSS&quot;]
+47   section = [ &quot;HTML&quot;, &quot;RSS&quot; ]
+.....
+-----&gt;
+.....
+45 [outputs]
+46 #  home = [ &quot;HTML&quot;, &quot;RSS&quot;, &quot;JSON&quot;, &quot;WebAppManifest&quot;, &quot;CSS&quot;]
+47   home = [ &quot;HTML&quot;, &quot;RSS&quot;, &quot;JSON&quot;, &quot;WebAppManifest&quot;]
+48   section = [ &quot;HTML&quot;, &quot;RSS&quot; ]
+.....
+</code></pre>
+
+<p>46行目の&rdquo;CSS&rdquo;を削除するだけで，警告が出なくなった．(^o^)</p>
+
+<p>見え方にまだまだ不満はあるが，こんなところだろうか．アップデートしてから，貼り付けた画像の上にマウスを持っていくと，拡大鏡のアイコンになり，クリックすると2段階で拡大されるようになった．他にも変化はあるようだが，全然活用できていない．ぼちぼち触っていって，面白いことがあれば，また，まとめてみよう．．．</p>
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/hugo/">hugo</a>
+  
+  <a class="badge badge-light" href="/tags/academic/">academic</a>
+  
+  <a class="badge badge-light" href="/tags/theme/">theme</a>
+  
+  <a class="badge badge-light" href="/tags/upgrade/">upgrade</a>
+  
+  <a class="badge badge-light" href="/tags/ox-hugo/">ox-hugo</a>
+  
+  <a class="badge badge-light" href="/tags/org-mode/">org-mode</a>
+  
+  <a class="badge badge-light" href="/tags/emacs/">emacs</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar%20%28Copy%201%29_hu0e0eac0269c34ce41ed30e928150bd75_369085_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">taipapa</a></h5>
+      <h6 class="card-subtitle">本人ではありません　(^^)</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:taipapamotohus@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=x1m6M2IAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/taipapamotohus" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/horizontal_scrollbar/">How to add horizontal scrollbar for codeblock in academic theme of hugo</a></li>
+          
+          <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
+          
+          <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></li>
+          
+          <li><a href="/post/mojave/">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></li>
+          
+          <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+    <div class="article-widget">
+      
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/fulltextsearch/" rel="prev">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/ocaml.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/sh.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/tex.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/emacs-lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/pearl.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

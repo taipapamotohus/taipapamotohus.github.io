@@ -1,69 +1,1319 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>org-mode on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/org-mode/</link>
-    <description>Recent content in org-mode on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <title>org-mode | A perfect autumn day</title>
+    <link>/tags/org-mode/</link>
+      <atom:link href="/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
+    <description>org-mode</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 18 Aug 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>org-mode</title>
+      <link>/tags/org-mode/</link>
+    </image>
     
-	<atom:link href="https://taipapamotohus.com/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>How to update hugo and academic theme</title>
+      <link>/post/how-to-upgrade-hugo-and-academic-theme/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-upgrade-hugo-and-academic-theme/</guid>
+      <description>&lt;p&gt;最近のニュースを見ていて思い出した言葉がある．&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Patriotism is the last refuge of a scoundrel.&amp;rdquo; ― Samuel Johnson&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Violence is the last refuge of the incompetent.&amp;rdquo;&amp;rdquo; ― Salvor Hardin ( Isaac Asimov)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;3番目はオマケ&lt;/p&gt;
+
+&lt;p&gt;閑話休題，以前の記事（&lt;a href=&#34;../horizontal_scrollbar&#34;&gt;How to add horizontal scrollbar for codeblock in academic theme of hugo&lt;/a&gt;）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．&lt;/p&gt;
+
+&lt;p&gt;実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．&lt;/p&gt;
+
+&lt;p&gt;本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#hugoのupdate&#34;&gt;Hugoのupdate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ox-hugo-update&#34;&gt;ox-hugo update&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#academic-theme-update&#34;&gt;Academic theme update&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#migrate-content&#34;&gt;Migrate Content&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#front-matter&#34;&gt;Front matter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#featured-image&#34;&gt;Featured image&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#recent-postsの画像表示のフォーマット変更&#34;&gt;Recent Postsの画像表示のフォーマット変更&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#alerts&#34;&gt;Alerts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic&lt;/a&gt;  academic themeのご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt;  academic themeのインストール&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt;  academic themeのupdateについて&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34; target=&#34;_blank&#34;&gt;ox-hugo&lt;/a&gt;  ox-hugoのご本家&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;hugoのupdate&#34;&gt;Hugoのupdate&lt;/h2&gt;
+
+&lt;p&gt;hugoを最新版にする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew upgrade hugo
+..........
+$ hugo version
+Hugo Static Site Generator v0.57.2/extended darwin/amd64 BuildDate: unknown
+
+$ brew info hugo
+hugo: stable 0.57.2 (bottled), HEAD
+Configurable static site generator
+https://gohugo.io/
+/usr/local/Cellar/hugo/0.57.2 (41 files, 59.2MB) *
+Poured from bottle on 2019-08-19 at 21:45:45
+From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
+==&amp;gt; Dependencies
+Build: go ✘
+==&amp;gt; Options
+--HEAD
+Install HEAD version
+==&amp;gt; Caveats
+Bash completion has been installed to:
+/usr/local/etc/bash_completion.d
+==&amp;gt; Analytics
+install: 23,734 (30 days), 46,557 (90 days), 196,750 (365 days)
+install_on_request: 22,865 (30 days), 45,011 (90 days), 186,183 (365 days)
+build_error: 0 (30 days)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ox-hugo-update&#34;&gt;ox-hugo update&lt;/h2&gt;
+
+&lt;p&gt;ox-hugoを最新版にする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;M-x package-utils-upgrade-by-name
+...........
+ox-hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C-h C-l ox-hugo-pkg.elすると，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(define-package &amp;quot;ox-hugo&amp;quot; &amp;quot;20190802.1755&amp;quot; &amp;quot;Hugo Markdown Back-End for Org Export Engine&amp;quot;
+  &#39;((emacs &amp;quot;24.4&amp;quot;)
+    (org &amp;quot;9.0&amp;quot;))
+  :keywords
+  &#39;(&amp;quot;org&amp;quot; &amp;quot;markdown&amp;quot; &amp;quot;docs&amp;quot;)
+  :url &amp;quot;https://ox-hugo.scripter.co&amp;quot;)
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最新版であることが確認できる．&lt;/p&gt;
+
+&lt;h2 id=&#34;academic-theme-update&#34;&gt;Academic theme update&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt; のサイトには，以下の3つの場合でのupdateの方法が書かれている．&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;If you installed Academic Kickstart&lt;/li&gt;
+&lt;li&gt;If you installed by Git cloning hugo-academic&lt;/li&gt;
+&lt;li&gt;If you installed from a ZIP&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
+
+&lt;p&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/p&gt;
+
+&lt;p&gt;以下，&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt; に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
+$ hugo new site Taipapablog
+$ cd Taipapablog
+$ pwd
+/Data/hoge/Taipapablog
+$ git clone https://github.com/gcushen/hugo-academic.git themes/academic
+$ less themes/academic/data/academic.toml
+# Academic
+
+version = &amp;quot;4.4.0&amp;quot;
+themes/academic/data/academic.toml (END)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
+/Data/hoge/Taipapablog
+$ ls themes/academic/exampleSite/
+config/  content/ static/
+$ cp -av themes/academic/exampleSite/* .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここで，Hugo serverをwebsite root folderから立ち上げる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
+/Data/hoge/Taipapablog
+$ hugo server --watch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．&lt;/p&gt;
+
+&lt;h2 id=&#34;migrate-content&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/#migrate-content&#34; target=&#34;_blank&#34;&gt;Migrate Content&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を &lt;strong&gt;&amp;ldquo;Breaking changes&amp;rdquo;&lt;/strong&gt; と呼んでいる．これを乗り越えてブログの内容を移行するための&lt;a href=&#34;https://github.com/sourcethemes/academic-scripts&#34; target=&#34;_blank&#34;&gt;academic-scripts&lt;/a&gt; のリンクが上記ページにある．これは，hugoの新しい機能である&lt;a href=&#34;https://gohugo.io/content-management/page-bundles/&#34; target=&#34;_blank&#34;&gt;Page Bundles&lt;/a&gt; への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，&lt;a href=&#34;https://gohugo.io/content-management/page-resources/&#34; target=&#34;_blank&#34;&gt;Page Resources&lt;/a&gt; をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Old version
+$ tree -L 2
+.
+├── Different-segment-to-each-facet-in-ggplot.md
+├── Emacs_Install.md
+├── EmbedRplotInBlog.md
+├── ExportRplot.md
+├── FullTextSearch.md
+├── Japanese_setup.md
+..........
+
+Current version
+$ tree -L 2
+.
+├── Different-segment-to-each-facet-in-ggplot
+│   ├── featured.jpg
+│   └── index.md
+├── Emacs_Install
+│   ├── featured.jpg
+│   └── index.md
+├── EmbedRplotInBlog
+│   ├── featured.jpg
+│   └── index.md
+├── ExportRplot
+│   ├── featured.jpg
+│   └── index.md
+├── FullTextSearch
+│   ├── featured.jpg
+│   └── index.md
+├── Japanese_setup
+│   ├── featured.jpg
+│   └── index.md
+..........
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
+$ ls
+Taipapablog
+$ git clone https://github.com/sourcethemes/academic-scripts.git
+Cloning into &#39;academic-scripts&#39;...
+remote: Enumerating objects: 27, done.
+remote: Total 27 (delta 0), reused 0 (delta 0), pack-reused 27
+Unpacking objects: 100% (27/27), done.
+$ ls
+Taipapablog
+academic-scripts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;このacademic-scriptsの中身を見ると，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd academic-scripts/
+$ ls
+LICENSE.md
+README.md
+refactor-homepage-sections-to-bundles.sh*
+refactor-pages-to-page-bundles.sh*
+refactor_page_bundles_to_pages.sh*
+$ less refactor-pages-to-page-bundles.sh
+#!/bin/sh
+
+# Helps migrate from v2.4.0 to v3.0.0
+#
+# Refactor a page named `X.md` to `content/&amp;lt;section&amp;gt;/X/index.md` to use the
+# new page bundles and featured image system
+#
+..........
+$ less refactor-homepage-sections-to-bundles.sh
+#!/usr/bin/env bash
+
+# Helps migrate from v4.1 to v4.2
+#
+# Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,
+# treating homepage sections as headless page bundles in Hugo.
+#
+# - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`
+..........
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
+$ ls
+Taipapablog
+Taipapablog_OLD
+academic-scripts
+$ cd Taipapablog_OLD/
+$ pwd
+/Data/hoge/Taipapablog_OLD
+$ ../academic-scripts/refactor-pages-to-page-bundles.sh
+./content/posts/annotation.md -&amp;gt; ./content/posts/annotation/index.md
+./content/post/org-html-export-theme.md -&amp;gt; ./content/post/org-html-export-theme/index.md
+./content/post/org-mode_paper_2.md -&amp;gt; ./content/post/org-mode_paper_2/index.md
+..........
+$ cp -a content/post/* ../Taipapablog/content/post/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
+./content/home/search.md -&amp;gt; ./content/home/search/index.md
+./content/home/hero_carousel.md -&amp;gt; ./content/home/hero_carousel/index.md
+./content/home/hero.md -&amp;gt; ./content/home/hero/index.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．&lt;/p&gt;
+
+&lt;p&gt;ここから先は，config/, content/, content/home/, content/post/の中身を弄って，アップデートする前と同じになるように修正していく．私は，blogをhugoのmarkdown自体はほとんど弄ることなく，org-modeのパッケージであるox-hugoで書いているので，そちらを中心に述べる．&lt;/p&gt;
+
+&lt;h3 id=&#34;front-matter&#34;&gt;Front matter&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;content/home/には，demo, experienceなど多くのwidgetが入っているが，ほとんど使用してないので，それぞれのindex.mdのfront matterの最初の方にあるactive = trueを &lt;strong&gt;active = false&lt;/strong&gt; にする．&lt;/li&gt;
+&lt;li&gt;上記のスクリプトを適用した際に，headless = true  # This file represents a page section. が二重になることがあったので，余分な部分は全て削除した．&lt;/li&gt;
+&lt;li&gt;新規ポストを投稿する際に，page bundlesの形式になるようにするために，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使用する．詳細は次節で述べる．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;subtitle&lt;/strong&gt; を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;featured-image&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34;&gt;Featured image&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;各ポストの冒頭に掲げていた画像は，アップデート前は明示的に場所と名前を指示しないといけなかったが，アップデート後はPage Bundlesとなり，同じフォルダにfeatured.jpgとして置いておけば，自動的にその記事の冒頭に表示されるようになる．各画像の移動が面倒であったが，今後は楽になりそう．．．(^^&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ox-hugoから，Page Bundlesとしてexportするためには，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;:PROPERTIES:
+:EXPORT_HUGO_BUNDLE: how-to-upgrade-hugo-and-academic-theme
+:EXPORT_FILE_NAME: index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image &#39;((placement . 3) (caption . &amp;quot;Ancient greek pottery, Musée du Louvre&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# Featured image
+# To use, place an image named `featured.jpg/png` in your page&#39;s folder.
+# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
+# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+# Set `preview_only` to `true` to just use the image for thumbnails.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/h3&gt;
+
+&lt;p&gt;Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/#view&#34; target=&#34;_blank&#34;&gt;View&lt;/a&gt;）．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
+
+1 = List (previously Simple)
+2 = Compact (previously Stream)
+3 = Card (previously Detailed)
+4 = Citation (previously APA and MLA), only available for publications
+Optionally, edit the value of citation_style in params.toml to APA or MLA
+5 = Showcase (large images), only available for projects
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34; target=&#34;_blank&#34;&gt;Create a blog post&lt;/a&gt; に記載されているように， &lt;strong&gt;&amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;&lt;/strong&gt; を記事本文の適当なところに挿入して，サマリの長さを調整することにした．&lt;/p&gt;
+
+&lt;h3 id=&#34;recent-postsの画像表示のフォーマット変更&#34;&gt;Recent Postsの画像表示のフォーマット変更&lt;/h3&gt;
+
+&lt;h4 id=&#34;references-1&#34;&gt;References&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://discourse.gohugo.io/t/crop-less-with-focal-point/15387&#34; target=&#34;_blank&#34;&gt;Crop Less with Focal Point&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34; target=&#34;_blank&#34;&gt;Image Processing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/templates/partials/&#34; target=&#34;_blank&#34;&gt;Partial Templates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ottan.xyz/hugo-template-partial-define-block-20190101/&#34; target=&#34;_blank&#34;&gt;Hugoのテンプレート構文「template」「partial」「block」「define」のわかりやすい解説&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上述のfeatured imageを記事のheader imageとして表示する際のサイズやクロップのやり方が気に入らないので，変更することにした．cardでacademic themeに全文検索をかけると， &lt;strong&gt;li_card.html&lt;/strong&gt; というファイルが見つかり，どうやら，これが，カード形式のテンプレート（&lt;a href=&#34;https://gohugo.io/templates/partials/&#34; target=&#34;_blank&#34;&gt;Partial Templates&lt;/a&gt;）と推察され，これを変更すれば良いと気がついた．&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Data/hoge/Taipapablog/layouts&lt;/em&gt; に &lt;strong&gt;partials&lt;/strong&gt; directoryを作成し，/Data/hoge/Taipapablog/themes/academic/layouts/partials/ &lt;strong&gt;li_card.html&lt;/strong&gt; をコピーする．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Hugoは以下の優先順位で読み込まれる．（&lt;a href=&#34;https://gohugo.io/templates/partials/#partial-template-lookup-order&#34; target=&#34;_blank&#34;&gt;Partial Template Lookup Order&lt;/a&gt;）&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
+&lt;li&gt;themes/&lt;THEME&gt;/layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以下のように，li_card.htmlの53行目を変更する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;.....
+52 {{ with $resource }}
+53 {{ $image := .Fill (printf &amp;quot;918x517 q90 %s&amp;quot; $anchor) }}
+54 &amp;lt;a href=&amp;quot;{{ $item.RelPermalink }}&amp;quot;&amp;gt;
+.....
+
+-----&amp;gt;
+.....
+53 {{ $image := .Resize &amp;quot;900x&amp;quot;  }}
+.....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これは， &lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34; target=&#34;_blank&#34;&gt;Image Processing&lt;/a&gt; に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;alerts&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts&#34; target=&#34;_blank&#34;&gt;Alerts&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;これは今回見つけた新たな小道具&lt;/li&gt;
+&lt;li&gt;ノート，ヒント，警告などに有用．&lt;/li&gt;
+&lt;li&gt;いくつか方法はあるが，shortcodeを使うのが一番簡単．&lt;br /&gt;
+｛{% alert note %}}&lt;br /&gt;
+  A Markdown aside is useful for displaying notices, hints, or definitions to your readers.&lt;br /&gt;
+  ｛{% alert  %}}&lt;br /&gt;
+により，（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;となる．&lt;/p&gt;
+
+&lt;p&gt;｛{% alert warning %}}&lt;br /&gt;
+ A Markdown aside is useful for displaying notices, hints, or definitions to your readers.&lt;br /&gt;
+ ｛{% /alert %}}&lt;br /&gt;
+ は，以下のようになる．（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;br /&gt;
+ &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;また，使ってみよう．&lt;/p&gt;
+
+&lt;h3 id=&#34;warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/h3&gt;
+
+&lt;p&gt;アップデートしていじっているうちに，
+  &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    WARN 2019/08/23 0028 found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+  &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34; target=&#34;_blank&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You have updated to the unreleased version. You&amp;rsquo;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ということなので，以下のように作業した．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ vi /Data/hoge/Taipapablog/config/_default/config.toml
+.....
+45 [outputs]
+46   home = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;WebAppManifest&amp;quot;, &amp;quot;CSS&amp;quot;]
+47   section = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot; ]
+.....
+-----&amp;gt;
+.....
+45 [outputs]
+46 #  home = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;WebAppManifest&amp;quot;, &amp;quot;CSS&amp;quot;]
+47   home = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot;, &amp;quot;JSON&amp;quot;, &amp;quot;WebAppManifest&amp;quot;]
+48   section = [ &amp;quot;HTML&amp;quot;, &amp;quot;RSS&amp;quot; ]
+.....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;46行目の&amp;rdquo;CSS&amp;rdquo;を削除するだけで，警告が出なくなった．(^o^)&lt;/p&gt;
+
+&lt;p&gt;見え方にまだまだ不満はあるが，こんなところだろうか．アップデートしてから，貼り付けた画像の上にマウスを持っていくと，拡大鏡のアイコンになり，クリックすると2段階で拡大されるようになった．他にも変化はあるようだが，全然活用できていない．ぼちぼち触っていって，面白いことがあれば，また，まとめてみよう．．．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</title>
-      <link>https://taipapamotohus.com/post/pdf-tools/</link>
+      <link>/post/pdf-tools/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/pdf-tools/</guid>
-      <description>Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリと</description>
+      <guid>/post/pdf-tools/</guid>
+      <description>&lt;p&gt;Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリとしていて使い勝手が悪かったため，サクッと止めて，skimを使っている．ただ，pdf-toolsというのがあって，こちらは割とスグレモノらしいとの噂は聞いていた．そこで，今回はこれを試してみることにした．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#pdf-tools&#34;&gt;PDF Tools&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#インストール&#34;&gt;インストール&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#追記-2019年7月17日&#34;&gt;追記（2019年7月17日）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#設定&#34;&gt;設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使用法&#34;&gt;使用法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-pdfview&#34;&gt;org-pdfview&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#インストールと設定&#34;&gt;インストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pdf-toolsと他のアプリ-skim-previewなど-との比較&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pdf-tools&#34;&gt;PDF Tools&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/politza/pdf-tools&#34; target=&#34;_blank&#34;&gt;pdf-tools&lt;/a&gt;　ご本家&lt;/li&gt;
+&lt;li&gt;参考２：&lt;a href=&#34;http://blog.livedoor.jp/hiroaki8270/archives/22871970.html&#34; target=&#34;_blank&#34;&gt;emacsをPDF Viewerにしよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考３：&lt;a href=&#34;https://ubutun.blogspot.com/2014/05/emacstexpdf.html&#34; target=&#34;_blank&#34;&gt;emacs内でTeX文書の作成からpdf閲覧まで行う&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考４：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34; target=&#34;_blank&#34;&gt;pdf-tools on macos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考５：&lt;a href=&#34;http://pragmaticemacs.com/emacs/view-and-annotate-pdfs-in-emacs-with-pdf-tools/&#34; target=&#34;_blank&#34;&gt;VIEW AND ANNOTATE PDFS IN EMACS WITH PDF-TOOLS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考６：&lt;a href=&#34;http://pragmaticemacs.com/emacs/more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考７：&lt;a href=&#34;http://pragmaticemacs.com/emacs/even-more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;EVEN MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考８：&lt;a href=&#34;https://github.com/politza/pdf-tools/issues/189&#34; target=&#34;_blank&#34;&gt;pdf-tools pretty much unusable with linum-mode enabled&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考９：&lt;a href=&#34;https://www.youtube.com/watch?v=LFO2UbzbZhA&#34; target=&#34;_blank&#34;&gt;Using Emacs 44 - An Org mode and PDF-tools workflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ご本家のイントロに書いてあるが，DocViewのようにghostscriptで予めrenderしておくのではなく，on demandでページを作成し，メモリーに貯めておく仕組みになっている．このrenderingは，popplerという名前の特別なライブラリーによって行われるが，これはepdfinfoと呼ばれるserver programの中で走っている．こいつの仕事はEmacsからの要求を連続して読んで適切な結果，すなわち，PDFのページのPNG imageを作成することである．&lt;/p&gt;
+
+&lt;p&gt;　　「実際のところ，PDFファイルを表示するのはPDF toolsの仕事の一部に過ぎない．popplerは文書に関する全ての情報を提供でき，かつ，それを修飾もできるので，遥かにたくさんのことができる」とイントロの最後で大見得を切って，何ができるかを示す&lt;a href=&#34;https://www.dailymotion.com/video/x2bc1is?forcedQuality=hd720&#34; target=&#34;_blank&#34;&gt;動画&lt;/a&gt;を紹介している．&lt;/p&gt;
+
+&lt;h3 id=&#34;インストール&#34;&gt;インストール&lt;/h3&gt;
+
+&lt;p&gt;OSXは公式にはサポートされていないが，コンパイルできたと報告されている，と書いてあり，実際，以下のように出来た．まず，homebrewでpopplerをインストールする．もし，まだ，automakeを入れていなければそれもhomebrewでインストールする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install poppler automake
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ついで，pkg-configをexportでいじるようなことが書いてあるが，特にそれはせずともよかった．ただし，pdf-toolsのインストールの際にコンパイルエラーが出た．どういうわけか， &lt;strong&gt;pdf-tools          20180428.1527&lt;/strong&gt; ではだめだったが，幸い， &lt;strong&gt;pdf-tools          20181221.1913&lt;/strong&gt; が出たので，参考4：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34; target=&#34;_blank&#34;&gt;pdf-tools on macos&lt;/a&gt;を頼りに，これにアップデートしたところ，あとは問題なくインストールできた．&lt;/p&gt;
+
+&lt;h3 id=&#34;追記-2019年7月17日&#34;&gt;追記（2019年7月17日）&lt;/h3&gt;
+
+&lt;p&gt;その後何度かpdf-toolをコンパイルすることがあったが，「libffiがどこにあるか分からん」というようなエラーメッセージが出て，「pkg-configでなんとかせい」と怒られるようになった．つまり，ご本家に書いてある通りになったわけである．そこで，libffiのpkgconfigを探して，それをPKG_CONFIG_PATHに含めるようにした．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mdfind -name pkgconfig | grep libffi
+/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
+$ export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
+$ /Applications/Emacs.app/Contents/MacOS/Emacs --debug-init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで下記のように設定していると，以下のようにpdf-toolが無事にコンパイルされる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/build/server/autobuild -i /Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/
+---------------------------
+Installing packages
+---------------------------
+Skipping package installation (already installed)
+
+---------------------------
+Configuring and compiling
+---------------------------
+./configure -q --bindir=/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/ &amp;amp;&amp;amp; make -s
+
+Is case-sensitive searching enabled ?     yes
+Is modifying text annotations enabled ?   yes
+Is modifying markup annotations enabled ? yes
+
+
+---------------------------
+Installing
+---------------------------
+make -s install
+/usr/local/bin/gmkdir -p &#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018&#39;
+/usr/local/bin/ginstall -c epdfinfo &#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018&#39;
+make[1]: Nothing to be done for `install-data-am&#39;.
+
+===========================
+Build succeeded. :O)
+===========================
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;設定&#34;&gt;設定&lt;/h3&gt;
+
+&lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package pdf-tools
+  :ensure t
+  :config
+  ;; initialise
+  (pdf-tools-install)
+  ;; PDF Tools does not work well together with linum-mode
+  (add-hook &#39;pdf-view-mode-hook (lambda() (nlinum-mode -1)))
+  ;; open pdfs scaled to fit page
+  ;; (setq-default pdf-view-display-size &#39;fit-page)
+  ;; automatically annotate highlights
+  (setq pdf-annot-activate-created-annotations t)
+  ;; use normal isearch
+  (define-key pdf-view-mode-map (kbd &amp;quot;C-s&amp;quot;) &#39;isearch-forward)
+  ;; more fine-grained zooming
+  (setq pdf-view-resize-factor 1.1)
+  )
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下に内容を説明する．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;pdf-tools-installにより最初のときにepdfinfoがコンパイルされる．&lt;/li&gt;
+&lt;li&gt;行番号を表示するとうまく動かない．私はnlinum-modeを使っているのでpdf-view-modeの際には止めておく．&lt;/li&gt;
+&lt;li&gt;ハイライトした部分には自動的に注釈を加える．&lt;/li&gt;
+&lt;li&gt;swiperはうまく動かないので，C-sを普通のisearchに戻す&lt;/li&gt;
+&lt;li&gt;＋とーで拡大，縮小だが，これを10%ずつにする．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;使用法&#34;&gt;使用法&lt;/h3&gt;
+
+&lt;p&gt;上記のインストールと設定を行えば，C-x C-fでも，drag &amp;amp; dropでも，Emacsのpdf toolsのpdf-view-modeでpdfが開くようになる．ここまでくれば，あとは色々なことができる．&lt;/p&gt;
+
+&lt;h4 id=&#34;highlight&#34;&gt;highlight&lt;/h4&gt;
+
+&lt;p&gt;マウスで文章をなぞって選択（下の画像の白黒反転した部分）したあとに，C-c C-a h もしくは，画像で示したように，PDF Tools &amp;rarr; Add markup annotation &amp;rarr; highlightを選択すれば，&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/pdf-tools-2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/pdf-tools-2.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;選択した部分がハイライトされ，下に新たなバッファが開いてそこに注釈が書けるようになる（下の画像参照）．書き終わったら，C-c C-cで注釈バッファが閉じる．なお，上に元からある黄色にハイライトされた部分は以前に選択してハイライトした部分である．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/pdf-tools-3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/pdf-tools-3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h4 id=&#34;display-annotations&#34;&gt;Display Annotations&lt;/h4&gt;
+
+&lt;p&gt;複数箇所をハイライトして注釈をつけたあとに，全ての注釈を一度にリストにしてみることができる．C-c C-a l もしくは，PDF Tools &amp;rarr; Display Annotationsを選択すれば，下の画像のように，下に２つの新たなバッファが開く．真ん中のバッファに注釈のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動してブルーの枠で囲んで表示され，下のバッファに注釈の内容が表示される．qを押せば，2つのバッファは閉じる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/pdf-tools-4.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/pdf-tools-4.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h4 id=&#34;isearch-document--c-s&#34;&gt;Isearch document (C-s)&lt;/h4&gt;
+
+&lt;p&gt;pdf-toolsはswiperとはconflictするために，C-sは本来のisearch-forwardに戻して設定しておく必要がある（前述の設定の通り）．これで，C-sとやると，minibufferに打ち込んだ語が反転して表示され，C-sとやるごとに先へ移動していく．下の画像では，&amp;rdquo;MK2&amp;rdquo;という単語を打った時の状態を示している．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/pdf-tools-C-s.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/pdf-tools-C-s.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h4 id=&#34;occur-document&#34;&gt;Occur document&lt;/h4&gt;
+
+&lt;p&gt;PDF Tools &amp;rarr; Occur documentを選択すれば，minibufferに List lines matching PCRE: と表示される．そこに例えばMK2と打てば，下の画像のように，下に新たなバッファが開き，MK2のあるページとそこにある文章のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動する．qを押せば，下のバッファは閉じる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/pdf-tools-occur.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/pdf-tools-occur.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;org-pdfview&#34;&gt;org-pdfview&lt;/h2&gt;
+
+&lt;p&gt;org-modeからpdf文書へのリンクを開くのをサポートするパッケージ．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/markus1189/org-pdfview&#34; target=&#34;_blank&#34;&gt;org-pdfview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考２：&lt;a href=&#34;https://emacs.stackexchange.com/questions/19686/how-to-use-pdf-tools-pdf-view-mode-in-emacs&#34; target=&#34;_blank&#34;&gt;How to use pdf-tools (pdf-view-mode) in emacs?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考３：&lt;a href=&#34;https://emacs.stackexchange.com/questions/31895/configure-org-pdfview-and-pdf-tools-to-open-at-page&#34; target=&#34;_blank&#34;&gt;Configure org-pdfview and pdf-tools to open at page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h3&gt;
+
+&lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書くだけ．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package org-pdfview
+  :ensure t)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例えば，Emacsのpdf-toolsを用いて，hogehoge.pdfを開いて読んでいるとする．そこで，C-c lとすると， &lt;strong&gt;Stored: /Data/Hoge/Fuga/hogefuga.pdf&lt;/strong&gt; と今読んでいるpdfへのリンクが保存される．そして，それを保存しておきたいorg文書の適当な場所で，C-c C-lとすれば，そのリンクが貼り付けられる．以前の記事（&lt;a href=&#34;../org-html-export-theme&#34;&gt;Org-modeでhtml exportの際のthemeについて&lt;/a&gt;）で書いたような文献のまとめを作成しているときに，元文献とリンクさせておく際などに便利である．貼り付けたリンクをクリックすれば，元文献がEmacsのpdf-toolsによって開かれるようになる（画面が分割され，下に新たなバッファが開いてそこにpdfが表示される）．割と便利である．&lt;/p&gt;
+
+&lt;h2 id=&#34;pdf-toolsと他のアプリ-skim-previewなど-との比較&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;注釈の一覧表示，C−s， occurなどの機能は便利である．&lt;/li&gt;
+&lt;li&gt;skim, Previewなどでは，長方形ツールによりお好みの領域を選択してコピーすることができるし，このコピーした領域のみをpdfとして保存できるが，pdf-toolsではできない．&lt;/li&gt;
+&lt;li&gt;skim, Preview, Adobe Acrobat Readerのように，全画面でプレゼンテーションするモードはない．&lt;/li&gt;
+&lt;li&gt;Adobe Acrobat Readerのように，動画を動かすことは出来ない．&lt;/li&gt;
+&lt;li&gt;上記２つの理由から，auctexを使用する際のpdf viewerとしてEmacsを使用していない．&lt;/li&gt;
+&lt;li&gt;最近のpdfは，本文中に示された文献もしくはその番号をクリックすると，最後の文献リストの中の該当の論文のところに飛ぶようになっているものも多くなっているが，pdf-toolsはそれには対応していないようである．より正確にはリンク先が分からないようである．これは自力では解決できない．．．&lt;/li&gt;
+&lt;li&gt;Outline構造にも対応しており，検出するのだが，リンク先が分からないようである．これも自力では解決できない．．．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上のことより，学会発表用のスライドなどを作成している際は，skimなどの方がpdf viewerとして便利であるが，文献のまとめなどpdfを読み込む際には，pdf-toolsの方が向いているのではないかと考えている．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</title>
-      <link>https://taipapamotohus.com/post/peep/</link>
+      <link>/post/peep/</link>
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/peep/</guid>
-      <description>最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいこと</description>
+      <guid>/post/peep/</guid>
+      <description>
+
+&lt;p&gt;最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#peep-diredのインストールと設定&#34;&gt;peep-diredのインストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#peep-diredの使い方&#34;&gt;peep-diredの使い方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bjm-ivy-dired-recent-dirs-最近開けたdirectoryを一覧表示する方法-おまけ&#34;&gt;bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/asok/peep-dired&#34; target=&#34;_blank&#34;&gt;peep-dired&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pragmaticemacs.com/emacs/quickly-preview-images-and-other-files-with-peep-dired/&#34; target=&#34;_blank&#34;&gt;QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;peep-diredのインストールと設定&#34;&gt;peep-diredのインストールと設定&lt;/h2&gt;
+
+&lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package peep-dired
+  :ensure t
+  :defer t ; don&#39;t access `dired-mode-map&#39; until `peep-dired&#39; is loaded
+  :bind (:map dired-mode-map
+              (&amp;quot;P&amp;quot; . peep-dired)))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;設定は上記参照サイトのパクリで，diredで&amp;rdquo;P&amp;rdquo;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&amp;rdquo;P&amp;rdquo;と打つとpeep-dired modeは終了する．　&lt;/p&gt;
+
+&lt;h2 id=&#34;peep-diredの使い方&#34;&gt;peep-diredの使い方&lt;/h2&gt;
+
+&lt;p&gt;File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&amp;rdquo;P&amp;rdquo;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/peep-dired_ex1.jpeg&#34; &gt;
+
+&lt;img src=&#34;/img/peep-dired_ex1.jpeg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/peep-dired_ex3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/peep-dired_ex3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．&lt;/p&gt;
+
+&lt;h2 id=&#34;bjm-ivy-dired-recent-dirs-最近開けたdirectoryを一覧表示する方法-おまけ&#34;&gt;bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）&lt;/h2&gt;
+
+&lt;p&gt;diredでdirectoryを開けるときにその名前を入力する必要があるが，これが結構面倒である．特に深いところにあるファイルはフルパスを書くのが大変である．どうせ，同じファイルに何回も行くことが多いので，「最近訪れたdirectoryの履歴」みたいなのが一覧表示されると嬉しい．まさに，こんなのぞみにピッタリのものが，bjm/ivy-dired-recent-dirsである．これについては，以前に書いたのでそちらを参考にしていただきたい．というか，以前に書いた事自体を忘れていたので，自分への戒めとして記録しておく．．．(^^;;;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://taipapamotohus.com/post/swiper%5Fmigemo/#最近開いたディレクトリを開く&#34; target=&#34;_blank&#34;&gt;最近開いたディレクトリを開く&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>How to automatically embed R plot in blog created by Hugo via ox-hugo</title>
-      <link>https://taipapamotohus.com/post/embedrplotinblog/</link>
+      <link>/post/embedrplotinblog/</link>
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/embedrplotinblog/</guid>
-      <description>（承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdf</description>
+      <guid>/post/embedrplotinblog/</guid>
+      <description>
+
+&lt;p&gt;（承前）前回（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;  &lt;br /&gt;
+Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34; target=&#34;_blank&#34;&gt;ox-hugo&lt;/a&gt;  &lt;br /&gt;
+ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).&lt;/p&gt;
+
+&lt;p&gt;要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://sfus.net/blog/2018/12/org-mode-with-ox-hugo/&#34; target=&#34;_blank&#34;&gt;Org-mode で記事を書いて Hugo 向け markdown を ox-hugo で自動生成する話&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;そもそも，まず，Hugoのディレクトリ・ファイルの構成を把握する必要があった．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.org に書き込んでおり，directory/file構成は以下の通りである．上記参考サイトと同じく，/hogehoge/hogeblog/hogefugablog/，つまり，Hugo の content/ と同じ階層に hogefugablog.org ファイルを置いている．なお，themeは &lt;a href=&#34;https://themes.gohugo.io/academic/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;academic&lt;/strong&gt;&lt;/a&gt; を使用している．また，ox-hugoのdirectoryは今回の作業により新たに作成されたものであり，当初はなかった．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ tree -L 2
+.
+├── config.toml
+├── content
+│   ├── home
+│   ├── post
+│   └── privacy.md
+├── data
+│   └── 6F
+├── hogefugablog.org
+├── layouts
+│   ├── js
+│   ├── partials
+│   └── search
+├── static
+│   ├── css
+│   ├── files
+│   ├── img
+│   └── ox-hugo
+└── themes
+    └── academic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/usage/#before-you-export&#34; target=&#34;_blank&#34;&gt;Before you export&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;本サイトでは，HUGO_SECTIONは特に設定しておらず，C-h v org-hugo-default-section-directoryの値は default valueであるpostsになっている．&lt;/p&gt;
+
+&lt;p&gt;また，hogefugablog.orgの文頭に以下のように記述して，HUGO_BASE_DIRを設定している．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+HUGO_BASE_DIR: ./
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここまでで，ox-hugoからのexportの準備が整った．&lt;/p&gt;
+
+&lt;h2 id=&#34;references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#references-to-files-outside-the-static-directory&#34; target=&#34;_blank&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Hugoのstatic directory以外の場所にあるファイルへのreferenceを作成し，かつ，そのファイルが &lt;strong&gt;org-hugo-external-file-extensions-allowed-for-copying&lt;/strong&gt; のリストに挙げられている拡張子を有している場合は，そのファイルはox-hugoによりstatic directoryにコピーされる．ちなみに，C-h v org-hugo-external-file-extensions-allowed-for-copyingとすると，以下のような値を得る．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;org-hugo-external-file-extensions-allowed-for-copying is a variable defined in ‘ox-hugo.el’.
+Its value is
+(&amp;quot;jpg&amp;quot; &amp;quot;jpeg&amp;quot; &amp;quot;tiff&amp;quot; &amp;quot;png&amp;quot; &amp;quot;svg&amp;quot; &amp;quot;gif&amp;quot; &amp;quot;pdf&amp;quot; &amp;quot;odt&amp;quot; &amp;quot;doc&amp;quot; &amp;quot;ppt&amp;quot; &amp;quot;xls&amp;quot; &amp;quot;docx&amp;quot; &amp;quot;pptx&amp;quot; &amp;quot;xlsx&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34; target=&#34;_blank&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;br /&gt;
+このサイトの &lt;strong&gt;Table 2: Where files get copied to if their path does not contain static/&lt;/strong&gt; が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/foo.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;に作成される．そして，このファイルは，最終的に，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/static/ox-hugo/foo.png
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;にコピーされ，ブログ記事に挿入されるということになる．なお，ox-hugo directoryはこの時に自動的に作成される．&lt;/p&gt;
+
+&lt;p&gt;つまり，前回の記事（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）のように，R plotのcode blockを含むorg ファイルを作成し，それをexportして，R plotが自動で組み込まれるようなら，そのorg-babelのcode blockをそのままox-hugoで書いたブログ記事のorg ファイルにコピペすれば，あとはox-hugoが良きにはからってくれるはずである．&lt;/p&gt;
+
+&lt;p&gt;実は，できたグラフの画像を自分でいろいろな場所にコピーしては失敗していた．Hugoのroot directory，つまり，/hogehoge/hogeblog/hogefugablog/でRを動かして，できたグラフ画像に対して何もせずに放置しておけば，ox-hugoが全て面倒を見てくれるということに気がつかず，余計なことをしていたわけである．&lt;/p&gt;
+
+&lt;p&gt;まとめとして，前回記事のcode blockをこの記事に挿入して試してみる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src R :session *R* :results output graphics :file test1.png :exports both
+boxplot(islands)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/test1.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/test1.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src R :session *R* :results output graphics :file test2.png :exports both
+library(&amp;quot;ggplot2&amp;quot;)
+ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+geom_point()
+#+END_SRC
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/test2.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/test2.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;ちゃんとグラフが自動的に挿入されている．&lt;/p&gt;
+
+&lt;p&gt;org-babelとRの組み合わせは強力で，ox-hugoも便利と改めて痛感．&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>How to automatically embed R plot into html exported by org-mode with org-babel</title>
-      <link>https://taipapamotohus.com/post/exportrplot/</link>
+      <link>/post/exportrplot/</link>
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/exportrplot/</guid>
-      <description>本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing</description>
+      <guid>/post/exportrplot/</guid>
+      <description>
+
+&lt;p&gt;本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#org-babel-setup&#34;&gt;Org-babel setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;org-babel-setup&#34;&gt;Org-babel setup&lt;/h2&gt;
+
+&lt;p&gt;org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &amp;hellip;..(^^;;;&lt;/p&gt;
+
+&lt;p&gt;ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;http://doc.norang.ca/org-mode.html#OrgBabel&#34; target=&#34;_blank&#34;&gt;Org-babel Setup&lt;/a&gt;　ここからコピペ  (^^;;;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ (quote org-babel-load-languages)
+ (quote ((emacs-lisp . t)
+         (dot . t)
+         (ditaa . t)
+         (R . t)
+         (python . t)
+         (ruby . t)
+         (gnuplot . t)
+         (clojure . t)
+         (shell . t)
+         (ledger . t)
+         (org . t)
+         (plantuml . t)
+         (latex . t))))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/h2&gt;
+
+&lt;p&gt;以下のサイトを参考にした．&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; Official manual &lt;a href=&#34;https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code&#34; target=&#34;_blank&#34;&gt;14 Working with Source Code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34; target=&#34;_blank&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;br /&gt;
+このサイトが分かりやすい．特に， &lt;strong&gt;ヘッダー引数&lt;/strong&gt; と &lt;strong&gt;言語毎の書き方&lt;/strong&gt; の &lt;strong&gt;R&lt;/strong&gt; の項は必読．&lt;/p&gt;
+
+&lt;h2 id=&#34;org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34; target=&#34;_blank&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;br /&gt;
+org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+TITLE: R-test
+#+AUTHOR: taipapa
+
+* Test
+
+  #+begin_src R :session *R* :results output graphics :file test1.png :exports both
+  boxplot(islands)
+  #+end_src
+
+  #+begin_src R :session *R* :results output graphics :file test2.png :exports both
+  library(&amp;quot;ggplot2&amp;quot;)
+  ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+  geom_point()
+  #+END_SRC
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;C-c C-e h oとしてhtmlにexportすると，以下のように簡単にグラフがプロットされたhtmlが作成される．いちいちできたグラフ画像を挿入する必要はなく，自動で挿入される．便利である．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/R-test-html.png&#34; &gt;
+
+&lt;img src=&#34;/img/R-test-html.png&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;　　注意点としては，C-c C-e hoとしたときに， &lt;strong&gt;R starting project directory？&lt;/strong&gt; と尋ねられるはずで，defaultの値として　/Data/hogehoge/hogefuga/ が既に表示されているはずである．これをそのままリターンすれば同じdirectoryにグラフが作成されて良きにはからってくれる．この際に異なるdirectoryを選んだりするとうまくいかないので注意．&lt;/p&gt;
+
+&lt;p&gt;また，C-c C-e loとすると，自動でR plotの挿入されたpdfが作成されオープンする．&lt;/p&gt;
+
+&lt;p&gt;これで準備が整った．次回はHugoで作成したブログにR plotを自動で差し込む方法をまとめる予定である．&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</title>
-      <link>https://taipapamotohus.com/post/adaptive-wrap/</link>
+      <link>/post/adaptive-wrap/</link>
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/adaptive-wrap/</guid>
-      <description>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけ</description>
+      <guid>/post/adaptive-wrap/</guid>
+      <description>
+
+&lt;p&gt;Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#adaptive-wrap&#34;&gt;adaptive-wrap&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#インストールと設定&#34;&gt;インストールと設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#実際の使用例&#34;&gt;実際の使用例&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;adaptive-wrap&#34;&gt;adaptive-wrap&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照1：&lt;a href=&#34;https://elpa.gnu.org/packages/adaptive-wrap.html&#34; target=&#34;_blank&#34;&gt;adaptive-wrap&lt;/a&gt;　ご本家&lt;/li&gt;
+&lt;li&gt;参照2：&lt;a href=&#34;https://emacs.stackexchange.com/questions/14589/correct-indentation-for-wrapped-lines&#34; target=&#34;_blank&#34;&gt;Correct indentation for wrapped lines&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照3：&lt;a href=&#34;http://alainmathematics.blogspot.com/2013/07/emacs.html&#34; target=&#34;_blank&#34;&gt;Emacsの折り返しの挙動&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照4：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/1kw7ip/emacs%5Fsettings%5Floading%5Fissue/&#34; target=&#34;_blank&#34;&gt;.emacs settings loading issue&lt;/a&gt;　&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．&lt;/p&gt;
+
+&lt;h3 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h3&gt;
+
+&lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package adaptive-wrap
+  :ensure t
+  :config
+  (setq-default adaptive-wrap-extra-indent 1)
+  (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode)
+  (global-visual-line-mode +1)
+  (add-hook &#39;org-mode-hook &#39;visual-line-mode)  ;; For org macros
+  )
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なお，最後の行を入れておかないと，org-mode fileに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を追加してマクロのパッケージを使用する場合（&lt;a href=&#34;../html_export&#34;&gt;Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）&lt;/a&gt;を参照のこと）に，adaptive-wrapが効かなくなる．&lt;/p&gt;
+
+&lt;h3 id=&#34;実際の使用例&#34;&gt;実際の使用例&lt;/h3&gt;
+
+&lt;p&gt;adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/Before_adaptive.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/Before_adaptive.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/After_adaptive.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/After_adaptive.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;これも一度使い始めると，無くてはならないモノとなるパッケージである．&lt;/p&gt;
+</description>
     </item>
     
     <item>
       <title>Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</title>
-      <link>https://taipapamotohus.com/post/auto_html_export/</link>
+      <link>/post/auto_html_export/</link>
       <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/auto_html_export/</guid>
-      <description>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある</description>
+      <guid>/post/auto_html_export/</guid>
+      <description>
+
+&lt;p&gt;org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#使用方法&#34;&gt;使用方法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old&#34; target=&#34;_blank&#34;&gt;How to auto export html when saving in org-mode?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;例によって，下記のようにinit.orgに書き込めばよい．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(defun toggle-org-html-export-on-save ()
+  (interactive)
+  (if (memq &#39;org-html-export-to-html after-save-hook)
+      (progn
+        (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t)
+        (message &amp;quot;Disabled org html export on save for current buffer...&amp;quot;))
+    (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t)
+    (message &amp;quot;Enabled org html export on save for current buffer...&amp;quot;)))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．&lt;/p&gt;
+
+&lt;h2 id=&#34;directoryの内容が変更されると-自動でhtmlを再読込する&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;情報元：&lt;a href=&#34;http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/&#34; target=&#34;_blank&#34;&gt;Watch for file changes and refresh your browser automatically&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記サイトに有るrubyのスクリプトが使えそうなので，頂いた．&lt;/li&gt;
+&lt;li&gt;rubyのインストールについては，以下のようなサイトを参考
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b&#34; target=&#34;_blank&#34;&gt;MacにHomeBrew,rbenv,bundlerをインストールする&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/prgseek/items/ff037cc6134ff9303c67&#34; target=&#34;_blank&#34;&gt;Ruby入門 01.導入（Macに最新版のRubyを入れる）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/TAByasu/items/47c6cfbeeafad39eda07&#34; target=&#34;_blank&#34;&gt;Ruby初学者のRuby On Rails 環境構築【Mac】&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;しかし，上記サイトのスクリプトをそのまま使用するとと，reloadの際にページの先頭まで戻ってしまい不便！&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/usr/bin/env ruby
+# watch.rb by Brett Terpstra, 2011 &amp;lt;http://brettterpstra.com&amp;gt;
+# with credit to Carlo Zottmann &amp;lt;https://github.com/carlo/haml-sass-file-watcher&amp;gt;
+
+trap(&amp;quot;SIGINT&amp;quot;) { exit }
+
+if ARGV.length &amp;lt; 2
+puts &amp;quot;Usage: #{$0} watch_folder keyword&amp;quot;
+puts &amp;quot;Example: #{$0} . mywebproject&amp;quot;
+exit
+end
+
+dev_extension = &#39;dev&#39;
+filetypes = [&#39;css&#39;,&#39;html&#39;,&#39;htm&#39;,&#39;php&#39;,&#39;rb&#39;,&#39;erb&#39;,&#39;less&#39;,&#39;js&#39;]
+watch_folder = ARGV[0]
+keyword = ARGV[1]
+puts &amp;quot;Watching #{watch_folder} and subfolders for changes in project files...&amp;quot;
+
+while true do
+     files = []
+     filetypes.each {|type|
+files += Dir.glob( File.join( watch_folder, &amp;quot;**&amp;quot;, &amp;quot;*.#{type}&amp;quot; ) )
+                    }
+     new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
+     hash ||= new_hash
+     diff_hash = new_hash - hash
+
+     unless diff_hash.empty?
+     hash = new_hash
+
+     diff_hash.each do |df|
+         puts &amp;quot;Detected change in #{df[0]}, refreshing&amp;quot;
+     %x{osascript&amp;lt;&amp;lt;ENDGAME
+            tell app &amp;quot;Safari&amp;quot; to activate
+            tell app &amp;quot;System Events&amp;quot;
+                 keystroke &amp;quot;r&amp;quot; using command down
+            end tell
+ENDGAME
+       }
+     end
+     end
+
+     sleep 1
+     end
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Usage: /usr/local/bin/watch_safari.rb watch_folder keyword&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/Hoge
+$ watch_safari.rb Hoge hogefuga.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上はOSX上のSafariを使用している場合であるが，他のブラウザーでも少し変更するだけで同じことができるはずである．&lt;/p&gt;
+</description>
     </item>
     
   </channel>

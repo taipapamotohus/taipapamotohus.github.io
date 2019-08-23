@@ -1,24 +1,160 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>init-org on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/init-org/</link>
-    <description>Recent content in init-org on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Fri, 17 Aug 2018 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/init-org/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>init-org | A perfect autumn day</title>
+    <link>/tags/init-org/</link>
+      <atom:link href="/tags/init-org/index.xml" rel="self" type="application/rss+xml" />
+    <description>init-org</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Fri, 17 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>init-org</title>
+      <link>/tags/init-org/</link>
+    </image>
     
     <item>
       <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</title>
-      <link>https://taipapamotohus.com/post/init_org/</link>
+      <link>/post/init_org/</link>
       <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/init_org/</guid>
-      <description>自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとか</description>
+      <guid>/post/init_org/</guid>
+      <description>
+
+&lt;p&gt;自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．&lt;/p&gt;
+
+&lt;h2 id=&#34;参考サイト&#34;&gt;参考サイト&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.lambda-consulting.jp/2015/11/20/article/&#34; target=&#34;_blank&#34;&gt;俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://futurismo.biz/archives/6057/&#34; target=&#34;_blank&#34;&gt;babel-loader:org-mode で init.el を管理する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uwabami.junkhub.org/log/?date=20111213&#34; target=&#34;_blank&#34;&gt;平衡点(2011-12-13)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ameblo.jp/concello/entry-10786074455.html&#34; target=&#34;_blank&#34;&gt;ORG-Babel + init.el = ?? | くらいまーず　はい&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://funwithemacs.wordpress.com/2013/04/21/prelude-init-el-org-babel/&#34; target=&#34;_blank&#34;&gt;Prelude init.el &amp;amp; org-babel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;preludeを使いながら-init-dot-orgから個人用のinit-dot-elを自動作成させてemacsを設定する方法&#34;&gt;Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法&lt;/h2&gt;
+
+&lt;h3 id=&#34;基本方針&#34;&gt;基本方針&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む．&lt;/li&gt;
+&lt;li&gt;起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む．&lt;/li&gt;
+&lt;li&gt;具体的には，init.elで，(require &amp;lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む．&lt;/li&gt;
+&lt;li&gt;しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;preludeの導入&#34;&gt;Preludeの導入&lt;/h3&gt;
+
+&lt;p&gt;前回のポスト（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入&lt;/a&gt;）を参考　&lt;/p&gt;
+
+&lt;h3 id=&#34;emac-init-dot-elの作成&#34;&gt;emac-init.elの作成&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(require &#39;org)
+(defvar my-config-dir (concat user-emacs-directory &amp;quot;personal/&amp;quot;))
+(org-babel-load-file
+(expand-file-name &amp;quot;init.org&amp;quot; my-config-dir))
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;工夫と言っても， &lt;strong&gt;init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう&lt;/strong&gt;  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;init-dot-orgの作成&#34;&gt;init.orgの作成&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;これでいよいよ肝心のinit.orgの作成を行う&lt;/li&gt;
+&lt;li&gt;org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている．&lt;/li&gt;
+&lt;li&gt;具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;code-blockの挿入&#34;&gt;Code blockの挿入&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.lambda-consulting.jp/2015/11/20/article/&#34; target=&#34;_blank&#34;&gt;俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）&lt;/a&gt;で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;org-modeで以下のようにする．（後述する設定が必要）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;&amp;lt;l （ここで&amp;lt;TAB&amp;gt;すると．．．）
+以下のように展開される
+#+begin_src emacs-lisp
+
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;2019年1月14日追加&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;上記の「TABで展開」に関して，Disqusで，mickaushyさんから「&amp;lt;lではなくて&amp;lt;sではないのか」とのご指摘をいただいた．全くそのとおりで，（後述する設定が必要）と自分で書いておきながら，その設定を書き忘れていた．mickaushyさんが指摘されている通りの設定をしている．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;参考：&lt;a href=&#34;http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3&#34; target=&#34;_blank&#34;&gt;http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(setq org-structure-template-alist
+  &#39;((&amp;quot;s&amp;quot; &amp;quot;#+begin_src ?\n\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;?\&amp;quot;&amp;gt;\n\n&amp;lt;/src&amp;gt;&amp;quot;)
+    (&amp;quot;e&amp;quot; &amp;quot;#+begin_example\n?\n#+end_example&amp;quot; &amp;quot;&amp;lt;example&amp;gt;\n?\n&amp;lt;/example&amp;gt;&amp;quot;)
+    (&amp;quot;q&amp;quot; &amp;quot;#+begin_quote\n?\n#+end_quote&amp;quot; &amp;quot;&amp;lt;quote&amp;gt;\n?\n&amp;lt;/quote&amp;gt;&amp;quot;)
+    (&amp;quot;v&amp;quot; &amp;quot;#+BEGIN_VERSE\n?\n#+END_VERSE&amp;quot; &amp;quot;&amp;lt;verse&amp;gt;\n?\n&amp;lt;/verse&amp;gt;&amp;quot;)
+    (&amp;quot;c&amp;quot; &amp;quot;#+BEGIN_COMMENT\n?\n#+END_COMMENT&amp;quot;)
+    (&amp;quot;p&amp;quot; &amp;quot;#+BEGIN_PRACTICE\n?\n#+END_PRACTICE&amp;quot;)
+    (&amp;quot;l&amp;quot; &amp;quot;#+begin_src emacs-lisp\n?\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;emacs-lisp\&amp;quot;&amp;gt;\n?\n&amp;lt;/src&amp;gt;&amp;quot;)
+    ;; (&amp;quot;l&amp;quot; &amp;quot;#+begin_src lisp\n?\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;lisp\&amp;quot;&amp;gt;\n?\n&amp;lt;/src&amp;gt;&amp;quot;)
+    (&amp;quot;L&amp;quot; &amp;quot;#+latex: &amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;latex\&amp;quot;&amp;gt;?&amp;lt;/literal&amp;gt;&amp;quot;)
+    (&amp;quot;h&amp;quot; &amp;quot;#+begin_html\n?\n#+end_html&amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;html\&amp;quot;&amp;gt;\n?\n&amp;lt;/literal&amp;gt;&amp;quot;)
+    (&amp;quot;H&amp;quot; &amp;quot;#+html: &amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;html\&amp;quot;&amp;gt;?&amp;lt;/literal&amp;gt;&amp;quot;)
+    (&amp;quot;a&amp;quot; &amp;quot;#+begin_ascii\n?\n#+end_ascii&amp;quot;)
+    (&amp;quot;A&amp;quot; &amp;quot;#+ascii: &amp;quot;)
+    (&amp;quot;i&amp;quot; &amp;quot;#+index: ?&amp;quot; &amp;quot;#+index: ?&amp;quot;)
+    (&amp;quot;I&amp;quot; &amp;quot;#+include %file ?&amp;quot; &amp;quot;&amp;lt;include file=%file markup=\&amp;quot;?\&amp;quot;&amp;gt;&amp;quot;)))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この設定を，init.orgに書き込んでおいて，「&amp;lt;lのあとにTAB」とすれば，上述のように展開される．この次の記事でまとめて書こうと考えていたが，すっかり失念していた．ここに書いておいたほうが確かにわかりやすい．mickaushyさん，ご指摘ありがとうございました．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;codeの記述&#34;&gt;Codeの記述&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記の#+begin_src emacs-lispと#+end_srcの間にemacs-lispで設定内容を書く．ここからが便利にできているところ．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;code-blockの中にいるときに&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C-c &amp;lsquo;とする&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;当該のcode blockだけのバッファが表示される（下図の下のバッファ）&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CodeBlock_small.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;この中はemacs-lisp modeでsyntaxも普通に効くので，普通にコードを書く．もちろん，括弧の対応もハイライトで表示される．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;C-c nとする&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;すると，インデントも綺麗に整えてくれる．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;満足したら，C-c &amp;lsquo;で元のバッファに戻る．整形は綺麗なまま反映される．素晴らしい！&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;具体的なinit.orgの内容は次回のポスト以降に記述予定&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

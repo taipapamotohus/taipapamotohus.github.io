@@ -1,51 +1,459 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>beamer on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/beamer/</link>
-    <description>Recent content in beamer on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 26 Aug 2018 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/beamer/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>beamer | A perfect autumn day</title>
+    <link>/tags/beamer/</link>
+      <atom:link href="/tags/beamer/index.xml" rel="self" type="application/rss+xml" />
+    <description>beamer</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 26 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>beamer</title>
+      <link>/tags/beamer/</link>
+    </image>
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</title>
-      <link>https://taipapamotohus.com/post/beamer_movie2/</link>
+      <link>/post/beamer_movie2/</link>
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/beamer_movie2/</guid>
-      <description>前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われて</description>
+      <guid>/post/beamer_movie2/</guid>
+      <description>
+
+&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
+
+&lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
+
+&lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?media9&#34; target=&#34;_blank&#34;&gt;TeXWiki media9&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト２：&lt;a href=&#34;https://blog.tokor.org/2016/06/04/TeXでプレゼン-LaTeX-Beamerを使う人のためのTips集/&#34; target=&#34;_blank&#34;&gt;TeXでプレゼン - LaTeX Beamerを使う人のためのTips集&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト３：&lt;a href=&#34;https://www.youtube.com/watch?v=HHzcrP27I08&#34; target=&#34;_blank&#34;&gt;How to embed video files in a PDF using LaTeX (a media9/beamer example)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト４：&lt;a href=&#34;http://empitsu.hatenablog.com/entry/2012/11/02/182722&#34; target=&#34;_blank&#34;&gt;Beamer で PDF ファイルに動画を埋め込む&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト５：&lt;a href=&#34;http://tug.org/pipermail/macostex-archives/2014-July/052673.html&#34; target=&#34;_blank&#34;&gt;media9 problems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;beamerで動画が走るスライド原稿を作る-media9版&#34;&gt;beamerで動画が走るスライド原稿を作る（media9版）&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;preambleに，\usepackage{media9}を忘れずに追加しておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\newcommand{\showmovie}[1]{\includemedia[
+  activate=pageopen,
+  deactivate=pageclose,
+  width=110mm, height=72mm,
+  addresource=#1,
+  flashvars={
+    src=#1
+    &amp;amp;loop=true
+    &amp;amp;autoPlay=false
+  }
+  ]{}{StrobeMediaPlayback.swf}
+}
+
+\begin{frame}
+  \frametitle{hogefugaの動画}
+  \centering
+  \showmovie{hogefuga.mov}
+\end{frame}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;loopは，ループ再生するかどうか&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;autoplayは自動再生するかどうか&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;media9を使用したときの利点&#34;&gt;media9を使用したときの利点&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;なんと言ってもべた書きよりもelegant!&lt;/li&gt;
+&lt;li&gt;スライドを開けたときに，何もしなくても動画の静止画が映るので，前回のやり方のように背景をべた書きしなくて良い．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;media9を使用したときの欠点&#34;&gt;media9を使用したときの欠点&lt;/h2&gt;
+
+&lt;p&gt;もう完全にmedia9に乗り換えるつもりでいたが，以下に述べるようにいくつか欠点もあることが判明した．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;media9はpdf自体に動画を埋め込むようである．したがって，200MBの動画を走らせるとすると，pdf自体が200MB以上の大きさになってしまう．&lt;/li&gt;
+&lt;li&gt;それだけでなく，200MB程度の動画になると，途中で固まってしまう！これでは使い物にならない．&lt;/li&gt;
+&lt;li&gt;一方，前回記事のべた書き方式だと，pdf自体に動画を埋め込まないので，pdfは大きくならないし，動画指定のパスは効くし，200MBだろうともっと大きかろうと動画はガンガン動く．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;容量の小さな動画であれば，media9でも十分であろう．&lt;/li&gt;
+&lt;li&gt;私のように，容量の大きな動画を使用するような場合は，べた書きを使用するほうが良いであろう．&lt;/li&gt;
+&lt;li&gt;ということで，結局，元の木阿弥に戻ることとなった．&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
-      <link>https://taipapamotohus.com/post/beamer_movie/</link>
+      <link>/post/beamer_movie/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/beamer_movie/</guid>
-      <description>実は，同じような内容について2010年に，TeX QA に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらて</description>
+      <guid>/post/beamer_movie/</guid>
+      <description>
+
+&lt;p&gt;実は，同じような内容について2010年に，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．&lt;/p&gt;
+
+&lt;h2 id=&#34;beamerで動画が走るスライド原稿を作る&#34;&gt;beamerで動画が走るスライド原稿を作る&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;前述した ，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） &lt;a href=&#34;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&#34; target=&#34;_blank&#34;&gt;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&lt;/a&gt; の以下の部分&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;3 Annotations
+
+An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;. DVIPDFM(x) provides the following special command for annotations............
+
+ The following example shows a movie annotation that enables us to run the movie file ‘mymovie.avi’ inside a PDF viewer program.
+
+ \special{pdf:ann bbox 0 0 360 180 &amp;lt;&amp;lt;
+ /Subtype /Movie /Border [1 0 0]
+ /T (My Movie) /Movie &amp;lt;&amp;lt;
+ /F (mymovie.avi) /Aspect [720 360]
+ /Poster true &amp;gt;&amp;gt;
+ /A &amp;lt;&amp;lt; /ShowControls false &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;mymovie.aviのところに動かしたい動画を記入（パスも効く）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;私の作成したものは読んでいただければおわかりのように，非常にダサいベタ書きである．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;{
+    \usebackgroundtemplate{\put(20, -265){\includegraphics[scale=0.45]{/Data/.../..../Figures/hogefuga.pdf}}}
+    \begin{frame}
+    \frametitle{hogefugaの対策}
+    \special{pdf:ann bbox -10 -130 320 90 &amp;lt;&amp;lt;
+             /Subtype /Movie /Border [0 0 1]
+             /T (My Movie) /Movie &amp;lt;&amp;lt;
+             /F (/Data/.../hogefuga.mov)
+             %/Aspect [720 480]
+             /Aspect [640 480]
+             /Poster false &amp;gt;&amp;gt;
+             /A &amp;lt;&amp;lt; /ShowControls true /Mode /Repeat &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
+    \end{frame}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;\putで背景画像（キャプチャー画像）の位置を直接指定し，\includegraphicsのscaleで倍率を指定して動画の大きさに合わせている．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで，画像をクリックすると（ほぼ）同じ大きさの動画が（ほぼ）同じ位置で動くようになる&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;プレゼンテーションにskimを使うと動画が動かないので注意．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;動画は同一directoryにある必要はなく，パスで指定すれば良い&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;動画自体はpdfの中に埋め込まれないので，pdfの容量がむやみに大きくならないという利点がある．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その１）</title>
-      <link>https://taipapamotohus.com/post/beamer/</link>
+      <link>/post/beamer/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/beamer/</guid>
-      <description>前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新され</description>
+      <guid>/post/beamer/</guid>
+      <description>
+
+&lt;p&gt;前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
+　&lt;/p&gt;
+
+&lt;h2 id=&#34;beamerによるスライド原稿の作成&#34;&gt;beamerによるスライド原稿の作成&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である．&lt;/li&gt;
+&lt;li&gt;下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う．&lt;/li&gt;
+&lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34; target=&#34;_blank&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;% -*-coding:utf-8-*-
+\documentclass[svgnames, table, 14pt]{beamer}
+\usepackage{zxjatype}
+\usepackage[hiragino-dx]{zxjafont}
+
+% ヒラギノ角ゴ Proを使う
+\setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
+\setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
+
+% themeを指定する
+\usetheme{Darmstadt}
+
+\usefonttheme[onlylarge]{structurebold}
+\setbeamerfont*{frametitle}{size=\large,series=\bfseries}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+% Setup TikZ
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
+% Figure position
+\usepackage[absolute,overlay]{textpos}
+% math
+\usepackage{mathabx}
+
+\usefonttheme{professionalfonts}
+
+% Author, Title, etc.
+\title[hoge/fugaによる相補的な治療における高難度症例の治療と成績]
+{hoge/fugaによる相補的な治療における高難度症例の治療と成績}
+\author[taipapa]
+{taipapa, 織田信長, 豊臣秀吉, 徳川家康}
+\institute[hogefuga University]
+{hogefuga大学大学院 hogefuga研究科　hogefuga分野}
+
+
+\date[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]
+{\scriptsize{Symposium-02「とっーても難しいhogeとfuga」
+\\ \vspace{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
+完了しています．\\本演題の発表に関して開示すべきCOIはありません
+}}
+
+% 学会名，日付，スライド番号を挿入
+\setbeamertemplate{footline}
+{\color{gray} %
+\hspace{.075cm}
+\insertshortdate%
+\hspace{4cm}
+\insertframenumber{} / \inserttotalframenumber%
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{背景と目的}
+\begin{block}{}
+\begin{itemize}
+\item hogeとfugaを比較してみると，一方で難易度の高い症例で
+も他方では容易に行える場合も多い.
+\item 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
+用いることにより合併症の減少を目指す方針をとっている．
+\item そこで，自験例から高難度のhogefuga症例についての
+方針と成績を主にhogefuga surgeonの立場から検討した.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\section{Results}
+\begin{frame}
+\frametitle{hogefuga症例の画像}
+\centering
+\includegraphics[width=3.5in]{hoge_fuga.pdf}
+\end{frame}
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする&lt;/a&gt;を参考　&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;latexmk -pvc -pdf -view=none beamer_test.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで下記のようなpdfが出来上がるはず．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/beamer_test.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/beamer_test2.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;\includegraphics[width=2in]{/Data/hoge/fuga/......./hoge_fuga.pdf}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/beamer_test3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;次回は，beamerで動画を走らせる件について書く予定．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
       <title>LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</title>
-      <link>https://taipapamotohus.com/post/latexmk/</link>
+      <link>/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/latexmk/</guid>
-      <description>Table of Contents HAHAHUGOSHORTCODE-TOC0-HBHB TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 20</description>
+      <guid>/post/latexmk/</guid>
+      <description>
+
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
+
+&lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト２：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト３：&lt;a href=&#34;http://www.tug.org/mactex/&#34; target=&#34;_blank&#34;&gt;The MacTeX-2018 Distribution&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする．&lt;/li&gt;
+&lt;li&gt;これでスライド作成ソフトであるbeamerも一緒にインストールされる．&lt;/li&gt;
+&lt;li&gt;beamerに固有の設定は特に必要なし．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/h2&gt;
+
+&lt;p&gt;大事なことを２つ忘れていたので追記する．&lt;/p&gt;
+
+&lt;h3 id=&#34;ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;http://doratex.hatenablog.jp/entry/20180501/1525144736&#34; target=&#34;_blank&#34;&gt;MacTeX 2018のインストール&amp;amp;日本語環境構築法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい．&lt;/li&gt;
+&lt;li&gt;マックユーザーにとっての最大の問題点は &lt;strong&gt;「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」&lt;/strong&gt; ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記の&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live%2FMac&#34; target=&#34;_blank&#34;&gt;TeX Wiki TeX LiveMac&lt;/a&gt;に書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/????/bin/*/tlmgr path add
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見）&lt;/li&gt;
+&lt;li&gt;preludeをインストールした時点で，auctexもインストールされる．&lt;/li&gt;
+&lt;li&gt;auctexの設定などについては以下を参照（手抜き&amp;hellip;.. (^^;;; ）
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.gnu.org/software/auctex/&#34; target=&#34;_blank&#34;&gt;AUCTEX – Sophisticated document creation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX&#34; target=&#34;_blank&#34;&gt;TeX Wiki AUCTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mytexpert.osdn.jp/index.php?Emacs/AUCTeX&#34; target=&#34;_blank&#34;&gt;Emacs/AUCTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://skalldan.wordpress.com/2011/07/20/auctex-の設定と便利な機能/&#34; target=&#34;_blank&#34;&gt;AUCTeX の設定と便利な機能&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;しかし，org-modeを使うようになってからは直接latex文書を打つことはめっきり少なくなってしまった．それでも，学会発表用のスライドなどはlatexを直接打って，beamer文書を作成し，pdf原稿に変換している．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;latexmk&#34;&gt;latexmk&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Emacsでbeamerを使って，スライド原稿などを作成していると，C-c C-cするたびにtex文書がcompileされてpdf原稿が出来上がるのを待たなければならず，この待ち時間が結構辛い．そこで，tex ファイルの変更が保存されるたびに自動で裏でlatexmkがcompileしてくれるようにする．latexmkを使う．&lt;/li&gt;
+&lt;li&gt;参考サイト：&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34; target=&#34;_blank&#34;&gt;TeX Wiki Latexmk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;texlive2018, MacTeXに入っているので，これらを入れていれば別途インストールする必要なし．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;~/.latexmkrcの中に以下のように記述する（ちなみに私はxelatexを使用している）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;$pdflatex = &#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&#39;;
+$pdf_mode = 1;
+$postscript_mode = $dvi_mode = 0;
+$pdf_previewer  = &#39;open -a Skim&#39;;
+$preview_continuous_mode = 1;  # equivalent to -pvc
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実際の作業&#34;&gt;実際の作業&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記のようにセットアップしていることとする．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ターミナルで，texファイルが有るdirectoryに移動し，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;latexmk -pvc -pdf -view=none document.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで，texファイルへの変更を保存すると自動でコンパイルされて，設定にもよるが，skimで開いているpdfファイルも更新される．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;xelatexについて&#34;&gt;XeLaTeXについて&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;以下を参照されたい．特に最初にあげたZRさんの文書は必読！
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://zrbabbler.sp.land.to/xelatex.html&#34; target=&#34;_blank&#34;&gt;XeLaTeX で日本語する件について&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?XeTeX&#34; target=&#34;_blank&#34;&gt;TeXWiki XeTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://suzusime-log.hatenablog.jp/entry/2017/04/15/210327&#34; target=&#34;_blank&#34;&gt;XeLaTeXだとかな混植が簡単にできて最高だという話&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

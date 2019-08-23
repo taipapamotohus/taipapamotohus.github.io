@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>synchronization on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/synchronization/</link>
-    <description>Recent content in synchronization on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sun, 07 Oct 2018 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/synchronization/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>synchronization | A perfect autumn day</title>
+    <link>/tags/synchronization/</link>
+      <atom:link href="/tags/synchronization/index.xml" rel="self" type="application/rss+xml" />
+    <description>synchronization</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 07 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>synchronization</title>
+      <link>/tags/synchronization/</link>
+    </image>
     
     <item>
       <title>Emacsとskimで，latexのソースとpdfの間を行ったり来たり</title>
-      <link>https://taipapamotohus.com/post/synchronization/</link>
+      <link>/post/synchronization/</link>
       <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/synchronization/</guid>
-      <description>以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコ</description>
+      <guid>/post/synchronization/</guid>
+      <description>
+
+&lt;p&gt;以前の記事（&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;）で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiの&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX#h32722ec&#34; target=&#34;_blank&#34;&gt;macOS での設定例&lt;/a&gt; を参照していただきたい．&lt;/p&gt;
+
+&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照：&lt;a href=&#34;https://ryogan.org/blog/2015/12/30/mac-os-x-el-capitan-の-auctex-の設定/&#34; target=&#34;_blank&#34;&gt;Mac OS X El Capitan の AUCTeX の設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照：&lt;a href=&#34;https://texwiki.texjp.org/?Emacs#e9c08b3d&#34; target=&#34;_blank&#34;&gt;skimとの連携&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照：&lt;a href=&#34;https://skalldan.wordpress.com/2011/07/20/auctex-の設定と便利な機能/&#34; target=&#34;_blank&#34;&gt;AUCTeX の設定と便利な機能&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照：&lt;a href=&#34;https://sourceforge.net/p/skim-app/wiki/TeX%5Fand%5FPDF%5FSynchronization/&#34; target=&#34;_blank&#34;&gt;TeX_and_PDF_Synchronization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;backward-search&#34;&gt;backward search&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;こちらのほうが便利なので最初に説明する．&lt;/li&gt;
+&lt;li&gt;skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;引数のところには，以下のように打ち込む．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ --no-wait +%line &amp;quot;%file&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;つまりこうなる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/skim-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/skim-1.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+;; Starts the Emacs server
+(server-start)
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．&lt;del&gt;もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！&lt;/del&gt; これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;該当箇所が少しずれることがあるのが欠点であるが，それでも十分に役に立つ．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;forward-search&#34;&gt;forward search&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;こちらも，backward searchほどではないが，役に立つ．&lt;/li&gt;
+&lt;li&gt;Emacs上のlatex document上の特定の箇所に該当するpdfの箇所を探して示してくれる．&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;この機能を可能にするには，init.orgに以下のように記述する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(add-hook &#39;LaTeX-mode-hook
+          (function (lambda ()
+                      (add-to-list &#39;TeX-command-list
+                                   &#39;(&amp;quot;displayline&amp;quot;
+                                     &amp;quot;/Applications/Skim.app/Contents/SharedSupport/displayline %n %s.pdf \&amp;quot;%b\&amp;quot;&amp;quot;
+                                     TeX-run-discard-or-function t t :help &amp;quot;Forward search with Skim&amp;quot;))
+                      )))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;これで，C-c C-c displayline により，Emacsのlatex document上の特定の箇所に該当するpdfの箇所に飛んでくれる．pdfの該当するところが赤丸で示される（数秒で消える）．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ただし，該当する箇所が結構ずれてしまうことが多い．最近は，beamerでしか使わないので，もしかすると，通常のlatex 文書だと狂いなく示すのかもしれない．まぁ，backward searchと違って， なくても困らない機能である．&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

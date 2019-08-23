@@ -1,24 +1,568 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>segment on A perfect autumn day</title>
-    <link>https://taipapamotohus.com/tags/segment/</link>
-    <description>Recent content in segment on A perfect autumn day</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://taipapamotohus.com/tags/segment/index.xml" rel="self" type="application/rss+xml" />
-    
+    <title>segment | A perfect autumn day</title>
+    <link>/tags/segment/</link>
+      <atom:link href="/tags/segment/index.xml" rel="self" type="application/rss+xml" />
+    <description>segment</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>segment</title>
+      <link>/tags/segment/</link>
+    </image>
     
     <item>
       <title>How to add different segment, annotation and color to each facet in ggplot</title>
-      <link>https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/</link>
+      <link>/post/different-segment-to-each-facet-in-ggplot/</link>
       <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
-      
-      <guid>https://taipapamotohus.com/post/different-segment-to-each-facet-in-ggplot/</guid>
-      <description>今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分て</description>
+      <guid>/post/different-segment-to-each-facet-in-ggplot/</guid>
+      <description>
+
+&lt;p&gt;今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#data-preparation&#34;&gt;Data Preparation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tukey-multiple-comparison&#34;&gt;Tukey multiple comparison&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#tukeyhsd&#34;&gt;TukeyHSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#テューキーの方法による多重比較&#34;&gt;テューキーの方法による多重比較&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#boxplot-by-ggplot2&#34;&gt;Boxplot by ggplot2&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#calculate-mean-and-se&#34;&gt;Calculate mean and SE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#geom-jitter&#34;&gt;geom_jitter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#geom-point&#34;&gt;geom_point&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-mean-bar&#34;&gt;Add mean bar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-segment-and-asterisk-to-drug2-facet-of-boxplot&#34;&gt;Add segment and asterisk to Drug2 facet of boxplot&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#dataframe-for-annotation&#34;&gt;Dataframe for annotation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-segment-with-geom-segment-and-asterisk-with-geom-text--black&#34;&gt;Add segment with geom_segment and asterisk with geom_text (black)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-segment-with-geom-segment-and-asterisk-with-geom-text--color&#34;&gt;Add segment with geom_segment and asterisk with geom_text (color)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#barplot-by-ggplot2&#34;&gt;Barplot by ggplot2&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#barplot&#34;&gt;Barplot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-segment-and-asterisk-to-drug2-facet-of-barplot&#34;&gt;Add segment and asterisk to Drug2 facet of barplot&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#dataframe-for-annotation&#34;&gt;Dataframe for annotation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-segment-with-geom-segment-and-asterisk-with-geom-text--color&#34;&gt;Add segment with geom_segment and asterisk with geom_text (color)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#combine-boxplot-and-barplot-into-the-same-graphic&#34;&gt;Combine boxplot and barplot into the same graphic&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://mukkujohn.hatenablog.com/entry/2016/09/29/212901&#34; target=&#34;_blank&#34;&gt;ggplot2を使って、注釈を入れる-2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://buzzrbeeline.blog/2018/11/06/adding-different-annotation-to-each-facet-in-ggplot/&#34; target=&#34;_blank&#34;&gt;Adding different annotation to each facet in ggplot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/24578352/add-a-segment-only-to-one-facet-using-ggplot2&#34; target=&#34;_blank&#34;&gt;Add a segment only to one facet using ggplot2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;data-preparation&#34;&gt;Data Preparation&lt;/h2&gt;
+
+&lt;p&gt;まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;set.seed(100)
+data.df1 &amp;lt;- data.frame(Control = rnorm(20, mean = 5, sd = 1),
+                       Day1 = rnorm(20, mean = 5, sd = 1.5),
+                       Day7 = rnorm(20, mean = 5, sd = 2))
+library(reshape)
+data_melt.df1 &amp;lt;- melt(data.df1)
+
+data.df2 &amp;lt;- data.frame(Control = rnorm(20, mean = 5, sd = 1.8),
+                       Day1 = rnorm(20, mean = 10, sd = 5),
+                       Day7 = rnorm(20, mean = 20, sd = 7))
+data_melt.df2 &amp;lt;- melt(data.df2)
+
+data_melt.df &amp;lt;- cbind.data.frame(data_melt.df1, data_melt.df2$value)
+colnames(data_melt.df) &amp;lt;- c(&amp;quot;Day&amp;quot;,&amp;quot;Drug1&amp;quot;,&amp;quot;Drug2&amp;quot;) # chage column name of dataframe
+head(data_melt.df)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;Using  as id variables
+Using  as id variables
+      Day    Drug1    Drug2
+1 Control 4.497808 4.528408
+2 Control 5.131531 4.876081
+3 Control 4.921083 4.318010
+4 Control 5.886785 9.647526
+5 Control 5.116971 5.233701
+6 Control 5.318630 3.716555
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで解析用のデータが出来上がった．一応，差を確認してみる．&lt;/p&gt;
+
+&lt;h2 id=&#34;tukey-multiple-comparison&#34;&gt;Tukey multiple comparison&lt;/h2&gt;
+
+&lt;p&gt;Tukeyの多重比較試験を行う．２つの方法で確認しておく．&lt;/p&gt;
+
+&lt;h3 id=&#34;tukeyhsd&#34;&gt;TukeyHSD&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TukeyHSD(aov(data_melt.df$Drug1~data_melt.df$Day))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = data_melt.df$Drug1 ~ data_melt.df$Day)
+
+$`data_melt.df$Day`
+                    diff       lwr      upr     p adj
+Day1-Control  0.03086351 -1.274284 1.336011 0.9982163
+Day7-Control -0.14426065 -1.449408 1.160887 0.9617765
+Day7-Day1    -0.17512416 -1.480272 1.130023 0.9442066
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TukeyHSD(aov(data_melt.df$Drug2~data_melt.df$Day))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = data_melt.df$Drug2 ~ data_melt.df$Day)
+
+$`data_melt.df$Day`
+                  diff       lwr       upr     p adj
+Day1-Control  4.874433  1.128239  8.620628 0.0076229
+Day7-Control 15.114597 11.368403 18.860791 0.0000000
+Day7-Day1    10.240164  6.493970 13.986358 0.0000000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;テューキーの方法による多重比較&#34;&gt;&lt;a href=&#34;http://aoki2.si.gunma-u.ac.jp/R/tukey.html&#34; target=&#34;_blank&#34;&gt;テューキーの方法による多重比較&lt;/a&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;source(&amp;quot;http://aoki2.si.gunma-u.ac.jp/R/src/tukey.R&amp;quot;, encoding=&amp;quot;euc-jp&amp;quot;)
+tukey(data_melt.df$Drug1, data_melt.df$Day)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;$result1
+        n     Mean Variance
+Group1 20 5.107867 0.516335
+Group2 20 5.138731 1.188671
+Group3 20 4.963606 7.119660
+
+$Tukey
+             t         p
+1:2 0.05690583 0.9982163
+1:3 0.26598637 0.9617765
+2:3 0.32289220 0.9442066
+
+$phi
+[1] 57
+
+$v
+[1] 2.941555
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;tukey(data_melt.df$Drug2, data_melt.df$Day)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;$result1
+        n      Mean Variance
+Group1 20  4.811422  4.07251
+Group2 20  9.685855 32.74563
+Group3 20 19.926019 35.88609
+
+$Tukey
+           t            p
+1:2 3.131158 7.622857e-03
+1:3 9.709065 1.156397e-11
+2:3 6.577907 4.783876e-08
+
+$phi
+[1] 57
+
+$v
+[1] 24.23474
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以上で，Drug1では物質Xの濃度はコントロールと差がないこと，Drug2ではコントロール，Day1，Day7の間に有意差が認められることが確認された．そのようにデータを作ったので当たり前である．．．(^^;;;;;&lt;/p&gt;
+
+&lt;h2 id=&#34;boxplot-by-ggplot2&#34;&gt;Boxplot by ggplot2&lt;/h2&gt;
+
+&lt;p&gt;ようやくここから上記のデータを使って，ggplot2でboxplotを描いてみる．まずはmeltを用いてwide formatからlong formatへのデータの整形を行う．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;DataM &amp;lt;- melt(data_melt.df, id = &amp;quot;Day&amp;quot;)
+head(DataM)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;      Day variable    value
+1 Control    Drug1 4.497808
+2 Control    Drug1 5.131531
+3 Control    Drug1 4.921083
+4 Control    Drug1 5.886785
+5 Control    Drug1 5.116971
+6 Control    Drug1 5.318630
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;calculate-mean-and-se&#34;&gt;Calculate mean and SE&lt;/h3&gt;
+
+&lt;p&gt;平均とSEも求めておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;library(plyr)
+DataM_summary &amp;lt;- ddply(DataM, .(variable, Day), summarise, N = length(value), mean = mean(value), sd = sd(value), se = sd(value)/sqrt(length(value)))
+DataM_summary
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;  variable     Day  N      mean        sd        se
+1    Drug1 Control 20  5.107867 0.7185645 0.1606759
+2    Drug1    Day1 20  5.138731 1.0902617 0.2437899
+3    Drug1    Day7 20  4.963606 2.6682692 0.5966431
+4    Drug2 Control 20  4.811422 2.0180460 0.4512488
+5    Drug2    Day1 20  9.685855 5.7223794 1.2795629
+6    Drug2    Day7 20 19.926019 5.9904997 1.3395165
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ついで，ggplot2のggplotでboxplotを描く．個々のデータをgeom_jitter，あるいは，geom_pointを用いて重ねてプロットしておく．どちらの方法でも下記のように同じ図になる．&lt;/p&gt;
+
+&lt;h3 id=&#34;geom-jitter&#34;&gt;geom_jitter&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;library(ggplot2)
+TestBoxPlot &amp;lt;- ggplot(DataM, aes(x = Day, y = value, colour = Day, fill = Day)) +
+    geom_boxplot(alpha = 0.40) +
+    facet_wrap(~variable, ncol = 3, scales=&amp;quot;fixed&amp;quot;) +
+    coord_cartesian(ylim = c(0,38)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&amp;quot;&amp;quot;) +
+    ylab(&amp;quot;Relative value to control&amp;quot;) +
+    theme(legend.position = &amp;quot;none&amp;quot;) +   # delete legend
+    geom_jitter(shape=16, size=2, position=position_jitter(0.1))  # plot individual point with jittering
+
+TestBoxPlot
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Boxplot1.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Boxplot1.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;geom-point&#34;&gt;geom_point&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TestBoxPlot2 &amp;lt;- ggplot(DataM, aes(x = Day, y = value, colour = Day, fill = Day)) +
+    geom_boxplot(alpha = 0.40) +
+    facet_wrap(~variable, ncol = 3, scales=&amp;quot;fixed&amp;quot;) +
+    coord_cartesian(ylim = c(0,38)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&amp;quot;&amp;quot;) +
+    ylab(&amp;quot;Relative value to control&amp;quot;) +
+    theme(legend.position = &amp;quot;none&amp;quot;) +   # delete legend
+    geom_point(aes(fill = Day), size = 2, shape = 16, position = position_jitterdodge())  # plot individual point with jittering
+
+TestBoxPlot2
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Boxplot2.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Boxplot2.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;add-mean-bar&#34;&gt;Add mean bar&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot&#34; target=&#34;_blank&#34;&gt;combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot&lt;/a&gt;   &lt;br /&gt;
+平均値のバーを書き込む．これはgeom_segmentを使うが，すべてのfacetに書き込むので，単純である．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TestBoxPlot3 &amp;lt;- TestBoxPlot +
+    geom_segment(data = DataM_summary, aes(x=as.numeric(as.factor(Day)) - 0.5,
+                                           xend=as.numeric(as.factor(Day)) + 0.5,
+                                           yend=mean,
+                                           y=mean,
+                                           colour=Day,
+                                           alpha=0.7),
+                 size = 1.5, linetype = 1)
+
+TestBoxPlot3
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Boxplot1mean.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Boxplot1mean.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;add-segment-and-asterisk-to-drug2-facet-of-boxplot&#34;&gt;Add segment and asterisk to Drug2 facet of boxplot&lt;/h2&gt;
+
+&lt;h3 id=&#34;dataframe-for-annotation&#34;&gt;Dataframe for annotation&lt;/h3&gt;
+
+&lt;p&gt;ここからが本番である．上記で作成したグラフを見ながら，どこからどこに線を引けばよいのか，どこにasteriskを置けばよいのか大体の見当をつけたうえで，注釈用のデータフレームを別途作成する．これは手作業でやらざるを得ない．できたグラフを見て微調整をしていく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;anno &amp;lt;- data.frame(
+    x=c(0.9, 0.9, 3.1, 1.1, 1.1, 1.9, 2.1, 2.1, 2.9),
+    y=c(10.5, 37, 37, 10.5, 26, 26, 23.5, 34, 34),
+    xend=c(0.9, 3.1, 3.1, 1.1, 1.9, 1.9, 2.1, 2.9, 2.9),
+    yend=c(37, 37, 32.5, 26, 26, 23.5, 34, 34, 32.5),
+    variable=&amp;quot;Drug2&amp;quot;,
+    xstar = c(1.5, 2, 2.5, NA, NA, NA, NA, NA, NA),
+    ystar = c(27, 38, 35, NA, NA, NA, NA, NA, NA),
+    lab = c(&amp;quot;**&amp;quot;, &amp;quot;***&amp;quot;, &amp;quot;***&amp;quot;, NA, NA, NA, NA, NA, NA),
+    ast.color = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;, NA, NA, NA, NA, NA, NA))
+
+anno
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;    x    y xend yend variable xstar ystar  lab ast.color
+1 0.9 10.5  0.9 37.0    Drug2   1.5    27   **       red
+2 0.9 37.0  3.1 37.0    Drug2   2.0    38  ***      blue
+3 3.1 37.0  3.1 32.5    Drug2   2.5    35  ***     green
+4 1.1 10.5  1.1 26.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+5 1.1 26.0  1.9 26.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+6 1.9 26.0  1.9 23.5    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+7 2.1 23.5  2.1 34.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+8 2.1 34.0  2.9 34.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+9 2.9 34.0  2.9 32.5    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;x, y, xend, yendは各線分の始点と終点で，xstar, ystarは注釈，今回はasteriskの位置を示す．labはasteriskそのものを指示し，colorはasteriskの色を指定している．&lt;/p&gt;
+
+&lt;h3 id=&#34;add-segment-with-geom-segment-and-asterisk-with-geom-text--black&#34;&gt;Add segment with geom_segment and asterisk with geom_text (black)&lt;/h3&gt;
+
+&lt;p&gt;geom_segmentで線を引いて，geom_textでasteriskをつける．まずは黒色でやってみる． &lt;strong&gt;inherit.aes=FALSE&lt;/strong&gt; をgeom_text()とgeom_segment()の内部に追加してggplot()内のfill=Dayを無視させる．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TestBoxPlot3 +
+    geom_text(data = anno, aes(x = xstar, y = ystar, label = lab, colour = NULL), size = 7, family = &amp;quot;Times New Roman&amp;quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Boxplot1mean_anno.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Boxplot1mean_anno.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;add-segment-with-geom-segment-and-asterisk-with-geom-text--color&#34;&gt;Add segment with geom_segment and asterisk with geom_text (color)&lt;/h3&gt;
+
+&lt;p&gt;asteriskに色をつける．データフレーム annoに書き込んだ色データを明示的に指示して利用する．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TestBoxPlot3 +
+    geom_text(data = anno, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &amp;quot;Times New Roman&amp;quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Boxplot1mean_anno_color.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Boxplot1mean_anno_color.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;問題はここである．どうしても， &lt;strong&gt;colour = anno$ast.color&lt;/strong&gt; とデータフレームと変数を明示的に指示しないと色がおかしくなるか，エラーになってしまう．もっとうまくggplotにデータを読ませる方法をどなたかご教示いただければ幸甚である．&lt;/p&gt;
+
+&lt;h2 id=&#34;barplot-by-ggplot2&#34;&gt;Barplot by ggplot2&lt;/h2&gt;
+
+&lt;p&gt;次にbarplotを描いて同じことをやってみる．エラーバーは慣例通りSEにする．&lt;/p&gt;
+
+&lt;h3 id=&#34;barplot&#34;&gt;Barplot&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TestBarPlot &amp;lt;- ggplot(DataM_summary, aes(x = Day, y = mean, colour = Day, fill=Day)) +
+    geom_errorbar(aes(ymin = mean, ymax = mean + se), width = 0.2) +
+    geom_bar(position=position_dodge(), stat=&amp;quot;identity&amp;quot;, alpha=1/2, width=0.5) +
+    facet_wrap(~variable, scales = &amp;quot;fixed&amp;quot;, ncol=3) +
+    coord_cartesian(ylim = c(0,30)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&amp;quot;&amp;quot;) +
+    ylab(&amp;quot;Relative value to control&amp;quot;) +
+    theme(legend.position = &amp;quot;none&amp;quot;)   # delete legend
+
+TestBarPlot
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Barplot1.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Barplot1.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;add-segment-and-asterisk-to-drug2-facet-of-barplot&#34;&gt;Add segment and asterisk to Drug2 facet of barplot&lt;/h2&gt;
+
+&lt;h3 id=&#34;dataframe-for-annotation-1&#34;&gt;Dataframe for annotation&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;anno2 &amp;lt;- data.frame(
+    x=c(0.9, 0.9, 3.1, 1.1, 1.1, 1.9, 2.1, 2.1, 2.9),
+    y=c(6.5, 29, 29, 6.5, 17, 17, 12.5, 25, 25),
+    xend=c(0.9, 3.1, 3.1, 1.1, 1.9, 1.9, 2.1, 2.9, 2.9),
+    yend=c(29, 29, 22.5, 17, 17, 12.5, 25, 25, 22.5),
+    variable=&amp;quot;Drug2&amp;quot;,
+    xstar = c(1.5, 2, 2.5, NA, NA, NA, NA, NA, NA),
+    ystar = c(17.5, 29.5, 25.5, NA, NA, NA, NA, NA, NA),
+    lab = c(&amp;quot;**&amp;quot;, &amp;quot;***&amp;quot;, &amp;quot;***&amp;quot;, NA, NA, NA, NA, NA, NA),
+    ast.color = c(&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;, NA, NA, NA, NA, NA, NA))
+
+anno2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;    x    y xend yend variable xstar ystar  lab ast.color
+1 0.9  6.5  0.9 29.0    Drug2   1.5  17.5   **       red
+2 0.9 29.0  3.1 29.0    Drug2   2.0  29.5  ***      blue
+3 3.1 29.0  3.1 22.5    Drug2   2.5  25.5  ***     green
+4 1.1  6.5  1.1 17.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+5 1.1 17.0  1.9 17.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+6 1.9 17.0  1.9 12.5    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+7 2.1 12.5  2.1 25.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+8 2.1 25.0  2.9 25.0    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+9 2.9 25.0  2.9 22.5    Drug2    NA    NA &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;add-segment-with-geom-segment-and-asterisk-with-geom-text--color-1&#34;&gt;Add segment with geom_segment and asterisk with geom_text (color)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;TestBarPlot +
+    geom_text(data = anno2, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &amp;quot;Times New Roman&amp;quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno2, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Barplot1_anno_color.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Barplot1_anno_color.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;barplotでも全く同様のグラフを作成することができた．&lt;/p&gt;
+
+&lt;p&gt;なお，通常のグラフをpdfで出力して，それをOmniGraffleなどのお絵かきソフトに持っていき，手作業で線やasteriskを描いて，再びpdfで出力する，という荒業も使えないことはない．しかし，ggplotの中で完結できるので，余分で面倒な手作業が不要になった．まぁ，上記の作業も面倒ではあるが，再現性があり，他の人にも渡せるというところが重要であると思う．&lt;/p&gt;
+
+&lt;h2 id=&#34;combine-boxplot-and-barplot-into-the-same-graphic&#34;&gt;Combine boxplot and barplot into the same graphic&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Ref1:&lt;/strong&gt; &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34; target=&#34;_blank&#34;&gt;patchwork&lt;/a&gt;   &lt;br /&gt;
+&lt;strong&gt;Ref2:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/nozma/items/4512623bea296ccb74ba&#34; target=&#34;_blank&#34;&gt;patchworkを使って複数のggplotを組み合わせる&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;patchworkを使えば，上記の２種のグラフを簡単に一つの図にできる．比較しやすいようにbarplotのy軸のスケールをboxplotと同じに修正しておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-R&#34;&gt;# Boxplot
+P1 &amp;lt;- TestBoxPlot3 +
+    geom_text(data = anno, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &amp;quot;Times New Roman&amp;quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+
+# Barplot
+TestBarPlot2 &amp;lt;- ggplot(DataM_summary, aes(x = Day, y = mean, colour = Day, fill=Day)) +
+    geom_errorbar(aes(ymin = mean, ymax = mean + se), width = 0.2) +
+    geom_bar(position=position_dodge(), stat=&amp;quot;identity&amp;quot;, alpha=1/2, width=0.5) +
+    facet_wrap(~variable, scales = &amp;quot;fixed&amp;quot;, ncol=3) +
+    coord_cartesian(ylim = c(0,38)) +
+    theme_bw() +
+    theme(axis.text.x  = element_text(size=14), axis.text.y = element_text(size=14), strip.text.x = element_text(size =16)) +
+    theme(axis.title.x = element_text(size=14), axis.title.y = element_text(size=16), plot.title=element_text(size=0)) +
+    xlab(&amp;quot;&amp;quot;) +
+    ylab(&amp;quot;Relative value to control&amp;quot;) +
+    theme(legend.position = &amp;quot;none&amp;quot;)   # delete legend
+P2 &amp;lt;- TestBarPlot2 +
+    geom_text(data = anno2, aes(x = xstar, y = ystar, label = lab), colour = anno$ast.color, size = 7, family = &amp;quot;Times New Roman&amp;quot;, inherit.aes = FALSE) +
+    geom_segment(data = anno2, aes(x = x,  y = y, xend=xend, yend=yend), inherit.aes = FALSE)
+
+library(patchwork)
+P1 + P2
+&lt;/code&gt;&lt;/pre&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/Combined.png&#34; &gt;
+
+&lt;img src=&#34;/ox-hugo/Combined.png&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;このpatchworkは足し算だけで２つの図の合体ができてしまうすぐれもの．ちゃんと位置合わせなども自動的にしてくれる．素晴らしい．&lt;/p&gt;
+
+&lt;p&gt;しかし，こうして並べて比べてみると，barplotが如何に情報量の少ないグラフであるかが一目瞭然である．&lt;/p&gt;
+</description>
     </item>
     
   </channel>
