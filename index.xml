@@ -13,11 +13,117 @@
     </image>
     
     <item>
-      <title>How to update hugo and academic theme</title>
+      <title>How to update hugo and academic theme (Part2)</title>
+      <link>/post/how-to-update-hugo-and-academic-theme-part2/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-update-hugo-and-academic-theme-part2/</guid>
+      <description>&lt;p&gt;前回（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part 1)&lt;/a&gt;）にhutoとacademicのアップデートをまとめたが，やはり，githubにdeployするときのエラーが，どうしても気になる．そこで，今回は，Academic themeのインストールを一からやり直すことにした．   Hugoとox-hugoのインストールやアップデートは前回の記事（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part 1)&lt;/a&gt;）を参考にしていただきたい．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-academic-kickstart-with-git&#34;&gt;Install Academic Kickstart with Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#migrate-content&#34;&gt;Migrate Content&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/&#34; target=&#34;_blank&#34;&gt;Install&lt;/a&gt; Academicご本家の解説&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt; Academicご本家の解説&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;install-academic-kickstart-with-git&#34;&gt;Install Academic Kickstart with Git&lt;/h2&gt;
+
+&lt;p&gt;やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． &lt;a href=&#34;https://qiita.com/sotarok/items/0d525e568a6088f6f6bb&#34; target=&#34;_blank&#34;&gt;Git submodule の基礎&lt;/a&gt; によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である．&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
+/Data/MyBlog
+$ git clone https://github.com/sourcethemes/academic-kickstart.git Taipapablog
+Cloning into &#39;Taipapablog&#39;...
+remote: Enumerating objects: 579, done.
+remote: Total 579 (delta 0), reused 0 (delta 0), pack-reused 579
+Receiving objects: 100% (579/579), 163.92 KiB | 480.00 KiB/s, done.
+Resolving deltas: 100% (179/179), done.
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ついで，themeをsubmoduleでinitializeする．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd Taipapablog
+$ pwd
+/Data/MyBlog/Taipapablog
+$ git submodule update --init --recursive
+Submodule &#39;themes/academic&#39; (https://github.com/gcushen/hugo-academic.git) registered for path &#39;themes/academic&#39;
+Cloning into &#39;/Data/MyBlog/Taipapablog/themes/academic&#39;...
+Submodule path &#39;themes/academic&#39;: checked out &#39;32b6145c06835e33668100105ac1835593cf8d72&#39;
+$ ls
+LICENSE.md          config/             netlify.toml        themes/
+README.md           content/            scripts/            update_academic.sh*
+academic.Rproj      data/               static/             view.sh*
+$ ll
+total 72
+drwxr-xr-x  18 kohkichi  admin   576 Aug 24 16:34 .
+drwxr-xr-x  18 kohkichi  admin   576 Aug 24 16:35 ..
+-rw-r--r--   1 kohkichi  admin   298 Aug 24 16:34 .editorconfig
+drwxr-xr-x  13 kohkichi  admin   416 Aug 24 16:34 .git
+-rw-r--r--   1 kohkichi  admin    15 Aug 24 16:34 .gitignore
+-rw-r--r--   1 kohkichi  admin   106 Aug 24 16:34 .gitmodules
+-rw-r--r--   1 kohkichi  admin  1078 Aug 24 16:34 LICENSE.md
+-rw-r--r--   1 kohkichi  admin  2671 Aug 24 16:34 README.md
+-rw-r--r--   1 kohkichi  admin   258 Aug 24 16:34 academic.Rproj
+drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 config
+drwxr-xr-x   7 kohkichi  admin   224 Aug 24 16:34 content
+drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 data
+-rw-r--r--   1 kohkichi  admin   380 Aug 24 16:34 netlify.toml
+drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 scripts
+drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 static
+drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 themes
+-rwxr-xr-x   1 kohkichi  admin  1628 Aug 24 16:34 update_academic.sh
+-rwxr-xr-x   1 kohkichi  admin    49 Aug 24 16:34 view.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．&lt;/p&gt;
+
+&lt;h2 id=&#34;migrate-content&#34;&gt;Migrate Content&lt;/h2&gt;
+
+&lt;p&gt;前回（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part 1)&lt;/a&gt;）にすでに投稿記事などはスクリプトなどを使ってアップデートしてあるし，設定ファイルもアップデート済みである．そちらのディレクトリから，config, content (home, postなど主要な部分を含む), layouts, static, assetsなどを，今回新たに作成したTaipapablog directoryにコピーすれば良い．コピー後にもう一度Taipapablog directoryの中身を見ると，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ls
+LICENSE.md                   layouts/
+README.md                    netlify.toml
+Taipapablog-20180816_v2.org  public/
+academic.Rproj               resources/
+assets/                      scripts/
+config/                      static/
+content/                     themes/
+data/                        update_academic.sh*
+deploy.sh*                   view.sh*
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな風になっているはずである．（Taipapablog-20180816_v2.orgは，ox-hugoで書いたこのブログの原稿）&lt;/p&gt;
+
+&lt;p&gt;これで，hugo root directoryで，hugo serverを叩くと，元のブログが立ち上がる．&lt;/p&gt;
+
+&lt;p&gt;あれ，今回は簡単にできてしまった．既に，前回で，Page Bundlesやfeatured imageに合わせて修正していたから，本当に流し込むだけであった．さて，これで，deployしてもエラーが出なければOKである．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to update hugo and academic theme (Part 1)</title>
       <link>/post/how-to-upgrade-hugo-and-academic-theme/</link>
       <pubDate>Sun, 18 Aug 2019 00:00:00 +0900</pubDate>
       <guid>/post/how-to-upgrade-hugo-and-academic-theme/</guid>
-      <description>&lt;p&gt;最近のニュースを見ていて思い出した言葉がある．&lt;/p&gt;
+      <description>&lt;p&gt;最近のニュースを見ていて思い出した言葉がある．&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow&lt;/p&gt;
@@ -29,11 +135,11 @@
 
 &lt;p&gt;3番目はオマケ&lt;/p&gt;
 
-&lt;p&gt;閑話休題，以前の記事（&lt;a href=&#34;../horizontal_scrollbar&#34;&gt;How to add horizontal scrollbar for codeblock in academic theme of hugo&lt;/a&gt;）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．&lt;/p&gt;
+&lt;p&gt;閑話休題，以前の記事（&lt;a href=&#34;../horizontal_scrollbar&#34;&gt;How to add horizontal scrollbar for codeblock in academic theme of hugo&lt;/a&gt;）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．&lt;/p&gt;
 
-&lt;p&gt;実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．&lt;/p&gt;
+&lt;p&gt;実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．&lt;/p&gt;
 
-&lt;p&gt;本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;&lt;/p&gt;
+&lt;p&gt;本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;&lt;/p&gt;
 
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
 &lt;div&gt;&lt;/div&gt;
@@ -50,7 +156,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#front-matter&#34;&gt;Front matter&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#featured-image&#34;&gt;Featured image&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#recent-postsの画像表示のフォーマット変更&#34;&gt;Recent Postsの画像表示のフォーマット変更&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#alerts&#34;&gt;Alerts&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/a&gt;&lt;/li&gt;
@@ -64,11 +170,11 @@
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;  ご本家&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic&lt;/a&gt;  academic themeのご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic&lt;/a&gt;  academic themeのご本家&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt;  academic themeのインストール&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt;  academic themeのupdateについて&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34; target=&#34;_blank&#34;&gt;ox-hugo&lt;/a&gt;  ox-hugoのご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34; target=&#34;_blank&#34;&gt;ox-hugo&lt;/a&gt;  ox-hugoのご本家&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;hugoのupdate&#34;&gt;Hugoのupdate&lt;/h2&gt;
@@ -123,11 +229,11 @@ ox-hugo
 ;; End:
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;最新版であることが確認できる．&lt;/p&gt;
+&lt;p&gt;最新版であることが確認できる．&lt;/p&gt;
 
 &lt;h2 id=&#34;academic-theme-update&#34;&gt;Academic theme update&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt; のサイトには，以下の3つの場合でのupdateの方法が書かれている．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34; target=&#34;_blank&#34;&gt;Update&lt;/a&gt; のサイトには，以下の3つの場合でのupdateの方法が書かれている．&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;If you installed Academic Kickstart&lt;/li&gt;
@@ -135,11 +241,17 @@ ox-hugo
 &lt;li&gt;If you installed from a ZIP&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
+&lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
 
-&lt;p&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参考にしていただきたい．以下の記述は自戒のために残しておく．
+  &lt;/div&gt;
+&lt;/div&gt;
 
-&lt;p&gt;以下，&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt; に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;以下，&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt; に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．&lt;/del&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
 $ hugo new site Taipapablog
@@ -154,7 +266,7 @@ version = &amp;quot;4.4.0&amp;quot;
 themes/academic/data/academic.toml (END)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．&lt;/del&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
 /Data/hoge/Taipapablog
@@ -163,18 +275,18 @@ config/  content/ static/
 $ cp -av themes/academic/exampleSite/* .
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;ここで，Hugo serverをwebsite root folderから立ち上げる．&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;ここで，Hugo serverをwebsite root folderから立ち上げる．&lt;/del&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
 /Data/hoge/Taipapablog
 $ hugo server --watch
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．&lt;/del&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;migrate-content&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/#migrate-content&#34; target=&#34;_blank&#34;&gt;Migrate Content&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を &lt;strong&gt;&amp;ldquo;Breaking changes&amp;rdquo;&lt;/strong&gt; と呼んでいる．これを乗り越えてブログの内容を移行するための&lt;a href=&#34;https://github.com/sourcethemes/academic-scripts&#34; target=&#34;_blank&#34;&gt;academic-scripts&lt;/a&gt; のリンクが上記ページにある．これは，hugoの新しい機能である&lt;a href=&#34;https://gohugo.io/content-management/page-bundles/&#34; target=&#34;_blank&#34;&gt;Page Bundles&lt;/a&gt; への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，&lt;a href=&#34;https://gohugo.io/content-management/page-resources/&#34; target=&#34;_blank&#34;&gt;Page Resources&lt;/a&gt; をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．&lt;/p&gt;
+&lt;p&gt;ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を &lt;strong&gt;&amp;ldquo;Breaking changes&amp;rdquo;&lt;/strong&gt; と呼んでいる．これを乗り越えてブログの内容を移行するための&lt;a href=&#34;https://github.com/sourcethemes/academic-scripts&#34; target=&#34;_blank&#34;&gt;academic-scripts&lt;/a&gt; のリンクが上記ページにある．これは，hugoの新しい機能である&lt;a href=&#34;https://gohugo.io/content-management/page-bundles/&#34; target=&#34;_blank&#34;&gt;Page Bundles&lt;/a&gt; への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，&lt;a href=&#34;https://gohugo.io/content-management/page-resources/&#34; target=&#34;_blank&#34;&gt;Page Resources&lt;/a&gt; をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Old version
 $ tree -L 2
@@ -211,7 +323,7 @@ $ tree -L 2
 ..........
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．&lt;/p&gt;
+&lt;p&gt;先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
 $ ls
@@ -256,7 +368,7 @@ $ less refactor-homepage-sections-to-bundles.sh
 ..........
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．&lt;/p&gt;
+&lt;p&gt;という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd /Data/hoge
 $ ls
@@ -274,7 +386,7 @@ $ ../academic-scripts/refactor-pages-to-page-bundles.sh
 $ cp -a content/post/* ../Taipapablog/content/post/
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．&lt;/p&gt;
+&lt;p&gt;以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
 ./content/home/search.md -&amp;gt; ./content/home/search/index.md
@@ -282,38 +394,38 @@ $ cp -a content/post/* ../Taipapablog/content/post/
 ./content/home/hero.md -&amp;gt; ./content/home/hero/index.md
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．&lt;/p&gt;
+&lt;p&gt;これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．&lt;/p&gt;
 
-&lt;p&gt;ここから先は，config/, content/, content/home/, content/post/の中身を弄って，アップデートする前と同じになるように修正していく．私は，blogをhugoのmarkdown自体はほとんど弄ることなく，org-modeのパッケージであるox-hugoで書いているので，そちらを中心に述べる．&lt;/p&gt;
+&lt;p&gt;ここから先は，config/, content/, content/home/, content/post/の中身を弄って，アップデートする前と同じになるように修正していく．私は，blogをhugoのmarkdown自体はほとんど弄ることなく，org-modeのパッケージであるox-hugoで書いているので，そちらを中心に述べる．&lt;/p&gt;
 
 &lt;h3 id=&#34;front-matter&#34;&gt;Front matter&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;content/home/には，demo, experienceなど多くのwidgetが入っているが，ほとんど使用してないので，それぞれのindex.mdのfront matterの最初の方にあるactive = trueを &lt;strong&gt;active = false&lt;/strong&gt; にする．&lt;/li&gt;
-&lt;li&gt;上記のスクリプトを適用した際に，headless = true  # This file represents a page section. が二重になることがあったので，余分な部分は全て削除した．&lt;/li&gt;
-&lt;li&gt;新規ポストを投稿する際に，page bundlesの形式になるようにするために，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使用する．詳細は次節で述べる．&lt;/li&gt;
+&lt;li&gt;content/home/には，demo, experienceなど多くのwidgetが入っているが，ほとんど使用してないので，それぞれのindex.mdのfront matterの最初の方にあるactive = trueを &lt;strong&gt;active = false&lt;/strong&gt; にする．&lt;/li&gt;
+&lt;li&gt;上記のスクリプトを適用した際に，headless = true  # This file represents a page section. が二重になることがあったので，余分な部分は全て削除した．&lt;/li&gt;
+&lt;li&gt;新規ポストを投稿する際に，page bundlesの形式になるようにするために，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使用する．詳細は次節で述べる．&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;subtitle&lt;/strong&gt; を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;subtitle&lt;/strong&gt; を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;featured-image&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#featured-image&#34; target=&#34;_blank&#34;&gt;Featured image&lt;/a&gt;&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;各ポストの冒頭に掲げていた画像は，アップデート前は明示的に場所と名前を指示しないといけなかったが，アップデート後はPage Bundlesとなり，同じフォルダにfeatured.jpgとして置いておけば，自動的にその記事の冒頭に表示されるようになる．各画像の移動が面倒であったが，今後は楽になりそう．．．(^^&lt;/li&gt;
+&lt;li&gt;各ポストの冒頭に掲げていた画像は，アップデート前は明示的に場所と名前を指示しないといけなかったが，アップデート後はPage Bundlesとなり，同じフォルダにfeatured.jpgとして置いておけば，自動的にその記事の冒頭に表示されるようになる．各画像の移動が面倒であったが，今後は楽になりそう．．．(^^&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;ox-hugoから，Page Bundlesとしてexportするためには，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;ox-hugoから，Page Bundlesとしてexportするためには，propertiesに &lt;strong&gt;EXPORT_HUGO_BUNDLE&lt;/strong&gt; を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;:PROPERTIES:
 :EXPORT_HUGO_BUNDLE: how-to-upgrade-hugo-and-academic-theme
 :EXPORT_FILE_NAME: index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image &#39;((placement . 3) (caption . &amp;quot;Ancient greek pottery, Musée du Louvre&amp;quot;))
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &amp;quot;Hugoとacademic テーマのアップデート&amp;quot;
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image &#39;((placement . 3) (caption . &amp;quot;Ancient greek pottery, Musée du Louvre&amp;quot;))
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# Featured image
 # To use, place an image named `featured.jpg/png` in your page&#39;s folder.
@@ -322,12 +434,12 @@ $ cp -a content/post/* ../Taipapablog/content/post/
 # Set `preview_only` to `true` to just use the image for thumbnails.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/h3&gt;
+&lt;h3 id=&#34;recent-postsのサマリが長すぎる&#34;&gt;Recent Postsのサマリが長すぎる！&lt;/h3&gt;
 
-&lt;p&gt;Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/#view&#34; target=&#34;_blank&#34;&gt;View&lt;/a&gt;）．&lt;/p&gt;
+&lt;p&gt;Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder/#view&#34; target=&#34;_blank&#34;&gt;View&lt;/a&gt;）．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
 
@@ -339,7 +451,7 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 5 = Showcase (large images), only available for projects
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34; target=&#34;_blank&#34;&gt;Create a blog post&lt;/a&gt; に記載されているように， &lt;strong&gt;&amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;&lt;/strong&gt; を記事本文の適当なところに挿入して，サマリの長さを調整することにした．&lt;/p&gt;
+&lt;p&gt;この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post&#34; target=&#34;_blank&#34;&gt;Create a blog post&lt;/a&gt; に記載されているように， &lt;strong&gt;&amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;&lt;/strong&gt; を記事本文の適当なところに挿入して，サマリの長さを調整することにした．&lt;/p&gt;
 
 &lt;h3 id=&#34;recent-postsの画像表示のフォーマット変更&#34;&gt;Recent Postsの画像表示のフォーマット変更&lt;/h3&gt;
 
@@ -349,22 +461,22 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;li&gt;&lt;a href=&#34;https://discourse.gohugo.io/t/crop-less-with-focal-point/15387&#34; target=&#34;_blank&#34;&gt;Crop Less with Focal Point&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34; target=&#34;_blank&#34;&gt;Image Processing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://gohugo.io/templates/partials/&#34; target=&#34;_blank&#34;&gt;Partial Templates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ottan.xyz/hugo-template-partial-define-block-20190101/&#34; target=&#34;_blank&#34;&gt;Hugoのテンプレート構文「template」「partial」「block」「define」のわかりやすい解説&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ottan.xyz/hugo-template-partial-define-block-20190101/&#34; target=&#34;_blank&#34;&gt;Hugoのテンプレート構文「template」「partial」「block」「define」のわかりやすい解説&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;上述のfeatured imageを記事のheader imageとして表示する際のサイズやクロップのやり方が気に入らないので，変更することにした．cardでacademic themeに全文検索をかけると， &lt;strong&gt;li_card.html&lt;/strong&gt; というファイルが見つかり，どうやら，これが，カード形式のテンプレート（&lt;a href=&#34;https://gohugo.io/templates/partials/&#34; target=&#34;_blank&#34;&gt;Partial Templates&lt;/a&gt;）と推察され，これを変更すれば良いと気がついた．&lt;/p&gt;
+&lt;p&gt;上述のfeatured imageを記事のheader imageとして表示する際のサイズやクロップのやり方が気に入らないので，変更することにした．cardでacademic themeに全文検索をかけると， &lt;strong&gt;li_card.html&lt;/strong&gt; というファイルが見つかり，どうやら，これが，カード形式のテンプレート（&lt;a href=&#34;https://gohugo.io/templates/partials/&#34; target=&#34;_blank&#34;&gt;Partial Templates&lt;/a&gt;）と推察され，これを変更すれば良いと気がついた．&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Data/hoge/Taipapablog/layouts&lt;/em&gt; に &lt;strong&gt;partials&lt;/strong&gt; directoryを作成し，/Data/hoge/Taipapablog/themes/academic/layouts/partials/ &lt;strong&gt;li_card.html&lt;/strong&gt; をコピーする．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Data/hoge/Taipapablog/layouts&lt;/em&gt; に &lt;strong&gt;partials&lt;/strong&gt; directoryを作成し，/Data/hoge/Taipapablog/themes/academic/layouts/partials/ &lt;strong&gt;li_card.html&lt;/strong&gt; をコピーする．&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Hugoは以下の優先順位で読み込まれる．（&lt;a href=&#34;https://gohugo.io/templates/partials/#partial-template-lookup-order&#34; target=&#34;_blank&#34;&gt;Partial Template Lookup Order&lt;/a&gt;）&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Hugoは以下の優先順位で読み込まれる．（&lt;a href=&#34;https://gohugo.io/templates/partials/#partial-template-lookup-order&#34; target=&#34;_blank&#34;&gt;Partial Template Lookup Order&lt;/a&gt;）&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
 &lt;li&gt;themes/&lt;THEME&gt;/layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;以下のように，li_card.htmlの53行目を変更する．&lt;/p&gt;
 
@@ -380,19 +492,19 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 .....
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;これは， &lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34; target=&#34;_blank&#34;&gt;Image Processing&lt;/a&gt; に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;これは， &lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34; target=&#34;_blank&#34;&gt;Image Processing&lt;/a&gt; に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&#34;alerts&#34;&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts&#34; target=&#34;_blank&#34;&gt;Alerts&lt;/a&gt;&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;これは今回見つけた新たな小道具&lt;/li&gt;
-&lt;li&gt;ノート，ヒント，警告などに有用．&lt;/li&gt;
-&lt;li&gt;いくつか方法はあるが，shortcodeを使うのが一番簡単．&lt;br /&gt;
+&lt;li&gt;ノート，ヒント，警告などに有用．&lt;/li&gt;
+&lt;li&gt;いくつか方法はあるが，shortcodeを使うのが一番簡単．&lt;br /&gt;
 ｛{% alert note %}}&lt;br /&gt;
   A Markdown aside is useful for displaying notices, hints, or definitions to your readers.&lt;br /&gt;
   ｛{% alert  %}}&lt;br /&gt;
-により，（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;/li&gt;
+により，（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&#34;alert alert-note&#34;&gt;
@@ -406,7 +518,7 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;p&gt;｛{% alert warning %}}&lt;br /&gt;
  A Markdown aside is useful for displaying notices, hints, or definitions to your readers.&lt;br /&gt;
  ｛{% /alert %}}&lt;br /&gt;
- は，以下のようになる．（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;br /&gt;
+ は，以下のようになる．（最初の &lt;strong&gt;&amp;rdquo;{&amp;rdquo;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;ldquo;｛&amp;rdquo;&lt;/strong&gt; にしていることに注意）&lt;br /&gt;
  &lt;div class=&#34;alert alert-warning&#34;&gt;
   &lt;div&gt;
     A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
@@ -417,20 +529,20 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 
 &lt;h3 id=&#34;warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/h3&gt;
 
-&lt;p&gt;アップデートしていじっているうちに，
+&lt;p&gt;アップデートしていじっているうちに，
   &lt;div class=&#34;alert alert-warning&#34;&gt;
   &lt;div&gt;
     WARN 2019/08/23 0028 found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
   &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;
 
-&lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34; target=&#34;_blank&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
+&lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34; target=&#34;_blank&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;You have updated to the unreleased version. You&amp;rsquo;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;ということなので，以下のように作業した．&lt;/p&gt;
+&lt;p&gt;ということなので，以下のように作業した．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ vi /Data/hoge/Taipapablog/config/_default/config.toml
 .....
@@ -447,13 +559,13 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 .....
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;46行目の&amp;rdquo;CSS&amp;rdquo;を削除するだけで，警告が出なくなった．(^o^)&lt;/p&gt;
+&lt;p&gt;46行目の&amp;rdquo;CSS&amp;rdquo;を削除するだけで，警告が出なくなった．(^o^)&lt;/p&gt;
 
-&lt;p&gt;見え方にまだまだ不満はあるが，こんなところだろうか．アップデートしてから，貼り付けた画像の上にマウスを持っていくと，拡大鏡のアイコンになり，クリックすると2段階で拡大されるようになった．他にも変化はあるようだが，全然活用できていない．ぼちぼち触っていって，面白いことがあれば，また，まとめてみよう．．．&lt;/p&gt;
+&lt;p&gt;見え方にまだまだ不満はあるが，こんなところだろうか．アップデートしてから，貼り付けた画像の上にマウスを持っていくと，拡大鏡のアイコンになり，クリックすると2段階で拡大されるようになった．他にも変化はあるようだが，全然活用できていない．ぼちぼち触っていって，面白いことがあれば，また，まとめてみよう．．．&lt;/p&gt;
 
 &lt;h2 id=&#34;追記&#34;&gt;追記&lt;/h2&gt;
 
-&lt;p&gt;deployした時に，以下のようなエラーが生じた．&lt;/p&gt;
+&lt;p&gt;githubにdeployした時に，以下のようなエラーが生じた．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;warning: adding embedded git repository: themes/academic
 hint: You&#39;ve added another git repository inside your current repository.
@@ -471,7 +583,9 @@ hint:
 hint: See &amp;quot;git help submodule&amp;quot; for more information.
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;エラーは吐くものの，deployはできて，サイトも見られるので，疲れたし（笑），しばらくは，このままで行くことにする．themeのインストールは，submoduleで行うべきだったと，今更にして気がついた．次回アップデートする時にやってみよう．．．(^^;;;&lt;/p&gt;</description>
+&lt;p&gt;エラーは吐くものの，deployはできて，ウェブでサイトも見られるので，疲れたし（笑），しばらくは，このままで行くことにする．themeのインストールは，submoduleで行うべきだったと，今更にして気がついた．次回アップデートする時にやってみよう．．．(^^;;;&lt;/p&gt;
+
+&lt;p&gt;で，結局，気になって，academic themeのインストールをやり直した（笑）．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参照されたい．&lt;/p&gt;</description>
     </item>
     
     <item>
