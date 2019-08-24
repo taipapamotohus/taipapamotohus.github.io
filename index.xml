@@ -115,7 +115,15 @@ deploy.sh*                   view.sh*
 
 &lt;p&gt;これで，hugo root directoryで，hugo serverを叩くと，元のブログが立ち上がる．&lt;/p&gt;
 
-&lt;p&gt;あれ，今回は簡単にできてしまった．既に，前回で，Page Bundlesやfeatured imageに合わせて修正していたから，本当に流し込むだけであった．さて，これで，deployしてもエラーが出なければOKである．&lt;/p&gt;</description>
+&lt;p&gt;あれ，今回は簡単にできてしまった．既に，前回で，Page Bundlesやfeatured imageに合わせて修正していたから，本当に流し込むだけであった．さて，これで，deployしてもエラーが出なければOKである．&lt;/p&gt;
+
+&lt;p&gt;う〜ん，deployはできたけど，また，エラーが出る．．．gitは苦手だ．．．(ToT)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;remote: Permission to sourcethemes/academic-kickstart.git denied to taipapamotohus.
+fatal: unable to access &#39;https://github.com/sourcethemes/academic-kickstart.git/&#39;: The requested URL returned error: 403
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;&lt;/p&gt;</description>
     </item>
     
     <item>
