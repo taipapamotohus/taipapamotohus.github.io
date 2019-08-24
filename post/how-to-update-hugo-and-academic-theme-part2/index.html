@@ -128,7 +128,7 @@
     
       <meta property="article:published_time" content="2019-08-24T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2019-08-24T23:10:53&#43;09:00">
+    <meta property="article:modified_time" content="2019-08-25T00:55:39&#43;09:00">
   
 
   
@@ -324,7 +324,7 @@
 
 
 <meta content="2019-08-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2019-08-24 23:10:53 &#43;0900 JST" itemprop="dateModified">
+<meta content="2019-08-25 00:55:39 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -339,7 +339,7 @@
           Last updated on
       
     
-    <time>Aug 24, 2019</time>
+    <time>Aug 25, 2019</time>
   </span>
   
 
@@ -426,12 +426,22 @@
 
 <p>やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． <a href="https://qiita.com/sotarok/items/0d525e568a6088f6f6bb" target="_blank">Git submodule の基礎</a> によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である．</p>
 
+<p><del>1. まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする．</del></p>
+
+<div class="alert alert-note">
+  <div>
+    またも間違っていた．上述の公式ドキュメントにはちゃんと，Fork the Academic Kickstart repository to create a new website と書いてあったのに読み過ごしていた．
+  </div>
+</div>
+
 <ol>
-<li><p>まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする．</p>
+<li><p>ということで，まず，<a href="https://github.com/sourcethemes/academic-kickstart#fork-destination-box" target="_blank">academic-kickstart</a> に行って，右上の <strong>Fork</strong> ボタンを押して，自分のgithub pageにacademic-kickstartのrepositoryを作成する．</p></li>
+
+<li><p>ついで，この自分のgithub pageのforkをgit cloneで自分のサイトにクローンする．</p>
 
 <pre><code class="language-sh">$ pwd
 /Data/MyBlog
-$ git clone https://github.com/sourcethemes/academic-kickstart.git Taipapablog
+$ git clone https://github.com/taipapamotohus/academic-kickstart Taipapablog
 Cloning into 'Taipapablog'...
 remote: Enumerating objects: 579, done.
 remote: Total 579 (delta 0), reused 0 (delta 0), pack-reused 579
@@ -472,10 +482,10 @@ drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 static
 drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 themes
 -rwxr-xr-x   1 kohkichi  admin  1628 Aug 24 16:34 update_academic.sh
 -rwxr-xr-x   1 kohkichi  admin    49 Aug 24 16:34 view.sh
-</code></pre></li>
-</ol>
+</code></pre>
 
-<p>う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．</p>
+<p>う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．自分のGitHub pageを持っていれば，2-3分でできてしまう．</p></li>
+</ol>
 
 <h2 id="migrate-content">Migrate Content</h2>
 
@@ -499,15 +509,15 @@ deploy.sh*                   view.sh*
 
 <p>あれ，今回は簡単にできてしまった．既に，前回で，Page Bundlesやfeatured imageに合わせて修正していたから，本当に流し込むだけであった．さて，これで，deployしてもエラーが出なければOKである．</p>
 
-<p>う〜ん，deployはできて，前回のエラーも消えたけど，また，別のエラーが出る．．．gitは苦手だ．．．(ToT)</p>
+<p><del>う〜ん，deployはできて，前回のエラーも消えたけど，また，別のエラーが出る．．．gitは苦手だ．．．(ToT)</del></p>
 
 <pre><code class="language-sh">remote: Permission to sourcethemes/academic-kickstart.git denied to taipapamotohus.
 fatal: unable to access 'https://github.com/sourcethemes/academic-kickstart.git/': The requested URL returned error: 403
 </code></pre>
 
-<p>これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．</p>
+<p><del>これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．</del></p>
 
-<p>ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;</p>
+<p><del>ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;</del></p>
     </div>
 
     

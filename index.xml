@@ -44,12 +44,22 @@
 
 &lt;p&gt;やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． &lt;a href=&#34;https://qiita.com/sotarok/items/0d525e568a6088f6f6bb&#34; target=&#34;_blank&#34;&gt;Git submodule の基礎&lt;/a&gt; によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である．&lt;/p&gt;
 
+&lt;p&gt;&lt;del&gt;1. まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする．&lt;/del&gt;&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    またも間違っていた．上述の公式ドキュメントにはちゃんと，Fork the Academic Kickstart repository to create a new website と書いてあったのに読み過ごしていた．
+  &lt;/div&gt;
+&lt;/div&gt;
+
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする．&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;ということで，まず，&lt;a href=&#34;https://github.com/sourcethemes/academic-kickstart#fork-destination-box&#34; target=&#34;_blank&#34;&gt;academic-kickstart&lt;/a&gt; に行って，右上の &lt;strong&gt;Fork&lt;/strong&gt; ボタンを押して，自分のgithub pageにacademic-kickstartのrepositoryを作成する．&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ついで，この自分のgithub pageのforkをgit cloneで自分のサイトにクローンする．&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ pwd
 /Data/MyBlog
-$ git clone https://github.com/sourcethemes/academic-kickstart.git Taipapablog
+$ git clone https://github.com/taipapamotohus/academic-kickstart Taipapablog
 Cloning into &#39;Taipapablog&#39;...
 remote: Enumerating objects: 579, done.
 remote: Total 579 (delta 0), reused 0 (delta 0), pack-reused 579
@@ -90,10 +100,10 @@ drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 static
 drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 themes
 -rwxr-xr-x   1 kohkichi  admin  1628 Aug 24 16:34 update_academic.sh
 -rwxr-xr-x   1 kohkichi  admin    49 Aug 24 16:34 view.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．&lt;/p&gt;
+&lt;p&gt;う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．自分のGitHub pageを持っていれば，2-3分でできてしまう．&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&#34;migrate-content&#34;&gt;Migrate Content&lt;/h2&gt;
 
@@ -117,15 +127,15 @@ deploy.sh*                   view.sh*
 
 &lt;p&gt;あれ，今回は簡単にできてしまった．既に，前回で，Page Bundlesやfeatured imageに合わせて修正していたから，本当に流し込むだけであった．さて，これで，deployしてもエラーが出なければOKである．&lt;/p&gt;
 
-&lt;p&gt;う〜ん，deployはできて，前回のエラーも消えたけど，また，別のエラーが出る．．．gitは苦手だ．．．(ToT)&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;う〜ん，deployはできて，前回のエラーも消えたけど，また，別のエラーが出る．．．gitは苦手だ．．．(ToT)&lt;/del&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;remote: Permission to sourcethemes/academic-kickstart.git denied to taipapamotohus.
 fatal: unable to access &#39;https://github.com/sourcethemes/academic-kickstart.git/&#39;: The requested URL returned error: 403
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．&lt;/del&gt;&lt;/p&gt;
 
-&lt;p&gt;ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;&lt;/p&gt;</description>
+&lt;p&gt;&lt;del&gt;ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;&lt;/del&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
