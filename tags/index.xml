@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 18 Aug 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 25 Aug 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -13,18 +13,50 @@
     </image>
     
     <item>
-      <title>academic</title>
-      <link>/tags/academic/</link>
-      <pubDate>Sun, 18 Aug 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/academic/</guid>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
+      <title>helm</title>
+      <link>/tags/helm/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>project</title>
+      <link>/tags/project/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projectile</title>
+      <link>/tags/projectile/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/projectile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>treemacs</title>
+      <link>/tags/treemacs/</link>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/treemacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>academic</title>
+      <link>/tags/academic/</link>
       <pubDate>Sun, 18 Aug 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/emacs/</guid>
+      <guid>/tags/academic/</guid>
       <description></description>
     </item>
     

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/treemacs_projectile/</loc>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/how-to-update-hugo-and-academic-theme-part2/</loc>
     <lastmod>2019-08-25T01:11:46+09:00</lastmod>
   </url>
@@ -218,17 +223,42 @@
   </url>
   
   <url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/helm/</loc>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
-    <lastmod>2019-08-25T01:11:46+09:00</lastmod>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/project/</loc>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/projectile/</loc>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/treemacs/</loc>
+    <lastmod>2019-08-31T16:28:25+09:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/academic/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/emacs/</loc>
     <lastmod>2019-08-25T00:28:02+09:00</lastmod>
   </url>
   
@@ -244,11 +274,6 @@
   
   <url>
     <loc>/tags/ox-hugo/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-08-25T00:28:02+09:00</lastmod>
   </url>
   
