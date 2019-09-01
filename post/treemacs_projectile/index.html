@@ -128,7 +128,7 @@
     
       <meta property="article:published_time" content="2019-08-25T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2019-09-01T15:26:52&#43;09:00">
+    <meta property="article:modified_time" content="2019-09-01T16:08:36&#43;09:00">
   
 
   
@@ -324,7 +324,7 @@
 
 
 <meta content="2019-08-25 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2019-09-01 15:26:52 &#43;0900 JST" itemprop="dateModified">
+<meta content="2019-09-01 16:08:36 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -400,6 +400,31 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>MacのFinderに相当するのは，EmacsではDiredであろう．しかし，なにかのプロジェクトに関わる文書群を管理するということになると，Diredでは力不足である．というか目的が違う．これにぴったりなのが，treemacsであり，そのバックボーンになるのが，Projectileである．これらは，プログラマーでもない自分には必要ないものと思っていたのだが，このblogを書くのに使用しているHugoとそのテーマであるacademicをアップデートする際に，非常に役に立ったので，いまだによく分かっていない自分自身のために書き留めておく．</p>
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#projectile">Projectile</a>
+
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul></li>
+<li><a href="#treemacs">Treemacs</a>
+
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
 
 <h2 id="projectile">Projectile</h2>
 
@@ -612,23 +637,8 @@
 
 <p>ところで，上述したようなキーバインドを覚える必要はない．treemacsのバッファにいるときに，？を叩けば，下図のごとく，下にヘルプバッファが開く．楽チンである．ファイルやディレクトリやプロジェクトの追加，削除，名前の変更などはもちろん網羅しており，ファイルの開け方も横に並べたり，縦に並べたりと色々できるようになっている．</p>
 
-
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/Treemacs-help.jpg" >
-
-<img src="/img/Treemacs-help.jpg" width="100%" >
-</a>
-
-</figure>
-
-
-<p>使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， <strong>Winum &amp; ace-window compatibility</strong> と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， <strong>(define-key winum-keymap (kbd &ldquo;M-0&rdquo;) #&lsquo;treemacs-select-window)</strong> と書いてある．つまり，横や縦に並べたバッファ間の移動は， <strong>C-x o</strong> の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， <strong>M-0</strong> を打てば良い．下図は，先ほどの図の状態で， <strong>C-x o</strong> を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．</p>
+<p><img src="/img/Treemacs-help.jpg" alt="Treemacs-help.jpg" width="100%" />
+使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， <strong>Winum &amp; ace-window compatibility</strong> と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， <strong>(define-key winum-keymap (kbd &ldquo;M-0&rdquo;) #&lsquo;treemacs-select-window)</strong> と書いてある．つまり，横や縦に並べたバッファ間の移動は， <strong>C-x o</strong> の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， <strong>M-0</strong> を打てば良い．下図は，先ほどの図の状態で， <strong>C-x o</strong> を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．</p>
 
 <p>なお，winumのインストールについては，<a href="https://github.com/deb0ch/emacs-winum" target="_blank">emacs-winum</a> を参照されたい．</p>
 
