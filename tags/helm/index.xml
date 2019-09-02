@@ -255,8 +255,23 @@
 
 &lt;p&gt;ところで，上述したようなキーバインドを覚える必要はない．treemacsのバッファにいるときに，？を叩けば，下図のごとく，下にヘルプバッファが開く．楽チンである．ファイルやディレクトリやプロジェクトの追加，削除，名前の変更などはもちろん網羅しており，ファイルの開け方も横に並べたり，縦に並べたりと色々できるようになっている．&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/img/Treemacs-help.jpg&#34; alt=&#34;Treemacs-help.jpg&#34; width=&#34;100%&#34; /&gt;
-使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， &lt;strong&gt;Winum &amp;amp; ace-window compatibility&lt;/strong&gt; と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， &lt;strong&gt;(define-key winum-keymap (kbd &amp;ldquo;M-0&amp;rdquo;) #&amp;lsquo;treemacs-select-window)&lt;/strong&gt; と書いてある．つまり，横や縦に並べたバッファ間の移動は， &lt;strong&gt;C-x o&lt;/strong&gt; の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， &lt;strong&gt;M-0&lt;/strong&gt; を打てば良い．下図は，先ほどの図の状態で， &lt;strong&gt;C-x o&lt;/strong&gt; を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/Treemacs-help.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/Treemacs-help.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， &lt;strong&gt;Winum &amp;amp; ace-window compatibility&lt;/strong&gt; と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， &lt;strong&gt;(define-key winum-keymap (kbd &amp;ldquo;M-0&amp;rdquo;) #&amp;lsquo;treemacs-select-window)&lt;/strong&gt; と書いてある．つまり，横や縦に並べたバッファ間の移動は， &lt;strong&gt;C-x o&lt;/strong&gt; の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， &lt;strong&gt;M-0&lt;/strong&gt; を打てば良い．下図は，先ほどの図の状態で， &lt;strong&gt;C-x o&lt;/strong&gt; を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．&lt;/p&gt;
 
 &lt;p&gt;なお，winumのインストールについては，&lt;a href=&#34;https://github.com/deb0ch/emacs-winum&#34; target=&#34;_blank&#34;&gt;emacs-winum&lt;/a&gt; を参照されたい．&lt;/p&gt;
 
