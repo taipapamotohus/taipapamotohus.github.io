@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-08-25T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-09-04T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,16 @@
   
   
   <div>
+    <h2><a href="/post/how-to-update-hugo-and-academic-theme-part3/">How to update hugo and academic theme (Part3)</a></h2>
+    <div class="article-style">
+      
+      先日，ブログのアップデートについて2回に分けてまとめたが（How to update hugo and academic theme (Part1), How to update hugo and academic theme (Part2)），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/treemacs_projectile/">Treemacs and Projectile</a></h2>
     <div class="article-style">
       
@@ -423,17 +433,6 @@ References  peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED  p
 #+begin_src emacs-lisp (use-package peep-dired :ensure t :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded :bind (:map dired-mode-map (&quot;P&quot; . peep-dired))) #+end_src  設定は上記参照サイトのパクリで，diredで&rdquo;P&rdquo;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&rdquo;P&rdquo;と打つとpeep-dired modeは終了する．　peep-diredの使い方 File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&rdquo;P&rdquo;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．
    ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．
    文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></h2>
-    <div class="article-style">
-      
-      （承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory   
-References  HUGO Hugo is one of the most popular open-source static site generators.
       
     </div>
   </div>

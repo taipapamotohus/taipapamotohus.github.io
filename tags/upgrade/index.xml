@@ -5,12 +5,130 @@
     <link>/tags/upgrade/</link>
       <atom:link href="/tags/upgrade/index.xml" rel="self" type="application/rss+xml" />
     <description>upgrade</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 18 Aug 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>upgrade</title>
       <link>/tags/upgrade/</link>
     </image>
+    
+    <item>
+      <title>How to update hugo and academic theme (Part3)</title>
+      <link>/post/how-to-update-hugo-and-academic-theme-part3/</link>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-update-hugo-and-academic-theme-part3/</guid>
+      <description>&lt;p&gt;先日，ブログのアップデートについて2回に分けてまとめたが（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part1)&lt;/a&gt;, &lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#自己紹介&#34;&gt;自己紹介&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#widget-in-academic&#34;&gt;Widget in Academic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#home-pageの最初の画像&#34;&gt;home pageの最初の画像&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#day--light--and-night--dark--mode&#34;&gt;Day (light) and night (dark) mode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;自己紹介&#34;&gt;自己紹介&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/#introduce-yourself&#34; target=&#34;_blank&#34;&gt;Introduce yourself&lt;/a&gt; academicのご本家の解説&lt;/li&gt;
+&lt;li&gt;リンク先に書いてあるが，content/authors/admin/_index.mdに自分のプロファイルを書く．不要な部分は#で全てコメントアウトすれば良い．&lt;/li&gt;
+&lt;li&gt;avatorを表示するには，画像の名前をavatorとしてcontent/authors/admin/に保存する．例として元々あった画像と置き換えれば良い．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;widget-in-academic&#34;&gt;Widget in Academic&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/page-builder&#34; target=&#34;_blank&#34;&gt;Getting Started With the Page Builder&lt;/a&gt; ご本家の解説&lt;/li&gt;
+&lt;li&gt;widgetとは．．．ウィジェットである．(^^;;; ブログを組み立てる部品のようなもの．上記のリンク先に詳細に解説されている．例えば， &lt;strong&gt;About&lt;/strong&gt; widjetは読者にブログ主を紹介するためのものである．ただし，実際のプロファイルの内容は前述のようにcontent/authors/admin/_index.mdに記載されている． このブログのように，投稿記事を載せているだけの場合は，ほとんどのwidgetは不要である．&lt;/li&gt;
+&lt;li&gt;不要なwidgetは，content/home/のディレクトリから削除すれば良い．参考のために残して置きたければ， それぞれのindex.mdのfront matterの最初の方にある active = true を &lt;strong&gt;active = false&lt;/strong&gt; とすれば良い．下図は， content/home/featured/index.mdのfeatured widget の場合である．これで featured widget は表示されなくなる．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--listend--&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;+++
+# A Featured Publications section created with the Featured Content widget.
+# This section displays publications from `content/publication/` which have
+# `featured = true` in their front matter.
+
+widget = &amp;quot;featured&amp;quot;  # See https://sourcethemes.com/academic/docs/page-builder/
+headless = true  # This file represents a page section.
+active = false  # Activate this widget? true/false
+weight = 80  # Order that this section will appear.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;home-pageの最初の画像&#34;&gt;home pageの最初の画像&lt;/h2&gt;
+
+&lt;p&gt;ブログの最初のページに掲げる画像だが，アップデート前は， &lt;strong&gt;hero widget&lt;/strong&gt; で設定していた．具体的には，content/home/hero.mdのなかで，front matterに&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;+++
+# Hero widget.
+widget = &amp;quot;hero&amp;quot;
+active = true
+.....
+overlay_img = &amp;quot;headers/hogehoge.jpg&amp;quot;  # Image path relative to your `static/img/` folder.
+.....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書いていた．&lt;/p&gt;
+
+&lt;p&gt;academicをアップデート後は，画像の一部しか表示されなくなったために，content/home/hero/index.mdのfront matterに &lt;strong&gt;active = false&lt;/strong&gt; と書いて，hero widget自体を無効にした．代わりに，content/home/slider/index.md のfront matterに　&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;+++
+# Slider widget.
+widget = &amp;quot;slider&amp;quot;  # See https://sourcethemes.com/academic/docs/page-builder/
+headless = true  # This file represents a page section.
+active = true  # Activate this widget? true/false
+weight = 1  # Order that this section will appear.
+
+# Slide interval.
+# Use `false` to disable animation or enter a time in ms, e.g. `5000` (5s).
+interval = false
+
+# Slide height (optional).
+# E.g. `500px` for 500 pixels or `calc(100vh - 70px)` for full screen.
+height = &amp;quot;400px&amp;quot;
+
+# Slides.
+# Duplicate an `[[item]]` block to add more slides.
+  [[item]]
+title = &amp;quot;完璧な秋の日&amp;quot;
+content = &amp;quot;とりあえず備忘録として 🚀&amp;quot;
+#  align = &amp;quot;center&amp;quot;  # Choose `center`, `left`, or `right`.
+
+  # Overlay a color or image (optional).
+  #   Deactivate an option by commenting out the line, prefixing it with `#`.
+#  overlay_color = &amp;quot;#666&amp;quot;  # An HTML color value.
+overlay_img = &amp;quot;hogefuga.jpg&amp;quot;  # Image path relative to your `static/img/` folder.
+#  overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+.....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;と書いて， &lt;strong&gt;slider widget&lt;/strong&gt; を使うようにしたところ，ほぼ望み通りの画像表示となった（画像自体はstatic/img/に置いた ）．&lt;/p&gt;
+
+&lt;h2 id=&#34;day--light--and-night--dark--mode&#34;&gt;Day (light) and night (dark) mode&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/theme/academic/post/getting-started/&#34; target=&#34;_blank&#34;&gt;Academic: the website builder for Hugo&lt;/a&gt; こちらに書いてある機能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;アップデートにより，今流行りのdark modeと通常のlight modeを，読者が右上のsun/moon iconをクリックすることで切り替えられるようになった．設定は，config/_default/params.tomlの中で，以下のように &lt;strong&gt;day_night = true&lt;/strong&gt; とすれば良い．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;.....
+# Enable users to switch between day and night mode?
+day_night = true
+.....
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;
+今回は本当に殴り書きメモのような内容．それにhugoに関することは全然なくて，academicのことしか書いてない．看板に偽りありだな．．．(^^;;;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to update hugo and academic theme (Part 1)</title>

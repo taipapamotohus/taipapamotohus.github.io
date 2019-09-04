@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/how-to-update-hugo-and-academic-theme-part3/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/treemacs_projectile/</loc>
     <lastmod>2019-09-01T16:34:54+09:00</lastmod>
   </url>
@@ -223,17 +228,52 @@
   </url>
   
   <url>
-    <loc>/tags/emacs/</loc>
-    <lastmod>2019-09-01T16:34:54+09:00</lastmod>
+    <loc>/tags/academic/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/helm/</loc>
-    <lastmod>2019-09-01T16:34:54+09:00</lastmod>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/org-mode/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ox-hugo/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/theme/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/upgrade/</loc>
+    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/helm/</loc>
     <lastmod>2019-09-01T16:34:54+09:00</lastmod>
   </url>
   
@@ -248,43 +288,8 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-09-01T16:34:54+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/treemacs/</loc>
     <lastmod>2019-09-01T16:34:54+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/academic/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/hugo/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/org-mode/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/ox-hugo/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/theme/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/upgrade/</loc>
-    <lastmod>2019-08-25T00:28:02+09:00</lastmod>
   </url>
   
   <url>

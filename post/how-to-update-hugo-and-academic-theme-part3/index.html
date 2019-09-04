@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="先日，ブログのアップデートについて2回に分けてまとめたが（How to update hugo and academic theme (Part1), How to update hugo and academic theme (Part2)，読み直してみると，hugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，纏めておくことにした．">
+  <meta name="description" content="先日，ブログのアップデートについて2回に分けてまとめたが（How to update hugo and academic theme (Part1), How to update hugo and academic theme (Part2)），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/how-to-update-hugo-and-academic-theme-part3/">
@@ -122,13 +122,13 @@
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="/post/how-to-update-hugo-and-academic-theme-part3/">
   <meta property="og:title" content="How to update hugo and academic theme (Part3) | A perfect autumn day">
-  <meta property="og:description" content="先日，ブログのアップデートについて2回に分けてまとめたが（How to update hugo and academic theme (Part1), How to update hugo and academic theme (Part2)，読み直してみると，hugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，纏めておくことにした．"><meta property="og:image" content="/post/how-to-update-hugo-and-academic-theme-part3/featured.jpg">
+  <meta property="og:description" content="先日，ブログのアップデートについて2回に分けてまとめたが（How to update hugo and academic theme (Part1), How to update hugo and academic theme (Part2)），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．"><meta property="og:image" content="/post/how-to-update-hugo-and-academic-theme-part3/featured.jpg">
   <meta property="twitter:image" content="/post/how-to-update-hugo-and-academic-theme-part3/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-09-01T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-09-04T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2019-09-01T16:07:53&#43;09:00">
+    <meta property="article:modified_time" content="2019-09-04T21:19:38&#43;09:00">
   
 
   
@@ -323,8 +323,8 @@
 
 
 
-<meta content="2019-09-01 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2019-09-01 16:07:53 &#43;0900 JST" itemprop="dateModified">
+<meta content="2019-09-04 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-09-04 21:19:38 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -339,7 +339,7 @@
           Last updated on
       
     
-    <time>Sep 1, 2019</time>
+    <time>Sep 4, 2019</time>
   </span>
   
 
@@ -348,7 +348,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -399,14 +399,141 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>先日，ブログのアップデートについて2回に分けてまとめたが（<a href="../how-to-upgrade-hugo-and-academic-theme">How to update hugo and academic theme (Part1)</a>, <a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>，読み直してみると，hugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，纏めておくことにした．</p>
+      <p>先日，ブログのアップデートについて2回に分けてまとめたが（<a href="../how-to-upgrade-hugo-and-academic-theme">How to update hugo and academic theme (Part1)</a>, <a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．</p>
 
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#自己紹介">自己紹介</a></li>
+<li><a href="#widget-in-academic">Widget in Academic</a></li>
+<li><a href="#home-pageの最初の画像">home pageの最初の画像</a></li>
+<li><a href="#day--light--and-night--dark--mode">Day (light) and night (dark) mode</a></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h2 id="自己紹介">自己紹介</h2>
+
+<ul>
+<li><a href="https://sourcethemes.com/academic/docs/get-started/#introduce-yourself" target="_blank">Introduce yourself</a> academicのご本家の解説</li>
+<li>リンク先に書いてあるが，content/authors/admin/_index.mdに自分のプロファイルを書く．不要な部分は#で全てコメントアウトすれば良い．</li>
+<li>avatorを表示するには，画像の名前をavatorとしてcontent/authors/admin/に保存する．例として元々あった画像と置き換えれば良い．</li>
+</ul>
+
+<h2 id="widget-in-academic">Widget in Academic</h2>
+
+<ul>
+<li><a href="https://sourcethemes.com/academic/docs/page-builder" target="_blank">Getting Started With the Page Builder</a> ご本家の解説</li>
+<li>widgetとは．．．ウィジェットである．(^^;;; ブログを組み立てる部品のようなもの．上記のリンク先に詳細に解説されている．例えば， <strong>About</strong> widjetは読者にブログ主を紹介するためのものである．ただし，実際のプロファイルの内容は前述のようにcontent/authors/admin/_index.mdに記載されている． このブログのように，投稿記事を載せているだけの場合は，ほとんどのwidgetは不要である．</li>
+<li>不要なwidgetは，content/home/のディレクトリから削除すれば良い．参考のために残して置きたければ， それぞれのindex.mdのfront matterの最初の方にある active = true を <strong>active = false</strong> とすれば良い．下図は， content/home/featured/index.mdのfeatured widget の場合である．これで featured widget は表示されなくなる．</li>
+</ul>
+
+<!--listend-->
+
+<pre><code class="language-sh">+++
+# A Featured Publications section created with the Featured Content widget.
+# This section displays publications from `content/publication/` which have
+# `featured = true` in their front matter.
+
+widget = &quot;featured&quot;  # See https://sourcethemes.com/academic/docs/page-builder/
+headless = true  # This file represents a page section.
+active = false  # Activate this widget? true/false
+weight = 80  # Order that this section will appear.
+</code></pre>
+
+<h2 id="home-pageの最初の画像">home pageの最初の画像</h2>
+
+<p>ブログの最初のページに掲げる画像だが，アップデート前は， <strong>hero widget</strong> で設定していた．具体的には，content/home/hero.mdのなかで，front matterに</p>
+
+<pre><code class="language-sh">+++
+# Hero widget.
+widget = &quot;hero&quot;
+active = true
+.....
+overlay_img = &quot;headers/hogehoge.jpg&quot;  # Image path relative to your `static/img/` folder.
+.....
+</code></pre>
+
+<p>と書いていた．</p>
+
+<p>academicをアップデート後は，画像の一部しか表示されなくなったために，content/home/hero/index.mdのfront matterに <strong>active = false</strong> と書いて，hero widget自体を無効にした．代わりに，content/home/slider/index.md のfront matterに　</p>
+
+<pre><code class="language-sh">+++
+# Slider widget.
+widget = &quot;slider&quot;  # See https://sourcethemes.com/academic/docs/page-builder/
+headless = true  # This file represents a page section.
+active = true  # Activate this widget? true/false
+weight = 1  # Order that this section will appear.
+
+# Slide interval.
+# Use `false` to disable animation or enter a time in ms, e.g. `5000` (5s).
+interval = false
+
+# Slide height (optional).
+# E.g. `500px` for 500 pixels or `calc(100vh - 70px)` for full screen.
+height = &quot;400px&quot;
+
+# Slides.
+# Duplicate an `[[item]]` block to add more slides.
+  [[item]]
+title = &quot;完璧な秋の日&quot;
+content = &quot;とりあえず備忘録として 🚀&quot;
+#  align = &quot;center&quot;  # Choose `center`, `left`, or `right`.
+
+  # Overlay a color or image (optional).
+  #   Deactivate an option by commenting out the line, prefixing it with `#`.
+#  overlay_color = &quot;#666&quot;  # An HTML color value.
+overlay_img = &quot;hogefuga.jpg&quot;  # Image path relative to your `static/img/` folder.
+#  overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+.....
+</code></pre>
+
+<p>と書いて， <strong>slider widget</strong> を使うようにしたところ，ほぼ望み通りの画像表示となった（画像自体はstatic/img/に置いた ）．</p>
+
+<h2 id="day--light--and-night--dark--mode">Day (light) and night (dark) mode</h2>
+
+<ul>
+<li><a href="https://themes.gohugo.io/theme/academic/post/getting-started/" target="_blank">Academic: the website builder for Hugo</a> こちらに書いてある機能</li>
+</ul>
+
+<p>アップデートにより，今流行りのdark modeと通常のlight modeを，読者が右上のsun/moon iconをクリックすることで切り替えられるようになった．設定は，config/_default/params.tomlの中で，以下のように <strong>day_night = true</strong> とすれば良い．</p>
+
+<pre><code class="language-sh">.....
+# Enable users to switch between day and night mode?
+day_night = true
+.....
+</code></pre>
+
+<p><br />
+今回は本当に殴り書きメモのような内容．それにhugoに関することは全然なくて，academicのことしか書いてない．看板に偽りありだな．．．(^^;;;</p>
     </div>
 
     
 
 
     
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/hugo/">hugo</a>
+  
+  <a class="badge badge-light" href="/tags/academic/">academic</a>
+  
+  <a class="badge badge-light" href="/tags/theme/">theme</a>
+  
+  <a class="badge badge-light" href="/tags/upgrade/">upgrade</a>
+  
+  <a class="badge badge-light" href="/tags/ox-hugo/">ox-hugo</a>
+  
+  <a class="badge badge-light" href="/tags/org-mode/">org-mode</a>
+  
+  <a class="badge badge-light" href="/tags/emacs/">emacs</a>
+  
+</div>
 
 
 
@@ -498,6 +625,24 @@
 
 
       
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/how-to-upgrade-hugo-and-academic-theme/">How to update hugo and academic theme (Part 1)</a></li>
+          
+          <li><a href="/post/horizontal_scrollbar/">How to add horizontal scrollbar for codeblock in academic theme of hugo</a></li>
+          
+          <li><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></li>
+          
+          <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></li>
+          
+          <li><a href="/post/mojave/">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></li>
+          
+        </ul>
+      </div>
       
     
 
