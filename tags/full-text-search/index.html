@@ -321,11 +321,27 @@
   
   
   <div>
-    <h2><a href="/post/fulltextsearch/">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a></h2>
+    <h2><a href="/post/fulltextsearch/">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a></h2>
     <div class="article-style">
       
-      論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
-という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．
+      論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
+という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．
+セットアップは結構面倒だが，非常に便利で，オススメである！
+なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．
+ Table of Contents  References Hyper Estraier  Install pdftotext ユーザー用のウェブディレクトリの作成 全文検索用のディレクトリの作成 全文検索用のindexの作成 indexの更新 検索のテスト  Apache set up  CGI を許可するように Apache を設定する Apacheの起動，再起動 CGIが動くかどうかのテスト DocumentRoot ユーザ毎のウェブディレクトリ  Hyperestraier付属の全文検索用CGI scriptのset up   
+References  Hyper Estraier で仏典探索 Amrtaさんのものすごく役に立つサイト Hyper Estraier で PDF 管理 これまた，Amrtaさんの物凄く役に立つサイト．以上の2つを読めば，このサイトを見る必要はないような．．．(^^;;;  sudoしてrootになるのはイヤ，普通のユーザーとしてapacheを使ってブラウザで全文検索をしたいという人は，この先を読むと参考になるかもしれない．
+Hyper Estraier 今回用いるのはHyper Estraierという全文検索システムである．これがどんなものかはリンク先の文書を読んでもらうとして，早速インストールである．
+Install homebrewを使用すれば一発である．qdbmなどの依存関係も全部面倒を見てくれるので楽である．
+      
+    </div>
+  </div>
+  
+  <div>
+    <h2><a href="/post/fulltextsearch/">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a></h2>
+    <div class="article-style">
+      
+      論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
+という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．
 
       
     </div>

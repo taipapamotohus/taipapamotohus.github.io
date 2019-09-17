@@ -1045,6 +1045,102 @@
 
 
 <meta content="2019-07-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-09-17 21:21:27 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Sep 17, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/fulltextsearch/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/fulltextsearch/" itemprop="url">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
+という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．
+セットアップは結構面倒だが，非常に便利で，オススメである！
+なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．
+ Table of Contents  References Hyper Estraier  Install pdftotext ユーザー用のウェブディレクトリの作成 全文検索用のディレクトリの作成 全文検索用のindexの作成 indexの更新 検索のテスト  Apache set up  CGI を許可するように Apache を設定する Apacheの起動，再起動 CGIが動くかどうかのテスト DocumentRoot ユーザ毎のウェブディレクトリ  Hyperestraier付属の全文検索用CGI scriptのset up   
+References  Hyper Estraier で仏典探索 Amrtaさんのものすごく役に立つサイト Hyper Estraier で PDF 管理 これまた，Amrtaさんの物凄く役に立つサイト．以上の2つを読めば，このサイトを見る必要はないような．．．(^^;;;  sudoしてrootになるのはイヤ，普通のユーザーとしてapacheを使ってブラウザで全文検索をしたいという人は，この先を読むと参考になるかもしれない．
+Hyper Estraier 今回用いるのはHyper Estraierという全文検索システムである．これがどんなものかはリンク先の文書を読んでもらうとして，早速インストールである．
+Install homebrewを使用すれば一発である．qdbmなどの依存関係も全部面倒を見てくれるので楽である．
+  </div>
+  
+
+  
+
+</div>
+
+      
+    
+      
+        
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2019-07-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
 <meta content="2019-08-14 14:54:20 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -1099,14 +1195,14 @@
   
 
   <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/fulltextsearch/" itemprop="url">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>
+    <a href="/post/fulltextsearch/" itemprop="url">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>
   </h3>
 
   
   <div class="article-style" itemprop="articleBody">
-    <p>論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」</p>
+    <p>論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」</p>
 
-<p>という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．</p>
+<p>という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．</p>
   </div>
   
 
@@ -1201,100 +1297,6 @@
   
   <div class="article-style" itemprop="articleBody">
     <p>Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリとしていて使い勝手が悪かったため，サクッと止めて，skimを使っている．ただ，pdf-toolsというのがあって，こちらは割とスグレモノらしいとの噂は聞いていた．そこで，今回はこれを試してみることにした．</p>
-  </div>
-  
-
-  
-
-</div>
-
-      
-    
-      
-        
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-07-11 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2019-07-13 14:50:27 &#43;0900 JST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    <time>Jul 13, 2019</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    1 min read
-  </span>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/live/#disqus_thread"></a>
-  
-
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/live/">
-      <img src="/post/live/featured_hu8a8ad81e3912f17bee419e701f394fd5_197538_900x0_resize_q90_lanczos.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/live/" itemprop="url">mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．</p>
   </div>
   
 
@@ -1563,7 +1565,7 @@
           
           
           
-          <a href="/tags/full-text-search/" style="font-size:0.8rem">full-text-search</a>
+          <a href="/tags/full-text-search/" style="font-size:1.1575268603571591rem">full-text-search</a>
         
           
           
@@ -1608,7 +1610,7 @@
           
           
           
-          <a href="/tags/hyperestraier/" style="font-size:0.8rem">hyperestraier</a>
+          <a href="/tags/hyperestraier/" style="font-size:1.1575268603571591rem">hyperestraier</a>
         
           
           
@@ -1683,7 +1685,7 @@
           
           
           
-          <a href="/tags/macos/" style="font-size:1.1575268603571591rem">macos</a>
+          <a href="/tags/macos/" style="font-size:1.3666666666666667rem">macos</a>
         
           
           
@@ -1703,7 +1705,7 @@
           
           
           
-          <a href="/tags/mojave/" style="font-size:1.3666666666666667rem">mojave</a>
+          <a href="/tags/mojave/" style="font-size:1.5150537207143184rem">mojave</a>
         
           
           
@@ -1763,7 +1765,7 @@
           
           
           
-          <a href="/tags/pdf/" style="font-size:1.8037047911914725rem">pdf</a>
+          <a href="/tags/pdf/" style="font-size:1.8725805810714777rem">pdf</a>
         
           
           
