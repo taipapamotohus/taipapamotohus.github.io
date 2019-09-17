@@ -29,13 +29,8 @@
     
   
   <meta name="description" content="論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
-という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．
-セットアップは結構面倒だが，非常に便利で，オススメである！
-なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．
- Table of Contents  References Hyper Estraier  Install pdftotext ユーザー用のウェブディレクトリの作成 全文検索用のディレクトリの作成 全文検索用のindexの作成 indexの更新 検索のテスト  Apache set up  CGI を許可するように Apache を設定する Apacheの起動，再起動 CGIが動くかどうかのテスト DocumentRoot ユーザ毎のウェブディレクトリ  Hyperestraier付属の全文検索用CGI scriptのset up   
-References  Hyper Estraier で仏典探索 Amrtaさんのものすごく役に立つサイト Hyper Estraier で PDF 管理 これまた，Amrtaさんの物凄く役に立つサイト．以上の2つを読めば，このサイトを見る必要はないような．．．(^^;;;  sudoしてrootになるのはイヤ，普通のユーザーとしてapacheを使ってブラウザで全文検索をしたいという人は，この先を読むと参考になるかもしれない．
-Hyper Estraier 今回用いるのはHyper Estraierという全文検索システムである．これがどんなものかはリンク先の文書を読んでもらうとして，早速インストールである．
-Install homebrewを使用すれば一発である．qdbmなどの依存関係も全部面倒を見てくれるので楽である．">
+
+という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/fulltextsearch/">
@@ -130,19 +125,14 @@ Install homebrewを使用すれば一発である．qdbmなどの依存関係も
   <meta property="og:url" content="/post/fulltextsearch/">
   <meta property="og:title" content="Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う | A perfect autumn day">
   <meta property="og:description" content="論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」
-という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．
-セットアップは結構面倒だが，非常に便利で，オススメである！
-なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．
- Table of Contents  References Hyper Estraier  Install pdftotext ユーザー用のウェブディレクトリの作成 全文検索用のディレクトリの作成 全文検索用のindexの作成 indexの更新 検索のテスト  Apache set up  CGI を許可するように Apache を設定する Apacheの起動，再起動 CGIが動くかどうかのテスト DocumentRoot ユーザ毎のウェブディレクトリ  Hyperestraier付属の全文検索用CGI scriptのset up   
-References  Hyper Estraier で仏典探索 Amrtaさんのものすごく役に立つサイト Hyper Estraier で PDF 管理 これまた，Amrtaさんの物凄く役に立つサイト．以上の2つを読めば，このサイトを見る必要はないような．．．(^^;;;  sudoしてrootになるのはイヤ，普通のユーザーとしてapacheを使ってブラウザで全文検索をしたいという人は，この先を読むと参考になるかもしれない．
-Hyper Estraier 今回用いるのはHyper Estraierという全文検索システムである．これがどんなものかはリンク先の文書を読んでもらうとして，早速インストールである．
-Install homebrewを使用すれば一発である．qdbmなどの依存関係も全部面倒を見てくれるので楽である．"><meta property="og:image" content="/img/headers/Attica.jpg">
-  <meta property="twitter:image" content="/img/headers/Attica.jpg"><meta property="og:locale" content="en-us">
+
+という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．"><meta property="og:image" content="/post/fulltextsearch/featured.jpg">
+  <meta property="twitter:image" content="/post/fulltextsearch/featured.jpg"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2019-07-24T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2019-09-17T21:21:27&#43;09:00">
+    <meta property="article:modified_time" content="2019-09-17T21:44:08&#43;09:00">
   
 
   
@@ -311,23 +301,23 @@ Install homebrewを使用すれば一発である．qdbmなどの依存関係も
 
 
 
-<div class="article-header">
-  
-  
-  <img src="/img/headers/Attica.jpg" class="article-banner" itemprop="image" alt="">
-  
-
-  <span class="article-header-caption">Attica, Greece</span>
-</div>
 
 
 
 
-  
+
+
+
+
+
+
 
   
   
+    
   
+
+
 <div class="article-container pt-3">
   <h1 itemprop="name">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</h1>
 
@@ -336,12 +326,11 @@ Install homebrewを使用すれば一発である．qdbmなどの依存関係も
   
 
   
-    
 
 
 
 <meta content="2019-07-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2019-09-17 21:21:27 &#43;0900 JST" itemprop="dateModified">
+<meta content="2019-09-17 21:44:08 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -386,22 +375,29 @@ Install homebrewを使用すれば一発である．qdbmなどの依存関係も
 
 </div>
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 175px;">
+  <div style="position: relative">
+    <img src="/post/fulltextsearch/featured_hu5f5fe325bf68dfbeacaaff4b3b3cde13_240050_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
+    
+  </div>
 </div>
 
 
@@ -409,11 +405,11 @@ Install homebrewを使用すれば一発である．qdbmなどの依存関係も
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
+      <p>論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」</p>
 
-<p>論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」</p>
+<p>という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．</p>
 
-<p>という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．</p>
+<p>hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．</p>
 
 <p><strong>セットアップは結構面倒だが，非常に便利で，オススメである！</strong></p>
 
@@ -1097,7 +1093,6 @@ $ less -N estseek.conf
 <p>この全文検索を使い始めてもう5-6年になるが，一旦セットアップしてしまえば，時々indexを更新する以外は手間いらずで，重宝している．更新の自動化については，前述の通り．</p>
 
 <p>今回は，このブログを始めて以来の長文になってしまった．後日の自分のためにできるだけ細かいところまで書き留めておいた．半分以上はApacheの設定に関する記述になっている（笑）．</p>
-
     </div>
 
     
@@ -1215,8 +1210,6 @@ $ less -N estseek.conf
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/fulltextsearch/">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a></li>
-          
           <li><a href="/post/live/">mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</a></li>
           
           <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></li>
@@ -1224,6 +1217,8 @@ $ less -N estseek.conf
           <li><a href="/post/synchronization/">Emacsとskimで，latexのソースとpdfの間を行ったり来たり</a></li>
           
           <li><a href="/post/org-mode_paper_2/">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a></li>
+          
+          <li><a href="/post/beamer_movie2/">beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</a></li>
           
         </ul>
       </div>
@@ -1246,7 +1241,7 @@ $ less -N estseek.conf
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/post/fulltextsearch/" rel="prev">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>
+    <a href="/post/pdf-tools/" rel="prev">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a>
   </div>
   
 </div>
