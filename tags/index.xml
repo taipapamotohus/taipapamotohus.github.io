@@ -5,12 +5,44 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Mon, 14 Oct 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-mode</title>
+      <link>/tags/org-mode/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/org-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-rifle</title>
+      <link>/tags/org-rifle/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/org-rifle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>search</title>
+      <link>/tags/search/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/search/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>academic</title>
@@ -21,26 +53,10 @@
     </item>
     
     <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Hugo</title>
       <link>/tags/hugo/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
       <guid>/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>org-mode</title>
-      <link>/tags/org-mode/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/org-mode/</guid>
       <description></description>
     </item>
     
@@ -313,14 +329,6 @@
       <link>/tags/ripgrep/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/tags/ripgrep/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>search</title>
-      <link>/tags/search/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/search/</guid>
       <description></description>
     </item>
     

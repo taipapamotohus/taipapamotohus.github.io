@@ -5,12 +5,121 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Mon, 14 Oct 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Posts</title>
       <link>/post/</link>
     </image>
+    
+    <item>
+      <title>Org-rifle</title>
+      <link>/post/org-rifle/</link>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
+      <guid>/post/org-rifle/</guid>
+      <description>&lt;p&gt;学会続きで，久方ぶりの更新である．org fileの中を検索する際に，&lt;a href=&#34;../swiper_migemo&#34;&gt;Swiper, ivy, avy, migemoによるEmacsの検索強化&lt;/a&gt;で取り上げた &lt;strong&gt;swiper&lt;/strong&gt; を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-use&#34;&gt;How to use&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/alphapapa/org-rifle&#34; target=&#34;_blank&#34;&gt;org-rifle&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dustinlacewell.github.io/emacs.d/#org7646621&#34; target=&#34;_blank&#34;&gt;helm-org-rifle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://bnbeckwith.com/bnb-emacs/#orgc5aa916&#34; target=&#34;_blank&#34;&gt;Org Rifle&lt;/a&gt;  Rifle through my org-mode entries.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ご本家サイトの最初に，有名な米海兵隊信条（The Creed of a United States Marine）が，以下のように引用されている．&lt;/p&gt;
+
+&lt;p&gt;This is my rifle. There are many like it, but this one is mine. My rifle is my best friend. It is my life. I must master it as I must master my life.&lt;/p&gt;
+
+&lt;p&gt;rifleには，「くまなく探す」という意味もあるので，この命名は，それにかけたシャレのようである．非武装平和主義が信条の私にはよく分からん．．．とにかく，詳細に書かれたご本家サイトを読めば，こんなところを読む必要はないような気もするが（笑），後日の自分のためにまとめておく．&lt;/p&gt;
+
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+
+&lt;p&gt;いつものように，init.orgに下記のように書き込む．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package helm-org-rifle
+  :ensure t
+  :after (helm org)
+  :bind
+  (&amp;quot;s-c r r&amp;quot; . helm-org-rifle)
+  (&amp;quot;s-c r a&amp;quot; . helm-org-rifle-agenda-files)
+  (&amp;quot;s-c r .&amp;quot; . helm-org-rifle-current-buffer)
+  (&amp;quot;s-c r d&amp;quot; . helm-org-rifle-directories)
+  (&amp;quot;s-c r f&amp;quot; . helm-org-rifle-files)
+  (&amp;quot;s-c r D&amp;quot; . helm-org-rifle-org-directory)
+  (&amp;quot;s-c o o&amp;quot; . helm-org-rifle-occur)
+  (&amp;quot;s-c o a&amp;quot; . helm-org-rifle-occur-agenda-files)
+  (&amp;quot;s-c o .&amp;quot; . helm-org-rifle-occur-current-buffer)
+  (&amp;quot;s-c o d&amp;quot; . helm-org-rifle-occur-directories)
+  (&amp;quot;s-c o d&amp;quot; . helm-org-rifle-occur-directories)
+  (&amp;quot;s-c o f&amp;quot; . helm-org-rifle-occur-files)
+  (&amp;quot;s-c o D&amp;quot; . helm-org-rifle-occur-org-directory))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;key-bindingは諸般の事情により，s-cを使うことにした（s はoption keyを意味する）．&lt;/p&gt;
+
+&lt;p&gt;また， &lt;strong&gt;helm-org-rifle-show-path を t にセット&lt;/strong&gt; することにより，org file内でのそれぞれのheadingに至るパスが表示される．（実は，デフォルトで t になっている）&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-use&#34;&gt;How to use&lt;/h2&gt;
+
+&lt;p&gt;helm-org-rifleは，エントリーベースで結果が表示される．つまり，org fileの中のheadingとその内容が表示されるので，そこに至るパスが分かる，つまり，どこに位置しているかが分かる．これは思っていた以上に便利である．&lt;/p&gt;
+
+&lt;p&gt;例えば，このブログの原稿をemacsで開いているときに，org-mode, export, wordを含む部分を探したいときは，s-c r . としてから，key wordを打てば，まず下図のようになる．下のバッファでハイライトされている部分は，最上位のheadingであるPostの下のsubheadingである「Emacsのorg-modeで論文を書く（その4：．．．」の下位に目的の部分が含まれていることを示す．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-rifle-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/org-rifle-1.jpg&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;さらに，ハイライトされている部分で，C-jと打てば，下図のように，上のバッファが該当する領域にジャンプして表示してくれる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-rifle-2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/org-rifle-2.jpg&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;もちろん，検索対象が明確に分かっていて&amp;rdquo;hogehoge.jpg&amp;rdquo;など名前も分かっているのであれば，swiperの方が便利であろう．しかし，「hogeとfugaとhogaに関連している部分はどこだったかな？」というようなときは，このorg-rifleが重宝する．&lt;/p&gt;
+
+&lt;p&gt;さらにもっと色々な使い方ができるようで，該当項目のrefileも可能である．興味のある方は，tabを打ってでてくるメニューを試していただきたい．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to update hugo and academic theme (Part3)</title>

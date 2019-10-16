@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/org-rifle/</loc>
+    <lastmod>2019-10-16T22:40:38+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/how-to-update-hugo-and-academic-theme-part3/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
   </url>
@@ -228,12 +233,37 @@
   </url>
   
   <url>
-    <loc>/tags/academic/</loc>
-    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2019-10-16T22:40:38+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/emacs/</loc>
+    <loc>/tags/org-mode/</loc>
+    <lastmod>2019-10-16T22:40:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/org-rifle/</loc>
+    <lastmod>2019-10-16T22:40:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-10-16T22:40:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/search/</loc>
+    <lastmod>2019-10-16T22:40:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-10-16T22:40:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/academic/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
   </url>
   
@@ -243,23 +273,8 @@
   </url>
   
   <url>
-    <loc>/tags/org-mode/</loc>
-    <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/ox-hugo/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-09-17T21:59:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-09-17T21:59:41+09:00</lastmod>
   </url>
   
   <url>
@@ -424,11 +439,6 @@
   
   <url>
     <loc>/tags/ripgrep/</loc>
-    <lastmod>2019-06-02T17:08:05+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/search/</loc>
     <lastmod>2019-06-02T17:08:05+09:00</lastmod>
   </url>
   

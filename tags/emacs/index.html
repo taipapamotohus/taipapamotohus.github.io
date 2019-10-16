@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-09-04T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-10-14T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,16 @@
   
   
   <div>
+    <h2><a href="/post/org-rifle/">Org-rifle</a></h2>
+    <div class="article-style">
+      
+      学会続きで，久方ぶりの更新である．org fileの中を検索する際に，Swiper, ivy, avy, migemoによるEmacsの検索強化で取り上げた swiper を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/how-to-update-hugo-and-academic-theme-part3/">How to update hugo and academic theme (Part3)</a></h2>
     <div class="article-style">
       
@@ -419,20 +429,6 @@ Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレート�
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
 $ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun  これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></h2>
-    <div class="article-style">
-      
-      最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．
- Table of Contents  References peep-diredのインストールと設定 peep-diredの使い方 bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ）   
-References  peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED  peep-diredのインストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
-#+begin_src emacs-lisp (use-package peep-dired :ensure t :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded :bind (:map dired-mode-map (&quot;P&quot; . peep-dired))) #+end_src  設定は上記参照サイトのパクリで，diredで&rdquo;P&rdquo;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&rdquo;P&rdquo;と打つとpeep-dired modeは終了する．　peep-diredの使い方 File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&rdquo;P&rdquo;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．
-   ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．
-   文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．
       
     </div>
   </div>

@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-09-04T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-10-14T00:00:00&#43;09:00">
   
 
   
@@ -319,6 +319,19 @@
   
 
   
+  
+  <div>
+    <h2><a href="/post/org-mode_paper_1/">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></h2>
+    <div class="article-style">
+      
+      私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．
+Table of Contents    目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用）  koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用）  「org-modeで論文を書く」の実例   
+目的  org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする  org-modeで論文を書く利点  LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう．  org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
+私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
+koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R.
+      
+    </div>
+  </div>
   
   <div>
     <h2><a href="/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></h2>

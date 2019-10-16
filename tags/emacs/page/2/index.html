@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-09-04T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-10-14T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,20 @@
   
   
   <div>
+    <h2><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></h2>
+    <div class="article-style">
+      
+      最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．
+ Table of Contents  References peep-diredのインストールと設定 peep-diredの使い方 bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ）   
+References  peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED  peep-diredのインストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
+#+begin_src emacs-lisp (use-package peep-dired :ensure t :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded :bind (:map dired-mode-map (&quot;P&quot; . peep-dired))) #+end_src  設定は上記参照サイトのパクリで，diredで&rdquo;P&rdquo;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&rdquo;P&rdquo;と打つとpeep-dired modeは終了する．　peep-diredの使い方 File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&rdquo;P&rdquo;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．
+   ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．
+   文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></h2>
     <div class="article-style">
       
@@ -443,19 +457,6 @@ $ --no-wait +%line &quot;%file&quot;  つまりこうなる．
     一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．
 #+begin_src emacs-lisp ;; Starts the Emacs server (server-start) #+end_src  これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！ これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．
  この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/org-mode_paper_1/">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></h2>
-    <div class="article-style">
-      
-      私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．
-Table of Contents    目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用）  koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用）  「org-modeで論文を書く」の実例   
-目的  org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする  org-modeで論文を書く利点  LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう．  org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
-私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
-koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R.
       
     </div>
   </div>
