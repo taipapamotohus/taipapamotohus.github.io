@@ -13,6 +13,104 @@
     </image>
     
     <item>
+      <title>org-sidebar</title>
+      <link>/post/org-sidebar/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0900</pubDate>
+      <guid>/post/org-sidebar/</guid>
+      <description>&lt;p&gt;ついにorg-mode用のサイドバーが登場した．最近，精力的にredditに投稿しているalphapapa氏の作った文字通りorg-sidebarがそれである．最初1年ぐらい前に発表され，暫くは様子見をしていたのだが，今回の最新版では色々と改良されており，紹介することにした．なお，前回紹介した&lt;a href=&#34;../org-rifle&#34;&gt;org-rifle&lt;/a&gt;も同氏の作成したパッケージである．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#combination-of-org-sidebar-and-treemacs&#34;&gt;Combination of org-sidebar and treemacs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/alphapapa/org-sidebar&#34; target=&#34;_blank&#34;&gt;org-sidebar&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/dbsxn7/finally%5Fsolving%5Fthe%5Flack%5Fof%5Fa%5Ftreeview%5Fnavigation/&#34; target=&#34;_blank&#34;&gt;Finally solving the lack of a tree-view navigation window in Org&lt;/a&gt;  redditへの投稿記事&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/alphapapa/ts.el&#34; target=&#34;_blank&#34;&gt;ts.el&lt;/a&gt;  a date and time library for Emacs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;いつものように，init.orgに下記のように書き込む．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+(use-package ts
+  :ensure t)
+
+(use-package org-sidebar
+  :ensure t
+  :quelpa (org-sidebar :fetcher github :repo &amp;quot;alphapapa/org-sidebar&amp;quot;)
+  :bind
+  (&amp;quot;&amp;lt;f1&amp;gt; C-s&amp;quot; . org-sidebar-tree))
+#+end_src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ただし，まず，ご本家サイトにある通りに後半の部分のみでorg-sidebarをインストールしようとすると，tsがないと文句を言われた．そこで，後半部分はコメントアウトした上で，前半部分を追加し，まず，tsをインストールするようにした．ついで，後半部分のコメントアウトを外して，再度org-sidebarをインストールしたところ，うまくいった．キーバインディングの残りがほとんどなく，とりあえず，sidebarのsに合わせられて，かつ，空いているところということで，org-sidebar-treeをf1 C-sに割り当てた．&lt;/p&gt;
+
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;p&gt;ご本家サイトに詳細な説明とGIF動画が掲載されている．GTD toolとしてorg-modeを全く使っていない私には， &lt;strong&gt;M-x org-sidebar-tree&lt;/strong&gt; だけで十分役に立つことが分かった．同コマンドを打つ，あるいは， &lt;strong&gt;f1 C-s&lt;/strong&gt; を打つと下図のような画面となる．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-sidebar-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/org-sidebar-1.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;左側がtreeのwindowであり，このブログの原稿であるorg-mode fileのlevel2までのheadingが表示されている．5094行目のorg-sidebarにカーソルがあり，このheadingが選択されていることを示す．そして，右側には，このheading (org-sidebar)の内容を示すバッファが表示されている．左側のTree windowの中をカーソルで上下して目的のheadingに行きReturnを叩けば，右側にそのheadingの内容のみが表示され，かつ，カーソルがそちらに移る．他のheadingは表示されず，そこにだけ集中できる．なかなかよくできている．&lt;/p&gt;
+
+&lt;p&gt;ここで注意しないといけないのは，swiperやhelm-org-rifle-current-bufferによる検索を行った際に，どのバッファがactiveかで検索範囲が異なることである．右側のバッファでは，そのheadingの内容しか検索しない．Tree windowで行うと，そのファイルの全体を対象として検索する．ただし，結果に飛ぶところでフレームのlayoutが崩れてしまうことがある．そうなると，みやすくする調整に手間がかかる．一方，helm-org-rifleやprojectileのC-c p s gなどは，普通にどのバッファにいても，そのファイル全体を検索するので，org-sidebarを使用している時には，検索にはこちらを使うべきかもしれない．&lt;/p&gt;
+
+&lt;h3 id=&#34;combination-of-org-sidebar-and-treemacs&#34;&gt;Combination of org-sidebar and treemacs&lt;/h3&gt;
+
+&lt;p&gt;やはり，treeとつくからには，以前に紹介したtreemacs（&lt;a href=&#34;../treemacs_projectile&#34;&gt;Treemacs and Projectile&lt;/a&gt;）との併用を試してみたくなり，やってみたのが，下図である．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-sidebar-2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/org-sidebar-2.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;このように併用はもちろん可能ではあるが，フレームの配列が乱れてしまい，それを調整するのに手間取ることがある．目的が違うものなので，一緒にしなくても異なるフレームで使えば良いと思う．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Org-rifle</title>
       <link>/post/org-rifle/</link>
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
@@ -26,8 +124,8 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#how-to-use&#34;&gt;How to use&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;/div&gt;
@@ -47,7 +145,7 @@
 
 &lt;p&gt;rifleには，「くまなく探す」という意味もあるので，この命名は，それにかけたシャレのようである．非武装平和主義が信条の私にはよく分からん．．．とにかく，詳細に書かれたご本家サイトを読めば，こんなところを読む必要はないような気もするが（笑），後日の自分のためにまとめておく．&lt;/p&gt;
 
-&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
 &lt;p&gt;いつものように，init.orgに下記のように書き込む．&lt;/p&gt;
 
@@ -76,7 +174,7 @@
 
 &lt;p&gt;また， &lt;strong&gt;helm-org-rifle-show-path を t にセット&lt;/strong&gt; することにより，org file内でのそれぞれのheadingに至るパスが表示される．（実は，デフォルトで t になっている）&lt;/p&gt;
 
-&lt;h2 id=&#34;how-to-use&#34;&gt;How to use&lt;/h2&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;helm-org-rifleは，エントリーベースで結果が表示される．つまり，org fileの中のheadingとその内容が表示されるので，そこに至るパスが分かる，つまり，どこに位置しているかが分かる．これは思っていた以上に便利である．&lt;/p&gt;
 

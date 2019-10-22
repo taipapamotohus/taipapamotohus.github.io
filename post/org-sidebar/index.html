@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="学会続きで，久方ぶりの更新である．org fileの中を検索する際に，Swiper, ivy, avy, migemoによるEmacsの検索強化で取り上げた swiper を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．">
+  <meta name="description" content="ついにorg-mode用のサイドバーが登場した．最近，精力的にredditに投稿しているalphapapa氏の作った文字通りorg-sidebarがそれである．最初1年ぐらい前に発表され，暫くは様子見をしていたのだが，今回の最新版では色々と改良されており，紹介することにした．なお，前回紹介したorg-rifleも同氏の作成したパッケージである．">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/org-rifle/">
+  <link rel="alternate" hreflang="en-us" href="/post/org-sidebar/">
 
   
 
@@ -108,7 +108,7 @@
   <link rel="icon" type="image/png" href="/img/icon-32.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/post/org-rifle/">
+  <link rel="canonical" href="/post/org-sidebar/">
 
   
   
@@ -120,15 +120,15 @@
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="A perfect autumn day">
-  <meta property="og:url" content="/post/org-rifle/">
-  <meta property="og:title" content="Org-rifle | A perfect autumn day">
-  <meta property="og:description" content="学会続きで，久方ぶりの更新である．org fileの中を検索する際に，Swiper, ivy, avy, migemoによるEmacsの検索強化で取り上げた swiper を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．"><meta property="og:image" content="/post/org-rifle/featured.jpg">
-  <meta property="twitter:image" content="/post/org-rifle/featured.jpg"><meta property="og:locale" content="en-us">
+  <meta property="og:url" content="/post/org-sidebar/">
+  <meta property="og:title" content="org-sidebar | A perfect autumn day">
+  <meta property="og:description" content="ついにorg-mode用のサイドバーが登場した．最近，精力的にredditに投稿しているalphapapa氏の作った文字通りorg-sidebarがそれである．最初1年ぐらい前に発表され，暫くは様子見をしていたのだが，今回の最新版では色々と改良されており，紹介することにした．なお，前回紹介したorg-rifleも同氏の作成したパッケージである．"><meta property="og:image" content="/post/org-sidebar/featured.jpg">
+  <meta property="twitter:image" content="/post/org-sidebar/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-10-14T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-10-17T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2019-10-19T22:12:40&#43;09:00">
+    <meta property="article:modified_time" content="2019-10-19T22:16:46&#43;09:00">
   
 
   
@@ -140,7 +140,7 @@
 
 
 
-  <title>Org-rifle | A perfect autumn day</title>
+  <title>org-sidebar | A perfect autumn day</title>
 
 </head>
 
@@ -313,18 +313,18 @@
 
 
 <div class="article-container pt-3">
-  <h1 itemprop="name">Org-rifle</h1>
+  <h1 itemprop="name">org-sidebar</h1>
 
   
-  <p class="page-subtitle">org-mode fileの中をくまなく探してパス付きで表示する</p>
+  <p class="page-subtitle">org-modeのバッファにサイドバーを表示する</p>
   
 
   
 
 
 
-<meta content="2019-10-14 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2019-10-19 22:12:40 &#43;0900 JST" itemprop="dateModified">
+<meta content="2019-10-17 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-10-19 22:16:46 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -356,7 +356,7 @@
   
   
   <span class="middot-divider"></span>
-  <a href="/post/org-rifle/#disqus_thread"></a>
+  <a href="/post/org-sidebar/#disqus_thread"></a>
   
 
   
@@ -387,10 +387,10 @@
 </div>
 
 
-<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 1024px; max-height: 458px;">
+<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 4032px; max-height: 1465px;">
   <div style="position: relative">
-    <img src="/post/org-rifle/featured.jpg" alt="" class="featured-image">
-    <span class="article-header-caption">Samuel Beckett Bridge, Dublin</span>
+    <img src="/post/org-sidebar/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Christ Church Cathedral, Dublin</span>
   </div>
 </div>
 
@@ -399,7 +399,7 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>学会続きで，久方ぶりの更新である．org fileの中を検索する際に，<a href="../swiper_migemo">Swiper, ivy, avy, migemoによるEmacsの検索強化</a>で取り上げた <strong>swiper</strong> を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．</p>
+      <p>ついにorg-mode用のサイドバーが登場した．最近，精力的にredditに投稿しているalphapapa氏の作った文字通りorg-sidebarがそれである．最初1年ぐらい前に発表され，暫くは様子見をしていたのだが，今回の最新版では色々と改良されており，紹介することにした．なお，前回紹介した<a href="../org-rifle">org-rifle</a>も同氏の作成したパッケージである．</p>
 
 <div class="ox-hugo-toc toc">
 <div></div>
@@ -409,7 +409,11 @@
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#installation">Installation</a></li>
-<li><a href="#usage">Usage</a></li>
+<li><a href="#usage">Usage</a>
+
+<ul>
+<li><a href="#combination-of-org-sidebar-and-treemacs">Combination of org-sidebar and treemacs</a></li>
+</ul></li>
 </ul>
 
 <p></div>
@@ -418,51 +422,32 @@
 <h2 id="references">References</h2>
 
 <ul>
-<li><a href="https://github.com/alphapapa/org-rifle" target="_blank">org-rifle</a>  ご本家</li>
-<li><a href="https://dustinlacewell.github.io/emacs.d/#org7646621" target="_blank">helm-org-rifle</a></li>
-<li><a href="http://bnbeckwith.com/bnb-emacs/#orgc5aa916" target="_blank">Org Rifle</a>  Rifle through my org-mode entries.</li>
+<li><a href="https://github.com/alphapapa/org-sidebar" target="_blank">org-sidebar</a>  ご本家</li>
+<li><a href="https://www.reddit.com/r/emacs/comments/dbsxn7/finally%5Fsolving%5Fthe%5Flack%5Fof%5Fa%5Ftreeview%5Fnavigation/" target="_blank">Finally solving the lack of a tree-view navigation window in Org</a>  redditへの投稿記事</li>
+<li><a href="https://github.com/alphapapa/ts.el" target="_blank">ts.el</a>  a date and time library for Emacs</li>
 </ul>
-
-<p>ご本家サイトの最初に，有名な米海兵隊信条（The Creed of a United States Marine）が，以下のように引用されている．</p>
-
-<p>This is my rifle. There are many like it, but this one is mine. My rifle is my best friend. It is my life. I must master it as I must master my life.</p>
-
-<p>rifleには，「くまなく探す」という意味もあるので，この命名は，それにかけたシャレのようである．非武装平和主義が信条の私にはよく分からん．．．とにかく，詳細に書かれたご本家サイトを読めば，こんなところを読む必要はないような気もするが（笑），後日の自分のためにまとめておく．</p>
 
 <h2 id="installation">Installation</h2>
 
 <p>いつものように，init.orgに下記のように書き込む．</p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
-(use-package helm-org-rifle
+(use-package ts
+  :ensure t)
+
+(use-package org-sidebar
   :ensure t
-  :after (helm org)
+  :quelpa (org-sidebar :fetcher github :repo &quot;alphapapa/org-sidebar&quot;)
   :bind
-  (&quot;s-c r r&quot; . helm-org-rifle)
-  (&quot;s-c r a&quot; . helm-org-rifle-agenda-files)
-  (&quot;s-c r .&quot; . helm-org-rifle-current-buffer)
-  (&quot;s-c r d&quot; . helm-org-rifle-directories)
-  (&quot;s-c r f&quot; . helm-org-rifle-files)
-  (&quot;s-c r D&quot; . helm-org-rifle-org-directory)
-  (&quot;s-c o o&quot; . helm-org-rifle-occur)
-  (&quot;s-c o a&quot; . helm-org-rifle-occur-agenda-files)
-  (&quot;s-c o .&quot; . helm-org-rifle-occur-current-buffer)
-  (&quot;s-c o d&quot; . helm-org-rifle-occur-directories)
-  (&quot;s-c o d&quot; . helm-org-rifle-occur-directories)
-  (&quot;s-c o f&quot; . helm-org-rifle-occur-files)
-  (&quot;s-c o D&quot; . helm-org-rifle-occur-org-directory))
+  (&quot;&lt;f1&gt; C-s&quot; . org-sidebar-tree))
 #+end_src
 </code></pre>
 
-<p>key-bindingは諸般の事情により，s-cを使うことにした（s はoption keyを意味する）．</p>
-
-<p>また， <strong>helm-org-rifle-show-path を t にセット</strong> することにより，org file内でのそれぞれのheadingに至るパスが表示される．（実は，デフォルトで t になっている）</p>
+<p>ただし，まず，ご本家サイトにある通りに後半の部分のみでorg-sidebarをインストールしようとすると，tsがないと文句を言われた．そこで，後半部分はコメントアウトした上で，前半部分を追加し，まず，tsをインストールするようにした．ついで，後半部分のコメントアウトを外して，再度org-sidebarをインストールしたところ，うまくいった．キーバインディングの残りがほとんどなく，とりあえず，sidebarのsに合わせられて，かつ，空いているところということで，org-sidebar-treeをf1 C-sに割り当てた．</p>
 
 <h2 id="usage">Usage</h2>
 
-<p>helm-org-rifleは，エントリーベースで結果が表示される．つまり，org fileの中のheadingとその内容が表示されるので，そこに至るパスが分かる，つまり，どこに位置しているかが分かる．これは思っていた以上に便利である．</p>
-
-<p>例えば，このブログの原稿をemacsで開いているときに，org-mode, export, wordを含む部分を探したいときは，s-c r . としてから，key wordを打てば，まず下図のようになる．下のバッファでハイライトされている部分は，最上位のheadingであるPostの下のsubheadingである「Emacsのorg-modeで論文を書く（その4：．．．」の下位に目的の部分が含まれていることを示す．</p>
+<p>ご本家サイトに詳細な説明とGIF動画が掲載されている．GTD toolとしてorg-modeを全く使っていない私には， <strong>M-x org-sidebar-tree</strong> だけで十分役に立つことが分かった．同コマンドを打つ，あるいは， <strong>f1 C-s</strong> を打つと下図のような画面となる．</p>
 
 
 
@@ -472,15 +457,21 @@
 
 <figure>
 
-  <a data-fancybox="" href="/img/org-rifle-1.jpg" >
+  <a data-fancybox="" href="/img/org-sidebar-1.jpg" >
 
-<img src="/img/org-rifle-1.jpg" width="80%" >
+<img src="/img/org-sidebar-1.jpg" width="100%" >
 </a>
 
 </figure>
 
 
-<p>さらに，ハイライトされている部分で，C-jと打てば，下図のように，上のバッファが該当する領域にジャンプして表示してくれる．</p>
+<p>左側がtreeのwindowであり，このブログの原稿であるorg-mode fileのlevel2までのheadingが表示されている．5094行目のorg-sidebarにカーソルがあり，このheadingが選択されていることを示す．そして，右側には，このheading (org-sidebar)の内容を示すバッファが表示されている．左側のTree windowの中をカーソルで上下して目的のheadingに行きReturnを叩けば，右側にそのheadingの内容のみが表示され，かつ，カーソルがそちらに移る．他のheadingは表示されず，そこにだけ集中できる．なかなかよくできている．</p>
+
+<p>ここで注意しないといけないのは，swiperやhelm-org-rifle-current-bufferによる検索を行った際に，どのバッファがactiveかで検索範囲が異なることである．右側のバッファでは，そのheadingの内容しか検索しない．Tree windowで行うと，そのファイルの全体を対象として検索する．ただし，結果に飛ぶところでフレームのlayoutが崩れてしまうことがある．そうなると，みやすくする調整に手間がかかる．一方，helm-org-rifleやprojectileのC-c p s gなどは，普通にどのバッファにいても，そのファイル全体を検索するので，org-sidebarを使用している時には，検索にはこちらを使うべきかもしれない．</p>
+
+<h3 id="combination-of-org-sidebar-and-treemacs">Combination of org-sidebar and treemacs</h3>
+
+<p>やはり，treeとつくからには，以前に紹介したtreemacs（<a href="../treemacs_projectile">Treemacs and Projectile</a>）との併用を試してみたくなり，やってみたのが，下図である．</p>
 
 
 
@@ -490,35 +481,21 @@
 
 <figure>
 
-  <a data-fancybox="" href="/img/org-rifle-2.jpg" >
+  <a data-fancybox="" href="/img/org-sidebar-2.jpg" >
 
-<img src="/img/org-rifle-2.jpg" width="80%" >
+<img src="/img/org-sidebar-2.jpg" width="100%" >
 </a>
 
 </figure>
 
 
-<p>もちろん，検索対象が明確に分かっていて&rdquo;hogehoge.jpg&rdquo;など名前も分かっているのであれば，swiperの方が便利であろう．しかし，「hogeとfugaとhogaに関連している部分はどこだったかな？」というようなときは，このorg-rifleが重宝する．</p>
-
-<p>さらにもっと色々な使い方ができるようで，該当項目のrefileも可能である．興味のある方は，tabを打ってでてくるメニューを試していただきたい．</p>
+<p>このように併用はもちろん可能ではあるが，フレームの配列が乱れてしまい，それを調整するのに手間取ることがある．目的が違うものなので，一緒にしなくても異なるフレームで使えば良いと思う．</p>
     </div>
 
     
 
 
     
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tags/emacs/">emacs</a>
-  
-  <a class="badge badge-light" href="/tags/org-mode/">org-mode</a>
-  
-  <a class="badge badge-light" href="/tags/org-rifle/">org-rifle</a>
-  
-  <a class="badge badge-light" href="/tags/search/">search</a>
-  
-</div>
 
 
 
@@ -611,24 +588,6 @@
 
       
       
-      <div class="article-widget">
-        <div class="hr-light"></div>
-        <h3>Related</h3>
-        <ul>
-          
-          <li><a href="/post/how-to-update-hugo-and-academic-theme-part3/">How to update hugo and academic theme (Part3)</a></li>
-          
-          <li><a href="/post/how-to-upgrade-hugo-and-academic-theme/">How to update hugo and academic theme (Part 1)</a></li>
-          
-          <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></li>
-          
-          <li><a href="/post/deadgrep/">Deadgrep</a></li>
-          
-          <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
-          
-        </ul>
-      </div>
-      
     
 
     
@@ -639,15 +598,8 @@
   
   
   <div class="post-nav-item">
-    <div class="meta-nav">Next</div>
-    <a href="/post/org-sidebar/" rel="next">org-sidebar</a>
-  </div>
-  
-  
-  
-  <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/post/how-to-update-hugo-and-academic-theme-part3/" rel="prev">How to update hugo and academic theme (Part3)</a>
+    <a href="/post/org-rifle/" rel="prev">Org-rifle</a>
   </div>
   
 </div>
