@@ -4,7 +4,7 @@
   
   <url>
     <loc>/post/mark-and-desktop-saving/</loc>
-    <lastmod>2019-11-06T22:03:00+09:00</lastmod>
+    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
   </url>
   
   <url>
@@ -243,13 +243,33 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-11-06T22:03:00+09:00</lastmod>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/emacs/</loc>
-    <lastmod>2019-10-19T22:12:40+09:00</lastmod>
+    <loc>/tags/helm/</loc>
+    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mark/</loc>
+    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ring/</loc>
+    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
   </url>
   
   <url>
@@ -264,11 +284,6 @@
   
   <url>
     <loc>/tags/search/</loc>
-    <lastmod>2019-10-19T22:12:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-10-19T22:12:40+09:00</lastmod>
   </url>
   
@@ -295,11 +310,6 @@
   <url>
     <loc>/tags/upgrade/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/helm/</loc>
-    <lastmod>2019-09-01T16:34:54+09:00</lastmod>
   </url>
   
   <url>

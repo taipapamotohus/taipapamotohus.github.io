@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-10-14T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-10-27T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,20 @@
   
   
   <div>
+    <h2><a href="/post/mojave/">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></h2>
+    <div class="article-style">
+      
+      世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
+ Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法  感想   
+Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
+結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
+Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
+$ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun  これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></h2>
     <div class="article-style">
       
@@ -440,23 +454,6 @@ Org Macros フォントの色を変更する方法はいろいろあるが，
 Table of Contents    swiper.el  Install &amp; setup 使い方  migemo  cmigemoのinstall migemo.elのInstall &amp; setup  avy-migemo（swiperのmigemo対応）  Install &amp; setup 使い方  最近開いたディレクトリを開く   
 swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．
 #+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &quot;p&quot;) ;; (interactive &quot;P&quot;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper 'swiper 'isearch-forward)))) (global-set-key (kbd &quot;C-s&quot;) 'isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset 'ivy--regex 'identity) ) #+end_src  ivyのコメントアウトしている部分については後述する．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/synchronization/">Emacsとskimで，latexのソースとpdfの間を行ったり来たり</a></h2>
-    <div class="article-style">
-      
-      以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiのmacOS での設定例 を参照していただきたい．
-Table of Contents    backward search forward search   
- 参照：Mac OS X El Capitan の AUCTeX の設定 参照：skimとの連携 参照：AUCTeX の設定と便利な機能 参照：TeX_and_PDF_Synchronization  backward search  こちらのほうが便利なので最初に説明する． skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる． この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．
-$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient  defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．
- 引数のところには，以下のように打ち込む．
-$ --no-wait +%line &quot;%file&quot;  つまりこうなる．
-    一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．
-#+begin_src emacs-lisp ;; Starts the Emacs server (server-start) #+end_src  これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！ これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．
- この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．
       
     </div>
   </div>

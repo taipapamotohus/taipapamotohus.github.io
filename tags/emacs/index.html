@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-10-14T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-10-27T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,16 @@
   
   
   <div>
+    <h2><a href="/post/mark-and-desktop-saving/">How to use mark in Emacs (helm-all-mark-rings)</a></h2>
+    <div class="article-style">
+      
+      Emacsのカーソルは画面をスクロールして上端または下端に至ると画面の中に表示される状態を維持するように動いてしまい，元の位置には止まらないのが仕様になっている．これは通常のエディターとは違っており，不便と感じて，色々と調べたり試したりしたのだが，要するに思想の違いであると考えるに至った．カーソルの位置は保持できない代わりにマークという方法が提供されている．まぁ，これが結構分かりにくいのだが，使ってみると案外便利である．そこで，マークについてまとめることにした．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/org-rifle/">Org-rifle</a></h2>
     <div class="article-style">
       
@@ -415,20 +425,6 @@ Ref  deadgrep: use ripgrep from Emacs ご本家 複雑になった時使う�
 $ brew install ripgrep  ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．
 #+begin_src emacs-lisp (use-package deadgrep :ensure t :config (global-set-key (kbd &quot;&lt;f5&gt;&quot;) #'deadgrep) ) #+end_src  How to use 使用方法の詳細はご本家に書いてあるが，f5を叩いて，検索キーワードを入れるだけである．下の画像は，このブログのあるdirectoryで，「検索」をキーワードとしてdeadgrepを走らせたところである．defaultでdirectory内を再帰的に検索する．キーワードは青くハイライトされており，左端の数字はその文書での行番号である． o を叩くと下のバッファに該当箇所にカーソルがある状態でその文書が開く． C-c C-k で検索を止めることができる．また，swiperとの併用も可能である．
    一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/mojave/">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></h2>
-    <div class="article-style">
-      
-      世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
- Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法  感想   
-Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
-結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
-Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
-$ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun  これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．
       
     </div>
   </div>
