@@ -13,6 +13,159 @@
     </image>
     
     <item>
+      <title>How to use mark in Emacs (helm-all-mark-rings)</title>
+      <link>/post/mark-and-desktop-saving/</link>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
+      <guid>/post/mark-and-desktop-saving/</guid>
+      <description>&lt;p&gt;Emacsのカーソルは画面をスクロールして上端または下端に至ると画面の中に表示される状態を維持するように動いてしまい，元の位置には止まらないのが仕様になっている．これは通常のエディターとは違っており，不便と感じて，色々と調べたり試したりしたのだが，要するに思想の違いであると考えるに至った．カーソルの位置は保持できない代わりにマークという方法が提供されている．まぁ，これが結構分かりにくいのだが，使ってみると案外便利である．そこで，マークについてまとめることにした．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#mark&#34;&gt;Mark&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;mark&#34;&gt;Mark&lt;/h2&gt;
+
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ayatakesi.github.io/emacs/26.1/html/Mark.html&#34; target=&#34;_blank&#34;&gt;マークとリージョン&lt;/a&gt;  Emacsのヘルプ （C-h i で自分のヘルプを読むのが一番早いかも）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Emacsでは，テキストのある位置にマーク（mark）をセットすることができる．マークをセットするとマークとカーソルがあるポイントまでの領域はactiveになり，ハイライト表示される．例えば，下図では，5081行の先頭の「例えば」の例にカーソルを置いた状態で， &lt;strong&gt;C-SPC&lt;/strong&gt; と打ってマークを置き，そのままアローキーでカーソルを5086行の文末まで移動させた状態であるが，マークを置いたところから現在のカーソルのある位置までがハイライトされている（activeになっている）．windowの表示範囲を越えるような広い範囲を選択する際に特に便利である．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/mark-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/mark-1.jpg&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;要するに，通常のエディターやワープロにおいて，マウスでクリックして押したままの状態でなぞった時と同じ状態である．この状態で，ハイライトされた領域をコピーしたり削除したりできる．まぁ，これだけだとどうと言うことはないのだが， &lt;strong&gt;マークはmark ringに格納されるので，そこに戻ることができる．&lt;/strong&gt; これが便利である．この機能を利用するときはマークをセットしてactiveにしないほうが使いやすい．マークをセットした位置に戻るには &lt;strong&gt;C-u C-SPC&lt;/strong&gt; と打つ．&lt;/p&gt;
+
+&lt;p&gt;以上をまとめると以下のようになる．&lt;/p&gt;
+
+&lt;style&gt;.zebra-striping table { text-align: center;  }&lt;/style&gt;
+
+&lt;div class=&#34;ox-hugo-table zebra-striping sane-table&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;table-caption&#34;&gt;
+  &lt;span class=&#34;table-number&#34;&gt;Table 1&lt;/span&gt;:
+  Key bindings for mark in emacs
+&lt;/div&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Key binding&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C-SPC&lt;/td&gt;
+&lt;td&gt;マークをセットする．カーソルを移動させるとマークからカーソルの位置までがactiveになる&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;C-SPC C-SPC&lt;/td&gt;
+&lt;td&gt;マークをactiveにせずにマークをセットしてから、マークリングにpush（格納）する&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;C-u C-SPC&lt;/td&gt;
+&lt;td&gt;マークがあった場所にカーソルを移動し、mark ringから1つ前のマークを復元する&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;要するに，あとで戻りたい位置にいるときに &lt;strong&gt;C-SPC C-SPC&lt;/strong&gt; でactiveにせずにマークをつけておき，しばらく作業をしたのち戻りたくなったら， &lt;strong&gt;C-u C-SPC&lt;/strong&gt; で戻ると言う使い方ができる．マークはmark ringに格納され，新しいものからリストの上に追加されていく． &lt;strong&gt;C-u C-SPC&lt;/strong&gt;  を連打すれば，次々と古いマークの位置に移動できる．なお， &lt;strong&gt;set-mark-command-repeat-pop&lt;/strong&gt; を非nilにセットすると、C-u C-SPCの後に続けて、C-u C-SPCではなく、C-SPCでマークリングを巡回できるようになる．これは， &lt;strong&gt;M-x customize&lt;/strong&gt; から，Customize Aproposに入り，下図のようにset-mark-command-repeat-popをToggleでonにすれば良い．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/mark-2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/mark-2.jpg&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;最古のマークまで行くと，また，最新のマークに戻ってくる．それで，mark ringなのであろう．これだけでも十分に便利であり，カーソルの位置を保持できないことを補って余りあるともいえる．さて，mark ringには，localとglobalの2種類があるが，これについては以下の解説を参考にしていただきたい．&lt;/p&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;p&gt;&lt;strong&gt;グローバルマークリング（マニュアルから引用）:&lt;/strong&gt; 各バッファーに属する普通のマークリングに加えて、Emacsにはグローバルマークリング(global mark ring)が1つあります。以前マークをセットしてからバッファーを切り替えた場合、マークをセットすると、マークはカレントバッファーのマークリングに加えて、グローバルマークリングにも記録されます。その結果、グローバルマークリングには訪れていたバッファーの系列が記録され、各バッファーではマークを設定した箇所が記録されます。グローバルマークリングの長さは、global-mark-ring-maxで制御され、デフォルトは16です。&lt;/p&gt;
+
+&lt;p&gt;コマンド &lt;strong&gt;C-x C-SPC&lt;/strong&gt;  (pop-global-mark)は、グローバルリングの最新のバッファー位置にジャンプします。これもリングを巡回するので、連続してC-x C-SPCを使うことにより、古いバッファーのマーク位置に移動します。&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;ここまでくると，「mark ringの内容が見られたらもっと便利だろうなぁ」と期待してしまうのは人情というものである．&lt;/p&gt;
+
+&lt;h2 id=&#34;helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照1：&lt;a href=&#34;https://tuhdo.github.io/helm-intro.html#orgheadline21&#34; target=&#34;_blank&#34;&gt;Command: helm-all-mark-rings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照2：&lt;a href=&#34;https://qiita.com/jabberwocky0139/items/a45cc82d9efd0cb6fd8e#コマンド-helm-all-mark-rings&#34; target=&#34;_blank&#34;&gt;コマンド: helm-all-mark-rings&lt;/a&gt; 上記記事の翻訳&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;さて，そんな期待を叶えてくれるのが，helm-all-mark-ringsである．localとglobalの両方のmark ringsをフレンドリーなインターフェースで可視化して，以前にいたところにいつでも戻れるようにする．私の場合は，最初にpreludeをインストールしている（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入&lt;/a&gt;）ので，helmは既にインストールされており，このコマンドはデフォルトでは，C-c h SPCにキーバインドされている．下図は，実際にC-c h SPCと打った時の画像である．下のバッファの中をarrow keyで上下し，見たい行のところでC-jと叩けば，上のバッファがそこへとぶ．そのまま次の行に動いてC-jとすれば，今度はそこに飛ぶ．Returnすれば，そのままそのバッファに行って確定する．&lt;/p&gt;
+
+&lt;p&gt;mark-ringはarrow keyで上下に動けるのだが，そのままglobal-mark-ringには移ってくれない．どうするかというと，minibufferのpattern: とあるところに，行きたいglobal-mark-ringの項目の最初の文字か2文字目ぐらいまでを入れれば，その項目だけが残るので，それを選択すれば良い．いつものhelmの選択方法である．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/mark-3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/mark-3.jpg&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;今回は地味だ．．．．しかし，役に立つと思う．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>org-sidebar</title>
       <link>/post/org-sidebar/</link>
       <pubDate>Thu, 17 Oct 2019 00:00:00 +0900</pubDate>
