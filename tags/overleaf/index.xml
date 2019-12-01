@@ -214,7 +214,7 @@
 &lt;/figure&gt;
 
 
-&lt;p&gt;このポスターのtex fileは以下のようになっている．元々は．どこかからとってきたtex fileを改変しているのだが，オリジナルをどこから持ってきたかは，もはや記憶の彼方である&amp;hellip;..(^^;;;  （どなたかご指摘いただければ幸いである） 素人が色々弄ってなんとか形にしたものだが，これを上書きしていく事で割と簡単にポスターが作成できるようになった．試行錯誤の跡もそのまま残した状態でアップしておく．念のために書いておくが，このファイルをdocument.texとして保存し，&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt; に書いたように， &lt;strong&gt;latexmk -pvc -pdf -view=none document.tex&lt;/strong&gt; とすればコンパイルされてpdfが出来上がる．&lt;/p&gt;
+&lt;p&gt;このポスターのtex fileは以下のようになっている．元々は．どこかからとってきたtex fileを改変しているのだが，オリジナルをどこから持ってきたかは，もはや記憶の彼方である&amp;hellip;..(^^;;;  （どなたかご指摘いただければ幸いである） 素人が色々弄ってなんとか形にしたものだが，これを上書きしていく事で割と簡単にポスターが作成できるようになった．試行錯誤の跡もそのまま残した状態でアップしておく．念のために書いておくが，このファイルをdocument.texとして保存し，&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt; に書いたように， &lt;strong&gt;latexmk -pvc -pdf -view=none document.tex&lt;/strong&gt; とすればコンパイルされてpdfが出来上がる．ただし，ファイルの中の画像（pdf）は適当なものと置き換えていただきたい．&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;9行目： &lt;strong&gt;\usetheme{I6dv_test}&lt;/strong&gt; によりスタイルシートを指定している．&lt;/li&gt;
