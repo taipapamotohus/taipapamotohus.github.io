@@ -321,14 +321,14 @@
   
   
   <div>
-    <h2><a href="/post/org-mode_paper_3/">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a></h2>
+    <h2><a href="/post/org-mode_paper_3/">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a></h2>
     <div class="article-style">
       
-      前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
+      前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
 Table of Contents    org-mode-reftex-setup  org-mode-reftex-setupの使用方法  ox-bibtex.el bst ファイルについて  bst ファイルの置き場所  文献を引用したorg-modeからのexportの実例   
-org-mode-reftex-setup  参照サイト：Using Emacs Org-mode to Draft Papers RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
-#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &quot;reftex&quot;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &quot;C-c )&quot;) 'reftex-citation) ) (add-hook 'org-mode-hook 'org-mode-reftex-setup) #+end_src  上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法  org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである． 次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
+org-mode-reftex-setup  参照サイト：Using Emacs Org-mode to Draft Papers RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
+#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &quot;reftex&quot;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &quot;C-c )&quot;) 'reftex-citation) ) (add-hook 'org-mode-hook 'org-mode-reftex-setup) #+end_src  上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
+  org-mode-reftex-setupの使用方法  org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである． 次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
       
     </div>
   </div>

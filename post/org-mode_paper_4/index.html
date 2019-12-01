@@ -28,10 +28,10 @@
   
     
   
-  <meta name="description" content="医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
-いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
-ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode &#43; org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2.">
+  <meta name="description" content="医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
+いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
+Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
+ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode &#43; org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/org-mode_paper_4/">
@@ -124,11 +124,11 @@ ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - 
   
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="/post/org-mode_paper_4/">
-  <meta property="og:title" content="Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする） | A perfect autumn day">
-  <meta property="og:description" content="医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
-いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
-ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode &#43; org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2."><meta property="og:image" content="/post/org-mode_paper_4/featured.jpg">
+  <meta property="og:title" content="Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする） | A perfect autumn day">
+  <meta property="og:description" content="医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
+いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
+Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
+ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode &#43; org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2."><meta property="og:image" content="/post/org-mode_paper_4/featured.jpg">
   <meta property="twitter:image" content="/post/org-mode_paper_4/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -146,7 +146,7 @@ ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - 
 
 
 
-  <title>Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする） | A perfect autumn day</title>
+  <title>Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする） | A perfect autumn day</title>
 
 </head>
 
@@ -316,12 +316,10 @@ ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - 
 
   
   
-    
-  
 
 
 <div class="article-container pt-3">
-  <h1 itemprop="name">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</h1>
+  <h1 itemprop="name">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</h1>
 
   
 
@@ -393,10 +391,10 @@ ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - 
 </div>
 
 
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 354px;">
+<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 2448px; max-height: 1203px;">
   <div style="position: relative">
-    <img src="/post/org-mode_paper_4/featured_huf1857551614f3c2e29615cb13c0890d8_158699_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
-    
+    <img src="/post/org-mode_paper_4/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Sultanahmet Camii</span>
   </div>
 </div>
 
@@ -407,9 +405,9 @@ ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - 
     <div class="article-style" itemprop="articleBody">
       
 
-<p>医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．</p>
+<p>医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．</p>
 
-<p>いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， <strong>pandoc</strong> とそれをorg−modeから利用するための <strong>ox-pandoc</strong> である．</p>
+<p>いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， <strong>pandoc</strong> とそれをorg−modeから利用するための <strong>ox-pandoc</strong> である．</p>
 
 <p><h2>Table of Contents</h2>
 <nav id="TableOfContents">
@@ -417,7 +415,7 @@ ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - 
 <li>
 <ul>
 <li><a href="#ox-pandoc">ox-pandoc</a></li>
-<li><a href="#文書の中で実際に引用された論文のみからなる文献リストを生成する方法">文書の中で実際に引用された論文のみからなる文献リストを生成する方法</a>
+<li><a href="#文書の中で実際に引用された論文のみからなる文献リストを生成する方法">文書の中で実際に引用された論文のみからなる文献リストを生成する方法</a>
 <ul>
 <li><a href="#reftex-create-bibtex-file">reftex-create-bibtex-file</a></li>
 <li><a href="#bibexport">bibexport</a></li>
@@ -447,16 +445,16 @@ ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - 
 <li>参照サイト1：本家　<a href="https://github.com/kawabata/ox-pandoc" target="_blank">ox-pandoc</a></li>
 <li>参照サイト2：<a href="http://kitchingroup.cheme.cmu.edu/blog/2015/06/11/ox-pandoc-org-mode-+-org-ref-to-docx-with-bibliographies/" target="_blank">ox-pandoc - org-mode + org-ref to docx with bibliographies</a></li>
 <li>参照サイト3：もっと本家　<a href="https://pandoc.org" target="_blank">Pandoc   a universal document converter</a></li>
-<li>pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．</li>
-<li>ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．</li>
+<li>pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．</li>
+<li>ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．</li>
 
-<li><p>pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．</p>
+<li><p>pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．</p>
 
 <pre><code class="language-shell">$  brew install pandoc
 $  brew install pandoc-citeproc
 </code></pre></li>
 
-<li><p>init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．</p>
+<li><p>init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．</p>
 
 <pre><code class="language-lisp">#+begin_src emacs-lisp
 (use-package ox-pandoc
@@ -475,23 +473,23 @@ $  brew install pandoc-citeproc
 
 <li><p>latex engineにxelatex以外を使っている場合は，上記の設定をそちらに変更する．</p></li>
 
-<li><p>以上でorg-mode自体の基本的な設定は終了である．</p></li>
+<li><p>以上でorg-mode自体の基本的な設定は終了である．</p></li>
 </ul>
 
-<h2 id="文書の中で実際に引用された論文のみからなる文献リストを生成する方法">文書の中で実際に引用された論文のみからなる文献リストを生成する方法</h2>
+<h2 id="文書の中で実際に引用された論文のみからなる文献リストを生成する方法">文書の中で実際に引用された論文のみからなる文献リストを生成する方法</h2>
 
 <ul>
 <li>このリスト（bib ファイル）を作成しておかないと，Wordをexportする際にうまくいかない．</li>
-<li>reftex-create-bibtex-fileとbibexportの２つの方法がある．</li>
+<li>reftex-create-bibtex-fileとbibexportの２つの方法がある．</li>
 </ul>
 
 <h3 id="reftex-create-bibtex-file">reftex-create-bibtex-file</h3>
 
 <ul>
 <li>参照サイト：<a href="https://www.gnu.org/software/emacs/manual/html%5Fnode/reftex/BibTeX-Database-Subsets.html" target="_blank">reftex-create-bibtex-file</a></li>
-<li>Emacsの中に最初から入っているコマンドである．</li>
-<li>前回の記事（<a href="../org-mode_paper_3">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化</a>）の際に作成したhogefuga.orgからpdfをexportした際に同じdirectory内にhogefuga.texも保存されているはずである．これをEmacsでオープンし, <strong>M-x reftex-create-bibtex-file</strong> と打つ．すると，実際に引用された論文のみからなる文献リストを生成してくれる．この際に名前をどうするかを聞かれるので，適当につける．今回は，extract.bibとした．</li>
-<li>しかし，たまに，reftex-create-bibtex-fileで引用された論文の一部が欠けてしまうことがある．そのようなときは，第２の方法であるbibexportが役に立つ．</li>
+<li>Emacsの中に最初から入っているコマンドである．</li>
+<li>前回の記事（<a href="../org-mode_paper_3">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化</a>）の際に作成したhogefuga.orgからpdfをexportした際に同じdirectory内にhogefuga.texも保存されているはずである．これをEmacsでオープンし, <strong>M-x reftex-create-bibtex-file</strong> と打つ．すると，実際に引用された論文のみからなる文献リストを生成してくれる．この際に名前をどうするかを聞かれるので，適当につける．今回は，extract.bibとした．</li>
+<li>しかし，たまに，reftex-create-bibtex-fileで引用された論文の一部が欠けてしまうことがある．そのようなときは，第２の方法であるbibexportが役に立つ．</li>
 </ul>
 
 <h3 id="bibexport">bibexport</h3>
@@ -500,8 +498,8 @@ $  brew install pandoc-citeproc
 <li>参考サイト1：<a href="https://ctan.org/pkg/bibexport" target="_blank">bibexport – Extract a BibTEX file based on a .aux file</a></li>
 <li>参考サイト2：<a href="https://tex.stackexchange.com/questions/41821/creating-bib-file-containing-only-the-cited-references-of-a-bigger-bib-file" target="_blank">Creating .bib file containing only the cited references of a bigger .bib file</a></li>
 <li>texliveに含まれているshell script</li>
-<li>文書の中の <strong>\cite</strong> で引用された文献のみを抽出する．上記のreftex-create-bibtex-fileはtex ファイルが有れば抽出できたが，こちらはaux ファイルを必要とする．したがって，まず，org-modeからpdfをexportし，tex ファイルを作成し，次いで，tex ファイルをlatex でコンパイルしてaux ファイルを作成し，そのaux ファイルに対してbibexportを用いるというややこしいことをする必要がある．</li>
-<li>しかし，reftex-create-bibtex-fileでうまく抽出できないときも，bibexportならうまくいくことが多いので，知っておいて損はない．</li>
+<li>文書の中の <strong>\cite</strong> で引用された文献のみを抽出する．上記のreftex-create-bibtex-fileはtex ファイルが有れば抽出できたが，こちらはaux ファイルを必要とする．したがって，まず，org-modeからpdfをexportし，tex ファイルを作成し，次いで，tex ファイルをlatex でコンパイルしてaux ファイルを作成し，そのaux ファイルに対してbibexportを用いるというややこしいことをする必要がある．</li>
+<li>しかし，reftex-create-bibtex-fileでうまく抽出できないときも，bibexportならうまくいくことが多いので，知っておいて損はない．</li>
 
 <li><p>使い方は以下を参考</p>
 
@@ -532,7 +530,7 @@ Advanced options:
  -d, --debug                create intermediate files but don't run BibTeX
 </code></pre></li>
 
-<li><p>例えばこんなふうにshellで打つ</p>
+<li><p>例えばこんなふうにshellで打つ</p>
 
 <pre><code class="language-sh">$ bibexport -o extract2.bib hogefuga_English.aux
 </code></pre></li>
@@ -541,33 +539,33 @@ Advanced options:
 <h2 id="pandocのための設定">pandocのための設定</h2>
 
 <ul>
-<li>word fileとして出力しても，スタイルが気に入らない可能性は高い．そこで，予めスタイルファイルを自分好みにしておく．</li>
+<li>word fileとして出力しても，スタイルが気に入らない可能性は高い．そこで，予めスタイルファイルを自分好みにしておく．</li>
 <li>参考サイト1：<a href="https://github.com/jgm/pandoc/wiki/Defining-custom-DOCX-styles-in-LibreOffice-(and-Word)" target="_blank">Defining custom DOCX styles in LibreOffice (and Word)</a></li>
 <li>参考サイト2：<a href="https://support.office.com/en-us/article/Customize-styles-in-Word-for-Mac-1ef7d8e1-1506-4b21-9e81-adc5f698f86a" target="_blank">Customize styles in Word for Mac</a></li>
-<li>参考サイト3：<a href="https://qiita.com/sky%5Fy/items/5fd5c9568ea550b1d7af" target="_blank">ドキュメント変換ツールPandoc：ユーザーズガイドを熟読して分かったマニアックな使い方</a></li>
-<li>上記のサイトを参考にスタイルファイルを作成し，~/.pandocにword用に <strong>reference.docx</strong> として置く．このテンプレートのフォーマットに従ってword fileが出力される．</li>
-<li>しかし，実は，これが結構面倒くさいのである．念のため自作のものを<a href="/files/reference.docx">ここ</a>に置いておく．</li>
+<li>参考サイト3：<a href="https://qiita.com/sky%5Fy/items/5fd5c9568ea550b1d7af" target="_blank">ドキュメント変換ツールPandoc：ユーザーズガイドを熟読して分かったマニアックな使い方</a></li>
+<li>上記のサイトを参考にスタイルファイルを作成し，~/.pandocにword用に <strong>reference.docx</strong> として置く．このテンプレートのフォーマットに従ってword fileが出力される．</li>
+<li>しかし，実は，これが結構面倒くさいのである．念のため自作のものを<a href="/files/reference.docx">ここ</a>に置いておく．</li>
 </ul>
 
 <h2 id="citation-style-language--csl--の設定">Citation Style Language (CSL)の設定</h2>
 
 <ul>
-<li>参考サイト1：<a href="https://citationstyles.org" target="_blank">Citation Style Language</a>  ご本家</li>
+<li>参考サイト1：<a href="https://citationstyles.org" target="_blank">Citation Style Language</a>  ご本家</li>
 <li>参考サイト2：<a href="https://github.com/citation-style-language/styles" target="_blank">citation-style-language/styles</a> スタイルの在り処</li>
 <li>参考サイト3：<a href="https://github.com/citation-style-language/styles/blob/master/stroke.csl" target="_blank">citation-style-language/styles/stroke.csl</a>  今回使用するスタイル</li>
-<li>CSLは学術出版の引用と文献スタイルの書式自動化を促進することを目的としたオープンソースプロジェクト．ありがたく使わせていただく．</li>
-<li>上記の<a href="https://github.com/citation-style-language/styles/blob/master/stroke.csl" target="_blank">参考サイト3</a>からstroke.cslをダウンロードする．</li>
-<li>stroke.cslをexportの対象のorg fileと同じdirectoryに置いておく．</li>
-<li>これで，<a href="https://www.ahajournals.org/journal/str" target="_blank">Stroke</a> という雑誌の引用書式に従ったスタイルになってword fileがexportされる．</li>
+<li>CSLは学術出版の引用と文献スタイルの書式自動化を促進することを目的としたオープンソースプロジェクト．ありがたく使わせていただく．</li>
+<li>上記の<a href="https://github.com/citation-style-language/styles/blob/master/stroke.csl" target="_blank">参考サイト3</a>からstroke.cslをダウンロードする．</li>
+<li>stroke.cslをexportの対象のorg fileと同じdirectoryに置いておく．</li>
+<li>これで，<a href="https://www.ahajournals.org/journal/str" target="_blank">Stroke</a> という雑誌の引用書式に従ったスタイルになってword fileがexportされる．</li>
 </ul>
 
 <h2 id="英語論文の場合のorg-fileの設定">英語論文の場合のorg fileの設定</h2>
 
 <ul>
-<li>ここからは，個々のorg-mode file側の設定である．</li>
-<li>英語の場合は殆どなんの問題もなくexportされる．</li>
+<li>ここからは，個々のorg-mode file側の設定である．</li>
+<li>英語の場合は殆どなんの問題もなくexportされる．</li>
 
-<li><p>早速実例を見てみる．まず下のorg fileをhogefuga_English.orgとして保存する．</p>
+<li><p>早速実例を見てみる．まず下のorg fileをhogefuga_English.orgとして保存する．</p>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: koma-article
 #+LaTeX_CLASS_OPTIONS: [12pt]
@@ -600,9 +598,9 @@ The profiling of low molecular weight biochemicals that serve as substrates and 
 
 </code></pre></li>
 
-<li><p>何故か *Introductionの前に２つコンマを打たないとうまくhugoでブログにexportされない（理由は不明，ご教示を乞う）．このために画面上 *Introduction の前にコンマが一つ残っているが，もしコピーして試して見るなら，この余分なコンマは除かないとうまくいかないので注意していただきたい．</p></li>
+<li><p>何故か *Introductionの前に２つコンマを打たないとうまくhugoでブログにexportされない（理由は不明，ご教示を乞う）．このために画面上 *Introduction の前にコンマが一つ残っているが，もしコピーして試して見るなら，この余分なコンマは除かないとうまくいかないので注意していただきたい．</p></li>
 
-<li><p>Emacsで上記のhogefuga_English.orgを開いた状態で，C-c C-e l oとすると，pdfが作成され，下図のようにskimで開かれる．</p></li>
+<li><p>Emacsで上記のhogefuga_English.orgを開いた状態で，C-c C-e l oとすると，pdfが作成され，下図のようにskimで開かれる．</p></li>
 </ul>
 
 
@@ -622,13 +620,13 @@ The profiling of low molecular weight biochemicals that serve as substrates and 
 
 
 <ul>
-<li>本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．</li>
-<li>何故pdfを作成するかというと， <strong>文書の中で実際に引用された論文のみからなる文献リストを生成する</strong> ためである．pdfと一緒にできたtex ファイルで，reftex-create-bibtex-file もしくは bibexportを使って抽出された文献リストであるextract.bibを作成する．</li>
+<li>本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．</li>
+<li>何故pdfを作成するかというと， <strong>文書の中で実際に引用された論文のみからなる文献リストを生成する</strong> ためである．pdfと一緒にできたtex ファイルで，reftex-create-bibtex-file もしくは bibexportを使って抽出された文献リストであるextract.bibを作成する．</li>
 
-<li><p>実際に行った手順は以下の通りである．</p>
+<li><p>実際に行った手順は以下の通りである．</p>
 
 <ol>
-<li><p>pdfのexportの際に一緒に生成された <strong>hogefuga_English.tex</strong> をEmacsで開く．</p></li>
+<li><p>pdfのexportの際に一緒に生成された <strong>hogefuga_English.tex</strong> をEmacsで開く．</p></li>
 
 <li><p><strong>M-x reftex-create-bibtex-file</strong> する</p></li>
 
@@ -636,22 +634,22 @@ The profiling of low molecular weight biochemicals that serve as substrates and 
 
 <li><p>しかし，extract.bibは何故か引用された8つの文献のうちの6つしか含まれていなかった．</p></li>
 
-<li><p>そこで，上述のように <strong>bibexport</strong> を利用することにした．texファイルをxelatexでコンパイルし，できたaux ファイルにbibexportを適用した．<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a>のlatexmkの項を参照のこと．</p>
+<li><p>そこで，上述のように <strong>bibexport</strong> を利用することにした．texファイルをxelatexでコンパイルし，できたaux ファイルにbibexportを適用した．<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a>のlatexmkの項を参照のこと．</p>
 
 <pre><code class="language-sh">$ latexmk -pvc -pdf -view=none hogefuga_English.tex
 $ bibexport -o extract2.bib hogefuga_English.aux
 </code></pre></li>
 
-<li><p>これで，８つの文献をすべて含むextract2.bibが生成された．</p></li>
+<li><p>これで，８つの文献をすべて含むextract2.bibが生成された．</p></li>
 </ol></li>
 </ul>
 
 <h2 id="英語論文のword-fileのexport">英語論文のWord fileのexport</h2>
 
 <ul>
-<li>ようやくWord fileへexportできる段階となった．</li>
+<li>ようやくWord fileへexportできる段階となった．</li>
 
-<li><p>上記で作成したhogefuga_Engolish.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．多分パスも効くが，この原稿専用のリストなので，同じdirectoryの方が混乱することがないであろう．</p>
+<li><p>上記で作成したhogefuga_Engolish.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．多分パスも効くが，この原稿専用のリストなので，同じdirectoryの方が混乱することがないであろう．</p>
 
 <pre><code class="language-lisp">#+PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
 #+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
@@ -663,7 +661,7 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 <pre><code class="language-lisp">#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
 </code></pre></li>
 
-<li><p>以上で，下図のようになるので，hogefuga_English_WORD.org として保存する．</p>
+<li><p>以上で，下図のようになるので，hogefuga_English_WORD.org として保存する．</p>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: koma-article
 #+LaTeX_CLASS_OPTIONS: [12pt]
@@ -723,13 +721,13 @@ $ bibexport -o extract2.bib hogefuga_English.aux
   stroke.\cite{Jiang:2011uq, Jung:2011fk, Kimberly:2013mq}
 </code></pre></li>
 
-<li><p>*Introductionの前のコンマについては前述のとおりである．</p></li>
+<li><p>*Introductionの前のコンマについては前述のとおりである．</p></li>
 </ul>
 
 <h3 id="org-modeからword-fileへのexportの方法">org-modeからWord fileへのexportの方法</h3>
 
 <ul>
-<li><p>ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, <strong>export via pandoc</strong> のメニューが見える．そこで，p xとして，export via pandoc &mdash;&gt; to docx and openを選択する．</p>
+<li><p>ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, <strong>export via pandoc</strong> のメニューが見える．そこで，p xとして，export via pandoc &mdash;&gt; to docx and openを選択する．</p>
 
 
 
@@ -747,7 +745,7 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 </figure>
 </li>
 
-<li><p>暫く待つと，下図のようにWordが立ち上がって，docx file（ <strong>hogefuga_English_WORD.docx</strong> ）が開かれる．</p>
+<li><p>暫く待つと，下図のようにWordが立ち上がって，docx file（ <strong>hogefuga_English_WORD.docx</strong> ）が開かれる．</p>
 
 
 
@@ -766,22 +764,22 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 
 
 <ul>
-<li><p>全体的なスタイルはまずまずである．</p></li>
+<li><p>全体的なスタイルはまずまずである．</p></li>
 
-<li><p>本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．</p></li>
+<li><p>本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．</p></li>
 
-<li><p>文献リストの体裁はインデントに問題ありだが，これは手作業でやっても苦痛でないレベルである．</p></li>
+<li><p>文献リストの体裁はインデントに問題ありだが，これは手作業でやっても苦痛でないレベルである．</p></li>
 
-<li><p>org-modeのオプションが見えてしまっているが，この程度であれば僅かな手作業で消去できる．</p></li>
+<li><p>org-modeのオプションが見えてしまっているが，この程度であれば僅かな手作業で消去できる．</p></li>
 
-<li><p><strong>英語に関しては，pdfと比べると多少見劣りがするが，まず問題ないレベルのWord fileが出力できた．</strong></p></li>
+<li><p><strong>英語に関しては，pdfと比べると多少見劣りがするが，まず問題ないレベルのWord fileが出力できた．</strong></p></li>
 </ul></li>
 </ul>
 
 <h2 id="日本語論文の場合のorg-fileの設定">日本語論文の場合のorg fileの設定</h2>
 
 <ul>
-<li><p>前回の記事（<a href="../org-mode_paper_3">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化</a>）の際に作成したhogefuga.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．</p>
+<li><p>前回の記事（<a href="../org-mode_paper_3">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化</a>）の際に作成したhogefuga.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．</p>
 
 <pre><code class="language-lisp">#+PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
 #+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
@@ -793,7 +791,7 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 <pre><code class="language-lisp">#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
 </code></pre></li>
 
-<li><p>以上で，下図のようになるので，hogefuga_WORD.org として保存する．</p>
+<li><p>以上で，下図のようになるので，hogefuga_WORD.org として保存する．</p>
 
 <pre><code class="language-lisp">#+LaTeX_CLASS: koma-jarticle
 #+LaTeX_CLASS_OPTIONS: [12pt]
@@ -817,18 +815,18 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 \hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
 
 * 背景と目的
-hogeとfugaを比較してみると，一方で難易度の高い症例でも他方では容易に行える場合も多い．\cite{Stetler:2012jt}当施設では，一方に片寄ることなく，hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている．そこで，自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した．
+hogeとfugaを比較してみると，一方で難易度の高い症例でも他方では容易に行える場合も多い．\cite{Stetler:2012jt}当施設では，一方に片寄ることなく，hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている．そこで，自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した．
 * 結果
-hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)．\cite{Cosentino:2011dn}
+hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)．\cite{Cosentino:2011dn}
 
 #+NAME: hoge_fuga
-#+caption: hoge-fuga（重症例である）
+#+caption: hoge-fuga（重症例である）
 #+attr_latex: :float t :width 3in  :align center
 #+ATTR_HTML: :width 500  :float: wrap :align center
 [[./hoge_fuga.jpg]]
 
 * 結論
-hogefugaによる治療は有効である．
+hogefugaによる治療は有効である．
 
 </code></pre></li>
 </ul>
@@ -836,7 +834,7 @@ hogefugaによる治療は有効である．
 <h2 id="org-modeからword-fileへのexportの方法-1">org-modeからWord fileへのexportの方法</h2>
 
 <ul>
-<li><p>ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, <strong>export via pandoc</strong> のメニューが見える．そこで，p xとして，export via pandoc &mdash;&gt; to docx and openを選択する．</p>
+<li><p>ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, <strong>export via pandoc</strong> のメニューが見える．そこで，p xとして，export via pandoc &mdash;&gt; to docx and openを選択する．</p>
 
 
 
@@ -854,7 +852,7 @@ hogefugaによる治療は有効である．
 </figure>
 </li>
 
-<li><p>暫く待つと，下図のようにWordが立ち上がって，docx file（ <strong>hogefuga_WORD.docx</strong> ）が開かれる．</p>
+<li><p>暫く待つと，下図のようにWordが立ち上がって，docx file（ <strong>hogefuga_WORD.docx</strong> ）が開かれる．</p>
 
 
 
@@ -873,34 +871,34 @@ hogefugaによる治療は有効である．
 
 
 <ul>
-<li><p>本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．</p></li>
+<li><p>本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．</p></li>
 
-<li><p>Figureのキャプションが消えているが，通常，論文投稿時には，本文と画像は別々になるので，画像自体を本文から削除できるため，問題無しとする．</p></li>
+<li><p>Figureのキャプションが消えているが，通常，論文投稿時には，本文と画像は別々になるので，画像自体を本文から削除できるため，問題無しとする．</p></li>
 
-<li><p>しかし，英語の場合には見られなかった大きな問題が発覚した！　本文が,  <strong>濁点分離</strong> してしまっている．</p></li>
+<li><p>しかし，英語の場合には見られなかった大きな問題が発覚した！　本文が,  <strong>濁点分離</strong> してしまっている．</p></li>
 </ul></li>
 </ul>
 
 <h2 id="word-file-の濁点分離を修正する方法">Word file の濁点分離を修正する方法</h2>
 
 <ul>
-<li><strong>濁点分離</strong> したままでは使いものにならないので，修正する必要がある．しかし，Word fileの内容を点検して，いちいち手作業をやっていては堪らない．そこで，一気に濁点分離を修正する方法はないものかといろいろ探ってみた．</li>
-<li>参考サイト1：<a href="https://ja.stackoverflow.com/questions/36762/wordで文書内の文字をunicode-nfc正規化する方法" target="_blank">Wordで文書内の文字をUnicode NFC正規化する方法</a></li>
+<li><strong>濁点分離</strong> したままでは使いものにならないので，修正する必要がある．しかし，Word fileの内容を点検して，いちいち手作業をやっていては堪らない．そこで，一気に濁点分離を修正する方法はないものかといろいろ探ってみた．</li>
+<li>参考サイト1：<a href="https://ja.stackoverflow.com/questions/36762/wordで文書内の文字をunicode-nfc正規化する方法" target="_blank">Wordで文書内の文字をUnicode NFC正規化する方法</a></li>
 <li>参考サイト2：<a href="http://labs.timedia.co.jp/2018/04/post-57.html" target="_blank">あらゆる文字に濁点と半濁点を付けてみよう</a></li>
-<li>参考サイト3：<a href="http://ikeikeikeike.hatenablog.com/entry/2013/11/20/121930" target="_blank">Macの濁点問題を解決するPython unicodedataモジュール</a></li>
+<li>参考サイト3：<a href="http://ikeikeikeike.hatenablog.com/entry/2013/11/20/121930" target="_blank">Macの濁点問題を解決するPython unicodedataモジュール</a></li>
 <li>参考サイト4：<a href="http://emasaka.blog65.fc2.com/blog-entry-1407.html" target="_blank">濁点問題</a></li>
 <li>参考サイト5：<a href="https://www.slideshare.net/emasaka/ss-82692529" target="_blank">濁点の話</a></li>
 <li>参考サイト6：<a href="https://github.com/emasaka/docx-normarize-nfc" target="_blank">docx-normarize-nfc</a></li>
-<li>上記の参考サイト4, 5, 6では，emasaka氏により，pythonを用いた方法が報告されており，<a href="https://github.com/emasaka/docx-normarize-nfc" target="_blank">docx-normarize-nfc</a> としてGithubにアップされている．これはpython scriptであり，.docxファイルをZIPアーカイブとして開き、文書本体のXMLテキストを開いてNFC正規化し、ZIPアーカイブに書き戻すというものであり，これを使わせてもらうことにした．</li>
+<li>上記の参考サイト4, 5, 6では，emasaka氏により，pythonを用いた方法が報告されており，<a href="https://github.com/emasaka/docx-normarize-nfc" target="_blank">docx-normarize-nfc</a> としてGithubにアップされている．これはpython scriptであり，.docxファイルをZIPアーカイブとして開き、文書本体のXMLテキストを開いてNFC正規化し、ZIPアーカイブに書き戻すというものであり，これを使わせてもらうことにした．</li>
 </ul>
 
 <h3 id="pythonの導入">Pythonの導入</h3>
 
 <ul>
-<li>参考サイト：<a href="https://www.python.org" target="_blank">Welcome to Python.org</a> （本家）ご存知いま一番アツい言語．それしか知らなくても下記のようにして使える（笑）</li>
-<li>まず下準備としてpythonを入れる．</li>
+<li>参考サイト：<a href="https://www.python.org" target="_blank">Welcome to Python.org</a> （本家）ご存知いま一番アツい言語．それしか知らなくても下記のようにして使える（笑）</li>
+<li>まず下準備としてpythonを入れる．</li>
 
-<li><p>homebrew でpython3をインストール</p>
+<li><p>homebrew でpython3をインストール</p>
 
 <pre><code class="language-shell">$ brew install python3
 </code></pre></li>
@@ -909,21 +907,21 @@ hogefugaによる治療は有効である．
 <h3 id="docx-normarize-nfcの導入">docx-normarize-nfcの導入</h3>
 
 <ul>
-<li><a href="https://github.com/emasaka/docx-normarize-nfc" target="_blank">docx-normarize-nfc</a> からダウンロードして，/usr/local/bin/ にコピーする．（/usr/local/binにパスが通っているものとする）</li>
+<li><a href="https://github.com/emasaka/docx-normarize-nfc" target="_blank">docx-normarize-nfc</a> からダウンロードして，/usr/local/bin/ にコピーする．（/usr/local/binにパスが通っているものとする）</li>
 </ul>
 
 <h3 id="濁点分離の修正">濁点分離の修正</h3>
 
 <ul>
-<li>これでWord fileに対して上記のスクリプトを使用すれば良い．</li>
+<li>これでWord fileに対して上記のスクリプトを使用すれば良い．</li>
 <li>念のために，Word fileの名前を，hogefuga_WORD_濁点分離修正済み.docxに変更し新規保存しておく．</li>
 
-<li><p>そのうえで，shellで以下の操作を行う</p>
+<li><p>そのうえで，shellで以下の操作を行う</p>
 
 <pre><code class="language-shell">$ docx-normarize-nfc hogefuga_WORD_濁点分離修正済み.docx
 </code></pre></li>
 
-<li><p>一瞬で修正は終わるので，ファイルをオープンして確かめてみると，下図のように修正されている．素晴らしい．</p>
+<li><p>一瞬で修正は終わるので，ファイルをオープンして確かめてみると，下図のように修正されている．素晴らしい．</p>
 
 
 
@@ -941,11 +939,11 @@ hogefugaによる治療は有効である．
 </figure>
 </li>
 
-<li><p>ようやく，使い物になる日本語のWord fileを作成することができた．</p></li>
+<li><p>ようやく，使い物になる日本語のWord fileを作成することができた．</p></li>
 
-<li><p>これで，英語でも日本語でも，pdfからWordにコピペして修正するという難行苦行から解放される．</p></li>
+<li><p>これで，英語でも日本語でも，pdfからWordにコピペして修正するという難行苦行から解放される．</p></li>
 
-<li><p>しかし，co-authorとのすり合わせやrevisionの際は，まだ，Wordでの作業が必要とされる．苦行は続くのである．．．．．</p></li>
+<li><p>しかし，co-authorとのすり合わせやrevisionの際は，まだ，Wordでの作業が必要とされる．苦行は続くのである．．．．．</p></li>
 </ul>
 
     </div>
@@ -1071,11 +1069,11 @@ hogefugaによる治療は有効である．
         <h3>Related</h3>
         <ul>
           
-          <li><a href="/post/org-mode_paper_3/">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a></li>
+          <li><a href="/post/org-mode_paper_3/">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a></li>
           
-          <li><a href="/post/org-mode_paper_1/">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></li>
+          <li><a href="/post/org-mode_paper_1/">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></li>
           
-          <li><a href="/post/org-mode_paper_2/">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a></li>
+          <li><a href="/post/org-mode_paper_2/">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a></li>
           
         </ul>
       </div>
@@ -1098,7 +1096,7 @@ hogefugaによる治療は有効である．
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/post/org-mode_paper_3/" rel="prev">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a>
+    <a href="/post/org-mode_paper_3/" rel="prev">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a>
   </div>
   
 </div>

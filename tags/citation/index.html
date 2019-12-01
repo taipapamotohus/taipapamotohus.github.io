@@ -321,44 +321,44 @@
   
   
   <div>
-    <h2><a href="/post/org-mode_paper_4/">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a></h2>
+    <h2><a href="/post/org-mode_paper_4/">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a></h2>
     <div class="article-style">
       
-      医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
-いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
-ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2.
+      医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
+いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
+Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
+ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2.
       
     </div>
   </div>
   
   <div>
-    <h2><a href="/post/org-mode_paper_3/">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a></h2>
+    <h2><a href="/post/org-mode_paper_3/">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化）</a></h2>
     <div class="article-style">
       
-      前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
+      前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
 Table of Contents    org-mode-reftex-setup  org-mode-reftex-setupの使用方法  ox-bibtex.el bst ファイルについて  bst ファイルの置き場所  文献を引用したorg-modeからのexportの実例   
-org-mode-reftex-setup  参照サイト：Using Emacs Org-mode to Draft Papers RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
-#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &quot;reftex&quot;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &quot;C-c )&quot;) 'reftex-citation) ) (add-hook 'org-mode-hook 'org-mode-reftex-setup) #+end_src  上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法  org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである． 次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
+org-mode-reftex-setup  参照サイト：Using Emacs Org-mode to Draft Papers RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
+#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &quot;reftex&quot;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &quot;C-c )&quot;) 'reftex-citation) ) (add-hook 'org-mode-hook 'org-mode-reftex-setup) #+end_src  上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
+  org-mode-reftex-setupの使用方法  org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである． 次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
       
     </div>
   </div>
   
   <div>
-    <h2><a href="/post/org-mode_paper_2/">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a></h2>
+    <h2><a href="/post/org-mode_paper_2/">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a></h2>
     <div class="article-style">
       
-      さて，前回（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文を引用するためには，当然のことながら論文を収集しなければならない．そのうち膨大な数の論文の海に溺れることになる．そこで，収集した論文，つまり，pdfの整理をするソフトが必要になってくる．その引用も，書式や番号付を雑誌の規定に合わせて自動化してくれれば言うことはない．ということで，そのようなソフトについて書くことにする．有料ソフトの定番としては，EndoNoteがあるし，フリーソフトでは，zoteroやMendeleyが有名である．私自身は，LaTeXを利用することが多い関係上，BibDeskというこれまた老舗のソフトをもっぱら利用している．ネット上でもzoteroやmendeleyについての情報は豊富だが，BibDeskについてはそれほど見られないので，まとめておくことは多少の意味があるであろうと考え，BibDeskによる論文収集を説明することにした．
-BibDesk  texliveをインストールすればその中に入っているが，最新版はリンク先にあるので，そちらを落とすほうが良い． 文献をbibtexのファイルとして管理する．pdfとの関連付けができるので，書誌事項とpdfが一体化して管理できる． bibtexに関しては，BiBTeXとは を参照 bibtexファイルなので，当然，latexの機能を用いて，文献の引用，引用スタイルの設定，文献リストの作成，文献リストのスタイルの設定などをすべて自動化できる．これが便利！ 見た目はこんな感じ
-    医学系の論文となると，やはり，PubMedなどネットでの連携が重要である．下図のごとく，BibDeskではSearches menuからPubMedを選ぶことにより，BibDeskの中からPubMedを検索できる．
-      検索欄に，例えば，&rdquo;heat shock protein&rdquo;と打つと，下図のように検索結果が50編ずつ並ぶが，50編以上ある場合は，Searchを繰り返しクリックすることにより，100編と150編とどんどんリストに取り込まれていく．
-    上図のごとく，検索結果欄の左端に&rdquo;Import&rdquo; ボタンがあるが，これをクリックするとその論文の書誌事項が取り込まれる．その際に，自分の文献リストの名前を，&rdquo;hogefuga-reference.bib&rdquo; など適当に決めれば良い．以後はそのリストに追加していくことになる．
- また，取り込まれる際にcite-keyをBibDeskが自動的に決めてくれる．このcite-keyは次回の記事で述べる「引用の自動化」の際にreftexに使用される．
- なお，PubMedの番号，つまり，Pmidが分かっていれば，それを打ち込めば一発で書誌事項を検索できる．
- リストの中から興味のある論文をクリックして選択し，グレーにハイライトさせると，下図のごとく右側のサイドパネルに，その論文のあるサイトを示すアイコンが表示される．これをクリックすれば，ブラウザーが開いてそのサイトに飛ぶ．もし，その論文がオープンアクセスであれば，あるいは，所属する組織が出版社と契約を交わしていれば，その論文のpdfを落とせる．落としたpdfをドラッグしてその論文に該当するリストのラインにドロップすれば，その書誌事項とpdfはリンクし，以降はその論文のサイドパネルにpdfのアイコンが表示され，ダブルクリックによりオープンするようになる．さらに言えば，pdfではなく，パワポやワードのファイルとして文献が存在することもある．同じようにドラッグ＆ドロップすれば，これまたリンクする．しかも一つの文献にいくつものpdfやその他のファイルをリンクできる．非常に便利である．
-    また，下図のごとく，左のサイドパネルの一番上の方にある&rdquo;Web BibDesk Web Group&rdquo;をクリックして選択すれば，更にいろいろな文献ソースが表示される．医学系では，Google Scholarが有用なので，これをクリックすれば，BibDeskの中からGoogle Scholarを検索できるし，書誌事項も取り込める．pdfのリンクが存在すればBibDeskの中でpdfを落とすこともできる．
-    収集した文献の書誌事項はhogefuga-reference.bibにbibtex fileとしてまとめられているが，その中身は以下のような情報の集積である（下の例ではabstractなどは省略している）．
+      さて，前回（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文を引用するためには，当然のことながら論文を収集しなければならない．そのうち膨大な数の論文の海に溺れることになる．そこで，収集した論文，つまり，pdfの整理をするソフトが必要になってくる．その引用も，書式や番号付を雑誌の規定に合わせて自動化してくれれば言うことはない．ということで，そのようなソフトについて書くことにする．有料ソフトの定番としては，EndoNoteがあるし，フリーソフトでは，zoteroやMendeleyが有名である．私自身は，LaTeXを利用することが多い関係上，BibDeskというこれまた老舗のソフトをもっぱら利用している．ネット上でもzoteroやmendeleyについての情報は豊富だが，BibDeskについてはそれほど見られないので，まとめておくことは多少の意味があるであろうと考え，BibDeskによる論文収集を説明することにした．
+BibDesk  texliveをインストールすればその中に入っているが，最新版はリンク先にあるので，そちらを落とすほうが良い． 文献をbibtexのファイルとして管理する．pdfとの関連付けができるので，書誌事項とpdfが一体化して管理できる． bibtexに関しては，BiBTeXとは を参照 bibtexファイルなので，当然，latexの機能を用いて，文献の引用，引用スタイルの設定，文献リストの作成，文献リストのスタイルの設定などをすべて自動化できる．これが便利！ 見た目はこんな感じ
+    医学系の論文となると，やはり，PubMedなどネットでの連携が重要である．下図のごとく，BibDeskではSearches menuからPubMedを選ぶことにより，BibDeskの中からPubMedを検索できる．
+      検索欄に，例えば，&rdquo;heat shock protein&rdquo;と打つと，下図のように検索結果が50編ずつ並ぶが，50編以上ある場合は，Searchを繰り返しクリックすることにより，100編と150編とどんどんリストに取り込まれていく．
+    上図のごとく，検索結果欄の左端に&rdquo;Import&rdquo; ボタンがあるが，これをクリックするとその論文の書誌事項が取り込まれる．その際に，自分の文献リストの名前を，&rdquo;hogefuga-reference.bib&rdquo; など適当に決めれば良い．以後はそのリストに追加していくことになる．
+ また，取り込まれる際にcite-keyをBibDeskが自動的に決めてくれる．このcite-keyは次回の記事で述べる「引用の自動化」の際にreftexに使用される．
+ なお，PubMedの番号，つまり，Pmidが分かっていれば，それを打ち込めば一発で書誌事項を検索できる．
+ リストの中から興味のある論文をクリックして選択し，グレーにハイライトさせると，下図のごとく右側のサイドパネルに，その論文のあるサイトを示すアイコンが表示される．これをクリックすれば，ブラウザーが開いてそのサイトに飛ぶ．もし，その論文がオープンアクセスであれば，あるいは，所属する組織が出版社と契約を交わしていれば，その論文のpdfを落とせる．落としたpdfをドラッグしてその論文に該当するリストのラインにドロップすれば，その書誌事項とpdfはリンクし，以降はその論文のサイドパネルにpdfのアイコンが表示され，ダブルクリックによりオープンするようになる．さらに言えば，pdfではなく，パワポやワードのファイルとして文献が存在することもある．同じようにドラッグ＆ドロップすれば，これまたリンクする．しかも一つの文献にいくつものpdfやその他のファイルをリンクできる．非常に便利である．
+    また，下図のごとく，左のサイドパネルの一番上の方にある&rdquo;Web BibDesk Web Group&rdquo;をクリックして選択すれば，更にいろいろな文献ソースが表示される．医学系では，Google Scholarが有用なので，これをクリックすれば，BibDeskの中からGoogle Scholarを検索できるし，書誌事項も取り込める．pdfのリンクが存在すればBibDeskの中でpdfを落とすこともできる．
+    収集した文献の書誌事項はhogefuga-reference.bibにbibtex fileとしてまとめられているが，その中身は以下のような情報の集積である（下の例ではabstractなどは省略している）．
 @article{Rothwell:2018aa, Author = {Rothwell, Peter M and Cook, Nancy R and Gaziano, J Michael and Price, Jacqueline F and Belch, Jill F F and Roncaglioni, Maria Carla and Morimoto, Takeshi and Mehta, Ziyah}, Date-Added = {2018-08-03 22:46:26 +0900}, Date-Modified = {2018-08-03 22:46:26 +0900}, Doi = {10.
       
     </div>

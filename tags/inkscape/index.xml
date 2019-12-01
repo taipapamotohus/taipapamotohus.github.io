@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inkscape | A perfect autumn day</title>
+    <link>/tags/inkscape/</link>
+      <atom:link href="/tags/inkscape/index.xml" rel="self" type="application/rss+xml" />
+    <description>Inkscape</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Inkscape</title>
+      <link>/tags/inkscape/</link>
+    </image>
+    
+    <item>
+      <title>How to create conference posters by latex (beamer)</title>
+      <link>/post/how-to-create-conference-poster-by-latex-beamer/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-create-conference-poster-by-latex-beamer/</guid>
+      <description>&lt;p&gt;学会発表用のスライド作成については，&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．&lt;/p&gt;
+
+&lt;p&gt;latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．&lt;/p&gt;
+
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#general-remarks&#34;&gt;General remarks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#beamerposter&#34;&gt;beamerposter&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#templates&#34;&gt;Templates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#gemini&#34;&gt;Gemini&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#baposter&#34;&gt;baposter&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#templates&#34;&gt;Templates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tikzposter&#34;&gt;tikzposter&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#templates&#34;&gt;Templates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#betterposter&#34;&gt;betterposter&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#inkscape&#34;&gt;Inkscape&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#making-a-math-conference-poster-with-inkscape&#34;&gt;Making a Math Conference Poster with Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#creating-a-science-conference-poster-with-inkscape&#34;&gt;Creating a Science Conference Poster with Inkscape&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#まとめ&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/div&gt;
+&lt;!--endtoc--&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;general-remarks&#34;&gt;General remarks&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://guides.lib.wayne.edu/posters/latex&#34; target=&#34;_blank&#34;&gt;Creating Research Posters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tex.stackexchange.com/questions/341/how-to-create-posters-using-latex&#34; target=&#34;_blank&#34;&gt;How to create posters using LaTeX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ja.overleaf.com/gallery/tagged/poster&#34; target=&#34;_blank&#34;&gt;Gallery — Poster&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.latextemplates.com/cat/conference-posters&#34; target=&#34;_blank&#34;&gt;LaTeX Templates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;beamerposter&#34;&gt;beamerposter&lt;/h2&gt;
+
+&lt;p&gt;おそらく最もよく使われているパッケージ&lt;/p&gt;
+
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ctan.org/pkg/beamerposter&#34; target=&#34;_blank&#34;&gt;beamerposter – Extend beamer and a0poster for custom sized posters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/deselaers/latex-beamerposter&#34; target=&#34;_blank&#34;&gt;The LaTeX beamerposter package&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tug.org/pracjourn/2012-1/shang/shang.pdf&#34; target=&#34;_blank&#34;&gt;Writing posters with beamerposter package in LATEX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pecorarista.com/posts/poster.html&#34; target=&#34;_blank&#34;&gt;LaTeX (Beamer)で学会発表用のポスターを作る&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://muscle-keisuke.hatenablog.com/entry/2017/12/18/235617&#34; target=&#34;_blank&#34;&gt;LaTeX(Beamer)でポスターを作る&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;texlive (MacTeX)をインストールした時点で入っているので，改めてインストールし直す必要はない．&lt;/p&gt;
+
+&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;h4 id=&#34;スタイルシートの変更&#34;&gt;スタイルシートの変更&lt;/h4&gt;
+
+&lt;p&gt;まずスタイルファイルを使用する必要がある．私は，beamerposter packageの中のthemes directoryに入っている &lt;strong&gt;beamerthemeI6dv.sty&lt;/strong&gt; を少し変更して &lt;strong&gt;beamerthemeI6dv_test.sty&lt;/strong&gt; として使用している．変更箇所は以下の通りである．これも覚書として残しておく．&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-diff&#34;&gt;--- beamerthemeI6dv.sty 2019-11-24 14:32:46.000000000 +0900
++++ beamerthemeI6dv_test.sty    2019-11-24 20:55:47.000000000 +0900
+@@ -1,4 +1,4 @@
+-\ProvidesPackage{beamerthemeI6dv} % this style was created by David Vilar
++\ProvidesPackage{beamerthemeI6dv_test} % this style was created by David Vilar
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\selectcolormodel{cmyk}
+@@ -30,7 +30,7 @@
+
+% footline colors and fonts
+\setbeamercolor{footline}{fg=white,bg=i6colorschemeHeadline}
+-\setbeamerfont{footline}{fg=white, size=\normalsize}
++%\setbeamerfont{footline}{fg=white, size=\normalsize}
+
+% body colors and fonts
+\setbeamercolor*{normal text}{fg=black,bg=i6colorscheme3}
+@@ -42,7 +42,7 @@
+
+% example environment
+\setbeamercolor*{example title}{fg=white,bg=i6colorscheme1}
+-\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
++%\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
+
+
+%\setbeamercolor*{example body}{fg=white,bg=i6colorscheme4}
+@@ -88,27 +88,29 @@
+\begin{columns}[T]
+\begin{column}{.02\paperwidth}
+\end{column}
+-      \begin{column}{.07\paperwidth}
++      \begin{column}{.1\paperwidth}
+\begin{center}
+-          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
++          % \includegraphics[width=.6\linewidth]{logos/i6-hks44}
++          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
+\end{center}
+\vskip1ex
+\end{column}
+-      \begin{column}{.675\paperwidth}
++      \begin{column}{.6\paperwidth}
+\vskip4ex
+\raggedleft
+\usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
+\usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
+\usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
+\end{column}
+-      \begin{column}{.25\paperwidth}
++      \begin{column}{.15\paperwidth}
+\vskip1cm
+\begin{center}
+-          \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
++          % \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
++          \includegraphics[height=.45\linewidth]{Kobito.jpg}
+\end{center}
+\vskip1.5cm
+\end{column}
+-      \begin{column}{.03\paperwidth}
++      \begin{column}{.02\paperwidth}
+\end{column}
+\end{columns}
+\end{beamercolorbox}
+@@ -139,7 +141,7 @@
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
+-    Lehrstuhl f\&amp;quot;ur Informatik 6 - Computer Science Department - RWTH Aachen University - Aachen, Germany \hfill Mail: \texttt{&amp;lt;surname&amp;gt;@cs.rwth-aachen.de} \hfill WWW: \texttt{http://www-i6.informatik.rwth-aachen.de}
++   Department of HogeFuga, HogeFuga University Graduate School of Medicine, Japan \hfill Mail: \texttt{taipapa@hoge-u.sc.jp} \hfill WWW: \texttt{http://www-hogefuga/TOP.html}
+\vskip1ex
+\end{beamercolorbox}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;好みによって適当に変更すれば良い．&lt;/li&gt;
+&lt;li&gt;LogoをKobito.jpgに入れ替えているが，これはそれぞれの所属組織のものに変更すれば良い．&lt;/li&gt;
+&lt;li&gt;左側のLogoは学会のもの（ISC2017-Logo.pdf）に変更している．&lt;/li&gt;
+&lt;li&gt;一番最後はフッターに所属組織，メールアドレス，ウェブサイトなどを入れるための情報であり，そこも適宜置き換えれば良い．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;スタイルシートの置き場&#34;&gt;スタイルシートの置き場&lt;/h4&gt;
+
+&lt;p&gt;私のように，LaTeXをMacTeXでインストールした場合は，上記の変更したスタイルシートは， &lt;strong&gt;~/Library/texmf/tex/latex/beamer/themes/theme/&lt;/strong&gt; に置く．これでLaTeXはこのスタイルシートを見つけてくれる．&lt;/p&gt;
+
+&lt;h4 id=&#34;poster-example&#34;&gt;Poster example&lt;/h4&gt;
+
+&lt;p&gt;上記スタイルシートを用いて作成すると下図のようなポスターが出来上がる．これは実際の学会発表に使用したものである．ただし，発表者や所属組織やロゴは変更してある．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/Poster-test.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/Poster-test.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;このポスターのtex fileは以下のようになっている．元々は．どこかからとってきたtex fileを改変しているのだが，オリジナルをどこから持ってきたかは，もはや記憶の彼方である&amp;hellip;..(^^;;;  （どなたかご指摘いただければ幸いである） 素人が色々弄ってなんとか形にしたものだが，これを上書きしていく事で割と簡単にポスターが作成できるようになった．試行錯誤の跡もそのまま残した状態でアップしておく．念のために書いておくが，このファイルをdocument.texとして保存し，&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt; に書いたように， &lt;strong&gt;latexmk -pvc -pdf -view=none document.tex&lt;/strong&gt; とすればコンパイルされてpdfが出来上がる．&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;9行目： &lt;strong&gt;\usetheme{I6dv_test}&lt;/strong&gt; によりスタイルシートを指定している．&lt;/li&gt;
+&lt;li&gt;45行目： &lt;strong&gt;orientation=landscape&lt;/strong&gt; で横長， &lt;strong&gt;orientation=portrait&lt;/strong&gt; で縦長になる．実際の大きさは， &lt;strong&gt;width=200,height=100&lt;/strong&gt; で合わせる．scaleの部分でも調整する．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!--listend--&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  9
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 10
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 11
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 12
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 13
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 14
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 15
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 16
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 17
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 18
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 19
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 20
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 21
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 22
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 23
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 24
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 25
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 26
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 27
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 28
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 29
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 30
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 31
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 32
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 33
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 34
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 35
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 36
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 37
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 38
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 39
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 40
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 41
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 42
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 43
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 44
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 45
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 46
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 47
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 48
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 49
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 50
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 51
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 52
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 53
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 54
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 55
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 56
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 57
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 58
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 59
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 60
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 61
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 62
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 63
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 64
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 65
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 66
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 67
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 68
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 69
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 70
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 71
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 72
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 73
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 74
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 75
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 76
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 77
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 78
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 79
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 80
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 81
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 82
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 83
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 84
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 85
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 86
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 87
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 88
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 89
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 90
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 91
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 92
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 93
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 94
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 95
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 96
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 97
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 98
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 99
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;100
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;101
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;102
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;103
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;104
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;105
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;106
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;107
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;108
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;109
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;110
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;111
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;112
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;113
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;114
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;115
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;116
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;117
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;118
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;119
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;120
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;121
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;122
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;123
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;124
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;125
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;126
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;127
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;128
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;129
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;130
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;131
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;132
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;133
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;134
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;135
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;136
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;137
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;138
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;139
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;140
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;141
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;142
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;143
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;144
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;145
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;146
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;147
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;148
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;149
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;150
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;151
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;152
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;153
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;154
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;155
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;156
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;157
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;158
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;159
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;160
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;161
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;162
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;163
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;164
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;165
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;166
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;167
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;168
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;169
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;170
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;171
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;172
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;173
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;174
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;175
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;176
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;177
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;178
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;179
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;180
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;181
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;182
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;183
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;184
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;185
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;186
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;187
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;188
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;189
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;190
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;191
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;192
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;193
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;194
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;195
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;196
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;197
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;198
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;199
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;200
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;201
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;202
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;203
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;204
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;205
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;206
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;207
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;208
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;209
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;210
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;211
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;212
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;213
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;214
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;215
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;216
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;217
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;218
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;219
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;220
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;221
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;222
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;223
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;224
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;225
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;226
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;227
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;228
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;229
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;230
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;231
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;232
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;233
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;234
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;235
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;236
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;237
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;238
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;239
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;240
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;241
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;242
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;243
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;244
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;245
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;246
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;247
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;248
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;249
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;250
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;251
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;252
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;253
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;254
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;255
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;256
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;257
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;258
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;259
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;260
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;261
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;262
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;263
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;264
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;265
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;266
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;267
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;268
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;269
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;270
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;271
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;272
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;273
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;274
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;275
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;276
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;277
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;278
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;279
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;280
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;281
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;282
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;283
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;284
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;285
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;286
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;287
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;288
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;289
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;290
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;291
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;292
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;293
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;294
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;295
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;296
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;297
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;298
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;299
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;300
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;301
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;302
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;303
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;304
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;305
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;306
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;307
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;308
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;309
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;310
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;311
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;312
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;313
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;314
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;315
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;316
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;317
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;318
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;319
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;320
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;321
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;322
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;323
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;324
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;325
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;326
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;327
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;328
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;329
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;330
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;331
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;332
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;333
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;334
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;335
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;336
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;337
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;338
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;339
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;340
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;341
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;342
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;343
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;344
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;345
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;346
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;347
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;348
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;349
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;350
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;351
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;352
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% -*-coding:utf-8-*-
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[final,t]&lt;/span&gt;{beamer}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\mode&lt;/span&gt;&amp;lt;presentation&amp;gt;
+{
+  &lt;span style=&#34;color:#75715e&#34;&gt;% \usetheme{Warsaw}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;% \usetheme{Aachen}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;% \usetheme{Oldi6}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;% \usetheme{I6td}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;\usetheme&lt;/span&gt;{I6dv_test}
+  &lt;span style=&#34;color:#75715e&#34;&gt;% \usetheme{I6pd}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;% \usetheme{I6pd2}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
+&lt;span style=&#34;color:#75715e&#34;&gt;% additional settings
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;{itemize}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\normalsize&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;{itemize/enumerate body}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\normalsize&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;{itemize/enumerate subbody}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\normalsize&lt;/span&gt;}
+
+&lt;span style=&#34;color:#75715e&#34;&gt;% additional packages
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{times}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;%% 上記だけではsans serifにならないので，下記を設定　
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[T1]{fontenc}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[usefilenames,% Important for XeLaTeX
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% DefaultFeatures={Ligatures=Common}]{plex-otf} %
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsanstext/
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[T1]&lt;/span&gt;{fontenc}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;[usefilenames,&lt;span style=&#34;color:#75715e&#34;&gt;% Important for XeLaTeX
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;RMstyle={Text,Semibold},
+SSstyle={Text,Semibold},
+TTstyle={Text,Semibold},
+DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&#34;&gt;%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\renewcommand*\familydefault&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\sfdefault&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;%% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{amsmath,amsthm, amssymb, latexsym}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{exscale}
+&lt;span style=&#34;color:#75715e&#34;&gt;% \boldmath
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{booktabs, array}
+&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{rotating} %sideways environment
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[english]&lt;/span&gt;{babel}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[latin1]&lt;/span&gt;{inputenc}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[orientation=landscape,size=custom,width=200,height=100,scale=1.725]&lt;/span&gt;{beamerposter}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\listfiles&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\graphicspath&lt;/span&gt;{{figures/}}
+
+&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{latexsym}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;% Display a grid to help align images
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \beamertemplategridbackground[1cm]
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\huge&lt;/span&gt; Perioperative Assessment Of Cerebral Perfusion Territories Through Arterial Spin Labeling Magnetic Resonance Imaging In Carotid Stenosis}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[taipapa et al.]&lt;/span&gt;{taipapa, taimama, taison, taidaughter, other person1,
+  other person2, other person3, other person 4, other person 5}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\institute&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[HogeFuga University]&lt;/span&gt;{Department of HogeFuga, HogeFuga Medical Center Japan}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\date&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[Feb. 23, 2017]&lt;/span&gt;{Feb. 17,  2017}
+
+&lt;span style=&#34;color:#75715e&#34;&gt;% abbreviations
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{xspace}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatletter&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\DeclareRobustCommand\onedot&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\futurelet\@&lt;/span&gt;let@token&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\@&lt;/span&gt;onedot{&lt;span style=&#34;color:#66d9ef&#34;&gt;\ifx\@&lt;/span&gt;let@token.&lt;span style=&#34;color:#66d9ef&#34;&gt;\else&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;\null\fi\xspace&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\eg&lt;/span&gt;{{e.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Eg&lt;/span&gt;{{E.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\ie&lt;/span&gt;{{i.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Ie&lt;/span&gt;{{I.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\cf&lt;/span&gt;{{c.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Cf&lt;/span&gt;{{C.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etc&lt;/span&gt;{{etc}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\vs&lt;/span&gt;{{vs}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\wrt&lt;/span&gt;{w.r.t&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\dof&lt;/span&gt;{d.o.f&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etal&lt;/span&gt;{{et al}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatother&lt;/span&gt;
+
+&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}{}
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+
+      &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Introduction}
+        &lt;span style=&#34;color:#75715e&#34;&gt;% \begin{columns}[t]
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;%   \begin{column}{.75\linewidth}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+          &lt;span style=&#34;color:#75715e&#34;&gt;% \item Arterial spin labeling (ASL) is a magnetic resonance
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;%   imaging (MRI) technique that uses the protons of arterial
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;%   blood water molecules as endogenous tracers to evaluate
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;          &lt;span style=&#34;color:#75715e&#34;&gt;%   CBF noninvasively.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Territorial arterial spin labeling (TASL), a modified
+          ASL technique, allows for the independent labeling of
+          major individual feeding vessels and, consequently,
+          visualization of their perfusion territories.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Perfusion territories can change substantially during
+          the perioperative periods of carotid endarterectomy (CEA)
+          and carotid artery stenting (CAS). Perioperative changes
+          in the perfusion territories of major arteries are
+          important because these changes can influence the
+          perioperative management of hyperperfusion and other
+          conditions.
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{0.5cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\small&lt;/span&gt;{
+          &lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt;\bigstar&lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Financial Disclosures:} This study was
+          supported, in part, by a Grants-in-Aid for Scientific
+          Research (C) KAKENHI Number 15K10302 from the Japan
+          Society for the Promotion of Science.
+        }
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+
+      &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Objective}
+        The objective of this study was to use TASL to assess the
+        relationships between perioperative changes in the perfusion
+        territories of the ICA and the CBF increase after carotid
+        revascularization in patients with carotid stenosis.
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+
+      &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Subjects and Methods}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.5&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=1\linewidth]&lt;/span&gt;{Figures/ISC2017-subjects-left_Kohmura_opt.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%[1ex]
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.5&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{-44cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.85\linewidth]&lt;/span&gt;{Figures/ISC2017-subjects-right_opt.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[1ex]&lt;/span&gt;
+
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; TASL images were fused with T1 weighed
+              images(T1WI) on the software (Osirix) to match with
+              anatomical images. Perfusion volume of each ICA was
+              calculated from perfusion area and thickness of
+              slices.
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Asymmetry Index (AI) was also calculated
+              from perfused volume of ICA on each side.
+              &lt;span style=&#34;color:#75715e&#34;&gt;% \item The patients were divided into 2 groups on the
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#75715e&#34;&gt;%   basis of the preoperative perfusion volume of the
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#75715e&#34;&gt;%   stenotic ICA, that is, \textbf{normal PV} (n = 13)
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#75715e&#34;&gt;%   or \textbf{reduced PV} (n = 19) groups.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#75715e&#34;&gt;% \item \textbf{Normal PV} was defined as $\geq$ -2SD of the
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#75715e&#34;&gt;%   healthy volunteer group, that is, 312.4 cm3.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#75715e&#34;&gt;% \item \textbf{Reduced PV} was defined as $\textless$
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;              &lt;span style=&#34;color:#75715e&#34;&gt;%   -2SD.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Results}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{General postoperative changes in PV of ICA}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-17cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The preoperative perfusion volume (&lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{PV}) of the
+              stenotic ICA in the carotid stenosis group was significantly
+              smaller than that in the control group. Revascularization
+              increased the PV of the stenotic ICA and equalized the PV of
+              the ICAs bilaterally.
+
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.6&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=1\linewidth]&lt;/span&gt;{Figures/Figure-2-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The patients were divided into 2 groups on the basis of
+          the preoperative PV of the stenotic ICA, that is,
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{normal PV} (n = 13) or &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{reduced PV} (n = 19)
+          groups.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Normal PV} was defined as &lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt;\geq&lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt; -2SD of the
+          healthy volunteer group, that is, 312.4 cm3.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Reduced PV} was defined as &lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt;\textless&lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt; -2SD.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{0.5cm}
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Differential postoperative changes in PV &lt;span style=&#34;color:#66d9ef&#34;&gt;\&amp;amp;&lt;/span&gt; CBF }
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-18cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The changes in the PV of the stenotic ICA
+              before and after CEA or CAS in the normal PV group and the
+              reduced PV group. After treatment, the PV increases
+              significantly in the two groups, while the postoperative
+              increase was much larger in the reduced PV group.
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.6&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=1\linewidth]&lt;/span&gt;{Figures/Figure-3-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{B:} The changes in ipsilateral CBF before and
+          after CEA or CAS in the normal PV group and the reduced PV
+          group. The postoperative increase in the ipsilateral CBF was
+          larger in the reduced PV group than in the normal PV group.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{0.5cm}
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Relationships between postoperative changes in PV &lt;span style=&#34;color:#66d9ef&#34;&gt;\&amp;amp;&lt;/span&gt; CBF}
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.45&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-24cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The rate of PV increase is significantly
+              higher in the reduced PV group than in the normal PV
+              group.
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{B:} The rate of CBF increase is significantly
+              higher in the reduced PV group than in the normal PV
+              group.
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\alert&lt;/span&gt;{Red circles} represent 4 patients whose
+              postoperative increase in perfusion volume are less
+              than lower quartile, and whose increase in CBF is more
+              than upper quartile.
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.55&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1.75cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.96\linewidth]&lt;/span&gt;{Figures/Figure-4-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
+
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
+
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+
+    &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-3cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Differential postoperative ICA flow changes}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.6&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The preoperative ICA flow was significantly lower in the
+              reduced PV group than in the normal PV group.
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; After treatment, the perfusion volume increases
+              significantly in the two groups, while the postoperative
+              increase was much larger in the reduced PV group.
+
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
+
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-4cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.8\linewidth]&lt;/span&gt;{Figures/Figure-5-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
+
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
+
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Illustrative cases}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\underline&lt;/span&gt;{Case 6 (normal PV group)}: PV markedly increased 1 day
+          after CEA and was nearly unchanged between 1 and 7 days
+          after CEA. ICA flow markedly increased after arterial
+          reconstruction during CEA. Regional CBF was stable
+          throughout the perioperative period.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\underline&lt;/span&gt;{Case 8 (reduced PV group)}: PV 1 day after CEA was not
+          significantly different from that before surgery, and then,
+          it significantly increased between 1 and 7 days after CEA,
+          resulting in equalization of the perfusion volumes of the
+          left and right ICAs. ICA flow markedly increased after
+          arterial reconstruction during CEA. Regional CBF increased
+          significantly at 1 day after CEA (CBF increase &lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt;\geq&lt;span style=&#34;color:#e6db74&#34;&gt;$&lt;/span&gt; 100&lt;span style=&#34;color:#66d9ef&#34;&gt;\%&lt;/span&gt;),
+          representing typical hyperperfusion. Regional CBF decreased
+          significantly at 7 days after CEA compared with the first
+          postoperative day and returned to its normal range.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+
+        &lt;span style=&#34;color:#75715e&#34;&gt;% \vspace{1cm}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.8\linewidth]&lt;/span&gt;{Figures/UsualCase_legend_v2_opt.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
+
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.95cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Conclusion}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; TASL demonstrated that CEA and CAS elicited increases in the
+          PV of stenotic ICAs, which resulted in equalization of the
+          PV of the left and right ICAs.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Patients with reduced PV tended to increase the PV
+          more markedly than patients with PV within normal ranges.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; In some patients with a reduced PV, the PV increased
+          slightly, while the ICA flow markedly increased, which
+          resulted in a large increase in CBF or hyperperfusion.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; These findings suggested that an imbalance between
+          increases in the PV and ICA flow could play an important
+          role in the pathophysiology of hyperperfusion.
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{-1ex}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{References}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.75cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{enumerate}
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\scriptsize&lt;/span&gt;{
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Uchihashi et al. Clinical application of arterial
+            spin-labeling MR imaging in patients with carotid
+            stenosis: quantitative comparative study with
+            single-photon emission CT. AJNR Am J Neuroradiol 32,
+            1545--51, 2011
+          &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Hartkamp et al. Mapping of cerebral
+            perfusion territories using territorial arterial spin
+            labeling: techniques and clinical application. NMR Biomed
+            26, 901--12, 2013}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{enumerate}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+     &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
+&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% Local Variables:
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% mode: latex
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-PDF-mode: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-master: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%%%&lt;/span&gt; End:&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;templates&#34;&gt;Templates&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.overleaf.com/latex/templates?addsearch=beamerposter&#34; target=&#34;_blank&#34;&gt;Overleaf beamerposter templates&lt;/a&gt; : Overleafにあるbeamposterのテンプレート．膨大な数のテンプレートがあるので，参考になる．&lt;/p&gt;
+
+&lt;h2 id=&#34;gemini&#34;&gt;Gemini&lt;/h2&gt;
+
+&lt;p&gt;texliveには含まれていないbeamerの新しいポスター用テーマ&lt;/p&gt;
+
+&lt;h3 id=&#34;references-1&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.anishathalye.com/2018/07/19/gemini-a-modern-beamerposter-theme/&#34; target=&#34;_blank&#34;&gt;Gemini: A Modern LaTeX Poster Theme&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/anishathalye/gemini&#34; target=&#34;_blank&#34;&gt;Gemini is a modern LaTex beamerposter theme&lt;/a&gt; : GitHub site&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;installation-1&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記のGitHub siteをcloneするかdownloadすれば良い．&lt;/li&gt;
+&lt;li&gt;beamerposterに依存&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;usage-1&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GitHub siteに書いてある通り&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;baposter&#34;&gt;baposter&lt;/h2&gt;
+
+&lt;p&gt;texliveには含まれていない．より新し目のパッケージ？&lt;/p&gt;
+
+&lt;h3 id=&#34;references-2&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.brian-amberg.de/uni/poster/&#34; target=&#34;_blank&#34;&gt;LaTeX Poster Template&lt;/a&gt;  ご本家．ポスターの実例が数多く挙げられており，FAQもある．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;installation-2&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;上記サイトから &lt;strong&gt;baposter.tar.bz2&lt;/strong&gt; をdownloadする．&lt;/p&gt;
+
+&lt;h3 id=&#34;usage-2&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;上記サイトや， &lt;strong&gt;&lt;a href=&#34;http://www.brian-amberg.de/uni/poster/baposter/baposter%5Fguide.pdf&#34; target=&#34;_blank&#34;&gt;The baposter latex poster style&lt;/a&gt;&lt;/strong&gt; を参照&lt;/p&gt;
+
+&lt;h3 id=&#34;templates-1&#34;&gt;Templates&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.overleaf.com/latex/templates?addsearch=baposter&#34; target=&#34;_blank&#34;&gt;Overleaf baposter templates&lt;/a&gt; : Overleafにあるbaposterのテンプレート．&lt;/p&gt;
+
+&lt;h2 id=&#34;tikzposter&#34;&gt;tikzposter&lt;/h2&gt;
+
+&lt;p&gt;「科学的ポスターを効率的に作成するLaTeXのクラス」である．&lt;/p&gt;
+
+&lt;h3 id=&#34;references-3&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ctan.org/pkg/tikzposter&#34; target=&#34;_blank&#34;&gt;tikzposter – Create scientific posters using TikZ&lt;/a&gt;   CTAN&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitbucket.org/surmann/tikzposter/wiki/Home&#34; target=&#34;_blank&#34;&gt;TikZposter&lt;/a&gt;    Wiki    ガイドをダウンロードできるリンクあり&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.doc.ic.ac.uk/~ebotoeva/fancytikzposter.html&#34; target=&#34;_blank&#34;&gt;Elena Botoeva&lt;/a&gt;   作者のページ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;installation-3&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;texliveをインストールすれば，一緒に入ってくる．&lt;/p&gt;
+
+&lt;h3 id=&#34;usage-3&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;上記のガイドを参照．最も簡単な例は以下の通り．&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;{tikzposter}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;{Title}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;{Author}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\institute&lt;/span&gt;{Institute}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\maketitle&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\block&lt;/span&gt;{Block}{Content}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;templates-2&#34;&gt;Templates&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.overleaf.com/latex/templates?addsearch=tikzposter&#34; target=&#34;_blank&#34;&gt;Overleaf tikzposter templates&lt;/a&gt; : Overleafにあるtikzposterのテンプレート．多数のテンプレートがあるので，参考になる．&lt;/p&gt;
+
+&lt;h2 id=&#34;betterposter&#34;&gt;betterposter&lt;/h2&gt;
+
+&lt;p&gt;伝統的な学術ポスターに対する新たなスタイルのポスター．実にユニーク！&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/betterposter_example.png&#34; &gt;
+
+&lt;img src=&#34;/img/betterposter_example.png&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;要するに中核的なメッセージを簡潔な文章で特大に表示し，方法，結果，考察などは極端に簡潔にし，詳細はQR codeから論文を落として読んでもらうという，とんでもない発想のポスターである．&lt;/p&gt;
+
+&lt;h3 id=&#34;references-4&#34;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://osf.io/ef53g/&#34; target=&#34;_blank&#34;&gt;Better Scientific Poster&lt;/a&gt; : ご本家．元々はPowerPointのテンプレート&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=1RwJbhkCA58&amp;amp;feature=youtu.be&#34; target=&#34;_blank&#34;&gt;How to create a better research poster in less time (including templates)&lt;/a&gt; : 作者自身のYouTube動画．面白い．必見！&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rafaelbailo/betterposter-latex-template&#34; target=&#34;_blank&#34;&gt;Better Poster Latex Template&lt;/a&gt; : GitHub. LaTeXへの移植版．&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/mikemorrison&#34; target=&#34;_blank&#34;&gt;Mike Morrison&lt;/a&gt; : 作者のTwitter．多くの人が自分の&amp;rdquo;betterposter&amp;rdquo;をアップしているのが見られる．&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;installation-4&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;上記の &lt;a href=&#34;https://github.com/rafaelbailo/betterposter-latex-template&#34; target=&#34;_blank&#34;&gt;Better Poster Latex Template&lt;/a&gt; に詳細に書いてあるが，repositoryをclone するか，ダウンロードして，パスが通るところに置く．&lt;/p&gt;
+
+&lt;h3 id=&#34;usage-4&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;上記の &lt;a href=&#34;https://github.com/rafaelbailo/betterposter-latex-template&#34; target=&#34;_blank&#34;&gt;Better Poster Latex Template&lt;/a&gt; を参考．&lt;/p&gt;
+
+&lt;h2 id=&#34;inkscape&#34;&gt;Inkscape&lt;/h2&gt;
+
+&lt;p&gt;これはオマケ．なぜかというと，ダントツでかっこいいから（笑）．&lt;/p&gt;
+
+&lt;h3 id=&#34;making-a-math-conference-poster-with-inkscape&#34;&gt;&lt;a href=&#34;http://blog.felixbreuer.net/2010/10/24/poster.html?utm%5Fsource=share&amp;amp;utm%5Fmedium=ios%5Fapp&amp;amp;utm%5Fname=iossmf&#34; target=&#34;_blank&#34;&gt;Making a Math Conference Poster with Inkscape&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;これを見ると，羨望の念が．．．でも，Inkscapeを使えるようにならないと．．．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/poster-fpsac2010.png&#34; &gt;
+
+&lt;img src=&#34;/img/poster-fpsac2010.png&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;creating-a-science-conference-poster-with-inkscape&#34;&gt;&lt;a href=&#34;https://dionhaefner.github.io/2015/07/creating-a-science-conference-poster-with-inkscape/&#34; target=&#34;_blank&#34;&gt;Creating a Science Conference Poster with Inkscape&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;こちらも同じく．．．&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/poster-lowres.png&#34; &gt;
+
+&lt;img src=&#34;/img/poster-lowres.png&#34; width=&#34;80%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;今回ポスターについてまとめてみて，改めて思ったのは，一旦自分のスタイルが出来上がると，万年一日のごとく，同じフォーマットで作成してしまい，金太郎飴のようになってしまうという事である．もちろん，内容が一番大事なのだが，如何に伝えるかという点でポスターのフォーマットは重要と思う．そういう意味では，&lt;a href=&#34;#betterposter&#34;&gt;betterposter&lt;/a&gt; や &lt;a href=&#34;#inkscape&#34;&gt;Inkscape&lt;/a&gt; によるポスターは非常に刺激的であった．特に，betterposterの手法は比較的模倣がしやすそうなので，次回は是非試みてみたい．&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

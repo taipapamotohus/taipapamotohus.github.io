@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-10-27T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-11-22T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,17 @@
   
   
   <div>
+    <h2><a href="/post/how-to-create-conference-poster-by-latex-beamer/">How to create conference posters by latex (beamer)</a></h2>
+    <div class="article-style">
+      
+      学会発表用のスライド作成については，beamerでスライド原稿用pdfを作成する（その１）に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．
+latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/mark-and-desktop-saving/">How to use mark in Emacs (helm-all-mark-rings)</a></h2>
     <div class="article-style">
       
@@ -411,20 +422,6 @@
       
       前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．
 
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/deadgrep/">Deadgrep</a></h2>
-    <div class="article-style">
-      
-      次世代grepで最速と言われるripgrepをバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．
- Table of Contents  Ref Install How to use  2019年6月2日追記    
-Ref  deadgrep: use ripgrep from Emacs ご本家 複雑になった時使うツール とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．．  Install まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．
-$ brew install ripgrep  ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．
-#+begin_src emacs-lisp (use-package deadgrep :ensure t :config (global-set-key (kbd &quot;&lt;f5&gt;&quot;) #'deadgrep) ) #+end_src  How to use 使用方法の詳細はご本家に書いてあるが，f5を叩いて，検索キーワードを入れるだけである．下の画像は，このブログのあるdirectoryで，「検索」をキーワードとしてdeadgrepを走らせたところである．defaultでdirectory内を再帰的に検索する．キーワードは青くハイライトされており，左端の数字はその文書での行番号である． o を叩くと下のバッファに該当箇所にカーソルがある状態でその文書が開く． C-c C-k で検索を止めることができる．また，swiperとの併用も可能である．
-   一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．
       
     </div>
   </div>

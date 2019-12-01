@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/how-to-create-conference-poster-by-latex-beamer/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/mark-and-desktop-saving/</loc>
     <lastmod>2019-11-06T22:09:05+09:00</lastmod>
   </url>
@@ -243,8 +248,53 @@
   </url>
   
   <url>
+    <loc>/tags/beamer/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/conference/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/emacs/</loc>
-    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/inkscape/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/latex/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/overleaf/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/poster/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tikz/</loc>
+    <lastmod>2019-12-01T15:07:24+09:00</lastmod>
   </url>
   
   <url>
@@ -258,17 +308,7 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/ring/</loc>
-    <lastmod>2019-11-06T22:09:05+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-11-06T22:09:05+09:00</lastmod>
   </url>
   
@@ -698,11 +738,6 @@
   </url>
   
   <url>
-    <loc>/tags/latex/</loc>
-    <lastmod>2018-11-16T22:13:15+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/mode/</loc>
     <lastmod>2018-11-16T22:13:15+09:00</lastmod>
   </url>
@@ -820,11 +855,6 @@
   <url>
     <loc>/tags/pubmed/</loc>
     <lastmod>2018-09-16T21:44:45+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/beamer/</loc>
-    <lastmod>2018-09-30T14:49:51+09:00</lastmod>
   </url>
   
   <url>

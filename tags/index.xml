@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -13,10 +13,66 @@
     </image>
     
     <item>
+      <title>beamer</title>
+      <link>/tags/beamer/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/beamer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conference</title>
+      <link>/tags/conference/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
       <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inkscape</title>
+      <link>/tags/inkscape/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/inkscape/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>/tags/latex/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>overleaf</title>
+      <link>/tags/overleaf/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/overleaf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poster</title>
+      <link>/tags/poster/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/poster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tikz</title>
+      <link>/tags/tikz/</link>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/tikz/</guid>
       <description></description>
     </item>
     
@@ -661,14 +717,6 @@
     </item>
     
     <item>
-      <title>latex</title>
-      <link>/tags/latex/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
-      <guid>/tags/latex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>mode</title>
       <link>/tags/mode/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
@@ -857,14 +905,6 @@
       <link>/tags/pubmed/</link>
       <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/tags/pubmed/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>beamer</title>
-      <link>/tags/beamer/</link>
-      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
-      <guid>/tags/beamer/</guid>
       <description></description>
     </item>
     

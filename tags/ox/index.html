@@ -332,13 +332,13 @@ References  HUGO Hugo is one of the most popular open-source static site generat
   </div>
   
   <div>
-    <h2><a href="/post/org-mode_paper_4/">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a></h2>
+    <h2><a href="/post/org-mode_paper_4/">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a></h2>
     <div class="article-style">
       
-      医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
-いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
-ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2.
+      医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
+いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
+Table of Contents    ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport  pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法  日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正    
+ox-pandoc  参照サイト1：本家　ox-pandoc 参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies 参照サイト3：もっと本家　Pandoc a universal document converter pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ． ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる． pandoc 2.
       
     </div>
   </div>

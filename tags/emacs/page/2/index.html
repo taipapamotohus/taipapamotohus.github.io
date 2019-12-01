@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-10-27T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-11-22T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,20 @@
   
   
   <div>
+    <h2><a href="/post/deadgrep/">Deadgrep</a></h2>
+    <div class="article-style">
+      
+      次世代grepで最速と言われるripgrepをバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．
+ Table of Contents  Ref Install How to use  2019年6月2日追記    
+Ref  deadgrep: use ripgrep from Emacs ご本家 複雑になった時使うツール とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．．  Install まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．
+$ brew install ripgrep  ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．
+#+begin_src emacs-lisp (use-package deadgrep :ensure t :config (global-set-key (kbd &quot;&lt;f5&gt;&quot;) #'deadgrep) ) #+end_src  How to use 使用方法の詳細はご本家に書いてあるが，f5を叩いて，検索キーワードを入れるだけである．下の画像は，このブログのあるdirectoryで，「検索」をキーワードとしてdeadgrepを走らせたところである．defaultでdirectory内を再帰的に検索する．キーワードは青くハイライトされており，左端の数字はその文書での行番号である． o を叩くと下のバッファに該当箇所にカーソルがある状態でその文書が開く． C-c C-k で検索を止めることができる．また，swiperとの併用も可能である．
+   一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/mojave/">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></h2>
     <div class="article-style">
       
@@ -442,18 +456,6 @@ Table of Contents    Org Macros  上記に関しては，ox-hugoの作者で�
 Org Macros フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの Org Macrosが一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．
 #+INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup  これだけである．
  注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）  上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）  Can you try using #+setupfile instead of #+include? As an example, here is my blog Org source that I export using ox-hugo ( https://gitlab.com/kaushalm&hellip; ), and here is the setup file tha t I &ldquo;include&rdquo; using the more appropriate #+setupfile ( https://gitlab.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/swiper_migemo/">Swiper, ivy, avy, migemoによるEmacsの検索強化</a></h2>
-    <div class="article-style">
-      
-      文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-Table of Contents    swiper.el  Install &amp; setup 使い方  migemo  cmigemoのinstall migemo.elのInstall &amp; setup  avy-migemo（swiperのmigemo対応）  Install &amp; setup 使い方  最近開いたディレクトリを開く   
-swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．
-#+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &quot;p&quot;) ;; (interactive &quot;P&quot;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper 'swiper 'isearch-forward)))) (global-set-key (kbd &quot;C-s&quot;) 'isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset 'ivy--regex 'identity) ) #+end_src  ivyのコメントアウトしている部分については後述する．
       
     </div>
   </div>
