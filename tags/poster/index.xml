@@ -218,7 +218,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;9行目： &lt;strong&gt;\usetheme{I6dv_test}&lt;/strong&gt; によりスタイルシートを指定している．&lt;/li&gt;
-&lt;li&gt;45行目： &lt;strong&gt;orientation=landscape&lt;/strong&gt; で横長， &lt;strong&gt;orientation=portrait&lt;/strong&gt; で縦長になる．実際の大きさは， &lt;strong&gt;width=200,height=100&lt;/strong&gt; で合わせる．scaleの部分でも調整する．&lt;/li&gt;
+&lt;li&gt;45行目： &lt;strong&gt;orientation=landscape&lt;/strong&gt; で横長， &lt;strong&gt;orientation=portrait&lt;/strong&gt; で縦長になる．実際の大きさは， &lt;strong&gt;width=200,height=100&lt;/strong&gt; で合わせる（幅 200cm 高さ 100 cmということである）．scaleの部分でも調整する．&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;!--listend--&gt;
