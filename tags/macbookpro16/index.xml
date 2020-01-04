@@ -149,7 +149,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/kohkichi/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
+&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/taipapa/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
 &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでブラウザによるpdf fileの全文検索が可能となった．&lt;/p&gt;
 &lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
