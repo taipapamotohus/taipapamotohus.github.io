@@ -5,7 +5,7 @@
     <link>/tags/ripgrep/</link>
       <atom:link href="/tags/ripgrep/index.xml" rel="self" type="application/rss+xml" />
     <description>ripgrep</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>ripgrep</title>
@@ -17,57 +17,37 @@
       <link>/post/deadgrep/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/post/deadgrep/</guid>
-      <description>
-
-&lt;p&gt;次世代grepで最速と言われる&lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34; target=&#34;_blank&#34;&gt;ripgrep&lt;/a&gt;をバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．&lt;/p&gt;
-
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-
+      <description>&lt;p&gt;次世代grepで最速と言われる&lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;ripgrep&lt;/a&gt;をバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#ref&#34;&gt;Ref&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use&#34;&gt;How to use&lt;/a&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#2019年6月2日追記&#34;&gt;2019年6月2日追記&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2019%E5%B9%B46%E6%9C%882%E6%97%A5%E8%BF%BD%E8%A8%98&#34;&gt;2019年6月2日追記&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;!--endtoc--&gt;&lt;/p&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;ref&#34;&gt;Ref&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Wilfred/deadgrep&#34; target=&#34;_blank&#34;&gt;deadgrep: use ripgrep from Emacs&lt;/a&gt; ご本家&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://solist.work/blog/posts/deadgrep/&#34; target=&#34;_blank&#34;&gt;複雑になった時使うツール&lt;/a&gt; とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．．&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Wilfred/deadgrep&#34;&gt;deadgrep: use ripgrep from Emacs&lt;/a&gt; ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://solist.work/blog/posts/deadgrep/&#34;&gt;複雑になった時使うツール&lt;/a&gt; とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
-
 &lt;p&gt;まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install ripgrep
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package deadgrep
-  :ensure t
-  :config
-  (global-set-key (kbd &amp;quot;&amp;lt;f5&amp;gt;&amp;quot;) #&#39;deadgrep)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install ripgrep
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; deadgrep
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+  (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;f5&amp;gt;&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;#&amp;#39;&lt;/span&gt;deadgrep)
   )
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;how-to-use&#34;&gt;How to use&lt;/h2&gt;
-
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use&#34;&gt;How to use&lt;/h2&gt;
 &lt;p&gt;使用方法の詳細はご本家に書いてあるが，f5を叩いて，検索キーワードを入れるだけである．下の画像は，このブログのあるdirectoryで，「検索」をキーワードとしてdeadgrepを走らせたところである．defaultでdirectory内を再帰的に検索する．キーワードは青くハイライトされており，左端の数字はその文書での行番号である． &lt;strong&gt;o&lt;/strong&gt; を叩くと下のバッファに該当箇所にカーソルがある状態でその文書が開く． &lt;strong&gt;C-c C-k&lt;/strong&gt; で検索を止めることができる．また，swiperとの併用も可能である．&lt;/p&gt;
-
 
 
 
@@ -83,15 +63,10 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．&lt;/p&gt;
-
 &lt;p&gt;個人的には，swiperでほぼ事足りているのだが，大きなプロジェクト内の複数のファイルを一気に検索する必要がある人には非常に有益なツールだと思う．&lt;/p&gt;
-
 &lt;h3 id=&#34;2019年6月2日追記&#34;&gt;2019年6月2日追記&lt;/h3&gt;
-
 &lt;p&gt;上記のように自分にはあまり役に立たないようなことを書いたが，早速，deadgrepが役に立ったので追記しておく．hyperestraierで全文検索をしようとして，H@estfxpdftohtml というコマンドを使おうとしたのだが，うまくいかず，その原因を探るために，/usr/local/で，H@estfxpdftohtmlをSearch termとして，deadgrepを下の画像のように走らせてみたところ，下側のバッファにあるように，一発で原因が判明してしまった．要するに，xpdfが必要ということであった．なるほど，こういう風に使うのかと納得した．&lt;/p&gt;
-
 
 
 
@@ -106,7 +81,6 @@
 &lt;/a&gt;
 
 &lt;/figure&gt;
-
 
 &lt;p&gt;なお，全文検索については，いずれ別の機会にまとめてみたい．&lt;/p&gt;
 </description>

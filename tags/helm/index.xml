@@ -5,7 +5,7 @@
     <link>/tags/helm/</link>
       <atom:link href="/tags/helm/index.xml" rel="self" type="application/rss+xml" />
     <description>helm</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>helm</title>
@@ -18,34 +18,23 @@
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/post/mark-and-desktop-saving/</guid>
       <description>&lt;p&gt;Emacsのカーソルは画面をスクロールして上端または下端に至ると画面の中に表示される状態を維持するように動いてしまい，元の位置には止まらないのが仕様になっている．これは通常のエディターとは違っており，不便と感じて，色々と調べたり試したりしたのだが，要するに思想の違いであると考えるに至った．カーソルの位置は保持できない代わりにマークという方法が提供されている．まぁ，これが結構分かりにくいのだが，使ってみると案外便利である．そこで，マークについてまとめることにした．&lt;/p&gt;
-
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#mark&#34;&gt;Mark&lt;/a&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;!--endtoc--&gt;&lt;/p&gt;
-
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;mark&#34;&gt;Mark&lt;/h2&gt;
-
 &lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ayatakesi.github.io/emacs/26.1/html/Mark.html&#34; target=&#34;_blank&#34;&gt;マークとリージョン&lt;/a&gt;  Emacsのヘルプ （C-h i で自分のヘルプを読むのが一番早いかも）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ayatakesi.github.io/emacs/26.1/html/Mark.html&#34;&gt;マークとリージョン&lt;/a&gt;  Emacsのヘルプ （C-h i で自分のヘルプを読むのが一番早いかも）&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Emacsでは，テキストのある位置にマーク（mark）をセットすることができる．マークをセットするとマークとカーソルがあるポイントまでの領域はactiveになり，ハイライト表示される．例えば，下図では，5081行の先頭の「例えば」の例にカーソルを置いた状態で， &lt;strong&gt;C-SPC&lt;/strong&gt; と打ってマークを置き，そのままアローキーでカーソルを5086行の文末まで移動させた状態であるが，マークを置いたところから現在のカーソルのある位置までがハイライトされている（activeになっている）．windowの表示範囲を越えるような広い範囲を選択する際に特に便利である．&lt;/p&gt;
-
 
 
 
@@ -61,21 +50,11 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;要するに，通常のエディターやワープロにおいて，マウスでクリックして押したままの状態でなぞった時と同じ状態である．この状態で，ハイライトされた領域をコピーしたり削除したりできる．まぁ，これだけだとどうと言うことはないのだが， &lt;strong&gt;マークはmark ringに格納されるので，そこに戻ることができる．&lt;/strong&gt; これが便利である．この機能を利用するときはマークをセットしてactiveにしないほうが使いやすい．マークをセットした位置に戻るには &lt;strong&gt;C-u C-SPC&lt;/strong&gt; と打つ．&lt;/p&gt;
-
 &lt;p&gt;以上をまとめると以下のようになる．&lt;/p&gt;
-
-&lt;style&gt;.zebra-striping table { text-align: center;  }&lt;/style&gt;
-
-&lt;div class=&#34;ox-hugo-table zebra-striping sane-table&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;table-caption&#34;&gt;
-  &lt;span class=&#34;table-number&#34;&gt;Table 1&lt;/span&gt;:
-  Key bindings for mark in emacs
-&lt;/div&gt;
-
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -83,29 +62,23 @@
 &lt;th&gt;Description&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;C-SPC&lt;/td&gt;
 &lt;td&gt;マークをセットする．カーソルを移動させるとマークからカーソルの位置までがactiveになる&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;C-SPC C-SPC&lt;/td&gt;
 &lt;td&gt;マークをactiveにせずにマークをセットしてから、マークリングにpush（格納）する&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;C-u C-SPC&lt;/td&gt;
 &lt;td&gt;マークがあった場所にカーソルを移動し、mark ringから1つ前のマークを復元する&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;&lt;/div&gt;&lt;/p&gt;
-
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;要するに，あとで戻りたい位置にいるときに &lt;strong&gt;C-SPC C-SPC&lt;/strong&gt; でactiveにせずにマークをつけておき，しばらく作業をしたのち戻りたくなったら， &lt;strong&gt;C-u C-SPC&lt;/strong&gt; で戻ると言う使い方ができる．マークはmark ringに格納され，新しいものからリストの上に追加されていく． &lt;strong&gt;C-u C-SPC&lt;/strong&gt;  を連打すれば，次々と古いマークの位置に移動できる．なお， &lt;strong&gt;set-mark-command-repeat-pop&lt;/strong&gt; を非nilにセットすると、C-u C-SPCの後に続けて、C-u C-SPCではなく、C-SPCでマークリングを巡回できるようになる．これは， &lt;strong&gt;M-x customize&lt;/strong&gt; から，Customize Aproposに入り，下図のようにset-mark-command-repeat-popをToggleでonにすれば良い．&lt;/p&gt;
-
 
 
 
@@ -121,31 +94,17 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;最古のマークまで行くと，また，最新のマークに戻ってくる．それで，mark ringなのであろう．これだけでも十分に便利であり，カーソルの位置を保持できないことを補って余りあるともいえる．さて，mark ringには，localとglobalの2種類があるが，これについては以下の解説を参考にしていただきたい．&lt;/p&gt;
-
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    &lt;p&gt;&lt;strong&gt;グローバルマークリング（マニュアルから引用）:&lt;/strong&gt; 各バッファーに属する普通のマークリングに加えて、Emacsにはグローバルマークリング(global mark ring)が1つあります。以前マークをセットしてからバッファーを切り替えた場合、マークをセットすると、マークはカレントバッファーのマークリングに加えて、グローバルマークリングにも記録されます。その結果、グローバルマークリングには訪れていたバッファーの系列が記録され、各バッファーではマークを設定した箇所が記録されます。グローバルマークリングの長さは、global-mark-ring-maxで制御され、デフォルトは16です。&lt;/p&gt;
-
-&lt;p&gt;コマンド &lt;strong&gt;C-x C-SPC&lt;/strong&gt;  (pop-global-mark)は、グローバルリングの最新のバッファー位置にジャンプします。これもリングを巡回するので、連続してC-x C-SPCを使うことにより、古いバッファーのマーク位置に移動します。&lt;/p&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;ここまでくると，「mark ringの内容が見られたらもっと便利だろうなぁ」と期待してしまうのは人情というものである．&lt;/p&gt;
-
 &lt;h2 id=&#34;helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参照1：&lt;a href=&#34;https://tuhdo.github.io/helm-intro.html#orgheadline21&#34; target=&#34;_blank&#34;&gt;Command: helm-all-mark-rings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参照2：&lt;a href=&#34;https://qiita.com/jabberwocky0139/items/a45cc82d9efd0cb6fd8e#コマンド-helm-all-mark-rings&#34; target=&#34;_blank&#34;&gt;コマンド: helm-all-mark-rings&lt;/a&gt; 上記記事の翻訳&lt;/li&gt;
+&lt;li&gt;参照1：&lt;a href=&#34;https://tuhdo.github.io/helm-intro.html#orgheadline21&#34;&gt;Command: helm-all-mark-rings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照2：&lt;a href=&#34;https://qiita.com/jabberwocky0139/items/a45cc82d9efd0cb6fd8e#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89-helm-all-mark-rings&#34;&gt;コマンド: helm-all-mark-rings&lt;/a&gt; 上記記事の翻訳&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;さて，そんな期待を叶えてくれるのが，helm-all-mark-ringsである．localとglobalの両方のmark ringsをフレンドリーなインターフェースで可視化して，以前にいたところにいつでも戻れるようにする．私の場合は，最初にpreludeをインストールしている（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入&lt;/a&gt;）ので，helmは既にインストールされており，このコマンドはデフォルトでは，C-c h SPCにキーバインドされている．下図は，実際にC-c h SPCと打った時の画像である．下のバッファの中をarrow keyで上下し，見たい行のところでC-jと叩けば，上のバッファがそこへとぶ．そのまま次の行に動いてC-jとすれば，今度はそこに飛ぶ．Returnすれば，そのままそのバッファに行って確定する．&lt;/p&gt;
-
 &lt;p&gt;mark-ringはarrow keyで上下に動けるのだが，そのままglobal-mark-ringには移ってくれない．どうするかというと，minibufferのpattern: とあるところに，行きたいglobal-mark-ringの項目の最初の文字か2文字目ぐらいまでを入れれば，その項目だけが残るので，それを選択すれば良い．いつものhelmの選択方法である．&lt;/p&gt;
-
 
 
 
@@ -161,7 +120,6 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;今回は地味だ．．．．しかし，役に立つと思う．&lt;/p&gt;</description>
     </item>
     
@@ -171,84 +129,62 @@
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
       <guid>/post/treemacs_projectile/</guid>
       <description>&lt;p&gt;MacのFinderに相当するのは，EmacsではDiredであろう．しかし，なにかのプロジェクトに関わる文書群を管理するということになると，Diredでは力不足である．というか目的が違う．これにぴったりなのが，treemacsであり，そのバックボーンになるのが，Projectileである．これらは，プログラマーでもない自分には必要ないものと思っていたのだが，このblogを書くのに使用しているHugoとそのテーマであるacademicをアップデートする際に，非常に役に立ったので，いまだによく分かっていない自分自身のために書き留めておく．&lt;/p&gt;
-
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#projectile&#34;&gt;Projectile&lt;/a&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#treemacs&#34;&gt;Treemacs&lt;/a&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;!--endtoc--&gt;&lt;/p&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;projectile&#34;&gt;Projectile&lt;/h2&gt;
-
 &lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/bbatsov/projectile&#34; target=&#34;_blank&#34;&gt;projectile&lt;/a&gt;   ご本家&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.projectile.mx/en/latest/&#34; target=&#34;_blank&#34;&gt;Projectile: The Project Interaction Library for Emacs&lt;/a&gt;  ご本家の解説&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.aqutras.com/entry/2016/06/15/210000&#34; target=&#34;_blank&#34;&gt;よく使っているEmacsの拡張&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://tech.camph.net/projectile-and-helm/&#34; target=&#34;_blank&#34;&gt;ProjectileとHelm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://tuhdo.github.io/helm-projectile.html&#34; target=&#34;_blank&#34;&gt;Exploring large projects with Projectile and Helm Projectile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/bbatsov/projectile&#34;&gt;projectile&lt;/a&gt;   ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.projectile.mx/en/latest/&#34;&gt;Projectile: The Project Interaction Library for Emacs&lt;/a&gt;  ご本家の解説&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.aqutras.com/entry/2016/06/15/210000&#34;&gt;よく使っているEmacsの拡張&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tech.camph.net/projectile-and-helm/&#34;&gt;ProjectileとHelm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tuhdo.github.io/helm-projectile.html&#34;&gt;Exploring large projects with Projectile and Helm Projectile&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;以下はProjectileご本家の解説からの抜粋&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;「外部への依存関係を導入することなく，プロジェクトを操作する便利な一連の特徴を提供することを目的とする」そうである．これだけでは何のこっちゃである．&lt;/li&gt;
 &lt;li&gt;「例えば，プロジェクトの文書を見つける機能はGNUのfindを使用せずに純粋にEmacs Lispによって実装されている」ということで，そういうことかと思う．&lt;/li&gt;
 &lt;li&gt;プロジェクトとは，特定のファイルを含むフォルダーのこと&lt;/li&gt;
 &lt;li&gt;version-controlであるgit, muecurial, bazaarなどのrepoはデフォルトでプロジェクトとみなされる．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
-
 &lt;p&gt;以前の記事（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正，2019年6月1日追記）&lt;/a&gt;）に書いたように，私は，Preludeを導入しているが，これにより，prejectileのインストールと設定は既に終わっている．マニュアルで入れる場合は，以下のようにinit.orgに書き込めば良い．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package projectile
-  :ensure t
-  :config
-  (define-key projectile-mode-map (kbd &amp;quot;s-p&amp;quot;) &#39;projectile-command-map)
-  (define-key projectile-mode-map (kbd &amp;quot;C-c p&amp;quot;) &#39;projectile-command-map)
-  (projectile-mode +1))
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; projectile
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+  (define-key projectile-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s-p&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;projectile-command-map&lt;/span&gt;)
+  (define-key projectile-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c p&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;projectile-command-map&lt;/span&gt;)
+  (projectile-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;+1&lt;/span&gt;))
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;多分，このソフトは解説を読んでいても，有り難みがさっぱり分からない（私がそうであった）．gitを使って開発をしている人とかにはすごく役に立つと思う．では，プログラマーでもない私の様な素人が使ってなんの役に立つのかと思われるであろうが，これが，案外便利なのである．&lt;/p&gt;
-
 &lt;h4 id=&#34;basic-usage&#34;&gt;Basic Usage&lt;/h4&gt;
-
 &lt;p&gt;個人的に実際に使うのは，以下の4つぐらい．&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;current project内のファイルを検索: C-c p f&lt;/li&gt;
 &lt;li&gt;current project内のディレクトリを検索: C-c p d&lt;/li&gt;
 &lt;li&gt;current project内のディレクトリ内のファイルを検索: C-c p l&lt;/li&gt;
 &lt;li&gt;current project内のファイルの中身をgrepで検索する: C-c p s g&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;さらに，&lt;a href=&#34;https://github.com/justbur/emacs-which-key/tree/42a25055163141165aa0269dbca69735e704825c&#34; target=&#34;_blank&#34;&gt;which-key&lt;/a&gt; を導入しておくと，C-c pと打って，「次，なんだっけ？」と考えて1秒経つうちに，下図の様にメニューが下のバッファに表示される．私は，以前に書いた様にPreludeを導入しているが（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正，2019年6月1日追記）&lt;/a&gt;），Preludeの導入により，which-key はインストールと設定が終わっている様であり，何もせずとも，下図の様になった．これは，/Data/MyBlog/TaipapablogをDiredで開けて，そこで，C-c p と打ってから1秒が経過した時の様子である．これでkey-bindは，C-c p まで覚えておけば良いことがわかった．&lt;/p&gt;
-
+&lt;p&gt;さらに，&lt;a href=&#34;https://github.com/justbur/emacs-which-key/tree/42a25055163141165aa0269dbca69735e704825c&#34;&gt;which-key&lt;/a&gt; を導入しておくと，C-c pと打って，「次，なんだっけ？」と考えて1秒経つうちに，下図の様にメニューが下のバッファに表示される．私は，以前に書いた様にPreludeを導入しているが（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正，2019年6月1日追記）&lt;/a&gt;），Preludeの導入により，which-key はインストールと設定が終わっている様であり，何もせずとも，下図の様になった．これは，/Data/MyBlog/TaipapablogをDiredで開けて，そこで，C-c p と打ってから1秒が経過した時の様子である．これでkey-bindは，C-c p まで覚えておけば良いことがわかった．&lt;/p&gt;
 
 
 
@@ -264,9 +200,7 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;例えば，あるディレクトリ内の文書を比較したりコピペしたりしたいときに，すぐに探し出せるのが便利である．文書名を忘れていても，あるキーワードを含む文書を探すということも簡単にできる（current project内のファイルの中身をgrepで検索する: C-c p s g）．そんなことは，別に，Finderのfindを使うなり，Terminalでgrepなりmdfindすればできるわけだが，何も面倒なコマンドを打たずとも，特定のproject，つまり，特定のディレクトリ内だけで検索ができるというのが肝である．これにより，一瞬で検索は終わるし，すぐにそのファイルに飛べる．後述するtreemacsをインストールせずとも，projectileだけでも，かなり，便利になると思う．例えば，下の画像は，Taipapablogというdirectoryの中にあり，_index.mdを名前に含むファイルを検索しているところである．下のバッファにズラズラと該当するファイルが並んでおり，C-jするとその中身が上のバッファに表示される．リターンすれば，そのファイルが開く．下のバッファでは，arrow keyで上下すれば別のファイルに行けて，そこでC-jすれば，その中身が見られる．Returnするまではこれを繰り返すことができる．&lt;/p&gt;
-
 
 
 
@@ -282,114 +216,101 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;プログラミングをやっているわけではなく，論文を書くのにEmacsを使用している私のようなレベルの人間にとっても，一つのプロジェクト内のファイルを縦横無尽に検索や閲覧ができるのは，かなり，有用である．以下のtreemacsと組み合わせると，さらに便利になる（ような気がしている　笑）．最近のEmacsは画像でもpdfでも閲覧できるので，応用範囲はかなり広い．&lt;/p&gt;
-
 &lt;h2 id=&#34;treemacs&#34;&gt;Treemacs&lt;/h2&gt;
-
 &lt;p&gt;一見，neotreeの様に見えるが，特定のprojectに割り当てられている様な仕組みになっている．分かりにくいが，実際に使ってみれば便利である．treemacs-projectileをインストールすることにより，上述のprojectileと統合した状態で使えて，より便利になる．&lt;/p&gt;
-
-&lt;h3 id=&#34;references-1&#34;&gt;References&lt;/h3&gt;
-
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Alexander-Miller/treemacs&#34; target=&#34;_blank&#34;&gt;Treemacs - a tree layout file explorer for Emacs&lt;/a&gt;  ご本家&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.deltabox.site/post/2019/04/emacs%5Fconfig%5Fin%5Fmarch/&#34; target=&#34;_blank&#34;&gt;Emacsの設定を色々いじった -その１-&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://blog.jft.rocks/emacs/treemacs-icons.html&#34; target=&#34;_blank&#34;&gt;Using all-the-icons for Treemacs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Alexander-Miller/treemacs&#34;&gt;Treemacs - a tree layout file explorer for Emacs&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.deltabox.site/post/2019/04/emacs%5Fconfig%5Fin%5Fmarch/&#34;&gt;Emacsの設定を色々いじった -その１-&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.jft.rocks/emacs/treemacs-icons.html&#34;&gt;Using all-the-icons for Treemacs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&#34;installation-1&#34;&gt;Installation&lt;/h3&gt;
-
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 &lt;p&gt;ご本家の方法を丸写ししておく．以下をinit.orgに書き込めば良い．デフォルト設定なので，これ全部写す必要はなさそうだが．．．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:defer&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
+  (with-eval-after-load &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;winum&lt;/span&gt;
+    (define-key winum-keymap (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;M-0&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;#&amp;#39;&lt;/span&gt;treemacs-select-window))
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;progn&lt;/span&gt;
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; treemacs-collapse-dirs                 (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (treemacs--find-python3) &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+          treemacs-deferred-git-apply-delay      &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;
+          treemacs-display-in-side-window        &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+          treemacs-eldoc-display                 &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+          treemacs-file-event-delay              &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
+          treemacs-file-follow-delay             &lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;
+          treemacs-follow-after-init             &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+          treemacs-git-command-pipe              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+          treemacs-goto-tag-strategy             &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;refetch-index&lt;/span&gt;
+          treemacs-indentation                   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+          treemacs-indentation-string            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;
+          treemacs-is-never-other-window         &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-max-git-entries               &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
+          treemacs-missing-project-action        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ask&lt;/span&gt;
+          treemacs-no-png-images                 &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-no-delete-other-windows       &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+          treemacs-project-follow-cleanup        &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-persist-file                  (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.cache/treemacs-persist&amp;#34;&lt;/span&gt; user-emacs-directory)
+          treemacs-recenter-distance             &lt;span style=&#34;color:#ae81ff&#34;&gt;0.1&lt;/span&gt;
+          treemacs-recenter-after-file-follow    &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-recenter-after-tag-follow     &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-recenter-after-project-jump   &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;always&lt;/span&gt;
+          treemacs-recenter-after-project-expand &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;on-distance&lt;/span&gt;
+          treemacs-show-cursor                   &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-show-hidden-files             &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+          treemacs-silent-filewatch              &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-silent-refresh                &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+          treemacs-sorting                       &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alphabetic-desc&lt;/span&gt;
+          treemacs-space-between-root-nodes      &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+          treemacs-tag-follow-cleanup            &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+          treemacs-tag-follow-delay              &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;
+          treemacs-width                         &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;)
 
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package treemacs
-  :ensure t
-  :defer t
-  :init
-  (with-eval-after-load &#39;winum
-    (define-key winum-keymap (kbd &amp;quot;M-0&amp;quot;) #&#39;treemacs-select-window))
-  :config
-  (progn
-    (setq treemacs-collapse-dirs                 (if (treemacs--find-python3) 3 0)
-          treemacs-deferred-git-apply-delay      0.5
-          treemacs-display-in-side-window        t
-          treemacs-eldoc-display                 t
-          treemacs-file-event-delay              5000
-          treemacs-file-follow-delay             0.2
-          treemacs-follow-after-init             t
-          treemacs-git-command-pipe              &amp;quot;&amp;quot;
-          treemacs-goto-tag-strategy             &#39;refetch-index
-          treemacs-indentation                   2
-          treemacs-indentation-string            &amp;quot; &amp;quot;
-          treemacs-is-never-other-window         nil
-          treemacs-max-git-entries               5000
-          treemacs-missing-project-action        &#39;ask
-          treemacs-no-png-images                 nil
-          treemacs-no-delete-other-windows       t
-          treemacs-project-follow-cleanup        nil
-          treemacs-persist-file                  (expand-file-name &amp;quot;.cache/treemacs-persist&amp;quot; user-emacs-directory)
-          treemacs-recenter-distance             0.1
-          treemacs-recenter-after-file-follow    nil
-          treemacs-recenter-after-tag-follow     nil
-          treemacs-recenter-after-project-jump   &#39;always
-          treemacs-recenter-after-project-expand &#39;on-distance
-          treemacs-show-cursor                   nil
-          treemacs-show-hidden-files             t
-          treemacs-silent-filewatch              nil
-          treemacs-silent-refresh                nil
-          treemacs-sorting                       &#39;alphabetic-desc
-          treemacs-space-between-root-nodes      t
-          treemacs-tag-follow-cleanup            t
-          treemacs-tag-follow-delay              1.5
-          treemacs-width                         35)
+    &lt;span style=&#34;color:#75715e&#34;&gt;;; The default width and height of the icons is 22 pixels. If you are&lt;/span&gt;
+    &lt;span style=&#34;color:#75715e&#34;&gt;;; using a Hi-DPI display, uncomment this to double the icon size.&lt;/span&gt;
+    &lt;span style=&#34;color:#75715e&#34;&gt;;; (treemacs-resize-icons 44)&lt;/span&gt;
 
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;; (treemacs-resize-icons 44)
+    (treemacs-follow-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+    (treemacs-filewatch-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+    (treemacs-fringe-indicator-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+    (pcase (&lt;span style=&#34;color:#a6e22e&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;null&lt;/span&gt; (executable-find &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;)))
+                 (&lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;null&lt;/span&gt; (treemacs--find-python3))))
+      (&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+       (treemacs-git-mode &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;deferred&lt;/span&gt;))
+      (&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; _)
+       (treemacs-git-mode &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;simple&lt;/span&gt;))))
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:bind&lt;/span&gt;
+  (&lt;span style=&#34;color:#e6db74&#34;&gt;:map&lt;/span&gt; global-map
+        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;M-0&amp;#34;&lt;/span&gt;       &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-select-window)
+        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t 1&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-delete-other-windows)
+        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t t&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs)
+        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t B&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-bookmark)
+        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t C-t&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-find-file)
+        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t M-t&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-find-tag)))
 
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
-    (pcase (cons (not (null (executable-find &amp;quot;git&amp;quot;)))
-                 (not (null (treemacs--find-python3))))
-      (`(t . t)
-       (treemacs-git-mode &#39;deferred))
-      (`(t . _)
-       (treemacs-git-mode &#39;simple))))
-  :bind
-  (:map global-map
-        (&amp;quot;M-0&amp;quot;       . treemacs-select-window)
-        (&amp;quot;C-x t 1&amp;quot;   . treemacs-delete-other-windows)
-        (&amp;quot;C-x t t&amp;quot;   . treemacs)
-        (&amp;quot;C-x t B&amp;quot;   . treemacs-bookmark)
-        (&amp;quot;C-x t C-t&amp;quot; . treemacs-find-file)
-        (&amp;quot;C-x t M-t&amp;quot; . treemacs-find-tag)))
+&lt;span style=&#34;color:#75715e&#34;&gt;;; (use-package treemacs-evil&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;;;   :after treemacs evil&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;;;   :ensure t)&lt;/span&gt;
 
-;; (use-package treemacs-evil
-;;   :after treemacs evil
-;;   :ensure t)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-projectile
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs projectile
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
 
-(use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-icons-dired
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs dired
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt; (treemacs-icons-dired-mode))
 
-(use-package treemacs-icons-dired
-  :after treemacs dired
-  :ensure t
-  :config (treemacs-icons-dired-mode))
-
-(use-package treemacs-magit
-  :after treemacs magit
-  :ensure t)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;usage-1&#34;&gt;Usage&lt;/h3&gt;
-
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-magit
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs magit
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;上記設定により，projectileと統合した状態で使用することになる．従って，git initしたdirectoryや，git cloneしたdirectoryが対象となる．それらに該当しなければ，directory内に.projectileという 空ファイルを作成すれば良い．まず，最初は， &lt;strong&gt;M-0&lt;/strong&gt; と叩いて，Treemacsを開き，C-c C-p a (treemacs-add-project-to-workspace) でプロジェクトをtreemacsのworkspaceに追加する．下図は，Taipapablogというdirectoryを開けて，そこから2つのファイルを横に並べて開いたところである．&lt;/p&gt;
-
 &lt;p&gt;左のtreemacsのバッファの行番号114のさらに左のfringeに小さな青いマークがついている．行のハイライトとともに現在アクティブなバッファがどれかを示している．複数のプロジェクトや複数のディレクトリに同じ名前のファイルがあるときなどは，今作業しているファイルが，どこにあるファイルがわからなくなって困ることがある（少なくとも私は）．そのようなときに，このfringe indicatorは有用である．&lt;/p&gt;
-
 
 
 
@@ -405,9 +326,7 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;ところで，上述したようなキーバインドを覚える必要はない．treemacsのバッファにいるときに，？を叩けば，下図のごとく，下にヘルプバッファが開く．楽チンである．ファイルやディレクトリやプロジェクトの追加，削除，名前の変更などはもちろん網羅しており，ファイルの開け方も横に並べたり，縦に並べたりと色々できるようになっている．&lt;/p&gt;
-
 
 
 
@@ -423,11 +342,8 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， &lt;strong&gt;Winum &amp;amp; ace-window compatibility&lt;/strong&gt; と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， &lt;strong&gt;(define-key winum-keymap (kbd &amp;ldquo;M-0&amp;rdquo;) #&amp;lsquo;treemacs-select-window)&lt;/strong&gt; と書いてある．つまり，横や縦に並べたバッファ間の移動は， &lt;strong&gt;C-x o&lt;/strong&gt; の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， &lt;strong&gt;M-0&lt;/strong&gt; を打てば良い．下図は，先ほどの図の状態で， &lt;strong&gt;C-x o&lt;/strong&gt; を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．&lt;/p&gt;
-
-&lt;p&gt;なお，winumのインストールについては，&lt;a href=&#34;https://github.com/deb0ch/emacs-winum&#34; target=&#34;_blank&#34;&gt;emacs-winum&lt;/a&gt; を参照されたい．&lt;/p&gt;
-
+&lt;p&gt;なお，winumのインストールについては，&lt;a href=&#34;https://github.com/deb0ch/emacs-winum&#34;&gt;emacs-winum&lt;/a&gt; を参照されたい．&lt;/p&gt;
 
 
 
@@ -443,9 +359,7 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;とは言うものの，やはり，マウスを使う方が便利なこともある．Treemacsはmouse interfaceにも完全に対応しており，右クリックでpopup-menuが出るようになっている（下図参照）．よくできている．&lt;/p&gt;
-
 
 
 
@@ -460,7 +374,6 @@
 &lt;/a&gt;
 
 &lt;/figure&gt;
-
 
 &lt;p&gt;まだ使い始めたばかりであり，projectileとtreemacsについて，まだまだ理解しないといけないことがたくさんあるが，日常的に使用できるところまではなんとかなったかな．．．&lt;/p&gt;</description>
     </item>

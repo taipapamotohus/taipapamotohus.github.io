@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-11-22T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-12-31T00:00:00&#43;09:00">
   
 
   
@@ -321,13 +321,25 @@
   
   
   <div>
+    <h2><a href="/post/html_export/">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a></h2>
+    <div class="article-style">
+      
+      学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．
+Org Macros フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの Org Macrosが一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．
+#+INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup これだけである．
+ 注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）  上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記） Can you try using #+setupfile instead of #+include? As an example, here is my blog Org source that I export using ox-hugo ( https://gitlab.com/kaushalm&hellip; ), and here is the setup file tha t I &ldquo;include&rdquo; using the more appropriate #+setupfile ( https://gitlab.com/kaushalm&hellip; ).
+As you see, I use a lot of Org macros, and they all work in my &ldquo;one post per subtree&rdquo; flow.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/swiper_migemo/">Swiper, ivy, avy, migemoによるEmacsの検索強化</a></h2>
     <div class="article-style">
       
       文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-Table of Contents    swiper.el  Install &amp; setup 使い方  migemo  cmigemoのinstall migemo.elのInstall &amp; setup  avy-migemo（swiperのmigemo対応）  Install &amp; setup 使い方  最近開いたディレクトリを開く   
-swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．
-#+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &quot;p&quot;) ;; (interactive &quot;P&quot;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper 'swiper 'isearch-forward)))) (global-set-key (kbd &quot;C-s&quot;) 'isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset 'ivy--regex 'identity) ) #+end_src  ivyのコメントアウトしている部分については後述する．
+swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #+end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．
+  下図は，ivyを検索しているところだが，下に&quot;Swiper&quot;と表示されるバッファが表示され，そこに”ivy”と打つと，上の本文の中のivyは黄色でハイライトされる．同時に下のバッファでは，現在見ているivyのある行に下線が引かれ，行数が横に示される．上下のArrow Keyでivyのある行から次の行に飛べる．リターンすれば本文のその行に行ける．非常に便利である．
       
     </div>
   </div>
@@ -337,14 +349,16 @@ swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規
     <div class="article-style">
       
       以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiのmacOS での設定例 を参照していただきたい．
-Table of Contents    backward search forward search   
- 参照：Mac OS X El Capitan の AUCTeX の設定 参照：skimとの連携 参照：AUCTeX の設定と便利な機能 参照：TeX_and_PDF_Synchronization  backward search  こちらのほうが便利なので最初に説明する． skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる． この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．
-$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient  defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．
- 引数のところには，以下のように打ち込む．
-$ --no-wait +%line &quot;%file&quot;  つまりこうなる．
-    一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．
-#+begin_src emacs-lisp ;; Starts the Emacs server (server-start) #+end_src  これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！ これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．
- この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．
+ 参照：Mac OS X El Capitan の AUCTeX の設定 参照：skimとの連携 参照：AUCTeX の設定と便利な機能 参照：TeX_and_PDF_Synchronization  backward search   こちらのほうが便利なので最初に説明する．
+  skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる．
+  この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．
+$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient   defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．
+  引数のところには，以下のように打ち込む．
+$ --no-wait +%line &#34;%file&#34;   つまりこうなる．
+     一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．
+#+begin_src emacs-lisp ;; Starts the Emacs server (server-start) #+end_src   これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！ これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．
+  この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．
+  該当箇所が少しずれることがあるのが欠点であるが，それでも十分に役に立つ．
       
     </div>
   </div>
@@ -354,10 +368,10 @@ $ --no-wait +%line &quot;%file&quot;  つまりこうなる．
     <div class="article-style">
       
       私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．
-Table of Contents    目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用）  koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用）  「org-modeで論文を書く」の実例   
 目的  org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする  org-modeで論文を書く利点  LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう．  org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
 私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
-koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R.
+koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R. Tufteによって作られたページレイアウト．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．こういうスタイルはよく見かけるものだと思うが，作者がはっきりしているとは，恥ずかしながら全く知らなかった． tufte-org-modeはこのtufte classをorg-modeから使えるようにした有り難いパッケージである．  org-bullet   参考サイト１：https://github.com/sabof/org-bullets
+  参考サイト２：http://www.
       
     </div>
   </div>
@@ -366,8 +380,7 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
     <h2><a href="/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></h2>
     <div class="article-style">
       
-      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．
-% -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?
+      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．  % -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?
       
     </div>
   </div>
@@ -376,9 +389,11 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
     <h2><a href="/post/latexmk/">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></h2>
     <div class="article-style">
       
-      Table of Contents    TeX Live 2018のインストール TeX Live 2018のインストール（2018年9月1日追記）  ヒラギノフォントの埋め込みなど インストール後のパスの修正（symbolic linkを張る）  auctexのインストールと設定 latexmk 実際の作業 XeLaTeXについて   
-TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
-ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）  参考サイト：TeX Wiki TeX LiveMac MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
+      TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
+ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）   参考サイト：TeX Wiki TeX LiveMac
+  MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
+$ sudo /usr/local/texlive/????/bin/*/tlmgr path add   上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
+$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのインストールと設定  latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見） preludeをインストールした時点で，auctexもインストールされる． auctexの設定などについては以下を参照（手抜き&hellip;.
       
     </div>
   </div>
@@ -388,9 +403,9 @@ TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参�
     <div class="article-style">
       
       ようやく，ここからinit.orgの具体的な記述になる．
-Table of Contents    Coding systemの設定 Inline-patchの設定   
-Coding systemの設定  まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から init.orgに以下のように書き込む
-​* Coding System Environment ** 言語を日本語にする #+BEGIN_SRC lisp (set-language-environment 'Japanese) #+END_SRC ** 極力UTF-8とする #+BEGIN_SRC lisp (prefer-coding-system 'utf-8) #+END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #+BEGIN_SRC lisp (when (or (eq window-system 'mac) (eq window-system 'ns)) (set-face-attribute 'default nil :family &quot;Menlo&quot; :height 180) ;; 18pt (set-fontset-font nil 'japanese-jisx0208 (font-spec :family &quot;Hiragino Kaku Gothic ProN&quot;)) (setq face-font-rescale-alist '((&quot;.
+Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
+  init.orgに以下のように書き込む
+​* Coding System Environment ** 言語を日本語にする #+BEGIN_SRC lisp (set-language-environment &#39;Japanese) #+END_SRC ** 極力UTF-8とする #+BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #+END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #+BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.*Hiragino Kaku Gothic ProN.
       
     </div>
   </div>
@@ -400,10 +415,8 @@ Coding systemの設定  まずは，coding systemの設定，つまり，日�
     <div class="article-style">
       
       自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．
-参考サイト  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel + init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel  Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針  個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．  Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成  ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む
-(require 'org) (defvar my-config-dir (concat user-emacs-directory &quot;personal/&quot;)) (org-babel-load-file (expand-file-name &quot;init.org&quot; my-config-dir))  工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．
- これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．
-  init.orgの作成  これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．  Code blockの挿入  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である． org-modeで以下のようにする．（後述する設定が必要）
+参考サイト  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel + init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel  Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針  個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．  Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成  ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む  (require &#39;org) (defvar my-config-dir (concat user-emacs-directory &#34;personal/&#34;)) (org-babel-load-file (expand-file-name &#34;init.org&#34; my-config-dir))  工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ． これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．  init.orgの作成  これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．  Code blockの挿入   俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．
+  org-modeで以下のようにする．（後述する設定が必要）
       
     </div>
   </div>
@@ -412,14 +425,14 @@ Coding systemの設定  まずは，coding systemの設定，つまり，日�
     <h2><a href="/post/prelude_install/">Emacsの設定（その1）Preludeの導入（2018年10月9日修正，2019年6月1日追記）</a></h2>
     <div class="article-style">
       
-       昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．
-Preludeとは  Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．． Prelude Githubはこちら  Preludeのインストール  上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．
-$ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！ （2018年10月9日修正） デフォルトのままではこうならない．下記のように設定する必要あり．
- prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．
-(require 'prelude-helm) ;; Interface for narrowing and search (require 'prelude-helm-everywhere) ;; Enable Helm everywhere .................. (require 'prelude-latex)  helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに auctex がインストールされる．
- preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．
- super-save について（ 2019年6月1日追記 ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．
-    個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．
+      昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．
+Preludeとは  Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．． Prelude Githubはこちら  Preludeのインストール   上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．
+$ curl -L https://git.io/epre | sh   インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！ （2018年10月9日修正） デフォルトのままではこうならない．下記のように設定する必要あり．
+  prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．
+(require &#39;prelude-helm) ;; Interface for narrowing and search (require &#39;prelude-helm-everywhere) ;; Enable Helm everywhere .................. (require &#39;prelude-latex) helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに auctex がインストールされる．
+  preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．
+  super-save について（ 2019年6月1日追記 ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．
+     個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．
   
       
     </div>
@@ -431,8 +444,7 @@ $ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起
       
       なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサクッとインストール．Homebrew自体のインストールはそちらのサイトを参照．
 Emacsで日本語を書いてると，M-xしたときに面倒なことになるので，Imput Method Editor (IME)用のパッチを当てる．既にパッチの当たっているYAMAMOTO Mitsuharu版のMac Port用のemacs-macがよい．railwaycatさんがHomebrewでインストールできるようにしてくれているので，これを使わせていただく（Emacs Mac Port）．ありがたい．
-$ brew tap railwaycat/emacsmacport $ brew install emacs-mac --with-modern-icon --with-imagemagick $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications   &ndash;with-modern-iconを指定すると、新しいアイコンになる。    なお，他のoptionは以下のように打てば分かる．
-$ brew tap railwaycat/emacsmacport $ brew info emacs-mac   
+$ brew tap railwaycat/emacsmacport $ brew install emacs-mac --with-modern-icon --with-imagemagick $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications  &ndash;with-modern-iconを指定すると、新しいアイコンになる。   なお，他のoptionは以下のように打てば分かる．  $ brew tap railwaycat/emacsmacport $ brew info emacs-mac 
       
     </div>
   </div>
@@ -591,7 +603,7 @@ $ brew tap railwaycat/emacsmacport $ brew info emacs-mac
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

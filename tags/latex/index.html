@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-11-22T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-12-31T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,16 @@
   
   
   <div>
+    <h2><a href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/">How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</a></h2>
+    <div class="article-style">
+      
+      1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，Upgrade to Mojave and upgrade to Emacs 26.2 by homebrewでまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/how-to-create-conference-poster-by-latex-beamer/">How to create conference posters by latex (beamer)</a></h2>
     <div class="article-style">
       
@@ -336,10 +346,11 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
     <div class="article-style">
       
       以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．
-Table of Contents    Tufte-LaTeX tufte-org-mode 設定  tufte-org-modeのインストールと設定 org-modeでtufte-latexの設定  tufteの使用の実例   
-Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&rdquo;the style of Edward R. Tufte and Richard Feynman&rdquo;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．  tufte-org-mode  tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．  設定  下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．  tufte-org-modeのインストールと設定  以下のようにinit.orgに書き込んで設定する． ox-tufte-latex.elは上記の tufte-org-modeからダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．
-#+begin_src emacs-lisp (quelpa '(ox-tufte-latex :fetcher file :path &quot;/path/to/ox-tufte-latex.el&quot;) ) (use-package ox-tufte-latex) #+end_src  quelpaは，use-packageでうまくインストール出来ないときに重宝する．
- quelpaについては以下を参照
+Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&ldquo;the style of Edward R. Tufte and Richard Feynman&quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．  tufte-org-mode  tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．  設定  下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．  tufte-org-modeのインストールと設定   以下のようにinit.orgに書き込んで設定する．
+  ox-tufte-latex.elは上記の tufte-org-modeからダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．
+#+begin_src emacs-lisp (quelpa &#39;(ox-tufte-latex :fetcher file :path &#34;/path/to/ox-tufte-latex.el&#34;) ) (use-package ox-tufte-latex) #+end_src   quelpaは，use-packageでうまくインストール出来ないときに重宝する．
+  quelpaについては以下を参照
+ Quelpa quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム CaskからQuelpaに移行する    org-modeでtufte-latexの設定   ox-latexの設定などは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））に書いたようにinit.orgに記述しておく．
       
     </div>
   </div>
@@ -349,14 +360,16 @@ Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウ�
     <div class="article-style">
       
       以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiのmacOS での設定例 を参照していただきたい．
-Table of Contents    backward search forward search   
- 参照：Mac OS X El Capitan の AUCTeX の設定 参照：skimとの連携 参照：AUCTeX の設定と便利な機能 参照：TeX_and_PDF_Synchronization  backward search  こちらのほうが便利なので最初に説明する． skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる． この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．
-$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient  defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．
- 引数のところには，以下のように打ち込む．
-$ --no-wait +%line &quot;%file&quot;  つまりこうなる．
-    一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．
-#+begin_src emacs-lisp ;; Starts the Emacs server (server-start) #+end_src  これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！ これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．
- この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．
+ 参照：Mac OS X El Capitan の AUCTeX の設定 参照：skimとの連携 参照：AUCTeX の設定と便利な機能 参照：TeX_and_PDF_Synchronization  backward search   こちらのほうが便利なので最初に説明する．
+  skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる．
+  この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．
+$ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient   defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．
+  引数のところには，以下のように打ち込む．
+$ --no-wait +%line &#34;%file&#34;   つまりこうなる．
+     一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．
+#+begin_src emacs-lisp ;; Starts the Emacs server (server-start) #+end_src   これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！ これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．
+  この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．
+  該当箇所が少しずれることがあるのが欠点であるが，それでも十分に役に立つ．
       
     </div>
   </div>
@@ -366,10 +379,13 @@ $ --no-wait +%line &quot;%file&quot;  つまりこうなる．
     <div class="article-style">
       
       前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
-Table of Contents    org-mode-reftex-setup  org-mode-reftex-setupの使用方法  ox-bibtex.el bst ファイルについて  bst ファイルの置き場所  文献を引用したorg-modeからのexportの実例   
-org-mode-reftex-setup  参照サイト：Using Emacs Org-mode to Draft Papers RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
-#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &quot;reftex&quot;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &quot;C-c )&quot;) 'reftex-citation) ) (add-hook 'org-mode-hook 'org-mode-reftex-setup) #+end_src  上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法  org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである． 次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
+org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
+  RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
+#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #+end_src   上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
+  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
+  すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
+  次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
+     上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）
       
     </div>
   </div>
@@ -379,10 +395,10 @@ org-mode-reftex-setup  参照サイト：Using Emacs Org-mode to Draft Papers Re
     <div class="article-style">
       
       私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．
-Table of Contents    目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用）  koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用）  「org-modeで論文を書く」の実例   
 目的  org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする  org-modeで論文を書く利点  LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう．  org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
 私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
-koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R.
+koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R. Tufteによって作られたページレイアウト．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．こういうスタイルはよく見かけるものだと思うが，作者がはっきりしているとは，恥ずかしながら全く知らなかった． tufte-org-modeはこのtufte classをorg-modeから使えるようにした有り難いパッケージである．  org-bullet   参考サイト１：https://github.com/sabof/org-bullets
+  参考サイト２：http://www.
       
     </div>
   </div>
@@ -392,10 +408,13 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
     <div class="article-style">
       
       前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．
-Table of Contents    media9 beamerで動画が走るスライド原稿を作る（media9版） media9を使用したときの利点 media9を使用したときの欠点 結論   
 media9 media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．
- 参考サイト１：TeXWiki media9 参考サイト２：TeXでプレゼン - LaTeX Beamerを使う人のためのTips集 参考サイト３：How to embed video files in a PDF using LaTeX (a media9/beamer example) 参考サイト４：Beamer で PDF ファイルに動画を埋め込む 参考サイト５：media9 problems  beamerで動画が走るスライド原稿を作る（media9版）  同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い preambleに，\usepackage{media9}を忘れずに追加しておく．
-\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}  110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．
+ 参考サイト１：TeXWiki media9 参考サイト２：TeXでプレゼン - LaTeX Beamerを使う人のためのTips集 参考サイト３：How to embed video files in a PDF using LaTeX (a media9/beamer example) 参考サイト４：Beamer で PDF ファイルに動画を埋め込む 参考サイト５：media9 problems  beamerで動画が走るスライド原稿を作る（media9版）   同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い
+  preambleに，\usepackage{media9}を忘れずに追加しておく．
+\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}   110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．
+  loopは，ループ再生するかどうか
+  autoplayは自動再生するかどうか
+  media9を使用したときの利点  なんと言ってもべた書きよりもelegant!
       
     </div>
   </div>
@@ -405,8 +424,9 @@ media9 media9はtexlive2018に含まれており，特に別途インストー�
     <div class="article-style">
       
       実は，同じような内容について2010年に，TeX QA に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．
-beamerで動画が走るスライド原稿を作る  前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい． 参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
-3 Annotations An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype', for instance, `/Text', `/Link', `/Sound', `/Movie', etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect'.
+beamerで動画が走るスライド原稿を作る   前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．
+  参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
+3 Annotations An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;.
       
     </div>
   </div>
@@ -415,8 +435,7 @@ beamerで動画が走るスライド原稿を作る  前述した ，Te
     <h2><a href="/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></h2>
     <div class="article-style">
       
-      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．
-% -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?
+      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．  % -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?
       
     </div>
   </div>
@@ -425,9 +444,11 @@ beamerで動画が走るスライド原稿を作る  前述した ，Te
     <h2><a href="/post/latexmk/">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></h2>
     <div class="article-style">
       
-      Table of Contents    TeX Live 2018のインストール TeX Live 2018のインストール（2018年9月1日追記）  ヒラギノフォントの埋め込みなど インストール後のパスの修正（symbolic linkを張る）  auctexのインストールと設定 latexmk 実際の作業 XeLaTeXについて   
-TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
-ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）  参考サイト：TeX Wiki TeX LiveMac MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
+      TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
+ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）   参考サイト：TeX Wiki TeX LiveMac
+  MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
+$ sudo /usr/local/texlive/????/bin/*/tlmgr path add   上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
+$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのインストールと設定  latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見） preludeをインストールした時点で，auctexもインストールされる． auctexの設定などについては以下を参照（手抜き&hellip;.
       
     </div>
   </div>
@@ -577,7 +598,7 @@ TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参�
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

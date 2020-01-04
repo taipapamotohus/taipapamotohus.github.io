@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -325,9 +325,9 @@
     <div class="article-style">
       
       org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法   
-toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
-#+begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq 'org-html-export-to-html after-save-hook) (progn (remove-hook 'after-save-hook 'org-html-export-to-html t) (message &quot;Disabled org html export on save for current buffer...&quot;)) (add-hook 'after-save-hook 'org-html-export-to-html nil t) (message &quot;Enabled org html export on save for current buffer...&quot;))) #+end_src  これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
+ toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法  toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
+#+begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #+end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
+directoryの内容が変更されると，自動でhtmlを再読込する．  情報元：Watch for file changes and refresh your browser automatically 上記サイトに有るrubyのスクリプトが使えそうなので，頂いた． rubyのインストールについては，以下のようなサイトを参考  MacにHomeBrew,rbenv,bundlerをインストールする Ruby入門 01.
       
     </div>
   </div>
@@ -477,7 +477,7 @@ toggle-org-html-export-on-save  情報元：How to auto export html when saving 
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

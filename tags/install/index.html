@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -325,10 +325,10 @@
     <div class="article-style">
       
       Rとは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&hellip;..(^^;;;
-gccのリンク絡みのトラブル  大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
-$ brew link --overwrite gcc   XMLが入らない  XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
-Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&quot;)  なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
-  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．  &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&rdquo;Cairo&rdquo; packageなど）．要するにXlib.
+gccのリンク絡みのトラブル   大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
+$ brew link --overwrite gcc   XMLが入らない   XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
+Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34;) なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
+  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．   &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&ldquo;Cairo&rdquo; packageなど）．要するにXlib.
       
     </div>
   </div>
@@ -478,7 +478,7 @@ Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&qu
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

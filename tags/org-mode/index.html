@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -370,11 +370,12 @@
     <div class="article-style">
       
       最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．
- Table of Contents  References peep-diredのインストールと設定 peep-diredの使い方 bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ）   
-References  peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED  peep-diredのインストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
-#+begin_src emacs-lisp (use-package peep-dired :ensure t :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded :bind (:map dired-mode-map (&quot;P&quot; . peep-dired))) #+end_src  設定は上記参照サイトのパクリで，diredで&rdquo;P&rdquo;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&rdquo;P&rdquo;と打つとpeep-dired modeは終了する．　peep-diredの使い方 File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&rdquo;P&rdquo;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．
+ References peep-diredのインストールと設定 peep-diredの使い方 bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ）  References  peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED  peep-diredのインストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
+#+begin_src emacs-lisp (use-package peep-dired :ensure t :defer t ; don&#39;t access `dired-mode-map&#39; until `peep-dired&#39; is loaded :bind (:map dired-mode-map (&#34;P&#34; . peep-dired))) #+end_src 設定は上記参照サイトのパクリで，diredで&quot;P&quot;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&quot;P&quot;と打つとpeep-dired modeは終了する．　peep-diredの使い方 File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&quot;P&quot;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．
    ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．
    文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．
+bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ） diredでdirectoryを開けるときにその名前を入力する必要があるが，これが結構面倒である．特に深いところにあるファイルはフルパスを書くのが大変である．どうせ，同じファイルに何回も行くことが多いので，「最近訪れたdirectoryの履歴」みたいなのが一覧表示されると嬉しい．まさに，こんなのぞみにピッタリのものが，bjm/ivy-dired-recent-dirsである．これについては，以前に書いたのでそちらを参考にしていただきたい．というか，以前に書いた事自体を忘れていたので，自分への戒めとして記録しておく．．．(^^;;;
+Ref: 最近開いたディレクトリを開く
       
     </div>
   </div>
@@ -384,8 +385,7 @@ References  peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED  p
     <div class="article-style">
       
       （承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory   
-References  HUGO Hugo is one of the most popular open-source static site generators.
+ References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory  References   HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
       
     </div>
   </div>
@@ -395,11 +395,10 @@ References  HUGO Hugo is one of the most popular open-source static site generat
     <div class="article-style">
       
       本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．
- Table of Contents  Org-babel setup How to use org-babel Org-babel evaluation of R code block   
-Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
+ Org-babel setup How to use org-babel Org-babel evaluation of R code block  Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
 ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．
 Ref: Org-babel Setup　ここからコピペ (^^;;;
-#+begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R .
+#+begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R . t) (python . t) (ruby .
       
     </div>
   </div>
@@ -409,11 +408,10 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
     <div class="article-style">
       
       Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．
- Table of Contents  adaptive-wrap  インストールと設定 実際の使用例    
-adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
+ adaptive-wrap  インストールと設定 実際の使用例    adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
 インストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
-#+begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode) (global-visual-line-mode +1) (add-hook 'org-mode-hook 'visual-line-mode) ;; For org macros ) #+end_src  なお，最後の行を入れておかないと，org-mode fileに
-#+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup  を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
+#+begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode +1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #+end_src なお，最後の行を入れておかないと，org-mode fileに
+#+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
 実際の使用例 adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．
       これも一度使い始めると，無くてはならないモノとなるパッケージである．
       
@@ -425,9 +423,9 @@ adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentat
     <div class="article-style">
       
       org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法   
-toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
-#+begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq 'org-html-export-to-html after-save-hook) (progn (remove-hook 'after-save-hook 'org-html-export-to-html t) (message &quot;Disabled org html export on save for current buffer...&quot;)) (add-hook 'after-save-hook 'org-html-export-to-html nil t) (message &quot;Enabled org html export on save for current buffer...&quot;))) #+end_src  これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
+ toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法  toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
+#+begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #+end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
+directoryの内容が変更されると，自動でhtmlを再読込する．  情報元：Watch for file changes and refresh your browser automatically 上記サイトに有るrubyのスクリプトが使えそうなので，頂いた． rubyのインストールについては，以下のようなサイトを参考  MacにHomeBrew,rbenv,bundlerをインストールする Ruby入門 01.
       
     </div>
   </div>
@@ -577,7 +575,7 @@ toggle-org-html-export-on-save  情報元：How to auto export html when saving 
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

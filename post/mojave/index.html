@@ -29,11 +29,10 @@
     
   
   <meta name="description" content="世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
- Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法  感想   
-Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
+ Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想  Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
-$ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun  これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．">
+$ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/mojave/">
@@ -85,7 +84,7 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -128,11 +127,10 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
   <meta property="og:url" content="/post/mojave/">
   <meta property="og:title" content="Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew | A perfect autumn day">
   <meta property="og:description" content="世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
- Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法  感想   
-Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
+ Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想  Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
-$ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun  これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．"><meta property="og:image" content="/post/mojave/featured.jpg">
+$ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．"><meta property="og:image" content="/post/mojave/featured.jpg">
   <meta property="twitter:image" content="/post/mojave/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -409,125 +407,81 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから <strong>Mojave</strong> にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+      <p>世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから <strong>Mojave</strong> にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#upgrade-to-mojave-from-sierra">Upgrade to Mojave from Sierra</a></li>
 <li><a href="#upgrade-to-xcode-10-dot-2-dot-1">Upgrade to Xcode 10.2.1</a></li>
 <li><a href="#upgrade-to-emacs-26-dot-2-from-26-dot-1">Upgrade to Emacs 26.2 from 26.1</a></li>
 <li><a href="#latex">LaTeX</a>
-
 <ul>
-<li><a href="#pdfにフォントが埋め込まれているかどうかを確認する方法">pdfにフォントが埋め込まれているかどうかを確認する方法</a></li>
-</ul></li>
-<li><a href="#感想">感想</a></li>
+<li><a href="#pdf%E3%81%AB%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%81%8B%E3%82%99%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BE%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A8%E3%82%99%E3%81%86%E3%81%8B%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">pdfにフォントが埋め込まれているかどうかを確認する方法</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+</li>
+<li><a href="#%E6%84%9F%E6%83%B3">感想</a></li>
+</ul>
+<!-- raw HTML omitted -->
 <h2 id="upgrade-to-mojave-from-sierra">Upgrade to Mojave from Sierra</h2>
-
-<p><strong>Ref:</strong> <a href="https://support.apple.com/ja-jp/HT201475" target="_blank">macOS Mojave にアップグレードする方法</a></p>
-
+<p><strong>Ref:</strong> <a href="https://support.apple.com/ja-jp/HT201475">macOS Mojave にアップグレードする方法</a></p>
 <p>結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．</p>
-
 <h2 id="upgrade-to-xcode-10-dot-2-dot-1">Upgrade to Xcode 10.2.1</h2>
-
 <p>早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして <strong>brew install</strong> すると以下のようなエラーが出る．</p>
-
-<pre><code class="language-sh">$ brew install hogehoge
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install hogehoge
 .........
-xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
-</code></pre>
-
-<p>これは，「<a href="https://gotohayato.com/content/487" target="_blank">macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題</a>」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．</p>
-
-<pre><code class="language-sh">xcode-select --install
-</code></pre>
-
-<p>さぁ，これでようやくと思って，再度 <strong>brew install</strong> すると，またもエラーである&hellip;..(ToT)</p>
-
-<pre><code class="language-sh">$ brew install hogehoge
+xcrun: error: invalid active developer path <span style="color:#f92672">(</span>/Library/Developer/CommandLineTools<span style="color:#f92672">)</span>, missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+</code></pre></div><p>これは，「<a href="https://gotohayato.com/content/487">macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題</a>」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">xcode-select --install
+</code></pre></div><p>さぁ，これでようやくと思って，再度 <strong>brew install</strong> すると，またもエラーである&hellip;..(ToT)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install hogehoge
 ..........
 Error: parent directory is world writable but not sticky
 Please report this bug:
 https://docs.brew.sh/Troubleshooting
-</code></pre>
-
-<p>調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．</p>
-
-<p><strong>Ref 1:</strong> <a href="https://qiita.com/analsky/items/20755a3ba10119e9a4b6" target="_blank">brew で `Error: parent directory is world writable but not sticky`</a> <br />
-<strong>Ref 2:</strong> <a href="https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky" target="_blank">Error: parent directory is world writable but not sticky</a> <br />
+</code></pre></div><p>調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．</p>
+<p><strong>Ref 1:</strong> <a href="https://qiita.com/analsky/items/20755a3ba10119e9a4b6">brew で `Error: parent directory is world writable but not sticky`</a> <!-- raw HTML omitted -->
+<strong>Ref 2:</strong> <a href="https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky">Error: parent directory is world writable but not sticky</a> <!-- raw HTML omitted -->
 上記サイトの記載に従って，ls -ld /tmpを行うと以下のようになる．</p>
-
-<pre><code class="language-sh">$ ls -ld /tmp
-lrwxr-xr-x@ 1 root  wheel  11  4 27 18:45 /tmp@ -&gt; private/tmp
-</code></pre>
-
-<p>これは，tmp directoryはprivate/tmpを使用しているということであり，以下のようにしてpermissionを付与する．</p>
-
-<pre><code class="language-sh">$ sudo chmod +t /private/tmp
-</code></pre>
-
-<p>私の場合はこれでbrewが働くようになった．これらの操作は，今後のmajor upgradeの際にはまた必要になりそうなので，ここにまとめておく．</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ls -ld /tmp
+lrwxr-xr-x@ <span style="color:#ae81ff">1</span> root  wheel  <span style="color:#ae81ff">11</span>  <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">27</span> 18:45 /tmp@ -&gt; private/tmp
+</code></pre></div><p>これは，tmp directoryはprivate/tmpを使用しているということであり，以下のようにしてpermissionを付与する．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo chmod +t /private/tmp
+</code></pre></div><p>私の場合はこれでbrewが働くようになった．これらの操作は，今後のmajor upgradeの際にはまた必要になりそうなので，ここにまとめておく．</p>
 <h2 id="upgrade-to-emacs-26-dot-2-from-26-dot-1">Upgrade to Emacs 26.2 from 26.1</h2>
-
-<p>ようやくEmacsのupgradeである．mojaveにupgradeした直後にemacs26.1を起動してみるとキーが効かなかったような気がするが，26.2にupgradeするので，気にせず先に進んだ&hellip;..(^^;;;　以前の記事（<a href="../emacs_install">Emacsのインストール</a>）に書いたようにhomebrewでemacs-macを入れればよいのだが，念の為に単なるupgradeは避けて，Emacs 26.1をuninstallし，~/.emac.dも退避させてから，インストールし直すことにした．<a href="https://github.com/railwaycat/homebrew-emacsmacport" target="_blank">Emacs Mac Port</a>の最終更新はわずか2週間前でありいろいろな問題が解決されていると期待してのupgradeである．</p>
-
-<pre><code class="language-sh">$ cd
-$ mv .emacs.d .emac.d.old  # change name of old .emacs.d
+<p>ようやくEmacsのupgradeである．mojaveにupgradeした直後にemacs26.1を起動してみるとキーが効かなかったような気がするが，26.2にupgradeするので，気にせず先に進んだ&hellip;..(^^;;;　以前の記事（<a href="../emacs_install">Emacsのインストール</a>）に書いたようにhomebrewでemacs-macを入れればよいのだが，念の為に単なるupgradeは避けて，Emacs 26.1をuninstallし，~/.emac.dも退避させてから，インストールし直すことにした．<a href="https://github.com/railwaycat/homebrew-emacsmacport">Emacs Mac Port</a>の最終更新はわずか2週間前でありいろいろな問題が解決されていると期待してのupgradeである．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd
+$ mv .emacs.d .emac.d.old  <span style="color:#75715e"># change name of old .emacs.d</span>
 $ brew tap railwaycat/emacsmacport
-$ brew uninstall emacs-mac  # uninstall old emacs-mac
-$ brew install emacs-mac --with-modern-icon --with-imagemagick  # install new emacs-mac
+$ brew uninstall emacs-mac  <span style="color:#75715e"># uninstall old emacs-mac</span>
+$ brew install emacs-mac --with-modern-icon --with-imagemagick  <span style="color:#75715e"># install new emacs-mac</span>
 $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-</code></pre>
-
-<p>これで，<br />
-<strong>/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)</strong> <br />
-から <br />
-<strong>/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)</strong>  <br />
+</code></pre></div><p>これで，<!-- raw HTML omitted -->
+<strong>/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)</strong> <!-- raw HTML omitted -->
+から <!-- raw HTML omitted -->
+<strong>/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)</strong>  <!-- raw HTML omitted -->
 へのupgradeが終了した．</p>
-
-<p>あとは，以前に書いた以下の記事に従ってセットアップした．<br />
-<a href="../prelude_install">Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</a> <br />
-<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>  <br />
+<p>あとは，以前に書いた以下の記事に従ってセットアップした．<!-- raw HTML omitted -->
+<a href="../prelude_install">Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</a> <!-- raw HTML omitted -->
+<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>  <!-- raw HTML omitted -->
 <a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></p>
-
 <h2 id="latex">LaTeX</h2>
-
 <p>これについては，以前の記事「<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a>」で書いたとおり <strong>MacTeX 2018</strong> のままである．正確に言うと，mojaveにupgradeする直前に以下のようにして最新版にアップデートしておいた．</p>
-
-<pre><code class="language-sh">$ sudo tlmgr update --self --all
-</code></pre>
-
-<p>400個ぐらいのパッケージのアップデートに30-40分を要した．</p>
-
-<p><strong>ヒラギノフォントの埋め込み</strong> についても上述の記事に書いたように，既に，<a href="https://github.com/munepi/bibunsho7-patch/releases" target="_blank">bibunsho7-patch</a>を適応済みなので，問題ないと考えた．</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo tlmgr update --self --all
+</code></pre></div><p>400個ぐらいのパッケージのアップデートに30-40分を要した．</p>
+<p><strong>ヒラギノフォントの埋め込み</strong> についても上述の記事に書いたように，既に，<a href="https://github.com/munepi/bibunsho7-patch/releases">bibunsho7-patch</a>を適応済みなので，問題ないと考えた．</p>
 <p>mojaveにupgradeしてから，latexmkによるcompileやorg-modeからのlatex exportなどを試してみたが，pdfの生成に特に問題なく，また，pdfへのヒラギノフォントの埋め込みも問題なくできていた．</p>
-
 <h3 id="pdfにフォントが埋め込まれているかどうかを確認する方法">pdfにフォントが埋め込まれているかどうかを確認する方法</h3>
-
 <ul>
-<li><strong>Ref:</strong><a href="https://qiita.com/Aqua%5Fix/items/d277fb7e4667d6616c1e" target="_blank"> PDFのフォント埋め込み</a></li>
-
-<li><p>以下のようにhomebrewでpopplerをインストールすれば，その中の <strong>pdffonts</strong> というコマンドを使って確認することができる．このpopplerは以前の記事（<a href="../pdf-tools">Emacsでpdfを読む (pdf-tools)</a>）で既にインストールしているが，もう一度書いておく．</p>
-
-<pre><code class="language-sh">$ brew install poppler
-</code></pre></li>
-
-<li><p>たとえば，latexで生成したhogehoge.pdfのフォントの埋め込みを調べるためには，pdffontsを以下のように使う． <strong>emb</strong> の項目で埋め込みの有無がわかる．</p>
-
-<pre><code class="language-sh">$ pdffonts hogehoge.pdf
+<li>
+<p><strong>Ref:</strong><a href="https://qiita.com/Aqua%5Fix/items/d277fb7e4667d6616c1e"> PDFのフォント埋め込み</a></p>
+</li>
+<li>
+<p>以下のようにhomebrewでpopplerをインストールすれば，その中の <strong>pdffonts</strong> というコマンドを使って確認することができる．このpopplerは以前の記事（<a href="../pdf-tools">Emacsでpdfを読む (pdf-tools)</a>）で既にインストールしているが，もう一度書いておく．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install poppler
+</code></pre></div></li>
+<li>
+<p>たとえば，latexで生成したhogehoge.pdfのフォントの埋め込みを調べるためには，pdffontsを以下のように使う． <strong>emb</strong> の項目で埋め込みの有無がわかる．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pdffonts hogehoge.pdf
 name                                 type              encoding         emb sub
 ------------------------------------ ----------------- ---------------- --- ---
 KQKHHV+LMSans10-Bold                 Type 1C           Custom           yes yes
@@ -537,13 +491,12 @@ ZHPQAJ+LMRoman12-Regular             Type 1C           Custom           yes yes
 BMLTDB+HiraKakuProN-W6-Identity-H    CID Type 0C       Identity-H       yes yes
 NOWECW+LMRoman12-Regular             Type 1C           Custom           yes yes
 SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
-</code></pre></li>
-
-<li><p>確かに，すべてのフォントは <strong>emb = yes</strong> になっており，埋め込まれているのが確認できた．</p></li>
+</code></pre></div></li>
+<li>
+<p>確かに，すべてのフォントは <strong>emb = yes</strong> になっており，埋め込まれているのが確認できた．</p>
+</li>
 </ul>
-
 <h2 id="感想">感想</h2>
-
 <p>ネットでは，いろいろ問題ありとの情報が多く様子見をしていたのだが，待ってる間に色々と解決した部分も多いのか，ほとんど大きなトラブルもなくアップグレードできた．なお， <strong>Time Machine</strong> によるバックアップも問題なくできている．「案ずるより産むが易し」であった．</p>
 
     </div>
@@ -876,7 +829,7 @@ SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

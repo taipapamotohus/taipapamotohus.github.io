@@ -29,7 +29,6 @@
     
   
   <meta name="description" content="学会発表用のスライド作成については，beamerでスライド原稿用pdfを作成する（その１）に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．
-
 latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．">
 
   
@@ -82,7 +81,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -125,7 +124,6 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
   <meta property="og:url" content="/post/how-to-create-conference-poster-by-latex-beamer/">
   <meta property="og:title" content="How to create conference posters by latex (beamer) | A perfect autumn day">
   <meta property="og:description" content="学会発表用のスライド作成については，beamerでスライド原稿用pdfを作成する（その１）に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．
-
 latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．"><meta property="og:image" content="/post/how-to-create-conference-poster-by-latex-beamer/featured.jpg">
   <meta property="twitter:image" content="/post/how-to-create-conference-poster-by-latex-beamer/featured.jpg"><meta property="og:locale" content="en-us">
   
@@ -404,186 +402,160 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
     <div class="article-style" itemprop="articleBody">
       <p>学会発表用のスライド作成については，<a href="../beamer">beamerでスライド原稿用pdfを作成する（その１）</a>に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．</p>
-
 <p>latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#general-remarks">General remarks</a></li>
 <li><a href="#beamerposter">beamerposter</a>
-
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
 <li><a href="#templates">Templates</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#gemini">Gemini</a>
-
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#baposter">baposter</a>
-
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
 <li><a href="#templates">Templates</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#tikzposter">tikzposter</a>
-
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
 <li><a href="#templates">Templates</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#betterposter">betterposter</a>
-
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#inkscape">Inkscape</a>
-
 <ul>
 <li><a href="#making-a-math-conference-poster-with-inkscape">Making a Math Conference Poster with Inkscape</a></li>
 <li><a href="#creating-a-science-conference-poster-with-inkscape">Creating a Science Conference Poster with Inkscape</a></li>
-</ul></li>
-<li><a href="#まとめ">まとめ</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+</li>
+<li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li>
+</ul>
+<!-- raw HTML omitted -->
 <h2 id="general-remarks">General remarks</h2>
-
 <ul>
-<li><a href="https://guides.lib.wayne.edu/posters/latex" target="_blank">Creating Research Posters</a></li>
-<li><a href="https://tex.stackexchange.com/questions/341/how-to-create-posters-using-latex" target="_blank">How to create posters using LaTeX</a></li>
-<li><a href="https://ja.overleaf.com/gallery/tagged/poster" target="_blank">Gallery — Poster</a></li>
-<li><a href="https://www.latextemplates.com/cat/conference-posters" target="_blank">LaTeX Templates</a></li>
+<li><a href="https://guides.lib.wayne.edu/posters/latex">Creating Research Posters</a></li>
+<li><a href="https://tex.stackexchange.com/questions/341/how-to-create-posters-using-latex">How to create posters using LaTeX</a></li>
+<li><a href="https://ja.overleaf.com/gallery/tagged/poster">Gallery — Poster</a></li>
+<li><a href="https://www.latextemplates.com/cat/conference-posters">LaTeX Templates</a></li>
 </ul>
-
 <h2 id="beamerposter">beamerposter</h2>
-
 <p>おそらく最もよく使われているパッケージ</p>
-
 <h3 id="references">References</h3>
-
 <ul>
-<li><a href="https://ctan.org/pkg/beamerposter" target="_blank">beamerposter – Extend beamer and a0poster for custom sized posters</a></li>
-<li><a href="https://github.com/deselaers/latex-beamerposter" target="_blank">The LaTeX beamerposter package</a></li>
-<li><a href="http://tug.org/pracjourn/2012-1/shang/shang.pdf" target="_blank">Writing posters with beamerposter package in LATEX</a></li>
-<li><a href="https://pecorarista.com/posts/poster.html" target="_blank">LaTeX (Beamer)で学会発表用のポスターを作る</a></li>
-<li><a href="http://muscle-keisuke.hatenablog.com/entry/2017/12/18/235617" target="_blank">LaTeX(Beamer)でポスターを作る</a></li>
+<li><a href="https://ctan.org/pkg/beamerposter">beamerposter – Extend beamer and a0poster for custom sized posters</a></li>
+<li><a href="https://github.com/deselaers/latex-beamerposter">The LaTeX beamerposter package</a></li>
+<li><a href="http://tug.org/pracjourn/2012-1/shang/shang.pdf">Writing posters with beamerposter package in LATEX</a></li>
+<li><a href="https://pecorarista.com/posts/poster.html">LaTeX (Beamer)で学会発表用のポスターを作る</a></li>
+<li><a href="http://muscle-keisuke.hatenablog.com/entry/2017/12/18/235617">LaTeX(Beamer)でポスターを作る</a></li>
 </ul>
-
 <h3 id="installation">Installation</h3>
-
 <p>texlive (MacTeX)をインストールした時点で入っているので，改めてインストールし直す必要はない．</p>
-
 <h3 id="usage">Usage</h3>
-
 <h4 id="スタイルシートの変更">スタイルシートの変更</h4>
-
 <p>まずスタイルファイルを使用する必要がある．私は，beamerposter packageの中のthemes directoryに入っている <strong>beamerthemeI6dv.sty</strong> を少し変更して <strong>beamerthemeI6dv_test.sty</strong> として使用している．変更箇所は以下の通りである．これも覚書として残しておく．</p>
-
-<pre><code class="language-diff">--- beamerthemeI6dv.sty 2019-11-24 14:32:46.000000000 +0900
-+++ beamerthemeI6dv_test.sty    2019-11-24 20:55:47.000000000 +0900
-@@ -1,4 +1,4 @@
--\ProvidesPackage{beamerthemeI6dv} % this style was created by David Vilar
-+\ProvidesPackage{beamerthemeI6dv_test} % this style was created by David Vilar
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff"><span style="color:#f92672">--- beamerthemeI6dv.sty 2019-11-24 14:32:46.000000000 +0900
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+++ beamerthemeI6dv_test.sty    2019-11-24 20:55:47.000000000 +0900
+</span><span style="color:#a6e22e"></span><span style="color:#75715e">@@ -1,4 +1,4 @@
+</span><span style="color:#75715e"></span><span style="color:#f92672">-\ProvidesPackage{beamerthemeI6dv} % this style was created by David Vilar
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+\ProvidesPackage{beamerthemeI6dv_test} % this style was created by David Vilar
+</span><span style="color:#a6e22e"></span>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \selectcolormodel{cmyk}
-@@ -30,7 +30,7 @@
-
+<span style="color:#75715e">@@ -30,7 +30,7 @@
+</span><span style="color:#75715e"></span>
 % footline colors and fonts
 \setbeamercolor{footline}{fg=white,bg=i6colorschemeHeadline}
--\setbeamerfont{footline}{fg=white, size=\normalsize}
-+%\setbeamerfont{footline}{fg=white, size=\normalsize}
-
+<span style="color:#f92672">-\setbeamerfont{footline}{fg=white, size=\normalsize}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+%\setbeamerfont{footline}{fg=white, size=\normalsize}
+</span><span style="color:#a6e22e"></span>
 % body colors and fonts
 \setbeamercolor*{normal text}{fg=black,bg=i6colorscheme3}
-@@ -42,7 +42,7 @@
-
+<span style="color:#75715e">@@ -42,7 +42,7 @@
+</span><span style="color:#75715e"></span>
 % example environment
 \setbeamercolor*{example title}{fg=white,bg=i6colorscheme1}
--\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
-+%\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
-
+<span style="color:#f92672">-\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+%\setbeamerfont{example title}{size=\large,series=\bf,bg=i6colorscheme1,fg=white}
+</span><span style="color:#a6e22e"></span>
 
 %\setbeamercolor*{example body}{fg=white,bg=i6colorscheme4}
-@@ -88,27 +88,29 @@
-\begin{columns}[T]
+<span style="color:#75715e">@@ -88,27 +88,29 @@
+</span><span style="color:#75715e"></span>\begin{columns}[T]
 \begin{column}{.02\paperwidth}
 \end{column}
--      \begin{column}{.07\paperwidth}
-+      \begin{column}{.1\paperwidth}
-\begin{center}
--          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
-+          % \includegraphics[width=.6\linewidth]{logos/i6-hks44}
-+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
-\end{center}
+<span style="color:#f92672">-      \begin{column}{.07\paperwidth}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+      \begin{column}{.1\paperwidth}
+</span><span style="color:#a6e22e"></span>\begin{center}
+<span style="color:#f92672">-          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+          % \includegraphics[width=.6\linewidth]{logos/i6-hks44}
+</span><span style="color:#a6e22e"></span><span style="color:#a6e22e">+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
+</span><span style="color:#a6e22e"></span>\end{center}
 \vskip1ex
 \end{column}
--      \begin{column}{.675\paperwidth}
-+      \begin{column}{.6\paperwidth}
-\vskip4ex
+<span style="color:#f92672">-      \begin{column}{.675\paperwidth}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+      \begin{column}{.6\paperwidth}
+</span><span style="color:#a6e22e"></span>\vskip4ex
 \raggedleft
 \usebeamercolor{title in headline}{\color{fg}\textbf{\LARGE{\inserttitle}}\\[1ex]}
 \usebeamercolor{author in headline}{\color{fg}\large{\insertauthor}\\[1ex]}
 \usebeamercolor{institute in headline}{\color{fg}\large{\insertinstitute}\\[1ex]}
 \end{column}
--      \begin{column}{.25\paperwidth}
-+      \begin{column}{.15\paperwidth}
-\vskip1cm
+<span style="color:#f92672">-      \begin{column}{.25\paperwidth}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+      \begin{column}{.15\paperwidth}
+</span><span style="color:#a6e22e"></span>\vskip1cm
 \begin{center}
--          \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
-+          % \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
-+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
-\end{center}
+<span style="color:#f92672">-          \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+          % \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
+</span><span style="color:#a6e22e"></span><span style="color:#a6e22e">+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
+</span><span style="color:#a6e22e"></span>\end{center}
 \vskip1.5cm
 \end{column}
--      \begin{column}{.03\paperwidth}
-+      \begin{column}{.02\paperwidth}
-\end{column}
+<span style="color:#f92672">-      \begin{column}{.03\paperwidth}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+      \begin{column}{.02\paperwidth}
+</span><span style="color:#a6e22e"></span>\end{column}
 \end{columns}
 \end{beamercolorbox}
-@@ -139,7 +141,7 @@
-\end{beamercolorbox}
+<span style="color:#75715e">@@ -139,7 +141,7 @@
+</span><span style="color:#75715e"></span>\end{beamercolorbox}
 
 \begin{beamercolorbox}[ht=4ex,leftskip=1cm,rightskip=1cm]{footline}%
--    Lehrstuhl f\&quot;ur Informatik 6 - Computer Science Department - RWTH Aachen University - Aachen, Germany \hfill Mail: \texttt{&lt;surname&gt;@cs.rwth-aachen.de} \hfill WWW: \texttt{http://www-i6.informatik.rwth-aachen.de}
-+   Department of HogeFuga, HogeFuga University Graduate School of Medicine, Japan \hfill Mail: \texttt{taipapa@hoge-u.sc.jp} \hfill WWW: \texttt{http://www-hogefuga/TOP.html}
-\vskip1ex
+<span style="color:#f92672">-    Lehrstuhl f\&#34;ur Informatik 6 - Computer Science Department - RWTH Aachen University - Aachen, Germany \hfill Mail: \texttt{&lt;surname&gt;@cs.rwth-aachen.de} \hfill WWW: \texttt{http://www-i6.informatik.rwth-aachen.de}
+</span><span style="color:#f92672"></span><span style="color:#a6e22e">+   Department of HogeFuga, HogeFuga University Graduate School of Medicine, Japan \hfill Mail: \texttt{taipapa@hoge-u.sc.jp} \hfill WWW: \texttt{http://www-hogefuga/TOP.html}
+</span><span style="color:#a6e22e"></span>\vskip1ex
 \end{beamercolorbox}
-</code></pre>
-
-<ul>
+</code></pre></div><ul>
 <li>好みによって適当に変更すれば良い．</li>
 <li>LogoをKobito.jpgに入れ替えているが，これはそれぞれの所属組織のものに変更すれば良い．</li>
 <li>左側のLogoは学会のもの（ISC2017-Logo.pdf）に変更している．</li>
 <li>一番最後はフッターに所属組織，メールアドレス，ウェブサイトなどを入れるための情報であり，そこも適宜置き換えれば良い．</li>
 </ul>
-
 <h4 id="スタイルシートの置き場">スタイルシートの置き場</h4>
-
 <p>私のように，LaTeXをMacTeXでインストールした場合は，上記の変更したスタイルシートは， <strong>~/Library/texmf/tex/latex/beamer/themes/theme/</strong> に置く．これでLaTeXはこのスタイルシートを見つけてくれる．</p>
-
 <h4 id="poster-example">Poster example</h4>
-
 <p>上記スタイルシートを用いて作成すると下図のようなポスターが出来上がる．これは実際の学会発表に使用したものである．ただし，発表者や所属組織やロゴは変更してある．</p>
-
 
 
 
@@ -599,19 +571,15 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 
 </figure>
 
-
 <p>このポスターのtex fileは以下のようになっている．元々は．どこかからとってきたtex fileを改変しているのだが，オリジナルをどこから持ってきたかは，もはや記憶の彼方である&hellip;..(^^;;;  （どなたかご指摘いただければ幸いである） 素人が色々弄ってなんとか形にしたものだが，これを上書きしていく事で割と簡単にポスターが作成できるようになった．試行錯誤の跡もそのまま残した状態でアップしておく．念のために書いておくが，このファイルをdocument.texとして保存し，<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a> に書いたように， <strong>latexmk -pvc -pdf -view=none document.tex</strong> とすればコンパイルされてpdfが出来上がる．ただし，ファイルの中の画像（pdf）は適当なものと置き換えていただきたい．</p>
-
 <ul>
 <li>9行目： <strong>\usetheme{I6dv_test}</strong> によりスタイルシートを指定している．</li>
 <li>45行目： <strong>orientation=landscape</strong> で横長， <strong>orientation=portrait</strong> で縦長になる．実際の大きさは， <strong>width=200,height=100</strong> で合わせる（幅 200cm 高さ 100 cmということである）．scaleの部分でも調整する．</li>
 </ul>
-
-<!--listend-->
-
+<!-- raw HTML omitted -->
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
@@ -964,7 +932,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">351
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">352
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="color:#75715e">% -*-coding:utf-8-*-
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[final,t]</span>{beamer}
 <span style="color:#66d9ef">\mode</span>&lt;presentation&gt;
@@ -983,15 +951,15 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 <span style="color:#66d9ef">\setbeamerfont</span>{itemize/enumerate subbody}{size=<span style="color:#66d9ef">\normalsize</span>}
 
 <span style="color:#75715e">% additional packages
-</span><span style="color:#75715e">% \usepackage{times}
+</span><span style="color:#75715e"></span><span style="color:#75715e">% \usepackage{times}
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">%% 上記だけではsans serifにならないので，下記を設定　
-</span><span style="color:#75715e">%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
-</span><span style="color:#75715e">%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
-</span><span style="color:#75715e">% \usepackage[T1]{fontenc}
-</span><span style="color:#75715e">% \usepackage[usefilenames,% Important for XeLaTeX
-</span><span style="color:#75715e">% DefaultFeatures={Ligatures=Common}]{plex-otf} %
-</span><span style="color:#75715e">% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+</span><span style="color:#75715e"></span><span style="color:#75715e">%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
+</span><span style="color:#75715e"></span><span style="color:#75715e">%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
+</span><span style="color:#75715e"></span><span style="color:#75715e">% \usepackage[T1]{fontenc}
+</span><span style="color:#75715e"></span><span style="color:#75715e">% \usepackage[usefilenames,% Important for XeLaTeX
+</span><span style="color:#75715e"></span><span style="color:#75715e">% DefaultFeatures={Ligatures=Common}]{plex-otf} %
+</span><span style="color:#75715e"></span><span style="color:#75715e">% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">%% http://www.tug.dk/FontCatalogue/ibmplexsanstext/
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[T1]</span>{fontenc}
@@ -1000,7 +968,7 @@ latexを使ってポスターを作成する場合の定番はbeamerを利用し
 SSstyle={Text,Semibold},
 TTstyle={Text,Semibold},
 DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">\renewcommand*\familydefault</span>{<span style="color:#66d9ef">\sfdefault</span>} <span style="color:#75715e">%% Only if the base font of the document is to be sans serif
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\renewcommand</span><span style="color:#66d9ef">*</span><span style="color:#66d9ef">\familydefault</span>{<span style="color:#66d9ef">\sfdefault</span>} <span style="color:#75715e">%% Only if the base font of the document is to be sans serif
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">\usepackage</span>{amsmath,amsthm, amssymb, latexsym}
 <span style="color:#66d9ef">\usepackage</span>{exscale}
@@ -1016,7 +984,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 <span style="color:#75715e">% \usepackage{latexsym}
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">% Display a grid to help align images
-</span><span style="color:#75715e">% \beamertemplategridbackground[1cm]
+</span><span style="color:#75715e"></span><span style="color:#75715e">% \beamertemplategridbackground[1cm]
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">\title</span>{<span style="color:#66d9ef">\huge</span> Perioperative Assessment Of Cerebral Perfusion Territories Through Arterial Spin Labeling Magnetic Resonance Imaging In Carotid Stenosis}
 <span style="color:#66d9ef">\author</span><span style="color:#a6e22e">[taipapa et al.]</span>{taipapa, taimama, taison, taidaughter, other person1,
@@ -1027,27 +995,27 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 <span style="color:#75715e">% abbreviations
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">\usepackage</span>{xspace}
 <span style="color:#66d9ef">\makeatletter</span>
-<span style="color:#66d9ef">\DeclareRobustCommand\onedot</span>{<span style="color:#66d9ef">\futurelet\@</span>let@token<span style="color:#66d9ef">\@</span>onedot}
-<span style="color:#66d9ef">\def\@</span>onedot{<span style="color:#66d9ef">\ifx\@</span>let@token.<span style="color:#66d9ef">\else</span>.<span style="color:#66d9ef">\null\fi\xspace</span>}
-<span style="color:#66d9ef">\def\eg</span>{{e.g}<span style="color:#66d9ef">\onedot</span>} <span style="color:#66d9ef">\def\Eg</span>{{E.g}<span style="color:#66d9ef">\onedot</span>}
-<span style="color:#66d9ef">\def\ie</span>{{i.e}<span style="color:#66d9ef">\onedot</span>} <span style="color:#66d9ef">\def\Ie</span>{{I.e}<span style="color:#66d9ef">\onedot</span>}
-<span style="color:#66d9ef">\def\cf</span>{{c.f}<span style="color:#66d9ef">\onedot</span>} <span style="color:#66d9ef">\def\Cf</span>{{C.f}<span style="color:#66d9ef">\onedot</span>}
-<span style="color:#66d9ef">\def\etc</span>{{etc}<span style="color:#66d9ef">\onedot</span>}
-<span style="color:#66d9ef">\def\vs</span>{{vs}<span style="color:#66d9ef">\onedot</span>}
-<span style="color:#66d9ef">\def\wrt</span>{w.r.t<span style="color:#66d9ef">\onedot</span>}
-<span style="color:#66d9ef">\def\dof</span>{d.o.f<span style="color:#66d9ef">\onedot</span>}
-<span style="color:#66d9ef">\def\etal</span>{{et al}<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\DeclareRobustCommand</span><span style="color:#66d9ef">\onedot</span>{<span style="color:#66d9ef">\futurelet</span><span style="color:#66d9ef">\@</span>let@token<span style="color:#66d9ef">\@</span>onedot}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\@</span>onedot{<span style="color:#66d9ef">\ifx</span><span style="color:#66d9ef">\@</span>let@token.<span style="color:#66d9ef">\else</span>.<span style="color:#66d9ef">\null</span><span style="color:#66d9ef">\fi</span><span style="color:#66d9ef">\xspace</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\eg</span>{{e.g}<span style="color:#66d9ef">\onedot</span>} <span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\Eg</span>{{E.g}<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\ie</span>{{i.e}<span style="color:#66d9ef">\onedot</span>} <span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\Ie</span>{{I.e}<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\cf</span>{{c.f}<span style="color:#66d9ef">\onedot</span>} <span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\Cf</span>{{C.f}<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\etc</span>{{etc}<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\vs</span>{{vs}<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\wrt</span>{w.r.t<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\dof</span>{d.o.f<span style="color:#66d9ef">\onedot</span>}
+<span style="color:#66d9ef">\def</span><span style="color:#66d9ef">\etal</span>{{et al}<span style="color:#66d9ef">\onedot</span>}
 <span style="color:#66d9ef">\makeatother</span>
 
 <span style="color:#75715e">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-</span><span style="color:#75715e">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span><span style="color:#75715e"></span><span style="color:#75715e">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">\begin</span>{document}
 <span style="color:#66d9ef">\begin</span>{frame}{}
   <span style="color:#66d9ef">\begin</span>{columns}[t]
     <span style="color:#66d9ef">\begin</span>{column}{.32<span style="color:#66d9ef">\linewidth</span>}
 
       <span style="color:#75715e">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">\vspace*</span>{-2.35cm}
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-2.35cm}
       <span style="color:#66d9ef">\begin</span>{block}{Introduction}
         <span style="color:#75715e">% \begin{columns}[t]
 </span><span style="color:#75715e"></span>        <span style="color:#75715e">%   \begin{column}{.75\linewidth}
@@ -1125,12 +1093,12 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
     <span style="color:#75715e">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 </span><span style="color:#75715e"></span>
     <span style="color:#66d9ef">\begin</span>{column}{.32<span style="color:#66d9ef">\linewidth</span>}
-      <span style="color:#66d9ef">\vspace*</span>{-2.35cm}
+      <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-2.35cm}
       <span style="color:#66d9ef">\begin</span>{block}{Results}
         <span style="color:#66d9ef">\textbf</span>{General postoperative changes in PV of ICA}<span style="color:#66d9ef">\\</span>
         <span style="color:#66d9ef">\begin</span>{columns}
           <span style="color:#66d9ef">\begin</span>{column}{.4<span style="color:#66d9ef">\linewidth</span>}
-            <span style="color:#66d9ef">\vspace*</span>{-17cm}
+            <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-17cm}
             <span style="color:#66d9ef">\begin</span>{itemize}
             <span style="color:#66d9ef">\item</span> The preoperative perfusion volume (<span style="color:#66d9ef">\textbf</span>{PV}) of the
               stenotic ICA in the carotid stenosis group was significantly
@@ -1146,7 +1114,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
             <span style="color:#66d9ef">\includegraphics</span><span style="color:#a6e22e">[width=1\linewidth]</span>{Figures/Figure-2-WNS.pdf}<span style="color:#66d9ef">\\</span>
           <span style="color:#66d9ef">\end</span>{column}
         <span style="color:#66d9ef">\end</span>{columns}
-        <span style="color:#66d9ef">\vspace*</span>{-0.5cm}
+        <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-0.5cm}
         <span style="color:#66d9ef">\begin</span>{itemize}
         <span style="color:#66d9ef">\item</span> The patients were divided into 2 groups on the basis of
           the preoperative PV of the stenotic ICA, that is,
@@ -1163,7 +1131,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
         <span style="color:#66d9ef">\begin</span>{columns}
           <span style="color:#66d9ef">\begin</span>{column}{.4<span style="color:#66d9ef">\linewidth</span>}
-            <span style="color:#66d9ef">\vspace*</span>{-18cm}
+            <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-18cm}
             <span style="color:#66d9ef">\begin</span>{itemize}
             <span style="color:#66d9ef">\item</span> <span style="color:#66d9ef">\textbf</span>{A:} The changes in the PV of the stenotic ICA
               before and after CEA or CAS in the normal PV group and the
@@ -1191,7 +1159,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
         <span style="color:#66d9ef">\begin</span>{columns}
           <span style="color:#66d9ef">\begin</span>{column}{.45<span style="color:#66d9ef">\linewidth</span>}
-            <span style="color:#66d9ef">\vspace*</span>{-24cm}
+            <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-24cm}
             <span style="color:#66d9ef">\begin</span>{itemize}
             <span style="color:#66d9ef">\item</span> <span style="color:#66d9ef">\textbf</span>{A:} The rate of PV increase is significantly
               higher in the reduced PV group than in the normal PV
@@ -1207,7 +1175,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
           <span style="color:#66d9ef">\end</span>{column}
 
           <span style="color:#66d9ef">\begin</span>{column}{.55<span style="color:#66d9ef">\linewidth</span>}
-            <span style="color:#66d9ef">\vspace*</span>{-1.75cm}
+            <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-1.75cm}
             <span style="color:#66d9ef">\includegraphics</span><span style="color:#a6e22e">[width=0.96\linewidth]</span>{Figures/Figure-4-WNS.pdf}<span style="color:#66d9ef">\\</span><span style="color:#a6e22e">[2ex]</span>
 
           <span style="color:#66d9ef">\end</span>{column}
@@ -1220,7 +1188,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
     <span style="color:#75715e">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 </span><span style="color:#75715e"></span>
     <span style="color:#66d9ef">\begin</span>{column}{.32<span style="color:#66d9ef">\linewidth</span>}
-      <span style="color:#66d9ef">\vspace*</span>{-3cm}
+      <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-3cm}
       <span style="color:#66d9ef">\begin</span>{block}{}
         <span style="color:#66d9ef">\textbf</span>{Differential postoperative ICA flow changes}
         <span style="color:#66d9ef">\begin</span>{columns}[t]
@@ -1237,7 +1205,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
           <span style="color:#66d9ef">\begin</span>{column}{.4<span style="color:#66d9ef">\linewidth</span>}
 
-            <span style="color:#66d9ef">\vspace*</span>{-4cm}
+            <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-4cm}
             <span style="color:#66d9ef">\centering</span>
             <span style="color:#66d9ef">\includegraphics</span><span style="color:#a6e22e">[width=0.8\linewidth]</span>{Figures/Figure-5-WNS.pdf}<span style="color:#66d9ef">\\</span><span style="color:#a6e22e">[2ex]</span>
 
@@ -1269,9 +1237,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
       <span style="color:#66d9ef">\end</span>{block}
 
-      <span style="color:#66d9ef">\vspace*</span>{-0.95cm}
+      <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-0.95cm}
       <span style="color:#66d9ef">\begin</span>{block}{Conclusion}
-        <span style="color:#66d9ef">\vspace*</span>{-1cm}
+        <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-1cm}
         <span style="color:#66d9ef">\begin</span>{itemize}
         <span style="color:#66d9ef">\item</span> TASL demonstrated that CEA and CAS elicited increases in the
           PV of stenotic ICAs, which resulted in equalization of the
@@ -1288,9 +1256,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
         <span style="color:#66d9ef">\vspace</span>{-1ex}
       <span style="color:#66d9ef">\end</span>{block}
 
-      <span style="color:#66d9ef">\vspace*</span>{-0.5cm}
+      <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-0.5cm}
       <span style="color:#66d9ef">\begin</span>{block}{References}
-        <span style="color:#66d9ef">\vspace*</span>{-0.75cm}
+        <span style="color:#66d9ef">\vspace</span><span style="color:#66d9ef">*</span>{-0.75cm}
         <span style="color:#66d9ef">\begin</span>{enumerate}
           <span style="color:#66d9ef">\scriptsize</span>{
           <span style="color:#66d9ef">\item</span> Uchihashi et al. Clinical application of arterial
@@ -1312,87 +1280,58 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
 <span style="color:#66d9ef">\end</span>{document}
 <span style="color:#75715e">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-</span><span style="color:#75715e">%%% Local Variables:
-</span><span style="color:#75715e">%%% mode: latex
-</span><span style="color:#75715e">%%% TeX-PDF-mode: t
-</span><span style="color:#75715e">%%% TeX-master: t
-</span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">%%%</span> End:</code></pre></td></tr></table>
+</span><span style="color:#75715e"></span><span style="color:#75715e">%%% Local Variables:
+</span><span style="color:#75715e"></span><span style="color:#75715e">%%% mode: latex
+</span><span style="color:#75715e"></span><span style="color:#75715e">%%% TeX-PDF-mode: t
+</span><span style="color:#75715e"></span><span style="color:#75715e">%%% TeX-master: t
+</span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#960050;background-color:#1e0010">%</span> End:</code></pre></td></tr></table>
 </div>
 </div>
-
 <h3 id="templates">Templates</h3>
-
-<p><a href="https://www.overleaf.com/latex/templates?addsearch=beamerposter" target="_blank">Overleaf beamerposter templates</a> : Overleafにあるbeamposterのテンプレート．膨大な数のテンプレートがあるので，参考になる．</p>
-
+<p><a href="https://www.overleaf.com/latex/templates?addsearch=beamerposter">Overleaf beamerposter templates</a> : Overleafにあるbeamposterのテンプレート．膨大な数のテンプレートがあるので，参考になる．</p>
 <h2 id="gemini">Gemini</h2>
-
 <p>texliveには含まれていないbeamerの新しいポスター用テーマ</p>
-
-<h3 id="references-1">References</h3>
-
+<h3 id="references">References</h3>
 <ul>
-<li><a href="https://www.anishathalye.com/2018/07/19/gemini-a-modern-beamerposter-theme/" target="_blank">Gemini: A Modern LaTeX Poster Theme</a></li>
-<li><a href="https://github.com/anishathalye/gemini" target="_blank">Gemini is a modern LaTex beamerposter theme</a> : GitHub site</li>
+<li><a href="https://www.anishathalye.com/2018/07/19/gemini-a-modern-beamerposter-theme/">Gemini: A Modern LaTeX Poster Theme</a></li>
+<li><a href="https://github.com/anishathalye/gemini">Gemini is a modern LaTex beamerposter theme</a> : GitHub site</li>
 </ul>
-
-<h3 id="installation-1">Installation</h3>
-
+<h3 id="installation">Installation</h3>
 <ul>
 <li>上記のGitHub siteをcloneするかdownloadすれば良い．</li>
 <li>beamerposterに依存</li>
 </ul>
-
-<h3 id="usage-1">Usage</h3>
-
+<h3 id="usage">Usage</h3>
 <ul>
 <li>GitHub siteに書いてある通り</li>
 </ul>
-
 <h2 id="baposter">baposter</h2>
-
 <p>texliveには含まれていない．より新し目のパッケージ？</p>
-
-<h3 id="references-2">References</h3>
-
+<h3 id="references">References</h3>
 <ul>
-<li><a href="http://www.brian-amberg.de/uni/poster/" target="_blank">LaTeX Poster Template</a>  ご本家．ポスターの実例が数多く挙げられており，FAQもある．</li>
+<li><a href="http://www.brian-amberg.de/uni/poster/">LaTeX Poster Template</a>  ご本家．ポスターの実例が数多く挙げられており，FAQもある．</li>
 </ul>
-
-<h3 id="installation-2">Installation</h3>
-
+<h3 id="installation">Installation</h3>
 <p>上記サイトから <strong>baposter.tar.bz2</strong> をdownloadする．</p>
-
-<h3 id="usage-2">Usage</h3>
-
-<p>上記サイトや， <strong><a href="http://www.brian-amberg.de/uni/poster/baposter/baposter%5Fguide.pdf" target="_blank">The baposter latex poster style</a></strong> を参照</p>
-
-<h3 id="templates-1">Templates</h3>
-
-<p><a href="https://www.overleaf.com/latex/templates?addsearch=baposter" target="_blank">Overleaf baposter templates</a> : Overleafにあるbaposterのテンプレート．</p>
-
+<h3 id="usage">Usage</h3>
+<p>上記サイトや， <strong><a href="http://www.brian-amberg.de/uni/poster/baposter/baposter%5Fguide.pdf">The baposter latex poster style</a></strong> を参照</p>
+<h3 id="templates">Templates</h3>
+<p><a href="https://www.overleaf.com/latex/templates?addsearch=baposter">Overleaf baposter templates</a> : Overleafにあるbaposterのテンプレート．</p>
 <h2 id="tikzposter">tikzposter</h2>
-
 <p>「科学的ポスターを効率的に作成するLaTeXのクラス」である．</p>
-
-<h3 id="references-3">References</h3>
-
+<h3 id="references">References</h3>
 <ul>
-<li><a href="https://ctan.org/pkg/tikzposter" target="_blank">tikzposter – Create scientific posters using TikZ</a>   CTAN</li>
-<li><a href="https://bitbucket.org/surmann/tikzposter/wiki/Home" target="_blank">TikZposter</a>    Wiki    ガイドをダウンロードできるリンクあり</li>
-<li><a href="https://www.doc.ic.ac.uk/~ebotoeva/fancytikzposter.html" target="_blank">Elena Botoeva</a>   作者のページ</li>
+<li><a href="https://ctan.org/pkg/tikzposter">tikzposter – Create scientific posters using TikZ</a>   CTAN</li>
+<li><a href="https://bitbucket.org/surmann/tikzposter/wiki/Home">TikZposter</a>    Wiki    ガイドをダウンロードできるリンクあり</li>
+<li><a href="https://www.doc.ic.ac.uk/~ebotoeva/fancytikzposter.html">Elena Botoeva</a>   作者のページ</li>
 </ul>
-
-<h3 id="installation-3">Installation</h3>
-
+<h3 id="installation">Installation</h3>
 <p>texliveをインストールすれば，一緒に入ってくる．</p>
-
-<h3 id="usage-3">Usage</h3>
-
+<h3 id="usage">Usage</h3>
 <p>上記のガイドを参照．最も簡単な例は以下の通り．</p>
-
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -1405,7 +1344,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="color:#66d9ef">\documentclass</span>{tikzposter}
 
 <span style="color:#66d9ef">\title</span>{Title}
@@ -1420,15 +1359,10 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 <span style="color:#66d9ef">\end</span>{document}</code></pre></td></tr></table>
 </div>
 </div>
-
-<h3 id="templates-2">Templates</h3>
-
-<p><a href="https://www.overleaf.com/latex/templates?addsearch=tikzposter" target="_blank">Overleaf tikzposter templates</a> : Overleafにあるtikzposterのテンプレート．多数のテンプレートがあるので，参考になる．</p>
-
+<h3 id="templates">Templates</h3>
+<p><a href="https://www.overleaf.com/latex/templates?addsearch=tikzposter">Overleaf tikzposter templates</a> : Overleafにあるtikzposterのテンプレート．多数のテンプレートがあるので，参考になる．</p>
 <h2 id="betterposter">betterposter</h2>
-
 <p>伝統的な学術ポスターに対する新たなスタイルのポスター．実にユニーク！</p>
-
 
 
 
@@ -1444,34 +1378,22 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
 </figure>
 
-
 <p>要するに中核的なメッセージを簡潔な文章で特大に表示し，方法，結果，考察などは極端に簡潔にし，詳細はQR codeから論文を落として読んでもらうという，とんでもない発想のポスターである．</p>
-
-<h3 id="references-4">References</h3>
-
+<h3 id="references">References</h3>
 <ul>
-<li><a href="https://osf.io/ef53g/" target="_blank">Better Scientific Poster</a> : ご本家．元々はPowerPointのテンプレート</li>
-<li><a href="https://www.youtube.com/watch?v=1RwJbhkCA58&amp;feature=youtu.be" target="_blank">How to create a better research poster in less time (including templates)</a> : 作者自身のYouTube動画．面白い．必見！</li>
-<li><a href="https://github.com/rafaelbailo/betterposter-latex-template" target="_blank">Better Poster Latex Template</a> : GitHub. LaTeXへの移植版．</li>
-<li><a href="https://twitter.com/mikemorrison" target="_blank">Mike Morrison</a> : 作者のTwitter．多くの人が自分の&rdquo;betterposter&rdquo;をアップしているのが見られる．</li>
+<li><a href="https://osf.io/ef53g/">Better Scientific Poster</a> : ご本家．元々はPowerPointのテンプレート</li>
+<li><a href="https://www.youtube.com/watch?v=1RwJbhkCA58&amp;feature=youtu.be">How to create a better research poster in less time (including templates)</a> : 作者自身のYouTube動画．面白い．必見！</li>
+<li><a href="https://github.com/rafaelbailo/betterposter-latex-template">Better Poster Latex Template</a> : GitHub. LaTeXへの移植版．</li>
+<li><a href="https://twitter.com/mikemorrison">Mike Morrison</a> : 作者のTwitter．多くの人が自分の&quot;betterposter&quot;をアップしているのが見られる．</li>
 </ul>
-
-<h3 id="installation-4">Installation</h3>
-
-<p>上記の <a href="https://github.com/rafaelbailo/betterposter-latex-template" target="_blank">Better Poster Latex Template</a> に詳細に書いてあるが，repositoryをclone するか，ダウンロードして，パスが通るところに置く．</p>
-
-<h3 id="usage-4">Usage</h3>
-
-<p>上記の <a href="https://github.com/rafaelbailo/betterposter-latex-template" target="_blank">Better Poster Latex Template</a> を参考．</p>
-
+<h3 id="installation">Installation</h3>
+<p>上記の <a href="https://github.com/rafaelbailo/betterposter-latex-template">Better Poster Latex Template</a> に詳細に書いてあるが，repositoryをclone するか，ダウンロードして，パスが通るところに置く．</p>
+<h3 id="usage">Usage</h3>
+<p>上記の <a href="https://github.com/rafaelbailo/betterposter-latex-template">Better Poster Latex Template</a> を参考．</p>
 <h2 id="inkscape">Inkscape</h2>
-
 <p>これはオマケ．なぜかというと，ダントツでかっこいいから（笑）．</p>
-
-<h3 id="making-a-math-conference-poster-with-inkscape"><a href="http://blog.felixbreuer.net/2010/10/24/poster.html?utm%5Fsource=share&amp;utm%5Fmedium=ios%5Fapp&amp;utm%5Fname=iossmf" target="_blank">Making a Math Conference Poster with Inkscape</a></h3>
-
+<h3 id="making-a-math-conference-poster-with-inkscape"><a href="http://blog.felixbreuer.net/2010/10/24/poster.html?utm%5Fsource=share&amp;utm%5Fmedium=ios%5Fapp&amp;utm%5Fname=iossmf">Making a Math Conference Poster with Inkscape</a></h3>
 <p>これを見ると，羨望の念が．．．でも，Inkscapeを使えるようにならないと．．．</p>
-
 
 
 
@@ -1487,11 +1409,8 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
 </figure>
 
-
-<h3 id="creating-a-science-conference-poster-with-inkscape"><a href="https://dionhaefner.github.io/2015/07/creating-a-science-conference-poster-with-inkscape/" target="_blank">Creating a Science Conference Poster with Inkscape</a></h3>
-
+<h3 id="creating-a-science-conference-poster-with-inkscape"><a href="https://dionhaefner.github.io/2015/07/creating-a-science-conference-poster-with-inkscape/">Creating a Science Conference Poster with Inkscape</a></h3>
 <p>こちらも同じく．．．</p>
-
 
 
 
@@ -1507,9 +1426,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
 
 </figure>
 
-
 <h2 id="まとめ">まとめ</h2>
-
 <p>今回ポスターについてまとめてみて，改めて思ったのは，一旦自分のスタイルが出来上がると，万年一日のごとく，同じフォーマットで作成してしまい，金太郎飴のようになってしまうという事である．もちろん，内容が一番大事なのだが，如何に伝えるかという点でポスターのフォーマットは重要と思う．そういう意味では，<a href="#betterposter">betterposter</a> や <a href="#inkscape">Inkscape</a> によるポスターは非常に刺激的であった．特に，betterposterの手法は比較的模倣がしやすそうなので，次回は是非試みてみたい．</p>
     </div>
 
@@ -1653,6 +1570,13 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
     <div class="article-widget">
       
 <div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/" rel="next">How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</a>
+  </div>
   
   
   
@@ -1840,7 +1764,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} <span style="color:#75715e">%
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -400,57 +400,40 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#how-to-set-up">How to set up</a></li>
 <li><a href="#shortcut">Shortcut</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+<!-- raw HTML omitted -->
 <h2 id="how-to-set-up">How to set up</h2>
-
 <ul>
 <li>まず画面トップの右端の方の日本語入力のライブ変換にチェックを入れてオンにする．</li>
-
-<li><p>ついで，Emacsのカーソルの色の設定をする．これは以前の記事（<a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>）の設定をほんの少し変えるだけのことである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．</p>
-
-<pre><code class="language-lisp">#+BEGIN_SRC emacs-lisp
-(when (fboundp 'mac-input-source)
-(defun my-mac-selected-keyboard-input-source-chage-function ()
-(let ((mac-input-source (mac-input-source)))
-  (set-cursor-color
-   (if (string-match &quot;com.apple.inputmethod.Kotoeri.Roman&quot; mac-input-source)
-       ;; (if (string-match &quot;com.google.inputmethod.Japanese.Roman&quot; mac-input-source)
-       &quot;#91C3FF&quot; &quot;#FF9300&quot;))))
-(add-hook 'mac-selected-keyboard-input-source-change-hook
-        'my-mac-selected-keyboard-input-source-chage-function))
-#+END_SRC
-</code></pre></li>
+<li>ついで，Emacsのカーソルの色の設定をする．これは以前の記事（<a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a>）の設定をほんの少し変えるだけのことである．comment outしていた部分を外して，google inputmethodの方をcomment outする．具体的には，init.orgに以下のように書き込めば良い．</li>
 </ul>
-
-<p>これでEmacsでライブ変換を使用している際に，日本語入力の時は赤色のカーソル，英語入力の時は青色のカーソルになる．</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>BEGIN_SRC emacs-lisp
+(when (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;mac-input-source</span>)
+  (defun my-mac-selected-keyboard-input-source-chage-function ()
+    (<span style="color:#66d9ef">let</span> ((mac-input-source (mac-input-source)))
+      (set-cursor-color
+       (<span style="color:#66d9ef">if</span> (string-match <span style="color:#e6db74">&#34;com.apple.inputmethod.Kotoeri.Roman&#34;</span> mac-input-source)
+           <span style="color:#75715e">;; (if (string-match &#34;com.google.inputmethod.Japanese.Roman&#34; mac-input-source)</span>
+           <span style="color:#e6db74">&#34;#91C3FF&#34;</span> <span style="color:#e6db74">&#34;#FF9300&#34;</span>))))
+  (add-hook <span style="color:#e6db74">&#39;mac-selected-keyboard-input-source-change-hook</span>
+            <span style="color:#e6db74">&#39;my-mac-selected-keyboard-input-source-chage-function</span>))
+<span style="color:#f92672">#+</span>END_SRC
+</code></pre></div><p>これでEmacsでライブ変換を使用している際に，日本語入力の時は赤色のカーソル，英語入力の時は青色のカーソルになる．</p>
 <h2 id="shortcut">Shortcut</h2>
-
 <ul>
-<li>参考：<a href="https://qiita.com/YumaInaura/items/8c74cdf32ad2f5ed57fa" target="_blank">#Mac のライブ変換で入力をひらがなのままで確定させる ( Control + J )</a></li>
+<li>参考：<a href="https://qiita.com/YumaInaura/items/8c74cdf32ad2f5ed57fa">#Mac のライブ変換で入力をひらがなのままで確定させる ( Control + J )</a></li>
 <li>「Control」＋「J」  →   ひらがなに変換</li>
 <li>「Control」＋「K」  →   カタカナに変換</li>
 <li>「Control」＋「L」  →   全角英字に変換</li>
 <li>「Control」＋「;（セミコロン）」  →   半角英字に変換</li>
 </ul>
-
 <p>私のところでは何故か参考サイトと異なり，セミコロンで半角カタカナではなく半角英字に変換される．半角カタカナなんか使わないからいいけど．．．</p>
-
 <p>J, K, L, ; はキーボード上の位置が一直線であり，かつ，左から順番になっているので，指に優しい．</p>
-
 <p>mojaveのライブ変換，とにかく一度使ってみることをお勧めする．</p>
     </div>
 
@@ -786,7 +769,7 @@
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

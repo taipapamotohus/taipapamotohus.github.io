@@ -30,16 +30,11 @@
   
   <meta name="description" content="最近のニュースを見ていて思い出した言葉がある．
 
-
 &ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow
-
 &ldquo;Patriotism is the last refuge of a scoundrel.&rdquo; ― Samuel Johnson
-
 &ldquo;Violence is the last refuge of the incompetent.&rdquo;&rdquo; ― Salvor Hardin ( Isaac Asimov)
 
-
 3番目はオマケ
-
 閑話休題，以前の記事（How to add horizontal scrollbar for codeblock in academic theme of hugo）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．">
 
   
@@ -92,7 +87,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -136,16 +131,11 @@
   <meta property="og:title" content="How to update hugo and academic theme (Part 1) | A perfect autumn day">
   <meta property="og:description" content="最近のニュースを見ていて思い出した言葉がある．
 
-
 &ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow
-
 &ldquo;Patriotism is the last refuge of a scoundrel.&rdquo; ― Samuel Johnson
-
 &ldquo;Violence is the last refuge of the incompetent.&rdquo;&rdquo; ― Salvor Hardin ( Isaac Asimov)
 
-
 3番目はオマケ
-
 閑話休題，以前の記事（How to add horizontal scrollbar for codeblock in academic theme of hugo）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．"><meta property="og:image" content="/post/how-to-upgrade-hugo-and-academic-theme/featured.jpg">
   <meta property="twitter:image" content="/post/how-to-upgrade-hugo-and-academic-theme/featured.jpg"><meta property="og:locale" content="en-us">
   
@@ -424,172 +414,122 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>最近のニュースを見ていて思い出した言葉がある．</p>
-
 <blockquote>
 <p>&ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow</p>
-
 <p>&ldquo;Patriotism is the last refuge of a scoundrel.&rdquo; ― Samuel Johnson</p>
-
 <p>&ldquo;Violence is the last refuge of the incompetent.&rdquo;&rdquo; ― Salvor Hardin ( Isaac Asimov)</p>
 </blockquote>
-
 <p>3番目はオマケ</p>
-
 <p>閑話休題，以前の記事（<a href="../horizontal_scrollbar">How to add horizontal scrollbar for codeblock in academic theme of hugo</a>）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．</p>
-
 <p>実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．</p>
-
 <p>本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#references">References</a></li>
-<li><a href="#hugoのupdate">Hugoのupdate</a></li>
+<li><a href="#hugo%E3%81%AEupdate">Hugoのupdate</a></li>
 <li><a href="#ox-hugo-update">ox-hugo update</a></li>
 <li><a href="#academic-theme-update">Academic theme update</a></li>
 <li><a href="#migrate-content">Migrate Content</a>
-
 <ul>
 <li><a href="#front-matter">Front matter</a></li>
 <li><a href="#featured-image">Featured image</a></li>
-<li><a href="#recent-postsのサマリが長すぎる">Recent Postsのサマリが長すぎる！</a></li>
-<li><a href="#recent-postsの画像表示のフォーマット変更">Recent Postsの画像表示のフォーマット変更</a></li>
+<li><a href="#recent-posts%E3%81%AE%E3%82%B5%E3%83%9E%E3%83%AA%E3%81%8C%E9%95%B7%E3%81%99%E3%81%8E%E3%82%8B">Recent Postsのサマリが長すぎる！</a></li>
+<li><a href="#recent-posts%E3%81%AE%E7%94%BB%E5%83%8F%E8%A1%A8%E7%A4%BA%E3%81%AE%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%83%E3%83%88%E5%A4%89%E6%9B%B4">Recent Postsの画像表示のフォーマット変更</a></li>
 <li><a href="#alerts">Alerts</a></li>
 <li><a href="#warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home">WARN &hellip;.. found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;</a></li>
-</ul></li>
-<li><a href="#追記">追記</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+</li>
+<li><a href="#%E8%BF%BD%E8%A8%98">追記</a></li>
+</ul>
+<!-- raw HTML omitted -->
 <h2 id="references">References</h2>
-
 <ol>
-<li><a href="https://gohugo.io" target="_blank">HUGO</a>  ご本家</li>
-<li><a href="https://sourcethemes.com/academic/" target="_blank">Academic</a>  academic themeのご本家</li>
-<li><a href="http://www.mit.edu/~k2smith/post/getting-started/" target="_blank">Getting started with the Academic framework for Hugo</a>  academic themeのインストール</li>
-<li><a href="https://sourcethemes.com/academic/docs/update/" target="_blank">Update</a>  academic themeのupdateについて</li>
-<li><a href="https://ox-hugo.scripter.co" target="_blank">ox-hugo</a>  ox-hugoのご本家</li>
+<li><a href="https://gohugo.io">HUGO</a>  ご本家</li>
+<li><a href="https://sourcethemes.com/academic/">Academic</a>  academic themeのご本家</li>
+<li><a href="http://www.mit.edu/~k2smith/post/getting-started/">Getting started with the Academic framework for Hugo</a>  academic themeのインストール</li>
+<li><a href="https://sourcethemes.com/academic/docs/update/">Update</a>  academic themeのupdateについて</li>
+<li><a href="https://ox-hugo.scripter.co">ox-hugo</a>  ox-hugoのご本家</li>
 </ol>
-
 <h2 id="hugoのupdate">Hugoのupdate</h2>
-
 <p>hugoを最新版にする．</p>
-
-<pre><code class="language-sh">$ brew upgrade hugo
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew upgrade hugo
 ..........
 $ hugo version
 Hugo Static Site Generator v0.57.2/extended darwin/amd64 BuildDate: unknown
 
 $ brew info hugo
-hugo: stable 0.57.2 (bottled), HEAD
+hugo: stable 0.57.2 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>, HEAD
 Configurable static site generator
 https://gohugo.io/
-/usr/local/Cellar/hugo/0.57.2 (41 files, 59.2MB) *
+/usr/local/Cellar/hugo/0.57.2 <span style="color:#f92672">(</span><span style="color:#ae81ff">41</span> files, 59.2MB<span style="color:#f92672">)</span> *
 Poured from bottle on 2019-08-19 at 21:45:45
 From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
-==&gt; Dependencies
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Dependencies
 Build: go ✘
-==&gt; Options
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Options
 --HEAD
 Install HEAD version
-==&gt; Caveats
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Caveats
 Bash completion has been installed to:
 /usr/local/etc/bash_completion.d
-==&gt; Analytics
-install: 23,734 (30 days), 46,557 (90 days), 196,750 (365 days)
-install_on_request: 22,865 (30 days), 45,011 (90 days), 186,183 (365 days)
-build_error: 0 (30 days)
-</code></pre>
-
-<h2 id="ox-hugo-update">ox-hugo update</h2>
-
+<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Analytics
+install: 23,734 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 46,557 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 196,750 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
+install_on_request: 22,865 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 45,011 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 186,183 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
+build_error: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>
+</code></pre></div><h2 id="ox-hugo-update">ox-hugo update</h2>
 <p>ox-hugoを最新版にする．</p>
-
-<pre><code class="language-lisp">M-x package-utils-upgrade-by-name
-...........
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">M-x package-utils-upgrade-by-name
+<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
 ox-hugo
-</code></pre>
-
-<p>C-h C-l ox-hugo-pkg.elすると，</p>
-
-<pre><code class="language-lisp">(define-package &quot;ox-hugo&quot; &quot;20190802.1755&quot; &quot;Hugo Markdown Back-End for Org Export Engine&quot;
-  '((emacs &quot;24.4&quot;)
-    (org &quot;9.0&quot;))
-  :keywords
-  '(&quot;org&quot; &quot;markdown&quot; &quot;docs&quot;)
-  :url &quot;https://ox-hugo.scripter.co&quot;)
-;; Local Variables:
-;; no-byte-compile: t
-;; End:
-</code></pre>
-
-<p>最新版であることが確認できる．</p>
-
+</code></pre></div><p>C-h C-l ox-hugo-pkg.elすると，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(define-package <span style="color:#e6db74">&#34;ox-hugo&#34;</span> <span style="color:#e6db74">&#34;20190802.1755&#34;</span> <span style="color:#e6db74">&#34;Hugo Markdown Back-End for Org Export Engine&#34;</span>
+  <span style="color:#f92672">&#39;</span>((emacs <span style="color:#e6db74">&#34;24.4&#34;</span>)
+    (org <span style="color:#e6db74">&#34;9.0&#34;</span>))
+  <span style="color:#e6db74">:keywords</span>
+  <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;org&#34;</span> <span style="color:#e6db74">&#34;markdown&#34;</span> <span style="color:#e6db74">&#34;docs&#34;</span>)
+  <span style="color:#e6db74">:url</span> <span style="color:#e6db74">&#34;https://ox-hugo.scripter.co&#34;</span>)
+<span style="color:#75715e">;; Local Variables:</span>
+<span style="color:#75715e">;; no-byte-compile: t</span>
+<span style="color:#75715e">;; End:</span>
+</code></pre></div><p>最新版であることが確認できる．</p>
 <h2 id="academic-theme-update">Academic theme update</h2>
-
-<p><a href="https://sourcethemes.com/academic/docs/update/" target="_blank">Update</a> のサイトには，以下の3つの場合でのupdateの方法が書かれている．</p>
-
+<p><a href="https://sourcethemes.com/academic/docs/update/">Update</a> のサイトには，以下の3つの場合でのupdateの方法が書かれている．</p>
 <ol>
 <li>If you installed Academic Kickstart</li>
 <li>If you installed by Git cloning hugo-academic</li>
 <li>If you installed from a ZIP</li>
 </ol>
-
 <p>問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．</p>
-
-<div class="alert alert-note">
-  <div>
-    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（<a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>）を参考にしていただきたい．以下の記述は自戒のために残しておく．
-  </div>
-</div>
-
+<!-- raw HTML omitted -->
 <p><del>色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．</del></p>
-
-<p><del>以下，<a href="http://www.mit.edu/~k2smith/post/getting-started/" target="_blank">Getting started with the Academic framework for Hugo</a> に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．</del></p>
-
-<pre><code class="language-sh">$ cd /Data/hoge
+<p><del>以下，<a href="http://www.mit.edu/~k2smith/post/getting-started/">Getting started with the Academic framework for Hugo</a> に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．</del></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/hoge
 $ hugo new site Taipapablog
 $ cd Taipapablog
 $ pwd
 /Data/hoge/Taipapablog
 $ git clone https://github.com/gcushen/hugo-academic.git themes/academic
 $ less themes/academic/data/academic.toml
-# Academic
+<span style="color:#75715e"># Academic</span>
 
-version = &quot;4.4.0&quot;
-themes/academic/data/academic.toml (END)
-</code></pre>
-
-<p><del>そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．</del></p>
-
-<pre><code class="language-sh">$ pwd
+version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.4.0&#34;</span>
+themes/academic/data/academic.toml <span style="color:#f92672">(</span>END<span style="color:#f92672">)</span>
+</code></pre></div><p><del>そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．</del></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pwd
 /Data/hoge/Taipapablog
 $ ls themes/academic/exampleSite/
 config/  content/ static/
 $ cp -av themes/academic/exampleSite/* .
-</code></pre>
-
-<p><del>ここで，Hugo serverをwebsite root folderから立ち上げる．</del></p>
-
-<pre><code class="language-sh">$ pwd
+</code></pre></div><p><del>ここで，Hugo serverをwebsite root folderから立ち上げる．</del></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pwd
 /Data/hoge/Taipapablog
 $ hugo server --watch
-</code></pre>
-
-<p><del>これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．</del></p>
-
-<h2 id="migrate-content"><a href="https://sourcethemes.com/academic/docs/update/#migrate-content" target="_blank">Migrate Content</a></h2>
-
-<p>ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を <strong>&ldquo;Breaking changes&rdquo;</strong> と呼んでいる．これを乗り越えてブログの内容を移行するための<a href="https://github.com/sourcethemes/academic-scripts" target="_blank">academic-scripts</a> のリンクが上記ページにある．これは，hugoの新しい機能である<a href="https://gohugo.io/content-management/page-bundles/" target="_blank">Page Bundles</a> への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，<a href="https://gohugo.io/content-management/page-resources/" target="_blank">Page Resources</a> をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．</p>
-
-<pre><code class="language-sh">Old version
-$ tree -L 2
+</code></pre></div><p><del>これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．</del></p>
+<h2 id="migrate-content"><a href="https://sourcethemes.com/academic/docs/update/#migrate-content">Migrate Content</a></h2>
+<p>ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を <strong>&ldquo;Breaking changes&rdquo;</strong> と呼んでいる．これを乗り越えてブログの内容を移行するための<a href="https://github.com/sourcethemes/academic-scripts">academic-scripts</a> のリンクが上記ページにある．これは，hugoの新しい機能である<a href="https://gohugo.io/content-management/page-bundles/">Page Bundles</a> への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，<a href="https://gohugo.io/content-management/page-resources/">Page Resources</a> をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Old version
+$ tree -L <span style="color:#ae81ff">2</span>
 .
 ├── Different-segment-to-each-facet-in-ggplot.md
 ├── Emacs_Install.md
@@ -600,7 +540,7 @@ $ tree -L 2
 ..........
 
 Current version
-$ tree -L 2
+$ tree -L <span style="color:#ae81ff">2</span>
 .
 ├── Different-segment-to-each-facet-in-ggplot
 │   ├── featured.jpg
@@ -621,26 +561,20 @@ $ tree -L 2
 │   ├── featured.jpg
 │   └── index.md
 ..........
-</code></pre>
-
-<p>先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．</p>
-
-<pre><code class="language-sh">$ cd /Data/hoge
+</code></pre></div><p>先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/hoge
 $ ls
 Taipapablog
 $ git clone https://github.com/sourcethemes/academic-scripts.git
-Cloning into 'academic-scripts'...
-remote: Enumerating objects: 27, done.
-remote: Total 27 (delta 0), reused 0 (delta 0), pack-reused 27
-Unpacking objects: 100% (27/27), done.
+Cloning into <span style="color:#e6db74">&#39;academic-scripts&#39;</span>...
+remote: Enumerating objects: 27, <span style="color:#66d9ef">done</span>.
+remote: Total <span style="color:#ae81ff">27</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">27</span>
+Unpacking objects: 100% <span style="color:#f92672">(</span>27/27<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
 $ ls
 Taipapablog
 academic-scripts
-</code></pre>
-
-<p>このacademic-scriptsの中身を見ると，</p>
-
-<pre><code class="language-sh">$ cd academic-scripts/
+</code></pre></div><p>このacademic-scriptsの中身を見ると，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd academic-scripts/
 $ ls
 LICENSE.md
 README.md
@@ -648,29 +582,26 @@ refactor-homepage-sections-to-bundles.sh*
 refactor-pages-to-page-bundles.sh*
 refactor_page_bundles_to_pages.sh*
 $ less refactor-pages-to-page-bundles.sh
-#!/bin/sh
+<span style="color:#75715e">#!/bin/sh</span>
 
-# Helps migrate from v2.4.0 to v3.0.0
+<span style="color:#75715e"># Helps migrate from v2.4.0 to v3.0.0</span>
 #
-# Refactor a page named `X.md` to `content/&lt;section&gt;/X/index.md` to use the
-# new page bundles and featured image system
+<span style="color:#75715e"># Refactor a page named `X.md` to `content/&lt;section&gt;/X/index.md` to use the</span>
+<span style="color:#75715e"># new page bundles and featured image system</span>
 #
 ..........
 $ less refactor-homepage-sections-to-bundles.sh
-#!/usr/bin/env bash
+<span style="color:#75715e">#!/usr/bin/env bash</span>
 
-# Helps migrate from v4.1 to v4.2
+<span style="color:#75715e"># Helps migrate from v4.1 to v4.2</span>
 #
-# Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,
-# treating homepage sections as headless page bundles in Hugo.
+<span style="color:#75715e"># Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,</span>
+<span style="color:#75715e"># treating homepage sections as headless page bundles in Hugo.</span>
 #
-# - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`
+<span style="color:#75715e"># - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`</span>
 ..........
-</code></pre>
-
-<p>という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．</p>
-
-<pre><code class="language-sh">$ cd /Data/hoge
+</code></pre></div><p>という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/hoge
 $ ls
 Taipapablog
 Taipapablog_OLD
@@ -684,207 +615,157 @@ $ ../academic-scripts/refactor-pages-to-page-bundles.sh
 ./content/post/org-mode_paper_2.md -&gt; ./content/post/org-mode_paper_2/index.md
 ..........
 $ cp -a content/post/* ../Taipapablog/content/post/
-</code></pre>
-
-<p>以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．</p>
-
-<pre><code class="language-sh">$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
+</code></pre></div><p>以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
 ./content/home/search.md -&gt; ./content/home/search/index.md
 ./content/home/hero_carousel.md -&gt; ./content/home/hero_carousel/index.md
 ./content/home/hero.md -&gt; ./content/home/hero/index.md
-</code></pre>
-
-<p>これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．</p>
-
+</code></pre></div><p>これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．</p>
 <p>ここから先は，config/, content/, content/home/, content/post/の中身を弄って，アップデートする前と同じになるように修正していく．私は，blogをhugoのmarkdown自体はほとんど弄ることなく，org-modeのパッケージであるox-hugoで書いているので，そちらを中心に述べる．</p>
-
 <h3 id="front-matter">Front matter</h3>
-
 <ul>
-<li>content/home/には，demo, experienceなど多くのwidgetが入っているが，ほとんど使用してないので，それぞれのindex.mdのfront matterの最初の方にあるactive = trueを <strong>active = false</strong> にする．</li>
-<li>上記のスクリプトを適用した際に，headless = true  # This file represents a page section. が二重になることがあったので，余分な部分は全て削除した．</li>
-<li>新規ポストを投稿する際に，page bundlesの形式になるようにするために，propertiesに <strong>EXPORT_HUGO_BUNDLE</strong> を使用する．詳細は次節で述べる．</li>
-
-<li><p><strong>subtitle</strong> を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．</p>
-
-<pre><code class="language-lisp">:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &quot;Hugoとacademic テーマのアップデート&quot;
-</code></pre></li>
+<li>
+<p>content/home/には，demo, experienceなど多くのwidgetが入っているが，ほとんど使用してないので，それぞれのindex.mdのfront matterの最初の方にあるactive = trueを <strong>active = false</strong> にする．</p>
+</li>
+<li>
+<p>上記のスクリプトを適用した際に，headless = true  # This file represents a page section. が二重になることがあったので，余分な部分は全て削除した．</p>
+</li>
+<li>
+<p>新規ポストを投稿する際に，page bundlesの形式になるようにするために，propertiesに <strong>EXPORT_HUGO_BUNDLE</strong> を使用する．詳細は次節で述べる．</p>
+</li>
+<li>
+<p><strong>subtitle</strong> を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER:</span> <span style="color:#e6db74">:subtitle</span> <span style="color:#e6db74">&#34;Hugoとacademic テーマのアップデート&#34;</span>
+</code></pre></div></li>
 </ul>
-
-<h3 id="featured-image"><a href="https://sourcethemes.com/academic/docs/managing-content/#featured-image" target="_blank">Featured image</a></h3>
-
+<h3 id="featured-image"><a href="https://sourcethemes.com/academic/docs/managing-content/#featured-image">Featured image</a></h3>
 <ul>
-<li>各ポストの冒頭に掲げていた画像は，アップデート前は明示的に場所と名前を指示しないといけなかったが，アップデート後はPage Bundlesとなり，同じフォルダにfeatured.jpgとして置いておけば，自動的にその記事の冒頭に表示されるようになる．各画像の移動が面倒であったが，今後は楽になりそう．．．(^^</li>
-
-<li><p>ox-hugoから，Page Bundlesとしてexportするためには，propertiesに <strong>EXPORT_HUGO_BUNDLE</strong> を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．</p>
-
-<pre><code class="language-lisp">:PROPERTIES:
-:EXPORT_HUGO_BUNDLE: how-to-upgrade-hugo-and-academic-theme
-:EXPORT_FILE_NAME: index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :subtitle &quot;Hugoとacademic テーマのアップデート&quot;
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER+: :image '((placement . 3) (caption . &quot;Ancient greek pottery, Musée du Louvre&quot;))
-</code></pre></li>
-
-<li><p>Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．</p>
-
-<pre><code class="language-sh"># Featured image
-# To use, place an image named `featured.jpg/png` in your page's folder.
-# Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width
-# Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
-# Set `preview_only` to `true` to just use the image for thumbnails.
-</code></pre>
-
-<p>とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．</p></li>
+<li>
+<p>各ポストの冒頭に掲げていた画像は，アップデート前は明示的に場所と名前を指示しないといけなかったが，アップデート後はPage Bundlesとなり，同じフォルダにfeatured.jpgとして置いておけば，自動的にその記事の冒頭に表示されるようになる．各画像の移動が面倒であったが，今後は楽になりそう．．．(^^</p>
+</li>
+<li>
+<p>ox-hugoから，Page Bundlesとしてexportするためには，propertiesに <strong>EXPORT_HUGO_BUNDLE</strong> を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#e6db74">:PROPERTIES:</span>
+<span style="color:#e6db74">:EXPORT_HUGO_BUNDLE:</span> how-to-upgrade-hugo-and-academic-theme
+<span style="color:#e6db74">:EXPORT_FILE_NAME:</span> index
+<span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER:</span> <span style="color:#e6db74">:subtitle</span> <span style="color:#e6db74">&#34;Hugoとacademic テーマのアップデート&#34;</span>
+<span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER+:</span> <span style="color:#e6db74">:image</span> <span style="color:#f92672">&#39;</span>((placement <span style="color:#f92672">.</span> <span style="color:#ae81ff">3</span>) (caption <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Ancient greek pottery, Musée du Louvre&#34;</span>))
+</code></pre></div></li>
+<li>
+<p>Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Featured image</span>
+<span style="color:#75715e"># To use, place an image named `featured.jpg/png` in your page&#39;s folder.</span>
+<span style="color:#75715e"># Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width</span>
+<span style="color:#75715e"># Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight</span>
+<span style="color:#75715e"># Set `preview_only` to `true` to just use the image for thumbnails.</span>
+</code></pre></div><p>とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．</p>
+</li>
 </ul>
-
 <h3 id="recent-postsのサマリが長すぎる">Recent Postsのサマリが長すぎる！</h3>
+<p>Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（<a href="https://sourcethemes.com/academic/docs/page-builder/#view">View</a>）．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
 
-<p>Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（<a href="https://sourcethemes.com/academic/docs/page-builder/#view" target="_blank">View</a>）．</p>
-
-<pre><code class="language-sh">Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
-
-1 = List (previously Simple)
-2 = Compact (previously Stream)
-3 = Card (previously Detailed)
-4 = Citation (previously APA and MLA), only available for publications
+1 <span style="color:#f92672">=</span> List <span style="color:#f92672">(</span>previously Simple<span style="color:#f92672">)</span>
+2 <span style="color:#f92672">=</span> Compact <span style="color:#f92672">(</span>previously Stream<span style="color:#f92672">)</span>
+3 <span style="color:#f92672">=</span> Card <span style="color:#f92672">(</span>previously Detailed<span style="color:#f92672">)</span>
+4 <span style="color:#f92672">=</span> Citation <span style="color:#f92672">(</span>previously APA and MLA<span style="color:#f92672">)</span>, only available <span style="color:#66d9ef">for</span> publications
 Optionally, edit the value of citation_style in params.toml to APA or MLA
-5 = Showcase (large images), only available for projects
-</code></pre>
-
-<p>この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．<a href="https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post" target="_blank">Create a blog post</a> に記載されているように， <strong>&lt;!&ndash;more&ndash;&gt;</strong> を記事本文の適当なところに挿入して，サマリの長さを調整することにした．</p>
-
+5 <span style="color:#f92672">=</span> Showcase <span style="color:#f92672">(</span>large images<span style="color:#f92672">)</span>, only available <span style="color:#66d9ef">for</span> projects
+</code></pre></div><p>この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．<a href="https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post">Create a blog post</a> に記載されているように， <strong>&lt;!&ndash;more&ndash;&gt;</strong> を記事本文の適当なところに挿入して，サマリの長さを調整することにした．</p>
 <h3 id="recent-postsの画像表示のフォーマット変更">Recent Postsの画像表示のフォーマット変更</h3>
-
-<h4 id="references-1">References</h4>
-
+<h4 id="references">References</h4>
 <ul>
-<li><a href="https://discourse.gohugo.io/t/crop-less-with-focal-point/15387" target="_blank">Crop Less with Focal Point</a></li>
-<li><a href="https://gohugo.io/content-management/image-processing/" target="_blank">Image Processing</a></li>
-<li><a href="https://gohugo.io/templates/partials/" target="_blank">Partial Templates</a></li>
-<li><a href="https://ottan.xyz/hugo-template-partial-define-block-20190101/" target="_blank">Hugoのテンプレート構文「template」「partial」「block」「define」のわかりやすい解説</a></li>
+<li><a href="https://discourse.gohugo.io/t/crop-less-with-focal-point/15387">Crop Less with Focal Point</a></li>
+<li><a href="https://gohugo.io/content-management/image-processing/">Image Processing</a></li>
+<li><a href="https://gohugo.io/templates/partials/">Partial Templates</a></li>
+<li><a href="https://ottan.xyz/hugo-template-partial-define-block-20190101/">Hugoのテンプレート構文「template」「partial」「block」「define」のわかりやすい解説</a></li>
 </ul>
-
-<p>上述のfeatured imageを記事のheader imageとして表示する際のサイズやクロップのやり方が気に入らないので，変更することにした．cardでacademic themeに全文検索をかけると， <strong>li_card.html</strong> というファイルが見つかり，どうやら，これが，カード形式のテンプレート（<a href="https://gohugo.io/templates/partials/" target="_blank">Partial Templates</a>）と推察され，これを変更すれば良いと気がついた．</p>
-
+<p>上述のfeatured imageを記事のheader imageとして表示する際のサイズやクロップのやり方が気に入らないので，変更することにした．cardでacademic themeに全文検索をかけると， <strong>li_card.html</strong> というファイルが見つかり，どうやら，これが，カード形式のテンプレート（<a href="https://gohugo.io/templates/partials/">Partial Templates</a>）と推察され，これを変更すれば良いと気がついた．</p>
 <ol>
-<li><p><em>Data/hoge/Taipapablog/layouts</em> に <strong>partials</strong> directoryを作成し，/Data/hoge/Taipapablog/themes/academic/layouts/partials/ <strong>li_card.html</strong> をコピーする．</p></li>
-
-<li><p>Hugoは以下の優先順位で読み込まれる．（<a href="https://gohugo.io/templates/partials/#partial-template-lookup-order" target="_blank">Partial Template Lookup Order</a>）</p>
-
+<li>
+<p><em>Data/hoge/Taipapablog/layouts</em> に <strong>partials</strong> directoryを作成し，/Data/hoge/Taipapablog/themes/academic/layouts/partials/ <strong>li_card.html</strong> をコピーする．</p>
+</li>
+<li>
+<p>Hugoは以下の優先順位で読み込まれる．（<a href="https://gohugo.io/templates/partials/#partial-template-lookup-order">Partial Template Lookup Order</a>）</p>
 <ol>
-<li>layouts/partials/*<PARTIALNAME>.html</li>
-<li>themes/<THEME>/layouts/partials/*<PARTIALNAME>.html</li>
+<li>layouts/partials/*<!-- raw HTML omitted -->.html</li>
+<li>themes/<!-- raw HTML omitted -->/layouts/partials/*<!-- raw HTML omitted -->.html</li>
 </ol>
-
-<p>したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．</p></li>
-
-<li><p>以下のように，li_card.htmlの53行目を変更する．</p>
-
-<pre><code class="language-sh">.....
-52 {{ with $resource }}
-53 {{ $image := .Fill (printf &quot;918x517 q90 %s&quot; $anchor) }}
-54 &lt;a href=&quot;{{ $item.RelPermalink }}&quot;&gt;
+<p>したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．</p>
+</li>
+<li>
+<p>以下のように，li_card.htmlの53行目を変更する．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">.....
+<span style="color:#ae81ff">52</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> with $resource <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
+<span style="color:#ae81ff">53</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> $image :<span style="color:#f92672">=</span> .Fill <span style="color:#f92672">(</span>printf <span style="color:#e6db74">&#34;918x517 q90 %s&#34;</span> $anchor<span style="color:#f92672">)</span> <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
+<span style="color:#ae81ff">54</span> &lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{{ </span>$item<span style="color:#e6db74">.RelPermalink }}</span><span style="color:#e6db74">&#34;</span>&gt;
 .....
 
 -----&gt;
 .....
-53 {{ $image := .Resize &quot;900x&quot;  }}
+<span style="color:#ae81ff">53</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> $image :<span style="color:#f92672">=</span> .Resize <span style="color:#e6db74">&#34;900x&#34;</span>  <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
 .....
-</code></pre>
-
-<p>これは， <a href="https://gohugo.io/content-management/image-processing/" target="_blank">Image Processing</a> に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．</p></li>
+</code></pre></div><p>これは， <a href="https://gohugo.io/content-management/image-processing/">Image Processing</a> に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．</p>
+</li>
 </ol>
-
-<h3 id="alerts"><a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts" target="_blank">Alerts</a></h3>
-
+<h3 id="alerts"><a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts">Alerts</a></h3>
 <ul>
 <li>これは今回見つけた新たな小道具</li>
 <li>ノート，ヒント，警告などに有用．</li>
-<li>いくつか方法はあるが，shortcodeを使うのが一番簡単．<br />
-｛{% alert note %}}<br />
-  A Markdown aside is useful for displaying notices, hints, or definitions to your readers.<br />
-  ｛{% alert  %}}<br />
-により，（最初の <strong>&rdquo;{&rdquo;</strong> はescapeできないので全角の <strong>&ldquo;｛&rdquo;</strong> にしていることに注意）</li>
+<li>いくつか方法はあるが，shortcodeを使うのが一番簡単．\<br>
+｛{% alert note %}}\<br>
+A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\<br>
+｛{% alert  %}}\<br>
+により，（最初の <strong>&quot;{&quot;</strong> はescapeできないので全角の <strong>&quot;｛&quot;</strong> にしていることに注意）</li>
 </ul>
-
-<div class="alert alert-note">
-  <div>
-    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-  </div>
-</div>
-
+<!-- raw HTML omitted -->
 <p>となる．</p>
-
-<p>｛{% alert warning %}}<br />
- A Markdown aside is useful for displaying notices, hints, or definitions to your readers.<br />
- ｛{% /alert %}}<br />
- は，以下のようになる．（最初の <strong>&rdquo;{&rdquo;</strong> はescapeできないので全角の <strong>&ldquo;｛&rdquo;</strong> にしていることに注意）<br />
- <div class="alert alert-warning">
-  <div>
-    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
-  </div>
-</div></p>
-
+<p>｛{% alert warning %}}\<br>
+A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\<br>
+｛{% /alert %}}\<br>
+は，以下のようになる．（最初の <strong>&quot;{&quot;</strong> はescapeできないので全角の <strong>&quot;｛&quot;</strong> にしていることに注意）\</p>
+<!-- raw HTML omitted -->
 <p>また，使ってみよう．</p>
-
 <h3 id="warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home">WARN &hellip;.. found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;</h3>
-
-<p>アップデートしていじっているうちに，
-  <div class="alert alert-warning">
-  <div>
-    WARN 2019/08/23 0028 found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
-  </div>
-</div></p>
-
-<p>のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの <a href="https://github.com/gcushen/hugo-academic/issues/1060" target="_blank">Featurette widget does not change from example #1060</a> があった．</p>
-
+<p>アップデートしていじっているうちに，</p>
+<!-- raw HTML omitted -->
+<p>のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの <a href="https://github.com/gcushen/hugo-academic/issues/1060">Featurette widget does not change from example #1060</a> があった．</p>
 <blockquote>
-<p>You have updated to the unreleased version. You&rsquo;ll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>
+<p>You have updated to the unreleased version. You'll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>
 </blockquote>
-
 <p>ということなので，以下のように作業した．</p>
-
-<pre><code class="language-sh">$ vi /Data/hoge/Taipapablog/config/_default/config.toml
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vi /Data/hoge/Taipapablog/config/_default/config.toml
 .....
-45 [outputs]
-46   home = [ &quot;HTML&quot;, &quot;RSS&quot;, &quot;JSON&quot;, &quot;WebAppManifest&quot;, &quot;CSS&quot;]
-47   section = [ &quot;HTML&quot;, &quot;RSS&quot; ]
+<span style="color:#ae81ff">45</span> <span style="color:#f92672">[</span>outputs<span style="color:#f92672">]</span>
+<span style="color:#ae81ff">46</span>   home <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>, <span style="color:#e6db74">&#34;WebAppManifest&#34;</span>, <span style="color:#e6db74">&#34;CSS&#34;</span><span style="color:#f92672">]</span>
+<span style="color:#ae81ff">47</span>   section <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span> <span style="color:#f92672">]</span>
 .....
 -----&gt;
 .....
-45 [outputs]
-46 #  home = [ &quot;HTML&quot;, &quot;RSS&quot;, &quot;JSON&quot;, &quot;WebAppManifest&quot;, &quot;CSS&quot;]
-47   home = [ &quot;HTML&quot;, &quot;RSS&quot;, &quot;JSON&quot;, &quot;WebAppManifest&quot;]
-48   section = [ &quot;HTML&quot;, &quot;RSS&quot; ]
+<span style="color:#ae81ff">45</span> <span style="color:#f92672">[</span>outputs<span style="color:#f92672">]</span>
+<span style="color:#ae81ff">46</span> <span style="color:#75715e">#  home = [ &#34;HTML&#34;, &#34;RSS&#34;, &#34;JSON&#34;, &#34;WebAppManifest&#34;, &#34;CSS&#34;]</span>
+<span style="color:#ae81ff">47</span>   home <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>, <span style="color:#e6db74">&#34;WebAppManifest&#34;</span><span style="color:#f92672">]</span>
+<span style="color:#ae81ff">48</span>   section <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span> <span style="color:#f92672">]</span>
 .....
-</code></pre>
-
-<p>46行目の&rdquo;CSS&rdquo;を削除するだけで，警告が出なくなった．(^o^)</p>
-
+</code></pre></div><p>46行目の&quot;CSS&quot;を削除するだけで，警告が出なくなった．(^o^)</p>
 <p>見え方にまだまだ不満はあるが，こんなところだろうか．アップデートしてから，貼り付けた画像の上にマウスを持っていくと，拡大鏡のアイコンになり，クリックすると2段階で拡大されるようになった．他にも変化はあるようだが，全然活用できていない．ぼちぼち触っていって，面白いことがあれば，また，まとめてみよう．．．</p>
-
 <h2 id="追記">追記</h2>
-
 <p>githubにdeployした時に，以下のようなエラーが生じた．</p>
-
-<pre><code class="language-lisp">warning: adding embedded git repository: themes/academic
-hint: You've added another git repository inside your current repository.
-hint: Clones of the outer repository will not contain the contents of
-hint: the embedded repository and will not know how to obtain it.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">warning: adding embedded git repository: themes/academic
+hint: You<span style="color:#e6db74">&#39;ve</span> added another git repository inside your current repository.
+hint: Clones of <span style="color:#66d9ef">the</span> outer repository will <span style="color:#a6e22e">not</span> contain <span style="color:#66d9ef">the</span> contents of
+hint: <span style="color:#66d9ef">the</span> embedded repository and will <span style="color:#a6e22e">not</span> know how to obtain it.
 hint: If you meant to add a submodule, use:
 hint:
 hint: 	git submodule add &lt;url&gt; themes/academic
 hint:
-hint: If you added this path by mistake, you can remove it from the
+hint: If you added this path by mistake, you can <span style="color:#a6e22e">remove</span> it from <span style="color:#66d9ef">the</span>
 hint: index with:
 hint:
 hint: 	git rm --cached themes/academic
 hint:
-hint: See &quot;git help submodule&quot; for more information.
-</code></pre>
-
-<p>エラーは吐くものの，deployはできて，ウェブでサイトも見られるので，疲れたし（笑），しばらくは，このままで行くことにする．themeのインストールは，submoduleで行うべきだったと，今更にして気がついた．次回アップデートする時にやってみよう．．．(^^;;;</p>
-
+hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for more information.
+</code></pre></div><p>エラーは吐くものの，deployはできて，ウェブでサイトも見られるので，疲れたし（笑），しばらくは，このままで行くことにする．themeのインストールは，submoduleで行うべきだったと，今更にして気がついた．次回アップデートする時にやってみよう．．．(^^;;;</p>
 <p>で，結局，気になって，academic themeのインストールをやり直した（笑）．次回の記事（<a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>）を参照されたい．</p>
     </div>
 
@@ -1220,7 +1101,7 @@ hint: See &quot;git help submodule&quot; for more information.
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

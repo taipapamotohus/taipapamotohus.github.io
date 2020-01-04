@@ -5,7 +5,7 @@
     <link>/tags/latexmk/</link>
       <atom:link href="/tags/latexmk/index.xml" rel="self" type="application/rss+xml" />
     <description>latexmk</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>latexmk</title>
@@ -17,114 +17,107 @@
       <link>/post/beamer/</link>
       <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/beamer/</guid>
-      <description>
-
-&lt;p&gt;前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
+      <description>&lt;p&gt;前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
 　&lt;/p&gt;
-
 &lt;h2 id=&#34;beamerによるスライド原稿の作成&#34;&gt;beamerによるスライド原稿の作成&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である．&lt;/li&gt;
 &lt;li&gt;下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う．&lt;/li&gt;
-&lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34; target=&#34;_blank&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% -*-coding:utf-8-*-
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[svgnames, table, 14pt]&lt;/span&gt;{beamer}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{zxjatype}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hiragino-dx]&lt;/span&gt;{zxjafont}
 
-&lt;li&gt;&lt;p&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/p&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;% ヒラギノ角ゴ Proを使う
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setjamainfont&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]&lt;/span&gt;{ヒラギノ角ゴ Pro W3}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setjasansfont&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]&lt;/span&gt;{ヒラギノ角ゴ Pro W3}
 
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;% -*-coding:utf-8-*-
-\documentclass[svgnames, table, 14pt]{beamer}
-\usepackage{zxjatype}
-\usepackage[hiragino-dx]{zxjafont}
+&lt;span style=&#34;color:#75715e&#34;&gt;% themeを指定する
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetheme&lt;/span&gt;{Darmstadt}
 
-% ヒラギノ角ゴ Proを使う
-\setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
-\setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[onlylarge]&lt;/span&gt;{structurebold}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{navigation symbols}{}
 
-% themeを指定する
-\usetheme{Darmstadt}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[english]&lt;/span&gt;{babel}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[latin1]&lt;/span&gt;{inputenc}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{times}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[T1]&lt;/span&gt;{fontenc}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{hyperref}
 
-\usefonttheme[onlylarge]{structurebold}
-\setbeamerfont*{frametitle}{size=\large,series=\bfseries}
-\setbeamertemplate{navigation symbols}{}
+&lt;span style=&#34;color:#75715e&#34;&gt;% Setup TikZ
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{tikz}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetikzlibrary&lt;/span&gt;{arrows}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\tikzstyle&lt;/span&gt;{block}=[draw opacity=0.7,line width=1.4cm]
+&lt;span style=&#34;color:#75715e&#34;&gt;% Figure position
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[absolute,overlay]&lt;/span&gt;{textpos}
+&lt;span style=&#34;color:#75715e&#34;&gt;% math
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{mathabx}
 
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
-\usepackage{times}
-\usepackage[T1]{fontenc}
-\usepackage{hyperref}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;{professionalfonts}
 
-% Setup TikZ
-\usepackage{tikz}
-\usetikzlibrary{arrows}
-\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
-% Figure position
-\usepackage[absolute,overlay]{textpos}
-% math
-\usepackage{mathabx}
-
-\usefonttheme{professionalfonts}
-
-% Author, Title, etc.
-\title[hoge/fugaによる相補的な治療における高難度症例の治療と成績]
+&lt;span style=&#34;color:#75715e&#34;&gt;% Author, Title, etc.
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hoge/fugaによる相補的な治療における高難度症例の治療と成績]&lt;/span&gt;
 {hoge/fugaによる相補的な治療における高難度症例の治療と成績}
-\author[taipapa]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[taipapa]&lt;/span&gt;
 {taipapa, 織田信長, 豊臣秀吉, 徳川家康}
-\institute[hogefuga University]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\institute&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hogefuga University]&lt;/span&gt;
 {hogefuga大学大学院 hogefuga研究科　hogefuga分野}
 
 
-\date[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]
-{\scriptsize{Symposium-02「とっーても難しいhogeとfuga」
-\\ \vspace{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
-完了しています．\\本演題の発表に関して開示すべきCOIはありません
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\date&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]&lt;/span&gt;
+{&lt;span style=&#34;color:#66d9ef&#34;&gt;\scriptsize&lt;/span&gt;{Symposium-02「とっーても難しいhogeとfuga」
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
+完了しています．&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;本演題の発表に関して開示すべきCOIはありません
 }}
 
-% 学会名，日付，スライド番号を挿入
-\setbeamertemplate{footline}
-{\color{gray} %
-\hspace{.075cm}
-\insertshortdate%
-\hspace{4cm}
-\insertframenumber{} / \inserttotalframenumber%
-}
+&lt;span style=&#34;color:#75715e&#34;&gt;% 学会名，日付，スライド番号を挿入
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{footline}
+{&lt;span style=&#34;color:#66d9ef&#34;&gt;\color&lt;/span&gt;{gray} &lt;span style=&#34;color:#75715e&#34;&gt;%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\hspace&lt;/span&gt;{.075cm}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\insertshortdate&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\hspace&lt;/span&gt;{4cm}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\insertframenumber&lt;/span&gt;{} / &lt;span style=&#34;color:#66d9ef&#34;&gt;\inserttotalframenumber&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
 
-\begin{document}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
 
-\begin{frame}
-\titlepage
-\end{frame}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\titlepage&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
 
-\section{Introduction}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{Introduction}
 
-\begin{frame}{背景と目的}
-\begin{block}{}
-\begin{itemize}
-\item hogeとfugaを比較してみると，一方で難易度の高い症例で
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}{背景と目的}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; hogeとfugaを比較してみると，一方で難易度の高い症例で
 も他方では容易に行える場合も多い.
-\item 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
 用いることにより合併症の減少を目指す方針をとっている．
-\item そこで，自験例から高難度のhogefuga症例についての
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; そこで，自験例から高難度のhogefuga症例についての
 方針と成績を主にhogefuga surgeonの立場から検討した.
-\end{itemize}
-\end{block}
-\end{frame}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
 
-\section{Results}
-\begin{frame}
-\frametitle{hogefuga症例の画像}
-\centering
-\includegraphics[width=3.5in]{hoge_fuga.pdf}
-\end{frame}
-\end{document}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする&lt;/a&gt;を参考　&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;latexmk -pvc -pdf -view=none beamer_test.tex
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで下記のようなpdfが出来上がるはず．&lt;/p&gt;
-
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{Results}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefuga症例の画像}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=3.5in]&lt;/span&gt;{hoge_fuga.pdf}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする&lt;/a&gt;を参考　&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;latexmk -pvc -pdf -view&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;none beamer_test.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これで下記のようなpdfが出来上がるはず．&lt;/p&gt;
 
 
 
@@ -146,7 +139,6 @@
 
 
 
-
 &lt;figure&gt;
 
   &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test2.jpg&#34; &gt;
@@ -155,15 +147,12 @@
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;\includegraphics[width=2in]{/Data/hoge/fuga/......./hoge_fuga.pdf}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
 
 
 
@@ -178,11 +167,14 @@
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;次回は，beamerで動画を走らせる件について書く予定．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;次回は，beamerで動画を走らせる件について書く予定．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

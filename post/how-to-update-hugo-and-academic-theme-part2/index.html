@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -400,98 +400,77 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>前回（<a href="../how-to-upgrade-hugo-and-academic-theme">How to update hugo and academic theme (Part 1)</a>）にhutoとacademicのアップデートをまとめたが，やはり，githubにdeployするときのエラーが，どうしても気になる．そこで，今回は，Academic themeのインストールを一からやり直すことにした．   Hugoとox-hugoのインストールやアップデートは前回の記事（<a href="../how-to-upgrade-hugo-and-academic-theme">How to update hugo and academic theme (Part 1)</a>）を参考にしていただきたい．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#install-academic-kickstart-with-git">Install Academic Kickstart with Git</a></li>
 <li><a href="#migrate-content">Migrate Content</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+<!-- raw HTML omitted -->
 <h2 id="references">References</h2>
-
 <ul>
-<li><a href="https://sourcethemes.com/academic/docs/install/" target="_blank">Install</a> Academicご本家の解説</li>
-<li><a href="https://sourcethemes.com/academic/docs/update/" target="_blank">Update</a> Academicご本家の解説</li>
+<li><a href="https://sourcethemes.com/academic/docs/install/">Install</a> Academicご本家の解説</li>
+<li><a href="https://sourcethemes.com/academic/docs/update/">Update</a> Academicご本家の解説</li>
 </ul>
-
 <h2 id="install-academic-kickstart-with-git">Install Academic Kickstart with Git</h2>
-
-<p>やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． <a href="https://qiita.com/sotarok/items/0d525e568a6088f6f6bb" target="_blank">Git submodule の基礎</a> によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である．</p>
-
+<p>やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． <a href="https://qiita.com/sotarok/items/0d525e568a6088f6f6bb">Git submodule の基礎</a> によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である．</p>
 <p><del>1. まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする．</del></p>
-
-<div class="alert alert-note">
-  <div>
-    またも間違っていた．上述の公式ドキュメントにはちゃんと，Fork the Academic Kickstart repository to create a new website と書いてあったのに読み過ごしていた．
-  </div>
-</div>
-
+<!-- raw HTML omitted -->
 <ol>
-<li><p>ということで，まず，<a href="https://github.com/sourcethemes/academic-kickstart#fork-destination-box" target="_blank">academic-kickstart</a> に行って，右上の <strong>Fork</strong> ボタンを押して，自分のgithub pageにacademic-kickstartのrepositoryを作成する．</p></li>
-
-<li><p>ついで，この自分のgithub pageのforkをgit cloneで自分のサイトにクローンする．</p>
-
-<pre><code class="language-sh">$ pwd
+<li>
+<p>ということで，まず，<a href="https://github.com/sourcethemes/academic-kickstart#fork-destination-box">academic-kickstart</a> に行って，右上の <strong>Fork</strong> ボタンを押して，自分のgithub pageにacademic-kickstartのrepositoryを作成する．</p>
+</li>
+<li>
+<p>ついで，この自分のgithub pageのforkをgit cloneで自分のサイトにクローンする．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pwd
 /Data/MyBlog
 $ git clone https://github.com/taipapamotohus/academic-kickstart Taipapablog
-Cloning into 'Taipapablog'...
-remote: Enumerating objects: 579, done.
-remote: Total 579 (delta 0), reused 0 (delta 0), pack-reused 579
-Receiving objects: 100% (579/579), 163.92 KiB | 480.00 KiB/s, done.
-Resolving deltas: 100% (179/179), done.
-</code></pre></li>
-
-<li><p>ついで，themeをsubmoduleでinitializeする．</p>
-
-<pre><code class="language-sh">$ cd Taipapablog
+Cloning into <span style="color:#e6db74">&#39;Taipapablog&#39;</span>...
+remote: Enumerating objects: 579, <span style="color:#66d9ef">done</span>.
+remote: Total <span style="color:#ae81ff">579</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">579</span>
+Receiving objects: 100% <span style="color:#f92672">(</span>579/579<span style="color:#f92672">)</span>, 163.92 KiB | 480.00 KiB/s, <span style="color:#66d9ef">done</span>.
+Resolving deltas: 100% <span style="color:#f92672">(</span>179/179<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</code></pre></div></li>
+<li>
+<p>ついで，themeをsubmoduleでinitializeする．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd Taipapablog
 $ pwd
 /Data/MyBlog/Taipapablog
 $ git submodule update --init --recursive
-Submodule 'themes/academic' (https://github.com/gcushen/hugo-academic.git) registered for path 'themes/academic'
-Cloning into '/Data/MyBlog/Taipapablog/themes/academic'...
-Submodule path 'themes/academic': checked out '32b6145c06835e33668100105ac1835593cf8d72'
+Submodule <span style="color:#e6db74">&#39;themes/academic&#39;</span> <span style="color:#f92672">(</span>https://github.com/gcushen/hugo-academic.git<span style="color:#f92672">)</span> registered <span style="color:#66d9ef">for</span> path <span style="color:#e6db74">&#39;themes/academic&#39;</span>
+Cloning into <span style="color:#e6db74">&#39;/Data/MyBlog/Taipapablog/themes/academic&#39;</span>...
+Submodule path <span style="color:#e6db74">&#39;themes/academic&#39;</span>: checked out <span style="color:#e6db74">&#39;32b6145c06835e33668100105ac1835593cf8d72&#39;</span>
 $ ls
 LICENSE.md          config/             netlify.toml        themes/
 README.md           content/            scripts/            update_academic.sh*
 academic.Rproj      data/               static/             view.sh*
 $ ll
-total 72
-drwxr-xr-x  18 kohkichi  admin   576 Aug 24 16:34 .
-drwxr-xr-x  18 kohkichi  admin   576 Aug 24 16:35 ..
--rw-r--r--   1 kohkichi  admin   298 Aug 24 16:34 .editorconfig
-drwxr-xr-x  13 kohkichi  admin   416 Aug 24 16:34 .git
--rw-r--r--   1 kohkichi  admin    15 Aug 24 16:34 .gitignore
--rw-r--r--   1 kohkichi  admin   106 Aug 24 16:34 .gitmodules
--rw-r--r--   1 kohkichi  admin  1078 Aug 24 16:34 LICENSE.md
--rw-r--r--   1 kohkichi  admin  2671 Aug 24 16:34 README.md
--rw-r--r--   1 kohkichi  admin   258 Aug 24 16:34 academic.Rproj
-drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 config
-drwxr-xr-x   7 kohkichi  admin   224 Aug 24 16:34 content
-drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 data
--rw-r--r--   1 kohkichi  admin   380 Aug 24 16:34 netlify.toml
-drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 scripts
-drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 static
-drwxr-xr-x   3 kohkichi  admin    96 Aug 24 16:34 themes
--rwxr-xr-x   1 kohkichi  admin  1628 Aug 24 16:34 update_academic.sh
--rwxr-xr-x   1 kohkichi  admin    49 Aug 24 16:34 view.sh
-</code></pre>
-
-<p>う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．自分のGitHub pageを持っていれば，2-3分でできてしまう．</p></li>
+total <span style="color:#ae81ff">72</span>
+drwxr-xr-x  <span style="color:#ae81ff">18</span> kohkichi  admin   <span style="color:#ae81ff">576</span> Aug <span style="color:#ae81ff">24</span> 16:34 .
+drwxr-xr-x  <span style="color:#ae81ff">18</span> kohkichi  admin   <span style="color:#ae81ff">576</span> Aug <span style="color:#ae81ff">24</span> 16:35 ..
+-rw-r--r--   <span style="color:#ae81ff">1</span> kohkichi  admin   <span style="color:#ae81ff">298</span> Aug <span style="color:#ae81ff">24</span> 16:34 .editorconfig
+drwxr-xr-x  <span style="color:#ae81ff">13</span> kohkichi  admin   <span style="color:#ae81ff">416</span> Aug <span style="color:#ae81ff">24</span> 16:34 .git
+-rw-r--r--   <span style="color:#ae81ff">1</span> kohkichi  admin    <span style="color:#ae81ff">15</span> Aug <span style="color:#ae81ff">24</span> 16:34 .gitignore
+-rw-r--r--   <span style="color:#ae81ff">1</span> kohkichi  admin   <span style="color:#ae81ff">106</span> Aug <span style="color:#ae81ff">24</span> 16:34 .gitmodules
+-rw-r--r--   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1078</span> Aug <span style="color:#ae81ff">24</span> 16:34 LICENSE.md
+-rw-r--r--   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">2671</span> Aug <span style="color:#ae81ff">24</span> 16:34 README.md
+-rw-r--r--   <span style="color:#ae81ff">1</span> kohkichi  admin   <span style="color:#ae81ff">258</span> Aug <span style="color:#ae81ff">24</span> 16:34 academic.Rproj
+drwxr-xr-x   <span style="color:#ae81ff">3</span> kohkichi  admin    <span style="color:#ae81ff">96</span> Aug <span style="color:#ae81ff">24</span> 16:34 config
+drwxr-xr-x   <span style="color:#ae81ff">7</span> kohkichi  admin   <span style="color:#ae81ff">224</span> Aug <span style="color:#ae81ff">24</span> 16:34 content
+drwxr-xr-x   <span style="color:#ae81ff">3</span> kohkichi  admin    <span style="color:#ae81ff">96</span> Aug <span style="color:#ae81ff">24</span> 16:34 data
+-rw-r--r--   <span style="color:#ae81ff">1</span> kohkichi  admin   <span style="color:#ae81ff">380</span> Aug <span style="color:#ae81ff">24</span> 16:34 netlify.toml
+drwxr-xr-x   <span style="color:#ae81ff">3</span> kohkichi  admin    <span style="color:#ae81ff">96</span> Aug <span style="color:#ae81ff">24</span> 16:34 scripts
+drwxr-xr-x   <span style="color:#ae81ff">3</span> kohkichi  admin    <span style="color:#ae81ff">96</span> Aug <span style="color:#ae81ff">24</span> 16:34 static
+drwxr-xr-x   <span style="color:#ae81ff">3</span> kohkichi  admin    <span style="color:#ae81ff">96</span> Aug <span style="color:#ae81ff">24</span> 16:34 themes
+-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1628</span> Aug <span style="color:#ae81ff">24</span> 16:34 update_academic.sh
+-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin    <span style="color:#ae81ff">49</span> Aug <span style="color:#ae81ff">24</span> 16:34 view.sh
+</code></pre></div><p>う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．自分のGitHub pageを持っていれば，2-3分でできてしまう．</p>
+</li>
 </ol>
-
 <h2 id="migrate-content">Migrate Content</h2>
-
 <p>前回（<a href="../how-to-upgrade-hugo-and-academic-theme">How to update hugo and academic theme (Part 1)</a>）にすでに投稿記事などはスクリプトなどを使ってアップデートしてあるし，設定ファイルもアップデート済みである．そちらのディレクトリから，config, content (home, postなど主要な部分を含む), layouts, static, assetsなどを，今回新たに作成したTaipapablog directoryにコピーすれば良い．コピー後にもう一度Taipapablog directoryの中身を見ると，</p>
-
-<pre><code class="language-sh">$ ls
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ls
 LICENSE.md                   layouts/
 README.md                    netlify.toml
 Taipapablog-20180816_v2.org  public/
@@ -501,37 +480,24 @@ config/                      static/
 content/                     themes/
 data/                        update_academic.sh*
 deploy.sh*                   view.sh*
-</code></pre>
-
-<p>こんな風になっているはずである．（Taipapablog-20180816_v2.orgは，ox-hugoで書いたこのブログの原稿）</p>
-
+</code></pre></div><p>こんな風になっているはずである．（Taipapablog-20180816_v2.orgは，ox-hugoで書いたこのブログの原稿）</p>
 <p>これで，hugo root directoryで，hugo serverを叩くと，元のブログが立ち上がる．</p>
-
 <p>あれ，今回は簡単にできてしまった．既に，前回で，Page Bundlesやfeatured imageに合わせて修正していたから，本当に流し込むだけであった．さて，これで，deployしてもエラーが出なければOKである．</p>
-
 <p><del>う〜ん，deployはできて，前回のエラーも消えたけど，また，別のエラーが出る．．．gitは苦手だ．．．(ToT)</del></p>
-
-<pre><code class="language-sh">remote: Permission to sourcethemes/academic-kickstart.git denied to taipapamotohus.
-fatal: unable to access 'https://github.com/sourcethemes/academic-kickstart.git/': The requested URL returned error: 403
-</code></pre>
-
-<p><del>これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．</del></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">remote: Permission to sourcethemes/academic-kickstart.git denied to taipapamotohus.
+fatal: unable to access <span style="color:#e6db74">&#39;https://github.com/sourcethemes/academic-kickstart.git/&#39;</span>: The requested URL returned error: <span style="color:#ae81ff">403</span>
+</code></pre></div><p><del>これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．</del></p>
 <p><del>ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;</del></p>
-
-<pre><code class="language-sh">Enumerating objects: 546, done.
-Counting objects: 100% (546/546), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (503/503), done.
-Writing objects: 100% (530/530), 131.20 MiB | 8.04 MiB/s, done.
-Total 530 (delta 20), reused 0 (delta 0)
-remote: Resolving deltas: 100% (20/20), completed with 5 local objects.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Enumerating objects: 546, <span style="color:#66d9ef">done</span>.
+Counting objects: 100% <span style="color:#f92672">(</span>546/546<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Delta compression using up to <span style="color:#ae81ff">8</span> threads
+Compressing objects: 100% <span style="color:#f92672">(</span>503/503<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Writing objects: 100% <span style="color:#f92672">(</span>530/530<span style="color:#f92672">)</span>, 131.20 MiB | 8.04 MiB/s, <span style="color:#66d9ef">done</span>.
+Total <span style="color:#ae81ff">530</span> <span style="color:#f92672">(</span>delta 20<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
+remote: Resolving deltas: 100% <span style="color:#f92672">(</span>20/20<span style="color:#f92672">)</span>, completed with <span style="color:#ae81ff">5</span> local objects.
 To https://github.com/taipapamotohus/academic-kickstart
 98a99bf..eb43ba1  master -&gt; master
-</code></pre>
-
-<p>Forkを行ってから，クローンするようにするとdeployの際にエラーは出なくなった．自分のサイトだから書き換えできるので，当たり前である．．．(^^;;;</p>
-
+</code></pre></div><p>Forkを行ってから，クローンするようにするとdeployの際にエラーは出なくなった．自分のサイトだから書き換えできるので，当たり前である．．．(^^;;;</p>
 <p>前回，今回と間違ったことばかりやってしまったが，後日にまた同じ轍を踏まないように，それも含めて，全て記録するようにした．やっとアップデートが終わった．gitは奥が深い（自分が無知なだけ．．．）</p>
     </div>
 
@@ -831,7 +797,7 @@ To https://github.com/taipapamotohus/academic-kickstart
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

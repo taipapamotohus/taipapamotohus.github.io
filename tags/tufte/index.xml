@@ -5,7 +5,7 @@
     <link>/tags/tufte/</link>
       <atom:link href="/tags/tufte/index.xml" rel="self" type="application/rss+xml" />
     <description>tufte</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>tufte</title>
@@ -17,94 +17,82 @@
       <link>/post/tufte/</link>
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
       <guid>/post/tufte/</guid>
-      <description>
-
-&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34; target=&#34;_blank&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
-
+      <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34; target=&#34;_blank&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;
 &lt;li&gt;さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい．&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34; target=&#34;_blank&#34;&gt;Tufte-LaTeX&lt;/a&gt;のサイトには，&amp;rdquo;the style of Edward R. Tufte and Richard Feynman&amp;rdquo;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない．&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;のサイトには，&amp;ldquo;the style of Edward R. Tufte and Richard Feynman&amp;quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない．&lt;/li&gt;
 &lt;li&gt;以前の記事（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&#34;tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34; target=&#34;_blank&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/h2&gt;
-
+&lt;h2 id=&#34;tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode/blob/master/README.md&#34; target=&#34;_blank&#34;&gt;tufte-org-mode&lt;/a&gt;は，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode/blob/master/README.md&#34;&gt;tufte-org-mode&lt;/a&gt;は，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;設定&#34;&gt;設定&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;tufte-org-modeのインストールと設定&#34;&gt;tufte-org-modeのインストールと設定&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;以下のようにinit.orgに書き込んで設定する．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ox-tufte-latex.elは上記の &lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34; target=&#34;_blank&#34;&gt;tufte-org-mode&lt;/a&gt;からダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+&lt;li&gt;
+&lt;p&gt;以下のようにinit.orgに書き込んで設定する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ox-tufte-latex.elは上記の &lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34;&gt;tufte-org-mode&lt;/a&gt;からダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
 (quelpa
- &#39;(ox-tufte-latex :fetcher file :path &amp;quot;/path/to/ox-tufte-latex.el&amp;quot;)
+ &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(ox-tufte-latex &lt;span style=&#34;color:#e6db74&#34;&gt;:fetcher&lt;/span&gt; file &lt;span style=&#34;color:#e6db74&#34;&gt;:path&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/path/to/ox-tufte-latex.el&amp;#34;&lt;/span&gt;)
  )
-(use-package ox-tufte-latex)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;quelpaは，use-packageでうまくインストール出来ないときに重宝する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;quelpaについては以下を参照&lt;/p&gt;
-
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-tufte-latex)
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;quelpaは，use-packageでうまくインストール出来ないときに重宝する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;quelpaについては以下を参照&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/quelpa/quelpa&#34; target=&#34;_blank&#34;&gt;Quelpa&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://emacs.rubikitch.com/quelpa/&#34; target=&#34;_blank&#34;&gt;quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/tadsan/items/99bd9a5bbdb36def13e2&#34; target=&#34;_blank&#34;&gt;CaskからQuelpaに移行する&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/quelpa/quelpa&#34;&gt;Quelpa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://emacs.rubikitch.com/quelpa/&#34;&gt;quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/tadsan/items/99bd9a5bbdb36def13e2&#34;&gt;CaskからQuelpaに移行する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;org-modeでtufte-latexの設定&#34;&gt;org-modeでtufte-latexの設定&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;ox-latexの設定などは以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）に書いたようにinit.orgに記述しておく．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以下のようにinit.orgに書き込んで設定する．これは以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）と重複するが，念のためにここにも書いておく．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-;; tufte-handout class for writing classy handouts and papers
-(add-to-list &#39;org-latex-classes
-             &#39;(&amp;quot;tufte-handout&amp;quot;
-               &amp;quot;\\documentclass[twoside,nobib]{tufte-handout}
-                                   [NO-DEFAULT-PACKAGES]
-                                                                    \\usepackage{zxjatype}
-                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;quot;
-               (&amp;quot;\\section{%s}&amp;quot; . &amp;quot;\\section*{%s}&amp;quot;)
-               (&amp;quot;\\subsection{%s}&amp;quot; . &amp;quot;\\subsection*{%s}&amp;quot;)))
-;; tufte-book class
-(add-to-list &#39;org-latex-classes
-             &#39;(&amp;quot;tufte-book&amp;quot;
-               &amp;quot;\\documentclass[twoside,nobib]{tufte-book}
-                                  [NO-DEFAULT-PACKAGES]
-                                                                   \\usepackage{zxjatype}
-                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;quot;
-               (&amp;quot;\\part{%s}&amp;quot; . &amp;quot;\\part*{%s}&amp;quot;)
-               (&amp;quot;\\chapter{%s}&amp;quot; . &amp;quot;\\chapter*{%s}&amp;quot;)
-               (&amp;quot;\\section{%s}&amp;quot; . &amp;quot;\\section*{%s}&amp;quot;)
-               (&amp;quot;\\subsection{%s}&amp;quot; . &amp;quot;\\subsection*{%s}&amp;quot;)
-               (&amp;quot;\\paragraph{%s}&amp;quot; . &amp;quot;\\paragraph*{%s}&amp;quot;)))
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;ox-latexの設定などは以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）に書いたようにinit.orgに記述しておく．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以下のようにinit.orgに書き込んで設定する．これは以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）と重複するが，念のためにここにも書いておく．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;span style=&#34;color:#75715e&#34;&gt;;; tufte-handout class for writing classy handouts and papers&lt;/span&gt;
+(add-to-list &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-classes&lt;/span&gt;
+             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tufte-handout&amp;#34;&lt;/span&gt;
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\documentclass[twoside,nobib]{tufte-handout}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                   [NO-DEFAULT-PACKAGES]
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage{zxjatype}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;#34;&lt;/span&gt;
+               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section*{%s}&amp;#34;&lt;/span&gt;)
+               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection*{%s}&amp;#34;&lt;/span&gt;)))
+&lt;span style=&#34;color:#75715e&#34;&gt;;; tufte-book class&lt;/span&gt;
+(add-to-list &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-classes&lt;/span&gt;
+             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tufte-book&amp;#34;&lt;/span&gt;
+               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\documentclass[twoside,nobib]{tufte-book}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                  [NO-DEFAULT-PACKAGES]
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                   \\usepackage{zxjatype}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;#34;&lt;/span&gt;
+               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\part{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\part*{%s}&amp;#34;&lt;/span&gt;)
+               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\chapter{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\chapter*{%s}&amp;#34;&lt;/span&gt;)
+               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section*{%s}&amp;#34;&lt;/span&gt;)
+               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection*{%s}&amp;#34;&lt;/span&gt;)
+               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\paragraph{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\paragraph*{%s}&amp;#34;&lt;/span&gt;)))
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．&lt;/p&gt;
 
 
 
@@ -119,82 +107,81 @@
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ここで，l oと打つと普通（Tufte styleではない）のpdfがオープンされてしまう．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Tufte styleのpdfを得るためには，T pと打って，Export to Tufte LaTeX の中からAs PDF file and openを選択しなければならない．これで，原稿が得られ，skimでオープンされる．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ここで，l oと打つと普通（Tufte styleではない）のpdfがオープンされてしまう．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Tufte styleのpdfを得るためには，T pと打って，Export to Tufte LaTeX の中からAs PDF file and openを選択しなければならない．これで，原稿が得られ，skimでオープンされる．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;tufteの使用の実例&#34;&gt;tufteの使用の実例&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;それでは実例を示してみる．以下のような書類を作成し，Tufte_test.orgとして保存する．hoge_fuga.jpgなどの画像は全てTufte_test.orgファイルと同じdirectoryにあるものとする．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;それでは実例を示してみる．以下のような書類を作成し，Tufte_test.orgとして保存する．hoge_fuga.jpgなどの画像は全てTufte_test.orgファイルと同じdirectoryにあるものとする．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;前半の＃で始まる行が続く部分はorg-modeの設定であり，latexのこのパッケージを使うぞ，とか，org-modeのヘッダーをどの深さまで表示するかなどを決めている．詳細はググればすぐに分かるので略&amp;hellip;..(^^;;;&lt;/li&gt;
+&lt;li&gt;:offset -8inによって，図の位置を上にずらしてバランスをとるようにしているのにご注意いただきたい．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: tufte-handout
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=0.6in,top=1in,bottom=1in}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:4 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: author:nil date:nil
 
-&lt;li&gt;&lt;p&gt;:offset -8inによって，図の位置を上にずらしてバランスをとるようにしているのにご注意いただきたい．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+LaTeX_CLASS: tufte-handout
-#+LaTeX_CLASS_OPTIONS: [12pt]
-#+LATEX_HEADER: \usepackage{geometry}
-#+LATEX_HEADER: \geometry{left=0.6in,top=1in,bottom=1in}
-#+LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-#+STARTUP:  overview
-#+STARTUP:  hidestars
-#+OPTIONS:   H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+LINK_UP:
-#+LINK_HOME:
-#+OPTIONS: author:nil date:nil
-
-#+begin_fullwidth
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_fullwidth
 \centering
-#+LATEX: \huge{\textbf{hoge/fugaによる相補的な治療における高難度症例の治療と成績}}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \huge{\textbf{hoge/fugaによる相補的な治療における高難度症例の治療と成績}}
 \vspace{0.5cm}\\
-#+LATEX: \normalsize{taipapa, 織田信長, 豊臣秀吉, 徳川家康}\\
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \normalsize{taipapa, 織田信長, 豊臣秀吉, 徳川家康}\\
 \vspace{0.5cm}\\
-#+LATEX: \normalsize{hogefuga大学大学院 hogefuga研究科 hogefuga分野}
-#+end_fullwidth
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \normalsize{hogefuga大学大学院 hogefuga研究科 hogefuga分野}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_fullwidth
 
-* *背景と目的*
-hogeとfugaを比較し，治療成績を比較する．
-​* *結果*
-まず，hogefugaの軽症例の画像を呈示する (*Fig. [[hoge_fuga2]]*)．
+&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *背景と目的*
+hogeとfugaを比較し&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;治療成績を比較する&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *結果*
+まず&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogefugaの軽症例の画像を呈示する (*Fig. [[hoge_fuga2]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
 
 \vspace{0.25cm}
 
-そのころわたくしは、モリーオ市の博物局に勤めて居りました。
+そのころわたくしは&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;モリーオ市の博物局に勤めて居りました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
 
-十八等官でしたから役所のなかでも、ずうっと下の方でしたし俸給もほんのわずかでしたが、受持ちが標本の採集や整理で生れ付き好きなことでしたから、わたくしは毎日ずいぶん愉快にはたらきました。殊にそのころ、モリーオ市では競馬場を植物園に拵え直すというので、その景色のいいまわりにアカシヤを植え込んだ広い地面が、切符売場や信号所の建物のついたまま、わたくしどもの役所の方へまわって来たものですから、わたくしはすぐ宿直という名前で月賦で買った小さな蓄音器と二十枚ばかりのレコードをもって、その番小屋にひとり住むことになりました。わたくしはそこの馬を置く場所に板で小さなしきいをつけて一疋の山羊を飼いました。毎朝その乳をしぼってつめたいパンをひたしてたべ、それから黒い革のかばんへすこしの書類や雑誌を入れ、靴もきれいにみがき、並木のポプラの影法師を大股にわたって市の役所へ出て行くのでした。
+十八等官でしたから役所のなかでも&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;ずうっと下の方でしたし俸給もほんのわずかでしたが&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;受持ちが標本の採集や整理で生れ付き好きなことでしたから&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしは毎日ずいぶん愉快にはたらきました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;殊にそのころ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;モリーオ市では競馬場を植物園に拵え直すというので&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;その景色のいいまわりにアカシヤを植え込んだ広い地面が&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;切符売場や信号所の建物のついたまま&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしどもの役所の方へまわって来たものですから&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしはすぐ宿直という名前で月賦で買った小さな蓄音器と二十枚ばかりのレコードをもって&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;その番小屋にひとり住むことになりました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;わたくしはそこの馬を置く場所に板で小さなしきいをつけて一疋の山羊を飼いました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;毎朝その乳をしぼってつめたいパンをひたしてたべ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;それから黒い革のかばんへすこしの書類や雑誌を入れ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;靴もきれいにみがき&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;並木のポプラの影法師を大股にわたって市の役所へ出て行くのでした&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
 
-あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+あのイーハトーヴォのすきとおった風&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;夏でも底に冷たさをもつ青いそら&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;うつくしい森で飾られたモリーオ市&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;郊外のぎらぎらひかる草の波&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
 
-またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
+またそのなかでいっしょになったたくさんのひとたち&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;ファゼーロとロザーロ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;羊飼のミーロや&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;顔の赤いこどもたち&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;地主のテーモ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;山猫博士のボーガント&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;・&lt;/span&gt;デストゥパーゴなど&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;いまこの暗い巨きな石の建物のなかで考えていると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;みんなむかし風のなつかしい青い幻燈のように思われます&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしはいつかの小さなみだしをつけながら&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
 
 \vspace{0.25cm}
 
-ついで，hogefugaの重症例の画像を呈示する (*Fig. [[hoge_fuga]]*)．
+ついで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogefugaの重症例の画像を呈示する (*Fig. [[hoge_fuga]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
 
-#+NAME: hoge_fuga2
-#+caption: hoge-fuga（軽症例である）
-#+attr_latex: :float margin :width 2.8in :offset -8in
-#+attr_latex: :vertical-alignment t
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga2
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;軽症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; margin &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 2.8in &lt;span style=&#34;color:#e6db74&#34;&gt;:offset&lt;/span&gt; -8in
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:vertical-alignment&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
 [[./hoge_fuga2.jpg]]
 
-#+NAME: hoge_fuga
-#+caption: hoge-fuga（重症例である）
-#+attr_latex: :float margin :width 2.8in :offset -2in
-#+attr_latex: :vertical-alignment t
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;重症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; margin &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 2.8in &lt;span style=&#34;color:#e6db74&#34;&gt;:offset&lt;/span&gt; -2in
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:vertical-alignment&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
 [[./hoge_fuga.jpg]]
 
 
-* *結論*
-hogefugaによる治療は有効である．
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ついで，前述のごとく，Emacsでこの文書を開いた状態で，C-c C-e T pと打てば，以下のようなpdfがskimで開かれる．&lt;/p&gt;
-
+&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *結論*
+hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ついで，前述のごとく，Emacsでこの文書を開いた状態で，C-c C-e T pと打てば，以下のようなpdfがskimで開かれる．&lt;/p&gt;
 
 
 
@@ -209,14 +196,19 @@ hogefugaによる治療は有効である．
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;上述のように，:offset の部分で図の位置を調整している．これなしだと，かなり下の方に位置してしまう．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;なかなか良い感じになっている．(^o^)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;今回は，Tufte styleの紹介であった．実は，このスタイルを手術所見を書くのに使用している．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;上述のように，:offset の部分で図の位置を調整している．これなしだと，かなり下の方に位置してしまう．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;なかなか良い感じになっている．(^o^)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;今回は，Tufte styleの紹介であった．実は，このスタイルを手術所見を書くのに使用している．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

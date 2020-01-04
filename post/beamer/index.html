@@ -28,8 +28,7 @@
   
     
   
-  <meta name="description" content="前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．
-% -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?">
+  <meta name="description" content="前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．  % -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/beamer/">
@@ -81,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -123,8 +122,7 @@
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="/post/beamer/">
   <meta property="og:title" content="beamerでスライド原稿用pdfを作成する（その１） | A perfect autumn day">
-  <meta property="og:description" content="前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．
-% -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?"><meta property="og:image" content="/post/beamer/featured.jpg">
+  <meta property="og:description" content="前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．  % -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?"><meta property="og:image" content="/post/beamer/featured.jpg">
   <meta property="twitter:image" content="/post/beamer/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -401,114 +399,107 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>前回のポスト（<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a>）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
+      <p>前回のポスト（<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a>）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
 　</p>
-
 <h2 id="beamerによるスライド原稿の作成">beamerによるスライド原稿の作成</h2>
-
 <ul>
 <li>基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である．</li>
 <li>下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う．</li>
-<li>なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729" target="_blank">beamerでの数式フォントの変更</a></li>
+<li>なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729">beamerでの数式フォントの変更</a></li>
+<li>また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex"><span style="color:#75715e">% -*-coding:utf-8-*-
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\documentclass</span><span style="color:#a6e22e">[svgnames, table, 14pt]</span>{beamer}
+<span style="color:#66d9ef">\usepackage</span>{zxjatype}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[hiragino-dx]</span>{zxjafont}
 
-<li><p>また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．</p>
+<span style="color:#75715e">% ヒラギノ角ゴ Proを使う
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\setjamainfont</span><span style="color:#a6e22e">[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]</span>{ヒラギノ角ゴ Pro W3}
+<span style="color:#66d9ef">\setjasansfont</span><span style="color:#a6e22e">[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]</span>{ヒラギノ角ゴ Pro W3}
 
-<pre><code class="language-tex">% -*-coding:utf-8-*-
-\documentclass[svgnames, table, 14pt]{beamer}
-\usepackage{zxjatype}
-\usepackage[hiragino-dx]{zxjafont}
+<span style="color:#75715e">% themeを指定する
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\usetheme</span>{Darmstadt}
 
-% ヒラギノ角ゴ Proを使う
-\setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
-\setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3}
+<span style="color:#66d9ef">\usefonttheme</span><span style="color:#a6e22e">[onlylarge]</span>{structurebold}
+<span style="color:#66d9ef">\setbeamerfont</span><span style="color:#66d9ef">*</span>{frametitle}{size=<span style="color:#66d9ef">\large</span>,series=<span style="color:#66d9ef">\bfseries</span>}
+<span style="color:#66d9ef">\setbeamertemplate</span>{navigation symbols}{}
 
-% themeを指定する
-\usetheme{Darmstadt}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[english]</span>{babel}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[latin1]</span>{inputenc}
+<span style="color:#66d9ef">\usepackage</span>{times}
+<span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[T1]</span>{fontenc}
+<span style="color:#66d9ef">\usepackage</span>{hyperref}
 
-\usefonttheme[onlylarge]{structurebold}
-\setbeamerfont*{frametitle}{size=\large,series=\bfseries}
-\setbeamertemplate{navigation symbols}{}
+<span style="color:#75715e">% Setup TikZ
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\usepackage</span>{tikz}
+<span style="color:#66d9ef">\usetikzlibrary</span>{arrows}
+<span style="color:#66d9ef">\tikzstyle</span>{block}=[draw opacity=0.7,line width=1.4cm]
+<span style="color:#75715e">% Figure position
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\usepackage</span><span style="color:#a6e22e">[absolute,overlay]</span>{textpos}
+<span style="color:#75715e">% math
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\usepackage</span>{mathabx}
 
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
-\usepackage{times}
-\usepackage[T1]{fontenc}
-\usepackage{hyperref}
+<span style="color:#66d9ef">\usefonttheme</span>{professionalfonts}
 
-% Setup TikZ
-\usepackage{tikz}
-\usetikzlibrary{arrows}
-\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
-% Figure position
-\usepackage[absolute,overlay]{textpos}
-% math
-\usepackage{mathabx}
-
-\usefonttheme{professionalfonts}
-
-% Author, Title, etc.
-\title[hoge/fugaによる相補的な治療における高難度症例の治療と成績]
+<span style="color:#75715e">% Author, Title, etc.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\title</span><span style="color:#a6e22e">[hoge/fugaによる相補的な治療における高難度症例の治療と成績]</span>
 {hoge/fugaによる相補的な治療における高難度症例の治療と成績}
-\author[taipapa]
+<span style="color:#66d9ef">\author</span><span style="color:#a6e22e">[taipapa]</span>
 {taipapa, 織田信長, 豊臣秀吉, 徳川家康}
-\institute[hogefuga University]
+<span style="color:#66d9ef">\institute</span><span style="color:#a6e22e">[hogefuga University]</span>
 {hogefuga大学大学院 hogefuga研究科　hogefuga分野}
 
 
-\date[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]
-{\scriptsize{Symposium-02「とっーても難しいhogeとfuga」
-\\ \vspace{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
-完了しています．\\本演題の発表に関して開示すべきCOIはありません
+<span style="color:#66d9ef">\date</span><span style="color:#a6e22e">[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]</span>
+{<span style="color:#66d9ef">\scriptsize</span>{Symposium-02「とっーても難しいhogeとfuga」
+<span style="color:#66d9ef">\\</span> <span style="color:#66d9ef">\vspace</span>{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
+完了しています．<span style="color:#66d9ef">\\</span>本演題の発表に関して開示すべきCOIはありません
 }}
 
-% 学会名，日付，スライド番号を挿入
-\setbeamertemplate{footline}
-{\color{gray} %
-\hspace{.075cm}
-\insertshortdate%
-\hspace{4cm}
-\insertframenumber{} / \inserttotalframenumber%
-}
+<span style="color:#75715e">% 学会名，日付，スライド番号を挿入
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\setbeamertemplate</span>{footline}
+{<span style="color:#66d9ef">\color</span>{gray} <span style="color:#75715e">%
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\hspace</span>{.075cm}
+<span style="color:#66d9ef">\insertshortdate</span><span style="color:#75715e">%
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">\hspace</span>{4cm}
+<span style="color:#66d9ef">\insertframenumber</span>{} / <span style="color:#66d9ef">\inserttotalframenumber</span><span style="color:#75715e">%
+</span><span style="color:#75715e"></span>}
 
-\begin{document}
+<span style="color:#66d9ef">\begin</span>{document}
 
-\begin{frame}
-\titlepage
-\end{frame}
+<span style="color:#66d9ef">\begin</span>{frame}
+<span style="color:#66d9ef">\titlepage</span>
+<span style="color:#66d9ef">\end</span>{frame}
 
-\section{Introduction}
+<span style="color:#66d9ef">\section</span>{Introduction}
 
-\begin{frame}{背景と目的}
-\begin{block}{}
-\begin{itemize}
-\item hogeとfugaを比較してみると，一方で難易度の高い症例で
+<span style="color:#66d9ef">\begin</span>{frame}{背景と目的}
+<span style="color:#66d9ef">\begin</span>{block}{}
+<span style="color:#66d9ef">\begin</span>{itemize}
+<span style="color:#66d9ef">\item</span> hogeとfugaを比較してみると，一方で難易度の高い症例で
 も他方では容易に行える場合も多い.
-\item 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
+<span style="color:#66d9ef">\item</span> 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
 用いることにより合併症の減少を目指す方針をとっている．
-\item そこで，自験例から高難度のhogefuga症例についての
+<span style="color:#66d9ef">\item</span> そこで，自験例から高難度のhogefuga症例についての
 方針と成績を主にhogefuga surgeonの立場から検討した.
-\end{itemize}
-\end{block}
-\end{frame}
+<span style="color:#66d9ef">\end</span>{itemize}
+<span style="color:#66d9ef">\end</span>{block}
+<span style="color:#66d9ef">\end</span>{frame}
 
-\section{Results}
-\begin{frame}
-\frametitle{hogefuga症例の画像}
-\centering
-\includegraphics[width=3.5in]{hoge_fuga.pdf}
-\end{frame}
-\end{document}
-</code></pre></li>
-
-<li><p>ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</a>を参考　</p>
-
-<pre><code class="language-shell">latexmk -pvc -pdf -view=none beamer_test.tex
-</code></pre></li>
-
-<li><p>これで下記のようなpdfが出来上がるはず．</p>
-
+<span style="color:#66d9ef">\section</span>{Results}
+<span style="color:#66d9ef">\begin</span>{frame}
+<span style="color:#66d9ef">\frametitle</span>{hogefuga症例の画像}
+<span style="color:#66d9ef">\centering</span>
+<span style="color:#66d9ef">\includegraphics</span><span style="color:#a6e22e">[width=3.5in]</span>{hoge_fuga.pdf}
+<span style="color:#66d9ef">\end</span>{frame}
+<span style="color:#66d9ef">\end</span>{document}
+</code></pre></div><ul>
+<li>
+<p>ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする</a>を参考　</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">latexmk -pvc -pdf -view<span style="color:#f92672">=</span>none beamer_test.tex
+</code></pre></div></li>
+<li>
+<p>これで下記のようなpdfが出来上がるはず．</p>
 
 
 
@@ -530,7 +521,6 @@
 
 
 
-
 <figure>
 
   <a data-fancybox="" href="/img/beamer_test2.jpg" >
@@ -539,15 +529,12 @@
 </a>
 
 </figure>
+
 </li>
-
-<li><p>画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，</p>
-
-<pre><code class="language-shell">\includegraphics[width=2in]{/Data/hoge/fuga/......./hoge_fuga.pdf}
-</code></pre>
-
-<p>などと打てばよい．以下のようなスライドが得られる．</p>
-
+<li>
+<p>画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ae81ff">\i</span>ncludegraphics<span style="color:#f92672">[</span>width<span style="color:#f92672">=</span>2in<span style="color:#f92672">]</span><span style="color:#f92672">{</span>/Data/hoge/fuga/......./hoge_fuga.pdf<span style="color:#f92672">}</span>
+</code></pre></div><p>などと打てばよい．以下のようなスライドが得られる．</p>
 
 
 
@@ -562,11 +549,14 @@
 </a>
 
 </figure>
+
 </li>
-
-<li><p>なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．</p></li>
-
-<li><p>次回は，beamerで動画を走らせる件について書く予定．</p></li>
+<li>
+<p>なにもしなければ，画像は左寄せになる．中央に寄せたければ，上記の文書内にあるように，\centering を使用する．</p>
+</li>
+<li>
+<p>次回は，beamerで動画を走らせる件について書く予定．</p>
+</li>
 </ul>
 
     </div>
@@ -901,7 +891,7 @@
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

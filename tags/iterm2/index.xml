@@ -5,7 +5,7 @@
     <link>/tags/iterm2/</link>
       <atom:link href="/tags/iterm2/index.xml" rel="self" type="application/rss+xml" />
     <description>iTerm2</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>iTerm2</title>
@@ -18,42 +18,28 @@
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/post/gleanings/</guid>
       <description>&lt;p&gt;前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．&lt;/p&gt;
-
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#display-line-numbers&#34;&gt;display-line-numbers&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#whitespace-mode&#34;&gt;Whitespace-mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#iterm2の権限の変更-mojaveで必要&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#iterm2のcolor-schemeが効かない&#34;&gt;iTerm2のColor Schemeが効かない&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iterm2%E3%81%AE%E6%A8%A9%E9%99%90%E3%81%AE%E5%A4%89%E6%9B%B4-mojave%E3%81%A6%E3%82%99%E5%BF%85%E8%A6%81&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#iterm2%E3%81%AEcolor-scheme%E3%81%8B%E3%82%99%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84&#34;&gt;iTerm2のColor Schemeが効かない&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;!--endtoc--&gt;&lt;/p&gt;
-
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;display-line-numbers&#34;&gt;display-line-numbers&lt;/h2&gt;
-
 &lt;p&gt;emacs 26から入った行番号を表示させる機能．&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;Ref 1: &lt;a href=&#34;http://garaemon.hatenadiary.jp/entry/2018/07/08/181003&#34; target=&#34;_blank&#34;&gt;emacs 26で入ったdisplay-line-numbersを利用する&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ref 2: &lt;a href=&#34;https://www.emacswiki.org/emacs/LineNumbers&#34; target=&#34;_blank&#34;&gt;LineNumbers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ref 3: &lt;a href=&#34;https://blog.piyo.tech/posts/2019-01-24-emacs-display-line-numbers/&#34; target=&#34;_blank&#34;&gt;Emacs26のdisplay-line-numbers-modeがlinum-modeよりちょっと速くて快適になりそう&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ref 4: &lt;a href=&#34;https://qiita.com/mamo3gr/items/1c6862cba09d5876e52c&#34; target=&#34;_blank&#34;&gt;Emacsの行番号表示にモヤモヤした話&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 1: &lt;a href=&#34;http://garaemon.hatenadiary.jp/entry/2018/07/08/181003&#34;&gt;emacs 26で入ったdisplay-line-numbersを利用する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 2: &lt;a href=&#34;https://www.emacswiki.org/emacs/LineNumbers&#34;&gt;LineNumbers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 3: &lt;a href=&#34;https://blog.piyo.tech/posts/2019-01-24-emacs-display-line-numbers/&#34;&gt;Emacs26のdisplay-line-numbers-modeがlinum-modeよりちょっと速くて快適になりそう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 4: &lt;a href=&#34;https://qiita.com/mamo3gr/items/1c6862cba09d5876e52c&#34;&gt;Emacsの行番号表示にモヤモヤした話&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;設定は，いつものように，init.orgに下記のとおりに書き込めばよい．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
 (global-display-line-numbers-mode)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．&lt;/p&gt;
-
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．&lt;/p&gt;
 
 
 
@@ -69,13 +55,9 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;行番号に必要な表示領域は自動的に確保される．3桁，4桁の番号になるに連れて表示領域が広くなるのが上の画像からわかるであろう．また，adaptive-wrapによって折り畳まれている行は行番号が空白になって1行であることがわかるようになっている（383行目）．&lt;/p&gt;
-
 &lt;h2 id=&#34;whitespace-mode&#34;&gt;Whitespace-mode&lt;/h2&gt;
-
 &lt;p&gt;かなり前から，Emacsの長い行の途中でフォントの色が赤くなってしまうようになった．つまり，下の画像のようになってしまう．短い行でもフォントが赤くなってるな．．．&lt;/p&gt;
-
 
 
 
@@ -91,9 +73,7 @@
 
 &lt;/figure&gt;
 
-
-&lt;p&gt;何が原因かよくわからなかったのだが，redditの&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/butal1/how%5Fdo%5Fi%5Fstop%5Femacs%5Ffrom%5Fcoloring%5Ftext%5Fbeyond%5F80/&#34; target=&#34;_blank&#34;&gt;How do I stop Emacs from coloring text beyond 80 columns differently&lt;/a&gt;を読んで，もしかしたら，whitespace-modeのせいかもしれないと思ってやってみたらドンピシャであった．M-x customizeとして，Whitespace Styleをサーチして，(Face) Lines, only overlong partのチェックを外せばよい．下の画像の矢印で示した部分である．&lt;/p&gt;
-
+&lt;p&gt;何が原因かよくわからなかったのだが，redditの&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/butal1/how%5Fdo%5Fi%5Fstop%5Femacs%5Ffrom%5Fcoloring%5Ftext%5Fbeyond%5F80/&#34;&gt;How do I stop Emacs from coloring text beyond 80 columns differently&lt;/a&gt;を読んで，もしかしたら，whitespace-modeのせいかもしれないと思ってやってみたらドンピシャであった．M-x customizeとして，Whitespace Styleをサーチして，(Face) Lines, only overlong partのチェックを外せばよい．下の画像の矢印で示した部分である．&lt;/p&gt;
 
 
 
@@ -109,9 +89,7 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;下に，設定変更後の上の画像と同じところを示すが，行の途中でフォントの色が変わらなくなっている．これで目がおかしくなりそうな画面からようやく離れることができた．😀&lt;/p&gt;
-
 
 
 
@@ -127,25 +105,17 @@
 
 &lt;/figure&gt;
 
-
 &lt;h2 id=&#34;iterm2の権限の変更-mojaveで必要&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/h2&gt;
-
 &lt;p&gt;以前の記事（&lt;a href=&#34;../auto_html_export&#34;&gt;Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする&lt;/a&gt;）の中で，directoryの内容が変更されると，自動でhtmlを再読込するwatch_safari.rbというスクリプトを紹介した．しかし，mojaveにupgradeしたあとは&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 (1002)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;1002&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Ref 1: &lt;a href=&#34;https://minatokobe.com/wp/os-x/macos-mojave/post-51360.html&#34; target=&#34;_blank&#34;&gt;macOS Mojaveでのアプリケーションの権限、アクセシビリティとフルディスクアクセスの違いは何か？&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ref 2: &lt;a href=&#34;https://www.softantenna.com/wp/tips/macos-mojave-iterm2-full-disk-access/&#34; target=&#34;_blank&#34;&gt;macOS MojaveでiTerm2を利用する場合にフルディスクアクセスを許可する方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ref 3: &lt;a href=&#34;https://rcmdnk.com/blog/2019/04/29/computer-mac/&#34; target=&#34;_blank&#34;&gt;MacのターミナルやiTermでOperation not permittedが出る場合の対処法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ref 4: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/wikis/Whyfulldiskaccess&#34; target=&#34;_blank&#34;&gt;Why Full Disk Access is Useful for iTerm2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 1: &lt;a href=&#34;https://minatokobe.com/wp/os-x/macos-mojave/post-51360.html&#34;&gt;macOS Mojaveでのアプリケーションの権限、アクセシビリティとフルディスクアクセスの違いは何か？&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 2: &lt;a href=&#34;https://www.softantenna.com/wp/tips/macos-mojave-iterm2-full-disk-access/&#34;&gt;macOS MojaveでiTerm2を利用する場合にフルディスクアクセスを許可する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 3: &lt;a href=&#34;https://rcmdnk.com/blog/2019/04/29/computer-mac/&#34;&gt;MacのターミナルやiTermでOperation not permittedが出る場合の対処法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref 4: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/wikis/Whyfulldiskaccess&#34;&gt;Why Full Disk Access is Useful for iTerm2&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;AccessibilityとFull Disk Accessのいずれか，あるいは，両方を変更すればよい．試してみた結果，iTerm2にFull Disk Accessを許可しても自動更新しないが，Accessiblityで「アプリケーションにコンピュータの制御を許可」すれば自動更新することがわかった．「システム環境設定」&amp;gt;「セキュリティ＆プライバシー」の「プライバシー」タブに行き，下の画像にあるように，iTerm2にcheckを入れればよい．&lt;/p&gt;
-
 
 
 
@@ -161,19 +131,13 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;crontabが働き，~/Library/Safari folderへのアクセスができるように，iTerm2にFull Disk Accessも与えておいた．方法は，上記とほぼ同じで，「プライバシー」タブに行き，フルディスクアクセスを選択し，iTerm2にcheckを入れればよい．&lt;/p&gt;
-
 &lt;h2 id=&#34;iterm2のcolor-schemeが効かない&#34;&gt;iTerm2のColor Schemeが効かない&lt;/h2&gt;
-
 &lt;p&gt;いつのまにかiTerm2のcolor schemeを変えても反映されなくなってしまった．ネットを探ると，同じようなことで悩んでいる人が結構いるようで，すぐに解決法が見つかった．&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34; target=&#34;_blank&#34;&gt;Profile colors won&amp;rsquo;t change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34;&gt;Profile colors won&#39;t change&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;上記のサイトによれば，terminal windowがprofileと連絡を失ってしまったことが原因とのことで，iTerm2の Session &amp;gt; Edit Sessionで下の画像のようにdialogue boxがpop upするので，そこで，好きなcolor scheme (下の画像ではJapanesque) を選択し，右下のUse Selected Profileをクリックすればよい．&lt;/p&gt;
-
 
 
 
@@ -188,7 +152,6 @@
 &lt;/a&gt;
 
 &lt;/figure&gt;
-
 
 &lt;p&gt;これでリンクが再確立される．&lt;/p&gt;</description>
     </item>

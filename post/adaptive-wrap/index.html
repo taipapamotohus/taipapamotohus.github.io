@@ -29,11 +29,10 @@
     
   
   <meta name="description" content="Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．
- Table of Contents  adaptive-wrap  インストールと設定 実際の使用例    
-adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
+ adaptive-wrap  インストールと設定 実際の使用例    adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
 インストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
-#&#43;begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode &#43;1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #&#43;end_src  なお，最後の行を入れておかないと，org-mode fileに
-#&#43;setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup  を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
+#&#43;begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode &#43;1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #&#43;end_src なお，最後の行を入れておかないと，org-mode fileに
+#&#43;setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
 実際の使用例 adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．
       これも一度使い始めると，無くてはならないモノとなるパッケージである．">
 
@@ -87,7 +86,7 @@ adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentat
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -130,11 +129,10 @@ adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentat
   <meta property="og:url" content="/post/adaptive-wrap/">
   <meta property="og:title" content="Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines | A perfect autumn day">
   <meta property="og:description" content="Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．
- Table of Contents  adaptive-wrap  インストールと設定 実際の使用例    
-adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
+ adaptive-wrap  インストールと設定 実際の使用例    adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
 インストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
-#&#43;begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode &#43;1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #&#43;end_src  なお，最後の行を入れておかないと，org-mode fileに
-#&#43;setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup  を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
+#&#43;begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode &#43;1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #&#43;end_src なお，最後の行を入れておかないと，org-mode fileに
+#&#43;setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
 実際の使用例 adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．
       これも一度使い始めると，無くてはならないモノとなるパッケージである．"><meta property="og:image" content="/post/adaptive-wrap/featured.jpg">
   <meta property="twitter:image" content="/post/adaptive-wrap/featured.jpg"><meta property="og:locale" content="en-us">
@@ -413,65 +411,43 @@ adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentat
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+      <p>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#adaptive-wrap">adaptive-wrap</a>
-
 <ul>
-<li><a href="#インストールと設定">インストールと設定</a></li>
-<li><a href="#実際の使用例">実際の使用例</a></li>
-</ul></li>
+<li><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A">インストールと設定</a></li>
+<li><a href="#%E5%AE%9F%E9%9A%9B%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B">実際の使用例</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+</li>
+</ul>
+<!-- raw HTML omitted -->
 <h2 id="adaptive-wrap">adaptive-wrap</h2>
-
 <ul>
-<li>参照1：<a href="https://elpa.gnu.org/packages/adaptive-wrap.html" target="_blank">adaptive-wrap</a>　ご本家</li>
-<li>参照2：<a href="https://emacs.stackexchange.com/questions/14589/correct-indentation-for-wrapped-lines" target="_blank">Correct indentation for wrapped lines</a></li>
-<li>参照3：<a href="http://alainmathematics.blogspot.com/2013/07/emacs.html" target="_blank">Emacsの折り返しの挙動</a></li>
-<li>参照4：<a href="https://www.reddit.com/r/emacs/comments/1kw7ip/emacs%5Fsettings%5Floading%5Fissue/" target="_blank">.emacs settings loading issue</a>　</li>
+<li>参照1：<a href="https://elpa.gnu.org/packages/adaptive-wrap.html">adaptive-wrap</a>　ご本家</li>
+<li>参照2：<a href="https://emacs.stackexchange.com/questions/14589/correct-indentation-for-wrapped-lines">Correct indentation for wrapped lines</a></li>
+<li>参照3：<a href="http://alainmathematics.blogspot.com/2013/07/emacs.html">Emacsの折り返しの挙動</a></li>
+<li>参照4：<a href="https://www.reddit.com/r/emacs/comments/1kw7ip/emacs%5Fsettings%5Floading%5Fissue/">.emacs settings loading issue</a>　</li>
 </ul>
-
 <p>長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．</p>
-
 <h3 id="インストールと設定">インストールと設定</h3>
-
 <p>例によって，use-packagを用いて以下のように，init.orgに書けばよい．</p>
-
-<pre><code class="language-lisp">#+begin_src emacs-lisp
-(use-package adaptive-wrap
-  :ensure t
-  :config
-  (setq-default adaptive-wrap-extra-indent 1)
-  (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
-  (global-visual-line-mode +1)
-  (add-hook 'org-mode-hook 'visual-line-mode)  ;; For org macros
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
+(<span style="color:#a6e22e">use-package</span> adaptive-wrap
+  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+  <span style="color:#e6db74">:config</span>
+  (setq-default adaptive-wrap-extra-indent <span style="color:#ae81ff">1</span>)
+  (add-hook <span style="color:#e6db74">&#39;visual-line-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>adaptive-wrap-prefix-mode)
+  (global-visual-line-mode <span style="color:#ae81ff">+1</span>)
+  (add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> <span style="color:#e6db74">&#39;visual-line-mode</span>)  <span style="color:#75715e">;; For org macros</span>
   )
-#+end_src
-</code></pre>
-
-<p>なお，最後の行を入れておかないと，org-mode fileに</p>
-
-<pre><code class="language-lisp">#+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup
-</code></pre>
-
-<p>を追加してマクロのパッケージを使用する場合（<a href="../html_export">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a>を参照のこと）に，adaptive-wrapが効かなくなる．</p>
-
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><p>なお，最後の行を入れておかないと，org-mode fileに</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup
+</code></pre></div><p>を追加してマクロのパッケージを使用する場合（<a href="../html_export">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a>を参照のこと）に，adaptive-wrapが効かなくなる．</p>
 <h3 id="実際の使用例">実際の使用例</h3>
-
 <p>adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．</p>
-
 
 
 
@@ -493,7 +469,6 @@ adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentat
 
 
 
-
 <figure>
 
   <a data-fancybox="" href="/img/After_adaptive.jpg" >
@@ -502,7 +477,6 @@ adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentat
 </a>
 
 </figure>
-
 
 <p>これも一度使い始めると，無くてはならないモノとなるパッケージである．</p>
 
@@ -836,7 +810,7 @@ adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentat
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

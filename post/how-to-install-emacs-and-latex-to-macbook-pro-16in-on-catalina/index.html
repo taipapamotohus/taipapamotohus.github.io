@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，Upgrade to Mojave and upgrade to Emacs 26.2 by homebrewでまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/">
+  <meta property="og:title" content="How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina | A perfect autumn day">
+  <meta property="og:description" content="1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，Upgrade to Mojave and upgrade to Emacs 26.2 by homebrewでまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．"><meta property="og:image" content="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/featured.jpg">
+  <meta property="twitter:image" content="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-12-31T00:00:00&#43;09:00">
+    
+    <meta property="article:modified_time" content="2020-01-04T19:49:39&#43;09:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina | A perfect autumn day</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1 itemprop="name">How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</h1>
+
+  
+  <p class="page-subtitle">Emacs, LaTeXなどのMacBook Pro 16-inch, Catalinaへのインストール</p>
+  
+
+  
+
+
+
+<meta content="2019-12-31 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2020-01-04 19:49:39 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Jan 4, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+    
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 3008px; max-height: 1692px;">
+  <div style="position: relative">
+    <img src="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Desktop of MacBook Pro 16 inch (Catalina)</span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，<a href="../mojave">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a>でまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．</p>
+<p><strong>Table of contents</strong></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="#dealing-with-read-only-system-volume-in-catalina">Dealing with read-only system volume in Catalina</a></li>
+<li><a href="#preparation-for-emacs-installation">Preparation for Emacs installation</a></li>
+<li><a href="#how-to-install-emacs-26-dot-3-into-macbook-pro-16-inch--catalina">How to install Emacs 26.3 into MacBook Pro 16 inch (Catalina)</a></li>
+<li><a href="#how-to-install-latex-into-macbook-pro-16-inch--catalina">How to install  LaTeX into MacBook Pro 16 inch (Catalina)</a>
+<ul>
+<li><a href="#references">References</a></li>
+</ul>
+</li>
+<li><a href="#how-to-setup-org-mode-in-macbook-pro-16-inch--catalina">How to setup org-mode in MacBook Pro 16 inch (Catalina)</a></li>
+<li><a href="#encountered-problems-%E9%81%AD%E9%81%87%E3%81%97%E3%81%9F%E5%95%8F%E9%A1%8C%E7%82%B9">Encountered problems: 遭遇した問題点</a>
+<ul>
+<li><a href="#zxjafont%E3%81%AE%E3%83%97%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E5%A4%89%E6%9B%B4">zxjafontのプリセットの変更</a></li>
+<li><a href="#org-mode%E3%81%8B%E3%82%89html-export%E3%81%AE%E9%9A%9B%E3%81%AEtheme%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BE%E3%81%AA%E3%81%84-%E3%83%91%E3%82%B9%E3%82%92%E8%AA%AD%E3%81%BE%E3%81%AA%E3%81%84">org-modeからhtml exportの際のthemeを読み込まない（パスを読まない）</a></li>
+<li><a href="#location-of-pdf-files-in-bibdesk-on-catalina">Location of pdf files in BibDesk on Catalina</a></li>
+</ul>
+</li>
+<li><a href="#how-to-setup-full-text-search-of-pdf-files-on-catalina">How to setup full text search of pdf files on Catalina</a></li>
+<li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="dealing-with-read-only-system-volume-in-catalina">Dealing with read-only system volume in Catalina</h2>
+<ul>
+<li>参照サイト : <a href="https://news.mynavi.jp/article/osxhack-242/">Catalinaでファイルシステムがこう変わる</a></li>
+</ul>
+<p>Catalinaのファイルシステムではファイルアクセスが厳格化されており，APFS (Apple File System)でフォーマットされたルートボリューム(起動ディスク)はシステム領域とデータ領域に2分割され，そのうちシステム領域は完全にリードオンリーとなる（上記の参照サイトが詳細かつわかりやすく解説しているので参照されたい）．</p>
+<p>私はこれまでは，root directoryにData directoryを作成し，そこにほぼ全てのデータを入れ，また，各種ソフトウェアのソースなどは，root directoryにSources directoryを作成し保存してきた．しかし，Catalinaでは上述の変化に伴い，これが不可能となった．実際，管理者権限でdirectoryをrootに作成しようとしても，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /
+$ sudo mkdir test
+Password:
+mkdir: test: Read-only file system
+</code></pre></div><p>と言う具合に撥ねられてしまう．</p>
+<p>そこで，Data directoryやSources directoryを自分のhome directory，即ち，/Users/taipapa/の下に入れることにした．つまり，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/
+├── Data
+└── Sources
+</code></pre></div><p>から</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">taipapa
+├── Data
+└── Sources
+</code></pre></div><p>に変更した．これに伴い，各ファイル内のパスも修正した．基本的にはファイルパスの最初に，/Users/taipapa/もしくは <strong>~</strong> をつければ良いだけであるが，これでうまくいかないものは個別に対応するしかない．例えば，文献管理ソフトの <strong>BibDesk</strong> がそうであった．これらの問題は別稿にまとめることにする．</p>
+<h2 id="preparation-for-emacs-installation">Preparation for Emacs installation</h2>
+<p>つい先日やったばかりなのに，もはや記憶が定かではないのだが，要は，<a href="../mojave//#upgrade-to-xcode-10-dot-2-dot-1">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrewのUpgrade to Xcode 10.2.1</a>にまとめたことを行った．tmp directoryのpermissionの問題があったかどうかは覚えていない（笑）．homebrew自体のインストールにも特に問題はなかった．要するに，ほとんど何も覚えていないくらいスムーズにことは運んだと言うことである．</p>
+<h2 id="how-to-install-emacs-26-dot-3-into-macbook-pro-16-inch--catalina">How to install Emacs 26.3 into MacBook Pro 16 inch (Catalina)</h2>
+<p>Emacsのインストールも，<a href="../mojave/#upgrade-to-emacs-26-dot-2-from-26-dot-1">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew の Upgrade to Emacs 26.2 from 26.1</a> にまとめたことを行っただけである．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew tap railwaycat/emacsmacport
+$ brew install emacs-mac --with-modern-icon --with-imagemagick
+$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
+</code></pre></div><p>これで， <strong>/usr/local/Cellar/emacs-mac/emacs-26.3-z-mac-7.8 (4,010 files, 129.7MB)</strong> がインストールされた．</p>
+<p>あとは，以前に書いた以下の記事に従ってセットアップした．</p>
+<p><a href="../prelude_install">Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</a></p>
+<p><a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a></p>
+<p><a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></p>
+<p>実際には，preludeを導入した後に，前のMacBook Pro 2016 lateの/Users/taipapa/.emacs.d/personal/init.orgをコピペしただけである．もちろん，多少の微調整は必要であったが，特に問題なく設定も終了した．diredがらみの微調整はCatalinaに特有の問題ではないようだが，後日に別途まとめるつもりである．</p>
+<h2 id="how-to-install-latex-into-macbook-pro-16-inch--catalina">How to install  LaTeX into MacBook Pro 16 inch (Catalina)</h2>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://doratex.hatenablog.jp/entry/20190502/1556775026">MacTeX 2019 のインストール＆日本語環境構築法</a></li>
+<li><a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></li>
+<li><a href="../mojave">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></li>
+</ul>
+<p>最初の<a href="https://doratex.hatenablog.jp/entry/20190502/1556775026">MacTeX 2019 のインストール＆日本語環境構築法</a>の通りにすれば良い．これにより， <strong>texlive2019</strong> がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．文献管理ソフトであるBibDeskのpdfの管理に問題が生じたが，これについては解決策とともに別稿でまとめる．</p>
+<h2 id="how-to-setup-org-mode-in-macbook-pro-16-inch--catalina">How to setup org-mode in MacBook Pro 16 inch (Catalina)</h2>
+<p>最もよく使うorg-modeのセットアップは以下の以前の記事の通りに作業した．</p>
+<ul>
+<li><a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></li>
+<li><a href="../org-mode_paper_2">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a></li>
+<li><a href="../org-mode_paper_3">Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化</a></li>
+<li><a href="../org-mode_paper_4">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a></li>
+</ul>
+<p>といっても実際にやったのは，以前の/Users/taipapa/.emacs.d/personal/init.orgをコピペしたことがほぼ全てである．</p>
+<h2 id="encountered-problems-遭遇した問題点">Encountered problems: 遭遇した問題点</h2>
+<p>ここからは，上述のセットアップの際に遭遇した問題点についてまとめておく．</p>
+<h3 id="zxjafontのプリセットの変更">zxjafontのプリセットの変更</h3>
+<ul>
+<li>参照サイト：<a href="https://zrbabbler.hatenablog.com/entry/20180721/1532187775">そういえば ZXjafont が新しくなった（v0.4）</a></li>
+<li>zxjafontとは，「和文フォントのプリセット設定」を XeLaTeX + zxjatype の環境で行うためのもの</li>
+</ul>
+<p>上記サイト（<a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a>）にあるorg fileをコピペして，org fileからpdfをexportしようとすると，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">! Package zxjafont Error: The old preset <span style="color:#e6db74">&#39;hiragino-dx&#39;</span> is *abolished*.
+
+See the zxjafont package documentation <span style="color:#66d9ef">for</span> explanation.
+Type  H &lt;<span style="color:#66d9ef">return</span>&gt;  <span style="color:#66d9ef">for</span> immediate help.
+</code></pre></div><p>と言うようなエラーになる．要するに，texlive2019をインストールしてzxjafontが新しくなったのに伴い，&ldquo;hiragino-dx&quot;と言うpresetは古くてもう廃止されたと言われているのである．指示に従ってドキュメントを読むと， <strong>hiragino-pron</strong> を使えとあるので，init.orgの中のhiragino-dxを全てhiragino-pronに変更するとうまくいくようになった．</p>
+<h3 id="org-modeからhtml-exportの際のthemeを読み込まない-パスを読まない">org-modeからhtml exportの際のthemeを読み込まない（パスを読まない）</h3>
+<p>以前の記事（<a href="../org-html-export-theme">Org-modeでhtml exportの際のthemeについて</a>）で，好きなテーマとしてあげた <strong>org-spec</strong> であるが，org fileの冒頭の部分は以下のようになっている．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+<span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;/Hoge/Fuga/org-spec-master/css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</code></pre></div><p>これを，Catalinaではパスの変更に合わせて以下のように設定した．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+<span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;/Users/taipapa/Hoge/Fuga/org-spec-master/css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</code></pre></div><p>しかし，上記の2行目を，Catalinaではうまく読めなくなり，設定が読み込まれなくなった．スッピンのhtml とでも言うか，単なるテキストに近いものとしてexportされてしまう．しかし，org-specのcss/style.cssをorg fileと同じdirectoryに置いて，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</code></pre></div><p>と冒頭の部分を書き直すとうまくいく．前述の1行目はなくてもよかった．</p>
+<h3 id="location-of-pdf-files-in-bibdesk-on-catalina">Location of pdf files in BibDesk on Catalina</h3>
+<p>以前の記事でBibDeskについてまとめた（<a href="../org-mode_paper_2">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a>）が，その中で，自分の文献リストに“hogefuga-reference.bib”と名前をつけて保存していることを記載している．ただ，保存場所については記述していなかった．実はこのリストは，/Users/taipapa/Documentsに置いており，iCloudを利用して，仕事場のiMacでも同じ文献リストが使えるようにしている．BibDeskでは，その論文のpdfも一緒に管理できるのだが，上述のファイルシステム構造の変化により，全て，pdfが行方不明になってしまった．</p>
+<p>BibDeskにおけるpdfのlocationを修正しようとしてhogefuga-reference.bibの中を見てみると，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex">Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxAhLi4vLi4vLi4vRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmTxEBQgAAAAABQgACAAAKSGllcm9ueW11cwAAAAAAAAAAAAAAAAAAAAAAAAAAAEJEAAH/////DDI1XzNfMzEzLnBkZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAAAAAwADAAAKIGN1AAAAAAAAAAAAAAAAAAZOUy1wZGYAAgApLzpVc2Vyczprb2hraWNoaTpEYXRhOk5TLXBkZjoyNV8zXzMxMy5wZGYAAA4AGgAMADIANQBfADMAXwAzADEAMwAuAHAAZABmAA8AFgAKAEgAaQBlAHIAbwBuAHkAbQB1AHMAEgAnVXNlcnMva29oa2ljaGkvRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmAAATAAEvAAAVAAIAD///AAAACAANABoAJABIAAAAAAAAAgEAAAAAAAAABQAAAAAAAAAAAAAAAAAAAY4=}}
+</code></pre></div><p>と言うふうに，pdfの場所は暗号化？されており，修正などできないことが判明した．1万数千のpdf fileをもう一度手作業でBibDeskに認識させないといけないのかと気が遠くなりかけた．しかし，よく考えてみると，BibDeskは相対的な場所やパスを認識している．以前のMacBook Pro late 2016では，/Data/hoge-pdf/のように，/Dataの下にdirectoryを作成して，そこにpdfを保存していた．Catalinaでは，Data directoryはhome directoryである/Users/taipapaの下に置かれるようになった．つまり，相対的には2レベル下のdirectoryに文献リストであるhogefuga-References.bibを置けば良いのである．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users
+$ tree -L <span style="color:#ae81ff">5</span>
+.
+└── taipapa
+     └── Documents
+          └── taipapa2
+               └── Documents
+                    └── hogefuga-References.bib
+</code></pre></div><p>上図のように，Documentsの下にtaipapa2 directoryを作成し，さらにその下にDocuments directoryを作成し，そこにhogefuga-References.bibを置くようにしたところ，BibDeskがpdfの場所を認識するようになった．ただ，iCloudを介してMojaveがインストールされた他のマック（まだmojave）からもこの文献リストを共有するためには，/Users/taipapa/Documents/にhogefuga-References.bibをコピーしておかなければならない．symbolic linkではオリジナルの方を認識してしまいうまくいかないし，hard linkではiCloudを経由するとうまくいかない．</p>
+<h2 id="how-to-setup-full-text-search-of-pdf-files-on-catalina">How to setup full text search of pdf files on Catalina</h2>
+<p>以前の記事で全文検索についてまとめたが（<a href="../fulltextsearch">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>），Catalinaでもこの記事と同じ設定でpdf fileの全文検索が可能となった．Mojaveでもhome directoryでセットアップしたので，大きな問題はなかったのであろう．ただし，Catalinaでは，pdf fileの置き場所がhome directoryの下のData directory以下に変更されているため，/Users/taipapa/Sites/cgi-bin/est/estseek.confの設定は以下のように変更した．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">1</span> <span style="color:#75715e">#indexname: casket</span>
+<span style="color:#ae81ff">2</span> indexname: /Users/taipapa/Sites/pdf/casket
+<span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">4</span> tmplfile: estseek.tmpl
+<span style="color:#ae81ff">5</span>
+<span style="color:#ae81ff">6</span> topfile: estseek.top
+<span style="color:#ae81ff">7</span>
+<span style="color:#ae81ff">8</span> helpfile: estseek.help
+<span style="color:#ae81ff">9</span>
+<span style="color:#ae81ff">10</span> lockindex: true
+<span style="color:#ae81ff">11</span>
+<span style="color:#ae81ff">12</span> pseudoindex:
+<span style="color:#ae81ff">13</span>
+<span style="color:#ae81ff">14</span> <span style="color:#75715e">#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/</span>
+<span style="color:#ae81ff">15</span> <span style="color:#75715e">#replace: /index\.html?${{!}}/</span>
+<span style="color:#ae81ff">16</span>
+<span style="color:#ae81ff">17</span> <span style="color:#75715e">#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/</span>
+<span style="color:#ae81ff">18</span>
+<span style="color:#ae81ff">19</span> replace: ^file:///Users/kohkichi/Data/<span style="color:#f92672">{</span><span style="color:#f92672">{</span>!<span style="color:#f92672">}</span><span style="color:#f92672">}</span>http://localhost/~taipapa/pdf/PDFs/
+<span style="color:#ae81ff">20</span>
+</code></pre></div><p>これでブラウザによるpdf fileの全文検索が可能となった．</p>
+<h2 id="まとめ">まとめ</h2>
+<p>今回はかなり苦労すると予想していたのだが，意外とスムーズに行ってしまった（笑）．問題になったのは細かい点が多く，ファイルシステムの変更に伴う問題が一番厄介であった．そのほかでは，GIMPも特に問題なく動き，動画ファイルも問題なかった．お陰で仕事ができる環境を素早く確立することができた．今回も，「案ずるより産むが易し」であった．😄</p>
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/macbookpro16/">macbookpro16</a>
+  
+  <a class="badge badge-light" href="/tags/emacs/">Emacs</a>
+  
+  <a class="badge badge-light" href="/tags/latex/">LaTeX</a>
+  
+  <a class="badge badge-light" href="/tags/catalina/">Catalina</a>
+  
+  <a class="badge badge-light" href="/tags/setup/">setup</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar%20%28Copy%201%29_hu0e0eac0269c34ce41ed30e928150bd75_369085_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">taipapa</a></h5>
+      <h6 class="card-subtitle">本人ではありません　(^^)</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:taipapamotohus@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=x1m6M2IAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/taipapamotohus" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+    
+
+    
+    <div class="article-widget">
+      
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/how-to-create-conference-poster-by-latex-beamer/" rel="prev">How to create conference posters by latex (beamer)</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/ocaml.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/sh.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/tex.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/emacs-lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/pearl.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    © 2020 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

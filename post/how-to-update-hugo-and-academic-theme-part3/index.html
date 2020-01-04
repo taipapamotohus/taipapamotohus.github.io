@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -400,115 +400,87 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>先日，ブログのアップデートについて2回に分けてまとめたが（<a href="../how-to-upgrade-hugo-and-academic-theme">How to update hugo and academic theme (Part1)</a>, <a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
-<li><a href="#自己紹介">自己紹介</a></li>
+<li><a href="#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B">自己紹介</a></li>
 <li><a href="#widget-in-academic">Widget in Academic</a></li>
-<li><a href="#home-pageの最初の画像">home pageの最初の画像</a></li>
+<li><a href="#home-page%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E7%94%BB%E5%83%8F">home pageの最初の画像</a></li>
 <li><a href="#day--light--and-night--dark--mode">Day (light) and night (dark) mode</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+<!-- raw HTML omitted -->
 <h2 id="自己紹介">自己紹介</h2>
-
 <ul>
-<li><a href="https://sourcethemes.com/academic/docs/get-started/#introduce-yourself" target="_blank">Introduce yourself</a> academicのご本家の解説</li>
+<li><a href="https://sourcethemes.com/academic/docs/get-started/#introduce-yourself">Introduce yourself</a> academicのご本家の解説</li>
 <li>リンク先に書いてあるが，content/authors/admin/_index.mdに自分のプロファイルを書く．不要な部分は#で全てコメントアウトすれば良い．</li>
 <li>avatorを表示するには，画像の名前をavatorとしてcontent/authors/admin/に保存する．例として元々あった画像と置き換えれば良い．</li>
 </ul>
-
 <h2 id="widget-in-academic">Widget in Academic</h2>
-
 <ul>
-<li><a href="https://sourcethemes.com/academic/docs/page-builder" target="_blank">Getting Started With the Page Builder</a> ご本家の解説</li>
+<li><a href="https://sourcethemes.com/academic/docs/page-builder">Getting Started With the Page Builder</a> ご本家の解説</li>
 <li>widgetとは．．．ウィジェットである．(^^;;; ブログを組み立てる部品のようなもの．上記のリンク先に詳細に解説されている．例えば， <strong>About</strong> widjetは読者にブログ主を紹介するためのものである．ただし，実際のプロファイルの内容は前述のようにcontent/authors/admin/_index.mdに記載されている． このブログのように，投稿記事を載せているだけの場合は，ほとんどのwidgetは不要である．</li>
 <li>不要なwidgetは，content/home/のディレクトリから削除すれば良い．参考のために残して置きたければ， それぞれのindex.mdのfront matterの最初の方にある active = true を <strong>active = false</strong> とすれば良い．下図は， content/home/featured/index.mdのfeatured widget の場合である．これで featured widget は表示されなくなる．</li>
 </ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">+++
+<span style="color:#75715e"># A Featured Publications section created with the Featured Content widget.</span>
+<span style="color:#75715e"># This section displays publications from `content/publication/` which have</span>
+<span style="color:#75715e"># `featured = true` in their front matter.</span>
 
-<!--listend-->
-
-<pre><code class="language-sh">+++
-# A Featured Publications section created with the Featured Content widget.
-# This section displays publications from `content/publication/` which have
-# `featured = true` in their front matter.
-
-widget = &quot;featured&quot;  # See https://sourcethemes.com/academic/docs/page-builder/
-headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
-weight = 80  # Order that this section will appear.
-</code></pre>
-
-<h2 id="home-pageの最初の画像">home pageの最初の画像</h2>
-
+widget <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;featured&#34;</span>  <span style="color:#75715e"># See https://sourcethemes.com/academic/docs/page-builder/</span>
+headless <span style="color:#f92672">=</span> true  <span style="color:#75715e"># This file represents a page section.</span>
+active <span style="color:#f92672">=</span> false  <span style="color:#75715e"># Activate this widget? true/false</span>
+weight <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>  <span style="color:#75715e"># Order that this section will appear.</span>
+</code></pre></div><h2 id="home-pageの最初の画像">home pageの最初の画像</h2>
 <p>ブログの最初のページに掲げる画像だが，アップデート前は， <strong>hero widget</strong> で設定していた．具体的には，content/home/hero.mdのなかで，front matterに</p>
-
-<pre><code class="language-sh">+++
-# Hero widget.
-widget = &quot;hero&quot;
-active = true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">+++
+<span style="color:#75715e"># Hero widget.</span>
+widget <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hero&#34;</span>
+active <span style="color:#f92672">=</span> true
 .....
-overlay_img = &quot;headers/hogehoge.jpg&quot;  # Image path relative to your `static/img/` folder.
+overlay_img <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;headers/hogehoge.jpg&#34;</span>  <span style="color:#75715e"># Image path relative to your `static/img/` folder.</span>
 .....
-</code></pre>
-
-<p>と書いていた．</p>
-
+</code></pre></div><p>と書いていた．</p>
 <p>academicをアップデート後は，画像の一部しか表示されなくなったために，content/home/hero/index.mdのfront matterに <strong>active = false</strong> と書いて，hero widget自体を無効にした．代わりに，content/home/slider/index.md のfront matterに　</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">+++
+<span style="color:#75715e"># Slider widget.</span>
+widget <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;slider&#34;</span>  <span style="color:#75715e"># See https://sourcethemes.com/academic/docs/page-builder/</span>
+headless <span style="color:#f92672">=</span> true  <span style="color:#75715e"># This file represents a page section.</span>
+active <span style="color:#f92672">=</span> true  <span style="color:#75715e"># Activate this widget? true/false</span>
+weight <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># Order that this section will appear.</span>
 
-<pre><code class="language-sh">+++
-# Slider widget.
-widget = &quot;slider&quot;  # See https://sourcethemes.com/academic/docs/page-builder/
-headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
-weight = 1  # Order that this section will appear.
+<span style="color:#75715e"># Slide interval.</span>
+<span style="color:#75715e"># Use `false` to disable animation or enter a time in ms, e.g. `5000` (5s).</span>
+interval <span style="color:#f92672">=</span> false
 
-# Slide interval.
-# Use `false` to disable animation or enter a time in ms, e.g. `5000` (5s).
-interval = false
+<span style="color:#75715e"># Slide height (optional).</span>
+<span style="color:#75715e"># E.g. `500px` for 500 pixels or `calc(100vh - 70px)` for full screen.</span>
+height <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;400px&#34;</span>
 
-# Slide height (optional).
-# E.g. `500px` for 500 pixels or `calc(100vh - 70px)` for full screen.
-height = &quot;400px&quot;
+<span style="color:#75715e"># Slides.</span>
+<span style="color:#75715e"># Duplicate an `[[item]]` block to add more slides.</span>
+  <span style="color:#f92672">[</span><span style="color:#f92672">[</span>item<span style="color:#f92672">]</span><span style="color:#f92672">]</span>
+title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;完璧な秋の日&#34;</span>
+content <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;とりあえず備忘録として 🚀&#34;</span>
+<span style="color:#75715e">#  align = &#34;center&#34;  # Choose `center`, `left`, or `right`.</span>
 
-# Slides.
-# Duplicate an `[[item]]` block to add more slides.
-  [[item]]
-title = &quot;完璧な秋の日&quot;
-content = &quot;とりあえず備忘録として 🚀&quot;
-#  align = &quot;center&quot;  # Choose `center`, `left`, or `right`.
-
-  # Overlay a color or image (optional).
-  #   Deactivate an option by commenting out the line, prefixing it with `#`.
-#  overlay_color = &quot;#666&quot;  # An HTML color value.
-overlay_img = &quot;hogefuga.jpg&quot;  # Image path relative to your `static/img/` folder.
-#  overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+  <span style="color:#75715e"># Overlay a color or image (optional).</span>
+  <span style="color:#75715e">#   Deactivate an option by commenting out the line, prefixing it with `#`.</span>
+<span style="color:#75715e">#  overlay_color = &#34;#666&#34;  # An HTML color value.</span>
+overlay_img <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hogefuga.jpg&#34;</span>  <span style="color:#75715e"># Image path relative to your `static/img/` folder.</span>
+<span style="color:#75715e">#  overlay_filter = 0.5  # Darken the image. Value in range 0-1.</span>
 .....
-</code></pre>
-
-<p>と書いて， <strong>slider widget</strong> を使うようにしたところ，ほぼ望み通りの画像表示となった（画像自体はstatic/img/に置いた ）．</p>
-
+</code></pre></div><p>と書いて， <strong>slider widget</strong> を使うようにしたところ，ほぼ望み通りの画像表示となった（画像自体はstatic/img/に置いた ）．</p>
 <h2 id="day--light--and-night--dark--mode">Day (light) and night (dark) mode</h2>
-
 <ul>
-<li><a href="https://themes.gohugo.io/theme/academic/post/getting-started/" target="_blank">Academic: the website builder for Hugo</a> こちらに書いてある機能</li>
+<li><a href="https://themes.gohugo.io/theme/academic/post/getting-started/">Academic: the website builder for Hugo</a> こちらに書いてある機能</li>
 </ul>
-
 <p>アップデートにより，今流行りのdark modeと通常のlight modeを，読者が右上のsun/moon iconをクリックすることで切り替えられるようになった．設定は，config/_default/params.tomlの中で，以下のように <strong>day_night = true</strong> とすれば良い．</p>
-
-<pre><code class="language-sh">.....
-# Enable users to switch between day and night mode?
-day_night = true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">.....
+<span style="color:#75715e"># Enable users to switch between day and night mode?</span>
+day_night <span style="color:#f92672">=</span> true
 .....
-</code></pre>
-
-<p><br />
+</code></pre></div><p>\<br>
 今回は本当に殴り書きメモのような内容．それにhugoに関することは全然なくて，academicのことしか書いてない．看板に偽りありだな．．．(^^;;;</p>
     </div>
 
@@ -844,7 +816,7 @@ day_night = true
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

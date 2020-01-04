@@ -5,7 +5,7 @@
     <link>/tags/highlight/</link>
       <atom:link href="/tags/highlight/index.xml" rel="self" type="application/rss+xml" />
     <description>highlight</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 10 Jul 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>highlight</title>
@@ -17,49 +17,34 @@
       <link>/post/symbol-overlay/</link>
       <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/symbol-overlay/</guid>
-      <description>&lt;p&gt;今回は（も？），redditで拾ってきたネタ（&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/c95cm5/how%5Fto%5Fhighlight%5Foccurences%5Fat%5Fcursor%5Fpoint%5Fin/&#34; target=&#34;_blank&#34;&gt;How to highlight occurences at cursor point in Emacs&lt;/a&gt;）．カーソルの位置にあるシンボル（単語と思えば良い）をバッファ内ですべてハイライトしてくれるEmacsのパッケージを訊いているのだが，いくつか答えがあって，一番便利そうだったのが，今回紹介する &lt;strong&gt;symbol-overlay&lt;/strong&gt; である．&lt;/p&gt;
-
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-
+      <description>&lt;p&gt;今回は（も？），redditで拾ってきたネタ（&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/c95cm5/how%5Fto%5Fhighlight%5Foccurences%5Fat%5Fcursor%5Fpoint%5Fin/&#34;&gt;How to highlight occurences at cursor point in Emacs&lt;/a&gt;）．カーソルの位置にあるシンボル（単語と思えば良い）をバッファ内ですべてハイライトしてくれるEmacsのパッケージを訊いているのだが，いくつか答えがあって，一番便利そうだったのが，今回紹介する &lt;strong&gt;symbol-overlay&lt;/strong&gt; である．&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use&#34;&gt;How to use&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;!--endtoc--&gt;&lt;/p&gt;
-
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/wolray/symbol-overlay&#34; target=&#34;_blank&#34;&gt;symbol-overlay&lt;/a&gt; （ご本家）&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://manuel-uberti.github.io/emacs/2019/02/14/avy/&#34; target=&#34;_blank&#34;&gt;Jump around&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://qiita.com/blue0513/items/c0dc35a880170997c3f5&#34; target=&#34;_blank&#34;&gt;Emacsの補完と検索を超強化する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wolray/symbol-overlay&#34;&gt;symbol-overlay&lt;/a&gt; （ご本家）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://manuel-uberti.github.io/emacs/2019/02/14/avy/&#34;&gt;Jump around&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/blue0513/items/c0dc35a880170997c3f5&#34;&gt;Emacsの補完と検索を超強化する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
-
 &lt;p&gt;例によって，以下のようにinit.orgに書き込んでMELPAからsymbol-overlayをインストールする．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package symbol-overlay             ; Highlight symbols
-  :ensure t
-  :config
-  (global-set-key (kbd &amp;quot;M-i&amp;quot;) &#39;symbol-overlay-put)
-  (global-set-key (kbd &amp;quot;&amp;lt;f7&amp;gt;&amp;quot;) &#39;symbol-overlay-mode)
-  (global-set-key (kbd &amp;quot;&amp;lt;f8&amp;gt;&amp;quot;) &#39;symbol-overlay-remove-all)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; symbol-overlay             &lt;span style=&#34;color:#75715e&#34;&gt;; Highlight symbols&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+  (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;M-i&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;symbol-overlay-put&lt;/span&gt;)
+  (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;f7&amp;gt;&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;symbol-overlay-mode&lt;/span&gt;)
+  (global-set-key (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;f8&amp;gt;&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;symbol-overlay-remove-all&lt;/span&gt;)
   )
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;how-to-use&#34;&gt;How to use&lt;/h2&gt;
-
-&lt;p&gt;使用法はご本家に書いてあるが，まず，”M-i”を叩けば，カーソルが位置しているシンボル（単語と思えば良い）が色付きでハイライトされる．同時に，同一バッファ内での全ての同じ単語も同様にハイライトされる．カーソルを動かしてもハイライトされた状態はそのままである．続けて，別の単語にカーソルを持って行って，&amp;rdquo;M-i&amp;rdquo;とすれば，その単語が別の色でハイライトされる．勿論，バッファ内の同一の単語も全て同じ色でハイライトされる．しかも，最初にハイライトした単語は，カーソルが離れた後もハイライトされた状態を維持している．文章で書くとわかりにくいが，要するに下図のような状態になる．&lt;/p&gt;
-
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use&#34;&gt;How to use&lt;/h2&gt;
+&lt;p&gt;使用法はご本家に書いてあるが，まず，”M-i”を叩けば，カーソルが位置しているシンボル（単語と思えば良い）が色付きでハイライトされる．同時に，同一バッファ内での全ての同じ単語も同様にハイライトされる．カーソルを動かしてもハイライトされた状態はそのままである．続けて，別の単語にカーソルを持って行って，&amp;ldquo;M-i&amp;quot;とすれば，その単語が別の色でハイライトされる．勿論，バッファ内の同一の単語も全て同じ色でハイライトされる．しかも，最初にハイライトした単語は，カーソルが離れた後もハイライトされた状態を維持している．文章で書くとわかりにくいが，要するに下図のような状態になる．&lt;/p&gt;
 
 
 
@@ -75,22 +60,17 @@
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;さらに，各単語間は &amp;ldquo;n&amp;rdquo; で先に進み， &amp;ldquo;p&amp;rdquo; で逆戻りできる．別の色のハイライトの単語にカーソルを移動させれば，今度はその単語間で同様に移動できる．そのほかご本家サイトによれば，以下のようなキーバインドになっている．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;&amp;quot;n&amp;quot; -&amp;gt; symbol-overlay-jump-next
-&amp;quot;p&amp;quot; -&amp;gt; symbol-overlay-jump-prev
-&amp;quot;w&amp;quot; -&amp;gt; symbol-overlay-save-symbol
-&amp;quot;t&amp;quot; -&amp;gt; symbol-overlay-toggle-in-scope
-&amp;quot;e&amp;quot; -&amp;gt; symbol-overlay-echo-mark
-&amp;quot;d&amp;quot; -&amp;gt; symbol-overlay-jump-to-definition
-&amp;quot;s&amp;quot; -&amp;gt; symbol-overlay-isearch-literally
-&amp;quot;q&amp;quot; -&amp;gt; symbol-overlay-query-replace
-&amp;quot;r&amp;quot; -&amp;gt; symbol-overlay-rename
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;なかでも特筆すべきは &amp;ldquo;r&amp;rdquo; のsymbol-overlay-renameで，ハイライトされた単語を一気に書き換えることができる．例えば下図のように &amp;ldquo;global-set-key&amp;rdquo; が赤くハイライトされている時，どれかの&amp;rdquo;global-set-key&amp;rdquo;にカーソルを置いて &amp;ldquo;r&amp;rdquo; を叩けば，minibufferにRenameが表示され，これを消去して新しい名前を書くと赤くハイライトされている単語は一気に新しい名前に変わる．この機能は場合によっては非常に便利である．&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-jump-next
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;p&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-jump-prev
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;w&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-save-symbol
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;t&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-toggle-in-scope
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;e&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-echo-mark
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;d&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-jump-to-definition
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-isearch-literally
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;q&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-query-replace
+&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;r&amp;#34;&lt;/span&gt; -&amp;gt; symbol-overlay-rename
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なかでも特筆すべきは &amp;ldquo;r&amp;rdquo; のsymbol-overlay-renameで，ハイライトされた単語を一気に書き換えることができる．例えば下図のように &amp;ldquo;global-set-key&amp;rdquo; が赤くハイライトされている時，どれかの&amp;quot;global-set-key&amp;quot;にカーソルを置いて &amp;ldquo;r&amp;rdquo; を叩けば，minibufferにRenameが表示され，これを消去して新しい名前を書くと赤くハイライトされている単語は一気に新しい名前に変わる．この機能は場合によっては非常に便利である．&lt;/p&gt;
 
 
 
@@ -105,7 +85,6 @@
 &lt;/a&gt;
 
 &lt;/figure&gt;
-
 
 &lt;p&gt;こういうパッケージを教えてくれるので，redditは有難い．&lt;/p&gt;</description>
     </item>

@@ -5,7 +5,7 @@
     <link>/tags/init-el/</link>
       <atom:link href="/tags/init-el/index.xml" rel="self" type="application/rss+xml" />
     <description>init-el</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>init-el</title>
@@ -17,116 +17,116 @@
       <link>/post/japanese_setup/</link>
       <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/japanese_setup/</guid>
-      <description>
-
-&lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
-
+      <description>&lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;coding-systemの設定&#34;&gt;Coding systemの設定&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;init.orgに以下のように書き込む&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;​* Coding System Environment
+&lt;li&gt;
+&lt;p&gt;まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;init.orgに以下のように書き込む&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Coding System Environment
 ** 言語を日本語にする
-   #+BEGIN_SRC lisp
-   (set-language-environment &#39;Japanese)
-   #+END_SRC
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+   (set-language-environment &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Japanese&lt;/span&gt;)
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
 ** 極力UTF-8とする
-   #+BEGIN_SRC lisp
-     (prefer-coding-system &#39;utf-8)
-   #+END_SRC
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+     (prefer-coding-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&lt;/span&gt;)
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
 ** 日本語フォントをヒラギノにする
-​   - 日本語のサイズを指定しないと動的にサイズを変えられるようになる
-​   - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/
-   #+BEGIN_SRC lisp
-     (when (or (eq window-system &#39;mac) (eq window-system &#39;ns))
-       (set-face-attribute &#39;default nil
-                           :family &amp;quot;Menlo&amp;quot;
-                           :height 180) ;; 18pt
-       (set-fontset-font nil &#39;japanese-jisx0208
-                         (font-spec :family &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;))
-       (setq face-font-rescale-alist
-             &#39;((&amp;quot;.*Hiragino Kaku Gothic ProN.*&amp;quot; . 1.1))))
-   #+END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 日本語のサイズを指定しないと動的にサイズを変えられるようになる
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+     (when (or (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ns&lt;/span&gt;))
+       (set-face-attribute &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+                           &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Menlo&amp;#34;&lt;/span&gt;
+                           &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; 18pt&lt;/span&gt;
+       (set-fontset-font &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;japanese-jisx0208&lt;/span&gt;
+                         (font-spec &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hiragino Kaku Gothic ProN&amp;#34;&lt;/span&gt;))
+       (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; face-font-rescale-alist
+             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*Hiragino Kaku Gothic ProN.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;))))
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これがEmacs起動時にorg-babel-load-fileにより変換されて下記のようなinit.elとなる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(set-language-environment &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Japanese&lt;/span&gt;)
 
-&lt;li&gt;&lt;p&gt;これがEmacs起動時にorg-babel-load-fileにより変換されて下記のようなinit.elとなる．&lt;/p&gt;
+(prefer-coding-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&lt;/span&gt;)
 
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(set-language-environment &#39;Japanese)
-
-(prefer-coding-system &#39;utf-8)
-
-(when (or (eq window-system &#39;mac) (eq window-system &#39;ns))
-  (set-face-attribute &#39;default nil
-                      :family &amp;quot;Menlo&amp;quot;
-                      :height 180) ;; 18pt
-  (set-fontset-font nil &#39;japanese-jisx0208
-                    (font-spec :family &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;))
-  (setq face-font-rescale-alist
-        &#39;((&amp;quot;.*Hiragino Kaku Gothic ProN.*&amp;quot; . 1.1))))
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;つまり，org-modeで書いたinit.orgでの解説はすべて除かれて，lispのみのcodeになってinit.elが生成される．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;この利点は，init.elの説明が実に書きやすい点にある（実際にはinit.orgに書くわけだが．．．）．org-modeはアウトライナーなので，階層構造も自由自在である．整理もしやすいし，後で順番を変えるのもCommand + arrow keyを使えば実に簡単である．&lt;/p&gt;&lt;/li&gt;
+(when (or (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ns&lt;/span&gt;))
+  (set-face-attribute &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+                      &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Menlo&amp;#34;&lt;/span&gt;
+                      &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; 18pt&lt;/span&gt;
+  (set-fontset-font &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;japanese-jisx0208&lt;/span&gt;
+                    (font-spec &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hiragino Kaku Gothic ProN&amp;#34;&lt;/span&gt;))
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; face-font-rescale-alist
+        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*Hiragino Kaku Gothic ProN.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;つまり，org-modeで書いたinit.orgでの解説はすべて除かれて，lispのみのcodeになってinit.elが生成される．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;この利点は，init.elの説明が実に書きやすい点にある（実際にはinit.orgに書くわけだが．．．）．org-modeはアウトライナーなので，階層構造も自由自在である．整理もしやすいし，後で順番を変えるのもCommand + arrow keyを使えば実に簡単である．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;inline-patchの設定&#34;&gt;Inline-patchの設定&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;ついで，最も重要なinline-patchの設定&lt;/li&gt;
-&lt;li&gt;参考：&lt;a href=&#34;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&#34; target=&#34;_blank&#34;&gt;Macに最新バージョンのEmacsをインストール&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考：&lt;a href=&#34;http://suzuki.tdiary.net/20160103.html&#34; target=&#34;_blank&#34;&gt;El Capitan での日本語入力時に Emacs 内のカーソル色を変更する&lt;/a&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;init.orgに以下のように書き込む．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;​* inline-patch on macosx
+&lt;li&gt;
+&lt;p&gt;ついで，最も重要なinline-patchの設定&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参考：&lt;a href=&#34;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945&#34;&gt;Macに最新バージョンのEmacsをインストール&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参考：&lt;a href=&#34;http://suzuki.tdiary.net/20160103.html&#34;&gt;El Capitan での日本語入力時に Emacs 内のカーソル色を変更する&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;init.orgに以下のように書き込む．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; inline-patch on macosx
 ** ミニバッファ入力時に自動的に英語入力モードにする
-​   - 参考：http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-   #+BEGIN_SRC lisp
-     (when (functionp &#39;mac-auto-ascii-mode)  ;; ミニバッファに入力時、自動的に英語モード
-       (mac-auto-ascii-mode 1))
-   #+END_SRC
-** 日本語か英語かで，カーソルの色を変える．
-​   - 参考１：http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-​   - 参考２：http://suzuki.tdiary.net/20160103.html
-   #+BEGIN_SRC lisp
-     (when (fboundp &#39;mac-input-source)
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+     (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;functionp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-auto-ascii-mode&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;;; ミニバッファに入力時、自動的に英語モード&lt;/span&gt;
+       (mac-auto-ascii-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+** 日本語か英語かで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;カーソルの色を変える&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考１&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考２&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://suzuki.tdiary.net/20160103.html
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+     (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;fboundp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-input-source&lt;/span&gt;)
        (defun my-mac-selected-keyboard-input-source-chage-function ()
-         (let ((mac-input-source (mac-input-source)))
+         (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((mac-input-source (mac-input-source)))
            (set-cursor-color
-                                             ; (if (string-match &amp;quot;com.apple.inputmethod.Kotoeri.Roman&amp;quot; mac-input-source)
-            (if (string-match &amp;quot;com.google.inputmethod.Japanese.Roman&amp;quot; mac-input-source)
-                &amp;quot;#91C3FF&amp;quot; &amp;quot;#FF9300&amp;quot;))))
-       (add-hook &#39;mac-selected-keyboard-input-source-change-hook
-                 &#39;my-mac-selected-keyboard-input-source-chage-function))
-   #+END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+                                             &lt;span style=&#34;color:#75715e&#34;&gt;; (if (string-match &amp;#34;com.apple.inputmethod.Kotoeri.Roman&amp;#34; mac-input-source)&lt;/span&gt;
+            (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (string-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.google.inputmethod.Japanese.Roman&amp;#34;&lt;/span&gt; mac-input-source)
+                &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#91C3FF&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#FF9300&amp;#34;&lt;/span&gt;))))
+       (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-selected-keyboard-input-source-change-hook&lt;/span&gt;
+                 &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-mac-selected-keyboard-input-source-chage-function&lt;/span&gt;))
+   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これがEmacsの起動時に，org-babel-load-fileによって，下記のようにcodeだけ抜き出されて，init.elに書き込まれる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(when (&lt;span style=&#34;color:#a6e22e&#34;&gt;functionp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-auto-ascii-mode&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;;; ミニバッファに入力時、自動的に英語モード&lt;/span&gt;
+  (mac-auto-ascii-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
 
-&lt;li&gt;&lt;p&gt;これがEmacsの起動時に，org-babel-load-fileによって，下記のようにcodeだけ抜き出されて，init.elに書き込まれる．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(when (functionp &#39;mac-auto-ascii-mode)  ;; ミニバッファに入力時、自動的に英語モード
-  (mac-auto-ascii-mode 1))
-
-(when (fboundp &#39;mac-input-source)
+(when (&lt;span style=&#34;color:#a6e22e&#34;&gt;fboundp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-input-source&lt;/span&gt;)
   (defun my-mac-selected-keyboard-input-source-chage-function ()
-    (let ((mac-input-source (mac-input-source)))
+    (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((mac-input-source (mac-input-source)))
       (set-cursor-color
-                                        ; (if (string-match &amp;quot;com.apple.inputmethod.Kotoeri.Roman&amp;quot; mac-input-source)
-       (if (string-match &amp;quot;com.google.inputmethod.Japanese.Roman&amp;quot; mac-input-source)
-           &amp;quot;#91C3FF&amp;quot; &amp;quot;#FF9300&amp;quot;))))
-  (add-hook &#39;mac-selected-keyboard-input-source-change-hook
-            &#39;my-mac-selected-keyboard-input-source-chage-function))
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで日本語入力中であっても，M-xなどでミニバッファ入力時に自動的に英語入力モードになってくれる．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ついでに行った日本語か英語かでカーソルの色が変わる設定はわりに有用だが，ときに色が変わらないことがあるが，気にしないことにしている．&lt;/p&gt;&lt;/li&gt;
+                                        &lt;span style=&#34;color:#75715e&#34;&gt;; (if (string-match &amp;#34;com.apple.inputmethod.Kotoeri.Roman&amp;#34; mac-input-source)&lt;/span&gt;
+       (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (string-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.google.inputmethod.Japanese.Roman&amp;#34;&lt;/span&gt; mac-input-source)
+           &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#91C3FF&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#FF9300&amp;#34;&lt;/span&gt;))))
+  (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-selected-keyboard-input-source-change-hook&lt;/span&gt;
+            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-mac-selected-keyboard-input-source-chage-function&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これで日本語入力中であっても，M-xなどでミニバッファ入力時に自動的に英語入力モードになってくれる．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ついでに行った日本語か英語かでカーソルの色が変わる設定はわりに有用だが，ときに色が変わらないことがあるが，気にしないことにしている．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -136,116 +136,97 @@ HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
       <link>/post/init_org/</link>
       <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/init_org/</guid>
-      <description>
-
-&lt;p&gt;自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．&lt;/p&gt;
-
+      <description>&lt;p&gt;自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．&lt;/p&gt;
 &lt;h2 id=&#34;参考サイト&#34;&gt;参考サイト&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.lambda-consulting.jp/2015/11/20/article/&#34; target=&#34;_blank&#34;&gt;俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://futurismo.biz/archives/6057/&#34; target=&#34;_blank&#34;&gt;babel-loader:org-mode で init.el を管理する方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://uwabami.junkhub.org/log/?date=20111213&#34; target=&#34;_blank&#34;&gt;平衡点(2011-12-13)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ameblo.jp/concello/entry-10786074455.html&#34; target=&#34;_blank&#34;&gt;ORG-Babel + init.el = ?? | くらいまーず　はい&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://funwithemacs.wordpress.com/2013/04/21/prelude-init-el-org-babel/&#34; target=&#34;_blank&#34;&gt;Prelude init.el &amp;amp; org-babel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.lambda-consulting.jp/2015/11/20/article/&#34;&gt;俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://futurismo.biz/archives/6057/&#34;&gt;babel-loader:org-mode で init.el を管理する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://uwabami.junkhub.org/log/?date=20111213&#34;&gt;平衡点(2011-12-13)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ameblo.jp/concello/entry-10786074455.html&#34;&gt;ORG-Babel + init.el = ?? | くらいまーず　はい&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://funwithemacs.wordpress.com/2013/04/21/prelude-init-el-org-babel/&#34;&gt;Prelude init.el &amp;amp; org-babel&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;preludeを使いながら-init-dot-orgから個人用のinit-dot-elを自動作成させてemacsを設定する方法&#34;&gt;Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法&lt;/h2&gt;
-
 &lt;h3 id=&#34;基本方針&#34;&gt;基本方針&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む．&lt;/li&gt;
 &lt;li&gt;起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む．&lt;/li&gt;
 &lt;li&gt;具体的には，init.elで，(require &amp;lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む．&lt;/li&gt;
 &lt;li&gt;しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;preludeの導入&#34;&gt;Preludeの導入&lt;/h3&gt;
-
 &lt;p&gt;前回のポスト（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入&lt;/a&gt;）を参考　&lt;/p&gt;
-
 &lt;h3 id=&#34;emac-init-dot-elの作成&#34;&gt;emac-init.elの作成&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;(require &#39;org)
-(defvar my-config-dir (concat user-emacs-directory &amp;quot;personal/&amp;quot;))
-(org-babel-load-file
-(expand-file-name &amp;quot;init.org&amp;quot; my-config-dir))
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;工夫と言っても， &lt;strong&gt;init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう&lt;/strong&gt;  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org&lt;/span&gt;)
+(defvar my-config-dir (concat user-emacs-directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;personal/&amp;#34;&lt;/span&gt;))
+(org-babel-load-file
+ (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;init.org&amp;#34;&lt;/span&gt; my-config-dir))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;工夫と言っても， &lt;strong&gt;init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう&lt;/strong&gt;  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．&lt;/li&gt;
+&lt;li&gt;これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;init-dot-orgの作成&#34;&gt;init.orgの作成&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;これでいよいよ肝心のinit.orgの作成を行う&lt;/li&gt;
 &lt;li&gt;org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている．&lt;/li&gt;
 &lt;li&gt;具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h4 id=&#34;code-blockの挿入&#34;&gt;Code blockの挿入&lt;/h4&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://blog.lambda-consulting.jp/2015/11/20/article/&#34; target=&#34;_blank&#34;&gt;俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）&lt;/a&gt;で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;org-modeで以下のようにする．（後述する設定が必要）&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;&amp;lt;l （ここで&amp;lt;TAB&amp;gt;すると．．．）
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://blog.lambda-consulting.jp/2015/11/20/article/&#34;&gt;俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）&lt;/a&gt;で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;org-modeで以下のようにする．（後述する設定が必要）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
 以下のように展開される
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;2019年1月14日追加&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;上記の「TABで展開」に関して，Disqusで，mickaushyさんから「&amp;lt;lではなくて&amp;lt;sではないのか」とのご指摘をいただいた．全くそのとおりで，（後述する設定が必要）と自分で書いておきながら，その設定を書き忘れていた．mickaushyさんが指摘されている通りの設定をしている．
+
+-   参考：&amp;lt;http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3&amp;gt;
+
+```lisp
 #+begin_src emacs-lisp
-
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;2019年1月14日追加&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;上記の「TABで展開」に関して，Disqusで，mickaushyさんから「&amp;lt;lではなくて&amp;lt;sではないのか」とのご指摘をいただいた．全くそのとおりで，（後述する設定が必要）と自分で書いておきながら，その設定を書き忘れていた．mickaushyさんが指摘されている通りの設定をしている．&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;参考：&lt;a href=&#34;http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3&#34; target=&#34;_blank&#34;&gt;http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
 (setq org-structure-template-alist
-  &#39;((&amp;quot;s&amp;quot; &amp;quot;#+begin_src ?\n\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;?\&amp;quot;&amp;gt;\n\n&amp;lt;/src&amp;gt;&amp;quot;)
-    (&amp;quot;e&amp;quot; &amp;quot;#+begin_example\n?\n#+end_example&amp;quot; &amp;quot;&amp;lt;example&amp;gt;\n?\n&amp;lt;/example&amp;gt;&amp;quot;)
-    (&amp;quot;q&amp;quot; &amp;quot;#+begin_quote\n?\n#+end_quote&amp;quot; &amp;quot;&amp;lt;quote&amp;gt;\n?\n&amp;lt;/quote&amp;gt;&amp;quot;)
-    (&amp;quot;v&amp;quot; &amp;quot;#+BEGIN_VERSE\n?\n#+END_VERSE&amp;quot; &amp;quot;&amp;lt;verse&amp;gt;\n?\n&amp;lt;/verse&amp;gt;&amp;quot;)
-    (&amp;quot;c&amp;quot; &amp;quot;#+BEGIN_COMMENT\n?\n#+END_COMMENT&amp;quot;)
-    (&amp;quot;p&amp;quot; &amp;quot;#+BEGIN_PRACTICE\n?\n#+END_PRACTICE&amp;quot;)
-    (&amp;quot;l&amp;quot; &amp;quot;#+begin_src emacs-lisp\n?\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;emacs-lisp\&amp;quot;&amp;gt;\n?\n&amp;lt;/src&amp;gt;&amp;quot;)
-    ;; (&amp;quot;l&amp;quot; &amp;quot;#+begin_src lisp\n?\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;lisp\&amp;quot;&amp;gt;\n?\n&amp;lt;/src&amp;gt;&amp;quot;)
-    (&amp;quot;L&amp;quot; &amp;quot;#+latex: &amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;latex\&amp;quot;&amp;gt;?&amp;lt;/literal&amp;gt;&amp;quot;)
-    (&amp;quot;h&amp;quot; &amp;quot;#+begin_html\n?\n#+end_html&amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;html\&amp;quot;&amp;gt;\n?\n&amp;lt;/literal&amp;gt;&amp;quot;)
-    (&amp;quot;H&amp;quot; &amp;quot;#+html: &amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;html\&amp;quot;&amp;gt;?&amp;lt;/literal&amp;gt;&amp;quot;)
-    (&amp;quot;a&amp;quot; &amp;quot;#+begin_ascii\n?\n#+end_ascii&amp;quot;)
-    (&amp;quot;A&amp;quot; &amp;quot;#+ascii: &amp;quot;)
-    (&amp;quot;i&amp;quot; &amp;quot;#+index: ?&amp;quot; &amp;quot;#+index: ?&amp;quot;)
-    (&amp;quot;I&amp;quot; &amp;quot;#+include %file ?&amp;quot; &amp;quot;&amp;lt;include file=%file markup=\&amp;quot;?\&amp;quot;&amp;gt;&amp;quot;)))
+      &#39;((&amp;quot;s&amp;quot; &amp;quot;#+begin_src ?\n\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;?\&amp;quot;&amp;gt;\n\n&amp;lt;/src&amp;gt;&amp;quot;)
+        (&amp;quot;e&amp;quot; &amp;quot;#+begin_example\n?\n#+end_example&amp;quot; &amp;quot;&amp;lt;example&amp;gt;\n?\n&amp;lt;/example&amp;gt;&amp;quot;)
+        (&amp;quot;q&amp;quot; &amp;quot;#+begin_quote\n?\n#+end_quote&amp;quot; &amp;quot;&amp;lt;quote&amp;gt;\n?\n&amp;lt;/quote&amp;gt;&amp;quot;)
+        (&amp;quot;v&amp;quot; &amp;quot;#+BEGIN_VERSE\n?\n#+END_VERSE&amp;quot; &amp;quot;&amp;lt;verse&amp;gt;\n?\n&amp;lt;/verse&amp;gt;&amp;quot;)
+        (&amp;quot;c&amp;quot; &amp;quot;#+BEGIN_COMMENT\n?\n#+END_COMMENT&amp;quot;)
+        (&amp;quot;p&amp;quot; &amp;quot;#+BEGIN_PRACTICE\n?\n#+END_PRACTICE&amp;quot;)
+        (&amp;quot;l&amp;quot; &amp;quot;#+begin_src emacs-lisp\n?\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;emacs-lisp\&amp;quot;&amp;gt;\n?\n&amp;lt;/src&amp;gt;&amp;quot;)
+        ;; (&amp;quot;l&amp;quot; &amp;quot;#+begin_src lisp\n?\n#+end_src&amp;quot; &amp;quot;&amp;lt;src lang=\&amp;quot;lisp\&amp;quot;&amp;gt;\n?\n&amp;lt;/src&amp;gt;&amp;quot;)
+        (&amp;quot;L&amp;quot; &amp;quot;#+latex: &amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;latex\&amp;quot;&amp;gt;?&amp;lt;/literal&amp;gt;&amp;quot;)
+        (&amp;quot;h&amp;quot; &amp;quot;#+begin_html\n?\n#+end_html&amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;html\&amp;quot;&amp;gt;\n?\n&amp;lt;/literal&amp;gt;&amp;quot;)
+        (&amp;quot;H&amp;quot; &amp;quot;#+html: &amp;quot; &amp;quot;&amp;lt;literal style=\&amp;quot;html\&amp;quot;&amp;gt;?&amp;lt;/literal&amp;gt;&amp;quot;)
+        (&amp;quot;a&amp;quot; &amp;quot;#+begin_ascii\n?\n#+end_ascii&amp;quot;)
+        (&amp;quot;A&amp;quot; &amp;quot;#+ascii: &amp;quot;)
+        (&amp;quot;i&amp;quot; &amp;quot;#+index: ?&amp;quot; &amp;quot;#+index: ?&amp;quot;)
+        (&amp;quot;I&amp;quot; &amp;quot;#+include %file ?&amp;quot; &amp;quot;&amp;lt;include file=%file markup=\&amp;quot;?\&amp;quot;&amp;gt;&amp;quot;)))
 #+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+```
 
-&lt;p&gt;この設定を，init.orgに書き込んでおいて，「&amp;lt;lのあとにTAB」とすれば，上述のように展開される．この次の記事でまとめて書こうと考えていたが，すっかり失念していた．ここに書いておいたほうが確かにわかりやすい．mickaushyさん，ご指摘ありがとうございました．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
+この設定を，init.orgに書き込んでおいて，「&amp;lt;lのあとにTAB」とすれば，上述のように展開される．この次の記事でまとめて書こうと考えていたが，すっかり失念していた．ここに書いておいたほうが確かにわかりやすい．mickaushyさん，ご指摘ありがとうございました．
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;codeの記述&#34;&gt;Codeの記述&lt;/h4&gt;
-
 &lt;ul&gt;
 &lt;li&gt;上記の#+begin_src emacs-lispと#+end_srcの間にemacs-lispで設定内容を書く．ここからが便利にできているところ．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;code-blockの中にいるときに&lt;/p&gt;
-
+&lt;li&gt;code-blockの中にいるときに
 &lt;ul&gt;
-&lt;li&gt;C-c &amp;lsquo;とする&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;当該のcode blockだけのバッファが表示される（下図の下のバッファ）&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;C-c &amp;lsquo;とする&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;当該のcode blockだけのバッファが表示される（下図の下のバッファ）&lt;/p&gt;
 
 
 
@@ -260,18 +241,23 @@ HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;この中はemacs-lisp modeでsyntaxも普通に効くので，普通にコードを書く．もちろん，括弧の対応もハイライトで表示される．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;C-c nとする&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;すると，インデントも綺麗に整えてくれる．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;満足したら，C-c &amp;lsquo;で元のバッファに戻る．整形は綺麗なまま反映される．素晴らしい！&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;具体的なinit.orgの内容は次回のポスト以降に記述予定&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;この中はemacs-lisp modeでsyntaxも普通に効くので，普通にコードを書く．もちろん，括弧の対応もハイライトで表示される．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;C-c nとする&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;すると，インデントも綺麗に整えてくれる．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;満足したら，C-c &amp;lsquo;で元のバッファに戻る．整形は綺麗なまま反映される．素晴らしい！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;具体的なinit.orgの内容は次回のポスト以降に記述予定&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

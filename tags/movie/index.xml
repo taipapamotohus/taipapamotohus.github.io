@@ -5,7 +5,7 @@
     <link>/tags/movie/</link>
       <atom:link href="/tags/movie/index.xml" rel="self" type="application/rss+xml" />
     <description>movie</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 26 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 26 Aug 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>movie</title>
@@ -17,33 +17,25 @@
       <link>/post/beamer_movie2/</link>
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/beamer_movie2/</guid>
-      <description>
-
-&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
-
+      <description>&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
-
 &lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?media9&#34; target=&#34;_blank&#34;&gt;TeXWiki media9&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト２：&lt;a href=&#34;https://blog.tokor.org/2016/06/04/TeXでプレゼン-LaTeX-Beamerを使う人のためのTips集/&#34; target=&#34;_blank&#34;&gt;TeXでプレゼン - LaTeX Beamerを使う人のためのTips集&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト３：&lt;a href=&#34;https://www.youtube.com/watch?v=HHzcrP27I08&#34; target=&#34;_blank&#34;&gt;How to embed video files in a PDF using LaTeX (a media9/beamer example)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト４：&lt;a href=&#34;http://empitsu.hatenablog.com/entry/2012/11/02/182722&#34; target=&#34;_blank&#34;&gt;Beamer で PDF ファイルに動画を埋め込む&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト５：&lt;a href=&#34;http://tug.org/pipermail/macostex-archives/2014-July/052673.html&#34; target=&#34;_blank&#34;&gt;media9 problems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?media9&#34;&gt;TeXWiki media9&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト２：&lt;a href=&#34;https://blog.tokor.org/2016/06/04/TeX%E3%81%A6%E3%82%99%E3%83%95%E3%82%9A%E3%83%AC%E3%82%BB%E3%82%99%E3%83%B3-LaTeX-Beamer%E3%82%92%E4%BD%BF%E3%81%86%E4%BA%BA%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AETips%E9%9B%86/&#34;&gt;TeXでプレゼン - LaTeX Beamerを使う人のためのTips集&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト３：&lt;a href=&#34;https://www.youtube.com/watch?v=HHzcrP27I08&#34;&gt;How to embed video files in a PDF using LaTeX (a media9/beamer example)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト４：&lt;a href=&#34;http://empitsu.hatenablog.com/entry/2012/11/02/182722&#34;&gt;Beamer で PDF ファイルに動画を埋め込む&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト５：&lt;a href=&#34;http://tug.org/pipermail/macostex-archives/2014-July/052673.html&#34;&gt;media9 problems&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;beamerで動画が走るスライド原稿を作る-media9版&#34;&gt;beamerで動画が走るスライド原稿を作る（media9版）&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;preambleに，\usepackage{media9}を忘れずに追加しておく．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\newcommand{\showmovie}[1]{\includemedia[
+&lt;li&gt;
+&lt;p&gt;同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;preambleに，\usepackage{media9}を忘れずに追加しておく．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\newcommand&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\showmovie&lt;/span&gt;}[1]{&lt;span style=&#34;color:#66d9ef&#34;&gt;\includemedia&lt;/span&gt;[
   activate=pageopen,
   deactivate=pageclose,
   width=110mm, height=72mm,
@@ -56,39 +48,35 @@ HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
   ]{}{StrobeMediaPlayback.swf}
 }
 
-\begin{frame}
-  \frametitle{hogefugaの動画}
-  \centering
-  \showmovie{hogefuga.mov}
-\end{frame}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;loopは，ループ再生するかどうか&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;autoplayは自動再生するかどうか&lt;/p&gt;&lt;/li&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefugaの動画}
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;\showmovie&lt;/span&gt;{hogefuga.mov}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;loopは，ループ再生するかどうか&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;autoplayは自動再生するかどうか&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;media9を使用したときの利点&#34;&gt;media9を使用したときの利点&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;なんと言ってもべた書きよりもelegant!&lt;/li&gt;
 &lt;li&gt;スライドを開けたときに，何もしなくても動画の静止画が映るので，前回のやり方のように背景をべた書きしなくて良い．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;media9を使用したときの欠点&#34;&gt;media9を使用したときの欠点&lt;/h2&gt;
-
 &lt;p&gt;もう完全にmedia9に乗り換えるつもりでいたが，以下に述べるようにいくつか欠点もあることが判明した．&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;media9はpdf自体に動画を埋め込むようである．したがって，200MBの動画を走らせるとすると，pdf自体が200MB以上の大きさになってしまう．&lt;/li&gt;
 &lt;li&gt;それだけでなく，200MB程度の動画になると，途中で固まってしまう！これでは使い物にならない．&lt;/li&gt;
 &lt;li&gt;一方，前回記事のべた書き方式だと，pdf自体に動画を埋め込まないので，pdfは大きくならないし，動画指定のパスは効くし，200MBだろうともっと大きかろうと動画はガンガン動く．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;容量の小さな動画であれば，media9でも十分であろう．&lt;/li&gt;
 &lt;li&gt;私のように，容量の大きな動画を使用するような場合は，べた書きを使用するほうが良いであろう．&lt;/li&gt;
@@ -102,20 +90,17 @@ HAHAHUGOSHORTCODE-TOC0-HBHB&lt;/p&gt;
       <link>/post/beamer_movie/</link>
       <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/beamer_movie/</guid>
-      <description>
-
-&lt;p&gt;実は，同じような内容について2010年に，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．&lt;/p&gt;
-
+      <description>&lt;p&gt;実は，同じような内容について2010年に，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34;&gt;TeX QA&lt;/a&gt; に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．&lt;/p&gt;
 &lt;h2 id=&#34;beamerで動画が走るスライド原稿を作る&#34;&gt;beamerで動画が走るスライド原稿を作る&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;前述した ，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34; target=&#34;_blank&#34;&gt;TeX QA&lt;/a&gt; に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前述した ，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34;&gt;TeX QA&lt;/a&gt; に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） &lt;a href=&#34;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&#34;&gt;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&lt;/a&gt; の以下の部分&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;3 Annotations
 
-&lt;li&gt;&lt;p&gt;参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） &lt;a href=&#34;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&#34; target=&#34;_blank&#34;&gt;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&lt;/a&gt; の以下の部分&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-text&#34;&gt;3 Annotations
-
-An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;. DVIPDFM(x) provides the following special command for annotations............
+An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&amp;#39;, for instance, `/Text&amp;#39;, `/Link&amp;#39;, `/Sound&amp;#39;, `/Movie&amp;#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&amp;#39;. DVIPDFM(x) provides the following special command for annotations............
 
  The following example shows a movie annotation that enables us to run the movie file ‘mymovie.avi’ inside a PDF viewer program.
 
@@ -125,49 +110,60 @@ An annotation is considered as an object with a location on a page. The type of 
  /F (mymovie.avi) /Aspect [720 360]
  /Poster true &amp;gt;&amp;gt;
  /A &amp;lt;&amp;lt; /ShowControls false &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;mymovie.aviのところに動かしたい動画を記入（パスも効く）&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;私の作成したものは読んでいただければおわかりのように，非常にダサいベタ書きである．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;{
-    \usebackgroundtemplate{\put(20, -265){\includegraphics[scale=0.45]{/Data/.../..../Figures/hogefuga.pdf}}}
-    \begin{frame}
-    \frametitle{hogefugaの対策}
-    \special{pdf:ann bbox -10 -130 320 90 &amp;lt;&amp;lt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mymovie.aviのところに動かしたい動画を記入（パスも効く）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;私の作成したものは読んでいただければおわかりのように，非常にダサいベタ書きである．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;{
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\usebackgroundtemplate&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\put&lt;/span&gt;(20, -265){&lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[scale=0.45]&lt;/span&gt;{/Data/.../..../Figures/hogefuga.pdf}}}
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefugaの対策}
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\special&lt;/span&gt;{pdf:ann bbox -10 -130 320 90 &amp;lt;&amp;lt;
              /Subtype /Movie /Border [0 0 1]
              /T (My Movie) /Movie &amp;lt;&amp;lt;
              /F (/Data/.../hogefuga.mov)
-             %/Aspect [720 480]
-             /Aspect [640 480]
+             &lt;span style=&#34;color:#75715e&#34;&gt;%/Aspect [720 480]
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;             /Aspect [640 480]
              /Poster false &amp;gt;&amp;gt;
              /A &amp;lt;&amp;lt; /ShowControls true /Mode /Repeat &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
-    \end{frame}
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;\putで背景画像（キャプチャー画像）の位置を直接指定し，\includegraphicsのscaleで倍率を指定して動画の大きさに合わせている．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで，画像をクリックすると（ほぼ）同じ大きさの動画が（ほぼ）同じ位置で動くようになる&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;プレゼンテーションにskimを使うと動画が動かないので注意．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;動画は同一directoryにある必要はなく，パスで指定すれば良い&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;動画自体はpdfの中に埋め込まれないので，pdfの容量がむやみに大きくならないという利点がある．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．&lt;/p&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;\putで背景画像（キャプチャー画像）の位置を直接指定し，\includegraphicsのscaleで倍率を指定して動画の大きさに合わせている．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これで，画像をクリックすると（ほぼ）同じ大きさの動画が（ほぼ）同じ位置で動くようになる&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;プレゼンテーションにskimを使うと動画が動かないので注意．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;動画は同一directoryにある必要はなく，パスで指定すれば良い&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;動画自体はpdfの中に埋め込まれないので，pdfの容量がむやみに大きくならないという利点がある．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -5,7 +5,7 @@
     <link>/tags/pdf-tools/</link>
       <atom:link href="/tags/pdf-tools/index.xml" rel="self" type="application/rss+xml" />
     <description>pdf-tools</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 17 Jul 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>pdf-tools</title>
@@ -18,81 +18,60 @@
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/pdf-tools/</guid>
       <description>&lt;p&gt;Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリとしていて使い勝手が悪かったため，サクッと止めて，skimを使っている．ただ，pdf-toolsというのがあって，こちらは割とスグレモノらしいとの噂は聞いていた．そこで，今回はこれを試してみることにした．&lt;/p&gt;
-
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#pdf-tools&#34;&gt;PDF Tools&lt;/a&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#インストール&#34;&gt;インストール&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#追記-2019年7月17日&#34;&gt;追記（2019年7月17日）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#設定&#34;&gt;設定&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#使用法&#34;&gt;使用法&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB&#34;&gt;インストール&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%BF%BD%E8%A8%98-2019%E5%B9%B47%E6%9C%8817%E6%97%A5&#34;&gt;追記（2019年7月17日）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E8%A8%AD%E5%AE%9A&#34;&gt;設定&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8%E6%B3%95&#34;&gt;使用法&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#org-pdfview&#34;&gt;org-pdfview&lt;/a&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#インストールと設定&#34;&gt;インストールと設定&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#pdf-toolsと他のアプリ-skim-previewなど-との比較&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A&#34;&gt;インストールと設定&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;!--endtoc--&gt;&lt;/p&gt;
-
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pdf-tools%E3%81%A8%E4%BB%96%E3%81%AE%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA-skim-preview%E3%81%AA%E3%81%A8%E3%82%99-%E3%81%A8%E3%81%AE%E6%AF%94%E8%BC%83&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;pdf-tools&#34;&gt;PDF Tools&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/politza/pdf-tools&#34; target=&#34;_blank&#34;&gt;pdf-tools&lt;/a&gt;　ご本家&lt;/li&gt;
-&lt;li&gt;参考２：&lt;a href=&#34;http://blog.livedoor.jp/hiroaki8270/archives/22871970.html&#34; target=&#34;_blank&#34;&gt;emacsをPDF Viewerにしよう&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考３：&lt;a href=&#34;https://ubutun.blogspot.com/2014/05/emacstexpdf.html&#34; target=&#34;_blank&#34;&gt;emacs内でTeX文書の作成からpdf閲覧まで行う&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考４：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34; target=&#34;_blank&#34;&gt;pdf-tools on macos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考５：&lt;a href=&#34;http://pragmaticemacs.com/emacs/view-and-annotate-pdfs-in-emacs-with-pdf-tools/&#34; target=&#34;_blank&#34;&gt;VIEW AND ANNOTATE PDFS IN EMACS WITH PDF-TOOLS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考６：&lt;a href=&#34;http://pragmaticemacs.com/emacs/more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考７：&lt;a href=&#34;http://pragmaticemacs.com/emacs/even-more-pdf-tools-tweaks/&#34; target=&#34;_blank&#34;&gt;EVEN MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考８：&lt;a href=&#34;https://github.com/politza/pdf-tools/issues/189&#34; target=&#34;_blank&#34;&gt;pdf-tools pretty much unusable with linum-mode enabled&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考９：&lt;a href=&#34;https://www.youtube.com/watch?v=LFO2UbzbZhA&#34; target=&#34;_blank&#34;&gt;Using Emacs 44 - An Org mode and PDF-tools workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/politza/pdf-tools&#34;&gt;pdf-tools&lt;/a&gt;　ご本家&lt;/li&gt;
+&lt;li&gt;参考２：&lt;a href=&#34;http://blog.livedoor.jp/hiroaki8270/archives/22871970.html&#34;&gt;emacsをPDF Viewerにしよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考３：&lt;a href=&#34;https://ubutun.blogspot.com/2014/05/emacstexpdf.html&#34;&gt;emacs内でTeX文書の作成からpdf閲覧まで行う&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考４：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34;&gt;pdf-tools on macos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考５：&lt;a href=&#34;http://pragmaticemacs.com/emacs/view-and-annotate-pdfs-in-emacs-with-pdf-tools/&#34;&gt;VIEW AND ANNOTATE PDFS IN EMACS WITH PDF-TOOLS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考６：&lt;a href=&#34;http://pragmaticemacs.com/emacs/more-pdf-tools-tweaks/&#34;&gt;MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考７：&lt;a href=&#34;http://pragmaticemacs.com/emacs/even-more-pdf-tools-tweaks/&#34;&gt;EVEN MORE PDF-TOOLS TWEAKS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考８：&lt;a href=&#34;https://github.com/politza/pdf-tools/issues/189&#34;&gt;pdf-tools pretty much unusable with linum-mode enabled&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考９：&lt;a href=&#34;https://www.youtube.com/watch?v=LFO2UbzbZhA&#34;&gt;Using Emacs 44 - An Org mode and PDF-tools workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;ご本家のイントロに書いてあるが，DocViewのようにghostscriptで予めrenderしておくのではなく，on demandでページを作成し，メモリーに貯めておく仕組みになっている．このrenderingは，popplerという名前の特別なライブラリーによって行われるが，これはepdfinfoと呼ばれるserver programの中で走っている．こいつの仕事はEmacsからの要求を連続して読んで適切な結果，すなわち，PDFのページのPNG imageを作成することである．&lt;/p&gt;
-
-&lt;p&gt;　　「実際のところ，PDFファイルを表示するのはPDF toolsの仕事の一部に過ぎない．popplerは文書に関する全ての情報を提供でき，かつ，それを修飾もできるので，遥かにたくさんのことができる」とイントロの最後で大見得を切って，何ができるかを示す&lt;a href=&#34;https://www.dailymotion.com/video/x2bc1is?forcedQuality=hd720&#34; target=&#34;_blank&#34;&gt;動画&lt;/a&gt;を紹介している．&lt;/p&gt;
-
+&lt;p&gt;　　「実際のところ，PDFファイルを表示するのはPDF toolsの仕事の一部に過ぎない．popplerは文書に関する全ての情報を提供でき，かつ，それを修飾もできるので，遥かにたくさんのことができる」とイントロの最後で大見得を切って，何ができるかを示す&lt;a href=&#34;https://www.dailymotion.com/video/x2bc1is?forcedQuality=hd720&#34;&gt;動画&lt;/a&gt;を紹介している．&lt;/p&gt;
 &lt;h3 id=&#34;インストール&#34;&gt;インストール&lt;/h3&gt;
-
 &lt;p&gt;OSXは公式にはサポートされていないが，コンパイルできたと報告されている，と書いてあり，実際，以下のように出来た．まず，homebrewでpopplerをインストールする．もし，まだ，automakeを入れていなければそれもhomebrewでインストールする．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install poppler automake
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ついで，pkg-configをexportでいじるようなことが書いてあるが，特にそれはせずともよかった．ただし，pdf-toolsのインストールの際にコンパイルエラーが出た．どういうわけか， &lt;strong&gt;pdf-tools          20180428.1527&lt;/strong&gt; ではだめだったが，幸い， &lt;strong&gt;pdf-tools          20181221.1913&lt;/strong&gt; が出たので，参考4：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34; target=&#34;_blank&#34;&gt;pdf-tools on macos&lt;/a&gt;を頼りに，これにアップデートしたところ，あとは問題なくインストールできた．&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install poppler automake
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ついで，pkg-configをexportでいじるようなことが書いてあるが，特にそれはせずともよかった．ただし，pdf-toolsのインストールの際にコンパイルエラーが出た．どういうわけか， &lt;strong&gt;pdf-tools          20180428.1527&lt;/strong&gt; ではだめだったが，幸い， &lt;strong&gt;pdf-tools          20181221.1913&lt;/strong&gt; が出たので，参考4：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/&#34;&gt;pdf-tools on macos&lt;/a&gt;を頼りに，これにアップデートしたところ，あとは問題なくインストールできた．&lt;/p&gt;
 &lt;h3 id=&#34;追記-2019年7月17日&#34;&gt;追記（2019年7月17日）&lt;/h3&gt;
-
 &lt;p&gt;その後何度かpdf-toolをコンパイルすることがあったが，「libffiがどこにあるか分からん」というようなエラーメッセージが出て，「pkg-configでなんとかせい」と怒られるようになった．つまり，ご本家に書いてある通りになったわけである．そこで，libffiのpkgconfigを探して，それをPKG_CONFIG_PATHに含めるようにした．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mdfind -name pkgconfig | grep libffi
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mdfind -name pkgconfig | grep libffi
 /usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
-$ export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
+$ export PKG_CONFIG_PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
 $ /Applications/Emacs.app/Contents/MacOS/Emacs --debug-init
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;これで下記のように設定していると，以下のようにpdf-toolが無事にコンパイルされる．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/build/server/autobuild -i /Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで下記のように設定していると，以下のようにpdf-toolが無事にコンパイルされる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/build/server/autobuild -i /Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/
 ---------------------------
 Installing packages
 ---------------------------
-Skipping package installation (already installed)
+Skipping &lt;span style=&#34;color:#a6e22e&#34;&gt;package&lt;/span&gt; installation (already installed)
 
 ---------------------------
 Configuring and compiling
 ---------------------------
-./configure -q --bindir=/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/ &amp;amp;&amp;amp; make -s
+&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;/configure -q --bindir=/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/ &amp;amp;&amp;amp; make -s
 
 Is case-sensitive searching enabled ?     yes
 Is modifying text annotations enabled ?   yes
@@ -103,41 +82,34 @@ Is modifying markup annotations enabled ? yes
 Installing
 ---------------------------
 make -s install
-/usr/local/bin/gmkdir -p &#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018&#39;
-/usr/local/bin/ginstall -c epdfinfo &#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018&#39;
-make[1]: Nothing to be done for `install-data-am&#39;.
+/usr/local/bin/gmkdir -p &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;
+/usr/local/bin/ginstall -c epdfinfo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;
+make[1]: Nothing to be done for &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;install-data-am&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;.&lt;/span&gt;
 
 ===========================
-Build succeeded. :O)
+Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
 ===========================
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;設定&#34;&gt;設定&lt;/h3&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;設定&#34;&gt;設定&lt;/h3&gt;
 &lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package pdf-tools
-  :ensure t
-  :config
-  ;; initialise
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; pdf-tools
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; initialise&lt;/span&gt;
   (pdf-tools-install)
-  ;; PDF Tools does not work well together with linum-mode
-  (add-hook &#39;pdf-view-mode-hook (lambda() (nlinum-mode -1)))
-  ;; open pdfs scaled to fit page
-  ;; (setq-default pdf-view-display-size &#39;fit-page)
-  ;; automatically annotate highlights
-  (setq pdf-annot-activate-created-annotations t)
-  ;; use normal isearch
-  (define-key pdf-view-mode-map (kbd &amp;quot;C-s&amp;quot;) &#39;isearch-forward)
-  ;; more fine-grained zooming
-  (setq pdf-view-resize-factor 1.1)
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; PDF Tools does not work well together with linum-mode&lt;/span&gt;
+  (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;pdf-view-mode-hook&lt;/span&gt; (lambda() (nlinum-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;-1&lt;/span&gt;)))
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; open pdfs scaled to fit page&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; (setq-default pdf-view-display-size &amp;#39;fit-page)&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; automatically annotate highlights&lt;/span&gt;
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; pdf-annot-activate-created-annotations &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; use normal isearch&lt;/span&gt;
+  (define-key pdf-view-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-s&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;isearch-forward&lt;/span&gt;)
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; more fine-grained zooming&lt;/span&gt;
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; pdf-view-resize-factor &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;)
   )
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以下に内容を説明する．&lt;/p&gt;
-
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に内容を説明する．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;pdf-tools-installにより最初のときにepdfinfoがコンパイルされる．&lt;/li&gt;
 &lt;li&gt;行番号を表示するとうまく動かない．私はnlinum-modeを使っているのでpdf-view-modeの際には止めておく．&lt;/li&gt;
@@ -145,15 +117,10 @@ Build succeeded. :O)
 &lt;li&gt;swiperはうまく動かないので，C-sを普通のisearchに戻す&lt;/li&gt;
 &lt;li&gt;＋とーで拡大，縮小だが，これを10%ずつにする．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;使用法&#34;&gt;使用法&lt;/h3&gt;
-
 &lt;p&gt;上記のインストールと設定を行えば，C-x C-fでも，drag &amp;amp; dropでも，Emacsのpdf toolsのpdf-view-modeでpdfが開くようになる．ここまでくれば，あとは色々なことができる．&lt;/p&gt;
-
 &lt;h4 id=&#34;highlight&#34;&gt;highlight&lt;/h4&gt;
-
-&lt;p&gt;マウスで文章をなぞって選択（下の画像の白黒反転した部分）したあとに，C-c C-a h もしくは，画像で示したように，PDF Tools &amp;rarr; Add markup annotation &amp;rarr; highlightを選択すれば，&lt;/p&gt;
-
+&lt;p&gt;マウスで文章をなぞって選択（下の画像の白黒反転した部分）したあとに，C-c C-a h もしくは，画像で示したように，PDF Tools → Add markup annotation → highlightを選択すれば，&lt;/p&gt;
 
 
 
@@ -169,9 +136,7 @@ Build succeeded. :O)
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;選択した部分がハイライトされ，下に新たなバッファが開いてそこに注釈が書けるようになる（下の画像参照）．書き終わったら，C-c C-cで注釈バッファが閉じる．なお，上に元からある黄色にハイライトされた部分は以前に選択してハイライトした部分である．&lt;/p&gt;
-
 
 
 
@@ -187,11 +152,8 @@ Build succeeded. :O)
 
 &lt;/figure&gt;
 
-
 &lt;h4 id=&#34;display-annotations&#34;&gt;Display Annotations&lt;/h4&gt;
-
-&lt;p&gt;複数箇所をハイライトして注釈をつけたあとに，全ての注釈を一度にリストにしてみることができる．C-c C-a l もしくは，PDF Tools &amp;rarr; Display Annotationsを選択すれば，下の画像のように，下に２つの新たなバッファが開く．真ん中のバッファに注釈のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動してブルーの枠で囲んで表示され，下のバッファに注釈の内容が表示される．qを押せば，2つのバッファは閉じる．&lt;/p&gt;
-
+&lt;p&gt;複数箇所をハイライトして注釈をつけたあとに，全ての注釈を一度にリストにしてみることができる．C-c C-a l もしくは，PDF Tools → Display Annotationsを選択すれば，下の画像のように，下に２つの新たなバッファが開く．真ん中のバッファに注釈のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動してブルーの枠で囲んで表示され，下のバッファに注釈の内容が表示される．qを押せば，2つのバッファは閉じる．&lt;/p&gt;
 
 
 
@@ -207,11 +169,8 @@ Build succeeded. :O)
 
 &lt;/figure&gt;
 
-
 &lt;h4 id=&#34;isearch-document--c-s&#34;&gt;Isearch document (C-s)&lt;/h4&gt;
-
-&lt;p&gt;pdf-toolsはswiperとはconflictするために，C-sは本来のisearch-forwardに戻して設定しておく必要がある（前述の設定の通り）．これで，C-sとやると，minibufferに打ち込んだ語が反転して表示され，C-sとやるごとに先へ移動していく．下の画像では，&amp;rdquo;MK2&amp;rdquo;という単語を打った時の状態を示している．&lt;/p&gt;
-
+&lt;p&gt;pdf-toolsはswiperとはconflictするために，C-sは本来のisearch-forwardに戻して設定しておく必要がある（前述の設定の通り）．これで，C-sとやると，minibufferに打ち込んだ語が反転して表示され，C-sとやるごとに先へ移動していく．下の画像では，&amp;ldquo;MK2&amp;quot;という単語を打った時の状態を示している．&lt;/p&gt;
 
 
 
@@ -227,11 +186,8 @@ Build succeeded. :O)
 
 &lt;/figure&gt;
 
-
 &lt;h4 id=&#34;occur-document&#34;&gt;Occur document&lt;/h4&gt;
-
-&lt;p&gt;PDF Tools &amp;rarr; Occur documentを選択すれば，minibufferに List lines matching PCRE: と表示される．そこに例えばMK2と打てば，下の画像のように，下に新たなバッファが開き，MK2のあるページとそこにある文章のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動する．qを押せば，下のバッファは閉じる．&lt;/p&gt;
-
+&lt;p&gt;PDF Tools → Occur documentを選択すれば，minibufferに List lines matching PCRE: と表示される．そこに例えばMK2と打てば，下の画像のように，下に新たなバッファが開き，MK2のあるページとそこにある文章のリストが表示される．arrow keyでリスト内を移動し，スペースキーを押すと上のバッファでその注釈のところに移動する．qを押せば，下のバッファは閉じる．&lt;/p&gt;
 
 
 
@@ -247,31 +203,21 @@ Build succeeded. :O)
 
 &lt;/figure&gt;
 
-
 &lt;h2 id=&#34;org-pdfview&#34;&gt;org-pdfview&lt;/h2&gt;
-
 &lt;p&gt;org-modeからpdf文書へのリンクを開くのをサポートするパッケージ．&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/markus1189/org-pdfview&#34; target=&#34;_blank&#34;&gt;org-pdfview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考２：&lt;a href=&#34;https://emacs.stackexchange.com/questions/19686/how-to-use-pdf-tools-pdf-view-mode-in-emacs&#34; target=&#34;_blank&#34;&gt;How to use pdf-tools (pdf-view-mode) in emacs?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考３：&lt;a href=&#34;https://emacs.stackexchange.com/questions/31895/configure-org-pdfview-and-pdf-tools-to-open-at-page&#34; target=&#34;_blank&#34;&gt;Configure org-pdfview and pdf-tools to open at page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考１：&lt;a href=&#34;https://github.com/markus1189/org-pdfview&#34;&gt;org-pdfview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考２：&lt;a href=&#34;https://emacs.stackexchange.com/questions/19686/how-to-use-pdf-tools-pdf-view-mode-in-emacs&#34;&gt;How to use pdf-tools (pdf-view-mode) in emacs?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考３：&lt;a href=&#34;https://emacs.stackexchange.com/questions/31895/configure-org-pdfview-and-pdf-tools-to-open-at-page&#34;&gt;Configure org-pdfview and pdf-tools to open at page&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;インストールと設定&#34;&gt;インストールと設定&lt;/h3&gt;
-
 &lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書くだけ．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package org-pdfview
-  :ensure t)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;例えば，Emacsのpdf-toolsを用いて，hogehoge.pdfを開いて読んでいるとする．そこで，C-c lとすると， &lt;strong&gt;Stored: /Data/Hoge/Fuga/hogefuga.pdf&lt;/strong&gt; と今読んでいるpdfへのリンクが保存される．そして，それを保存しておきたいorg文書の適当な場所で，C-c C-lとすれば，そのリンクが貼り付けられる．以前の記事（&lt;a href=&#34;../org-html-export-theme&#34;&gt;Org-modeでhtml exportの際のthemeについて&lt;/a&gt;）で書いたような文献のまとめを作成しているときに，元文献とリンクさせておく際などに便利である．貼り付けたリンクをクリックすれば，元文献がEmacsのpdf-toolsによって開かれるようになる（画面が分割され，下に新たなバッファが開いてそこにpdfが表示される）．割と便利である．&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; org-pdfview
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;例えば，Emacsのpdf-toolsを用いて，hogehoge.pdfを開いて読んでいるとする．そこで，C-c lとすると， &lt;strong&gt;Stored: /Data/Hoge/Fuga/hogefuga.pdf&lt;/strong&gt; と今読んでいるpdfへのリンクが保存される．そして，それを保存しておきたいorg文書の適当な場所で，C-c C-lとすれば，そのリンクが貼り付けられる．以前の記事（&lt;a href=&#34;../org-html-export-theme&#34;&gt;Org-modeでhtml exportの際のthemeについて&lt;/a&gt;）で書いたような文献のまとめを作成しているときに，元文献とリンクさせておく際などに便利である．貼り付けたリンクをクリックすれば，元文献がEmacsのpdf-toolsによって開かれるようになる（画面が分割され，下に新たなバッファが開いてそこにpdfが表示される）．割と便利である．&lt;/p&gt;
 &lt;h2 id=&#34;pdf-toolsと他のアプリ-skim-previewなど-との比較&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;注釈の一覧表示，C−s， occurなどの機能は便利である．&lt;/li&gt;
 &lt;li&gt;skim, Previewなどでは，長方形ツールによりお好みの領域を選択してコピーすることができるし，このコピーした領域のみをpdfとして保存できるが，pdf-toolsではできない．&lt;/li&gt;
@@ -281,7 +227,6 @@ Build succeeded. :O)
 &lt;li&gt;最近のpdfは，本文中に示された文献もしくはその番号をクリックすると，最後の文献リストの中の該当の論文のところに飛ぶようになっているものも多くなっているが，pdf-toolsはそれには対応していないようである．より正確にはリンク先が分からないようである．これは自力では解決できない．．．&lt;/li&gt;
 &lt;li&gt;Outline構造にも対応しており，検出するのだが，リンク先が分からないようである．これも自力では解決できない．．．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;以上のことより，学会発表用のスライドなどを作成している際は，skimなどの方がpdf viewerとして便利であるが，文献のまとめなどpdfを読み込む際には，pdf-toolsの方が向いているのではないかと考えている．&lt;/p&gt;</description>
     </item>
     

@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -400,42 +400,28 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#display-line-numbers">display-line-numbers</a></li>
 <li><a href="#whitespace-mode">Whitespace-mode</a></li>
-<li><a href="#iterm2の権限の変更-mojaveで必要">iTerm2の権限の変更（mojaveで必要）</a></li>
-<li><a href="#iterm2のcolor-schemeが効かない">iTerm2のColor Schemeが効かない</a></li>
+<li><a href="#iterm2%E3%81%AE%E6%A8%A9%E9%99%90%E3%81%AE%E5%A4%89%E6%9B%B4-mojave%E3%81%A6%E3%82%99%E5%BF%85%E8%A6%81">iTerm2の権限の変更（mojaveで必要）</a></li>
+<li><a href="#iterm2%E3%81%AEcolor-scheme%E3%81%8B%E3%82%99%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84">iTerm2のColor Schemeが効かない</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+<!-- raw HTML omitted -->
 <h2 id="display-line-numbers">display-line-numbers</h2>
-
 <p>emacs 26から入った行番号を表示させる機能．</p>
-
 <ul>
-<li>Ref 1: <a href="http://garaemon.hatenadiary.jp/entry/2018/07/08/181003" target="_blank">emacs 26で入ったdisplay-line-numbersを利用する</a></li>
-<li>Ref 2: <a href="https://www.emacswiki.org/emacs/LineNumbers" target="_blank">LineNumbers</a></li>
-<li>Ref 3: <a href="https://blog.piyo.tech/posts/2019-01-24-emacs-display-line-numbers/" target="_blank">Emacs26のdisplay-line-numbers-modeがlinum-modeよりちょっと速くて快適になりそう</a></li>
-<li>Ref 4: <a href="https://qiita.com/mamo3gr/items/1c6862cba09d5876e52c" target="_blank">Emacsの行番号表示にモヤモヤした話</a></li>
+<li>Ref 1: <a href="http://garaemon.hatenadiary.jp/entry/2018/07/08/181003">emacs 26で入ったdisplay-line-numbersを利用する</a></li>
+<li>Ref 2: <a href="https://www.emacswiki.org/emacs/LineNumbers">LineNumbers</a></li>
+<li>Ref 3: <a href="https://blog.piyo.tech/posts/2019-01-24-emacs-display-line-numbers/">Emacs26のdisplay-line-numbers-modeがlinum-modeよりちょっと速くて快適になりそう</a></li>
+<li>Ref 4: <a href="https://qiita.com/mamo3gr/items/1c6862cba09d5876e52c">Emacsの行番号表示にモヤモヤした話</a></li>
 </ul>
-
 <p>設定は，いつものように，init.orgに下記のとおりに書き込めばよい．</p>
-
-<pre><code class="language-lisp">#+begin_src emacs-lisp
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
 (global-display-line-numbers-mode)
-#+end_src
-</code></pre>
-
-<p>これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．</p>
-
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><p>これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．</p>
 
 
 
@@ -451,13 +437,9 @@
 
 </figure>
 
-
 <p>行番号に必要な表示領域は自動的に確保される．3桁，4桁の番号になるに連れて表示領域が広くなるのが上の画像からわかるであろう．また，adaptive-wrapによって折り畳まれている行は行番号が空白になって1行であることがわかるようになっている（383行目）．</p>
-
 <h2 id="whitespace-mode">Whitespace-mode</h2>
-
 <p>かなり前から，Emacsの長い行の途中でフォントの色が赤くなってしまうようになった．つまり，下の画像のようになってしまう．短い行でもフォントが赤くなってるな．．．</p>
-
 
 
 
@@ -473,9 +455,7 @@
 
 </figure>
 
-
-<p>何が原因かよくわからなかったのだが，redditの<a href="https://www.reddit.com/r/emacs/comments/butal1/how%5Fdo%5Fi%5Fstop%5Femacs%5Ffrom%5Fcoloring%5Ftext%5Fbeyond%5F80/" target="_blank">How do I stop Emacs from coloring text beyond 80 columns differently</a>を読んで，もしかしたら，whitespace-modeのせいかもしれないと思ってやってみたらドンピシャであった．M-x customizeとして，Whitespace Styleをサーチして，(Face) Lines, only overlong partのチェックを外せばよい．下の画像の矢印で示した部分である．</p>
-
+<p>何が原因かよくわからなかったのだが，redditの<a href="https://www.reddit.com/r/emacs/comments/butal1/how%5Fdo%5Fi%5Fstop%5Femacs%5Ffrom%5Fcoloring%5Ftext%5Fbeyond%5F80/">How do I stop Emacs from coloring text beyond 80 columns differently</a>を読んで，もしかしたら，whitespace-modeのせいかもしれないと思ってやってみたらドンピシャであった．M-x customizeとして，Whitespace Styleをサーチして，(Face) Lines, only overlong partのチェックを外せばよい．下の画像の矢印で示した部分である．</p>
 
 
 
@@ -491,9 +471,7 @@
 
 </figure>
 
-
 <p>下に，設定変更後の上の画像と同じところを示すが，行の途中でフォントの色が変わらなくなっている．これで目がおかしくなりそうな画面からようやく離れることができた．😀</p>
-
 
 
 
@@ -509,25 +487,17 @@
 
 </figure>
 
-
 <h2 id="iterm2の権限の変更-mojaveで必要">iTerm2の権限の変更（mojaveで必要）</h2>
-
 <p>以前の記事（<a href="../auto_html_export">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a>）の中で，directoryの内容が変更されると，自動でhtmlを再読込するwatch_safari.rbというスクリプトを紹介した．しかし，mojaveにupgradeしたあとは</p>
-
-<pre><code class="language-sh">85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 (1002)
-</code></pre>
-
-<p>というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 <span style="color:#f92672">(</span>1002<span style="color:#f92672">)</span>
+</code></pre></div><p>というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．</p>
 <ul>
-<li>Ref 1: <a href="https://minatokobe.com/wp/os-x/macos-mojave/post-51360.html" target="_blank">macOS Mojaveでのアプリケーションの権限、アクセシビリティとフルディスクアクセスの違いは何か？</a></li>
-<li>Ref 2: <a href="https://www.softantenna.com/wp/tips/macos-mojave-iterm2-full-disk-access/" target="_blank">macOS MojaveでiTerm2を利用する場合にフルディスクアクセスを許可する方法</a></li>
-<li>Ref 3: <a href="https://rcmdnk.com/blog/2019/04/29/computer-mac/" target="_blank">MacのターミナルやiTermでOperation not permittedが出る場合の対処法</a></li>
-<li>Ref 4: <a href="https://gitlab.com/gnachman/iterm2/wikis/Whyfulldiskaccess" target="_blank">Why Full Disk Access is Useful for iTerm2</a></li>
+<li>Ref 1: <a href="https://minatokobe.com/wp/os-x/macos-mojave/post-51360.html">macOS Mojaveでのアプリケーションの権限、アクセシビリティとフルディスクアクセスの違いは何か？</a></li>
+<li>Ref 2: <a href="https://www.softantenna.com/wp/tips/macos-mojave-iterm2-full-disk-access/">macOS MojaveでiTerm2を利用する場合にフルディスクアクセスを許可する方法</a></li>
+<li>Ref 3: <a href="https://rcmdnk.com/blog/2019/04/29/computer-mac/">MacのターミナルやiTermでOperation not permittedが出る場合の対処法</a></li>
+<li>Ref 4: <a href="https://gitlab.com/gnachman/iterm2/wikis/Whyfulldiskaccess">Why Full Disk Access is Useful for iTerm2</a></li>
 </ul>
-
 <p>AccessibilityとFull Disk Accessのいずれか，あるいは，両方を変更すればよい．試してみた結果，iTerm2にFull Disk Accessを許可しても自動更新しないが，Accessiblityで「アプリケーションにコンピュータの制御を許可」すれば自動更新することがわかった．「システム環境設定」&gt;「セキュリティ＆プライバシー」の「プライバシー」タブに行き，下の画像にあるように，iTerm2にcheckを入れればよい．</p>
-
 
 
 
@@ -543,19 +513,13 @@
 
 </figure>
 
-
 <p>crontabが働き，~/Library/Safari folderへのアクセスができるように，iTerm2にFull Disk Accessも与えておいた．方法は，上記とほぼ同じで，「プライバシー」タブに行き，フルディスクアクセスを選択し，iTerm2にcheckを入れればよい．</p>
-
 <h2 id="iterm2のcolor-schemeが効かない">iTerm2のColor Schemeが効かない</h2>
-
 <p>いつのまにかiTerm2のcolor schemeを変えても反映されなくなってしまった．ネットを探ると，同じようなことで悩んでいる人が結構いるようで，すぐに解決法が見つかった．</p>
-
 <ul>
-<li>Ref: <a href="https://gitlab.com/gnachman/iterm2/issues/4844" target="_blank">Profile colors won&rsquo;t change</a></li>
+<li>Ref: <a href="https://gitlab.com/gnachman/iterm2/issues/4844">Profile colors won't change</a></li>
 </ul>
-
 <p>上記のサイトによれば，terminal windowがprofileと連絡を失ってしまったことが原因とのことで，iTerm2の Session &gt; Edit Sessionで下の画像のようにdialogue boxがpop upするので，そこで，好きなcolor scheme (下の画像ではJapanesque) を選択し，右下のUse Selected Profileをクリックすればよい．</p>
-
 
 
 
@@ -570,7 +534,6 @@
 </a>
 
 </figure>
-
 
 <p>これでリンクが再確立される．</p>
     </div>
@@ -905,7 +868,7 @@
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

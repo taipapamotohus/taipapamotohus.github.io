@@ -5,12 +5,52 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>Catalina</title>
+      <link>/tags/catalina/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/catalina/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>/tags/latex/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macbookpro16</title>
+      <link>/tags/macbookpro16/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/macbookpro16/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>setup</title>
+      <link>/tags/setup/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/setup/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>beamer</title>
@@ -29,26 +69,10 @@
     </item>
     
     <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Inkscape</title>
       <link>/tags/inkscape/</link>
       <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
       <guid>/tags/inkscape/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>latex</title>
-      <link>/tags/latex/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/latex/</guid>
       <description></description>
     </item>
     

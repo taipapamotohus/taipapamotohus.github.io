@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -325,10 +325,13 @@
     <div class="article-style">
       
       前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．
-Table of Contents    media9 beamerで動画が走るスライド原稿を作る（media9版） media9を使用したときの利点 media9を使用したときの欠点 結論   
 media9 media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．
- 参考サイト１：TeXWiki media9 参考サイト２：TeXでプレゼン - LaTeX Beamerを使う人のためのTips集 参考サイト３：How to embed video files in a PDF using LaTeX (a media9/beamer example) 参考サイト４：Beamer で PDF ファイルに動画を埋め込む 参考サイト５：media9 problems  beamerで動画が走るスライド原稿を作る（media9版）  同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い preambleに，\usepackage{media9}を忘れずに追加しておく．
-\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}  110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．
+ 参考サイト１：TeXWiki media9 参考サイト２：TeXでプレゼン - LaTeX Beamerを使う人のためのTips集 参考サイト３：How to embed video files in a PDF using LaTeX (a media9/beamer example) 参考サイト４：Beamer で PDF ファイルに動画を埋め込む 参考サイト５：media9 problems  beamerで動画が走るスライド原稿を作る（media9版）   同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い
+  preambleに，\usepackage{media9}を忘れずに追加しておく．
+\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}   110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．
+  loopは，ループ再生するかどうか
+  autoplayは自動再生するかどうか
+  media9を使用したときの利点  なんと言ってもべた書きよりもelegant!
       
     </div>
   </div>
@@ -338,8 +341,9 @@ media9 media9はtexlive2018に含まれており，特に別途インストー�
     <div class="article-style">
       
       実は，同じような内容について2010年に，TeX QA に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．
-beamerで動画が走るスライド原稿を作る  前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい． 参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
-3 Annotations An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype', for instance, `/Text', `/Link', `/Sound', `/Movie', etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect'.
+beamerで動画が走るスライド原稿を作る   前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．
+  参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
+3 Annotations An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;.
       
     </div>
   </div>
@@ -489,7 +493,7 @@ beamerで動画が走るスライド原稿を作る  前述した ，Te
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

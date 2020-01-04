@@ -28,14 +28,14 @@
   
     
   
-  <meta name="description" content=" 昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．
-Preludeとは  Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．． Prelude Githubはこちら  Preludeのインストール  上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．
-$ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！ （2018年10月9日修正） デフォルトのままではこうならない．下記のように設定する必要あり．
- prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．
-(require &#39;prelude-helm) ;; Interface for narrowing and search (require &#39;prelude-helm-everywhere) ;; Enable Helm everywhere .................. (require &#39;prelude-latex)  helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに auctex がインストールされる．
- preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．
- super-save について（ 2019年6月1日追記 ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．
-    個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．
+  <meta name="description" content="昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．
+Preludeとは  Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．． Prelude Githubはこちら  Preludeのインストール   上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．
+$ curl -L https://git.io/epre | sh   インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！ （2018年10月9日修正） デフォルトのままではこうならない．下記のように設定する必要あり．
+  prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．
+(require &#39;prelude-helm) ;; Interface for narrowing and search (require &#39;prelude-helm-everywhere) ;; Enable Helm everywhere .................. (require &#39;prelude-latex) helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに auctex がインストールされる．
+  preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．
+  super-save について（ 2019年6月1日追記 ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．
+     個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．
   ">
 
   
@@ -88,7 +88,7 @@ $ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -130,14 +130,14 @@ $ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="/post/prelude_install/">
   <meta property="og:title" content="Emacsの設定（その1）Preludeの導入（2018年10月9日修正，2019年6月1日追記） | A perfect autumn day">
-  <meta property="og:description" content=" 昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．
-Preludeとは  Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．． Prelude Githubはこちら  Preludeのインストール  上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．
-$ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！ （2018年10月9日修正） デフォルトのままではこうならない．下記のように設定する必要あり．
- prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．
-(require &#39;prelude-helm) ;; Interface for narrowing and search (require &#39;prelude-helm-everywhere) ;; Enable Helm everywhere .................. (require &#39;prelude-latex)  helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに auctex がインストールされる．
- preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．
- super-save について（ 2019年6月1日追記 ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．
-    個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．
+  <meta property="og:description" content="昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．
+Preludeとは  Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．． Prelude Githubはこちら  Preludeのインストール   上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．
+$ curl -L https://git.io/epre | sh   インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！ （2018年10月9日修正） デフォルトのままではこうならない．下記のように設定する必要あり．
+  prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．
+(require &#39;prelude-helm) ;; Interface for narrowing and search (require &#39;prelude-helm-everywhere) ;; Enable Helm everywhere .................. (require &#39;prelude-latex) helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに auctex がインストールされる．
+  preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．
+  super-save について（ 2019年6月1日追記 ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．
+     個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．
   "><meta property="og:image" content="/post/prelude_install/featured.jpg">
   <meta property="twitter:image" content="/post/prelude_install/featured.jpg"><meta property="og:locale" content="en-us">
   
@@ -415,41 +415,34 @@ $ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．</p>
-
+      <p>昔はいろいろイチからinit.elを設定したものだけど，今は最初からほぼ全部やってくれる設定集がある．</p>
 <h2 id="preludeとは">Preludeとは</h2>
-
 <ul>
 <li>Emacs初期設定集の一種．他にもいろいろあるようだが，これしか使ったことがないので．．．</li>
-<li><a href="https://github.com/bbatsov/prelude" target="_blank">Prelude</a> Githubはこちら</li>
+<li><a href="https://github.com/bbatsov/prelude">Prelude</a> Githubはこちら</li>
 </ul>
-
 <h2 id="preludeのインストール">Preludeのインストール</h2>
-
 <ul>
-<li><p>上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．</p>
-
-<pre><code class="language-shell">$ curl -L https://git.io/epre | sh
-</code></pre></li>
-
-<li><p>インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．<del>auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！</del> <strong>（2018年10月9日修正）</strong> デフォルトのままではこうならない．下記のように設定する必要あり．</p></li>
-
-<li><p>prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．</p>
-
-<pre><code class="language-lisp">(require 'prelude-helm) ;; Interface for narrowing and search
-(require 'prelude-helm-everywhere) ;; Enable Helm everywhere
-..................
-(require 'prelude-latex)
-</code></pre>
-
-<p>helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに <strong>auctex</strong> がインストールされる．</p></li>
-
-<li><p>preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．</p></li>
-
-<li><p><strong>super-save</strong> について（ <strong>2019年6月1日追記</strong> ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．</p>
-
+<li>
+<p>上記のGithubのFast Forwardに書いてあるように，macOSで既にgitとcurlとEmacsをインストールしていれば，下記のコマンドを打てば，Preludeがインストールされる．念のために，古い.emacs.dはどこかに退避させておく（名前を変えて保存されるようになってはいるが心配性なもんで）．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -L https://git.io/epre | sh
+</code></pre></div></li>
+<li>
+<p>インストール終了後にEmacsを再起動すると，勝手にもの凄い勢いでどんどん各種パッケージをダウンロードしてインストールしてくれる．<del>auctexなどもインストールされるので，LaTeXも使えるようになる．素晴らしい！</del> <strong>（2018年10月9日修正）</strong> デフォルトのままではこうならない．下記のように設定する必要あり．</p>
+</li>
+<li>
+<p>prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;prelude-helm</span>) <span style="color:#75715e">;; Interface for narrowing and search</span>
+(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;prelude-helm-everywhere</span>) <span style="color:#75715e">;; Enable Helm everywhere</span>
+<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;prelude-latex</span>)
+</code></pre></div><p>helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに <strong>auctex</strong> がインストールされる．</p>
+</li>
+<li>
+<p>preludeのdefaultの設定は，ほぼ満足すべきものだが，ひとつだけ，prelude-auto-saveが邪魔である．これは，他のbufferに移動したり，他のアプリを使用したりするたびに自動で保存される機能であるが，非常に鬱陶しい．M-x customize からprelude-auto-saveを検索し，offにする．custom.elに書き込まれる．</p>
+</li>
+<li>
+<p><strong>super-save</strong> について（ <strong>2019年6月1日追記</strong> ）：この記事を書いてからすぐに気がついたのだが，現在のpreludeはsuper-saveがdefaultで設定されるので，こちらもoffにしないと自動保存が行われてしまう．これは好みの問題だとは思うが，私は嫌いなのでoffにしている．遅まきながら追記しておく．設定の変更は上述のとおりで，M-x customize からsuper-saveを検索し，offにする．下図を参考にしていただきたい．</p>
 
 
 
@@ -464,9 +457,11 @@ $ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起
 </a>
 
 </figure>
-</li>
 
-<li><p>個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．</p></li>
+</li>
+<li>
+<p>個人の設定は，~/.emacs.d/personal/init.elに書き込む．これは，org-modeを使って設定するのが良い．まずorg-modeについての記事を書いたあとにinit.orgについて書く予定．</p>
+</li>
 </ul>
 
     </div>
@@ -785,7 +780,7 @@ $ curl -L https://git.io/epre | sh  インストール終了後にEmacsを再起
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

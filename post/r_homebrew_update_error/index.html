@@ -29,10 +29,10 @@
     
   
   <meta name="description" content="Rとは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&hellip;..(^^;;;
-gccのリンク絡みのトラブル  大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
-$ brew link --overwrite gcc   XMLが入らない  XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
-Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&quot;)  なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
-  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．  &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&rdquo;Cairo&rdquo; packageなど）．要するにXlib.">
+gccのリンク絡みのトラブル   大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
+$ brew link --overwrite gcc   XMLが入らない   XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
+Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34;) なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
+  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．   &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&ldquo;Cairo&rdquo; packageなど）．要するにXlib.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/r_homebrew_update_error/">
@@ -84,7 +84,7 @@ Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&qu
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -127,10 +127,10 @@ Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&qu
   <meta property="og:url" content="/post/r_homebrew_update_error/">
   <meta property="og:title" content="RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法 | A perfect autumn day">
   <meta property="og:description" content="Rとは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&hellip;..(^^;;;
-gccのリンク絡みのトラブル  大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
-$ brew link --overwrite gcc   XMLが入らない  XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
-Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&quot;)  なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
-  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．  &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&rdquo;Cairo&rdquo; packageなど）．要するにXlib."><meta property="og:image" content="/post/r_homebrew_update_error/featured.jpg">
+gccのリンク絡みのトラブル   大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
+$ brew link --overwrite gcc   XMLが入らない   XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
+Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34;) なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
+  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．   &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&ldquo;Cairo&rdquo; packageなど）．要するにXlib."><meta property="og:image" content="/post/r_homebrew_update_error/featured.jpg">
   <meta property="twitter:image" content="/post/r_homebrew_update_error/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -407,110 +407,95 @@ Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&qu
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p><a href="https://www.r-project.org" target="_blank">R</a>とは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&hellip;..(^^;;;</p>
-
+      <p><a href="https://www.r-project.org">R</a>とは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&hellip;..(^^;;;</p>
 <h2 id="gccのリンク絡みのトラブル">gccのリンク絡みのトラブル</h2>
-
 <ul>
-<li><p>大体は以下で直ることが多い（<a href="https://github.com/Homebrew/homebrew-science/issues/5587" target="_blank">r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587</a>）</p>
-
-<pre><code class="language-shell">$ brew link --overwrite gcc
-</code></pre></li>
+<li>
+<p>大体は以下で直ることが多い（<a href="https://github.com/Homebrew/homebrew-science/issues/5587">r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587</a>）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew link --overwrite gcc
+</code></pre></div></li>
 </ul>
-
 <h2 id="xmlが入らない">XMLが入らない</h2>
-
 <ul>
-<li><p>XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，<a href="https://medium.com/biosyntax/installing-r-package-xml-on-macos-10-13-6-1738146d4ee0" target="_blank">Installing R package XML on MacOS 10.13.6</a>と同じである．対処法は，同サイトや引用元の<a href="https://stackoverflow.com/questions/40682615/cannot-install-xml-package-in-r" target="_blank">Cannot install XML package in r</a>にある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．</p>
-
-<pre><code class="language-shell">Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&quot;)
-</code></pre>
-
-<p>なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）</p></li>
+<li>
+<p>XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，<a href="https://medium.com/biosyntax/installing-r-package-xml-on-macos-10-13-6-1738146d4ee0">Installing R package XML on MacOS 10.13.6</a>と同じである．対処法は，同サイトや引用元の<a href="https://stackoverflow.com/questions/40682615/cannot-install-xml-package-in-r">Cannot install XML package in r</a>にある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Sys.setenv<span style="color:#f92672">(</span>XML_CONFIG <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><p>なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）</p>
+</li>
 </ul>
-
 <h2 id="cairoなどのインストール時に-include-and-lt-x11-xlib-dot-h-and-gt-でハマる">Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．</h2>
-
 <ul>
-<li><p>&lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&rdquo;Cairo&rdquo; packageなど）．要するにXlib.hの在り処が分からんということである．mdfind（Mac版のlocate）で探してみると，以下のような結果が得られる．</p>
-
-<pre><code class="language-sh">$ mdfind -name Xlib.h | grep X11
+<li>
+<p>&lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&ldquo;Cairo&rdquo; packageなど）．要するにXlib.hの在り処が分からんということである．mdfind（Mac版のlocate）で探してみると，以下のような結果が得られる．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mdfind -name Xlib.h | grep X11
 /opt/X11/include/cairo/cairo-xlib.h
 /opt/X11/include/X11/Xlib.h
 /System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/Xlib.h
 /System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
-</code></pre>
-
-<p>そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）</p>
-
-<pre><code class="language-sh">Sys.setenv(C_INCLUDE_PATH = &quot;/opt/X11/include&quot;)
-</code></pre>
-
-<p>これで，コンパイルできるようになるはずである．</p></li>
-
-<li><p>どこにX11/Xlib.hが入っているかは，インストールの仕方により色々であろうから，場所を確認してから上記の操作を行うようにする．</p></li>
-
-<li><p>なお，ネットのあちこちに，Xquartzをdowngradeすればコンパイルできる，みたいなことが書いてあったが，あれはなんなのだろうか．．．？</p></li>
+</code></pre></div><p>そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Sys.setenv<span style="color:#f92672">(</span>C_INCLUDE_PATH <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/opt/X11/include&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><p>これで，コンパイルできるようになるはずである．</p>
+</li>
+<li>
+<p>どこにX11/Xlib.hが入っているかは，インストールの仕方により色々であろうから，場所を確認してから上記の操作を行うようにする．</p>
+</li>
+<li>
+<p>なお，ネットのあちこちに，Xquartzをdowngradeすればコンパイルできる，みたいなことが書いてあったが，あれはなんなのだろうか．．．？</p>
+</li>
 </ul>
-
 <h2 id="rsvgのインストール時に-xcb-shm-dot-pcがないと怒られる">rsvgのインストール時に，xcb-shm.pcがないと怒られる．</h2>
-
 <ul>
-<li><p>こんな感じである．</p>
-
-<pre><code class="language-sh">&gt; biocLite(&quot;rsvg&quot;)
+<li>
+<p>こんな感じである．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; biocLite<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;rsvg&#34;</span><span style="color:#f92672">)</span>
 ...................................
 Package xcb-shm was not found in the pkg-config search path.
-Perhaps you should add the directory containing `xcb-shm.pc'
-to the PKG_CONFIG_PATH environment variable
-Package 'xcb-shm', required by 'cairo', not found
-Found INCLUDE_DIR and/or LIB_DIR!
-Using PKG_CFLAGS=-I/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig/librsvg-2.0.pc
-Using PKG_LIBS=-L/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig -lrsvg
-------------------------- ANTICONF ERROR ---------------------------
-Configuration failed because librsvg-2.0 was not found. Try installing:
-​* deb: librsvg2-dev (Debian, Ubuntu, etc)
-​* rpm: librsvg2-devel (Fedora, EPEL)
-​* csw: librsvg_dev, sunx11_devel (Solaris)
-​* brew: librsvg (OSX)
-If librsvg-2.0 is already installed, check that 'pkg-config' is in your
-PATH and PKG_CONFIG_PATH contains a librsvg-2.0.pc file. If pkg-config
-is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
-R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
---------------------------------------------------------------------
-ERROR: configuration failed for package ‘rsvg’
-​* removing ‘/usr/local/Cellar/r/3.5.1/lib/R/library/rsvg’
-
-The downloaded source packages are in
-‘/private/var/folders/rq/hj_634613dbfzs41djqt52y80000gn/T/RtmpzsGqp0/downloaded_packages’
-Updating HTML index of packages in '.Library'
-Making 'packages.html' ... done
+Perhaps you should add the directory containing <span style="color:#e6db74">`</span>xcb-shm.pc<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">to the PKG_CONFIG_PATH environment variable
+</span><span style="color:#e6db74">Package &#39;</span>xcb-shm<span style="color:#e6db74">&#39;, required by &#39;</span>cairo<span style="color:#e6db74">&#39;, not found
+</span><span style="color:#e6db74">Found INCLUDE_DIR and/or LIB_DIR!
+</span><span style="color:#e6db74">Using PKG_CFLAGS=-I/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig/librsvg-2.0.pc
+</span><span style="color:#e6db74">Using PKG_LIBS=-L/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig -lrsvg
+</span><span style="color:#e6db74">------------------------- ANTICONF ERROR ---------------------------
+</span><span style="color:#e6db74">Configuration failed because librsvg-2.0 was not found. Try installing:
+</span><span style="color:#e6db74">​* deb: librsvg2-dev (Debian, Ubuntu, etc)
+</span><span style="color:#e6db74">​* rpm: librsvg2-devel (Fedora, EPEL)
+</span><span style="color:#e6db74">​* csw: librsvg_dev, sunx11_devel (Solaris)
+</span><span style="color:#e6db74">​* brew: librsvg (OSX)
+</span><span style="color:#e6db74">If librsvg-2.0 is already installed, check that &#39;</span>pkg-config<span style="color:#e6db74">&#39; is in your
+</span><span style="color:#e6db74">PATH and PKG_CONFIG_PATH contains a librsvg-2.0.pc file. If pkg-config
+</span><span style="color:#e6db74">is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+</span><span style="color:#e6db74">R CMD INSTALL --configure-vars=&#39;</span>INCLUDE_DIR<span style="color:#f92672">=</span>... LIB_DIR<span style="color:#f92672">=</span>...<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">--------------------------------------------------------------------
+</span><span style="color:#e6db74">ERROR: configuration failed for package ‘rsvg’
+</span><span style="color:#e6db74">​* removing ‘/usr/local/Cellar/r/3.5.1/lib/R/library/rsvg’
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">The downloaded source packages are in
+</span><span style="color:#e6db74">‘/private/var/folders/rq/hj_634613dbfzs41djqt52y80000gn/T/RtmpzsGqp0/downloaded_packages’
+</span><span style="color:#e6db74">Updating HTML index of packages in &#39;</span>.Library<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">Making &#39;</span>packages.html<span style="color:#960050;background-color:#1e0010">&#39;</span> ... <span style="color:#66d9ef">done</span>
 警告メッセージ:
-install.packages(pkgs = doing, lib = lib, ...) で:
+install.packages<span style="color:#f92672">(</span>pkgs <span style="color:#f92672">=</span> doing, lib <span style="color:#f92672">=</span> lib, ...<span style="color:#f92672">)</span> で:
 installation of package ‘rsvg’ had non-zero exit status
-</code></pre></li>
-
-<li><p>要するに，xcb-shm.pcのあるディレクトリをPKG＿CONFIG＿DIRに追加しろと言ってるので，xcb-shm.pcがどこにあるかをmdfindで探してから，言われるとおり追加する．</p>
-
-<pre><code class="language-sh">$ mdfind -name xcb-shm.pc
+</code></pre></div></li>
+<li>
+<p>要するに，xcb-shm.pcのあるディレクトリをPKG＿CONFIG＿DIRに追加しろと言ってるので，xcb-shm.pcがどこにあるかをmdfindで探してから，言われるとおり追加する．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mdfind -name xcb-shm.pc
 /opt/X11/lib/pkgconfig/cairo-xcb-shm.pc
 /opt/X11/lib/pkgconfig/xcb-shm.pc
 /usr/local/Cellar/cairo/1.14.8/lib/pkgconfig/cairo-xcb-shm.pc
 /usr/local/Cellar/cairo/1.14.10/lib/pkgconfig/cairo-xcb-shm.pc
 /usr/local/Cellar/cairo/1.14.12/lib/pkgconfig/cairo-xcb-shm.pc
-</code></pre></li>
-
-<li><p>上記のように，/opt/X11/lib/pkgconfig/xcb-shm.pcとなっているので，これを追加する．このときも上述のごとく，RのコンソールでSys.setenvを使う．</p>
-
-<pre><code class="language-sh">&gt; Sys.setenv(PKG_CONFIG_PATH = &quot;/opt/X11/lib/pkgconfig&quot;)
-</code></pre></li>
-
-<li><p>これで，rsvgはうまくコンパイルされる．</p></li>
+</code></pre></div></li>
+<li>
+<p>上記のように，/opt/X11/lib/pkgconfig/xcb-shm.pcとなっているので，これを追加する．このときも上述のごとく，RのコンソールでSys.setenvを使う．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">&gt; Sys.setenv<span style="color:#f92672">(</span>PKG_CONFIG_PATH <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/opt/X11/lib/pkgconfig&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div></li>
+<li>
+<p>これで，rsvgはうまくコンパイルされる．</p>
+</li>
 </ul>
-
 <p>今回はいきなりのRネタになってしまった．</p>
 
     </div>
@@ -839,7 +824,7 @@ installation of package ‘rsvg’ had non-zero exit status
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

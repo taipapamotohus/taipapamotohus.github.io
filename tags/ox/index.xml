@@ -5,7 +5,7 @@
     <link>/tags/ox/</link>
       <atom:link href="/tags/ox/index.xml" rel="self" type="application/rss+xml" />
     <description>ox</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>ox</title>
@@ -17,44 +17,32 @@
       <link>/post/embedrplotinblog/</link>
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/embedrplotinblog/</guid>
-      <description>
-
-&lt;p&gt;（承前）前回（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．&lt;/p&gt;
-
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-
+      <description>&lt;p&gt;（承前）前回（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;/div&gt;
-&lt;!--endtoc--&gt;&lt;/p&gt;
-
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34; target=&#34;_blank&#34;&gt;HUGO&lt;/a&gt;  &lt;br /&gt;
-Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34; target=&#34;_blank&#34;&gt;ox-hugo&lt;/a&gt;  &lt;br /&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
 ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).&lt;/p&gt;
-
-&lt;p&gt;要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://sfus.net/blog/2018/12/org-mode-with-ox-hugo/&#34; target=&#34;_blank&#34;&gt;Org-mode で記事を書いて Hugo 向け markdown を ox-hugo で自動生成する話&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;そもそも，まず，Hugoのディレクトリ・ファイルの構成を把握する必要があった．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.org に書き込んでおり，directory/file構成は以下の通りである．上記参考サイトと同じく，/hogehoge/hogeblog/hogefugablog/，つまり，Hugo の content/ と同じ階層に hogefugablog.org ファイルを置いている．なお，themeは &lt;a href=&#34;https://themes.gohugo.io/academic/&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;academic&lt;/strong&gt;&lt;/a&gt; を使用している．また，ox-hugoのdirectoryは今回の作業により新たに作成されたものであり，当初はなかった．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ tree -L 2
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://sfus.net/blog/2018/12/org-mode-with-ox-hugo/&#34;&gt;Org-mode で記事を書いて Hugo 向け markdown を ox-hugo で自動生成する話&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;そもそも，まず，Hugoのディレクトリ・ファイルの構成を把握する必要があった．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.org に書き込んでおり，directory/file構成は以下の通りである．上記参考サイトと同じく，/hogehoge/hogeblog/hogefugablog/，つまり，Hugo の content/ と同じ階層に hogefugablog.org ファイルを置いている．なお，themeは &lt;a href=&#34;https://themes.gohugo.io/academic/&#34;&gt;&lt;strong&gt;academic&lt;/strong&gt;&lt;/a&gt; を使用している．また，ox-hugoのdirectoryは今回の作業により新たに作成されたものであり，当初はなかった．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 .
 ├── config.toml
 ├── content
@@ -75,57 +63,31 @@ ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown 
 │   └── ox-hugo
 └── themes
     └── academic
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/usage/#before-you-export&#34; target=&#34;_blank&#34;&gt;Before you export&lt;/a&gt;&lt;/p&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/usage/#before-you-export&#34;&gt;Before you export&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本サイトでは，HUGO_SECTIONは特に設定しておらず，C-h v org-hugo-default-section-directoryの値は default valueであるpostsになっている．&lt;/p&gt;
-
 &lt;p&gt;また，hogefugablog.orgの文頭に以下のように記述して，HUGO_BASE_DIRを設定している．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+HUGO_BASE_DIR: ./
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ここまでで，ox-hugoからのexportの準備が整った．&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HUGO_BASE_DIR: &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ここまでで，ox-hugoからのexportの準備が整った．&lt;/p&gt;
 &lt;h2 id=&#34;references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#references-to-files-outside-the-static-directory&#34; target=&#34;_blank&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Hugoのstatic directory以外の場所にあるファイルへのreferenceを作成し，かつ，そのファイルが &lt;strong&gt;org-hugo-external-file-extensions-allowed-for-copying&lt;/strong&gt; のリストに挙げられている拡張子を有している場合は，そのファイルはox-hugoによりstatic directoryにコピーされる．ちなみに，C-h v org-hugo-external-file-extensions-allowed-for-copyingとすると，以下のような値を得る．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;org-hugo-external-file-extensions-allowed-for-copying is a variable defined in ‘ox-hugo.el’.
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;org-hugo-external-file-extensions-allowed-for-copying is a variable defined in &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;‘&lt;/span&gt;ox-hugo.el&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
 Its value is
-(&amp;quot;jpg&amp;quot; &amp;quot;jpeg&amp;quot; &amp;quot;tiff&amp;quot; &amp;quot;png&amp;quot; &amp;quot;svg&amp;quot; &amp;quot;gif&amp;quot; &amp;quot;pdf&amp;quot; &amp;quot;odt&amp;quot; &amp;quot;doc&amp;quot; &amp;quot;ppt&amp;quot; &amp;quot;xls&amp;quot; &amp;quot;docx&amp;quot; &amp;quot;pptx&amp;quot; &amp;quot;xlsx&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34; target=&#34;_blank&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;br /&gt;
+(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpeg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tiff&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;png&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;svg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gif&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;odt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;doc&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ppt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xls&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;docx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pptx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xlsx&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;!-- raw HTML omitted --&gt;
 このサイトの &lt;strong&gt;Table 2: Where files get copied to if their path does not contain static/&lt;/strong&gt; が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/foo.png
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;に作成される．そして，このファイルは，最終的に，&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/static/ox-hugo/foo.png
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;にコピーされ，ブログ記事に挿入されるということになる．なお，ox-hugo directoryはこの時に自動的に作成される．&lt;/p&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/foo.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;に作成される．そして，このファイルは，最終的に，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/static/ox-hugo/foo.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;にコピーされ，ブログ記事に挿入されるということになる．なお，ox-hugo directoryはこの時に自動的に作成される．&lt;/p&gt;
 &lt;p&gt;つまり，前回の記事（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）のように，R plotのcode blockを含むorg ファイルを作成し，それをexportして，R plotが自動で組み込まれるようなら，そのorg-babelのcode blockをそのままox-hugoで書いたブログ記事のorg ファイルにコピペすれば，あとはox-hugoが良きにはからってくれるはずである．&lt;/p&gt;
-
 &lt;p&gt;実は，できたグラフの画像を自分でいろいろな場所にコピーしては失敗していた．Hugoのroot directory，つまり，/hogehoge/hogeblog/hogefugablog/でRを動かして，できたグラフ画像に対して何もせずに放置しておけば，ox-hugoが全て面倒を見てくれるということに気がつかず，余計なことをしていたわけである．&lt;/p&gt;
-
 &lt;p&gt;まとめとして，前回記事のcode blockをこの記事に挿入して試してみる．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src R :session *R* :results output graphics :file test1.png :exports both
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test1.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
 boxplot(islands)
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -140,15 +102,12 @@ boxplot(islands)
 
 &lt;/figure&gt;
 
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src R :session *R* :results output graphics :file test2.png :exports both
-library(&amp;quot;ggplot2&amp;quot;)
-ggplot(iris, aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test2.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
+library(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ggplot2&amp;#34;&lt;/span&gt;)
+ggplot(iris, aes(x &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Width, y &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Length, color &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Species)) &lt;span style=&#34;color:#a6e22e&#34;&gt;+&lt;/span&gt;
 geom_point()
-#+END_SRC
-&lt;/code&gt;&lt;/pre&gt;
-
-
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -163,9 +122,7 @@ geom_point()
 
 &lt;/figure&gt;
 
-
 &lt;p&gt;ちゃんとグラフが自動的に挿入されている．&lt;/p&gt;
-
 &lt;p&gt;org-babelとRの組み合わせは強力で，ox-hugoも便利と改めて痛感．&lt;/p&gt;
 </description>
     </item>
@@ -175,179 +132,180 @@ geom_point()
       <link>/post/org-mode_paper_4/</link>
       <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/post/org-mode_paper_4/</guid>
-      <description>
-
-&lt;p&gt;医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．&lt;/p&gt;
-
+      <description>&lt;p&gt;医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．&lt;/p&gt;
 &lt;p&gt;いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， &lt;strong&gt;pandoc&lt;/strong&gt; とそれをorg−modeから利用するための &lt;strong&gt;ox-pandoc&lt;/strong&gt; である．&lt;/p&gt;
-
-&lt;p&gt;&lt;h2&gt;Table of Contents&lt;/h2&gt;
-&lt;/p&gt;
-
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;ox-pandoc&#34;&gt;ox-pandoc&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参照サイト1：本家　&lt;a href=&#34;https://github.com/kawabata/ox-pandoc&#34; target=&#34;_blank&#34;&gt;ox-pandoc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参照サイト2：&lt;a href=&#34;http://kitchingroup.cheme.cmu.edu/blog/2015/06/11/ox-pandoc-org-mode-+-org-ref-to-docx-with-bibliographies/&#34; target=&#34;_blank&#34;&gt;ox-pandoc - org-mode + org-ref to docx with bibliographies&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参照サイト3：もっと本家　&lt;a href=&#34;https://pandoc.org&#34; target=&#34;_blank&#34;&gt;Pandoc   a universal document converter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．&lt;/li&gt;
-&lt;li&gt;ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$  brew install pandoc
+&lt;li&gt;
+&lt;p&gt;参照サイト1：本家　&lt;a href=&#34;https://github.com/kawabata/ox-pandoc&#34;&gt;ox-pandoc&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参照サイト2：&lt;a href=&#34;http://kitchingroup.cheme.cmu.edu/blog/2015/06/11/ox-pandoc-org-mode-+-org-ref-to-docx-with-bibliographies/&#34;&gt;ox-pandoc - org-mode + org-ref to docx with bibliographies&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参照サイト3：もっと本家　&lt;a href=&#34;https://pandoc.org&#34;&gt;Pandoc   a universal document converter&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$  brew install pandoc
 $  brew install pandoc-citeproc
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+begin_src emacs-lisp
-(use-package ox-pandoc
-  :ensure t
-  :config
-  ;; default options for all output formats
-  (setq org-pandoc-options &#39;((standalone . t)))
-  ;; cancel above settings only for &#39;docx&#39; format
-  (setq org-pandoc-options-for-docx &#39;((standalone . nil)))
-  ;; special settings for beamer-pdf and latex-pdf exporters
-  (setq org-pandoc-options-for-beamer-pdf &#39;((pdf-engine . &amp;quot;xelatex&amp;quot;)))
-  (setq org-pandoc-options-for-latex-pdf &#39;((pdf-engine . &amp;quot;xelatex&amp;quot;)))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-pandoc
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; default options for all output formats&lt;/span&gt;
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((standalone &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)))
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; cancel above settings only for &amp;#39;docx&amp;#39; format&lt;/span&gt;
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-docx &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((standalone &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;)))
+  &lt;span style=&#34;color:#75715e&#34;&gt;;; special settings for beamer-pdf and latex-pdf exporters&lt;/span&gt;
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-beamer-pdf &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((pdf-engine &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xelatex&amp;#34;&lt;/span&gt;)))
+  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-latex-pdf &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((pdf-engine &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xelatex&amp;#34;&lt;/span&gt;)))
   )
-#+end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;latex engineにxelatex以外を使っている場合は，上記の設定をそちらに変更する．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以上でorg-mode自体の基本的な設定は終了である．&lt;/p&gt;&lt;/li&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;latex engineにxelatex以外を使っている場合は，上記の設定をそちらに変更する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以上でorg-mode自体の基本的な設定は終了である．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;文書の中で実際に引用された論文のみからなる文献リストを生成する方法&#34;&gt;文書の中で実際に引用された論文のみからなる文献リストを生成する方法&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;このリスト（bib ファイル）を作成しておかないと，Wordをexportする際にうまくいかない．&lt;/li&gt;
 &lt;li&gt;reftex-create-bibtex-fileとbibexportの２つの方法がある．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;reftex-create-bibtex-file&#34;&gt;reftex-create-bibtex-file&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参照サイト：&lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html%5Fnode/reftex/BibTeX-Database-Subsets.html&#34; target=&#34;_blank&#34;&gt;reftex-create-bibtex-file&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参照サイト：&lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html%5Fnode/reftex/BibTeX-Database-Subsets.html&#34;&gt;reftex-create-bibtex-file&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Emacsの中に最初から入っているコマンドである．&lt;/li&gt;
 &lt;li&gt;前回の記事（&lt;a href=&#34;../org-mode_paper_3&#34;&gt;Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化&lt;/a&gt;）の際に作成したhogefuga.orgからpdfをexportした際に同じdirectory内にhogefuga.texも保存されているはずである．これをEmacsでオープンし, &lt;strong&gt;M-x reftex-create-bibtex-file&lt;/strong&gt; と打つ．すると，実際に引用された論文のみからなる文献リストを生成してくれる．この際に名前をどうするかを聞かれるので，適当につける．今回は，extract.bibとした．&lt;/li&gt;
 &lt;li&gt;しかし，たまに，reftex-create-bibtex-fileで引用された論文の一部が欠けてしまうことがある．そのようなときは，第２の方法であるbibexportが役に立つ．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;bibexport&#34;&gt;bibexport&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参考サイト1：&lt;a href=&#34;https://ctan.org/pkg/bibexport&#34; target=&#34;_blank&#34;&gt;bibexport – Extract a BibTEX file based on a .aux file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト2：&lt;a href=&#34;https://tex.stackexchange.com/questions/41821/creating-bib-file-containing-only-the-cited-references-of-a-bigger-bib-file&#34; target=&#34;_blank&#34;&gt;Creating .bib file containing only the cited references of a bigger .bib file&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;texliveに含まれているshell script&lt;/li&gt;
-&lt;li&gt;文書の中の &lt;strong&gt;\cite&lt;/strong&gt; で引用された文献のみを抽出する．上記のreftex-create-bibtex-fileはtex ファイルが有れば抽出できたが，こちらはaux ファイルを必要とする．したがって，まず，org-modeからpdfをexportし，tex ファイルを作成し，次いで，tex ファイルをlatex でコンパイルしてaux ファイルを作成し，そのaux ファイルに対してbibexportを用いるというややこしいことをする必要がある．&lt;/li&gt;
-&lt;li&gt;しかし，reftex-create-bibtex-fileでうまく抽出できないときも，bibexportならうまくいくことが多いので，知っておいて損はない．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;使い方は以下を参考&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;bibexport --help
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;bibexport: a tool to extract BibTeX entries out of .bib files.
-usage: bibexport [-h|v|n|c|a|d|s|t] [-b|e|es|ec|o|r file] file...
+&lt;li&gt;
+&lt;p&gt;参考サイト1：&lt;a href=&#34;https://ctan.org/pkg/bibexport&#34;&gt;bibexport – Extract a BibTEX file based on a .aux file&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参考サイト2：&lt;a href=&#34;https://tex.stackexchange.com/questions/41821/creating-bib-file-containing-only-the-cited-references-of-a-bigger-bib-file&#34;&gt;Creating .bib file containing only the cited references of a bigger .bib file&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;texliveに含まれているshell script&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文書の中の &lt;strong&gt;\cite&lt;/strong&gt; で引用された文献のみを抽出する．上記のreftex-create-bibtex-fileはtex ファイルが有れば抽出できたが，こちらはaux ファイルを必要とする．したがって，まず，org-modeからpdfをexportし，tex ファイルを作成し，次いで，tex ファイルをlatex でコンパイルしてaux ファイルを作成し，そのaux ファイルに対してbibexportを用いるというややこしいことをする必要がある．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;しかし，reftex-create-bibtex-fileでうまく抽出できないときも，bibexportならうまくいくことが多いので，知っておいて損はない．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使い方は以下を参考&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;bibexport --help
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;bibexport: a tool to extract BibTeX entries out of .bib files.
+usage: bibexport &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-h|v|n|c|a|d|s|t&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-b|e|es|ec|o|r file&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; file...
 
 Basic options:
 --------------
  -a, --all                  export the entire .bib files
- -o bib, --output-file bib  write output to file       [default: bibexport.bib]
+ -o bib, --output-file bib  write output to file       &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: bibexport.bib&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
  -t, --terse                operate silently
  -h, --help                 print this message and exit
  -v, --version              print version number and exit
 
 Advanced options:
 -----------------
- -b bst, --bst bst          specifies the .bst style file [default: export.bst]
- -c, --crossref             preserve crossref field               [default: no]
- -n, --no-crossref          remove crossref&#39;d entries             [default: no]
- -e bib, --extra bib        extra .bib file to be used (crossrefs and strings)
- -es bib, --extras bib      extra .bib file to be used (for strings)
- -ec bib, --extrac bib      extra .bib file to be used (for crossrefs)
- -p, --preamble             write a preamble at beginning of output
- -r bib, --replace bib      replace .bib file(s) in the .aux file
- -d, --debug                create intermediate files but don&#39;t run BibTeX
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;例えばこんなふうにshellで打つ&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ bibexport -o extract2.bib hogefuga_English.aux
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+ -b bst, --bst bst          specifies the .bst style file &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: export.bst&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+ -c, --crossref             preserve crossref field               &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: no&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+ -n, --no-crossref          remove crossref&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d entries             [default: no]
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -e bib, --extra bib        extra .bib file to be used (crossrefs and strings)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -es bib, --extras bib      extra .bib file to be used (for strings)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -ec bib, --extrac bib      extra .bib file to be used (for crossrefs)
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -p, --preamble             write a preamble at beginning of output
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -r bib, --replace bib      replace .bib file(s) in the .aux file
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -d, --debug                create intermediate files but don&amp;#39;&lt;/span&gt;t run BibTeX
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;例えばこんなふうにshellで打つ&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ bibexport -o extract2.bib hogefuga_English.aux
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;pandocのための設定&#34;&gt;pandocのための設定&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;word fileとして出力しても，スタイルが気に入らない可能性は高い．そこで，予めスタイルファイルを自分好みにしておく．&lt;/li&gt;
-&lt;li&gt;参考サイト1：&lt;a href=&#34;https://github.com/jgm/pandoc/wiki/Defining-custom-DOCX-styles-in-LibreOffice-(and-Word)&#34; target=&#34;_blank&#34;&gt;Defining custom DOCX styles in LibreOffice (and Word)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト2：&lt;a href=&#34;https://support.office.com/en-us/article/Customize-styles-in-Word-for-Mac-1ef7d8e1-1506-4b21-9e81-adc5f698f86a&#34; target=&#34;_blank&#34;&gt;Customize styles in Word for Mac&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト3：&lt;a href=&#34;https://qiita.com/sky%5Fy/items/5fd5c9568ea550b1d7af&#34; target=&#34;_blank&#34;&gt;ドキュメント変換ツールPandoc：ユーザーズガイドを熟読して分かったマニアックな使い方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト1：&lt;a href=&#34;https://github.com/jgm/pandoc/wiki/Defining-custom-DOCX-styles-in-LibreOffice-(and-Word)&#34;&gt;Defining custom DOCX styles in LibreOffice (and Word)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト2：&lt;a href=&#34;https://support.office.com/en-us/article/Customize-styles-in-Word-for-Mac-1ef7d8e1-1506-4b21-9e81-adc5f698f86a&#34;&gt;Customize styles in Word for Mac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト3：&lt;a href=&#34;https://qiita.com/sky%5Fy/items/5fd5c9568ea550b1d7af&#34;&gt;ドキュメント変換ツールPandoc：ユーザーズガイドを熟読して分かったマニアックな使い方&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;上記のサイトを参考にスタイルファイルを作成し，~/.pandocにword用に &lt;strong&gt;reference.docx&lt;/strong&gt; として置く．このテンプレートのフォーマットに従ってword fileが出力される．&lt;/li&gt;
 &lt;li&gt;しかし，実は，これが結構面倒くさいのである．念のため自作のものを&lt;a href=&#34;/files/reference.docx&#34;&gt;ここ&lt;/a&gt;に置いておく．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;citation-style-language--csl--の設定&#34;&gt;Citation Style Language (CSL)の設定&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参考サイト1：&lt;a href=&#34;https://citationstyles.org&#34; target=&#34;_blank&#34;&gt;Citation Style Language&lt;/a&gt;  ご本家&lt;/li&gt;
-&lt;li&gt;参考サイト2：&lt;a href=&#34;https://github.com/citation-style-language/styles&#34; target=&#34;_blank&#34;&gt;citation-style-language/styles&lt;/a&gt; スタイルの在り処&lt;/li&gt;
-&lt;li&gt;参考サイト3：&lt;a href=&#34;https://github.com/citation-style-language/styles/blob/master/stroke.csl&#34; target=&#34;_blank&#34;&gt;citation-style-language/styles/stroke.csl&lt;/a&gt;  今回使用するスタイル&lt;/li&gt;
+&lt;li&gt;参考サイト1：&lt;a href=&#34;https://citationstyles.org&#34;&gt;Citation Style Language&lt;/a&gt;  ご本家&lt;/li&gt;
+&lt;li&gt;参考サイト2：&lt;a href=&#34;https://github.com/citation-style-language/styles&#34;&gt;citation-style-language/styles&lt;/a&gt; スタイルの在り処&lt;/li&gt;
+&lt;li&gt;参考サイト3：&lt;a href=&#34;https://github.com/citation-style-language/styles/blob/master/stroke.csl&#34;&gt;citation-style-language/styles/stroke.csl&lt;/a&gt;  今回使用するスタイル&lt;/li&gt;
 &lt;li&gt;CSLは学術出版の引用と文献スタイルの書式自動化を促進することを目的としたオープンソースプロジェクト．ありがたく使わせていただく．&lt;/li&gt;
-&lt;li&gt;上記の&lt;a href=&#34;https://github.com/citation-style-language/styles/blob/master/stroke.csl&#34; target=&#34;_blank&#34;&gt;参考サイト3&lt;/a&gt;からstroke.cslをダウンロードする．&lt;/li&gt;
+&lt;li&gt;上記の&lt;a href=&#34;https://github.com/citation-style-language/styles/blob/master/stroke.csl&#34;&gt;参考サイト3&lt;/a&gt;からstroke.cslをダウンロードする．&lt;/li&gt;
 &lt;li&gt;stroke.cslをexportの対象のorg fileと同じdirectoryに置いておく．&lt;/li&gt;
-&lt;li&gt;これで，&lt;a href=&#34;https://www.ahajournals.org/journal/str&#34; target=&#34;_blank&#34;&gt;Stroke&lt;/a&gt; という雑誌の引用書式に従ったスタイルになってword fileがexportされる．&lt;/li&gt;
+&lt;li&gt;これで，&lt;a href=&#34;https://www.ahajournals.org/journal/str&#34;&gt;Stroke&lt;/a&gt; という雑誌の引用書式に従ったスタイルになってword fileがexportされる．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;英語論文の場合のorg-fileの設定&#34;&gt;英語論文の場合のorg fileの設定&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;ここからは，個々のorg-mode file側の設定である．&lt;/li&gt;
-&lt;li&gt;英語の場合は殆どなんの問題もなくexportされる．&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ここからは，個々のorg-mode file側の設定である．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;英語の場合は殆どなんの問題もなくexportされる．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;早速実例を見てみる．まず下のorg fileをhogefuga_English.orgとして保存する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-article
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{times}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:3 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
 
-&lt;li&gt;&lt;p&gt;早速実例を見てみる．まず下のorg fileをhogefuga_English.orgとして保存する．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+LaTeX_CLASS: koma-article
-#+LaTeX_CLASS_OPTIONS: [12pt]
-#+LATEX_HEADER: \usepackage{times}
-#+LATEX_HEADER: \usepackage{geometry}
-#+LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-#+LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-#+STARTUP:  overview
-#+STARTUP:  hidestars
-#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
-#+LINK_UP:
-#+LINK_HOME:
-
-#+TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
-#+AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa
 
  \vspace*{-1.5cm}
 
       \hspace{2.5cm} Department of Hogefuga, Hogefuga University
 
-,* Introduction
+&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Introduction
 
-Stroke is estimated to be ranked as the second leading cause of death and the third most common cause of permanent disability around the world.\cite{Donnan:2008ax} The proportion of ischemic stroke is more than 90% in all stroke. The underlying metabolomic pathophysiology of ischemic stroke, however, remains poorly understood.
+Stroke is estimated to be ranked as &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;second&lt;/span&gt; leading cause of death and &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;third&lt;/span&gt; most common cause of permanent disability around &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; world.\cite{Donnan:2008ax} The proportion of ischemic stroke is more than 90% in all stroke. The underlying metabolomic pathophysiology of ischemic stroke, however, remains poorly understood.
 
-Recently, metabolome analysis using “omics” method has developed. Mass spectrometry (MS) and nuclear magnetic resonance (NMR) spectroscopy have garnered the most use for profiling a large number of metabolites simultaneously.\cite{Lewis:2008uq} These technologies offer comprehensive information about thousands of low-molecular mass compounds (less than 2kDa) including lipids, amino acids, peptides, nucleic acids, organic acids, vitamins, thiols and carbohydrates. Metabolomics renders the metabolic profile of a system, the end points of biological events, and reflect the state of a cell or group of cells at a given time.\cite{Gerszten:2008uq} Gas-chromatography/mass-spectrometry (GC/MS) is one of the wide-spread techniques, which enables researchers to determine analyte masses with such high precision and accuracy that peptides and metabolites can be identified unambiguously even in complex fluids.\cite{Lewis:2010oq}
+Recently, metabolome analysis using &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;omics&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; has developed. Mass spectrometry (MS) and nuclear magnetic resonance (NMR) spectroscopy have garnered &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; most use for profiling a large &lt;span style=&#34;color:#a6e22e&#34;&gt;number&lt;/span&gt; of metabolites simultaneously.\cite{Lewis:2008uq} These technologies offer comprehensive information about thousands of low-molecular mass compounds (less than 2kDa) including lipids, amino acids, peptides, nucleic acids, organic acids, vitamins, thiols and carbohydrates. Metabolomics renders &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; metabolic profile of a system, &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; end points of biological events, and reflect &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; state of a cell or group of cells at a given time.\cite{Gerszten:2008uq} Gas-chromatography/mass-spectrometry (GC/MS) is one of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; wide-spread techniques, which enables researchers to determine analyte masses with such high precision and accuracy that peptides and metabolites can be identified unambiguously even in &lt;span style=&#34;color:#a6e22e&#34;&gt;complex&lt;/span&gt; fluids.\cite{Lewis:2010oq}
 
-The profiling of low molecular weight biochemicals that serve as substrates and products in metabolic pathways is particularly relevant to cardiovascular diseases.\cite{Lewis:2008uq} At present, however, very few studies have been reported on metabolic profiling of stroke. Unlike myocardial infarction, metabolomic changes in the brain are not sufficiently reflected by blood biomarkers due to the presence of the blood-brain barrier and dilution by peripheral blood.\cite{kim2013biomarkers} In addition, most of the studies focused on acute stage of stroke.\cite{Jiang:2011uq,Jung:2011fk,Kimberly:2013mq
+The profiling of low molecular weight biochemicals that serve as substrates and products in metabolic pathways is particularly relevant to cardiovascular diseases.\cite{Lewis:2008uq} At present, however, very few studies have been reported on metabolic profiling of stroke. Unlike myocardial infarction, metabolomic changes in &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; brain are &lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; sufficiently reflected by blood biomarkers due to &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; presence of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; blood-brain barrier and dilution by peripheral blood.\cite{kim2013biomarkers} In addition, most of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; studies focused on acute stage of stroke.\cite{Jiang:2011uq,Jung:2011fk,Kimberly:2013mq
 
-#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_6-authors.bst option:-a limit:t
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_6-authors.bst option:-a limit:t
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;何故か *Introductionの前に２つコンマを打たないとうまくhugoでブログにexportされない（理由は不明，ご教示を乞う）．このために画面上 *Introduction の前にコンマが一つ残っているが，もしコピーして試して見るなら，この余分なコンマは除かないとうまくいかないので注意していただきたい．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Emacsで上記のhogefuga_English.orgを開いた状態で，C-c C-e l oとすると，pdfが作成され，下図のようにskimで開かれる．&lt;/p&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;何故か *Introductionの前に２つコンマを打たないとうまくhugoでブログにexportされない（理由は不明，ご教示を乞う）．このために画面上 *Introduction の前にコンマが一つ残っているが，もしコピーして試して見るなら，この余分なコンマは除かないとうまくいかないので注意していただきたい．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Emacsで上記のhogefuga_English.orgを開いた状態で，C-c C-e l oとすると，pdfが作成され，下図のようにskimで開かれる．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 
 
 
@@ -363,117 +321,116 @@ The profiling of low molecular weight biochemicals that serve as substrates and 
 
 &lt;/figure&gt;
 
-
 &lt;ul&gt;
 &lt;li&gt;本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．&lt;/li&gt;
 &lt;li&gt;何故pdfを作成するかというと， &lt;strong&gt;文書の中で実際に引用された論文のみからなる文献リストを生成する&lt;/strong&gt; ためである．pdfと一緒にできたtex ファイルで，reftex-create-bibtex-file もしくは bibexportを使って抽出された文献リストであるextract.bibを作成する．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;実際に行った手順は以下の通りである．&lt;/p&gt;
-
+&lt;li&gt;実際に行った手順は以下の通りである．
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;pdfのexportの際に一緒に生成された &lt;strong&gt;hogefuga_English.tex&lt;/strong&gt; をEmacsで開く．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;M-x reftex-create-bibtex-file&lt;/strong&gt; する&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;抽出された文献ファイルをextract.bibと命名し保存&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;しかし，extract.bibは何故か引用された8つの文献のうちの6つしか含まれていなかった．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;そこで，上述のように &lt;strong&gt;bibexport&lt;/strong&gt; を利用することにした．texファイルをxelatexでコンパイルし，できたaux ファイルにbibexportを適用した．&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;のlatexmkの項を参照のこと．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ latexmk -pvc -pdf -view=none hogefuga_English.tex
+&lt;li&gt;
+&lt;p&gt;pdfのexportの際に一緒に生成された &lt;strong&gt;hogefuga_English.tex&lt;/strong&gt; をEmacsで開く．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;M-x reftex-create-bibtex-file&lt;/strong&gt; する&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;抽出された文献ファイルをextract.bibと命名し保存&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;しかし，extract.bibは何故か引用された8つの文献のうちの6つしか含まれていなかった．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;そこで，上述のように &lt;strong&gt;bibexport&lt;/strong&gt; を利用することにした．texファイルをxelatexでコンパイルし，できたaux ファイルにbibexportを適用した．&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;のlatexmkの項を参照のこと．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ latexmk -pvc -pdf -view&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;none hogefuga_English.tex
 $ bibexport -o extract2.bib hogefuga_English.aux
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで，８つの文献をすべて含むextract2.bibが生成された．&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これで，８つの文献をすべて含むextract2.bibが生成された．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h2 id=&#34;英語論文のword-fileのexport&#34;&gt;英語論文のWord fileのexport&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;ようやくWord fileへexportできる段階となった．&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ようやくWord fileへexportできる段階となった．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;上記で作成したhogefuga_Engolish.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．多分パスも効くが，この原稿専用のリストなので，同じdirectoryの方が混乱することがないであろう．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract2.bib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;さらに，最後の文献についての以下の部分は削除する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以上で，下図のようになるので，hogefuga_English_WORD.org として保存する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-article
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{times}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:3 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/Stroke2018/Survival_CEA_CAS-MN/stroke.csl
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract2.bib
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
 
-&lt;li&gt;&lt;p&gt;上記で作成したhogefuga_Engolish.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．多分パスも効くが，この原稿専用のリストなので，同じdirectoryの方が混乱することがないであろう．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
-#+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-#+BIBLIOGRAPHY: extract2.bib
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;さらに，最後の文献についての以下の部分は削除する．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以上で，下図のようになるので，hogefuga_English_WORD.org として保存する．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+LaTeX_CLASS: koma-article
-#+LaTeX_CLASS_OPTIONS: [12pt]
-#+LATEX_HEADER: \usepackage{times}
-#+LATEX_HEADER: \usepackage{geometry}
-#+LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-#+LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-#+STARTUP:  overview
-#+STARTUP:  hidestars
-#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
-#+PANDOC_OPTIONS: csl:/Data/Stroke2018/Survival_CEA_CAS-MN/stroke.csl
-#+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-#+BIBLIOGRAPHY: extract2.bib
-#+LINK_UP:
-#+LINK_HOME:
-
-#+TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
-#+AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa.
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa.
 
          \vspace*{-1.5cm}
 
               \hspace{3cm} Department of Hogefuga, Hogefuga University
 
-,* Introduction
-  Stroke is estimated to be ranked as the second leading cause of
-  death and the third most common cause of permanent disability
-  around the world.\cite{Donnan:2008ax} The proportion of ischemic
+&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Introduction
+  Stroke is estimated to be ranked as &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;second&lt;/span&gt; leading cause of
+  death and &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;third&lt;/span&gt; most common cause of permanent disability
+  around &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; world.\cite{Donnan:2008ax} The proportion of ischemic
   stroke is more than 90% in all stroke. The underlying metabolomic
   pathophysiology of ischemic stroke, however, remains poorly
   understood.
 
-  Recently, metabolome analysis using “omics” method has
+  Recently, metabolome analysis using &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;omics&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; has
   developed. Mass spectrometry (MS) and nuclear magnetic resonance
-  (NMR) spectroscopy have garnered the most use for profiling a large
-  number of metabolites simultaneously.\cite{Lewis:2008uq} These
+  (NMR) spectroscopy have garnered &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; most use for profiling a large
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;number&lt;/span&gt; of metabolites simultaneously.\cite{Lewis:2008uq} These
   technologies offer comprehensive information about thousands of
   low-molecular mass compounds (less than 2kDa) including lipids,
   amino acids, peptides, nucleic acids, organic acids, vitamins,
-  thiols and carbohydrates. Metabolomics renders the metabolic profile
-  of a system, the end points of biological events, and reflect the
+  thiols and carbohydrates. Metabolomics renders &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; metabolic profile
+  of a system, &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; end points of biological events, and reflect &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
   state of a cell or group of cells at a given
   time.\cite{Gerszten:2008uq} Gas-chromatography/mass-spectrometry
-  (GC/MS) is one of the wide-spread techniques, which enables
+  (GC/MS) is one of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; wide-spread techniques, which enables
   researchers to determine analyte masses with such high precision and
   accuracy that peptides and metabolites can be identified
-  unambiguously even in complex fluids.\cite{Lewis:2010oq}
+  unambiguously even in &lt;span style=&#34;color:#a6e22e&#34;&gt;complex&lt;/span&gt; fluids.\cite{Lewis:2010oq}
 
   The profiling of low molecular weight biochemicals that serve as
   substrates and products in metabolic pathways is particularly
   relevant to cardiovascular diseases.\cite{Lewis:2008uq} At present,
   however, very few studies have been reported on metabolic profiling
-  of stroke. Unlike myocardial infarction, metabolomic changes in the
-  brain are not sufficiently reflected by blood biomarkers due to the
-  presence of the blood-brain barrier and dilution by peripheral
-  blood.\cite{kim2013biomarkers} In addition, most of the studies
+  of stroke. Unlike myocardial infarction, metabolomic changes in &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
+  brain are &lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; sufficiently reflected by blood biomarkers due to &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
+  presence of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; blood-brain barrier and dilution by peripheral
+  blood.\cite{kim2013biomarkers} In addition, most of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; studies
   focused on acute stage of
   stroke.\cite{Jiang:2011uq, Jung:2011fk, Kimberly:2013mq}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;*Introductionの前のコンマについては前述のとおりである．&lt;/p&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;*Introductionの前のコンマについては前述のとおりである．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, &lt;strong&gt;export via pandoc&lt;/strong&gt; のメニューが見える．そこで，p xとして，export via pandoc &amp;mdash;&amp;gt; to docx and openを選択する．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, &lt;strong&gt;export via pandoc&lt;/strong&gt; のメニューが見える．そこで，p xとして，export via pandoc &amp;mdash;&amp;gt; to docx and openを選択する．&lt;/p&gt;
 
 
 
@@ -488,10 +445,10 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;暫く待つと，下図のようにWordが立ち上がって，docx file（ &lt;strong&gt;hogefuga_English_WORD.docx&lt;/strong&gt; ）が開かれる．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;暫く待つと，下図のようにWordが立ち上がって，docx file（ &lt;strong&gt;hogefuga_English_WORD.docx&lt;/strong&gt; ）が開かれる．&lt;/p&gt;
 
 
 
@@ -507,80 +464,80 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 
 &lt;/figure&gt;
 
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;全体的なスタイルはまずまずである．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;文献リストの体裁はインデントに問題ありだが，これは手作業でやっても苦痛でないレベルである．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;org-modeのオプションが見えてしまっているが，この程度であれば僅かな手作業で消去できる．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;英語に関しては，pdfと比べると多少見劣りがするが，まず問題ないレベルのWord fileが出力できた．&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;全体的なスタイルはまずまずである．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文献リストの体裁はインデントに問題ありだが，これは手作業でやっても苦痛でないレベルである．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;org-modeのオプションが見えてしまっているが，この程度であれば僅かな手作業で消去できる．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;英語に関しては，pdfと比べると多少見劣りがするが，まず問題ないレベルのWord fileが出力できた．&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;日本語論文の場合のorg-fileの設定&#34;&gt;日本語論文の場合のorg fileの設定&lt;/h2&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;前回の記事（&lt;a href=&#34;../org-mode_paper_3&#34;&gt;Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化&lt;/a&gt;）の際に作成したhogefuga.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;前回の記事（&lt;a href=&#34;../org-mode_paper_3&#34;&gt;Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化&lt;/a&gt;）の際に作成したhogefuga.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract.bib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;さらに，最後の文献についての以下の部分は削除する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以上で，下図のようになるので，hogefuga_WORD.org として保存する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-jarticle
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:4 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: date:nil
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract.bib
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
 
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
-#+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-#+BIBLIOGRAPHY: extract.bib
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;さらに，最後の文献についての以下の部分は削除する．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;以上で，下図のようになるので，hogefuga_WORD.org として保存する．&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-lisp&#34;&gt;#+LaTeX_CLASS: koma-jarticle
-#+LaTeX_CLASS_OPTIONS: [12pt]
-#+LATEX_HEADER: \usepackage{geometry}
-#+LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-#+LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-#+STARTUP:  overview
-#+STARTUP:  hidestars
-#+OPTIONS:   H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+OPTIONS: date:nil
-#+PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
-#+PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-#+BIBLIOGRAPHY: extract.bib
-#+LINK_UP:
-#+LINK_HOME:
-
-#+TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
-#+AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
 \vspace*{-1.5cm}
 
 \hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
 
-* 背景と目的
-hogeとfugaを比較してみると，一方で難易度の高い症例でも他方では容易に行える場合も多い．\cite{Stetler:2012jt}当施設では，一方に片寄ることなく，hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている．そこで，自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した．
-* 結果
-hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)．\cite{Cosentino:2011dn}
+&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
+hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;\cite{Stetler:2012jt}当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 結果
+hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;\cite{Cosentino:2011dn}
 
-#+NAME: hoge_fuga
-#+caption: hoge-fuga（重症例である）
-#+attr_latex: :float t :width 3in  :align center
-#+ATTR_HTML: :width 500  :float: wrap :align center
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;重症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 3in  &lt;span style=&#34;color:#e6db74&#34;&gt;:align&lt;/span&gt; center
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;500&lt;/span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:float:&lt;/span&gt; wrap &lt;span style=&#34;color:#e6db74&#34;&gt;:align&lt;/span&gt; center
 [[./hoge_fuga.jpg]]
 
-* 結論
-hogefugaによる治療は有効である．
+&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 結論
+hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;org-modeからword-fileへのexportの方法-1&#34;&gt;org-modeからWord fileへのexportの方法&lt;/h2&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, &lt;strong&gt;export via pandoc&lt;/strong&gt; のメニューが見える．そこで，p xとして，export via pandoc &amp;mdash;&amp;gt; to docx and openを選択する．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, &lt;strong&gt;export via pandoc&lt;/strong&gt; のメニューが見える．そこで，p xとして，export via pandoc &amp;mdash;&amp;gt; to docx and openを選択する．&lt;/p&gt;
 
 
 
@@ -595,10 +552,10 @@ hogefugaによる治療は有効である．
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;暫く待つと，下図のようにWordが立ち上がって，docx file（ &lt;strong&gt;hogefuga_WORD.docx&lt;/strong&gt; ）が開かれる．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;暫く待つと，下図のようにWordが立ち上がって，docx file（ &lt;strong&gt;hogefuga_WORD.docx&lt;/strong&gt; ）が開かれる．&lt;/p&gt;
 
 
 
@@ -614,60 +571,61 @@ hogefugaによる治療は有効である．
 
 &lt;/figure&gt;
 
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Figureのキャプションが消えているが，通常，論文投稿時には，本文と画像は別々になるので，画像自体を本文から削除できるため，問題無しとする．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;しかし，英語の場合には見られなかった大きな問題が発覚した！　本文が,  &lt;strong&gt;濁点分離&lt;/strong&gt; してしまっている．&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;本文中に文献番号はついているし，文献リストもStrokeというジャーナルの投稿規定通り6人までの著者名は提示し，それ以上はet al. になっている．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Figureのキャプションが消えているが，通常，論文投稿時には，本文と画像は別々になるので，画像自体を本文から削除できるため，問題無しとする．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;しかし，英語の場合には見られなかった大きな問題が発覚した！　本文が,  &lt;strong&gt;濁点分離&lt;/strong&gt; してしまっている．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;word-file-の濁点分離を修正する方法&#34;&gt;Word file の濁点分離を修正する方法&lt;/h2&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;濁点分離&lt;/strong&gt; したままでは使いものにならないので，修正する必要がある．しかし，Word fileの内容を点検して，いちいち手作業をやっていては堪らない．そこで，一気に濁点分離を修正する方法はないものかといろいろ探ってみた．&lt;/li&gt;
-&lt;li&gt;参考サイト1：&lt;a href=&#34;https://ja.stackoverflow.com/questions/36762/wordで文書内の文字をunicode-nfc正規化する方法&#34; target=&#34;_blank&#34;&gt;Wordで文書内の文字をUnicode NFC正規化する方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト2：&lt;a href=&#34;http://labs.timedia.co.jp/2018/04/post-57.html&#34; target=&#34;_blank&#34;&gt;あらゆる文字に濁点と半濁点を付けてみよう&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト3：&lt;a href=&#34;http://ikeikeikeike.hatenablog.com/entry/2013/11/20/121930&#34; target=&#34;_blank&#34;&gt;Macの濁点問題を解決するPython unicodedataモジュール&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト4：&lt;a href=&#34;http://emasaka.blog65.fc2.com/blog-entry-1407.html&#34; target=&#34;_blank&#34;&gt;濁点問題&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト5：&lt;a href=&#34;https://www.slideshare.net/emasaka/ss-82692529&#34; target=&#34;_blank&#34;&gt;濁点の話&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;参考サイト6：&lt;a href=&#34;https://github.com/emasaka/docx-normarize-nfc&#34; target=&#34;_blank&#34;&gt;docx-normarize-nfc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;上記の参考サイト4, 5, 6では，emasaka氏により，pythonを用いた方法が報告されており，&lt;a href=&#34;https://github.com/emasaka/docx-normarize-nfc&#34; target=&#34;_blank&#34;&gt;docx-normarize-nfc&lt;/a&gt; としてGithubにアップされている．これはpython scriptであり，.docxファイルをZIPアーカイブとして開き、文書本体のXMLテキストを開いてNFC正規化し、ZIPアーカイブに書き戻すというものであり，これを使わせてもらうことにした．&lt;/li&gt;
+&lt;li&gt;参考サイト1：&lt;a href=&#34;https://ja.stackoverflow.com/questions/36762/word%E3%81%A7%E6%96%87%E6%9B%B8%E5%86%85%E3%81%AE%E6%96%87%E5%AD%97%E3%82%92unicode-nfc%E6%AD%A3%E8%A6%8F%E5%8C%96%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95&#34;&gt;Wordで文書内の文字をUnicode NFC正規化する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト2：&lt;a href=&#34;http://labs.timedia.co.jp/2018/04/post-57.html&#34;&gt;あらゆる文字に濁点と半濁点を付けてみよう&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト3：&lt;a href=&#34;http://ikeikeikeike.hatenablog.com/entry/2013/11/20/121930&#34;&gt;Macの濁点問題を解決するPython unicodedataモジュール&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト4：&lt;a href=&#34;http://emasaka.blog65.fc2.com/blog-entry-1407.html&#34;&gt;濁点問題&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト5：&lt;a href=&#34;https://www.slideshare.net/emasaka/ss-82692529&#34;&gt;濁点の話&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考サイト6：&lt;a href=&#34;https://github.com/emasaka/docx-normarize-nfc&#34;&gt;docx-normarize-nfc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;上記の参考サイト4, 5, 6では，emasaka氏により，pythonを用いた方法が報告されており，&lt;a href=&#34;https://github.com/emasaka/docx-normarize-nfc&#34;&gt;docx-normarize-nfc&lt;/a&gt; としてGithubにアップされている．これはpython scriptであり，.docxファイルをZIPアーカイブとして開き、文書本体のXMLテキストを開いてNFC正規化し、ZIPアーカイブに書き戻すというものであり，これを使わせてもらうことにした．&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;pythonの導入&#34;&gt;Pythonの導入&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;参考サイト：&lt;a href=&#34;https://www.python.org&#34; target=&#34;_blank&#34;&gt;Welcome to Python.org&lt;/a&gt; （本家）ご存知いま一番アツい言語．それしか知らなくても下記のようにして使える（笑）&lt;/li&gt;
-&lt;li&gt;まず下準備としてpythonを入れる．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;homebrew でpython3をインストール&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew install python3
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参考サイト：&lt;a href=&#34;https://www.python.org&#34;&gt;Welcome to Python.org&lt;/a&gt; （本家）ご存知いま一番アツい言語．それしか知らなくても下記のようにして使える（笑）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;まず下準備としてpythonを入れる．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;homebrew でpython3をインストール&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ brew install python3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;docx-normarize-nfcの導入&#34;&gt;docx-normarize-nfcの導入&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/emasaka/docx-normarize-nfc&#34; target=&#34;_blank&#34;&gt;docx-normarize-nfc&lt;/a&gt; からダウンロードして，/usr/local/bin/ にコピーする．（/usr/local/binにパスが通っているものとする）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/emasaka/docx-normarize-nfc&#34;&gt;docx-normarize-nfc&lt;/a&gt; からダウンロードして，/usr/local/bin/ にコピーする．（/usr/local/binにパスが通っているものとする）&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;濁点分離の修正&#34;&gt;濁点分離の修正&lt;/h3&gt;
-
 &lt;ul&gt;
-&lt;li&gt;これでWord fileに対して上記のスクリプトを使用すれば良い．&lt;/li&gt;
-&lt;li&gt;念のために，Word fileの名前を，hogefuga_WORD_濁点分離修正済み.docxに変更し新規保存しておく．&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;そのうえで，shellで以下の操作を行う&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ docx-normarize-nfc hogefuga_WORD_濁点分離修正済み.docx
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;一瞬で修正は終わるので，ファイルをオープンして確かめてみると，下図のように修正されている．素晴らしい．&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;これでWord fileに対して上記のスクリプトを使用すれば良い．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;念のために，Word fileの名前を，hogefuga_WORD_濁点分離修正済み.docxに変更し新規保存しておく．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;そのうえで，shellで以下の操作を行う&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ docx-normarize-nfc hogefuga_WORD_濁点分離修正済み.docx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一瞬で修正は終わるので，ファイルをオープンして確かめてみると，下図のように修正されている．素晴らしい．&lt;/p&gt;
 
 
 
@@ -682,13 +640,17 @@ hogefugaによる治療は有効である．
 &lt;/a&gt;
 
 &lt;/figure&gt;
+
 &lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;ようやく，使い物になる日本語のWord fileを作成することができた．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;これで，英語でも日本語でも，pdfからWordにコピペして修正するという難行苦行から解放される．&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;しかし，co-authorとのすり合わせやrevisionの際は，まだ，Wordでの作業が必要とされる．苦行は続くのである．．．．．&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ようやく，使い物になる日本語のWord fileを作成することができた．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これで，英語でも日本語でも，pdfからWordにコピペして修正するという難行苦行から解放される．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;しかし，co-authorとのすり合わせやrevisionの際は，まだ，Wordでの作業が必要とされる．苦行は続くのである．．．．．&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

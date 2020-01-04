@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
   
   <url>
     <loc>/post/how-to-create-conference-poster-by-latex-beamer/</loc>
@@ -248,6 +253,41 @@
   </url>
   
   <url>
+    <loc>/tags/catalina/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/latex/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/macbookpro16/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/setup/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-01-04T19:49:39+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/beamer/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
   </url>
@@ -258,17 +298,7 @@
   </url>
   
   <url>
-    <loc>/tags/emacs/</loc>
-    <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/inkscape/</loc>
-    <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/latex/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
   </url>
   
@@ -279,16 +309,6 @@
   
   <url>
     <loc>/tags/poster/</loc>
-    <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
   </url>
   

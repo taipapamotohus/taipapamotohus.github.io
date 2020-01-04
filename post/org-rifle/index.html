@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -400,70 +400,49 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>学会続きで，久方ぶりの更新である．org fileの中を検索する際に，<a href="../swiper_migemo">Swiper, ivy, avy, migemoによるEmacsの検索強化</a>で取り上げた <strong>swiper</strong> を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#usage">Usage</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+<!-- raw HTML omitted -->
 <h2 id="references">References</h2>
-
 <ul>
-<li><a href="https://github.com/alphapapa/org-rifle" target="_blank">org-rifle</a>  ご本家</li>
-<li><a href="https://dustinlacewell.github.io/emacs.d/#org7646621" target="_blank">helm-org-rifle</a></li>
-<li><a href="http://bnbeckwith.com/bnb-emacs/#orgc5aa916" target="_blank">Org Rifle</a>  Rifle through my org-mode entries.</li>
+<li><a href="https://github.com/alphapapa/org-rifle">org-rifle</a>  ご本家</li>
+<li><a href="https://dustinlacewell.github.io/emacs.d/#org7646621">helm-org-rifle</a></li>
+<li><a href="http://bnbeckwith.com/bnb-emacs/#orgc5aa916">Org Rifle</a>  Rifle through my org-mode entries.</li>
 </ul>
-
 <p>ご本家サイトの最初に，有名な米海兵隊信条（The Creed of a United States Marine）が，以下のように引用されている．</p>
-
 <p>This is my rifle. There are many like it, but this one is mine. My rifle is my best friend. It is my life. I must master it as I must master my life.</p>
-
 <p>rifleには，「くまなく探す」という意味もあるので，この命名は，それにかけたシャレのようである．非武装平和主義が信条の私にはよく分からん．．．とにかく，詳細に書かれたご本家サイトを読めば，こんなところを読む必要はないような気もするが（笑），後日の自分のためにまとめておく．</p>
-
 <h2 id="installation">Installation</h2>
-
 <p>いつものように，init.orgに下記のように書き込む．</p>
-
-<pre><code class="language-lisp">#+begin_src emacs-lisp
-(use-package helm-org-rifle
-  :ensure t
-  :after (helm org)
-  :bind
-  (&quot;s-c r r&quot; . helm-org-rifle)
-  (&quot;s-c r a&quot; . helm-org-rifle-agenda-files)
-  (&quot;s-c r .&quot; . helm-org-rifle-current-buffer)
-  (&quot;s-c r d&quot; . helm-org-rifle-directories)
-  (&quot;s-c r f&quot; . helm-org-rifle-files)
-  (&quot;s-c r D&quot; . helm-org-rifle-org-directory)
-  (&quot;s-c o o&quot; . helm-org-rifle-occur)
-  (&quot;s-c o a&quot; . helm-org-rifle-occur-agenda-files)
-  (&quot;s-c o .&quot; . helm-org-rifle-occur-current-buffer)
-  (&quot;s-c o d&quot; . helm-org-rifle-occur-directories)
-  (&quot;s-c o d&quot; . helm-org-rifle-occur-directories)
-  (&quot;s-c o f&quot; . helm-org-rifle-occur-files)
-  (&quot;s-c o D&quot; . helm-org-rifle-occur-org-directory))
-#+end_src
-</code></pre>
-
-<p>key-bindingは諸般の事情により，s-cを使うことにした（s はoption keyを意味する）．</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
+(<span style="color:#a6e22e">use-package</span> helm-org-rifle
+  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+  <span style="color:#e6db74">:after</span> (helm org)
+  <span style="color:#e6db74">:bind</span>
+  (<span style="color:#e6db74">&#34;s-c r r&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle)
+  (<span style="color:#e6db74">&#34;s-c r a&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-agenda-files)
+  (<span style="color:#e6db74">&#34;s-c r .&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-current-buffer)
+  (<span style="color:#e6db74">&#34;s-c r d&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-directories)
+  (<span style="color:#e6db74">&#34;s-c r f&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-files)
+  (<span style="color:#e6db74">&#34;s-c r D&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-org-directory)
+  (<span style="color:#e6db74">&#34;s-c o o&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-occur)
+  (<span style="color:#e6db74">&#34;s-c o a&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-occur-agenda-files)
+  (<span style="color:#e6db74">&#34;s-c o .&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-occur-current-buffer)
+  (<span style="color:#e6db74">&#34;s-c o d&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-occur-directories)
+  (<span style="color:#e6db74">&#34;s-c o d&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-occur-directories)
+  (<span style="color:#e6db74">&#34;s-c o f&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-occur-files)
+  (<span style="color:#e6db74">&#34;s-c o D&#34;</span> <span style="color:#f92672">.</span> helm-org-rifle-occur-org-directory))
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><p>key-bindingは諸般の事情により，s-cを使うことにした（s はoption keyを意味する）．</p>
 <p>また， <strong>helm-org-rifle-show-path を t にセット</strong> することにより，org file内でのそれぞれのheadingに至るパスが表示される．（実は，デフォルトで t になっている）</p>
-
 <h2 id="usage">Usage</h2>
-
 <p>helm-org-rifleは，エントリーベースで結果が表示される．つまり，org fileの中のheadingとその内容が表示されるので，そこに至るパスが分かる，つまり，どこに位置しているかが分かる．これは思っていた以上に便利である．</p>
-
 <p>例えば，このブログの原稿をemacsで開いているときに，org-mode, export, wordを含む部分を探したいときは，s-c r . としてから，key wordを打てば，まず下図のようになる．下のバッファでハイライトされている部分は，最上位のheadingであるPostの下のsubheadingである「Emacsのorg-modeで論文を書く（その4：．．．」の下位に目的の部分が含まれていることを示す．</p>
-
 
 
 
@@ -479,9 +458,7 @@
 
 </figure>
 
-
 <p>さらに，ハイライトされている部分で，C-jと打てば，下図のように，上のバッファが該当する領域にジャンプして表示してくれる．</p>
-
 
 
 
@@ -497,9 +474,7 @@
 
 </figure>
 
-
-<p>もちろん，検索対象が明確に分かっていて&rdquo;hogehoge.jpg&rdquo;など名前も分かっているのであれば，swiperの方が便利であろう．しかし，「hogeとfugaとhogaに関連している部分はどこだったかな？」というようなときは，このorg-rifleが重宝する．</p>
-
+<p>もちろん，検索対象が明確に分かっていて&quot;hogehoge.jpg&quot;など名前も分かっているのであれば，swiperの方が便利であろう．しかし，「hogeとfugaとhogaに関連している部分はどこだったかな？」というようなときは，このorg-rifleが重宝する．</p>
 <p>さらにもっと色々な使い方ができるようで，該当項目のrefileも可能である．興味のある方は，tabを打ってでてくるメニューを試していただきたい．</p>
     </div>
 
@@ -829,7 +804,7 @@
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -325,10 +325,8 @@
     <div class="article-style">
       
       自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．
-参考サイト  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel + init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel  Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針  個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．  Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成  ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む
-(require 'org) (defvar my-config-dir (concat user-emacs-directory &quot;personal/&quot;)) (org-babel-load-file (expand-file-name &quot;init.org&quot; my-config-dir))  工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．
- これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．
-  init.orgの作成  これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．  Code blockの挿入  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である． org-modeで以下のようにする．（後述する設定が必要）
+参考サイト  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel + init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel  Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針  個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．  Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成  ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む  (require &#39;org) (defvar my-config-dir (concat user-emacs-directory &#34;personal/&#34;)) (org-babel-load-file (expand-file-name &#34;init.org&#34; my-config-dir))  工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ． これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．  init.orgの作成  これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．  Code blockの挿入   俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．
+  org-modeで以下のようにする．（後述する設定が必要）
       
     </div>
   </div>
@@ -478,7 +476,7 @@
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

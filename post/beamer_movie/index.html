@@ -29,7 +29,8 @@
     
   
   <meta name="description" content="実は，同じような内容について2010年に，TeX QA に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．
-beamerで動画が走るスライド原稿を作る  前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい． 参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
+beamerで動画が走るスライド原稿を作る   前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．
+  参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
 3 Annotations An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;.">
 
   
@@ -82,7 +83,7 @@ beamerで動画が走るスライド原稿を作る  前述した ，Te
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -125,7 +126,8 @@ beamerで動画が走るスライド原稿を作る  前述した ，Te
   <meta property="og:url" content="/post/beamer_movie/">
   <meta property="og:title" content="beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る | A perfect autumn day">
   <meta property="og:description" content="実は，同じような内容について2010年に，TeX QA に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．
-beamerで動画が走るスライド原稿を作る  前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい． 参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
+beamerで動画が走るスライド原稿を作る   前述した ，TeX QA に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．
+  参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf の以下の部分
 3 Annotations An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;."><meta property="og:image" content="/post/beamer_movie/featured.jpg">
   <meta property="twitter:image" content="/post/beamer_movie/featured.jpg"><meta property="og:locale" content="en-us">
   
@@ -403,20 +405,17 @@ beamerで動画が走るスライド原稿を作る  前述した ，Te
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>実は，同じような内容について2010年に，<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100" target="_blank">TeX QA</a> に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．</p>
-
+      <p>実は，同じような内容について2010年に，<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100">TeX QA</a> に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．</p>
 <h2 id="beamerで動画が走るスライド原稿を作る">beamerで動画が走るスライド原稿を作る</h2>
-
 <ul>
-<li>前述した ，<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100" target="_blank">TeX QA</a> に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．</li>
+<li>
+<p>前述した ，<a href="https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100">TeX QA</a> に経緯は投稿してあるので，詳細はそちらを読んでいただきたい．</p>
+</li>
+<li>
+<p>参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） <a href="https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf">https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf</a> の以下の部分</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">3 Annotations
 
-<li><p>参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） <a href="https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf" target="_blank">https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf</a> の以下の部分</p>
-
-<pre><code class="language-text">3 Annotations
-
-An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype', for instance, `/Text', `/Link', `/Sound', `/Movie', etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect'. DVIPDFM(x) provides the following special command for annotations............
+An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&#39;, for instance, `/Text&#39;, `/Link&#39;, `/Sound&#39;, `/Movie&#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&#39;. DVIPDFM(x) provides the following special command for annotations............
 
  The following example shows a movie annotation that enables us to run the movie file ‘mymovie.avi’ inside a PDF viewer program.
 
@@ -426,49 +425,60 @@ An annotation is considered as an object with a location on a page. The type of 
  /F (mymovie.avi) /Aspect [720 360]
  /Poster true &gt;&gt;
  /A &lt;&lt; /ShowControls false &gt;&gt; &gt;&gt;}
-</code></pre></li>
-
-<li><p>アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）</p></li>
-
-<li><p>mymovie.aviのところに動かしたい動画を記入（パスも効く）</p></li>
-
-<li><p>私の作成したものは読んでいただければおわかりのように，非常にダサいベタ書きである．</p></li>
-
-<li><p>最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&hellip;..</p>
-
-<pre><code class="language-tex">{
-    \usebackgroundtemplate{\put(20, -265){\includegraphics[scale=0.45]{/Data/.../..../Figures/hogefuga.pdf}}}
-    \begin{frame}
-    \frametitle{hogefugaの対策}
-    \special{pdf:ann bbox -10 -130 320 90 &lt;&lt;
+</code></pre></div></li>
+<li>
+<p>アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）</p>
+</li>
+<li>
+<p>mymovie.aviのところに動かしたい動画を記入（パスも効く）</p>
+</li>
+<li>
+<p>私の作成したものは読んでいただければおわかりのように，非常にダサいベタ書きである．</p>
+</li>
+<li>
+<p>最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&hellip;..</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex">{
+    <span style="color:#66d9ef">\usebackgroundtemplate</span>{<span style="color:#66d9ef">\put</span>(20, -265){<span style="color:#66d9ef">\includegraphics</span><span style="color:#a6e22e">[scale=0.45]</span>{/Data/.../..../Figures/hogefuga.pdf}}}
+    <span style="color:#66d9ef">\begin</span>{frame}
+    <span style="color:#66d9ef">\frametitle</span>{hogefugaの対策}
+    <span style="color:#66d9ef">\special</span>{pdf:ann bbox -10 -130 320 90 &lt;&lt;
              /Subtype /Movie /Border [0 0 1]
              /T (My Movie) /Movie &lt;&lt;
              /F (/Data/.../hogefuga.mov)
-             %/Aspect [720 480]
-             /Aspect [640 480]
+             <span style="color:#75715e">%/Aspect [720 480]
+</span><span style="color:#75715e"></span>             /Aspect [640 480]
              /Poster false &gt;&gt;
              /A &lt;&lt; /ShowControls true /Mode /Repeat &gt;&gt; &gt;&gt;}
-    \end{frame}
+    <span style="color:#66d9ef">\end</span>{frame}
 }
-</code></pre></li>
-
-<li><p>\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．</p></li>
-
-<li><p>\putで背景画像（キャプチャー画像）の位置を直接指定し，\includegraphicsのscaleで倍率を指定して動画の大きさに合わせている．</p></li>
-
-<li><p>これで，画像をクリックすると（ほぼ）同じ大きさの動画が（ほぼ）同じ位置で動くようになる</p></li>
-
-<li><p>動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．</p></li>
-
-<li><p>プレゼンテーションにskimを使うと動画が動かないので注意．</p></li>
-
-<li><p>動画は同一directoryにある必要はなく，パスで指定すれば良い</p></li>
-
-<li><p>動画自体はpdfの中に埋め込まれないので，pdfの容量がむやみに大きくならないという利点がある．</p></li>
-
-<li><p>Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．</p></li>
-
-<li><p>最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．</p></li>
+</code></pre></div></li>
+<li>
+<p>\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．</p>
+</li>
+<li>
+<p>\putで背景画像（キャプチャー画像）の位置を直接指定し，\includegraphicsのscaleで倍率を指定して動画の大きさに合わせている．</p>
+</li>
+<li>
+<p>これで，画像をクリックすると（ほぼ）同じ大きさの動画が（ほぼ）同じ位置で動くようになる</p>
+</li>
+<li>
+<p>動画の大きさはbboxで，かぶせる静止画の大きさはscaleで調整する．</p>
+</li>
+<li>
+<p>プレゼンテーションにskimを使うと動画が動かないので注意．</p>
+</li>
+<li>
+<p>動画は同一directoryにある必要はなく，パスで指定すれば良い</p>
+</li>
+<li>
+<p>動画自体はpdfの中に埋め込まれないので，pdfの容量がむやみに大きくならないという利点がある．</p>
+</li>
+<li>
+<p>Adobe Acrobat Readerでプレゼンすれば，動画は動くし，音もでる．コントロールバーにより早送りなども可能．</p>
+</li>
+<li>
+<p>最初にpdfで動画をクリックすると「セキュリティ上の問題．．．」というメッセージが表示される．この横にあるオプションボタンをクリックして，信頼するを選択すれば，動画が動くようになる．</p>
+</li>
 </ul>
 
     </div>
@@ -793,7 +803,7 @@ An annotation is considered as an object with a location on a page. The type of 
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

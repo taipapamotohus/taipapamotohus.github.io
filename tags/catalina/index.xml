@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Catalina | A perfect autumn day</title>
+    <link>/tags/catalina/</link>
+      <atom:link href="/tags/catalina/index.xml" rel="self" type="application/rss+xml" />
+    <description>Catalina</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Catalina</title>
+      <link>/tags/catalina/</link>
+    </image>
+    
+    <item>
+      <title>How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</title>
+      <link>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</guid>
+      <description>&lt;p&gt;1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，&lt;a href=&#34;../mojave&#34;&gt;Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew&lt;/a&gt;でまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table of contents&lt;/strong&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#preparation-for-emacs-installation&#34;&gt;Preparation for Emacs installation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-install-emacs-26-dot-3-into-macbook-pro-16-inch--catalina&#34;&gt;How to install Emacs 26.3 into MacBook Pro 16 inch (Catalina)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-install-latex-into-macbook-pro-16-inch--catalina&#34;&gt;How to install  LaTeX into MacBook Pro 16 inch (Catalina)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-setup-org-mode-in-macbook-pro-16-inch--catalina&#34;&gt;How to setup org-mode in MacBook Pro 16 inch (Catalina)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#encountered-problems-%E9%81%AD%E9%81%87%E3%81%97%E3%81%9F%E5%95%8F%E9%A1%8C%E7%82%B9&#34;&gt;Encountered problems: 遭遇した問題点&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#zxjafont%E3%81%AE%E3%83%97%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E5%A4%89%E6%9B%B4&#34;&gt;zxjafontのプリセットの変更&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#org-mode%E3%81%8B%E3%82%89html-export%E3%81%AE%E9%9A%9B%E3%81%AEtheme%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BE%E3%81%AA%E3%81%84-%E3%83%91%E3%82%B9%E3%82%92%E8%AA%AD%E3%81%BE%E3%81%AA%E3%81%84&#34;&gt;org-modeからhtml exportの際のthemeを読み込まない（パスを読まない）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#location-of-pdf-files-in-bibdesk-on-catalina&#34;&gt;Location of pdf files in BibDesk on Catalina&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-setup-full-text-search-of-pdf-files-on-catalina&#34;&gt;How to setup full text search of pdf files on Catalina&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#%E3%81%BE%E3%81%A8%E3%82%81&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;参照サイト : &lt;a href=&#34;https://news.mynavi.jp/article/osxhack-242/&#34;&gt;Catalinaでファイルシステムがこう変わる&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Catalinaのファイルシステムではファイルアクセスが厳格化されており，APFS (Apple File System)でフォーマットされたルートボリューム(起動ディスク)はシステム領域とデータ領域に2分割され，そのうちシステム領域は完全にリードオンリーとなる（上記の参照サイトが詳細かつわかりやすく解説しているので参照されたい）．&lt;/p&gt;
+&lt;p&gt;私はこれまでは，root directoryにData directoryを作成し，そこにほぼ全てのデータを入れ，また，各種ソフトウェアのソースなどは，root directoryにSources directoryを作成し保存してきた．しかし，Catalinaでは上述の変化に伴い，これが不可能となった．実際，管理者権限でdirectoryをrootに作成しようとしても，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /
+$ sudo mkdir test
+Password:
+mkdir: test: Read-only file system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と言う具合に撥ねられてしまう．&lt;/p&gt;
+&lt;p&gt;そこで，Data directoryやSources directoryを自分のhome directory，即ち，/Users/taipapa/の下に入れることにした．つまり，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;/
+├── Data
+└── Sources
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;から&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;taipapa
+├── Data
+└── Sources
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;に変更した．これに伴い，各ファイル内のパスも修正した．基本的にはファイルパスの最初に，/Users/taipapa/もしくは &lt;strong&gt;~&lt;/strong&gt; をつければ良いだけであるが，これでうまくいかないものは個別に対応するしかない．例えば，文献管理ソフトの &lt;strong&gt;BibDesk&lt;/strong&gt; がそうであった．これらの問題は別稿にまとめることにする．&lt;/p&gt;
+&lt;h2 id=&#34;preparation-for-emacs-installation&#34;&gt;Preparation for Emacs installation&lt;/h2&gt;
+&lt;p&gt;つい先日やったばかりなのに，もはや記憶が定かではないのだが，要は，&lt;a href=&#34;../mojave//#upgrade-to-xcode-10-dot-2-dot-1&#34;&gt;Upgrade to Mojave and upgrade to Emacs 26.2 by homebrewのUpgrade to Xcode 10.2.1&lt;/a&gt;にまとめたことを行った．tmp directoryのpermissionの問題があったかどうかは覚えていない（笑）．homebrew自体のインストールにも特に問題はなかった．要するに，ほとんど何も覚えていないくらいスムーズにことは運んだと言うことである．&lt;/p&gt;
+&lt;h2 id=&#34;how-to-install-emacs-26-dot-3-into-macbook-pro-16-inch--catalina&#34;&gt;How to install Emacs 26.3 into MacBook Pro 16 inch (Catalina)&lt;/h2&gt;
+&lt;p&gt;Emacsのインストールも，&lt;a href=&#34;../mojave/#upgrade-to-emacs-26-dot-2-from-26-dot-1&#34;&gt;Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew の Upgrade to Emacs 26.2 from 26.1&lt;/a&gt; にまとめたことを行っただけである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew tap railwaycat/emacsmacport
+$ brew install emacs-mac --with-modern-icon --with-imagemagick
+$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで， &lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.3-z-mac-7.8 (4,010 files, 129.7MB)&lt;/strong&gt; がインストールされた．&lt;/p&gt;
+&lt;p&gt;あとは，以前に書いた以下の記事に従ってセットアップした．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../init_org&#34;&gt;Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;../japanese_setup&#34;&gt;Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;実際には，preludeを導入した後に，前のMacBook Pro 2016 lateの/Users/taipapa/.emacs.d/personal/init.orgをコピペしただけである．もちろん，多少の微調整は必要であったが，特に問題なく設定も終了した．diredがらみの微調整はCatalinaに特有の問題ではないようだが，後日に別途まとめるつもりである．&lt;/p&gt;
+&lt;h2 id=&#34;how-to-install-latex-into-macbook-pro-16-inch--catalina&#34;&gt;How to install  LaTeX into MacBook Pro 16 inch (Catalina)&lt;/h2&gt;
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://doratex.hatenablog.jp/entry/20190502/1556775026&#34;&gt;MacTeX 2019 のインストール＆日本語環境構築法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../mojave&#34;&gt;Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最初の&lt;a href=&#34;https://doratex.hatenablog.jp/entry/20190502/1556775026&#34;&gt;MacTeX 2019 のインストール＆日本語環境構築法&lt;/a&gt;の通りにすれば良い．これにより， &lt;strong&gt;texlive2019&lt;/strong&gt; がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．文献管理ソフトであるBibDeskのpdfの管理に問題が生じたが，これについては解決策とともに別稿でまとめる．&lt;/p&gt;
+&lt;h2 id=&#34;how-to-setup-org-mode-in-macbook-pro-16-inch--catalina&#34;&gt;How to setup org-mode in MacBook Pro 16 inch (Catalina)&lt;/h2&gt;
+&lt;p&gt;最もよく使うorg-modeのセットアップは以下の以前の記事の通りに作業した．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../org-mode_paper_3&#34;&gt;Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../org-mode_paper_4&#34;&gt;Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;といっても実際にやったのは，以前の/Users/taipapa/.emacs.d/personal/init.orgをコピペしたことがほぼ全てである．&lt;/p&gt;
+&lt;h2 id=&#34;encountered-problems-遭遇した問題点&#34;&gt;Encountered problems: 遭遇した問題点&lt;/h2&gt;
+&lt;p&gt;ここからは，上述のセットアップの際に遭遇した問題点についてまとめておく．&lt;/p&gt;
+&lt;h3 id=&#34;zxjafontのプリセットの変更&#34;&gt;zxjafontのプリセットの変更&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;参照サイト：&lt;a href=&#34;https://zrbabbler.hatenablog.com/entry/20180721/1532187775&#34;&gt;そういえば ZXjafont が新しくなった（v0.4）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;zxjafontとは，「和文フォントのプリセット設定」を XeLaTeX + zxjatype の環境で行うためのもの&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上記サイト（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にあるorg fileをコピペして，org fileからpdfをexportしようとすると，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;! Package zxjafont Error: The old preset &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hiragino-dx&amp;#39;&lt;/span&gt; is *abolished*.
+
+See the zxjafont package documentation &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; explanation.
+Type  H &amp;lt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;&amp;gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; immediate help.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と言うようなエラーになる．要するに，texlive2019をインストールしてzxjafontが新しくなったのに伴い，&amp;ldquo;hiragino-dx&amp;quot;と言うpresetは古くてもう廃止されたと言われているのである．指示に従ってドキュメントを読むと， &lt;strong&gt;hiragino-pron&lt;/strong&gt; を使えとあるので，init.orgの中のhiragino-dxを全てhiragino-pronに変更するとうまくいくようになった．&lt;/p&gt;
+&lt;h3 id=&#34;org-modeからhtml-exportの際のthemeを読み込まない-パスを読まない&#34;&gt;org-modeからhtml exportの際のthemeを読み込まない（パスを読まない）&lt;/h3&gt;
+&lt;p&gt;以前の記事（&lt;a href=&#34;../org-html-export-theme&#34;&gt;Org-modeでhtml exportの際のthemeについて&lt;/a&gt;）で，好きなテーマとしてあげた &lt;strong&gt;org-spec&lt;/strong&gt; であるが，org fileの冒頭の部分は以下のようになっている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Hoge/Fuga/org-spec-master/css/style.css&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを，Catalinaではパスの変更に合わせて以下のように設定した．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Users/taipapa/Hoge/Fuga/org-spec-master/css/style.css&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;しかし，上記の2行目を，Catalinaではうまく読めなくなり，設定が読み込まれなくなった．スッピンのhtml とでも言うか，単なるテキストに近いものとしてexportされてしまう．しかし，org-specのcss/style.cssをorg fileと同じdirectoryに置いて，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;css/style.css&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と冒頭の部分を書き直すとうまくいく．前述の1行目はなくてもよかった．&lt;/p&gt;
+&lt;h3 id=&#34;location-of-pdf-files-in-bibdesk-on-catalina&#34;&gt;Location of pdf files in BibDesk on Catalina&lt;/h3&gt;
+&lt;p&gt;以前の記事でBibDeskについてまとめた（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）が，その中で，自分の文献リストに“hogefuga-reference.bib”と名前をつけて保存していることを記載している．ただ，保存場所については記述していなかった．実はこのリストは，/Users/taipapa/Documentsに置いており，iCloudを利用して，仕事場のiMacでも同じ文献リストが使えるようにしている．BibDeskでは，その論文のpdfも一緒に管理できるのだが，上述のファイルシステム構造の変化により，全て，pdfが行方不明になってしまった．&lt;/p&gt;
+&lt;p&gt;BibDeskにおけるpdfのlocationを修正しようとしてhogefuga-reference.bibの中を見てみると，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxAhLi4vLi4vLi4vRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmTxEBQgAAAAABQgACAAAKSGllcm9ueW11cwAAAAAAAAAAAAAAAAAAAAAAAAAAAEJEAAH/////DDI1XzNfMzEzLnBkZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAAAAAwADAAAKIGN1AAAAAAAAAAAAAAAAAAZOUy1wZGYAAgApLzpVc2Vyczprb2hraWNoaTpEYXRhOk5TLXBkZjoyNV8zXzMxMy5wZGYAAA4AGgAMADIANQBfADMAXwAzADEAMwAuAHAAZABmAA8AFgAKAEgAaQBlAHIAbwBuAHkAbQB1AHMAEgAnVXNlcnMva29oa2ljaGkvRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmAAATAAEvAAAVAAIAD///AAAACAANABoAJABIAAAAAAAAAgEAAAAAAAAABQAAAAAAAAAAAAAAAAAAAY4=}}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と言うふうに，pdfの場所は暗号化？されており，修正などできないことが判明した．1万数千のpdf fileをもう一度手作業でBibDeskに認識させないといけないのかと気が遠くなりかけた．しかし，よく考えてみると，BibDeskは相対的な場所やパスを認識している．以前のMacBook Pro late 2016では，/Data/hoge-pdf/のように，/Dataの下にdirectoryを作成して，そこにpdfを保存していた．Catalinaでは，Data directoryはhome directoryである/Users/taipapaの下に置かれるようになった．つまり，相対的には2レベル下のdirectoryに文献リストであるhogefuga-References.bibを置けば良いのである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users
+$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+.
+└── taipapa
+     └── Documents
+          └── taipapa2
+               └── Documents
+                    └── hogefuga-References.bib
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;上図のように，Documentsの下にtaipapa2 directoryを作成し，さらにその下にDocuments directoryを作成し，そこにhogefuga-References.bibを置くようにしたところ，BibDeskがpdfの場所を認識するようになった．ただ，iCloudを介してMojaveがインストールされた他のマック（まだmojave）からもこの文献リストを共有するためには，/Users/taipapa/Documents/にhogefuga-References.bibをコピーしておかなければならない．symbolic linkではオリジナルの方を認識してしまいうまくいかないし，hard linkではiCloudを経由するとうまくいかない．&lt;/p&gt;
+&lt;h2 id=&#34;how-to-setup-full-text-search-of-pdf-files-on-catalina&#34;&gt;How to setup full text search of pdf files on Catalina&lt;/h2&gt;
+&lt;p&gt;以前の記事で全文検索についてまとめたが（&lt;a href=&#34;../fulltextsearch&#34;&gt;Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う&lt;/a&gt;），Catalinaでもこの記事と同じ設定でpdf fileの全文検索が可能となった．Mojaveでもhome directoryでセットアップしたので，大きな問題はなかったのであろう．ただし，Catalinaでは，pdf fileの置き場所がhome directoryの下のData directory以下に変更されているため，/Users/taipapa/Sites/cgi-bin/est/estseek.confの設定は以下のように変更した．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#indexname: casket&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; indexname: /Users/taipapa/Sites/pdf/casket
+&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; tmplfile: estseek.tmpl
+&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; topfile: estseek.top
+&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; helpfile: estseek.help
+&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; lockindex: true
+&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; pseudoindex:
+&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: /index\.html?${{!}}/&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/kohkichi/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
+&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでブラウザによるpdf fileの全文検索が可能となった．&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;今回はかなり苦労すると予想していたのだが，意外とスムーズに行ってしまった（笑）．問題になったのは細かい点が多く，ファイルシステムの変更に伴う問題が一番厄介であった．そのほかでは，GIMPも特に問題なく動き，動画ファイルも問題なかった．お陰で仕事ができる環境を素早く確立することができた．今回も，「案ずるより産むが易し」であった．😄&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

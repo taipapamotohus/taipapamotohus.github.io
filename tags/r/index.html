@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -335,7 +335,7 @@
     <div class="article-style">
       
       今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．
- Table of Contents  References Data Preparation Tukey multiple comparison  TukeyHSD テューキーの方法による多重比較  Boxplot by ggplot2  Calculate mean and SE geom_jitter geom_point Add mean bar  Add segment and asterisk to Drug2 facet of boxplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (black) Add segment with geom_segment and asterisk with geom_text (color)  Barplot by ggplot2  Barplot  Add segment and asterisk to Drug2 facet of barplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (color)  Combine boxplot and barplot into the same graphic
+ References Data Preparation Tukey multiple comparison  TukeyHSD テューキーの方法による多重比較   Boxplot by ggplot2  Calculate mean and SE geom_jitter geom_point Add mean bar   Add segment and asterisk to Drug2 facet of boxplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (black) Add segment with geom_segment and asterisk with geom_text (color)   Barplot by ggplot2  Barplot   Add segment and asterisk to Drug2 facet of barplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (color)   Combine boxplot and barplot into the same graphic  References  ggplot2を使って、注釈を入れる-2 Adding different annotation to each facet in ggplot Add a segment only to one facet using ggplot2  Data Preparation まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．
       
     </div>
   </div>
@@ -345,8 +345,7 @@
     <div class="article-style">
       
       （承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory   
-References  HUGO Hugo is one of the most popular open-source static site generators.
+ References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory  References   HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
       
     </div>
   </div>
@@ -356,11 +355,10 @@ References  HUGO Hugo is one of the most popular open-source static site generat
     <div class="article-style">
       
       本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．
- Table of Contents  Org-babel setup How to use org-babel Org-babel evaluation of R code block   
-Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
+ Org-babel setup How to use org-babel Org-babel evaluation of R code block  Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
 ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．
 Ref: Org-babel Setup　ここからコピペ (^^;;;
-#+begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R .
+#+begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R . t) (python . t) (ruby .
       
     </div>
   </div>
@@ -371,7 +369,7 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
       
       Rを用いて生存分析を行う際に， Kaplan-Meier curve に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（Drawing survival curves in R, ggkm, Survival plots have never been so informative），competing riskのplotの場合はあまり情報がない．prodlimを使えば簡単なので，まとめておく．
 なお， competing risk については以下を参照．
- Competing risk analysis using R: an easy guide for clinicians Regression modeling of competing risk using R: an in depth guide for clinicians Competing risk analysisのデモ A not so short review on survival analysis in R   Table of Contents  Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package Competing risk analysis with prodlim  Days Years  Plot survival curve of competing risk analysis with prodlim (default) Plot survival curve of competing risk analysis with prodlim (modified)
+ Competing risk analysis using R: an easy guide for clinicians Regression modeling of competing risk using R: an in depth guide for clinicians Competing risk analysisのデモ A not so short review on survival analysis in R   Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package Competing risk analysis with prodlim  Days Years   Plot survival curve of competing risk analysis with prodlim (default) Plot survival curve of competing risk analysis with prodlim (modified)  Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package library(riskRegression) data(Melanoma) head(Melanoma) summary(Melanoma) time status event invasion ici epicel ulcer 1 10 2 death.
       
     </div>
   </div>
@@ -381,10 +379,10 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
     <div class="article-style">
       
       Rとは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&hellip;..(^^;;;
-gccのリンク絡みのトラブル  大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
-$ brew link --overwrite gcc   XMLが入らない  XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
-Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&quot;)  なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
-  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．  &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&rdquo;Cairo&rdquo; packageなど）．要するにXlib.
+gccのリンク絡みのトラブル   大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
+$ brew link --overwrite gcc   XMLが入らない   XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
+Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34;) なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
+  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．   &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&ldquo;Cairo&rdquo; packageなど）．要するにXlib.
       
     </div>
   </div>
@@ -534,7 +532,7 @@ Sys.setenv(XML_CONFIG = &quot;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&qu
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

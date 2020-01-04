@@ -29,9 +29,9 @@
     
   
   <meta name="description" content="org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法   
-toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
-#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &quot;Disabled org html export on save for current buffer...&quot;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &quot;Enabled org html export on save for current buffer...&quot;))) #&#43;end_src  これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．">
+ toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法  toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
+#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #&#43;end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
+directoryの内容が変更されると，自動でhtmlを再読込する．  情報元：Watch for file changes and refresh your browser automatically 上記サイトに有るrubyのスクリプトが使えそうなので，頂いた． rubyのインストールについては，以下のようなサイトを参考  MacにHomeBrew,rbenv,bundlerをインストールする Ruby入門 01.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/auto_html_export/">
@@ -83,7 +83,7 @@ toggle-org-html-export-on-save  情報元：How to auto export html when saving 
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.8191c5dfa6bb2bfb7eb3103d7aefe996.css">
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
   
 
@@ -126,9 +126,9 @@ toggle-org-html-export-on-save  情報元：How to auto export html when saving 
   <meta property="og:url" content="/post/auto_html_export/">
   <meta property="og:title" content="Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする | A perfect autumn day">
   <meta property="og:description" content="org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法   
-toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
-#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &quot;Disabled org html export on save for current buffer...&quot;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &quot;Enabled org html export on save for current buffer...&quot;))) #&#43;end_src  これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．"><meta property="og:image" content="/post/auto_html_export/featured.jpg">
+ toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法  toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
+#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #&#43;end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
+directoryの内容が変更されると，自動でhtmlを再読込する．  情報元：Watch for file changes and refresh your browser automatically 上記サイトに有るrubyのスクリプトが使えそうなので，頂いた． rubyのインストールについては，以下のようなサイトを参考  MacにHomeBrew,rbenv,bundlerをインストールする Ruby入門 01."><meta property="og:image" content="/post/auto_html_export/featured.jpg">
   <meta property="twitter:image" content="/post/auto_html_export/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -405,131 +405,105 @@ toggle-org-html-export-on-save  情報元：How to auto export html when saving 
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      
-
-<p>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．</p>
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+      <p>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#toggle-org-html-export-on-save">toggle-org-html-export-on-save</a></li>
-<li><a href="#directoryの内容が変更されると-自動でhtmlを再読込する">directoryの内容が変更されると，自動でhtmlを再読込する．</a></li>
-<li><a href="#使用方法">使用方法</a></li>
+<li><a href="#directory%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%8B%E3%82%99%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%82%8B%E3%81%A8-%E8%87%AA%E5%8B%95%E3%81%A6%E3%82%99html%E3%82%92%E5%86%8D%E8%AA%AD%E8%BE%BC%E3%81%99%E3%82%8B">directoryの内容が変更されると，自動でhtmlを再読込する．</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+<!-- raw HTML omitted -->
 <h2 id="toggle-org-html-export-on-save">toggle-org-html-export-on-save</h2>
-
 <ul>
-<li>情報元：<a href="https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old" target="_blank">How to auto export html when saving in org-mode?</a></li>
+<li>情報元：<a href="https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old">How to auto export html when saving in org-mode?</a></li>
 </ul>
-
 <p>例によって，下記のようにinit.orgに書き込めばよい．</p>
-
-<pre><code class="language-lisp">#+begin_src emacs-lisp
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
 (defun toggle-org-html-export-on-save ()
   (interactive)
-  (if (memq 'org-html-export-to-html after-save-hook)
-      (progn
-        (remove-hook 'after-save-hook 'org-html-export-to-html t)
-        (message &quot;Disabled org html export on save for current buffer...&quot;))
-    (add-hook 'after-save-hook 'org-html-export-to-html nil t)
-    (message &quot;Enabled org html export on save for current buffer...&quot;)))
-#+end_src
-</code></pre>
-
-<p>これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．</p>
-
+  (<span style="color:#66d9ef">if</span> (memq <span style="color:#e6db74">&#39;org-html-export-to-html</span> after-save-hook)
+      (<span style="color:#66d9ef">progn</span>
+        (remove-hook <span style="color:#e6db74">&#39;after-save-hook</span> <span style="color:#e6db74">&#39;org-html-export-to-html</span> <span style="color:#66d9ef">t</span>)
+        (message <span style="color:#e6db74">&#34;Disabled org html export on save for current buffer...&#34;</span>))
+    (add-hook <span style="color:#e6db74">&#39;after-save-hook</span> <span style="color:#e6db74">&#39;org-html-export-to-html</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
+    (message <span style="color:#e6db74">&#34;Enabled org html export on save for current buffer...&#34;</span>)))
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><p>これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．</p>
 <h2 id="directoryの内容が変更されると-自動でhtmlを再読込する">directoryの内容が変更されると，自動でhtmlを再読込する．</h2>
-
 <ul>
-<li>情報元：<a href="http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/" target="_blank">Watch for file changes and refresh your browser automatically</a></li>
+<li>情報元：<a href="http://brettterpstra.com/2011/03/07/watch-for-file-changes-and-refresh-your-browser-automatically/">Watch for file changes and refresh your browser automatically</a></li>
 <li>上記サイトに有るrubyのスクリプトが使えそうなので，頂いた．</li>
 <li>rubyのインストールについては，以下のようなサイトを参考
-
 <ul>
-<li><a href="https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b" target="_blank">MacにHomeBrew,rbenv,bundlerをインストールする</a></li>
-<li><a href="https://qiita.com/prgseek/items/ff037cc6134ff9303c67" target="_blank">Ruby入門 01.導入（Macに最新版のRubyを入れる）</a></li>
-<li><a href="https://qiita.com/TAByasu/items/47c6cfbeeafad39eda07" target="_blank">Ruby初学者のRuby On Rails 環境構築【Mac】</a></li>
-</ul></li>
+<li><a href="https://qiita.com/shinkuFencer/items/3679cfd966f6a61ccd1b">MacにHomeBrew,rbenv,bundlerをインストールする</a></li>
+<li><a href="https://qiita.com/prgseek/items/ff037cc6134ff9303c67">Ruby入門 01.導入（Macに最新版のRubyを入れる）</a></li>
+<li><a href="https://qiita.com/TAByasu/items/47c6cfbeeafad39eda07">Ruby初学者のRuby On Rails 環境構築【Mac】</a></li>
+</ul>
+</li>
 <li>しかし，上記サイトのスクリプトをそのまま使用するとと，reloadの際にページの先頭まで戻ってしまい不便！</li>
-
-<li><p>結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．</p>
-
-<pre><code class="language-sh">#!/usr/bin/env ruby
-# watch.rb by Brett Terpstra, 2011 &lt;http://brettterpstra.com&gt;
-# with credit to Carlo Zottmann &lt;https://github.com/carlo/haml-sass-file-watcher&gt;
-
-trap(&quot;SIGINT&quot;) { exit }
-
-if ARGV.length &lt; 2
-puts &quot;Usage: #{$0} watch_folder keyword&quot;
-puts &quot;Example: #{$0} . mywebproject&quot;
-exit
-end
-
-dev_extension = 'dev'
-filetypes = ['css','html','htm','php','rb','erb','less','js']
-watch_folder = ARGV[0]
-keyword = ARGV[1]
-puts &quot;Watching #{watch_folder} and subfolders for changes in project files...&quot;
-
-while true do
-     files = []
-     filetypes.each {|type|
-files += Dir.glob( File.join( watch_folder, &quot;**&quot;, &quot;*.#{type}&quot; ) )
-                    }
-     new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
-     hash ||= new_hash
-     diff_hash = new_hash - hash
-
-     unless diff_hash.empty?
-     hash = new_hash
-
-     diff_hash.each do |df|
-         puts &quot;Detected change in #{df[0]}, refreshing&quot;
-     %x{osascript&lt;&lt;ENDGAME
-            tell app &quot;Safari&quot; to activate
-            tell app &quot;System Events&quot;
-                 keystroke &quot;r&quot; using command down
-            end tell
-ENDGAME
-       }
-     end
-     end
-
-     sleep 1
-     end
-</code></pre></li>
-
-<li><p>このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．</p></li>
-
-<li><p><strong>Usage: /usr/local/bin/watch_safari.rb watch_folder keyword</strong></p></li>
-
-<li><p>パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫</p></li>
+<li>結局，上記サイトのFirefox用のスクリプトを参考に少し書き換えた下記のSafari用のスクリプトを使用すると，reloadの際に先頭まで戻らないので，こちらを使用することとした．</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/usr/bin/env ruby
+</span><span style="color:#75715e"></span><span style="color:#75715e"># watch.rb by Brett Terpstra, 2011 &lt;http://brettterpstra.com&gt;</span>
+<span style="color:#75715e"># with credit to Carlo Zottmann &lt;https://github.com/carlo/haml-sass-file-watcher&gt;</span>
 
+trap<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SIGINT&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> exit <span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">if</span> ARGV.length &lt; <span style="color:#ae81ff">2</span>
+   puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Usage: #{</span>$0<span style="color:#e6db74">} watch_folder keyword</span><span style="color:#e6db74">&#34;</span>
+   puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Example: #{</span>$0<span style="color:#e6db74">} . mywebproject</span><span style="color:#e6db74">&#34;</span>
+   exit
+   end
+
+   dev_extension <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;dev&#39;</span>
+   filetypes <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#39;css&#39;</span>,<span style="color:#e6db74">&#39;html&#39;</span>,<span style="color:#e6db74">&#39;htm&#39;</span>,<span style="color:#e6db74">&#39;php&#39;</span>,<span style="color:#e6db74">&#39;rb&#39;</span>,<span style="color:#e6db74">&#39;erb&#39;</span>,<span style="color:#e6db74">&#39;less&#39;</span>,<span style="color:#e6db74">&#39;js&#39;</span><span style="color:#f92672">]</span>
+   watch_folder <span style="color:#f92672">=</span> ARGV<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>
+   keyword <span style="color:#f92672">=</span> ARGV<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>
+   puts <span style="color:#e6db74">&#34;Watching #{watch_folder} and subfolders for changes in project files...&#34;</span>
+
+   <span style="color:#66d9ef">while</span> true <span style="color:#66d9ef">do</span>
+         files <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+         filetypes.each <span style="color:#f92672">{</span>|type|
+files <span style="color:#f92672">+=</span> Dir.glob<span style="color:#f92672">(</span> File.join<span style="color:#f92672">(</span> watch_folder, <span style="color:#e6db74">&#34;**&#34;</span>, <span style="color:#e6db74">&#34;*.#{type}&#34;</span> <span style="color:#f92672">)</span> <span style="color:#f92672">)</span>
+                        <span style="color:#f92672">}</span>
+         new_hash <span style="color:#f92672">=</span> files.collect <span style="color:#f92672">{</span>|f| <span style="color:#f92672">[</span> f, File.stat<span style="color:#f92672">(</span>f<span style="color:#f92672">)</span>.mtime.to_i <span style="color:#f92672">]</span> <span style="color:#f92672">}</span>
+         hash <span style="color:#f92672">||</span><span style="color:#f92672">=</span> new_hash
+         diff_hash <span style="color:#f92672">=</span> new_hash - hash
+
+         unless diff_hash.empty?
+         hash <span style="color:#f92672">=</span> new_hash
+
+         diff_hash.each <span style="color:#66d9ef">do</span> |df|
+             puts <span style="color:#e6db74">&#34;Detected change in #{df[0]}, refreshing&#34;</span>
+         %x<span style="color:#f92672">{</span>osascript<span style="color:#e6db74">&lt;&lt;ENDGAME
+</span><span style="color:#e6db74">                tell app &#34;Safari&#34; to activate
+</span><span style="color:#e6db74">                tell app &#34;System Events&#34;
+</span><span style="color:#e6db74">                     keystroke &#34;r&#34; using command down
+</span><span style="color:#e6db74">                end tell
+</span><span style="color:#e6db74">ENDGAME</span>
+           <span style="color:#f92672">}</span>
+         end
+         end
+
+         sleep <span style="color:#ae81ff">1</span>
+         end
+</code></pre></div><ul>
+<li>このスクリプトにwatch_safari.rbという名前をつけてパスが通っている/usr/local/binに保存し，chomod a+x watch_safari.rbとして実行権限を付けた．</li>
+<li><strong>Usage: /usr/local/bin/watch_safari.rb watch_folder keyword</strong></li>
+<li>パスを通しておけば，watch_safari.rb watch_folder keyword で大丈夫</li>
+</ul>
 <h2 id="使用方法">使用方法</h2>
-
 <ul>
-<li><p>/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．</p>
-
-<pre><code class="language-sh">$ cd /Data/Hoge
-$ watch_safari.rb Hoge hogefuga.html
-</code></pre></li>
-
-<li><p>org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．</p></li>
-
-<li><p>最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．</p></li>
-
-<li><p>以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．</p></li>
+<li>/Data/Hoge/Fuga/hogefuga.orgを書いているとすると以下のようにそのディレクトリをみはらせておく．</li>
 </ul>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/Hoge
+$ watch_safari.rb Hoge hogefuga.html
+</code></pre></div><ul>
+<li>org-modeでhogefuga.orgを書きはじめるときに，M-x toggle-org-html-export-on-save として保存するたびに自動的に新たなhtmlがexportされるようにする．</li>
+<li>最初だけは，C-e h oでhtmlをexportして，safariでhogefuga.htmlを開いておく．</li>
+<li>以降は，hogefuga.org文書を保存するたびに，現在見ている場所に戻った状態で最新のhtmlに更新されるようになる．便利である．</li>
+</ul>
 <p>以上はOSX上のSafariを使用している場合であるが，他のブラウザーでも少し変更するだけで同じことができるはずである．</p>
 
     </div>
@@ -864,7 +838,7 @@ $ watch_safari.rb Hoge hogefuga.html
   
 
   <p class="powered-by">
-    &copy; 2019 &middot; 
+    © 2020 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

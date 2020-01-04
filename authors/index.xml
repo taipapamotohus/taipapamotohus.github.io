@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Authors</title>
@@ -17,20 +17,12 @@
       <link>/authors/admin/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/authors/admin/</guid>
-      <description>
-
-&lt;h2 id=&#34;このサイトについて&#34;&gt;&lt;strong&gt;このサイトについて&lt;/strong&gt;&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;このサイトについて&#34;&gt;&lt;strong&gt;このサイトについて&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;フリーソフトで学会発表用のスライドを作ったり，論文を書いたりするのに役に立ちそうなことを，自分のためにまとめておく備忘録みたいなもの．最近とみに衰えてきた記憶力の補助になればいいな．．．  😄&lt;/p&gt;
-
 &lt;p&gt;Emacsのorg-modeやLaTeX絡みの話が多くなりそう．．．&lt;/p&gt;
-
 &lt;p&gt;殆どは先人の方々からの受け売りなので，できるだけ情報元も併記する．&lt;/p&gt;
-
 &lt;h2 id=&#34;環境&#34;&gt;&lt;strong&gt;環境&lt;/strong&gt;&lt;/h2&gt;
-
 &lt;p&gt;MacBook Pro late 2016, Mojave 10.14.6&lt;/p&gt;
-
 &lt;p&gt;GNU Emacs 26.2, TeX Live 2018 (MacTeX-2018)&lt;/p&gt;
 </description>
     </item>
