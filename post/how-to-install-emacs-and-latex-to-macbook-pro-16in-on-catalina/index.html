@@ -128,7 +128,7 @@
     
       <meta property="article:published_time" content="2019-12-31T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2020-01-04T19:59:40&#43;09:00">
+    <meta property="article:modified_time" content="2020-01-05T22:56:58&#43;09:00">
   
 
   
@@ -324,7 +324,7 @@
 
 
 <meta content="2019-12-31 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2020-01-04 19:59:40 &#43;0900 JST" itemprop="dateModified">
+<meta content="2020-01-05 22:56:58 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -339,7 +339,7 @@
           Last updated on
       
     
-    <time>Jan 4, 2020</time>
+    <time>Jan 5, 2020</time>
   </span>
   
 
@@ -410,9 +410,11 @@
 <li><a href="#how-to-install-latex-into-macbook-pro-16-inch--catalina">How to install  LaTeX into MacBook Pro 16 inch (Catalina)</a>
 <ul>
 <li><a href="#references">References</a></li>
+<li><a href="#%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%83%9E%E3%83%83%E3%83%97%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A8pdf%E3%81%B8%E3%81%AE%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%81%AE%E5%9F%8B%E3%82%81%E8%BE%BC%E3%81%BF%E3%81%AE%E7%A2%BA%E8%AA%8D">フォントマップの確認とpdfへのフォントの埋め込みの確認</a></li>
 </ul>
 </li>
 <li><a href="#how-to-setup-org-mode-in-macbook-pro-16-inch--catalina">How to setup org-mode in MacBook Pro 16 inch (Catalina)</a></li>
+<li><a href="#how-to-setup-full-text-search-of-pdf-files-on-catalina">How to setup full text search of pdf files on Catalina</a></li>
 <li><a href="#encountered-problems-%E9%81%AD%E9%81%87%E3%81%97%E3%81%9F%E5%95%8F%E9%A1%8C%E7%82%B9">Encountered problems: 遭遇した問題点</a>
 <ul>
 <li><a href="#zxjafont%E3%81%AE%E3%83%97%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E5%A4%89%E6%9B%B4">zxjafontのプリセットの変更</a></li>
@@ -420,7 +422,6 @@
 <li><a href="#location-of-pdf-files-in-bibdesk-on-catalina">Location of pdf files in BibDesk on Catalina</a></li>
 </ul>
 </li>
-<li><a href="#how-to-setup-full-text-search-of-pdf-files-on-catalina">How to setup full text search of pdf files on Catalina</a></li>
 <li><a href="#%E3%81%BE%E3%81%A8%E3%82%81">まとめ</a></li>
 </ul>
 <!-- raw HTML omitted -->
@@ -464,7 +465,30 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 <li><a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></li>
 <li><a href="../mojave">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a></li>
 </ul>
-<p>最初の<a href="https://doratex.hatenablog.jp/entry/20190502/1556775026">MacTeX 2019 のインストール＆日本語環境構築法</a>の通りにすれば良い．これにより， <strong>texlive2019</strong> がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．文献管理ソフトであるBibDeskのpdfの管理に問題が生じたが，これについては解決策とともに別稿でまとめる．</p>
+<p>最初の<a href="https://doratex.hatenablog.jp/entry/20190502/1556775026">MacTeX 2019 のインストール＆日本語環境構築法</a>の通りにすれば良い．これにより， <strong>texlive2019</strong> がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．なお，<a href="https://texwiki.texjp.org/?%E3%83%92%E3%83%A9%E3%82%AE%E3%83%8E%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88#macos-hiragino-setup">macOS Catalina / macOS Mojave / macOS High Sierra / macOS Sierra / OS X El Capitan に付属するヒラギノフォントのセットアップ</a> にCatalinaでのtexlive2019のインストールの仕方が記載されているが，私は前述の通りにやった後にこのサイトに気が付いたので，こちらのやり方は行っていない．</p>
+<h3 id="フォントマップの確認とpdfへのフォントの埋め込みの確認">フォントマップの確認とpdfへのフォントの埋め込みの確認</h3>
+<p><a href="https://qiita.com/potato%5Fomom/items/88b5964bb057bbddf2c3">いまさらMacTeXの更新</a> を参考に，フォントマップを見ると，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ kanji-config-updmap-sys status
+Cannot find ptex-fontmaps-macos-data.dat, skipping!
+CURRENT family <span style="color:#66d9ef">for</span> ja: hiragino-highsierra-pron
+Standby family : ipa
+Standby family : ipaex
+</code></pre></div><p>とりあえず， <strong>CURRENT family for ja: hiragino-highsierra-pron</strong> になっているのでよしとする．latexで生成したhogehoge.pdfのフォントの埋め込みを，pdffontを用いて確認してみると，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pdffonts SMC-Ab.pdf
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+RWTTMJ+LMSans10-Bold                 Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">0</span>
+CZOKCD+CMMI12                        Type 1C           Builtin          yes yes yes      <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">0</span>
+NBDCJR+HiraKakuProN-W6-Identity-H    CID Type 0C       Identity-H       yes yes no       <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">0</span>
+TYTYWC+LMRoman17-Regular             Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">0</span>
+GWABID+LMRoman12-Bold                Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">0</span>
+AJNMNY+LMRoman12-Regular             Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">10</span>  <span style="color:#ae81ff">0</span>
+HCOYDP+HiraMinProN-W3-Identity-H     CID Type 0C       Identity-H       yes yes no      <span style="color:#ae81ff">16</span>  <span style="color:#ae81ff">0</span>
+RMUEJU+LMRoman8-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">21</span>  <span style="color:#ae81ff">0</span>
+XXHLXJ+LMRoman7-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">23</span>  <span style="color:#ae81ff">0</span>
+PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">0</span>
+</code></pre></div><p>とヒラギノフォントも含めて全てのフォントはemb = yesとなっており，確かに埋め込まれている．</p>
+<p>なお，文献管理ソフトであるBibDeskのpdfの管理に問題が生じたが，これについては解決策とともに別稿でまとめる．</p>
 <h2 id="how-to-setup-org-mode-in-macbook-pro-16-inch--catalina">How to setup org-mode in MacBook Pro 16 inch (Catalina)</h2>
 <p>最もよく使うorg-modeのセットアップは以下の以前の記事の通りに作業した．</p>
 <ul>
@@ -474,6 +498,29 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 <li><a href="../org-mode_paper_4">Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</a></li>
 </ul>
 <p>といっても実際にやったのは，以前の/Users/taipapa/.emacs.d/personal/init.orgをコピペしたことがほぼ全てである．</p>
+<h2 id="how-to-setup-full-text-search-of-pdf-files-on-catalina">How to setup full text search of pdf files on Catalina</h2>
+<p>以前の記事で全文検索についてまとめたが（<a href="../fulltextsearch">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>），Catalinaでもこの記事と同じ設定でpdf fileの全文検索が可能となった．Mojaveでもhome directoryでセットアップしたので，大きな問題はなかったのであろう．ただし，Catalinaでは，pdf fileの置き場所がhome directoryの下のData directory以下に変更されているため，/Users/taipapa/Sites/cgi-bin/est/estseek.confの設定は以下のように変更した．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">1</span> <span style="color:#75715e">#indexname: casket</span>
+<span style="color:#ae81ff">2</span> indexname: /Users/taipapa/Sites/pdf/casket
+<span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">4</span> tmplfile: estseek.tmpl
+<span style="color:#ae81ff">5</span>
+<span style="color:#ae81ff">6</span> topfile: estseek.top
+<span style="color:#ae81ff">7</span>
+<span style="color:#ae81ff">8</span> helpfile: estseek.help
+<span style="color:#ae81ff">9</span>
+<span style="color:#ae81ff">10</span> lockindex: true
+<span style="color:#ae81ff">11</span>
+<span style="color:#ae81ff">12</span> pseudoindex:
+<span style="color:#ae81ff">13</span>
+<span style="color:#ae81ff">14</span> <span style="color:#75715e">#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/</span>
+<span style="color:#ae81ff">15</span> <span style="color:#75715e">#replace: /index\.html?${{!}}/</span>
+<span style="color:#ae81ff">16</span>
+<span style="color:#ae81ff">17</span> <span style="color:#75715e">#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/</span>
+<span style="color:#ae81ff">18</span>
+<span style="color:#ae81ff">19</span> replace: ^file:///Users/taipapa/Data/<span style="color:#f92672">{</span><span style="color:#f92672">{</span>!<span style="color:#f92672">}</span><span style="color:#f92672">}</span>http://localhost/~taipapa/pdf/PDFs/
+<span style="color:#ae81ff">20</span>
+</code></pre></div><p>これでブラウザによるpdf fileの全文検索が可能となった．なお，MacBook Pro late 2016では，document数が11734個，語数が1351563のindex作成に要した時間は約40分強であったが，今回，MacBook Pro 2019 16 inch では，document数が11782個，語数が1362430のindex作成に要した時間は約31分強であった．</p>
 <h2 id="encountered-problems-遭遇した問題点">Encountered problems: 遭遇した問題点</h2>
 <p>ここからは，上述のセットアップの際に遭遇した問題点についてまとめておく．</p>
 <h3 id="zxjafontのプリセットの変更">zxjafontのプリセットの変更</h3>
@@ -511,29 +558,6 @@ $ tree -L <span style="color:#ae81ff">5</span>
                └── Documents
                     └── hogefuga-References.bib
 </code></pre></div><p>上図のように，Documentsの下にtaipapa2 directoryを作成し，さらにその下にDocuments directoryを作成し，そこにhogefuga-References.bibを置くようにしたところ，BibDeskがpdfの場所を認識するようになった．ただ，iCloudを介してMojaveがインストールされた他のマック（まだmojave）からもこの文献リストを共有するためには，/Users/taipapa/Documents/にhogefuga-References.bibをコピーしておかなければならない．symbolic linkではオリジナルの方を認識してしまいうまくいかないし，hard linkではiCloudを経由するとうまくいかない．</p>
-<h2 id="how-to-setup-full-text-search-of-pdf-files-on-catalina">How to setup full text search of pdf files on Catalina</h2>
-<p>以前の記事で全文検索についてまとめたが（<a href="../fulltextsearch">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>），Catalinaでもこの記事と同じ設定でpdf fileの全文検索が可能となった．Mojaveでもhome directoryでセットアップしたので，大きな問題はなかったのであろう．ただし，Catalinaでは，pdf fileの置き場所がhome directoryの下のData directory以下に変更されているため，/Users/taipapa/Sites/cgi-bin/est/estseek.confの設定は以下のように変更した．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">1</span> <span style="color:#75715e">#indexname: casket</span>
-<span style="color:#ae81ff">2</span> indexname: /Users/taipapa/Sites/pdf/casket
-<span style="color:#ae81ff">3</span>
-<span style="color:#ae81ff">4</span> tmplfile: estseek.tmpl
-<span style="color:#ae81ff">5</span>
-<span style="color:#ae81ff">6</span> topfile: estseek.top
-<span style="color:#ae81ff">7</span>
-<span style="color:#ae81ff">8</span> helpfile: estseek.help
-<span style="color:#ae81ff">9</span>
-<span style="color:#ae81ff">10</span> lockindex: true
-<span style="color:#ae81ff">11</span>
-<span style="color:#ae81ff">12</span> pseudoindex:
-<span style="color:#ae81ff">13</span>
-<span style="color:#ae81ff">14</span> <span style="color:#75715e">#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/</span>
-<span style="color:#ae81ff">15</span> <span style="color:#75715e">#replace: /index\.html?${{!}}/</span>
-<span style="color:#ae81ff">16</span>
-<span style="color:#ae81ff">17</span> <span style="color:#75715e">#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/</span>
-<span style="color:#ae81ff">18</span>
-<span style="color:#ae81ff">19</span> replace: ^file:///Users/taipapa/Data/<span style="color:#f92672">{</span><span style="color:#f92672">{</span>!<span style="color:#f92672">}</span><span style="color:#f92672">}</span>http://localhost/~taipapa/pdf/PDFs/
-<span style="color:#ae81ff">20</span>
-</code></pre></div><p>これでブラウザによるpdf fileの全文検索が可能となった．</p>
 <h2 id="まとめ">まとめ</h2>
 <p>今回はかなり苦労すると予想していたのだが，意外とスムーズに行ってしまった（笑）．問題になったのは細かい点が多く，ファイルシステムの変更に伴う問題が一番厄介であった．そのほかでは，GIMPも特に問題なく動き，動画ファイルも問題なかった．お陰で仕事ができる環境を素早く確立することができた．今回も，「案ずるより産むが易し」であった．😄</p>
     </div>
