@@ -400,15 +400,17 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>先日，ブログのアップデートについて2回に分けてまとめたが（<a href="../how-to-upgrade-hugo-and-academic-theme">How to update hugo and academic theme (Part1)</a>, <a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B">自己紹介</a></li>
 <li><a href="#widget-in-academic">Widget in Academic</a></li>
 <li><a href="#home-page%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E7%94%BB%E5%83%8F">home pageの最初の画像</a></li>
 <li><a href="#day--light--and-night--dark--mode">Day (light) and night (dark) mode</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="自己紹介">自己紹介</h2>
 <ul>
 <li><a href="https://sourcethemes.com/academic/docs/get-started/#introduce-yourself">Introduce yourself</a> academicのご本家の解説</li>
@@ -421,7 +423,7 @@
 <li>widgetとは．．．ウィジェットである．(^^;;; ブログを組み立てる部品のようなもの．上記のリンク先に詳細に解説されている．例えば， <strong>About</strong> widjetは読者にブログ主を紹介するためのものである．ただし，実際のプロファイルの内容は前述のようにcontent/authors/admin/_index.mdに記載されている． このブログのように，投稿記事を載せているだけの場合は，ほとんどのwidgetは不要である．</li>
 <li>不要なwidgetは，content/home/のディレクトリから削除すれば良い．参考のために残して置きたければ， それぞれのindex.mdのfront matterの最初の方にある active = true を <strong>active = false</strong> とすれば良い．下図は， content/home/featured/index.mdのfeatured widget の場合である．これで featured widget は表示されなくなる．</li>
 </ul>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">+++
 <span style="color:#75715e"># A Featured Publications section created with the Featured Content widget.</span>
 <span style="color:#75715e"># This section displays publications from `content/publication/` which have</span>

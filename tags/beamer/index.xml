@@ -19,8 +19,9 @@
       <guid>/post/how-to-create-conference-poster-by-latex-beamer/</guid>
       <description>&lt;p&gt;学会発表用のスライド作成については，&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．&lt;/p&gt;
 &lt;p&gt;latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#general-remarks&#34;&gt;General remarks&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#beamerposter&#34;&gt;beamerposter&lt;/a&gt;
@@ -69,7 +70,8 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E3%81%BE%E3%81%A8%E3%82%81&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;general-remarks&#34;&gt;General remarks&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://guides.lib.wayne.edu/posters/latex&#34;&gt;Creating Research Posters&lt;/a&gt;&lt;/li&gt;
@@ -192,7 +194,7 @@
 &lt;li&gt;9行目： &lt;strong&gt;\usetheme{I6dv_test}&lt;/strong&gt; によりスタイルシートを指定している．&lt;/li&gt;
 &lt;li&gt;45行目： &lt;strong&gt;orientation=landscape&lt;/strong&gt; で横長， &lt;strong&gt;orientation=portrait&lt;/strong&gt; で縦長になる．実際の大きさは， &lt;strong&gt;width=200,height=100&lt;/strong&gt; で合わせる（幅 200cm 高さ 100 cmということである）．scaleの部分でも調整する．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  1
@@ -1052,7 +1054,8 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/beamer_movie2/</guid>
       <description>&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
 &lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
 &lt;ul&gt;
@@ -1374,7 +1377,8 @@ An annotation is considered as an object with a location on a page. The type of 
       <link>/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/latexmk/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;

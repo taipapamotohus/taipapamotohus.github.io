@@ -18,7 +18,8 @@
       <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/post/org-mode_paper_3/</guid>
       <description>&lt;p&gt;前回（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -159,12 +160,12 @@ option:-r    &lt;span style=&#34;color:#a6e22e&#34;&gt;reverse&lt;/span&gt; &lt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.tug.org/mactex/2013/faq/#qm05&#34;&gt;The Most Frequently Asked Questions (FAQ)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
-or subfolders of this directory, and &amp;ldquo;.bst&amp;rdquo; files go in &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;~/Library/texmf/bibtex/bst&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;br /&gt;
+&lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;br /&gt;
+or subfolders of this directory, and &amp;ldquo;.bst&amp;rdquo; files go in &lt;br /&gt;
+&lt;strong&gt;~/Library/texmf/bibtex/bst&lt;/strong&gt; &lt;br /&gt;
 or subfolders of this directory.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;

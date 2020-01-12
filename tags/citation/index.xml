@@ -19,7 +19,8 @@
       <guid>/post/org-mode_paper_4/</guid>
       <description>&lt;p&gt;医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．&lt;/p&gt;
 &lt;p&gt;いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， &lt;strong&gt;pandoc&lt;/strong&gt; とそれをorg−modeから利用するための &lt;strong&gt;ox-pandoc&lt;/strong&gt; である．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;ox-pandoc&#34;&gt;ox-pandoc&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -546,7 +547,8 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/post/org-mode_paper_3/</guid>
       <description>&lt;p&gt;前回（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -687,12 +689,12 @@ option:-r    &lt;span style=&#34;color:#a6e22e&#34;&gt;reverse&lt;/span&gt; &lt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.tug.org/mactex/2013/faq/#qm05&#34;&gt;The Most Frequently Asked Questions (FAQ)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
-or subfolders of this directory, and &amp;ldquo;.bst&amp;rdquo; files go in &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;~/Library/texmf/bibtex/bst&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;br /&gt;
+&lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;br /&gt;
+or subfolders of this directory, and &amp;ldquo;.bst&amp;rdquo; files go in &lt;br /&gt;
+&lt;strong&gt;~/Library/texmf/bibtex/bst&lt;/strong&gt; &lt;br /&gt;
 or subfolders of this directory.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;

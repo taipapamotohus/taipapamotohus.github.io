@@ -325,9 +325,9 @@
     <div class="article-style">
       
       ようやく，ここからinit.orgの具体的な記述になる．
-Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
+Table of Contents Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
   init.orgに以下のように書き込む
-​* Coding System Environment ** 言語を日本語にする #+BEGIN_SRC lisp (set-language-environment &#39;Japanese) #+END_SRC ** 極力UTF-8とする #+BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #+END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #+BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.*Hiragino Kaku Gothic ProN.
+​* Coding System Environment ** 言語を日本語にする #+BEGIN_SRC lisp (set-language-environment &#39;Japanese) #+END_SRC ** 極力UTF-8とする #+BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #+END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #+BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.
       
     </div>
   </div>

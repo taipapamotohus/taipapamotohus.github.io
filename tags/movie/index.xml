@@ -18,7 +18,8 @@
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/beamer_movie2/</guid>
       <description>&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
 &lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
 &lt;ul&gt;

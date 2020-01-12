@@ -18,13 +18,15 @@
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/live/</guid>
       <description>&lt;p&gt;最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-set-up&#34;&gt;How to set up&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#shortcut&#34;&gt;Shortcut&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;how-to-set-up&#34;&gt;How to set up&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;まず画面トップの右端の方の日本語入力のライブ変換にチェックを入れてオンにする．&lt;/li&gt;

@@ -350,9 +350,9 @@
     <div class="article-style">
       
       いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中がみんなお祝いしてる，凄いぞ，TeX．．．．と思ったら，全然違った．．．これでまた年齢計算が複雑になる．システム担当者は大変である．まぁ，西暦を使用すればいいだけの話ではあるが．．．．．というわけで，今回はTeXの話，ではなくて，ブログのCodeBlockの長い行がwrapされるのは２行と間違うことがあるので，scrollbarをつけましょうという話である．
- Wrap or scroll? How to add horizontal scrollbar  Ref academic theme version cssの変更    Wrap or scroll? 以前の記事でも触れたように（How to automatically embed R plot in blog created by Hugo via ox-hugo），このサイトは，ox-hugoというorg-modeのパッケージで書いて，Hugoという静的サイトジェネレーター（themeはacademic）で作っているのだが，code blockの長い行がwrapされて，つまり，折り畳まれて表示されるようになっていた．Rのcodeで示してみると，こんな感じである．
+ Table of Contents  Wrap or scroll? How to add horizontal scrollbar  Ref academic theme version cssの変更      Wrap or scroll? 以前の記事でも触れたように（How to automatically embed R plot in blog created by Hugo via ox-hugo），このサイトは，ox-hugoというorg-modeのパッケージで書いて，Hugoという静的サイトジェネレーター（themeはacademic）で作っているのだが，code blockの長い行がwrapされて，つまり，折り畳まれて表示されるようになっていた．Rのcodeで示してみると，こんな感じである．
    これは３行のcodeであるが，はっきり言って見にくい．．．．．　行番号を入れるという方法もあるが，それよりもscrollbarをつけて横にスライドさせる方が分かりやすい．つまり，こうである．
-boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &#34;&#34;, main = &#34;Drug1&#34;, xaxt=&#34;n&#34;, cex.axis=1.5, ylab=&#34;Relative value&#34;, cex.lab = 1.5, pch=16, cex = 1.5) axis(1,at=c(1,2,3),formatC(c(&#34;Control&#34;, &#34;Day1&#34;, &#34;Day7&#34;)), cex.axis=1.5) beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.
+boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &#34;&#34;, main = &#34;Drug1&#34;, xaxt=&#34;n&#34;, cex.axis=1.5, ylab=&#34;Relative value&#34;, cex.lab = 1.5, pch=16, cex = 1.5) axis(1,at=c(1,2,3),formatC(c(&#34;Control&#34;, &#34;Day1&#34;, &#34;Day7&#34;)), cex.
       
     </div>
   </div>
@@ -364,12 +364,12 @@ boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &#34;&#34;, main = &#34;Dr
       org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並べていくときは，side columnなどがあって，すぐに行きたいところに飛べるようになっていると嬉しい．ということで，今回はorg-modeをhtmlにexportするときのthemeがテーマである．．．．．
 とにかく，たくさんのthemesが存在する．まずは以下のサイトをチェック，というか以下を読めばこのブログは読まなくても良いような．．．(^^;;;
  org-modeのHTMLテーマ org-modeのHTMLテーマ第2弾 How to export Org mode files into awesome HTML in 2 minutes org-spec  私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．
-ReadTheOrg これはRead the Docsで使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．
+Table of Contents ReadTheOrg これはRead the Docsで使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup あるいは，3からOrg-HTML themes projectをダウンロードしてきて解凍しローカルの&quot;setup file&quot;へのパスを書き込めば，ネットの接続に依存せずにexportできるようになる．たとえば，/Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setupに設定ファイルがあるとすると以下のようにすれば良い．
 #+SETUPFILE: /Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setup 以下に研究会で発表するスライド原稿を作る下準備として，実際に10個の論文をまとめたorg fileの一部を掲示しておく．左に論文のタイトルが並び，見ている論文の小見出しが自動的に展開される．subheadの色も設定されており，読みやすい．デザインもプロっぽい印象である．書いた内容にかかわらず，なんとなく賢くなったような気分になれる（笑）．
    org-spec An Org-mode template for technical specification documents and HTML publishing. とのことで，技術よりのthemeである．特徴としては，Ditaa, Graphviz &amp; PlantUMLなどによりテキストベースで図が書ける．表に対応，自動的にアップデートするフィールド，PDF生成にも対応，コードブロックの基本的なsyntax highlightingなどがある．実際の例としてhttps://demo.thi.ng/org-spec/がある．
 こちらの使い方は少しだけ面倒である．リンク先からorg-specをダウンロードして解凍する．ここで，style.cssが/Hoge/Fuga/org-spec-master/css/style.cssに保存されたとする．ダウンロードして来たファイルに含まれているindex.orgに全て書いてあるので，それを真似てorg fileのpreambleに次のように書いておく．
-#+HTML_HEAD: &lt;link href=&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34; /&gt; #+HTML_HEAD: &lt;link href=&#34;/Hoge/Fuga/org-spec-master/css/style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34; /&gt; #+AUTHOR: taipapa #+EMAIL: your@mail.
+#+HTML_HEAD: &lt;link href=&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34; /&gt; #+HTML_HEAD: &lt;link href=&#34;/Hoge/Fuga/org-spec-master/css/style.
       
     </div>
   </div>

@@ -401,8 +401,9 @@
     <div class="article-style" itemprop="articleBody">
       <p>またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つけたので，まとめておく．例として，代謝経路の変化を縦型の折れ線グラフで描きKEGG orthologyによって分類したグラフを作成してみる．うーむ，自分で書いていてなんだが，マニアックなネタである．．．(^^;;;</p>
 <p>ま，備忘録として書いておこう．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#data-preparation">Data Preparation</a></li>
@@ -417,7 +418,8 @@
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="references">References</h2>
 <p>Kyoto Encyclopedia of Genes and Genomes (KEGG) に関しては以下のサイトを参照</p>
 <ul>
@@ -685,7 +687,7 @@ P3 <span style="color:#f92672">+</span> <span style="color:#a6e22e">scale_y_cont
 
 <h3 id="customize-tick-marks-with-limits-and-breaks-of-scale-y-continuous">customize tick marks with limits and breaks of scale_y_continuous</h3>
 <p><a href="http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels">ggplot2 axis ticks : A guide to customize tick marks and labels</a></p>
-<p>ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．<!-- raw HTML omitted -->
+<p>ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．<br />
 <a href="https://stackoverflow.com/questions/38313204/r-ggplot2-scale-y-continuous-combining-breaks-limits/38313454#38313454">R ggplot2 scale_y_continuous : Combining breaks &amp; limits</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">P4 <span style="color:#f92672">&lt;-</span> P3 <span style="color:#f92672">+</span>
   <span style="color:#a6e22e">scale_y_continuous</span>(expand<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>), limits <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">-30</span>, <span style="color:#ae81ff">90</span>), breaks<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">-20</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">40</span>))

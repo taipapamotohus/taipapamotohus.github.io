@@ -19,8 +19,9 @@
       <guid>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</guid>
       <description>&lt;p&gt;1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，&lt;a href=&#34;../mojave&#34;&gt;Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew&lt;/a&gt;でまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Table of contents&lt;/strong&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#preparation-for-emacs-installation&#34;&gt;Preparation for Emacs installation&lt;/a&gt;&lt;/li&gt;
@@ -42,7 +43,8 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E3%81%BE%E3%81%A8%E3%82%81&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照サイト : &lt;a href=&#34;https://news.mynavi.jp/article/osxhack-242/&#34;&gt;Catalinaでファイルシステムがこう変わる&lt;/a&gt;&lt;/li&gt;
@@ -187,8 +189,9 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
       <guid>/post/how-to-create-conference-poster-by-latex-beamer/</guid>
       <description>&lt;p&gt;学会発表用のスライド作成については，&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．&lt;/p&gt;
 &lt;p&gt;latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#general-remarks&#34;&gt;General remarks&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#beamerposter&#34;&gt;beamerposter&lt;/a&gt;
@@ -237,7 +240,8 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E3%81%BE%E3%81%A8%E3%82%81&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;general-remarks&#34;&gt;General remarks&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://guides.lib.wayne.edu/posters/latex&#34;&gt;Creating Research Posters&lt;/a&gt;&lt;/li&gt;
@@ -360,7 +364,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;li&gt;9行目： &lt;strong&gt;\usetheme{I6dv_test}&lt;/strong&gt; によりスタイルシートを指定している．&lt;/li&gt;
 &lt;li&gt;45行目： &lt;strong&gt;orientation=landscape&lt;/strong&gt; で横長， &lt;strong&gt;orientation=portrait&lt;/strong&gt; で縦長になる．実際の大きさは， &lt;strong&gt;width=200,height=100&lt;/strong&gt; で合わせる（幅 200cm 高さ 100 cmということである）．scaleの部分でも調整する．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  1
@@ -1220,8 +1224,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/post/mark-and-desktop-saving/</guid>
       <description>&lt;p&gt;Emacsのカーソルは画面をスクロールして上端または下端に至ると画面の中に表示される状態を維持するように動いてしまい，元の位置には止まらないのが仕様になっている．これは通常のエディターとは違っており，不便と感じて，色々と調べたり試したりしたのだが，要するに思想の違いであると考えるに至った．カーソルの位置は保持できない代わりにマークという方法が提供されている．まぁ，これが結構分かりにくいのだが，使ってみると案外便利である．そこで，マークについてまとめることにした．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#mark&#34;&gt;Mark&lt;/a&gt;
 &lt;ul&gt;
@@ -1230,7 +1235,8 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;mark&#34;&gt;Mark&lt;/h2&gt;
 &lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
 &lt;ul&gt;
@@ -1254,9 +1260,13 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
 &lt;p&gt;要するに，通常のエディターやワープロにおいて，マウスでクリックして押したままの状態でなぞった時と同じ状態である．この状態で，ハイライトされた領域をコピーしたり削除したりできる．まぁ，これだけだとどうと言うことはないのだが， &lt;strong&gt;マークはmark ringに格納されるので，そこに戻ることができる．&lt;/strong&gt; これが便利である．この機能を利用するときはマークをセットしてactiveにしないほうが使いやすい．マークをセットした位置に戻るには &lt;strong&gt;C-u C-SPC&lt;/strong&gt; と打つ．&lt;/p&gt;
 &lt;p&gt;以上をまとめると以下のようになる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;style&gt;.zebra-striping table { text-align: center;  }&lt;/style&gt;
+&lt;div class=&#34;ox-hugo-table zebra-striping sane-table&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;table-caption&#34;&gt;
+  &lt;span class=&#34;table-number&#34;&gt;Table 1&lt;/span&gt;:
+  Key bindings for mark in emacs
+&lt;/div&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1279,7 +1289,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
 &lt;p&gt;要するに，あとで戻りたい位置にいるときに &lt;strong&gt;C-SPC C-SPC&lt;/strong&gt; でactiveにせずにマークをつけておき，しばらく作業をしたのち戻りたくなったら， &lt;strong&gt;C-u C-SPC&lt;/strong&gt; で戻ると言う使い方ができる．マークはmark ringに格納され，新しいものからリストの上に追加されていく． &lt;strong&gt;C-u C-SPC&lt;/strong&gt;  を連打すれば，次々と古いマークの位置に移動できる．なお， &lt;strong&gt;set-mark-command-repeat-pop&lt;/strong&gt; を非nilにセットすると、C-u C-SPCの後に続けて、C-u C-SPCではなく、C-SPCでマークリングを巡回できるようになる．これは， &lt;strong&gt;M-x customize&lt;/strong&gt; から，Customize Aproposに入り，下図のようにset-mark-command-repeat-popをToggleでonにすれば良い．&lt;/p&gt;
 
 
@@ -1297,8 +1307,12 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;/figure&gt;
 
 &lt;p&gt;最古のマークまで行くと，また，最新のマークに戻ってくる．それで，mark ringなのであろう．これだけでも十分に便利であり，カーソルの位置を保持できないことを補って余りあるともいえる．さて，mark ringには，localとglobalの2種類があるが，これについては以下の解説を参考にしていただきたい．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;p&gt;&lt;strong&gt;グローバルマークリング（マニュアルから引用）:&lt;/strong&gt; 各バッファーに属する普通のマークリングに加えて、Emacsにはグローバルマークリング(global mark ring)が1つあります。以前マークをセットしてからバッファーを切り替えた場合、マークをセットすると、マークはカレントバッファーのマークリングに加えて、グローバルマークリングにも記録されます。その結果、グローバルマークリングには訪れていたバッファーの系列が記録され、各バッファーではマークを設定した箇所が記録されます。グローバルマークリングの長さは、global-mark-ring-maxで制御され、デフォルトは16です。&lt;/p&gt;
+&lt;p&gt;コマンド &lt;strong&gt;C-x C-SPC&lt;/strong&gt;  (pop-global-mark)は、グローバルリングの最新のバッファー位置にジャンプします。これもリングを巡回するので、連続してC-x C-SPCを使うことにより、古いバッファーのマーク位置に移動します。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;ここまでくると，「mark ringの内容が見られたらもっと便利だろうなぁ」と期待してしまうのは人情というものである．&lt;/p&gt;
 &lt;h2 id=&#34;helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/h2&gt;
 &lt;ul&gt;
@@ -1331,14 +1345,16 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/post/org-rifle/</guid>
       <description>&lt;p&gt;学会続きで，久方ぶりの更新である．org fileの中を検索する際に，&lt;a href=&#34;../swiper_migemo&#34;&gt;Swiper, ivy, avy, migemoによるEmacsの検索強化&lt;/a&gt;で取り上げた &lt;strong&gt;swiper&lt;/strong&gt; を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/alphapapa/org-rifle&#34;&gt;org-rifle&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -1415,15 +1431,17 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
       <guid>/post/how-to-update-hugo-and-academic-theme-part3/</guid>
       <description>&lt;p&gt;先日，ブログのアップデートについて2回に分けてまとめたが（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part1)&lt;/a&gt;, &lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B&#34;&gt;自己紹介&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#widget-in-academic&#34;&gt;Widget in Academic&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#home-page%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E7%94%BB%E5%83%8F&#34;&gt;home pageの最初の画像&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#day--light--and-night--dark--mode&#34;&gt;Day (light) and night (dark) mode&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;自己紹介&#34;&gt;自己紹介&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/#introduce-yourself&#34;&gt;Introduce yourself&lt;/a&gt; academicのご本家の解説&lt;/li&gt;
@@ -1436,7 +1454,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;li&gt;widgetとは．．．ウィジェットである．(^^;;; ブログを組み立てる部品のようなもの．上記のリンク先に詳細に解説されている．例えば， &lt;strong&gt;About&lt;/strong&gt; widjetは読者にブログ主を紹介するためのものである．ただし，実際のプロファイルの内容は前述のようにcontent/authors/admin/_index.mdに記載されている． このブログのように，投稿記事を載せているだけの場合は，ほとんどのwidgetは不要である．&lt;/li&gt;
 &lt;li&gt;不要なwidgetは，content/home/のディレクトリから削除すれば良い．参考のために残して置きたければ， それぞれのindex.mdのfront matterの最初の方にある active = true を &lt;strong&gt;active = false&lt;/strong&gt; とすれば良い．下図は， content/home/featured/index.mdのfeatured widget の場合である．これで featured widget は表示されなくなる．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;+++
 &lt;span style=&#34;color:#75715e&#34;&gt;# A Featured Publications section created with the Featured Content widget.&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# This section displays publications from `content/publication/` which have&lt;/span&gt;
@@ -1505,8 +1523,9 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
       <guid>/post/treemacs_projectile/</guid>
       <description>&lt;p&gt;MacのFinderに相当するのは，EmacsではDiredであろう．しかし，なにかのプロジェクトに関わる文書群を管理するということになると，Diredでは力不足である．というか目的が違う．これにぴったりなのが，treemacsであり，そのバックボーンになるのが，Projectileである．これらは，プログラマーでもない自分には必要ないものと思っていたのだが，このblogを書くのに使用しているHugoとそのテーマであるacademicをアップデートする際に，非常に役に立ったので，いまだによく分かっていない自分自身のために書き留めておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#projectile&#34;&gt;Projectile&lt;/a&gt;
 &lt;ul&gt;
@@ -1523,7 +1542,8 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;projectile&#34;&gt;Projectile&lt;/h2&gt;
 &lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
 &lt;ul&gt;
@@ -1769,8 +1789,9 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
 &lt;p&gt;閑話休題，以前の記事（&lt;a href=&#34;../horizontal_scrollbar&#34;&gt;How to add horizontal scrollbar for codeblock in academic theme of hugo&lt;/a&gt;）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．&lt;/p&gt;
 &lt;p&gt;実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．&lt;/p&gt;
 &lt;p&gt;本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hugo%E3%81%AEupdate&#34;&gt;Hugoのupdate&lt;/a&gt;&lt;/li&gt;
@@ -1788,7 +1809,8 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E8%BF%BD%E8%A8%98&#34;&gt;追記&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -1847,7 +1869,11 @@ ox-hugo
 &lt;li&gt;If you installed from a ZIP&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参考にしていただきたい．以下の記述は自戒のために残しておく．
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;del&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;以下，&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt; に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．&lt;/del&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Data/hoge
@@ -2034,8 +2060,8 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;li&gt;
 &lt;p&gt;Hugoは以下の優先順位で読み込まれる．（&lt;a href=&#34;https://gohugo.io/templates/partials/#partial-template-lookup-order&#34;&gt;Partial Template Lookup Order&lt;/a&gt;）&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;layouts/partials/*&lt;!-- raw HTML omitted --&gt;.html&lt;/li&gt;
-&lt;li&gt;themes/&lt;!-- raw HTML omitted --&gt;/layouts/partials/*&lt;!-- raw HTML omitted --&gt;.html&lt;/li&gt;
+&lt;li&gt;layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
+&lt;li&gt;themes/&lt;THEME&gt;/layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．&lt;/p&gt;
 &lt;/li&gt;
@@ -2064,17 +2090,29 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 ｛{% alert  %}}\&lt;br&gt;
 により，（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;となる．&lt;/p&gt;
 &lt;p&gt;｛{% alert warning %}}\&lt;br&gt;
 A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\&lt;br&gt;
 ｛{% /alert %}}\&lt;br&gt;
 は，以下のようになる．（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）\&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+ &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;また，使ってみよう．&lt;/p&gt;
 &lt;h3 id=&#34;warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/h3&gt;
 &lt;p&gt;アップデートしていじっているうちに，&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+  &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    WARN 2019/08/23 00:36:28 found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You have updated to the unreleased version. You&#39;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
@@ -2121,8 +2159,9 @@ hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/pdf-tools/</guid>
       <description>&lt;p&gt;Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリとしていて使い勝手が悪かったため，サクッと止めて，skimを使っている．ただ，pdf-toolsというのがあって，こちらは割とスグレモノらしいとの噂は聞いていた．そこで，今回はこれを試してみることにした．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#pdf-tools&#34;&gt;PDF Tools&lt;/a&gt;
 &lt;ul&gt;
@@ -2139,7 +2178,8 @@ hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#pdf-tools%E3%81%A8%E4%BB%96%E3%81%AE%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA-skim-preview%E3%81%AA%E3%81%A8%E3%82%99-%E3%81%A8%E3%81%AE%E6%AF%94%E8%BC%83&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;pdf-tools&#34;&gt;PDF Tools&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考１：&lt;a href=&#34;https://github.com/politza/pdf-tools&#34;&gt;pdf-tools&lt;/a&gt;　ご本家&lt;/li&gt;
@@ -2339,13 +2379,15 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/live/</guid>
       <description>&lt;p&gt;最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-set-up&#34;&gt;How to set up&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#shortcut&#34;&gt;Shortcut&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;how-to-set-up&#34;&gt;How to set up&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;まず画面トップの右端の方の日本語入力のライブ変換にチェックを入れてオンにする．&lt;/li&gt;
@@ -2382,14 +2424,16 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
       <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/symbol-overlay/</guid>
       <description>&lt;p&gt;今回は（も？），redditで拾ってきたネタ（&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/c95cm5/how%5Fto%5Fhighlight%5Foccurences%5Fat%5Fcursor%5Fpoint%5Fin/&#34;&gt;How to highlight occurences at cursor point in Emacs&lt;/a&gt;）．カーソルの位置にあるシンボル（単語と思えば良い）をバッファ内ですべてハイライトしてくれるEmacsのパッケージを訊いているのだが，いくつか答えがあって，一番便利そうだったのが，今回紹介する &lt;strong&gt;symbol-overlay&lt;/strong&gt; である．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use&#34;&gt;How to use&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/wolray/symbol-overlay&#34;&gt;symbol-overlay&lt;/a&gt; （ご本家）&lt;/li&gt;
@@ -2459,15 +2503,17 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/post/gleanings/</guid>
       <description>&lt;p&gt;前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#display-line-numbers&#34;&gt;display-line-numbers&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#whitespace-mode&#34;&gt;Whitespace-mode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#iterm2%E3%81%AE%E6%A8%A9%E9%99%90%E3%81%AE%E5%A4%89%E6%9B%B4-mojave%E3%81%A6%E3%82%99%E5%BF%85%E8%A6%81&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#iterm2%E3%81%AEcolor-scheme%E3%81%8B%E3%82%99%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84&#34;&gt;iTerm2のColor Schemeが効かない&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;display-line-numbers&#34;&gt;display-line-numbers&lt;/h2&gt;
 &lt;p&gt;emacs 26から入った行番号を表示させる機能．&lt;/p&gt;
 &lt;ul&gt;
@@ -2603,8 +2649,9 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/post/deadgrep/</guid>
       <description>&lt;p&gt;次世代grepで最速と言われる&lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;ripgrep&lt;/a&gt;をバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#ref&#34;&gt;Ref&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
@@ -2614,7 +2661,8 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;ref&#34;&gt;Ref&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/Wilfred/deadgrep&#34;&gt;deadgrep: use ripgrep from Emacs&lt;/a&gt; ご本家&lt;/li&gt;
@@ -2677,8 +2725,9 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/post/mojave/</guid>
       <description>&lt;p&gt;世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから &lt;strong&gt;Mojave&lt;/strong&gt; にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-xcode-10-dot-2-dot-1&#34;&gt;Upgrade to Xcode 10.2.1&lt;/a&gt;&lt;/li&gt;
@@ -2690,7 +2739,8 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%84%9F%E6%83%B3&#34;&gt;感想&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://support.apple.com/ja-jp/HT201475&#34;&gt;macOS Mojave にアップグレードする方法&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．&lt;/p&gt;
@@ -2708,8 +2758,8 @@ Error: parent directory is world writable but not sticky
 Please report this bug:
 https://docs.brew.sh/Troubleshooting
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/analsky/items/20755a3ba10119e9a4b6&#34;&gt;brew で `Error: parent directory is world writable but not sticky`&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky&#34;&gt;Error: parent directory is world writable but not sticky&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/analsky/items/20755a3ba10119e9a4b6&#34;&gt;brew で `Error: parent directory is world writable but not sticky`&lt;/a&gt; &lt;br /&gt;
+&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky&#34;&gt;Error: parent directory is world writable but not sticky&lt;/a&gt; &lt;br /&gt;
 上記サイトの記載に従って，ls -ld /tmpを行うと以下のようになる．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ls -ld /tmp
 lrwxr-xr-x@ &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; root  wheel  &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;27&lt;/span&gt; 18:45 /tmp@ -&amp;gt; private/tmp
@@ -2724,14 +2774,14 @@ $ brew tap railwaycat/emacsmacport
 $ brew uninstall emacs-mac  &lt;span style=&#34;color:#75715e&#34;&gt;# uninstall old emacs-mac&lt;/span&gt;
 $ brew install emacs-mac --with-modern-icon --with-imagemagick  &lt;span style=&#34;color:#75715e&#34;&gt;# install new emacs-mac&lt;/span&gt;
 $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
-から &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)&lt;/strong&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;br /&gt;
+&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)&lt;/strong&gt; &lt;br /&gt;
+から &lt;br /&gt;
+&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)&lt;/strong&gt;  &lt;br /&gt;
 へのupgradeが終了した．&lt;/p&gt;
-&lt;p&gt;あとは，以前に書いた以下の記事に従ってセットアップした．&lt;!-- raw HTML omitted --&gt;
-&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正）&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
-&lt;a href=&#34;../init_org&#34;&gt;Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;あとは，以前に書いた以下の記事に従ってセットアップした．&lt;br /&gt;
+&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正）&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&#34;../init_org&#34;&gt;Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する&lt;/a&gt;  &lt;br /&gt;
 &lt;a href=&#34;../japanese_setup&#34;&gt;Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;latex&#34;&gt;LaTeX&lt;/h2&gt;
 &lt;p&gt;これについては，以前の記事「&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;」で書いたとおり &lt;strong&gt;MacTeX 2018&lt;/strong&gt; のままである．正確に言うと，mojaveにupgradeする直前に以下のようにして最新版にアップデートしておいた．&lt;/p&gt;
@@ -2776,15 +2826,17 @@ SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/post/peep/</guid>
       <description>&lt;p&gt;最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#peep-dired%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A&#34;&gt;peep-diredのインストールと設定&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#peep-dired%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9&#34;&gt;peep-diredの使い方&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#bjm-ivy-dired-recent-dirs-%E6%9C%80%E8%BF%91%E9%96%8B%E3%81%91%E3%81%9Fdirectory%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95-%E3%81%8A%E3%81%BE%E3%81%91&#34;&gt;bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/asok/peep-dired&#34;&gt;peep-dired&lt;/a&gt;&lt;/li&gt;
@@ -2846,23 +2898,25 @@ SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/embedrplotinblog/</guid>
       <description>&lt;p&gt;（承前）前回（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;br /&gt;
 Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;br /&gt;
 ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).&lt;/p&gt;
 &lt;p&gt;要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
 &lt;/li&gt;
@@ -2903,7 +2957,7 @@ ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;org-hugo-external-file-extensions-allowed-for-copying is a variable defined in &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;‘&lt;/span&gt;ox-hugo.el&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
 Its value is
 (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpeg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tiff&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;png&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;svg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gif&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;odt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;doc&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ppt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xls&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;docx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pptx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xlsx&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;br /&gt;
 このサイトの &lt;strong&gt;Table 2: Where files get copied to if their path does not contain static/&lt;/strong&gt; が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/foo.png
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;に作成される．そして，このファイルは，最終的に，&lt;/p&gt;
@@ -2961,14 +3015,16 @@ geom_point()
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/exportrplot/</guid>
       <description>&lt;p&gt;本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-setup&#34;&gt;Org-babel setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;org-babel-setup&#34;&gt;Org-babel setup&lt;/h2&gt;
 &lt;p&gt;org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &amp;hellip;..(^^;;;&lt;/p&gt;
 &lt;p&gt;ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．&lt;/p&gt;
@@ -2993,10 +3049,10 @@ geom_point()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/h2&gt;
 &lt;p&gt;以下のサイトを参考にした．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; Official manual &lt;a href=&#34;https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code&#34;&gt;14 Working with Source Code&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;br /&gt;
 このサイトが分かりやすい．特に， &lt;strong&gt;ヘッダー引数&lt;/strong&gt; と &lt;strong&gt;言語毎の書き方&lt;/strong&gt; の &lt;strong&gt;R&lt;/strong&gt; の項は必読．&lt;/p&gt;
 &lt;h2 id=&#34;org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;br /&gt;
 org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: R-test
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
@@ -3040,8 +3096,9 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
       <guid>/post/adaptive-wrap/</guid>
       <description>&lt;p&gt;Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#adaptive-wrap&#34;&gt;adaptive-wrap&lt;/a&gt;
 &lt;ul&gt;
@@ -3050,7 +3107,8 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;adaptive-wrap&#34;&gt;adaptive-wrap&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://elpa.gnu.org/packages/adaptive-wrap.html&#34;&gt;adaptive-wrap&lt;/a&gt;　ご本家&lt;/li&gt;
@@ -3116,14 +3174,16 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
       <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
       <guid>/post/auto_html_export/</guid>
       <description>&lt;p&gt;org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#directory%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%8B%E3%82%99%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%82%8B%E3%81%A8-%E8%87%AA%E5%8B%95%E3%81%A6%E3%82%99html%E3%82%92%E5%86%8D%E8%AA%AD%E8%BE%BC%E3%81%99%E3%82%8B&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95&#34;&gt;使用方法&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;情報元：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old&#34;&gt;How to auto export html when saving in org-mode?&lt;/a&gt;&lt;/li&gt;
@@ -3299,7 +3359,8 @@ $ watch_safari.rb Hoge hogefuga.html
 &lt;li&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
 &lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
@@ -3356,71 +3417,89 @@ $ watch_safari.rb Hoge hogefuga.html
     </item>
     
     <item>
-      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</title>
+      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）</title>
       <link>/post/html_export/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
       <guid>/post/html_export/</guid>
-      <description>&lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
 &lt;h2 id=&#34;org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの &lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．&lt;/p&gt;
+&lt;p&gt;フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの &lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;del&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/del&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;上記に関しては-ox-hugoの作者であるkaushal-modi氏から以下のような指摘を頂いた-12月19日追記&#34;&gt;上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）&lt;/h3&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;上記に関しては-ox-hugoの作者であるkaushal-modi氏から以下のような指摘を頂いた-12月19日追記&#34;&gt;上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）&lt;/h3&gt;
+&lt;div class=&#34;panel&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
 &lt;p&gt;Can you try using #+setupfile instead of #+include? As an example, here is my blog Org source that I export using ox-hugo ( &lt;a href=&#34;https://gitlab.com/kaushalm&#34;&gt;https://gitlab.com/kaushalm&lt;/a&gt;&amp;hellip; ), and here is the setup file tha t I &amp;ldquo;include&amp;rdquo; using the more appropriate #+setupfile ( &lt;a href=&#34;https://gitlab.com/kaushalm&#34;&gt;https://gitlab.com/kaushalm&lt;/a&gt;&amp;hellip; ).&lt;/p&gt;
 &lt;p&gt;As you see, I use a lot of Org macros, and they all work in my &amp;ldquo;one post per subtree&amp;rdquo; flow.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
+&lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;いくつか使い方の例をあげておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{color(blue, 青くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{color(blue, ボールドで青くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;p&gt;いくつか使い方の例をあげておく&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{color(red, 赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+*{{{color(blue, ボールドで赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
 {{{highlight(yellow, 黄色にハイライトされるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
+*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;!-- raw HTML omitted --&gt; 青くなるかな？&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt; ボールドで青くなるかな？&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;!-- raw HTML omitted --&gt; 黄色にハイライトされるかな？&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt; 黄色にハイライトされて文字はボールドになるかな？&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: red&#34;&gt; 赤くなるかな？&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&#34;color: red&#34;&gt; ボールドで赤くなるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;background-color: yellow;&#34;&gt; 黄色にハイライトされるかな？&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&#34;background-color: yellow;&#34;&gt; 黄色にハイライトされて文字はボールドになるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになるかな？&lt;/div&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt; 背景がシアンになって文字はボールドになるかな？&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになって文字はボールドになるかな？&lt;/div&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．&lt;/p&gt;
+&lt;p&gt;上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{begin_panel}}} Panel example This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt; {{{end_panel}}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
+&lt;div class=&#34;panel&#34;&gt;&lt;p&gt; Panel example This is a formatted block of text… &lt;/p&gt;&lt;/div&gt;
+となる．マニュアルでは以下の使い方を薦めている．
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_panel
 *Panel example* \\
 This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text...
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_panel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;strong&gt;Panel example&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;panel&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Panel example&lt;/strong&gt; &lt;br /&gt;
 This is a formatted block of text&amp;hellip;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;なお，org-modeのマクロ自体に関しては，org-modeのマニュアルの &lt;strong&gt;12.5 Macro replacement&lt;/strong&gt; を参考にしていただきたい．&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;なお，org-modeのマクロ自体に関しては，org-modeのマニュアルの &lt;strong&gt;12.5 Macro replacement&lt;/strong&gt; を参考にしていただきたい．&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;strong&gt;2020年1月12日　Hugoを使用している人のための追記&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;2019年の年末にMacBook Pro 16 inch (Catalina)に買い替えた時，Hugoもv.０.61にupgradeした．その際に，HugoのMarkdown用のdefault libraryがGoldmarkに変更になっていることに気がついていなかった．そのためにこのページのフォントの色の変更が働かなくなっていた．数日前に気がついたので，修正した．詳細は以下のサイトを参考．&lt;/p&gt;
+&lt;p&gt;参考サイト1：&lt;a href=&#34;https://gohugo.io/news/0.60.0-relnotes/&#34;&gt;Goldmark – CommonMark compliant, GitHub flavored, fast and flexible – is the new default library for Markdown in Hugo.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考サイト2：&lt;a href=&#34;https://discourse.gohugo.io/t/ox-hugo-go-org/21254/7&#34;&gt;Just wonder if the migration to Goldmark is going to be smooth ?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上記のサイトには，「マークダウンファイルにinline HTMLがたくさんあるのなら，unsafe modeを有効にしないといけないかもね」とあるので，config/default/config.tomlの最後に，&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;を追加した．これで，Markdownがうまく働くようになり，再びフォントの色も変更されるようになった．&lt;/p&gt;
 &lt;h2 id=&#34;exporting-org-mode-to-html-in-place-coloring&#34;&gt;&lt;a href=&#34;https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring&#34;&gt;Exporting org-mode to HTML: In-place coloring&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;フォントの色を変える別の方法である．リンク先にある通り，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;     この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;!-- raw HTML omitted --&gt;
-この文章は， &lt;strong&gt;&lt;!-- raw HTML omitted --&gt;青のボールド&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt; になって欲しい！&lt;/p&gt;
+&lt;p&gt;フォントの色を変える別の方法である．リンク先にある通り，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;br /&gt;
+この文章は， &lt;strong&gt;&lt;font color = &#34;red&#34;&gt;赤のボールド&lt;/font&gt;&lt;/strong&gt; になって欲しい！&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;org-modeのマニュアルの &lt;strong&gt;12.9.5 Quoting HTML tags&lt;/strong&gt; も参考のこと&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;こちらは設定を必要としないが，やはり，最初に説明したマクロの方がいろいろ出来て便利である．&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;org-modeのマニュアルの &lt;strong&gt;12.9.5 Quoting HTML tags&lt;/strong&gt; も参考のこと&lt;/p&gt;
+&lt;p&gt;こちらは設定を必要としないが，やはり，最初に説明したマクロの方がいろいろ出来て便利である．&lt;/p&gt;
 &lt;p&gt;次回は，htmlをexportする際のCSSについてまとめてみたい．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -3430,7 +3509,8 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
       <guid>/post/swiper_migemo/</guid>
       <description>&lt;p&gt;文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;swiper-dot-el&#34;&gt;swiper.el&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://github.com/abo-abo/swiper&#34;&gt;swiper&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -3609,7 +3689,7 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．&lt;/p&gt;
@@ -3640,7 +3720,8 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
       <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
       <guid>/post/synchronization/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;）で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiの&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX#h32722ec&#34;&gt;macOS での設定例&lt;/a&gt; を参照していただきたい．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;ul&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://ryogan.org/blog/2015/12/30/mac-os-x-el-capitan-%E3%81%AE-auctex-%E3%81%AE%E8%A8%AD%E5%AE%9A/&#34;&gt;Mac OS X El Capitan の AUCTeX の設定&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://texwiki.texjp.org/?Emacs#e9c08b3d&#34;&gt;skimとの連携&lt;/a&gt;&lt;/li&gt;
@@ -3737,7 +3818,8 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/post/org-mode_paper_1/</guid>
       <description>&lt;p&gt;私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする&lt;/li&gt;
@@ -4150,7 +4232,8 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <link>/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/latexmk/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;
@@ -4248,7 +4331,8 @@ $preview_continuous_mode &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt
       <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/japanese_setup/</guid>
       <description>&lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;h2 id=&#34;coding-systemの設定&#34;&gt;Coding systemの設定&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -4561,7 +4645,7 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;&amp;ndash;with-modern-iconを指定すると、新しいアイコンになる。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;ul&gt;
 &lt;li&gt;なお，他のoptionは以下のように打てば分かる．&lt;/li&gt;
 &lt;/ul&gt;

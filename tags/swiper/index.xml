@@ -18,7 +18,8 @@
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
       <guid>/post/swiper_migemo/</guid>
       <description>&lt;p&gt;文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;swiper-dot-el&#34;&gt;swiper.el&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://github.com/abo-abo/swiper&#34;&gt;swiper&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -197,7 +198,7 @@
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．&lt;/p&gt;

@@ -18,8 +18,9 @@
       <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
       <guid>/post/horizontal_scrollbar/</guid>
       <description>&lt;p&gt;いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中がみんなお祝いしてる，凄いぞ，TeX．．．．と思ったら，全然違った．．．これでまた年齢計算が複雑になる．システム担当者は大変である．まぁ，西暦を使用すればいいだけの話ではあるが．．．．．というわけで，今回はTeXの話，ではなくて，ブログのCodeBlockの長い行がwrapされるのは２行と間違うことがあるので，scrollbarをつけましょうという話である．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#wrap-or-scroll&#34;&gt;Wrap or scroll?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-add-horizontal-scrollbar&#34;&gt;How to add horizontal scrollbar&lt;/a&gt;
@@ -30,7 +31,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;wrap-or-scroll&#34;&gt;Wrap or scroll?&lt;/h2&gt;
 &lt;p&gt;以前の記事でも触れたように（&lt;a href=&#34;../embedrplotinblog&#34;&gt;How to automatically embed R plot in blog created by Hugo via ox-hugo&lt;/a&gt;），このサイトは，ox-hugoというorg-modeのパッケージで書いて，Hugoという静的サイトジェネレーター（themeはacademic）で作っているのだが，code blockの長い行がwrapされて，つまり，折り畳まれて表示されるようになっていた．Rのcodeで示してみると，こんな感じである．&lt;/p&gt;
 
@@ -72,10 +74,10 @@ version = &amp;#34;2.4.0&amp;#34;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ふ，古い．latest versionは，4.2である．2018年8月に導入してから8ヶ月ほどで2.4から4.2までreleaseされており，開発スピードが並ではない．それは喜ぶべきことなのだが，問題は，私が全くそれについて行けてないことである．（ToT)&lt;/p&gt;
 &lt;p&gt;最新版ではdirectory構造もかなり変わっている．horizontal scrollbarをつけるのを機会に全部をupgradeしようとしてみたが，なかなかうまくいかない．&lt;a href=&#34;https://sourcethemes.com/academic/docs/customization/#customize-style-css&#34;&gt;Customize style (CSS)&lt;/a&gt; に書いてあるとおりにしようとしても，古いversionでは相当するdirectoryそのものが存在しない．&lt;/p&gt;
 &lt;h3 id=&#34;cssの変更&#34;&gt;cssの変更&lt;/h3&gt;
-&lt;p&gt;というわけで，academic themeのupgradeはサクッと諦めて姑息策を取ることにした． &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/467&#34;&gt;Prevent wrapping in code blocks #467&lt;/a&gt; を参考にして，&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;というわけで，academic themeのupgradeはサクッと諦めて姑息策を取ることにした． &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/467&#34;&gt;Prevent wrapping in code blocks #467&lt;/a&gt; を参考にして，&lt;br /&gt;
 &lt;strong&gt;/Data/hogeblog/fugablog/themes/academic/layouts/partials/css/academic.css&lt;/strong&gt;
-を &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;/Data/hogeblog/fugablog/static/css/academic_scrollbar.css&lt;/strong&gt;  &lt;!-- raw HTML omitted --&gt;
+を &lt;br /&gt;
+&lt;strong&gt;/Data/hogeblog/fugablog/static/css/academic_scrollbar.css&lt;/strong&gt;  &lt;br /&gt;
 として保存した．変更箇所は以下の通り&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;--- /Data/hogeblog/fugablog/themes/academic/layouts/partials/css/academic.css	2018-08-16 00:55:10.000000000 +0900
 +++ /Data/hogeblog/fugablog/static/css/academic_scrollbar.css	2019-05-02 00:05:10.000000000 +0900
@@ -147,7 +149,7 @@ border-color: rgb&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;248, 24
 &lt;span style=&#34;color:#a6e22e&#34;&gt;beeswarm&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;blue&amp;#34;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;br /&gt;
 なんとか，これで，code blockにhorizontal scrollbarをつけることができた．次に時間ができたときにacademic themeをupgradeして追いつこう．．．いつになることやら．．．(^^;;;;;;&lt;/p&gt;
 </description>
     </item>

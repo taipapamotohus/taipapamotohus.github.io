@@ -29,11 +29,11 @@
     
   
   <meta name="description" content="以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．
-Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&ldquo;the style of Edward R. Tufte and Richard Feynman&quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．  tufte-org-mode  tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．  設定  下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．  tufte-org-modeのインストールと設定   以下のようにinit.orgに書き込んで設定する．
+Table of Contents Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&ldquo;the style of Edward R. Tufte and Richard Feynman&quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．  tufte-org-mode  tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．  設定  下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．  tufte-org-modeのインストールと設定   以下のようにinit.orgに書き込んで設定する．
   ox-tufte-latex.elは上記の tufte-org-modeからダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．
 #&#43;begin_src emacs-lisp (quelpa &#39;(ox-tufte-latex :fetcher file :path &#34;/path/to/ox-tufte-latex.el&#34;) ) (use-package ox-tufte-latex) #&#43;end_src   quelpaは，use-packageでうまくインストール出来ないときに重宝する．
   quelpaについては以下を参照
- Quelpa quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム CaskからQuelpaに移行する    org-modeでtufte-latexの設定   ox-latexの設定などは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））に書いたようにinit.orgに記述しておく．">
+ Quelpa quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム CaskからQuelpaに移行する    org-modeでtufte-latexの設定   ox-latexの設定などは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））に書いたようにinit.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/tufte/">
@@ -128,11 +128,11 @@ Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウ�
   <meta property="og:url" content="/post/tufte/">
   <meta property="og:title" content="Tufte-LaTeXとtufte-org-modeについて | A perfect autumn day">
   <meta property="og:description" content="以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．
-Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&ldquo;the style of Edward R. Tufte and Richard Feynman&quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．  tufte-org-mode  tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．  設定  下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．  tufte-org-modeのインストールと設定   以下のようにinit.orgに書き込んで設定する．
+Table of Contents Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&ldquo;the style of Edward R. Tufte and Richard Feynman&quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．  tufte-org-mode  tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．  設定  下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．  tufte-org-modeのインストールと設定   以下のようにinit.orgに書き込んで設定する．
   ox-tufte-latex.elは上記の tufte-org-modeからダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．
 #&#43;begin_src emacs-lisp (quelpa &#39;(ox-tufte-latex :fetcher file :path &#34;/path/to/ox-tufte-latex.el&#34;) ) (use-package ox-tufte-latex) #&#43;end_src   quelpaは，use-packageでうまくインストール出来ないときに重宝する．
   quelpaについては以下を参照
- Quelpa quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム CaskからQuelpaに移行する    org-modeでtufte-latexの設定   ox-latexの設定などは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））に書いたようにinit.orgに記述しておく．"><meta property="og:image" content="/post/tufte/featured.jpg">
+ Quelpa quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム CaskからQuelpaに移行する    org-modeでtufte-latexの設定   ox-latexの設定などは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））に書いたようにinit."><meta property="og:image" content="/post/tufte/featured.jpg">
   <meta property="twitter:image" content="/post/tufte/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -410,7 +410,8 @@ Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウ�
 
     <div class="article-style" itemprop="articleBody">
       <p>以前の記事（<a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a>）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．</p>
-<!-- raw HTML omitted -->
+<h2>Table of Contents</h2>
+
 <h2 id="tufte-latex"><a href="https://tufte-latex.github.io/tufte-latex/">Tufte-LaTeX</a></h2>
 <ul>
 <li><a href="https://www.edwardtufte.com/tufte/index">Edward R. Tufte</a>によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．</li>
@@ -742,7 +743,7 @@ hogefugaによる治療は有効である<span style="color:#960050;backgroun
   
   <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/post/html_export/" rel="next">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a>
+    <a href="/post/html_export/" rel="next">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）</a>
   </div>
   
   

@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．
- References Data Preparation Tukey multiple comparison  TukeyHSD テューキーの方法による多重比較   Boxplot by ggplot2  Calculate mean and SE geom_jitter geom_point Add mean bar   Add segment and asterisk to Drug2 facet of boxplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (black) Add segment with geom_segment and asterisk with geom_text (color)   Barplot by ggplot2  Barplot   Add segment and asterisk to Drug2 facet of barplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (color)   Combine boxplot and barplot into the same graphic  References  ggplot2を使って、注釈を入れる-2 Adding different annotation to each facet in ggplot Add a segment only to one facet using ggplot2  Data Preparation まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．">
+ Table of Contents  References Data Preparation Tukey multiple comparison  TukeyHSD テューキーの方法による多重比較   Boxplot by ggplot2  Calculate mean and SE geom_jitter geom_point Add mean bar   Add segment and asterisk to Drug2 facet of boxplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (black) Add segment with geom_segment and asterisk with geom_text (color)   Barplot by ggplot2  Barplot   Add segment and asterisk to Drug2 facet of barplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (color)   Combine boxplot and barplot into the same graphic    References  ggplot2を使って、注釈を入れる-2 Adding different annotation to each facet in ggplot Add a segment only to one facet using ggplot2  Data Preparation まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/different-segment-to-each-facet-in-ggplot/">
@@ -124,7 +124,7 @@
   <meta property="og:url" content="/post/different-segment-to-each-facet-in-ggplot/">
   <meta property="og:title" content="How to add different segment, annotation and color to each facet in ggplot | A perfect autumn day">
   <meta property="og:description" content="今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．
- References Data Preparation Tukey multiple comparison  TukeyHSD テューキーの方法による多重比較   Boxplot by ggplot2  Calculate mean and SE geom_jitter geom_point Add mean bar   Add segment and asterisk to Drug2 facet of boxplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (black) Add segment with geom_segment and asterisk with geom_text (color)   Barplot by ggplot2  Barplot   Add segment and asterisk to Drug2 facet of barplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (color)   Combine boxplot and barplot into the same graphic  References  ggplot2を使って、注釈を入れる-2 Adding different annotation to each facet in ggplot Add a segment only to one facet using ggplot2  Data Preparation まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．"><meta property="og:image" content="/post/different-segment-to-each-facet-in-ggplot/featured.jpg">
+ Table of Contents  References Data Preparation Tukey multiple comparison  TukeyHSD テューキーの方法による多重比較   Boxplot by ggplot2  Calculate mean and SE geom_jitter geom_point Add mean bar   Add segment and asterisk to Drug2 facet of boxplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (black) Add segment with geom_segment and asterisk with geom_text (color)   Barplot by ggplot2  Barplot   Add segment and asterisk to Drug2 facet of barplot  Dataframe for annotation Add segment with geom_segment and asterisk with geom_text (color)   Combine boxplot and barplot into the same graphic    References  ggplot2を使って、注釈を入れる-2 Adding different annotation to each facet in ggplot Add a segment only to one facet using ggplot2  Data Preparation まず，架空のデータを作成する．Drug1とDrug2を投与して１日後と７日後の物質Xの血中濃度変化を対照，つまり投与前と比較するという実験において，Drug1では差がなく，Drug2では差があるという結果にする．"><meta property="og:image" content="/post/different-segment-to-each-facet-in-ggplot/featured.jpg">
   <meta property="twitter:image" content="/post/different-segment-to-each-facet-in-ggplot/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -400,8 +400,9 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#data-preparation">Data Preparation</a></li>
@@ -439,7 +440,8 @@
 </li>
 <li><a href="#combine-boxplot-and-barplot-into-the-same-graphic">Combine boxplot and barplot into the same graphic</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="references">References</h2>
 <ul>
 <li><a href="http://mukkujohn.hatenablog.com/entry/2016/09/29/212901">ggplot2を使って、注釈を入れる-2</a></li>
@@ -621,7 +623,7 @@ TestBoxPlot2
 </figure>
 
 <h3 id="add-mean-bar">Add mean bar</h3>
-<p><strong>Ref:</strong> <a href="https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot">combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot</a>   <!-- raw HTML omitted -->
+<p><strong>Ref:</strong> <a href="https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot">combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot</a>   <br />
 平均値のバーを書き込む．これはgeom_segmentを使うが，すべてのfacetに書き込むので，単純である．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">TestBoxPlot3 <span style="color:#f92672">&lt;-</span> TestBoxPlot <span style="color:#f92672">+</span>
     <span style="color:#a6e22e">geom_segment</span>(data <span style="color:#f92672">=</span> DataM_summary, <span style="color:#a6e22e">aes</span>(x<span style="color:#f92672">=</span><span style="color:#a6e22e">as.numeric</span>(<span style="color:#a6e22e">as.factor</span>(Day)) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>,
@@ -792,7 +794,7 @@ anno2
 <p>barplotでも全く同様のグラフを作成することができた．</p>
 <p>なお，通常のグラフをpdfで出力して，それをOmniGraffleなどのお絵かきソフトに持っていき，手作業で線やasteriskを描いて，再びpdfで出力する，という荒業も使えないことはない．しかし，ggplotの中で完結できるので，余分で面倒な手作業が不要になった．まぁ，上記の作業も面倒ではあるが，再現性があり，他の人にも渡せるというところが重要であると思う．</p>
 <h2 id="combine-boxplot-and-barplot-into-the-same-graphic">Combine boxplot and barplot into the same graphic</h2>
-<p><strong>Ref1:</strong> <a href="https://github.com/thomasp85/patchwork">patchwork</a>   <!-- raw HTML omitted -->
+<p><strong>Ref1:</strong> <a href="https://github.com/thomasp85/patchwork">patchwork</a>   <br />
 <strong>Ref2:</strong> <a href="https://qiita.com/nozma/items/4512623bea296ccb74ba">patchworkを使って複数のggplotを組み合わせる</a></p>
 <p>patchworkを使えば，上記の２種のグラフを簡単に一つの図にできる．比較しやすいようにbarplotのy軸のスケールをboxplotと同じに修正しておく．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Boxplot</span>

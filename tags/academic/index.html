@@ -350,9 +350,9 @@
     <div class="article-style">
       
       いやー，めでたい．ついに，TexLive 2019がreleaseされた．それにしても，TeXってこんなに人気があったのだ．世の中がみんなお祝いしてる，凄いぞ，TeX．．．．と思ったら，全然違った．．．これでまた年齢計算が複雑になる．システム担当者は大変である．まぁ，西暦を使用すればいいだけの話ではあるが．．．．．というわけで，今回はTeXの話，ではなくて，ブログのCodeBlockの長い行がwrapされるのは２行と間違うことがあるので，scrollbarをつけましょうという話である．
- Wrap or scroll? How to add horizontal scrollbar  Ref academic theme version cssの変更    Wrap or scroll? 以前の記事でも触れたように（How to automatically embed R plot in blog created by Hugo via ox-hugo），このサイトは，ox-hugoというorg-modeのパッケージで書いて，Hugoという静的サイトジェネレーター（themeはacademic）で作っているのだが，code blockの長い行がwrapされて，つまり，折り畳まれて表示されるようになっていた．Rのcodeで示してみると，こんな感じである．
+ Table of Contents  Wrap or scroll? How to add horizontal scrollbar  Ref academic theme version cssの変更      Wrap or scroll? 以前の記事でも触れたように（How to automatically embed R plot in blog created by Hugo via ox-hugo），このサイトは，ox-hugoというorg-modeのパッケージで書いて，Hugoという静的サイトジェネレーター（themeはacademic）で作っているのだが，code blockの長い行がwrapされて，つまり，折り畳まれて表示されるようになっていた．Rのcodeで示してみると，こんな感じである．
    これは３行のcodeであるが，はっきり言って見にくい．．．．．　行番号を入れるという方法もあるが，それよりもscrollbarをつけて横にスライドさせる方が分かりやすい．つまり，こうである．
-boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &#34;&#34;, main = &#34;Drug1&#34;, xaxt=&#34;n&#34;, cex.axis=1.5, ylab=&#34;Relative value&#34;, cex.lab = 1.5, pch=16, cex = 1.5) axis(1,at=c(1,2,3),formatC(c(&#34;Control&#34;, &#34;Day1&#34;, &#34;Day7&#34;)), cex.axis=1.5) beeswarm(data_melt.df$Drug1 ~ data_melt.df$Day, pch = 16, ad = TRUE, cex=1.
+boxplot(data_melt.df$Drug1 ~ data_melt.df$Day, xlab = &#34;&#34;, main = &#34;Drug1&#34;, xaxt=&#34;n&#34;, cex.axis=1.5, ylab=&#34;Relative value&#34;, cex.lab = 1.5, pch=16, cex = 1.5) axis(1,at=c(1,2,3),formatC(c(&#34;Control&#34;, &#34;Day1&#34;, &#34;Day7&#34;)), cex.
       
     </div>
   </div>

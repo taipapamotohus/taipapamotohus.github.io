@@ -18,8 +18,9 @@
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/post/deadgrep/</guid>
       <description>&lt;p&gt;次世代grepで最速と言われる&lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;ripgrep&lt;/a&gt;をバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#ref&#34;&gt;Ref&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
@@ -29,7 +30,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;ref&#34;&gt;Ref&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/Wilfred/deadgrep&#34;&gt;deadgrep: use ripgrep from Emacs&lt;/a&gt; ご本家&lt;/li&gt;

@@ -30,7 +30,7 @@
   
   <meta name="description" content="Rを用いて生存分析を行う際に， Kaplan-Meier curve に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（Drawing survival curves in R, ggkm, Survival plots have never been so informative），competing riskのplotの場合はあまり情報がない．prodlimを使えば簡単なので，まとめておく．
 なお， competing risk については以下を参照．
- Competing risk analysis using R: an easy guide for clinicians Regression modeling of competing risk using R: an in depth guide for clinicians Competing risk analysisのデモ A not so short review on survival analysis in R   Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package Competing risk analysis with prodlim  Days Years   Plot survival curve of competing risk analysis with prodlim (default) Plot survival curve of competing risk analysis with prodlim (modified)  Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package library(riskRegression) data(Melanoma) head(Melanoma) summary(Melanoma) time status event invasion ici epicel ulcer 1 10 2 death.">
+ Competing risk analysis using R: an easy guide for clinicians Regression modeling of competing risk using R: an in depth guide for clinicians Competing risk analysisのデモ A not so short review on survival analysis in R   Table of Contents  Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package Competing risk analysis with prodlim  Days Years   Plot survival curve of competing risk analysis with prodlim (default) Plot survival curve of competing risk analysis with prodlim (modified)    Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package library(riskRegression) data(Melanoma) head(Melanoma) summary(Melanoma) time status event invasion ici epicel ulcer 1 10 2 death.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/prodlim/">
@@ -126,7 +126,7 @@
   <meta property="og:title" content="How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table) | A perfect autumn day">
   <meta property="og:description" content="Rを用いて生存分析を行う際に， Kaplan-Meier curve に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（Drawing survival curves in R, ggkm, Survival plots have never been so informative），competing riskのplotの場合はあまり情報がない．prodlimを使えば簡単なので，まとめておく．
 なお， competing risk については以下を参照．
- Competing risk analysis using R: an easy guide for clinicians Regression modeling of competing risk using R: an in depth guide for clinicians Competing risk analysisのデモ A not so short review on survival analysis in R   Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package Competing risk analysis with prodlim  Days Years   Plot survival curve of competing risk analysis with prodlim (default) Plot survival curve of competing risk analysis with prodlim (modified)  Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package library(riskRegression) data(Melanoma) head(Melanoma) summary(Melanoma) time status event invasion ici epicel ulcer 1 10 2 death."><meta property="og:image" content="/post/prodlim/featured.jpg">
+ Competing risk analysis using R: an easy guide for clinicians Regression modeling of competing risk using R: an in depth guide for clinicians Competing risk analysisのデモ A not so short review on survival analysis in R   Table of Contents  Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package Competing risk analysis with prodlim  Days Years   Plot survival curve of competing risk analysis with prodlim (default) Plot survival curve of competing risk analysis with prodlim (modified)    Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package library(riskRegression) data(Melanoma) head(Melanoma) summary(Melanoma) time status event invasion ici epicel ulcer 1 10 2 death."><meta property="og:image" content="/post/prodlim/featured.jpg">
   <meta property="twitter:image" content="/post/prodlim/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -411,8 +411,9 @@
 <li><a href="http://rstudio-pubs-static.s3.amazonaws.com/6600%5Fe6703101eb7441ccb792000f4193b3b9.html">Competing risk analysisのデモ</a></li>
 <li><a href="https://rpubs.com/alecri/258589">A not so short review on survival analysis in R</a></li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#prepare-dataset-melanoma-from-riskregression-package">Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package</a></li>
 <li><a href="#competing-risk-analysis-with-cuminc-of-cmprsk-package">Competing risk analysis with cuminc of &ldquo;cmprsk&rdquo; package</a></li>
@@ -425,7 +426,8 @@
 <li><a href="#plot-survival-curve-of-competing-risk-analysis-with-prodlim--default">Plot survival curve of competing risk analysis with prodlim (default)</a></li>
 <li><a href="#plot-survival-curve-of-competing-risk-analysis-with-prodlim--modified">Plot survival curve of competing risk analysis with prodlim (modified)</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="prepare-dataset-melanoma-from-riskregression-package">Prepare dataset &ldquo;Melanoma&rdquo; from &ldquo;riskRegression&rdquo; package</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(riskRegression)
 <span style="color:#a6e22e">data</span>(Melanoma)

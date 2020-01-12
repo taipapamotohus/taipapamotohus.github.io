@@ -325,7 +325,7 @@
     <div class="article-style">
       
       （承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory  References   HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+ Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory    References   HUGO Hugo is one of the most popular open-source static site generators.
       
     </div>
   </div>
@@ -336,7 +336,7 @@
       
       医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
 いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-ox-pandoc   参照サイト1：本家　ox-pandoc
+Table of Contents ox-pandoc   参照サイト1：本家　ox-pandoc
   参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies
   参照サイト3：もっと本家　Pandoc a universal document converter
   pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．

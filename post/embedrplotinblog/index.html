@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="（承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory  References   HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.">
+ Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory    References   HUGO Hugo is one of the most popular open-source static site generators.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/embedrplotinblog/">
@@ -124,7 +124,7 @@
   <meta property="og:url" content="/post/embedrplotinblog/">
   <meta property="og:title" content="How to automatically embed R plot in blog created by Hugo via ox-hugo | A perfect autumn day">
   <meta property="og:description" content="（承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory  References   HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again."><meta property="og:image" content="/post/embedrplotinblog/featured.jpg">
+ Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory    References   HUGO Hugo is one of the most popular open-source static site generators."><meta property="og:image" content="/post/embedrplotinblog/featured.jpg">
   <meta property="twitter:image" content="/post/embedrplotinblog/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -402,23 +402,25 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>（承前）前回（<a href="../ExportRplot">How to automatically embed R plot into html exported by org-mode with org-babel</a>）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（<a href="../prodlim">How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</a>）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#configuration-of-hugo-section">Configuration of Hugo section</a></li>
 <li><a href="#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo">Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo</a></li>
 <li><a href="#references-to-files-outside-the-static-directory">References to files outside the static directory</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="references">References</h2>
 <ul>
 <li>
-<p><a href="https://gohugo.io">HUGO</a>  <!-- raw HTML omitted -->
+<p><a href="https://gohugo.io">HUGO</a>  <br />
 Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;</p>
 </li>
 <li>
-<p><a href="https://ox-hugo.scripter.co">ox-hugo</a>  <!-- raw HTML omitted -->
+<p><a href="https://ox-hugo.scripter.co">ox-hugo</a>  <br />
 ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).</p>
 <p>要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;</p>
 </li>
@@ -459,7 +461,7 @@ ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">org-hugo-external-file-extensions-allowed-for-copying is a variable defined in <span style="color:#960050;background-color:#1e0010">‘</span>ox-hugo.el<span style="color:#960050;background-color:#1e0010">’</span><span style="color:#f92672">.</span>
 Its value is
 (<span style="color:#e6db74">&#34;jpg&#34;</span> <span style="color:#e6db74">&#34;jpeg&#34;</span> <span style="color:#e6db74">&#34;tiff&#34;</span> <span style="color:#e6db74">&#34;png&#34;</span> <span style="color:#e6db74">&#34;svg&#34;</span> <span style="color:#e6db74">&#34;gif&#34;</span> <span style="color:#e6db74">&#34;pdf&#34;</span> <span style="color:#e6db74">&#34;odt&#34;</span> <span style="color:#e6db74">&#34;doc&#34;</span> <span style="color:#e6db74">&#34;ppt&#34;</span> <span style="color:#e6db74">&#34;xls&#34;</span> <span style="color:#e6db74">&#34;docx&#34;</span> <span style="color:#e6db74">&#34;pptx&#34;</span> <span style="color:#e6db74">&#34;xlsx&#34;</span>)
-</code></pre></div><p><a href="https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static">Source path does not contain <code>/static/</code></a>    <!-- raw HTML omitted -->
+</code></pre></div><p><a href="https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static">Source path does not contain <code>/static/</code></a>    <br />
 このサイトの <strong>Table 2: Where files get copied to if their path does not contain static/</strong> が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">/hogehoge/hogeblog/hogefugablog/foo.png
 </code></pre></div><p>に作成される．そして，このファイルは，最終的に，</p>

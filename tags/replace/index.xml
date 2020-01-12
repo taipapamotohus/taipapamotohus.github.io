@@ -18,14 +18,16 @@
       <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/symbol-overlay/</guid>
       <description>&lt;p&gt;今回は（も？），redditで拾ってきたネタ（&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/c95cm5/how%5Fto%5Fhighlight%5Foccurences%5Fat%5Fcursor%5Fpoint%5Fin/&#34;&gt;How to highlight occurences at cursor point in Emacs&lt;/a&gt;）．カーソルの位置にあるシンボル（単語と思えば良い）をバッファ内ですべてハイライトしてくれるEmacsのパッケージを訊いているのだが，いくつか答えがあって，一番便利そうだったのが，今回紹介する &lt;strong&gt;symbol-overlay&lt;/strong&gt; である．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use&#34;&gt;How to use&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/wolray/symbol-overlay&#34;&gt;symbol-overlay&lt;/a&gt; （ご本家）&lt;/li&gt;

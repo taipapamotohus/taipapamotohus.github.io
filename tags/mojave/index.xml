@@ -22,8 +22,9 @@
 &lt;p&gt;hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;セットアップは結構面倒だが，非常に便利で，オススメである！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hyper-estraier&#34;&gt;Hyper Estraier&lt;/a&gt;
@@ -48,7 +49,8 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hyperestraier%E4%BB%98%E5%B1%9E%E3%81%AE%E5%85%A8%E6%96%87%E6%A4%9C%E7%B4%A2%E7%94%A8cgi-script%E3%81%AEset-up&#34;&gt;Hyperestraier付属の全文検索用CGI scriptのset up&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://skalldan.wordpress.com/2011/06/28/hyper-estraier-%E3%81%A7%E4%BB%8F%E5%85%B8%E6%8E%A2%E7%B4%A2/&#34;&gt;Hyper Estraier で仏典探索&lt;/a&gt;     Amrtaさんのものすごく役に立つサイト&lt;/li&gt;
@@ -154,7 +156,11 @@ $ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
 $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;strong&gt;2019年9月17日修正：&lt;/strong&gt;  上記の後二者はdirectoryを間違えている．下記が正しい．
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
 $ estcmd optimize /Users/taipapa/Sites/pdf/casket
 $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
@@ -164,7 +170,11 @@ $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
 $ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
 $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;strong&gt;2019年9月17日修正：&lt;/strong&gt;  上記の後二者はdirectoryを間違えている．下記が正しい．
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
 $ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
 $ estcmd optimize /Users/taipapa/Sites/pdf/casket
@@ -221,7 +231,7 @@ Server built:   Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; &l
 &lt;span style=&#34;color:#ae81ff&#34;&gt;165&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule cgi_module libexec/apache2/mod_cgi.so&lt;/span&gt;
 -----&amp;gt;
 LoadModule cgi_module libexec/apache2/mod_cgi.so
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;165行目の行頭の＃を外してアンコメントし，有効化しておく．&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;165行目の行頭の＃を外してアンコメントし，有効化しておく．&lt;br /&gt;
 これをやらないと，cgiが働かず，そのファイル自体がダウンロードされてしまう．&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -236,12 +246,12 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Apacheの停止&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apachectl stop
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Apacheの再起動&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apachectl restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -538,13 +548,15 @@ $ less -N estseek.conf
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/live/</guid>
       <description>&lt;p&gt;最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-set-up&#34;&gt;How to set up&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#shortcut&#34;&gt;Shortcut&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;how-to-set-up&#34;&gt;How to set up&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;まず画面トップの右端の方の日本語入力のライブ変換にチェックを入れてオンにする．&lt;/li&gt;
@@ -581,8 +593,9 @@ $ less -N estseek.conf
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/post/mojave/</guid>
       <description>&lt;p&gt;世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから &lt;strong&gt;Mojave&lt;/strong&gt; にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-xcode-10-dot-2-dot-1&#34;&gt;Upgrade to Xcode 10.2.1&lt;/a&gt;&lt;/li&gt;
@@ -594,7 +607,8 @@ $ less -N estseek.conf
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%84%9F%E6%83%B3&#34;&gt;感想&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://support.apple.com/ja-jp/HT201475&#34;&gt;macOS Mojave にアップグレードする方法&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．&lt;/p&gt;
@@ -612,8 +626,8 @@ Error: parent directory is world writable but not sticky
 Please report this bug:
 https://docs.brew.sh/Troubleshooting
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/analsky/items/20755a3ba10119e9a4b6&#34;&gt;brew で `Error: parent directory is world writable but not sticky`&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky&#34;&gt;Error: parent directory is world writable but not sticky&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/analsky/items/20755a3ba10119e9a4b6&#34;&gt;brew で `Error: parent directory is world writable but not sticky`&lt;/a&gt; &lt;br /&gt;
+&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky&#34;&gt;Error: parent directory is world writable but not sticky&lt;/a&gt; &lt;br /&gt;
 上記サイトの記載に従って，ls -ld /tmpを行うと以下のようになる．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ls -ld /tmp
 lrwxr-xr-x@ &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; root  wheel  &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;27&lt;/span&gt; 18:45 /tmp@ -&amp;gt; private/tmp
@@ -628,14 +642,14 @@ $ brew tap railwaycat/emacsmacport
 $ brew uninstall emacs-mac  &lt;span style=&#34;color:#75715e&#34;&gt;# uninstall old emacs-mac&lt;/span&gt;
 $ brew install emacs-mac --with-modern-icon --with-imagemagick  &lt;span style=&#34;color:#75715e&#34;&gt;# install new emacs-mac&lt;/span&gt;
 $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
-から &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)&lt;/strong&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;br /&gt;
+&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)&lt;/strong&gt; &lt;br /&gt;
+から &lt;br /&gt;
+&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)&lt;/strong&gt;  &lt;br /&gt;
 へのupgradeが終了した．&lt;/p&gt;
-&lt;p&gt;あとは，以前に書いた以下の記事に従ってセットアップした．&lt;!-- raw HTML omitted --&gt;
-&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正）&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
-&lt;a href=&#34;../init_org&#34;&gt;Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;あとは，以前に書いた以下の記事に従ってセットアップした．&lt;br /&gt;
+&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正）&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&#34;../init_org&#34;&gt;Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する&lt;/a&gt;  &lt;br /&gt;
 &lt;a href=&#34;../japanese_setup&#34;&gt;Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;latex&#34;&gt;LaTeX&lt;/h2&gt;
 &lt;p&gt;これについては，以前の記事「&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;」で書いたとおり &lt;strong&gt;MacTeX 2018&lt;/strong&gt; のままである．正確に言うと，mojaveにupgradeする直前に以下のようにして最新版にアップデートしておいた．&lt;/p&gt;

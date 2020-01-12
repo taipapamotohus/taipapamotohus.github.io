@@ -325,7 +325,7 @@
     <div class="article-style">
       
       世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
- Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想  Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
+ Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想    Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
 $ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．
@@ -352,7 +352,7 @@ Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34
       
       なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここではHomebrewを使ってサクッとインストール．Homebrew自体のインストールはそちらのサイトを参照．
 Emacsで日本語を書いてると，M-xしたときに面倒なことになるので，Imput Method Editor (IME)用のパッチを当てる．既にパッチの当たっているYAMAMOTO Mitsuharu版のMac Port用のemacs-macがよい．railwaycatさんがHomebrewでインストールできるようにしてくれているので，これを使わせていただく（Emacs Mac Port）．ありがたい．
-$ brew tap railwaycat/emacsmacport $ brew install emacs-mac --with-modern-icon --with-imagemagick $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications  &ndash;with-modern-iconを指定すると、新しいアイコンになる。   なお，他のoptionは以下のように打てば分かる．  $ brew tap railwaycat/emacsmacport $ brew info emacs-mac 
+$ brew tap railwaycat/emacsmacport $ brew install emacs-mac --with-modern-icon --with-imagemagick $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications  &ndash;with-modern-iconを指定すると、新しいアイコンになる。    なお，他のoptionは以下のように打てば分かる．  $ brew tap railwaycat/emacsmacport $ brew info emacs-mac 
       
     </div>
   </div>

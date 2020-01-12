@@ -406,8 +406,9 @@
 <p>hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．</p>
 <p><strong>セットアップは結構面倒だが，非常に便利で，オススメである！</strong></p>
 <p>なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#hyper-estraier">Hyper Estraier</a>
@@ -432,7 +433,8 @@
 </li>
 <li><a href="#hyperestraier%E4%BB%98%E5%B1%9E%E3%81%AE%E5%85%A8%E6%96%87%E6%A4%9C%E7%B4%A2%E7%94%A8cgi-script%E3%81%AEset-up">Hyperestraier付属の全文検索用CGI scriptのset up</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://skalldan.wordpress.com/2011/06/28/hyper-estraier-%E3%81%A7%E4%BB%8F%E5%85%B8%E6%8E%A2%E7%B4%A2/">Hyper Estraier で仏典探索</a>     Amrtaさんのものすごく役に立つサイト</li>
@@ -538,7 +540,11 @@ $ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</sp
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
 $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-</code></pre></div><!-- raw HTML omitted -->
+</code></pre></div><div class="alert alert-note">
+  <div>
+    <strong>2019年9月17日修正：</strong>  上記の後二者はdirectoryを間違えている．下記が正しい．
+  </div>
+</div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
 $ estcmd optimize /Users/taipapa/Sites/pdf/casket
 $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
@@ -548,7 +554,11 @@ $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
 $ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
 $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-</code></pre></div><!-- raw HTML omitted -->
+</code></pre></div><div class="alert alert-note">
+  <div>
+    <strong>2019年9月17日修正：</strong>  上記の後二者はdirectoryを間違えている．下記が正しい．
+  </div>
+</div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
 $ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
 $ estcmd optimize /Users/taipapa/Sites/pdf/casket
@@ -605,7 +615,7 @@ Server built:   Feb <span style="color:#ae81ff">22</span> <span style="color:#ae
 <span style="color:#ae81ff">165</span> <span style="color:#75715e">#LoadModule cgi_module libexec/apache2/mod_cgi.so</span>
 -----&gt;
 LoadModule cgi_module libexec/apache2/mod_cgi.so
-</code></pre></div><p>165行目の行頭の＃を外してアンコメントし，有効化しておく．<!-- raw HTML omitted -->
+</code></pre></div><p>165行目の行頭の＃を外してアンコメントし，有効化しておく．<br />
 これをやらないと，cgiが働かず，そのファイル自体がダウンロードされてしまう．</p>
 </li>
 <li>
@@ -620,12 +630,12 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 </code></pre></div><ul>
 <li>Apacheの停止</li>
 </ul>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apachectl stop
 </code></pre></div><ul>
 <li>Apacheの再起動</li>
 </ul>
-<!-- raw HTML omitted -->
+<!--listend-->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apachectl restart
 </code></pre></div></li>
 </ul>

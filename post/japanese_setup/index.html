@@ -29,9 +29,9 @@
     
   
   <meta name="description" content="ようやく，ここからinit.orgの具体的な記述になる．
-Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
+Table of Contents Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
   init.orgに以下のように書き込む
-​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.*Hiragino Kaku Gothic ProN.">
+​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/japanese_setup/">
@@ -126,9 +126,9 @@ Coding systemの設定   まずは，coding systemの設定，つまり，日
   <meta property="og:url" content="/post/japanese_setup/">
   <meta property="og:title" content="Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など | A perfect autumn day">
   <meta property="og:description" content="ようやく，ここからinit.orgの具体的な記述になる．
-Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
+Table of Contents Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
   init.orgに以下のように書き込む
-​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.*Hiragino Kaku Gothic ProN."><meta property="og:image" content="/post/japanese_setup/featured.jpg">
+​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;."><meta property="og:image" content="/post/japanese_setup/featured.jpg">
   <meta property="twitter:image" content="/post/japanese_setup/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -354,7 +354,7 @@ Coding systemの設定   まずは，coding systemの設定，つまり，日
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -406,7 +406,8 @@ Coding systemの設定   まずは，coding systemの設定，つまり，日
 
     <div class="article-style" itemprop="articleBody">
       <p>ようやく，ここからinit.orgの具体的な記述になる．</p>
-<!-- raw HTML omitted -->
+<h2>Table of Contents</h2>
+
 <h2 id="coding-systemの設定">Coding systemの設定</h2>
 <ul>
 <li>

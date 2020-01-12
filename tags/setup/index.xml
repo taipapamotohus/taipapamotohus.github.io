@@ -19,8 +19,9 @@
       <guid>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</guid>
       <description>&lt;p&gt;1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，&lt;a href=&#34;../mojave&#34;&gt;Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew&lt;/a&gt;でまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Table of contents&lt;/strong&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#preparation-for-emacs-installation&#34;&gt;Preparation for Emacs installation&lt;/a&gt;&lt;/li&gt;
@@ -42,7 +43,8 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E3%81%BE%E3%81%A8%E3%82%81&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照サイト : &lt;a href=&#34;https://news.mynavi.jp/article/osxhack-242/&#34;&gt;Catalinaでファイルシステムがこう変わる&lt;/a&gt;&lt;/li&gt;

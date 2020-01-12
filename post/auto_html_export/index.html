@@ -29,9 +29,8 @@
     
   
   <meta name="description" content="org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法  toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
-#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #&#43;end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
-directoryの内容が変更されると，自動でhtmlを再読込する．  情報元：Watch for file changes and refresh your browser automatically 上記サイトに有るrubyのスクリプトが使えそうなので，頂いた． rubyのインストールについては，以下のようなサイトを参考  MacにHomeBrew,rbenv,bundlerをインストールする Ruby入門 01.">
+ Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法    toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
+#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #&#43;end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/auto_html_export/">
@@ -126,9 +125,8 @@ directoryの内容が変更されると，自動でhtmlを再読込する�
   <meta property="og:url" content="/post/auto_html_export/">
   <meta property="og:title" content="Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする | A perfect autumn day">
   <meta property="og:description" content="org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法  toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
-#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #&#43;end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
-directoryの内容が変更されると，自動でhtmlを再読込する．  情報元：Watch for file changes and refresh your browser automatically 上記サイトに有るrubyのスクリプトが使えそうなので，頂いた． rubyのインストールについては，以下のようなサイトを参考  MacにHomeBrew,rbenv,bundlerをインストールする Ruby入門 01."><meta property="og:image" content="/post/auto_html_export/featured.jpg">
+ Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法    toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
+#&#43;begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #&#43;end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．"><meta property="og:image" content="/post/auto_html_export/featured.jpg">
   <meta property="twitter:image" content="/post/auto_html_export/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -406,14 +404,16 @@ directoryの内容が変更されると，自動でhtmlを再読込する�
 
     <div class="article-style" itemprop="articleBody">
       <p>org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#toggle-org-html-export-on-save">toggle-org-html-export-on-save</a></li>
 <li><a href="#directory%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%8B%E3%82%99%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%82%8B%E3%81%A8-%E8%87%AA%E5%8B%95%E3%81%A6%E3%82%99html%E3%82%92%E5%86%8D%E8%AA%AD%E8%BE%BC%E3%81%99%E3%82%8B">directoryの内容が変更されると，自動でhtmlを再読込する．</a></li>
 <li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="toggle-org-html-export-on-save">toggle-org-html-export-on-save</h2>
 <ul>
 <li>情報元：<a href="https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old">How to auto export html when saving in org-mode?</a></li>
@@ -627,7 +627,7 @@ $ watch_safari.rb Hoge hogefuga.html
           
           <li><a href="/post/org-html-export-theme/">Org-modeでhtml exportの際のthemeについて</a></li>
           
-          <li><a href="/post/html_export/">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a></li>
+          <li><a href="/post/html_export/">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）</a></li>
           
           <li><a href="/post/org-mode_paper_1/">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a></li>
           

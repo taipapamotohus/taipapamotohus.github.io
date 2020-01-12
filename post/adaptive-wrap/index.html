@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．
- adaptive-wrap  インストールと設定 実際の使用例    adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
+ Table of Contents  adaptive-wrap  インストールと設定 実際の使用例      adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
 インストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
 #&#43;begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode &#43;1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #&#43;end_src なお，最後の行を入れておかないと，org-mode fileに
 #&#43;setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
@@ -129,7 +129,7 @@
   <meta property="og:url" content="/post/adaptive-wrap/">
   <meta property="og:title" content="Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines | A perfect autumn day">
   <meta property="og:description" content="Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．
- adaptive-wrap  インストールと設定 実際の使用例    adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
+ Table of Contents  adaptive-wrap  インストールと設定 実際の使用例      adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
 インストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
 #&#43;begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode &#43;1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #&#43;end_src なお，最後の行を入れておかないと，org-mode fileに
 #&#43;setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
@@ -412,8 +412,9 @@
 
     <div class="article-style" itemprop="articleBody">
       <p>Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#adaptive-wrap">adaptive-wrap</a>
 <ul>
@@ -422,7 +423,8 @@
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="adaptive-wrap">adaptive-wrap</h2>
 <ul>
 <li>参照1：<a href="https://elpa.gnu.org/packages/adaptive-wrap.html">adaptive-wrap</a>　ご本家</li>
@@ -603,7 +605,7 @@
           
           <li><a href="/post/org-html-export-theme/">Org-modeでhtml exportの際のthemeについて</a></li>
           
-          <li><a href="/post/html_export/">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</a></li>
+          <li><a href="/post/html_export/">Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）</a></li>
           
           <li><a href="/post/swiper_migemo/">Swiper, ivy, avy, migemoによるEmacsの検索強化</a></li>
           

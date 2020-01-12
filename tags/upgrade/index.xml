@@ -18,15 +18,17 @@
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
       <guid>/post/how-to-update-hugo-and-academic-theme-part3/</guid>
       <description>&lt;p&gt;先日，ブログのアップデートについて2回に分けてまとめたが（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part1)&lt;/a&gt;, &lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B&#34;&gt;自己紹介&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#widget-in-academic&#34;&gt;Widget in Academic&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#home-page%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E7%94%BB%E5%83%8F&#34;&gt;home pageの最初の画像&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#day--light--and-night--dark--mode&#34;&gt;Day (light) and night (dark) mode&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;自己紹介&#34;&gt;自己紹介&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/#introduce-yourself&#34;&gt;Introduce yourself&lt;/a&gt; academicのご本家の解説&lt;/li&gt;
@@ -39,7 +41,7 @@
 &lt;li&gt;widgetとは．．．ウィジェットである．(^^;;; ブログを組み立てる部品のようなもの．上記のリンク先に詳細に解説されている．例えば， &lt;strong&gt;About&lt;/strong&gt; widjetは読者にブログ主を紹介するためのものである．ただし，実際のプロファイルの内容は前述のようにcontent/authors/admin/_index.mdに記載されている． このブログのように，投稿記事を載せているだけの場合は，ほとんどのwidgetは不要である．&lt;/li&gt;
 &lt;li&gt;不要なwidgetは，content/home/のディレクトリから削除すれば良い．参考のために残して置きたければ， それぞれのindex.mdのfront matterの最初の方にある active = true を &lt;strong&gt;active = false&lt;/strong&gt; とすれば良い．下図は， content/home/featured/index.mdのfeatured widget の場合である．これで featured widget は表示されなくなる．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;+++
 &lt;span style=&#34;color:#75715e&#34;&gt;# A Featured Publications section created with the Featured Content widget.&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# This section displays publications from `content/publication/` which have&lt;/span&gt;
@@ -117,8 +119,9 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
 &lt;p&gt;閑話休題，以前の記事（&lt;a href=&#34;../horizontal_scrollbar&#34;&gt;How to add horizontal scrollbar for codeblock in academic theme of hugo&lt;/a&gt;）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．&lt;/p&gt;
 &lt;p&gt;実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．&lt;/p&gt;
 &lt;p&gt;本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hugo%E3%81%AEupdate&#34;&gt;Hugoのupdate&lt;/a&gt;&lt;/li&gt;
@@ -136,7 +139,8 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E8%BF%BD%E8%A8%98&#34;&gt;追記&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -195,7 +199,11 @@ ox-hugo
 &lt;li&gt;If you installed from a ZIP&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参考にしていただきたい．以下の記述は自戒のために残しておく．
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;del&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;以下，&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt; に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．&lt;/del&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Data/hoge
@@ -382,8 +390,8 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;li&gt;
 &lt;p&gt;Hugoは以下の優先順位で読み込まれる．（&lt;a href=&#34;https://gohugo.io/templates/partials/#partial-template-lookup-order&#34;&gt;Partial Template Lookup Order&lt;/a&gt;）&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;layouts/partials/*&lt;!-- raw HTML omitted --&gt;.html&lt;/li&gt;
-&lt;li&gt;themes/&lt;!-- raw HTML omitted --&gt;/layouts/partials/*&lt;!-- raw HTML omitted --&gt;.html&lt;/li&gt;
+&lt;li&gt;layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
+&lt;li&gt;themes/&lt;THEME&gt;/layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．&lt;/p&gt;
 &lt;/li&gt;
@@ -412,17 +420,29 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 ｛{% alert  %}}\&lt;br&gt;
 により，（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;となる．&lt;/p&gt;
 &lt;p&gt;｛{% alert warning %}}\&lt;br&gt;
 A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\&lt;br&gt;
 ｛{% /alert %}}\&lt;br&gt;
 は，以下のようになる．（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）\&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+ &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;また，使ってみよう．&lt;/p&gt;
 &lt;h3 id=&#34;warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/h3&gt;
 &lt;p&gt;アップデートしていじっているうちに，&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+  &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    WARN 2019/08/23 00:36:28 found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You have updated to the unreleased version. You&#39;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
@@ -469,8 +489,9 @@ hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/post/mojave/</guid>
       <description>&lt;p&gt;世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから &lt;strong&gt;Mojave&lt;/strong&gt; にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#upgrade-to-xcode-10-dot-2-dot-1&#34;&gt;Upgrade to Xcode 10.2.1&lt;/a&gt;&lt;/li&gt;
@@ -482,7 +503,8 @@ hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E6%84%9F%E6%83%B3&#34;&gt;感想&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;upgrade-to-mojave-from-sierra&#34;&gt;Upgrade to Mojave from Sierra&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://support.apple.com/ja-jp/HT201475&#34;&gt;macOS Mojave にアップグレードする方法&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．&lt;/p&gt;
@@ -500,8 +522,8 @@ Error: parent directory is world writable but not sticky
 Please report this bug:
 https://docs.brew.sh/Troubleshooting
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/analsky/items/20755a3ba10119e9a4b6&#34;&gt;brew で `Error: parent directory is world writable but not sticky`&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky&#34;&gt;Error: parent directory is world writable but not sticky&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/analsky/items/20755a3ba10119e9a4b6&#34;&gt;brew で `Error: parent directory is world writable but not sticky`&lt;/a&gt; &lt;br /&gt;
+&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky&#34;&gt;Error: parent directory is world writable but not sticky&lt;/a&gt; &lt;br /&gt;
 上記サイトの記載に従って，ls -ld /tmpを行うと以下のようになる．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ls -ld /tmp
 lrwxr-xr-x@ &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; root  wheel  &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;27&lt;/span&gt; 18:45 /tmp@ -&amp;gt; private/tmp
@@ -516,14 +538,14 @@ $ brew tap railwaycat/emacsmacport
 $ brew uninstall emacs-mac  &lt;span style=&#34;color:#75715e&#34;&gt;# uninstall old emacs-mac&lt;/span&gt;
 $ brew install emacs-mac --with-modern-icon --with-imagemagick  &lt;span style=&#34;color:#75715e&#34;&gt;# install new emacs-mac&lt;/span&gt;
 $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
-から &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)&lt;/strong&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;br /&gt;
+&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)&lt;/strong&gt; &lt;br /&gt;
+から &lt;br /&gt;
+&lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)&lt;/strong&gt;  &lt;br /&gt;
 へのupgradeが終了した．&lt;/p&gt;
-&lt;p&gt;あとは，以前に書いた以下の記事に従ってセットアップした．&lt;!-- raw HTML omitted --&gt;
-&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正）&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
-&lt;a href=&#34;../init_org&#34;&gt;Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;あとは，以前に書いた以下の記事に従ってセットアップした．&lt;br /&gt;
+&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正）&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&#34;../init_org&#34;&gt;Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する&lt;/a&gt;  &lt;br /&gt;
 &lt;a href=&#34;../japanese_setup&#34;&gt;Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;latex&#34;&gt;LaTeX&lt;/h2&gt;
 &lt;p&gt;これについては，以前の記事「&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;」で書いたとおり &lt;strong&gt;MacTeX 2018&lt;/strong&gt; のままである．正確に言うと，mojaveにupgradeする直前に以下のようにして最新版にアップデートしておいた．&lt;/p&gt;

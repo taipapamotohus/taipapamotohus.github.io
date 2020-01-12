@@ -18,14 +18,16 @@
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/post/org-rifle/</guid>
       <description>&lt;p&gt;学会続きで，久方ぶりの更新である．org fileの中を検索する際に，&lt;a href=&#34;../swiper_migemo&#34;&gt;Swiper, ivy, avy, migemoによるEmacsの検索強化&lt;/a&gt;で取り上げた &lt;strong&gt;swiper&lt;/strong&gt; を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/alphapapa/org-rifle&#34;&gt;org-rifle&lt;/a&gt;  ご本家&lt;/li&gt;

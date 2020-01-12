@@ -18,14 +18,16 @@
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/post/org-rifle/</guid>
       <description>&lt;p&gt;学会続きで，久方ぶりの更新である．org fileの中を検索する際に，&lt;a href=&#34;../swiper_migemo&#34;&gt;Swiper, ivy, avy, migemoによるEmacsの検索強化&lt;/a&gt;で取り上げた &lt;strong&gt;swiper&lt;/strong&gt; を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/alphapapa/org-rifle&#34;&gt;org-rifle&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -102,15 +104,17 @@
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
       <guid>/post/how-to-update-hugo-and-academic-theme-part3/</guid>
       <description>&lt;p&gt;先日，ブログのアップデートについて2回に分けてまとめたが（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part1)&lt;/a&gt;, &lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B&#34;&gt;自己紹介&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#widget-in-academic&#34;&gt;Widget in Academic&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#home-page%E3%81%AE%E6%9C%80%E5%88%9D%E3%81%AE%E7%94%BB%E5%83%8F&#34;&gt;home pageの最初の画像&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#day--light--and-night--dark--mode&#34;&gt;Day (light) and night (dark) mode&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;自己紹介&#34;&gt;自己紹介&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/get-started/#introduce-yourself&#34;&gt;Introduce yourself&lt;/a&gt; academicのご本家の解説&lt;/li&gt;
@@ -123,7 +127,7 @@
 &lt;li&gt;widgetとは．．．ウィジェットである．(^^;;; ブログを組み立てる部品のようなもの．上記のリンク先に詳細に解説されている．例えば， &lt;strong&gt;About&lt;/strong&gt; widjetは読者にブログ主を紹介するためのものである．ただし，実際のプロファイルの内容は前述のようにcontent/authors/admin/_index.mdに記載されている． このブログのように，投稿記事を載せているだけの場合は，ほとんどのwidgetは不要である．&lt;/li&gt;
 &lt;li&gt;不要なwidgetは，content/home/のディレクトリから削除すれば良い．参考のために残して置きたければ， それぞれのindex.mdのfront matterの最初の方にある active = true を &lt;strong&gt;active = false&lt;/strong&gt; とすれば良い．下図は， content/home/featured/index.mdのfeatured widget の場合である．これで featured widget は表示されなくなる．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;+++
 &lt;span style=&#34;color:#75715e&#34;&gt;# A Featured Publications section created with the Featured Content widget.&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# This section displays publications from `content/publication/` which have&lt;/span&gt;
@@ -201,8 +205,9 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
 &lt;p&gt;閑話休題，以前の記事（&lt;a href=&#34;../horizontal_scrollbar&#34;&gt;How to add horizontal scrollbar for codeblock in academic theme of hugo&lt;/a&gt;）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．&lt;/p&gt;
 &lt;p&gt;実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．&lt;/p&gt;
 &lt;p&gt;本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hugo%E3%81%AEupdate&#34;&gt;Hugoのupdate&lt;/a&gt;&lt;/li&gt;
@@ -220,7 +225,8 @@ day_night &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; true
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E8%BF%BD%E8%A8%98&#34;&gt;追記&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -279,7 +285,11 @@ ox-hugo
 &lt;li&gt;If you installed from a ZIP&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参考にしていただきたい．以下の記述は自戒のために残しておく．
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;del&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;以下，&lt;a href=&#34;http://www.mit.edu/~k2smith/post/getting-started/&#34;&gt;Getting started with the Academic framework for Hugo&lt;/a&gt; に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．&lt;/del&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Data/hoge
@@ -466,8 +476,8 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;li&gt;
 &lt;p&gt;Hugoは以下の優先順位で読み込まれる．（&lt;a href=&#34;https://gohugo.io/templates/partials/#partial-template-lookup-order&#34;&gt;Partial Template Lookup Order&lt;/a&gt;）&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;layouts/partials/*&lt;!-- raw HTML omitted --&gt;.html&lt;/li&gt;
-&lt;li&gt;themes/&lt;!-- raw HTML omitted --&gt;/layouts/partials/*&lt;!-- raw HTML omitted --&gt;.html&lt;/li&gt;
+&lt;li&gt;layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
+&lt;li&gt;themes/&lt;THEME&gt;/layouts/partials/*&lt;PARTIALNAME&gt;.html&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．&lt;/p&gt;
 &lt;/li&gt;
@@ -496,17 +506,29 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 ｛{% alert  %}}\&lt;br&gt;
 により，（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;となる．&lt;/p&gt;
 &lt;p&gt;｛{% alert warning %}}\&lt;br&gt;
 A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\&lt;br&gt;
 ｛{% /alert %}}\&lt;br&gt;
 は，以下のようになる．（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）\&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+ &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;また，使ってみよう．&lt;/p&gt;
 &lt;h3 id=&#34;warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home&#34;&gt;WARN &amp;hellip;.. found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;&lt;/h3&gt;
 &lt;p&gt;アップデートしていじっているうちに，&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+  &lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    WARN 2019/08/23 00:36:28 found no layout file for &amp;ldquo;CSS&amp;rdquo; for &amp;ldquo;home&amp;rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;You have updated to the unreleased version. You&#39;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
@@ -553,8 +575,9 @@ hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/pdf-tools/</guid>
       <description>&lt;p&gt;Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリとしていて使い勝手が悪かったため，サクッと止めて，skimを使っている．ただ，pdf-toolsというのがあって，こちらは割とスグレモノらしいとの噂は聞いていた．そこで，今回はこれを試してみることにした．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#pdf-tools&#34;&gt;PDF Tools&lt;/a&gt;
 &lt;ul&gt;
@@ -571,7 +594,8 @@ hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#pdf-tools%E3%81%A8%E4%BB%96%E3%81%AE%E3%82%A2%E3%83%95%E3%82%9A%E3%83%AA-skim-preview%E3%81%AA%E3%81%A8%E3%82%99-%E3%81%A8%E3%81%AE%E6%AF%94%E8%BC%83&#34;&gt;PDF Toolsと他のアプリ（skim, Previewなど）との比較&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;pdf-tools&#34;&gt;PDF Tools&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考１：&lt;a href=&#34;https://github.com/politza/pdf-tools&#34;&gt;pdf-tools&lt;/a&gt;　ご本家&lt;/li&gt;
@@ -771,15 +795,17 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
       <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/post/peep/</guid>
       <description>&lt;p&gt;最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#peep-dired%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A&#34;&gt;peep-diredのインストールと設定&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#peep-dired%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9&#34;&gt;peep-diredの使い方&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#bjm-ivy-dired-recent-dirs-%E6%9C%80%E8%BF%91%E9%96%8B%E3%81%91%E3%81%9Fdirectory%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95-%E3%81%8A%E3%81%BE%E3%81%91&#34;&gt;bjm/ivy-dired-recent-dirs -  最近開けたdirectoryを一覧表示する方法（おまけ）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/asok/peep-dired&#34;&gt;peep-dired&lt;/a&gt;&lt;/li&gt;
@@ -841,23 +867,25 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/embedrplotinblog/</guid>
       <description>&lt;p&gt;（承前）前回（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;br /&gt;
 Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;br /&gt;
 ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).&lt;/p&gt;
 &lt;p&gt;要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
 &lt;/li&gt;
@@ -898,7 +926,7 @@ ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;org-hugo-external-file-extensions-allowed-for-copying is a variable defined in &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;‘&lt;/span&gt;ox-hugo.el&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
 Its value is
 (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpeg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tiff&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;png&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;svg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gif&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;odt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;doc&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ppt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xls&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;docx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pptx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xlsx&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;br /&gt;
 このサイトの &lt;strong&gt;Table 2: Where files get copied to if their path does not contain static/&lt;/strong&gt; が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/foo.png
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;に作成される．そして，このファイルは，最終的に，&lt;/p&gt;
@@ -956,14 +984,16 @@ geom_point()
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/exportrplot/</guid>
       <description>&lt;p&gt;本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-setup&#34;&gt;Org-babel setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;org-babel-setup&#34;&gt;Org-babel setup&lt;/h2&gt;
 &lt;p&gt;org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &amp;hellip;..(^^;;;&lt;/p&gt;
 &lt;p&gt;ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．&lt;/p&gt;
@@ -988,10 +1018,10 @@ geom_point()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/h2&gt;
 &lt;p&gt;以下のサイトを参考にした．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; Official manual &lt;a href=&#34;https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code&#34;&gt;14 Working with Source Code&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;br /&gt;
 このサイトが分かりやすい．特に， &lt;strong&gt;ヘッダー引数&lt;/strong&gt; と &lt;strong&gt;言語毎の書き方&lt;/strong&gt; の &lt;strong&gt;R&lt;/strong&gt; の項は必読．&lt;/p&gt;
 &lt;h2 id=&#34;org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;br /&gt;
 org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: R-test
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
@@ -1035,8 +1065,9 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
       <guid>/post/adaptive-wrap/</guid>
       <description>&lt;p&gt;Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#adaptive-wrap&#34;&gt;adaptive-wrap&lt;/a&gt;
 &lt;ul&gt;
@@ -1045,7 +1076,8 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;adaptive-wrap&#34;&gt;adaptive-wrap&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://elpa.gnu.org/packages/adaptive-wrap.html&#34;&gt;adaptive-wrap&lt;/a&gt;　ご本家&lt;/li&gt;
@@ -1111,14 +1143,16 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
       <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
       <guid>/post/auto_html_export/</guid>
       <description>&lt;p&gt;org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#directory%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%8B%E3%82%99%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%82%8B%E3%81%A8-%E8%87%AA%E5%8B%95%E3%81%A6%E3%82%99html%E3%82%92%E5%86%8D%E8%AA%AD%E8%BE%BC%E3%81%99%E3%82%8B&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95&#34;&gt;使用方法&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;情報元：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old&#34;&gt;How to auto export html when saving in org-mode?&lt;/a&gt;&lt;/li&gt;

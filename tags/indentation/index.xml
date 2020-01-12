@@ -18,8 +18,9 @@
       <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
       <guid>/post/adaptive-wrap/</guid>
       <description>&lt;p&gt;Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#adaptive-wrap&#34;&gt;adaptive-wrap&lt;/a&gt;
 &lt;ul&gt;
@@ -28,7 +29,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;adaptive-wrap&#34;&gt;adaptive-wrap&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://elpa.gnu.org/packages/adaptive-wrap.html&#34;&gt;adaptive-wrap&lt;/a&gt;　ご本家&lt;/li&gt;

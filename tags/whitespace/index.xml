@@ -18,15 +18,17 @@
       <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/post/gleanings/</guid>
       <description>&lt;p&gt;前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#display-line-numbers&#34;&gt;display-line-numbers&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#whitespace-mode&#34;&gt;Whitespace-mode&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#iterm2%E3%81%AE%E6%A8%A9%E9%99%90%E3%81%AE%E5%A4%89%E6%9B%B4-mojave%E3%81%A6%E3%82%99%E5%BF%85%E8%A6%81&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#iterm2%E3%81%AEcolor-scheme%E3%81%8B%E3%82%99%E5%8A%B9%E3%81%8B%E3%81%AA%E3%81%84&#34;&gt;iTerm2のColor Schemeが効かない&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;display-line-numbers&#34;&gt;display-line-numbers&lt;/h2&gt;
 &lt;p&gt;emacs 26から入った行番号を表示させる機能．&lt;/p&gt;
 &lt;ul&gt;

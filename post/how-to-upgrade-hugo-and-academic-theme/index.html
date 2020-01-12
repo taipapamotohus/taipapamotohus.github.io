@@ -423,8 +423,9 @@
 <p>閑話休題，以前の記事（<a href="../horizontal_scrollbar">How to add horizontal scrollbar for codeblock in academic theme of hugo</a>）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．</p>
 <p>実際には，ox-hugoというemacsのorg-modeのパッケージを用いて書いて，それをhugoのmarkdownとしてexportしている．同記事内で，academic themeのupgradeが速すぎて全く追随できていないと書いた．記事はゴールデンウィークの5月4日に投稿しており，既に3ヶ月以上が経過している．この夏休みにようやくupdateすることができたので，後日のためにまとめておく．</p>
 <p>本来なら，まずox-hugoを用いたhugoでのブログの作り方をまとめるべきであろうが，ネットを少し探せば，私のような素人よりはるかに詳しい方が懇切丁寧に解説しているサイトが山のように存在する．また，ブログ設定の一から十まで溯る気力もないので，順番が逆になるが，今回はアップグレードからということにした．素人がアップデートに困ってあれこれやったことの詳細なメモということで．．．(^^;;;</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#references">References</a></li>
 <li><a href="#hugo%E3%81%AEupdate">Hugoのupdate</a></li>
@@ -442,7 +443,8 @@
 </li>
 <li><a href="#%E8%BF%BD%E8%A8%98">追記</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="references">References</h2>
 <ol>
 <li><a href="https://gohugo.io">HUGO</a>  ご本家</li>
@@ -501,7 +503,11 @@ ox-hugo
 <li>If you installed from a ZIP</li>
 </ol>
 <p>問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．</p>
-<!-- raw HTML omitted -->
+<div class="alert alert-note">
+  <div>
+    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（<a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>）を参考にしていただきたい．以下の記述は自戒のために残しておく．
+  </div>
+</div>
 <p><del>色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．</del></p>
 <p><del>以下，<a href="http://www.mit.edu/~k2smith/post/getting-started/">Getting started with the Academic framework for Hugo</a> に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．</del></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/hoge
@@ -688,8 +694,8 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 <li>
 <p>Hugoは以下の優先順位で読み込まれる．（<a href="https://gohugo.io/templates/partials/#partial-template-lookup-order">Partial Template Lookup Order</a>）</p>
 <ol>
-<li>layouts/partials/*<!-- raw HTML omitted -->.html</li>
-<li>themes/<!-- raw HTML omitted -->/layouts/partials/*<!-- raw HTML omitted -->.html</li>
+<li>layouts/partials/*<PARTIALNAME>.html</li>
+<li>themes/<THEME>/layouts/partials/*<PARTIALNAME>.html</li>
 </ol>
 <p>したがって，1にコピーしたli_card.htmlを弄れば，それが優先されることになる．</p>
 </li>
@@ -718,17 +724,29 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 ｛{% alert  %}}\<br>
 により，（最初の <strong>&quot;{&quot;</strong> はescapeできないので全角の <strong>&quot;｛&quot;</strong> にしていることに注意）</li>
 </ul>
-<!-- raw HTML omitted -->
+<div class="alert alert-note">
+  <div>
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  </div>
+</div>
 <p>となる．</p>
 <p>｛{% alert warning %}}\<br>
 A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\<br>
 ｛{% /alert %}}\<br>
 は，以下のようになる．（最初の <strong>&quot;{&quot;</strong> はescapeできないので全角の <strong>&quot;｛&quot;</strong> にしていることに注意）\</p>
-<!-- raw HTML omitted -->
+ <div class="alert alert-warning">
+  <div>
+    A Markdown aside is useful for displaying notices, hints, or definitions to your readers.
+  </div>
+</div>
 <p>また，使ってみよう．</p>
 <h3 id="warn-dot-dot-dot-dot-dot-found-no-layout-file-for-css-for-home">WARN &hellip;.. found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;</h3>
 <p>アップデートしていじっているうちに，</p>
-<!-- raw HTML omitted -->
+  <div class="alert alert-warning">
+  <div>
+    WARN 2019/08/23 00:36:28 found no layout file for &ldquo;CSS&rdquo; for &ldquo;home&rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+  </div>
+</div>
 <p>のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの <a href="https://github.com/gcushen/hugo-academic/issues/1060">Featurette widget does not change from example #1060</a> があった．</p>
 <blockquote>
 <p>You have updated to the unreleased version. You'll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>

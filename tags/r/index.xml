@@ -19,8 +19,9 @@
       <guid>/post/annotation/</guid>
       <description>&lt;p&gt;またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つけたので，まとめておく．例として，代謝経路の変化を縦型の折れ線グラフで描きKEGG orthologyによって分類したグラフを作成してみる．うーむ，自分で書いていてなんだが，マニアックなネタである．．．(^^;;;&lt;/p&gt;
 &lt;p&gt;ま，備忘録として書いておこう．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#data-preparation&#34;&gt;Data Preparation&lt;/a&gt;&lt;/li&gt;
@@ -35,7 +36,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;p&gt;Kyoto Encyclopedia of Genes and Genomes (KEGG) に関しては以下のサイトを参照&lt;/p&gt;
 &lt;ul&gt;
@@ -303,7 +305,7 @@ P3 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;
 
 &lt;h3 id=&#34;customize-tick-marks-with-limits-and-breaks-of-scale-y-continuous&#34;&gt;customize tick marks with limits and breaks of scale_y_continuous&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels&#34;&gt;ggplot2 axis ticks : A guide to customize tick marks and labels&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．&lt;br /&gt;
 &lt;a href=&#34;https://stackoverflow.com/questions/38313204/r-ggplot2-scale-y-continuous-combining-breaks-limits/38313454#38313454&#34;&gt;R ggplot2 scale_y_continuous : Combining breaks &amp;amp; limits&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;P4 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; P3 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
   &lt;span style=&#34;color:#a6e22e&#34;&gt;scale_y_continuous&lt;/span&gt;(expand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), limits &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;-30&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt;), breaks&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;-20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt;))
@@ -368,8 +370,9 @@ P4
       <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/post/different-segment-to-each-facet-in-ggplot/</guid>
       <description>&lt;p&gt;今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#data-preparation&#34;&gt;Data Preparation&lt;/a&gt;&lt;/li&gt;
@@ -407,7 +410,8 @@ P4
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#combine-boxplot-and-barplot-into-the-same-graphic&#34;&gt;Combine boxplot and barplot into the same graphic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://mukkujohn.hatenablog.com/entry/2016/09/29/212901&#34;&gt;ggplot2を使って、注釈を入れる-2&lt;/a&gt;&lt;/li&gt;
@@ -589,7 +593,7 @@ TestBoxPlot2
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;add-mean-bar&#34;&gt;Add mean bar&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot&#34;&gt;combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot&#34;&gt;combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot&lt;/a&gt;   &lt;br /&gt;
 平均値のバーを書き込む．これはgeom_segmentを使うが，すべてのfacetに書き込むので，単純である．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;TestBoxPlot3 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; TestBoxPlot &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
     &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_segment&lt;/span&gt;(data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; DataM_summary, &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;as.numeric&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;as.factor&lt;/span&gt;(Day)) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;,
@@ -760,7 +764,7 @@ anno2
 &lt;p&gt;barplotでも全く同様のグラフを作成することができた．&lt;/p&gt;
 &lt;p&gt;なお，通常のグラフをpdfで出力して，それをOmniGraffleなどのお絵かきソフトに持っていき，手作業で線やasteriskを描いて，再びpdfで出力する，という荒業も使えないことはない．しかし，ggplotの中で完結できるので，余分で面倒な手作業が不要になった．まぁ，上記の作業も面倒ではあるが，再現性があり，他の人にも渡せるというところが重要であると思う．&lt;/p&gt;
 &lt;h2 id=&#34;combine-boxplot-and-barplot-into-the-same-graphic&#34;&gt;Combine boxplot and barplot into the same graphic&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Ref1:&lt;/strong&gt; &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34;&gt;patchwork&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref1:&lt;/strong&gt; &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34;&gt;patchwork&lt;/a&gt;   &lt;br /&gt;
 &lt;strong&gt;Ref2:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/nozma/items/4512623bea296ccb74ba&#34;&gt;patchworkを使って複数のggplotを組み合わせる&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;patchworkを使えば，上記の２種のグラフを簡単に一つの図にできる．比較しやすいようにbarplotのy軸のスケールをboxplotと同じに修正しておく．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Boxplot&lt;/span&gt;
@@ -812,23 +816,25 @@ P1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; P2
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/embedrplotinblog/</guid>
       <description>&lt;p&gt;（承前）前回（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;br /&gt;
 Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;br /&gt;
 ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).&lt;/p&gt;
 &lt;p&gt;要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
 &lt;/li&gt;
@@ -869,7 +875,7 @@ ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;org-hugo-external-file-extensions-allowed-for-copying is a variable defined in &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;‘&lt;/span&gt;ox-hugo.el&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
 Its value is
 (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpeg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tiff&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;png&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;svg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gif&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;odt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;doc&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ppt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xls&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;docx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pptx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xlsx&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;br /&gt;
 このサイトの &lt;strong&gt;Table 2: Where files get copied to if their path does not contain static/&lt;/strong&gt; が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/foo.png
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;に作成される．そして，このファイルは，最終的に，&lt;/p&gt;
@@ -927,14 +933,16 @@ geom_point()
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/exportrplot/</guid>
       <description>&lt;p&gt;本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-setup&#34;&gt;Org-babel setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;org-babel-setup&#34;&gt;Org-babel setup&lt;/h2&gt;
 &lt;p&gt;org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &amp;hellip;..(^^;;;&lt;/p&gt;
 &lt;p&gt;ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．&lt;/p&gt;
@@ -959,10 +967,10 @@ geom_point()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/h2&gt;
 &lt;p&gt;以下のサイトを参考にした．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; Official manual &lt;a href=&#34;https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code&#34;&gt;14 Working with Source Code&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;br /&gt;
 このサイトが分かりやすい．特に， &lt;strong&gt;ヘッダー引数&lt;/strong&gt; と &lt;strong&gt;言語毎の書き方&lt;/strong&gt; の &lt;strong&gt;R&lt;/strong&gt; の項は必読．&lt;/p&gt;
 &lt;h2 id=&#34;org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;br /&gt;
 org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: R-test
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
@@ -1013,8 +1021,9 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;li&gt;&lt;a href=&#34;http://rstudio-pubs-static.s3.amazonaws.com/6600%5Fe6703101eb7441ccb792000f4193b3b9.html&#34;&gt;Competing risk analysisのデモ&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://rpubs.com/alecri/258589&#34;&gt;A not so short review on survival analysis in R&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#prepare-dataset-melanoma-from-riskregression-package&#34;&gt;Prepare dataset &amp;ldquo;Melanoma&amp;rdquo; from &amp;ldquo;riskRegression&amp;rdquo; package&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#competing-risk-analysis-with-cuminc-of-cmprsk-package&#34;&gt;Competing risk analysis with cuminc of &amp;ldquo;cmprsk&amp;rdquo; package&lt;/a&gt;&lt;/li&gt;
@@ -1027,7 +1036,8 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;li&gt;&lt;a href=&#34;#plot-survival-curve-of-competing-risk-analysis-with-prodlim--default&#34;&gt;Plot survival curve of competing risk analysis with prodlim (default)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#plot-survival-curve-of-competing-risk-analysis-with-prodlim--modified&#34;&gt;Plot survival curve of competing risk analysis with prodlim (modified)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;prepare-dataset-melanoma-from-riskregression-package&#34;&gt;Prepare dataset &amp;ldquo;Melanoma&amp;rdquo; from &amp;ldquo;riskRegression&amp;rdquo; package&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(riskRegression)
 &lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;(Melanoma)

@@ -325,7 +325,7 @@
     <div class="article-style">
       
       前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
-org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
+Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
   RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
 #+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #+end_src   上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
   org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ

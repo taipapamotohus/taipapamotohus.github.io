@@ -19,8 +19,9 @@
       <guid>/post/annotation/</guid>
       <description>&lt;p&gt;またまたRネタである．グラフに注釈をつけたくなることがあるが，なかなか見映えのする注釈をつけるのは難しい．最近，それなりの方法を見つけたので，まとめておく．例として，代謝経路の変化を縦型の折れ線グラフで描きKEGG orthologyによって分類したグラフを作成してみる．うーむ，自分で書いていてなんだが，マニアックなネタである．．．(^^;;;&lt;/p&gt;
 &lt;p&gt;ま，備忘録として書いておこう．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#data-preparation&#34;&gt;Data Preparation&lt;/a&gt;&lt;/li&gt;
@@ -35,7 +36,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;p&gt;Kyoto Encyclopedia of Genes and Genomes (KEGG) に関しては以下のサイトを参照&lt;/p&gt;
 &lt;ul&gt;
@@ -303,7 +305,7 @@ P3 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;
 
 &lt;h3 id=&#34;customize-tick-marks-with-limits-and-breaks-of-scale-y-continuous&#34;&gt;customize tick marks with limits and breaks of scale_y_continuous&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.sthda.com/english/wiki/ggplot2-axis-ticks-a-guide-to-customize-tick-marks-and-labels&#34;&gt;ggplot2 axis ticks : A guide to customize tick marks and labels&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;ticksを指定する．範囲も指定する．scale_y_continuousのlimitsとbreaksは別々に書くとお互いを上書きするので，同じ () の中で書くようにすると両方ともが効くようになる．&lt;br /&gt;
 &lt;a href=&#34;https://stackoverflow.com/questions/38313204/r-ggplot2-scale-y-continuous-combining-breaks-limits/38313454#38313454&#34;&gt;R ggplot2 scale_y_continuous : Combining breaks &amp;amp; limits&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;P4 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; P3 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
   &lt;span style=&#34;color:#a6e22e&#34;&gt;scale_y_continuous&lt;/span&gt;(expand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), limits &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;-30&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt;), breaks&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;-20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt;))
@@ -368,8 +370,9 @@ P4
       <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/post/different-segment-to-each-facet-in-ggplot/</guid>
       <description>&lt;p&gt;今回もRネタである．論文の図を作成していて，ggplot2のfacetを使用して作成した図の中のfacet毎に異なる有意差を示す群を線分で結んで，その上にasteriskを色を変えてつけようとしたところ，結構苦労したので忘れないうちにまとめておく．annotate()というのもあるが，これだとすべてのfacetに同じ内容が入ってしまう．今回の目的であるfacetによって異なる内容の注釈を入れるためには，geom_segmentやgeom_textを使う．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#data-preparation&#34;&gt;Data Preparation&lt;/a&gt;&lt;/li&gt;
@@ -407,7 +410,8 @@ P4
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#combine-boxplot-and-barplot-into-the-same-graphic&#34;&gt;Combine boxplot and barplot into the same graphic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://mukkujohn.hatenablog.com/entry/2016/09/29/212901&#34;&gt;ggplot2を使って、注釈を入れる-2&lt;/a&gt;&lt;/li&gt;
@@ -589,7 +593,7 @@ TestBoxPlot2
 &lt;/figure&gt;
 
 &lt;h3 id=&#34;add-mean-bar&#34;&gt;Add mean bar&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot&#34;&gt;combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/45617136/combine-ggplot-facet-wrap-with-geom-segment-to-draw-mean-line-in-scatterplot&#34;&gt;combine ggplot facet_wrap with geom_segment to draw mean line in scatterplot&lt;/a&gt;   &lt;br /&gt;
 平均値のバーを書き込む．これはgeom_segmentを使うが，すべてのfacetに書き込むので，単純である．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;TestBoxPlot3 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; TestBoxPlot &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
     &lt;span style=&#34;color:#a6e22e&#34;&gt;geom_segment&lt;/span&gt;(data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; DataM_summary, &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;(x&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;as.numeric&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;as.factor&lt;/span&gt;(Day)) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;,
@@ -760,7 +764,7 @@ anno2
 &lt;p&gt;barplotでも全く同様のグラフを作成することができた．&lt;/p&gt;
 &lt;p&gt;なお，通常のグラフをpdfで出力して，それをOmniGraffleなどのお絵かきソフトに持っていき，手作業で線やasteriskを描いて，再びpdfで出力する，という荒業も使えないことはない．しかし，ggplotの中で完結できるので，余分で面倒な手作業が不要になった．まぁ，上記の作業も面倒ではあるが，再現性があり，他の人にも渡せるというところが重要であると思う．&lt;/p&gt;
 &lt;h2 id=&#34;combine-boxplot-and-barplot-into-the-same-graphic&#34;&gt;Combine boxplot and barplot into the same graphic&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Ref1:&lt;/strong&gt; &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34;&gt;patchwork&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref1:&lt;/strong&gt; &lt;a href=&#34;https://github.com/thomasp85/patchwork&#34;&gt;patchwork&lt;/a&gt;   &lt;br /&gt;
 &lt;strong&gt;Ref2:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/nozma/items/4512623bea296ccb74ba&#34;&gt;patchworkを使って複数のggplotを組み合わせる&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;patchworkを使えば，上記の２種のグラフを簡単に一つの図にできる．比較しやすいようにbarplotのy軸のスケールをboxplotと同じに修正しておく．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Boxplot&lt;/span&gt;

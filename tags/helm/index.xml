@@ -18,8 +18,9 @@
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/post/mark-and-desktop-saving/</guid>
       <description>&lt;p&gt;Emacsのカーソルは画面をスクロールして上端または下端に至ると画面の中に表示される状態を維持するように動いてしまい，元の位置には止まらないのが仕様になっている．これは通常のエディターとは違っており，不便と感じて，色々と調べたり試したりしたのだが，要するに思想の違いであると考えるに至った．カーソルの位置は保持できない代わりにマークという方法が提供されている．まぁ，これが結構分かりにくいのだが，使ってみると案外便利である．そこで，マークについてまとめることにした．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#mark&#34;&gt;Mark&lt;/a&gt;
 &lt;ul&gt;
@@ -28,7 +29,8 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;mark&#34;&gt;Mark&lt;/h2&gt;
 &lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
 &lt;ul&gt;
@@ -52,9 +54,13 @@
 
 &lt;p&gt;要するに，通常のエディターやワープロにおいて，マウスでクリックして押したままの状態でなぞった時と同じ状態である．この状態で，ハイライトされた領域をコピーしたり削除したりできる．まぁ，これだけだとどうと言うことはないのだが， &lt;strong&gt;マークはmark ringに格納されるので，そこに戻ることができる．&lt;/strong&gt; これが便利である．この機能を利用するときはマークをセットしてactiveにしないほうが使いやすい．マークをセットした位置に戻るには &lt;strong&gt;C-u C-SPC&lt;/strong&gt; と打つ．&lt;/p&gt;
 &lt;p&gt;以上をまとめると以下のようになる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;style&gt;.zebra-striping table { text-align: center;  }&lt;/style&gt;
+&lt;div class=&#34;ox-hugo-table zebra-striping sane-table&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;table-caption&#34;&gt;
+  &lt;span class=&#34;table-number&#34;&gt;Table 1&lt;/span&gt;:
+  Key bindings for mark in emacs
+&lt;/div&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -77,7 +83,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
 &lt;p&gt;要するに，あとで戻りたい位置にいるときに &lt;strong&gt;C-SPC C-SPC&lt;/strong&gt; でactiveにせずにマークをつけておき，しばらく作業をしたのち戻りたくなったら， &lt;strong&gt;C-u C-SPC&lt;/strong&gt; で戻ると言う使い方ができる．マークはmark ringに格納され，新しいものからリストの上に追加されていく． &lt;strong&gt;C-u C-SPC&lt;/strong&gt;  を連打すれば，次々と古いマークの位置に移動できる．なお， &lt;strong&gt;set-mark-command-repeat-pop&lt;/strong&gt; を非nilにセットすると、C-u C-SPCの後に続けて、C-u C-SPCではなく、C-SPCでマークリングを巡回できるようになる．これは， &lt;strong&gt;M-x customize&lt;/strong&gt; から，Customize Aproposに入り，下図のようにset-mark-command-repeat-popをToggleでonにすれば良い．&lt;/p&gt;
 
 
@@ -95,8 +101,12 @@
 &lt;/figure&gt;
 
 &lt;p&gt;最古のマークまで行くと，また，最新のマークに戻ってくる．それで，mark ringなのであろう．これだけでも十分に便利であり，カーソルの位置を保持できないことを補って余りあるともいえる．さて，mark ringには，localとglobalの2種類があるが，これについては以下の解説を参考にしていただきたい．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;p&gt;&lt;strong&gt;グローバルマークリング（マニュアルから引用）:&lt;/strong&gt; 各バッファーに属する普通のマークリングに加えて、Emacsにはグローバルマークリング(global mark ring)が1つあります。以前マークをセットしてからバッファーを切り替えた場合、マークをセットすると、マークはカレントバッファーのマークリングに加えて、グローバルマークリングにも記録されます。その結果、グローバルマークリングには訪れていたバッファーの系列が記録され、各バッファーではマークを設定した箇所が記録されます。グローバルマークリングの長さは、global-mark-ring-maxで制御され、デフォルトは16です。&lt;/p&gt;
+&lt;p&gt;コマンド &lt;strong&gt;C-x C-SPC&lt;/strong&gt;  (pop-global-mark)は、グローバルリングの最新のバッファー位置にジャンプします。これもリングを巡回するので、連続してC-x C-SPCを使うことにより、古いバッファーのマーク位置に移動します。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;p&gt;ここまでくると，「mark ringの内容が見られたらもっと便利だろうなぁ」と期待してしまうのは人情というものである．&lt;/p&gt;
 &lt;h2 id=&#34;helm-all-mark-rings&#34;&gt;helm-all-mark-rings&lt;/h2&gt;
 &lt;ul&gt;
@@ -129,8 +139,9 @@
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
       <guid>/post/treemacs_projectile/</guid>
       <description>&lt;p&gt;MacのFinderに相当するのは，EmacsではDiredであろう．しかし，なにかのプロジェクトに関わる文書群を管理するということになると，Diredでは力不足である．というか目的が違う．これにぴったりなのが，treemacsであり，そのバックボーンになるのが，Projectileである．これらは，プログラマーでもない自分には必要ないものと思っていたのだが，このblogを書くのに使用しているHugoとそのテーマであるacademicをアップデートする際に，非常に役に立ったので，いまだによく分かっていない自分自身のために書き留めておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#projectile&#34;&gt;Projectile&lt;/a&gt;
 &lt;ul&gt;
@@ -147,7 +158,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;projectile&#34;&gt;Projectile&lt;/h2&gt;
 &lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
 &lt;ul&gt;

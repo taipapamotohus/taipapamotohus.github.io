@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
- Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想  Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
+ Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想    Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
 $ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．">
@@ -127,7 +127,7 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
   <meta property="og:url" content="/post/mojave/">
   <meta property="og:title" content="Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew | A perfect autumn day">
   <meta property="og:description" content="世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
- Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想  Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
+ Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想    Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
 $ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．"><meta property="og:image" content="/post/mojave/featured.jpg">
@@ -408,8 +408,9 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
 
     <div class="article-style" itemprop="articleBody">
       <p>世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから <strong>Mojave</strong> にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
 <ul>
 <li><a href="#upgrade-to-mojave-from-sierra">Upgrade to Mojave from Sierra</a></li>
 <li><a href="#upgrade-to-xcode-10-dot-2-dot-1">Upgrade to Xcode 10.2.1</a></li>
@@ -421,7 +422,8 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
 </li>
 <li><a href="#%E6%84%9F%E6%83%B3">感想</a></li>
 </ul>
-<!-- raw HTML omitted -->
+</div>
+<!--endtoc-->
 <h2 id="upgrade-to-mojave-from-sierra">Upgrade to Mojave from Sierra</h2>
 <p><strong>Ref:</strong> <a href="https://support.apple.com/ja-jp/HT201475">macOS Mojave にアップグレードする方法</a></p>
 <p>結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．</p>
@@ -439,8 +441,8 @@ Error: parent directory is world writable but not sticky
 Please report this bug:
 https://docs.brew.sh/Troubleshooting
 </code></pre></div><p>調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．</p>
-<p><strong>Ref 1:</strong> <a href="https://qiita.com/analsky/items/20755a3ba10119e9a4b6">brew で `Error: parent directory is world writable but not sticky`</a> <!-- raw HTML omitted -->
-<strong>Ref 2:</strong> <a href="https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky">Error: parent directory is world writable but not sticky</a> <!-- raw HTML omitted -->
+<p><strong>Ref 1:</strong> <a href="https://qiita.com/analsky/items/20755a3ba10119e9a4b6">brew で `Error: parent directory is world writable but not sticky`</a> <br />
+<strong>Ref 2:</strong> <a href="https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky">Error: parent directory is world writable but not sticky</a> <br />
 上記サイトの記載に従って，ls -ld /tmpを行うと以下のようになる．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ls -ld /tmp
 lrwxr-xr-x@ <span style="color:#ae81ff">1</span> root  wheel  <span style="color:#ae81ff">11</span>  <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">27</span> 18:45 /tmp@ -&gt; private/tmp
@@ -455,14 +457,14 @@ $ brew tap railwaycat/emacsmacport
 $ brew uninstall emacs-mac  <span style="color:#75715e"># uninstall old emacs-mac</span>
 $ brew install emacs-mac --with-modern-icon --with-imagemagick  <span style="color:#75715e"># install new emacs-mac</span>
 $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-</code></pre></div><p>これで，<!-- raw HTML omitted -->
-<strong>/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)</strong> <!-- raw HTML omitted -->
-から <!-- raw HTML omitted -->
-<strong>/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)</strong>  <!-- raw HTML omitted -->
+</code></pre></div><p>これで，<br />
+<strong>/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)</strong> <br />
+から <br />
+<strong>/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)</strong>  <br />
 へのupgradeが終了した．</p>
-<p>あとは，以前に書いた以下の記事に従ってセットアップした．<!-- raw HTML omitted -->
-<a href="../prelude_install">Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</a> <!-- raw HTML omitted -->
-<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>  <!-- raw HTML omitted -->
+<p>あとは，以前に書いた以下の記事に従ってセットアップした．<br />
+<a href="../prelude_install">Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</a> <br />
+<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>  <br />
 <a href="../japanese_setup">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></p>
 <h2 id="latex">LaTeX</h2>
 <p>これについては，以前の記事「<a href="../latexmk">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a>」で書いたとおり <strong>MacTeX 2018</strong> のままである．正確に言うと，mojaveにupgradeする直前に以下のようにして最新版にアップデートしておいた．</p>

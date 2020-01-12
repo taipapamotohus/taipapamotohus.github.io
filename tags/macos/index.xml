@@ -22,8 +22,9 @@
 &lt;p&gt;hyperestraierをインストールし，Apacheをセットアップして，pdf文書のインデックスを作成し，これをブラウザで検索できるようにするという流れでまとめていく．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;セットアップは結構面倒だが，非常に便利で，オススメである！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;なお，以下の手順は，MacBook Pro (15-inch, Late 2016) Mojave 10.14.6，および，iMac 2012 Mojave 10.14.6 の両方で確認済みである．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hyper-estraier&#34;&gt;Hyper Estraier&lt;/a&gt;
@@ -48,7 +49,8 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#hyperestraier%E4%BB%98%E5%B1%9E%E3%81%AE%E5%85%A8%E6%96%87%E6%A4%9C%E7%B4%A2%E7%94%A8cgi-script%E3%81%AEset-up&#34;&gt;Hyperestraier付属の全文検索用CGI scriptのset up&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://skalldan.wordpress.com/2011/06/28/hyper-estraier-%E3%81%A7%E4%BB%8F%E5%85%B8%E6%8E%A2%E7%B4%A2/&#34;&gt;Hyper Estraier で仏典探索&lt;/a&gt;     Amrtaさんのものすごく役に立つサイト&lt;/li&gt;
@@ -154,7 +156,11 @@ $ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
 $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;strong&gt;2019年9月17日修正：&lt;/strong&gt;  上記の後二者はdirectoryを間違えている．下記が正しい．
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
 $ estcmd optimize /Users/taipapa/Sites/pdf/casket
 $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
@@ -164,7 +170,11 @@ $ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
 $ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
 $ estcmd optimize /Library/WebServer/Documents/pdf/casket
 $ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;strong&gt;2019年9月17日修正：&lt;/strong&gt;  上記の後二者はdirectoryを間違えている．下記が正しい．
+  &lt;/div&gt;
+&lt;/div&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
 $ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
 $ estcmd optimize /Users/taipapa/Sites/pdf/casket
@@ -221,7 +231,7 @@ Server built:   Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; &l
 &lt;span style=&#34;color:#ae81ff&#34;&gt;165&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule cgi_module libexec/apache2/mod_cgi.so&lt;/span&gt;
 -----&amp;gt;
 LoadModule cgi_module libexec/apache2/mod_cgi.so
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;165行目の行頭の＃を外してアンコメントし，有効化しておく．&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;165行目の行頭の＃を外してアンコメントし，有効化しておく．&lt;br /&gt;
 これをやらないと，cgiが働かず，そのファイル自体がダウンロードされてしまう．&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -236,12 +246,12 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Apacheの停止&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apachectl stop
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Apacheの再起動&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apachectl restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -538,13 +548,15 @@ $ less -N estseek.conf
       <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/post/live/</guid>
       <description>&lt;p&gt;最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-set-up&#34;&gt;How to set up&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#shortcut&#34;&gt;Shortcut&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;how-to-set-up&#34;&gt;How to set up&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;まず画面トップの右端の方の日本語入力のライブ変換にチェックを入れてオンにする．&lt;/li&gt;

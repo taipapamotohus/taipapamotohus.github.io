@@ -18,14 +18,16 @@
       <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
       <guid>/post/auto_html_export/</guid>
       <description>&lt;p&gt;org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#directory%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%8B%E3%82%99%E5%A4%89%E6%9B%B4%E3%81%95%E3%82%8C%E3%82%8B%E3%81%A8-%E8%87%AA%E5%8B%95%E3%81%A6%E3%82%99html%E3%82%92%E5%86%8D%E8%AA%AD%E8%BE%BC%E3%81%99%E3%82%8B&#34;&gt;directoryの内容が変更されると，自動でhtmlを再読込する．&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95&#34;&gt;使用方法&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;toggle-org-html-export-on-save&#34;&gt;toggle-org-html-export-on-save&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;情報元：&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/4golh1/how%5Fto%5Fauto%5Fexport%5Fhtml%5Fwhen%5Fsaving%5Fin%5Forgmode/?sort=old&#34;&gt;How to auto export html when saving in org-mode?&lt;/a&gt;&lt;/li&gt;
@@ -134,7 +136,8 @@ $ watch_safari.rb Hoge hogefuga.html
 &lt;li&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
 &lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
@@ -191,71 +194,89 @@ $ watch_safari.rb Hoge hogefuga.html
     </item>
     
     <item>
-      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）</title>
+      <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）</title>
       <link>/post/html_export/</link>
       <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
       <guid>/post/html_export/</guid>
-      <description>&lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
 &lt;h2 id=&#34;org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの &lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．&lt;/p&gt;
+&lt;p&gt;フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの &lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;del&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/del&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;上記に関しては-ox-hugoの作者であるkaushal-modi氏から以下のような指摘を頂いた-12月19日追記&#34;&gt;上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）&lt;/h3&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;上記に関しては-ox-hugoの作者であるkaushal-modi氏から以下のような指摘を頂いた-12月19日追記&#34;&gt;上記に関しては，ox-hugoの作者であるKaushal Modi氏から以下のような指摘を頂いた．（12月19日追記）&lt;/h3&gt;
+&lt;div class=&#34;panel&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
 &lt;p&gt;Can you try using #+setupfile instead of #+include? As an example, here is my blog Org source that I export using ox-hugo ( &lt;a href=&#34;https://gitlab.com/kaushalm&#34;&gt;https://gitlab.com/kaushalm&lt;/a&gt;&amp;hellip; ), and here is the setup file tha t I &amp;ldquo;include&amp;rdquo; using the more appropriate #+setupfile ( &lt;a href=&#34;https://gitlab.com/kaushalm&#34;&gt;https://gitlab.com/kaushalm&lt;/a&gt;&amp;hellip; ).&lt;/p&gt;
 &lt;p&gt;As you see, I use a lot of Org macros, and they all work in my &amp;ldquo;one post per subtree&amp;rdquo; flow.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
+&lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;いくつか使い方の例をあげておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{color(blue, 青くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{color(blue, ボールドで青くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;p&gt;いくつか使い方の例をあげておく&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{color(red, 赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+*{{{color(blue, ボールドで赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
 {{{highlight(yellow, 黄色にハイライトされるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
+*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;!-- raw HTML omitted --&gt; 青くなるかな？&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt; ボールドで青くなるかな？&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;!-- raw HTML omitted --&gt; 黄色にハイライトされるかな？&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt; 黄色にハイライトされて文字はボールドになるかな？&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;color: red&#34;&gt; 赤くなるかな？&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&#34;color: red&#34;&gt; ボールドで赤くなるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style=&#34;background-color: yellow;&#34;&gt; 黄色にハイライトされるかな？&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span style=&#34;background-color: yellow;&#34;&gt; 黄色にハイライトされて文字はボールドになるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになるかな？&lt;/div&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt; 背景がシアンになって文字はボールドになるかな？&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになって文字はボールドになるかな？&lt;/div&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．&lt;/p&gt;
+&lt;p&gt;上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{begin_panel}}} Panel example This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt; {{{end_panel}}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
+&lt;div class=&#34;panel&#34;&gt;&lt;p&gt; Panel example This is a formatted block of text… &lt;/p&gt;&lt;/div&gt;
+となる．マニュアルでは以下の使い方を薦めている．
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_panel
 *Panel example* \\
 This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text...
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_panel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;strong&gt;Panel example&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;panel&#34;&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Panel example&lt;/strong&gt; &lt;br /&gt;
 This is a formatted block of text&amp;hellip;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;なお，org-modeのマクロ自体に関しては，org-modeのマニュアルの &lt;strong&gt;12.5 Macro replacement&lt;/strong&gt; を参考にしていただきたい．&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;なお，org-modeのマクロ自体に関しては，org-modeのマニュアルの &lt;strong&gt;12.5 Macro replacement&lt;/strong&gt; を参考にしていただきたい．&lt;/p&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    &lt;strong&gt;2020年1月12日　Hugoを使用している人のための追記&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;2019年の年末にMacBook Pro 16 inch (Catalina)に買い替えた時，Hugoもv.０.61にupgradeした．その際に，HugoのMarkdown用のdefault libraryがGoldmarkに変更になっていることに気がついていなかった．そのためにこのページのフォントの色の変更が働かなくなっていた．数日前に気がついたので，修正した．詳細は以下のサイトを参考．&lt;/p&gt;
+&lt;p&gt;参考サイト1：&lt;a href=&#34;https://gohugo.io/news/0.60.0-relnotes/&#34;&gt;Goldmark – CommonMark compliant, GitHub flavored, fast and flexible – is the new default library for Markdown in Hugo.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考サイト2：&lt;a href=&#34;https://discourse.gohugo.io/t/ox-hugo-go-org/21254/7&#34;&gt;Just wonder if the migration to Goldmark is going to be smooth ?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上記のサイトには，「マークダウンファイルにinline HTMLがたくさんあるのなら，unsafe modeを有効にしないといけないかもね」とあるので，config/default/config.tomlの最後に，&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;を追加した．これで，Markdownがうまく働くようになり，再びフォントの色も変更されるようになった．&lt;/p&gt;
 &lt;h2 id=&#34;exporting-org-mode-to-html-in-place-coloring&#34;&gt;&lt;a href=&#34;https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring&#34;&gt;Exporting org-mode to HTML: In-place coloring&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;フォントの色を変える別の方法である．リンク先にある通り，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;     この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;!-- raw HTML omitted --&gt;
-この文章は， &lt;strong&gt;&lt;!-- raw HTML omitted --&gt;青のボールド&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt; になって欲しい！&lt;/p&gt;
+&lt;p&gt;フォントの色を変える別の方法である．リンク先にある通り，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;br /&gt;
+この文章は， &lt;strong&gt;&lt;font color = &#34;red&#34;&gt;赤のボールド&lt;/font&gt;&lt;/strong&gt; になって欲しい！&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;org-modeのマニュアルの &lt;strong&gt;12.9.5 Quoting HTML tags&lt;/strong&gt; も参考のこと&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;こちらは設定を必要としないが，やはり，最初に説明したマクロの方がいろいろ出来て便利である．&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;org-modeのマニュアルの &lt;strong&gt;12.9.5 Quoting HTML tags&lt;/strong&gt; も参考のこと&lt;/p&gt;
+&lt;p&gt;こちらは設定を必要としないが，やはり，最初に説明したマクロの方がいろいろ出来て便利である．&lt;/p&gt;
 &lt;p&gt;次回は，htmlをexportする際のCSSについてまとめてみたい．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -265,7 +286,8 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/post/org-mode_paper_1/</guid>
       <description>&lt;p&gt;私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする&lt;/li&gt;

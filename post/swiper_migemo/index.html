@@ -29,8 +29,7 @@
     
   
   <meta name="description" content="文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．
-  下図は，ivyを検索しているところだが，下に&quot;Swiper&quot;と表示されるバッファが表示され，そこに”ivy”と打つと，上の本文の中のivyは黄色でハイライトされる．同時に下のバッファでは，現在見ているivyのある行に下線が引かれ，行数が横に示される．上下のArrow Keyでivyのある行から次の行に飛べる．リターンすれば本文のその行に行ける．非常に便利である．">
+Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/swiper_migemo/">
@@ -125,8 +124,7 @@ swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規
   <meta property="og:url" content="/post/swiper_migemo/">
   <meta property="og:title" content="Swiper, ivy, avy, migemoによるEmacsの検索強化 | A perfect autumn day">
   <meta property="og:description" content="文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．
-  下図は，ivyを検索しているところだが，下に&quot;Swiper&quot;と表示されるバッファが表示され，そこに”ivy”と打つと，上の本文の中のivyは黄色でハイライトされる．同時に下のバッファでは，現在見ているivyのある行に下線が引かれ，行数が横に示される．上下のArrow Keyでivyのある行から次の行に飛べる．リターンすれば本文のその行に行ける．非常に便利である．"><meta property="og:image" content="/post/swiper_migemo/featured.jpg">
+Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．"><meta property="og:image" content="/post/swiper_migemo/featured.jpg">
   <meta property="twitter:image" content="/post/swiper_migemo/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -404,7 +402,8 @@ swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規
 
     <div class="article-style" itemprop="articleBody">
       <p>文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;</p>
-<!-- raw HTML omitted -->
+<h2>Table of Contents</h2>
+
 <h2 id="swiper-dot-el">swiper.el</h2>
 <ul>
 <li>参照1：<a href="https://github.com/abo-abo/swiper">swiper</a>  ご本家</li>
@@ -583,7 +582,7 @@ swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規
 <span style="color:#f92672">#+</span>end_src
 </code></pre></div></li>
 </ul>
-<!-- raw HTML omitted -->
+<!--listend-->
 <ul>
 <li>
 <p>C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．</p>

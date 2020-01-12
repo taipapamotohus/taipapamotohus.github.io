@@ -18,14 +18,16 @@
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/post/org-rifle/</guid>
       <description>&lt;p&gt;学会続きで，久方ぶりの更新である．org fileの中を検索する際に，&lt;a href=&#34;../swiper_migemo&#34;&gt;Swiper, ivy, avy, migemoによるEmacsの検索強化&lt;/a&gt;で取り上げた &lt;strong&gt;swiper&lt;/strong&gt; を，もっぱら使用しているのだが，そうすると，ファイル内のどこにいるのかが分からなくなることがある．検索ファイルのパスなどがorg fileの中で分かる検索ソフトはないものかと探したところ，このorg-rifleが見つかった．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#installation&#34;&gt;Installation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/alphapapa/org-rifle&#34;&gt;org-rifle&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -102,8 +104,9 @@
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
       <guid>/post/deadgrep/</guid>
       <description>&lt;p&gt;次世代grepで最速と言われる&lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;ripgrep&lt;/a&gt;をバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#ref&#34;&gt;Ref&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#install&#34;&gt;Install&lt;/a&gt;&lt;/li&gt;
@@ -113,7 +116,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;ref&#34;&gt;Ref&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/Wilfred/deadgrep&#34;&gt;deadgrep: use ripgrep from Emacs&lt;/a&gt; ご本家&lt;/li&gt;
@@ -176,7 +180,8 @@
       <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
       <guid>/post/swiper_migemo/</guid>
       <description>&lt;p&gt;文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;swiper-dot-el&#34;&gt;swiper.el&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://github.com/abo-abo/swiper&#34;&gt;swiper&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -355,7 +360,7 @@
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;C-x C-dすれば，下図のように，最近開いたディレクトリが表示され，その中から行きたいディレクトリを選んで，リターンすれば良い．&lt;/p&gt;

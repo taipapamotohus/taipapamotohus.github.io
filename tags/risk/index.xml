@@ -25,8 +25,9 @@
 &lt;li&gt;&lt;a href=&#34;http://rstudio-pubs-static.s3.amazonaws.com/6600%5Fe6703101eb7441ccb792000f4193b3b9.html&#34;&gt;Competing risk analysisのデモ&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://rpubs.com/alecri/258589&#34;&gt;A not so short review on survival analysis in R&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#prepare-dataset-melanoma-from-riskregression-package&#34;&gt;Prepare dataset &amp;ldquo;Melanoma&amp;rdquo; from &amp;ldquo;riskRegression&amp;rdquo; package&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#competing-risk-analysis-with-cuminc-of-cmprsk-package&#34;&gt;Competing risk analysis with cuminc of &amp;ldquo;cmprsk&amp;rdquo; package&lt;/a&gt;&lt;/li&gt;
@@ -39,7 +40,8 @@
 &lt;li&gt;&lt;a href=&#34;#plot-survival-curve-of-competing-risk-analysis-with-prodlim--default&#34;&gt;Plot survival curve of competing risk analysis with prodlim (default)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#plot-survival-curve-of-competing-risk-analysis-with-prodlim--modified&#34;&gt;Plot survival curve of competing risk analysis with prodlim (modified)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;prepare-dataset-melanoma-from-riskregression-package&#34;&gt;Prepare dataset &amp;ldquo;Melanoma&amp;rdquo; from &amp;ldquo;riskRegression&amp;rdquo; package&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(riskRegression)
 &lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;(Melanoma)

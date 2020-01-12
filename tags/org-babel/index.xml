@@ -18,14 +18,16 @@
       <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
       <guid>/post/exportrplot/</guid>
       <description>&lt;p&gt;本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-setup&#34;&gt;Org-babel setup&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;org-babel-setup&#34;&gt;Org-babel setup&lt;/h2&gt;
 &lt;p&gt;org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &amp;hellip;..(^^;;;&lt;/p&gt;
 &lt;p&gt;ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．&lt;/p&gt;
@@ -50,10 +52,10 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/h2&gt;
 &lt;p&gt;以下のサイトを参考にした．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; Official manual &lt;a href=&#34;https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code&#34;&gt;14 Working with Source Code&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;br /&gt;
 このサイトが分かりやすい．特に， &lt;strong&gt;ヘッダー引数&lt;/strong&gt; と &lt;strong&gt;言語毎の書き方&lt;/strong&gt; の &lt;strong&gt;R&lt;/strong&gt; の項は必読．&lt;/p&gt;
 &lt;h2 id=&#34;org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;br /&gt;
 org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: R-test
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa

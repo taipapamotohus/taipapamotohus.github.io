@@ -325,7 +325,7 @@
     <div class="article-style">
       
       以前の記事（beamerでスライド原稿用pdfを作成する（その１））で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiのmacOS での設定例 を参照していただきたい．
- 参照：Mac OS X El Capitan の AUCTeX の設定 参照：skimとの連携 参照：AUCTeX の設定と便利な機能 参照：TeX_and_PDF_Synchronization  backward search   こちらのほうが便利なので最初に説明する．
+Table of Contents  参照：Mac OS X El Capitan の AUCTeX の設定 参照：skimとの連携 参照：AUCTeX の設定と便利な機能 参照：TeX_and_PDF_Synchronization  backward search   こちらのほうが便利なので最初に説明する．
   skimで表示されたpdf上の特定の箇所に該当するLaTeX文書の箇所を探して示してくれる．
   この機能を可能にするには，skimの環境設定を開いて「同期する」の初期値を「カスタム」とし，コマンドのところに以下のように打ち込む．
 $ /usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1/bin/emacsclient   defaultでは初期値に「Emacs」となっており，本来ならこれで動くはずだが，homebrewで最新のEmacsをinstallしたために，もともと入っているemacsとはversionが異なる．つまり，サーバーとして起動しているEmacsと、使用するEmacsClientのバージョンが異なることになり，このままでは動かない．そこで，homebrewでインストールした方をfull pathで明示的に指示する必要がある．
@@ -334,7 +334,6 @@ $ --no-wait +%line &#34;%file&#34;   つまりこうなる．
      一方，Emacsのinit.orgには以下のように記述して，Emacs serverを立ち上げておく．
 #+begin_src emacs-lisp ;; Starts the Emacs server (server-start) #+end_src   これで，pdf上の任意の箇所で，Shift-Command-Clickすると，該当するlatex documentの箇所に飛ぶ．もし，Emacsが立ち上がっていなければ，Emacsを立ち上げるところからやってくれる．素晴らしい！ これは確かめてみると勘違いであった．Emacsは立ち上げておかないといけない．
   この機能は知ってしまうと，無くてはならないほど便利に感じる機能である．pdfで間違いを見つけたときに，それがlatexソースのどこに相当するかを同定するのは結構面倒であるが，この機能により一発で同定することができる．
-  該当箇所が少しずれることがあるのが欠点であるが，それでも十分に役に立つ．
       
     </div>
   </div>

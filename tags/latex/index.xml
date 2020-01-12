@@ -19,8 +19,9 @@
       <guid>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</guid>
       <description>&lt;p&gt;1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，&lt;a href=&#34;../mojave&#34;&gt;Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew&lt;/a&gt;でまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Table of contents&lt;/strong&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#preparation-for-emacs-installation&#34;&gt;Preparation for Emacs installation&lt;/a&gt;&lt;/li&gt;
@@ -42,7 +43,8 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E3%81%BE%E3%81%A8%E3%82%81&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;dealing-with-read-only-system-volume-in-catalina&#34;&gt;Dealing with read-only system volume in Catalina&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照サイト : &lt;a href=&#34;https://news.mynavi.jp/article/osxhack-242/&#34;&gt;Catalinaでファイルシステムがこう変わる&lt;/a&gt;&lt;/li&gt;
@@ -187,8 +189,9 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
       <guid>/post/how-to-create-conference-poster-by-latex-beamer/</guid>
       <description>&lt;p&gt;学会発表用のスライド作成については，&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;に始まる一連の記事にまとめたが，ポスター作成については触れていなかったので，今回まとめることにする．&lt;/p&gt;
 &lt;p&gt;latexを使ってポスターを作成する場合の定番はbeamerを利用したもので，代表例には，beamerposterがある．それ以外にも，latexのポスター作成用のパッケージには，baposter, Gemini, betterposter, tikzposterなどがある．さらに，Inkscapeを使用する方法も報告されている．できるだけこれらの情報を集積してみた．なお，私自身は，標準的なbeamerposterの中に含まれているスタイルファイルを少し改変して用いている．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#general-remarks&#34;&gt;General remarks&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#beamerposter&#34;&gt;beamerposter&lt;/a&gt;
@@ -237,7 +240,8 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E3%81%BE%E3%81%A8%E3%82%81&#34;&gt;まとめ&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
 &lt;h2 id=&#34;general-remarks&#34;&gt;General remarks&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://guides.lib.wayne.edu/posters/latex&#34;&gt;Creating Research Posters&lt;/a&gt;&lt;/li&gt;
@@ -360,7 +364,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;li&gt;9行目： &lt;strong&gt;\usetheme{I6dv_test}&lt;/strong&gt; によりスタイルシートを指定している．&lt;/li&gt;
 &lt;li&gt;45行目： &lt;strong&gt;orientation=landscape&lt;/strong&gt; で横長， &lt;strong&gt;orientation=portrait&lt;/strong&gt; で縦長になる．実際の大きさは， &lt;strong&gt;width=200,height=100&lt;/strong&gt; で合わせる（幅 200cm 高さ 100 cmということである）．scaleの部分でも調整する．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;!--listend--&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;  1
@@ -1220,7 +1224,8 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
       <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
       <guid>/post/tufte/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;
@@ -1421,7 +1426,8 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;ba
       <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
       <guid>/post/synchronization/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;）で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiの&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX#h32722ec&#34;&gt;macOS での設定例&lt;/a&gt; を参照していただきたい．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;ul&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://ryogan.org/blog/2015/12/30/mac-os-x-el-capitan-%E3%81%AE-auctex-%E3%81%AE%E8%A8%AD%E5%AE%9A/&#34;&gt;Mac OS X El Capitan の AUCTeX の設定&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://texwiki.texjp.org/?Emacs#e9c08b3d&#34;&gt;skimとの連携&lt;/a&gt;&lt;/li&gt;
@@ -1518,7 +1524,8 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;ba
       <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/post/org-mode_paper_3/</guid>
       <description>&lt;p&gt;前回（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1659,12 +1666,12 @@ option:-r    &lt;span style=&#34;color:#a6e22e&#34;&gt;reverse&lt;/span&gt; &lt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.tug.org/mactex/2013/faq/#qm05&#34;&gt;The Most Frequently Asked Questions (FAQ)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
-or subfolders of this directory, and &amp;ldquo;.bst&amp;rdquo; files go in &lt;!-- raw HTML omitted --&gt;
-&lt;strong&gt;~/Library/texmf/bibtex/bst&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;br /&gt;
+&lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;br /&gt;
+or subfolders of this directory, and &amp;ldquo;.bst&amp;rdquo; files go in &lt;br /&gt;
+&lt;strong&gt;~/Library/texmf/bibtex/bst&lt;/strong&gt; &lt;br /&gt;
 or subfolders of this directory.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -1770,7 +1777,8 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0900</pubDate>
       <guid>/post/org-mode_paper_1/</guid>
       <description>&lt;p&gt;私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+
 &lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする&lt;/li&gt;
@@ -2017,7 +2025,8 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/beamer_movie2/</guid>
       <description>&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
 &lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
 &lt;ul&gt;
@@ -2339,7 +2348,8 @@ An annotation is considered as an object with a location on a page. The type of 
       <link>/post/latexmk/</link>
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/latexmk/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
+      <description>&lt;h2&gt;Table of Contents&lt;/h2&gt;
+HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;

@@ -324,7 +324,7 @@
     <h2><a href="/post/latexmk/">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></h2>
     <div class="article-style">
       
-      TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
+      Table of Contents TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
 ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）   参考サイト：TeX Wiki TeX LiveMac
   MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
 $ sudo /usr/local/texlive/????/bin/*/tlmgr path add   上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
