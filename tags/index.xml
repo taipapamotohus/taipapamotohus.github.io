@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -13,18 +13,34 @@
     </image>
     
     <item>
-      <title>Catalina</title>
-      <link>/tags/catalina/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/catalina/</guid>
+      <title>dired</title>
+      <link>/tags/dired/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/dired/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
       <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>treemacs</title>
+      <link>/tags/treemacs/</link>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/treemacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Catalina</title>
+      <link>/tags/catalina/</link>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <guid>/tags/catalina/</guid>
       <description></description>
     </item>
     
@@ -201,14 +217,6 @@
       <link>/tags/projectile/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
       <guid>/tags/projectile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>treemacs</title>
-      <link>/tags/treemacs/</link>
-      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/treemacs/</guid>
       <description></description>
     </item>
     
@@ -473,14 +481,6 @@
       <link>/tags/homebrew/</link>
       <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
       <guid>/tags/homebrew/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dired</title>
-      <link>/tags/dired/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/dired/</guid>
       <description></description>
     </item>
     

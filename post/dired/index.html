@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="考えてみれば，EmacsのFile ViewerであるDiredについては，peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）を投稿した以外はほとんど何も書いていないことに気がついた．そこで，今回は，Diredを強化するパッケージについてまとめることにした．">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/dired/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/dired/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="/post/dired/">
+  <meta property="og:title" content="Dired reinforcement | A perfect autumn day">
+  <meta property="og:description" content="考えてみれば，EmacsのFile ViewerであるDiredについては，peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）を投稿した以外はほとんど何も書いていないことに気がついた．そこで，今回は，Diredを強化するパッケージについてまとめることにした．"><meta property="og:image" content="/post/dired/featured.jpg">
+  <meta property="twitter:image" content="/post/dired/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-02-18T00:00:00&#43;09:00">
+    
+    <meta property="article:modified_time" content="2020-02-23T21:56:21&#43;09:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Dired reinforcement | A perfect autumn day</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1 itemprop="name">Dired reinforcement</h1>
+
+  
+  <p class="page-subtitle">Diredを補強してEmacsをfile viewerとして使う</p>
+  
+
+  
+
+
+
+<meta content="2020-02-18 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2020-02-23 21:56:21 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Feb 23, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/dired/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+    
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 4032px; max-height: 1615px;">
+  <div style="position: relative">
+    <img src="/post/dired/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Stone figure of warrior on horse at National Museum of Ireland</span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>考えてみれば，EmacsのFile ViewerであるDiredについては，<a href="../peep">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a>を投稿した以外はほとんど何も書いていないことに気がついた．そこで，今回は，Diredを強化するパッケージについてまとめることにした．</p>
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#dired-human-readable-sizes-and-sort-by-size">DIRED: HUMAN-READABLE SIZES AND SORT BY SIZE</a></li>
+<li><a href="#dired-subtree">dired-subtree</a>
+<ul>
+<li><a href="#%E5%8F%82%E7%85%A7%E3%82%B5%E3%82%A4%E3%83%88-dired-hacks">参照サイト： dired-hacks</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</li>
+<li><a href="#dired-plus">Dired Plus</a>
+<ul>
+<li><a href="#%E5%8F%82%E7%85%A7%E3%82%B5%E3%82%A4%E3%83%88">参照サイト</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</li>
+<li><a href="#dired-quick-sort">dired-quick-sort</a>
+<ul>
+<li><a href="#%E5%8F%82%E7%85%A7%E3%82%B5%E3%82%A4%E3%83%88">参照サイト</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</li>
+<li><a href="#treemacs-icons-dired">treemacs-icons-dired</a>
+<ul>
+<li><a href="#%E5%8F%82%E7%85%A7%E3%82%B5%E3%82%A4%E3%83%88">参照サイト</a></li>
+</ul>
+</li>
+<li><a href="#peep-dired">peep-dired</a></li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="dired-human-readable-sizes-and-sort-by-size"><a href="http://pragmaticemacs.com/emacs/dired-human-readable-sizes-and-sort-by-size/">DIRED: HUMAN-READABLE SIZES AND SORT BY SIZE</a></h2>
+<p>Emacsの老舗ブログの一つである <strong>Pragmatic Emacs</strong> からのパクリである．diredのデフォルトではファイルサイズが <strong>24345</strong> のようにバイトサイズで正確に表示されるのであるが，はっきり言って見にくい．そこで人間に読みやすい表示になるようにls commandのオプションを与える．例によって，~/.emacs.d/personal/init.orgに以下を追記する．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
+(<span style="color:#66d9ef">setq</span> dired-listing-switches <span style="color:#e6db74">&#34;-alh&#34;</span>)
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><p>これで上記の例では， <strong>24K</strong> と表示されるようになる．</p>
+<h2 id="dired-subtree"><a href="https://github.com/Fuco1/dired-hacks#dired-subtree">dired-subtree</a></h2>
+<h3 id="参照サイト-dired-hacks">参照サイト： <a href="https://github.com/Fuco1/dired-hacks">dired-hacks</a></h3>
+<p>これはdiredの様々な追加物のコレクションであるが，この中のdired-subtreeが便利である．</p>
+<h3 id="installation">Installation</h3>
+<p>diredのデフォルトでは，directoryでEnterすると新しいバッファが開いてそのdirectoryが表示される．しかし，ここは，やはり，同じバッファでsubdirectoryとして表示して欲しいところである．それを実現するのが，このdired-subtreeである．これも以下を，~/.emacs.d/personal/init.orgに書き込めば良い．</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
+(<span style="color:#a6e22e">use-package</span> dired-subtree
+  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+  <span style="color:#e6db74">:config</span>
+  (bind-keys <span style="color:#e6db74">:map</span> dired-mode-map
+             (<span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#f92672">.</span> dired-subtree-insert)
+             (<span style="color:#e6db74">&#34;;&#34;</span> <span style="color:#f92672">.</span> dired-subtree-remove)))
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><p>これで，directoryにカーソルを持っていって <strong>i</strong> を叩けば同じバッファ内でsubdirectoryとしてそのdirectoryが開き， <strong>;</strong> を叩けば閉じるようになる．</p>
+<h3 id="usage">Usage</h3>
+<p>以下の図で説明する．（前述の設定でファイルサイズはKBやMBで表示されている）</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/subtree-1.jpg" >
+
+<img src="/img/subtree-1.jpg" width="80%" >
+</a>
+
+</figure>
+
+<p>まず，13行目のstatic directoryにカーソルを持っていき，i を叩くとstaticの行の下にimgとox-hugoのdirectoryが現れる．</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/subtree-2.jpg" >
+
+<img src="/img/subtree-2.jpg" width="80%" >
+</a>
+
+</figure>
+
+<p>ついで，imgにカーソルを移動し，再び i を叩くと下図のようにimg directoryの中身が表示される．</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/subtree-3.jpg" >
+
+<img src="/img/subtree-3.jpg" width="80%" >
+</a>
+
+</figure>
+
+<p>directoryを閉じるときには，前述のごとく ; を叩けば良い．</p>
+<h2 id="dired-plus">Dired Plus</h2>
+<p>Diredの拡張強化版．多くの機能を有するが，私は色使いが綺麗なので使用している．それ以外の機能はほとんど使用していない（笑）．</p>
+<h3 id="参照サイト">参照サイト</h3>
+<ul>
+<li><a href="https://www.emacswiki.org/emacs/DiredPlus">https://www.emacswiki.org/emacs/DiredPlus</a>  ご本家</li>
+<li><a href="https://www.reddit.com/r/emacs/comments/84thzd/what%5Fhappened%5Fto%5Fdired%5Fpackage/">What happened to dired+ package?</a></li>
+</ul>
+<h3 id="installation">Installation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
+(<span style="color:#a6e22e">use-package</span> dired+
+  <span style="color:#e6db74">:quelpa</span> (dired+ <span style="color:#e6db74">:fetcher</span> github <span style="color:#e6db74">:repo</span> <span style="color:#e6db74">&#34;emacsmirror/dired-plus&#34;</span>)
+  <span style="color:#e6db74">:defer</span> <span style="color:#ae81ff">1</span>
+  <span style="color:#e6db74">:init</span>
+  (<span style="color:#66d9ef">setq</span> diredp-hide-details-initially-flag <span style="color:#66d9ef">nil</span>)
+  (<span style="color:#66d9ef">setq</span> diredp-hide-details-propagate-flag <span style="color:#66d9ef">nil</span>)
+  <span style="color:#e6db74">:config</span>
+  (diredp-toggle-find-file-reuse-dir <span style="color:#ae81ff">1</span>)
+  (<span style="color:#66d9ef">let</span> ((gls <span style="color:#e6db74">&#34;/usr/local/bin/gls&#34;</span>))
+    (<span style="color:#66d9ef">if</span> (file-exists-p gls) (<span style="color:#66d9ef">setq</span> insert-directory-program gls)))
+  )
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><h3 id="usage">Usage</h3>
+<p>上記のご本家サイトを参照．ここまでの画像はDired Plusがインストールされた状態のものであり，ファイル名，拡張子，time, size, permissionなどが色分けされているのが分かる．</p>
+<h2 id="dired-quick-sort">dired-quick-sort</h2>
+<p>dired-modeにおいて，&ldquo;S&quot;をsort用のhydra立ち上げにバインドする．</p>
+<h3 id="参照サイト">参照サイト</h3>
+<ul>
+<li><a href="https://gitlab.com/xuhdev/dired-quick-sort">https://gitlab.com/xuhdev/dired-quick-sort</a></li>
+<li><a href="http://pragmaticemacs.com/emacs/speedy-sorting-in-dired-with-dired-quick-sort/">http://pragmaticemacs.com/emacs/speedy-sorting-in-dired-with-dired-quick-sort/</a></li>
+</ul>
+<h3 id="installation">Installation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
+(<span style="color:#a6e22e">use-package</span> dired-quick-sort
+  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+  <span style="color:#e6db74">:config</span>
+  (dired-quick-sort-setup))
+<span style="color:#f92672">#+</span>end_src
+</code></pre></div><h3 id="usage">Usage</h3>
+<p>以下の図で説明する．</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/dired-default.jpg" >
+
+<img src="/img/dired-default.jpg" width="80%" >
+</a>
+
+</figure>
+
+<p>これはdirectoryを開いた時のデフォルトの画像である．ここで，*S*を叩くと下図のような画面になる．</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/dired-default2.jpg" >
+
+<img src="/img/dired-default2.jpg" width="80%" >
+</a>
+
+</figure>
+
+<p>下に開いたhydraのバッファを見て，例えば，グループとサイズでソートするようにsとgを叩くと下の画像（directoryが最初に来てファイルがその後になり，サイズの大きい順になっている）のようになる．</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/dired-sort.jpg" >
+
+<img src="/img/dired-sort.jpg" width="80%" >
+</a>
+
+</figure>
+
+<p>ここでqを叩けば，このソートの状態が維持されたままhydraのバッファが閉じる．</p>
+<h2 id="treemacs-icons-dired">treemacs-icons-dired</h2>
+<h3 id="参照サイト">参照サイト</h3>
+<ul>
+<li><a href="https://github.com/Alexander-Miller/treemacs#treemacs-icons-dired">treemacs-icons-dired</a>  ご本家</li>
+<li><a href="../treemacs_projectile/">Treemacs and Projectile</a>  当サイトの以前の記事</li>
+</ul>
+<p>treemacsのアイコンをdiredでも使えるようにしてくれるモード．この記事のここまでのdired bufferの画像に表示されているアイコンがそれである．treemacsをインストールすれば一緒にインストールされる（インストールについては，上記の過去記事を参考にされたい）．treemacsを立ち上げていれば，diredを立ち上げると自動的にバッファにアイコンが表示される．が，時々何故か表示されないことがある．そういう時は，M-x treemacs-icons-dired-modeを何回かやってtreemacs-icons-dired-modeを再起動すれば表示されるようになる．</p>
+<h2 id="peep-dired">peep-dired</h2>
+<p>以前の記事（<a href="../peep">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a>）を参照．実はこれが一番役に立つかも．．．</p>
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/emacs/">emacs</a>
+  
+  <a class="badge badge-light" href="/tags/dired/">dired</a>
+  
+  <a class="badge badge-light" href="/tags/treemacs/">treemacs</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar%20%28Copy%201%29_hu0e0eac0269c34ce41ed30e928150bd75_369085_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">taipapa</a></h5>
+      <h6 class="card-subtitle">本人ではありません　(^^)</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:taipapamotohus@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=x1m6M2IAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/taipapamotohus" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/treemacs_projectile/">Treemacs and Projectile</a></li>
+          
+          <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
+          
+          <li><a href="/post/how-to-create-conference-poster-by-latex-beamer/">How to create conference posters by latex (beamer)</a></li>
+          
+          <li><a href="/post/mark-and-desktop-saving/">How to use mark in Emacs (helm-all-mark-rings)</a></li>
+          
+          <li><a href="/post/org-rifle/">Org-rifle</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+    <div class="article-widget">
+      
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/" rel="prev">How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/ocaml.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/sh.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/tex.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/emacs-lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/pearl.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    © 2020 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

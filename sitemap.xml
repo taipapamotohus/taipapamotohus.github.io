@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/dired/</loc>
+    <lastmod>2020-02-23T21:56:21+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</loc>
     <lastmod>2020-01-05T23:00:41+09:00</lastmod>
   </url>
@@ -144,7 +149,7 @@
   
   <url>
     <loc>/post/html_export/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
+    <lastmod>2020-02-23T21:56:19+09:00</lastmod>
   </url>
   
   <url>
@@ -253,13 +258,33 @@
   </url>
   
   <url>
-    <loc>/tags/catalina/</loc>
-    <lastmod>2020-01-05T23:00:41+09:00</lastmod>
+    <loc>/tags/dired/</loc>
+    <lastmod>2020-02-23T21:56:21+09:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/emacs/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
+    <lastmod>2020-02-23T21:56:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-02-23T21:56:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-02-23T21:56:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/treemacs/</loc>
+    <lastmod>2020-02-23T21:56:21+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/catalina/</loc>
+    <lastmod>2020-01-05T23:00:41+09:00</lastmod>
   </url>
   
   <url>
@@ -273,18 +298,8 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/setup/</loc>
     <lastmod>2020-01-05T23:00:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
   </url>
   
   <url>
@@ -383,11 +398,6 @@
   </url>
   
   <url>
-    <loc>/tags/treemacs/</loc>
-    <lastmod>2019-09-01T16:34:54+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/full-text-search/</loc>
     <lastmod>2019-09-17T21:59:41+09:00</lastmod>
   </url>
@@ -419,7 +429,7 @@
   
   <url>
     <loc>/tags/color/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
+    <lastmod>2020-02-23T21:56:19+09:00</lastmod>
   </url>
   
   <url>
@@ -553,11 +563,6 @@
   </url>
   
   <url>
-    <loc>/tags/dired/</loc>
-    <lastmod>2019-04-20T13:33:45+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/image/</loc>
     <lastmod>2019-04-20T13:33:45+09:00</lastmod>
   </url>
@@ -634,7 +639,7 @@
   
   <url>
     <loc>/tags/export/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
+    <lastmod>2020-02-23T21:56:19+09:00</lastmod>
   </url>
   
   <url>
@@ -734,7 +739,7 @@
   
   <url>
     <loc>/tags/html/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
+    <lastmod>2020-02-23T21:56:19+09:00</lastmod>
   </url>
   
   <url>
@@ -744,7 +749,7 @@
   
   <url>
     <loc>/tags/orgmode/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
+    <lastmod>2020-02-23T21:56:19+09:00</lastmod>
   </url>
   
   <url>
@@ -754,7 +759,7 @@
   
   <url>
     <loc>/tags/css/</loc>
-    <lastmod>2020-01-12T15:06:59+09:00</lastmod>
+    <lastmod>2020-02-23T21:56:19+09:00</lastmod>
   </url>
   
   <url>
