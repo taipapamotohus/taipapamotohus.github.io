@@ -8,101 +8,101 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.4.0">
 
-  
 
-  
-  
-  
-  
-  
-    
-    
-    
-  
-  
+
+
+
+
+
+
+
+
+
+
+
 
   <meta name="author" content="taipapa">
 
-  
-  
-  
-    
-  
+
+
+
+
+
   <meta name="description" content="このブログを始めた頃にLaTeXを用いたスライド作成について一連の記事（beamerでスライド原稿用pdfを作成する（その１）など）にまとめた．しかし，10年以上もこの方法を使ってきて，少々飽きてきたと言うのが正直な感想である．そんな時に気になっていたのが， reveal.js である．今回は，思いきってreveal.jsによるスライド作成に挑んでみたので，その顛末をまとめておく．私にはhtmlやjavascriptはさっぱりなので，例によってorg-modeを介しての作成となった．">
 
-  
+
   <link rel="alternate" hreflang="en-us" href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/">
 
-  
 
 
-  
 
-  
-  
-  
+
+
+
+
+
   <meta name="theme-color" content="#EF525B">
-  
 
-  
-  
-  
-  
-    
+
+
+
+
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
 
-    
-    
-    
-      
-    
-    
-      
-      
+
+
+
+
+
+
+
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-light">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-      
-    
 
-    
 
-    
 
-  
 
-  
-  
+
+
+
+
+
+
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
-  
 
-  
-  
-  
+
+
+
+
   <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
 
-  
 
-  
-  
+
+
+
     <script>
       window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
       ga('create', 'UA-126592193-1', 'auto');
-      
+
       ga('require', 'eventTracker');
       ga('require', 'outboundLinkTracker');
       ga('require', 'urlChangeTracker');
       ga('send', 'pageview');
     </script>
     <script async src="https://www.google-analytics.com/analytics.js"></script>
-    
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
-    
-  
-  
 
-  
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+
+
+
+
+
 
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon-32.png">
@@ -110,31 +110,31 @@
 
   <link rel="canonical" href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/">
 
-  
-  
-  
-  
-    
-  
-  
+
+
+
+
+
+
+
   <meta property="twitter:card" content="summary_large_image">
-  
+
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/">
   <meta property="og:title" content="How to create presentation slides by reveal.js and org-mode (org-reveal) | A perfect autumn day">
   <meta property="og:description" content="このブログを始めた頃にLaTeXを用いたスライド作成について一連の記事（beamerでスライド原稿用pdfを作成する（その１）など）にまとめた．しかし，10年以上もこの方法を使ってきて，少々飽きてきたと言うのが正直な感想である．そんな時に気になっていたのが， reveal.js である．今回は，思いきってreveal.jsによるスライド作成に挑んでみたので，その顛末をまとめておく．私にはhtmlやjavascriptはさっぱりなので，例によってorg-modeを介しての作成となった．"><meta property="og:image" content="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/featured.jpg">
   <meta property="twitter:image" content="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/featured.jpg"><meta property="og:locale" content="en-us">
-  
-    
+
+
       <meta property="article:published_time" content="2020-04-24T00:00:00&#43;09:00">
-    
-    <meta property="article:modified_time" content="2020-04-26T23:14:41&#43;09:00">
-  
 
-  
+    <meta property="article:modified_time" content="2020-04-26T23:25:10&#43;09:00">
 
 
-  
+
+
+
+
 
 
 
@@ -160,17 +160,17 @@
       </div>
 
       <div id="search-box">
-        
+
         <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
         autocomplete="off" autocorrect="off" spellcheck="false" type="search">
-        
+
       </div>
 
     </section>
     <section class="section-search-results">
 
       <div id="search-hits">
-        
+
       </div>
 
     </section>
@@ -178,105 +178,105 @@
 </aside>
 
 
-  
+
 <nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
   <div class="container">
 
-    
+
       <a class="navbar-brand" href="/">A perfect autumn day</a>
-      
+
       <button type="button" class="navbar-toggler" data-toggle="collapse"
               data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span><i class="fas fa-bars"></i></span>
       </button>
-      
 
-    
+
+
     <div class="collapse navbar-collapse" id="navbar">
 
-      
-      
+
+
       <ul class="navbar-nav mr-auto">
-        
 
-        
 
-        
-        
-        
-          
-        
 
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <li class="nav-item">
           <a class="nav-link " href="/#about"><span>Home</span></a>
         </li>
 
-        
-        
 
-        
 
-        
-        
-        
-          
-        
 
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <li class="nav-item">
           <a class="nav-link " href="/#posts"><span>Posts</span></a>
         </li>
 
-        
-        
 
-      
+
+
+
       </ul>
       <ul class="navbar-nav ml-auto">
-      
 
-        
 
-        
+
+
+
         <li class="nav-item">
           <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
         </li>
-        
 
-        
 
-        
+
+
+
         <li class="nav-item">
           <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
         </li>
-        
+
 
       </ul>
 
@@ -287,7 +287,6 @@
 
   <article class="article" itemscope itemtype="http://schema.org/Article">
 
-  
 
 
 
@@ -308,68 +307,69 @@
 
 
 
-  
-  
+
+
+
 
 
 <div class="article-container pt-3">
   <h1 itemprop="name">How to create presentation slides by reveal.js and org-mode (org-reveal)</h1>
 
-  
-  <p class="page-subtitle">reveal.jsとorg-modeでプレゼン用スライドを作成する（org-reveal）</p>
-  
 
-  
+  <p class="page-subtitle">reveal.jsとorg-modeでプレゼン用スライドを作成する（org-reveal）</p>
+
+
+
 
 
 
 <meta content="2020-04-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2020-04-26 23:14:41 &#43;0900 JST" itemprop="dateModified">
+<meta content="2020-04-26 23:25:10 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
-  
-  
 
-  
+
+
+
   <span class="article-date">
-    
-    
-      
+
+
+
           Last updated on
-      
-    
+
+
     <time>Apr 26, 2020</time>
   </span>
-  
 
-  
 
-  
+
+
+
   <span class="middot-divider"></span>
   <span class="article-reading-time">
     7 min read
   </span>
-  
 
-  
-  
-  
+
+
+
+
   <span class="middot-divider"></span>
   <a href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/#disqus_thread"></a>
-  
 
-  
-  
 
-  
-    
 
-  
+
+
+
+
+
+
 
 </div>
 
-  
+
 
 
 
@@ -711,7 +711,7 @@ $ tree -L <span style="color:#ae81ff">2</span>
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;video class=<span style="color:#e6db74">&#34;stretch&#34;</span> controls data-autoplay src=<span style="color:#e6db74">&#34;./Movies/Knight-33990.mp4&#34;</span>&gt;&lt;/video&gt;
 </code></pre></div><p>このファイルを，/Users/taipapa/Slides/reveal_test.org として保存する．</p>
 <h3 id="creation-of-custom-css-file">creation of custom css file</h3>
-<p>ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．</p>
+<p>ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．このファイルでは，フォントの大きさや色などを指定している．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */
 .reveal table th, .reveal table td {
 /* text-align: center; */
@@ -825,39 +825,37 @@ history: true,
  &lt;/body&gt;
 </code></pre></div><p>要するに，keyboard以下が追加部分である．chalkboardの設定を<a href="https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard">reveal.js-plugins/chalkboard/</a>の解説に従って追記した．これにより，上記1ー5の問題は全て解消された．</p>
 <p>下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込んでみた． <strong>”f”</strong> を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．</p>
-<iframe src="#ZgotmplZ" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+<iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
 <p>これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．</p>
     </div>
 
-    
 
 
-    
+
+
 
 <div class="article-tags">
-  
+
   <a class="badge badge-light" href="/tags/reveal/">reveal</a>
-  
+
   <a class="badge badge-light" href="/tags/js/">js</a>
-  
+
   <a class="badge badge-light" href="/tags/org-reveal/">org-reveal</a>
-  
+
   <a class="badge badge-light" href="/tags/emacs/">emacs</a>
-  
+
   <a class="badge badge-light" href="/tags/org-mode/">org-mode</a>
-  
+
   <a class="badge badge-light" href="/tags/presentation/">presentation</a>
-  
+
   <a class="badge badge-light" href="/tags/slide/">slide</a>
-  
+
   <a class="badge badge-light" href="/tags/javascript/">javascript</a>
-  
+
 </div>
 
 
 
-    
-      
 
 
 
@@ -866,132 +864,134 @@ history: true,
 
 
 
-  
 
 
 
 
 
-  
-  
-  
-    
-  
-  
+
+
+
+
+
+
+
+
+
   <div class="media author-card" itemscope itemtype="http://schema.org/Person">
-    
-      
+
+
       <img class="portrait mr-3" src="/authors/admin/avatar%20%28Copy%201%29_hu0e0eac0269c34ce41ed30e928150bd75_369085_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
-    
+
 
     <div class="media-body">
       <h5 class="card-title" itemprop="name"><a href="/">taipapa</a></h5>
       <h6 class="card-subtitle">本人ではありません　(^^)</h6>
-      
+
       <ul class="network-icon" aria-hidden="true">
-        
-          
-          
-          
-            
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
           <li>
             <a itemprop="sameAs" href="mailto:taipapamotohus@gmail.com" >
               <i class="fas fa-envelope"></i>
             </a>
           </li>
-        
-          
-          
-          
-          
-          
-          
-          
-            
-          
+
+
+
+
+
+
+
+
+
+
           <li>
             <a itemprop="sameAs" href="https://scholar.google.com/citations?user=x1m6M2IAAAAJ&amp;hl=en" target="_blank" rel="noopener">
               <i class="ai ai-google-scholar"></i>
             </a>
           </li>
-        
-          
-          
-          
-            
-          
-          
-          
-          
-          
-            
-          
+
+
+
+
+
+
+
+
+
+
+
+
           <li>
             <a itemprop="sameAs" href="https://github.com/taipapamotohus" target="_blank" rel="noopener">
               <i class="fab fa-github"></i>
             </a>
           </li>
-        
+
       </ul>
     </div>
   </div>
 
 
 
-      
-      
+
+
       <div class="article-widget">
         <div class="hr-light"></div>
         <h3>Related</h3>
         <ul>
-          
+
           <li><a href="/post/org-rifle/">Org-rifle</a></li>
-          
+
           <li><a href="/post/how-to-update-hugo-and-academic-theme-part3/">How to update hugo and academic theme (Part3)</a></li>
-          
+
           <li><a href="/post/how-to-upgrade-hugo-and-academic-theme/">How to update hugo and academic theme (Part 1)</a></li>
-          
+
           <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></li>
-          
+
           <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
-          
+
         </ul>
       </div>
-      
-    
 
-    
+
+
+
     <div class="article-widget">
-      
+
 <div class="post-nav">
-  
-  
-  
+
+
+
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
     <a href="/post/dired/" rel="prev">Dired reinforcement</a>
   </div>
-  
+
 </div>
 
     </div>
-    
 
-    
+
+
 <section id="comments">
-  
-    
+
+
 <div id="disqus_thread"></div>
 <script>
   let disqus_config = function () {
-    
-    
-    
+
+
+
   };
   (function() {
     if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
@@ -1008,7 +1008,7 @@ history: true,
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-  
+
 </section>
 
 
@@ -1016,59 +1016,59 @@ history: true,
   </div>
 </article>
 
-      
 
-    
-    
 
-    
-    
-    
+
+
+
+
+
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
 
-      
 
-      
-        
+
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/lisp.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/ocaml.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/sh.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/tex.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/emacs-lisp.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/pearl.min.js"></script>
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
-        
-      
 
-      
-      
-    
 
-    
-    
 
-    
-    
+
+
+
+
+
+
+
+
+
     <script>hljs.initHighlightingOnLoad();</script>
-    
 
-    
-    
+
+
+
     <script>
       const search_index_filename = "/index.json";
       const i18n = {
@@ -1083,13 +1083,13 @@ history: true,
         'talk' : "Talks"
         };
     </script>
-    
 
-    
-    
 
-    
-    
+
+
+
+
+
     <script id="search-hit-fuse-template" type="text/x-template">
       <div class="search-hit" id="summary-{{key}}">
       <div class="search-hit-content">
@@ -1101,68 +1101,68 @@ history: true,
       </div>
       </div>
     </script>
-    
 
-    
-    
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-    
 
-    
-    
 
-    
-    
+
+
+
+
+
     <script id="dsq-count-scr" src="https://a-perfect-autumn-day.disqus.com/count.js" async></script>
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
 
-    
 
 
 
 
 
 
-  
+
+
   <div class="container">
     <footer class="site-footer">
-  
-  <p class="powered-by">
-    
-      <a href="/privacy/">Privacy Policy</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Terms</a>
-        
-  </p>
-  
 
   <p class="powered-by">
-    © 2020 &middot; 
+
+      <a href="/privacy/">Privacy Policy</a>
+
+
+       &middot;
+      <a href="/terms/">Terms</a>
+
+  </p>
+
+
+  <p class="powered-by">
+    © 2020 &middot;
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
     <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
 
-    
+
     <span class="float-right" aria-hidden="true">
       <a href="#" id="back_to_top">
         <span class="button_icon">
@@ -1170,14 +1170,14 @@ history: true,
         </span>
       </a>
     </span>
-    
+
   </p>
 </footer>
 
   </div>
-  
 
-  
+
+
 <div id="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">

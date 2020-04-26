@@ -329,7 +329,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;video class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stretch&amp;#34;&lt;/span&gt; controls data-autoplay src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./Movies/Knight-33990.mp4&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/video&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このファイルを，/Users/taipapa/Slides/reveal_test.org として保存する．&lt;/p&gt;
 &lt;h3 id=&#34;creation-of-custom-css-file&#34;&gt;creation of custom css file&lt;/h3&gt;
-&lt;p&gt;ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．&lt;/p&gt;
+&lt;p&gt;ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．このファイルでは，フォントの大きさや色などを指定している．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;/* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */
 .reveal table th, .reveal table td {
 /* text-align: center; */
