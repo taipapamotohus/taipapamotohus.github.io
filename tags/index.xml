@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -13,18 +13,74 @@
     </image>
     
     <item>
-      <title>dired</title>
-      <link>/tags/dired/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
-      <guid>/tags/dired/</guid>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
+      <title>javascript</title>
+      <link>/tags/javascript/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>js</title>
+      <link>/tags/js/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-mode</title>
+      <link>/tags/org-mode/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/org-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-reveal</title>
+      <link>/tags/org-reveal/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/org-reveal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>presentation</title>
+      <link>/tags/presentation/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/presentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reveal</title>
+      <link>/tags/reveal/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/reveal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>slide</title>
+      <link>/tags/slide/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/slide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dired</title>
+      <link>/tags/dired/</link>
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
-      <guid>/tags/emacs/</guid>
+      <guid>/tags/dired/</guid>
       <description></description>
     </item>
     
@@ -137,14 +193,6 @@
       <link>/tags/ring/</link>
       <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
       <guid>/tags/ring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>org-mode</title>
-      <link>/tags/org-mode/</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/org-mode/</guid>
       <description></description>
     </item>
     

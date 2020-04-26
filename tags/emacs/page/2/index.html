@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-02-18T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2020-04-24T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,16 @@
   
   
   <div>
+    <h2><a href="/post/live/">mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</a></h2>
+    <div class="article-style">
+      
+      最初にmacosにライブ変換が登場した時に使用してみて，これは駄目だとすぐにGoogle inputmethodに戻してしまった．今年の5月にmojaveにupgradeしたのち，ある日，ふと思い立って，ライブ変換を試してみたところ，ほとんどストレスを感じることなくスラスラと入力ができた．ほとんど変換のためにスペースキーを叩く必要がないことに驚いた．予測の精度が登場時よりはるかに改良されているのであろう．エンドユーザーにはありがたいことである．早速乗り換えてしまった．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/symbol-overlay/">Symbol Overlay (Highlight symbols at cursor point with keymap-enabled overlays in Emacs)</a></h2>
     <div class="article-style">
       
@@ -426,22 +436,6 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
       org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
  Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法    toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
 #+begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #+end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/org-mode_recursive-narrow/">Org-modeで再帰的にsubtreeを絞ったり広げたりする（recursive-narrow）</a></h2>
-    <div class="article-style">
-      
-      org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すことができれば便利である．これを実現してくれるパッケージがrecursive-narrowである．
-インストールと設定 インストールは例によって，init.orgに以下のように書き込むだけである．
-#+begin_src emacs-lisp (use-package recursive-narrow :ensure t) #+end_src これでインストールと設定は終了である．
-使用法 使い方も実に簡単であり，&ldquo;C-x n n&quot;で現在カーソルがあるsubtree以下のみが表示されるようになり，&ldquo;C-x n w&quot;で元の表示に戻る．これではよくわからないので，実際の画像を示す．まず，最初の画像では全体の画面が表示されており，1951行目の「Org-modeで再帰的に」の行にカーソルがある．
-   ここで，&ldquo;C-x n n&quot;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．
-   次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&quot;C-x n n&quot;とやると，以下の画像のようになる．
-   つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．
-広い領域の表示が必要となれば，&ldquo;C-x n w&quot;とやると，1つ前の画像の状態に戻る．そして，もう一度&quot;C-x n w&quot;とやると，最初の状態に戻る．なんということはないのであるが，便利である．
       
     </div>
   </div>
