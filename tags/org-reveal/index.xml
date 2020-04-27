@@ -441,7 +441,7 @@ history: true,
  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
  &amp;lt;/script&amp;gt;
  &amp;lt;/body&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するに，keyboard以下が追加部分である．chalkboardの設定を&lt;a href=&#34;https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard&#34;&gt;reveal.js-plugins/chalkboard/&lt;/a&gt;の解説に従って追記した．これにより，上記1ー5の問題は全て解消された．&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するに，keyboard以下が追加部分である．chalkboardの設定を&lt;a href=&#34;https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard&#34;&gt;reveal.js-plugins/chalkboard/&lt;/a&gt;の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．&lt;/p&gt;
 &lt;p&gt;下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込んでみた． &lt;strong&gt;”f”&lt;/strong&gt; を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．&lt;/p&gt;
 &lt;iframe src=&#34;#ZgotmplZ&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．&lt;/p&gt;</description>
