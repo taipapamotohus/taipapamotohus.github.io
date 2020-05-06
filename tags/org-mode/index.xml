@@ -5,12 +5,128 @@
     <link>/tags/org-mode/</link>
       <atom:link href="/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
     <description>org-mode</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 05 May 2020 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>org-mode</title>
       <link>/tags/org-mode/</link>
     </image>
+    
+    <item>
+      <title>How to create presentation slides by reveal.js and org-mode (org-reveal) Part2</title>
+      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2/</guid>
+      <description>&lt;h2 id=&#34;コロナ肺炎-covid-19-について&#34;&gt;コロナ肺炎（COVID-19）について&lt;/h2&gt;
+&lt;p&gt;COVID-19に対する緊急事態宣言が5月末まで延長されることになった．現状を鑑みればやむを得ない判断であろう．今回の会見で，ようやくPCR検査が少ないことを認めた．&lt;a href=&#34;https://www.covid19-yamanaka.com/cont3/17.html&#34;&gt;山中伸弥による新型コロナウイルス情報発信&lt;/a&gt;から辿れる&lt;a href=&#34;https://ourworldindata.org/covid-testing#testing-coverage&#34;&gt;Testing coverage&lt;/a&gt;に行けば，PCR検査の国別の比較の最新データを見ることができる．冒頭の写真はいつものお気楽な観光写真ではなく，このサイトからのグラフである．一目瞭然ではあるが，既にこれまでも報道されてきた通り，日本のPCR検査数は圧倒的に少ない．「途上国並み」と揶揄する報道もあったが，それでは多くの途上国に失礼になるような数字である．グラフは1000人あたりのPCR検査数を示しており，アイスランドの147.8人（人口の15%!）は別格として，いわゆる先進国は2桁以上である．トルコ，韓国も12ー13，台湾 2.71，ベトナム 2.68などに対して， &lt;strong&gt;日本は1.46&lt;/strong&gt; である．&lt;/p&gt;
+&lt;p&gt;PCR検査が少ないことを認めたわけなので，今後は一刻も早く増やしてもらいたい．脳卒中，心筋梗塞，外傷などの救急治療や癌の手術などは延期することは困難であり，救急に携わる医療スタッフ，救急医，麻酔科医，外科医，手術室スタッフなどは高い感染リスクに晒されている．特に，全身麻酔の際に気管内挿管を行う麻酔科医はエアロゾルを直接浴びることになる．基本的に通常の手術の前でも，B型肝炎，C型肝炎，梅毒，HIVなどの感染症をルーチンに調べる．緊急手術か定期手術かにかかわらず，術前検査にCOVID-19のPCRを加えることは医療崩壊を防ぐためにも必須であろう．僅かではあるが，既にそうしている病院もある．&lt;/p&gt;
+&lt;p&gt;さて，今回はコロナ肺炎の話で始まってしまったが，ここからの内容は前回のreveal.jsによるスライド作成に関する追加である．弄っているうちに多少装飾もできるようになってきたので報告する．ほとんどは，Cascading Style Sheets (CSS)に関することになるので，分かってる人には不要な話かも．．．😅&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%E3%82%B3%E3%83%AD%E3%83%8A%E8%82%BA%E7%82%8E-covid-19-%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&#34;&gt;コロナ肺炎（COVID-19）について&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-add-shadow-and-color-to-the-text-box&#34;&gt;How to add shadow and color to the text box&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-add-shadow-to-the-image&#34;&gt;How to add shadow to the image&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-add-color-to-table-row&#34;&gt;How to add color to table row&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;how-to-add-shadow-and-color-to-the-text-box&#34;&gt;How to add shadow and color to the text box&lt;/h2&gt;
+&lt;p&gt;前回（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）にデザインを変更するために &lt;strong&gt;custom_oer.css&lt;/strong&gt; を作成した．今回はこのcssにいくつか追記をしてスライドをさらにattractiveにしようという内容である．もはやreveal.jsそのものとはほとんど関係ない．．．．&lt;/p&gt;
+&lt;p&gt;まず，定番からやってみた．テキストの部分に影をつけて立体的にし四角の角を丸くし，背景色をラベンダーにしてみる．LaTeXのbeamerのblockからのパクリである．以下のコードを &lt;strong&gt;custom_oer.css&lt;/strong&gt; に追加する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;.shadowLavender&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  /*影を入れて角を丸くし背景色をラベンダーにする*/
+  -webkit-box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+  -moz-box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+  box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+  border-radius: 20px;
+  padding-left: 15pt;
+  background-color: rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;padding-leftの部分は文字がテキストボックスの左端に寄りすぎるので，少し隙間が空くように調整している．その上で，前回（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）に作成したメインファイルである &lt;strong&gt;reveal_test.org&lt;/strong&gt; の最初の部分である「背景と目的」を以下のように修正する． &lt;strong&gt;#+REVEAL_HTML:&lt;/strong&gt; を使うのがミソである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;
+&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
+  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;shadowLavender&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い.
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した.
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参照サイト&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;[[https://github.com/yjwen/org-reveal][Introduction to Org-Reveal]]
+  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを保存したのちに，C-c C-e RBとして確認すると下図のようになる．やはり多少装飾性を有する方がattractiveであろう．shadowの大きさや背景色はお好みに合わせて調整していただきたい．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CSS-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/CSS-1.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;how-to-add-shadow-to-the-image&#34;&gt;How to add shadow to the image&lt;/h2&gt;
+&lt;p&gt;次も定番である．画像に同様に影をつけてみる．先ほどと同様に，以下のコードを &lt;strong&gt;custom_oer.css&lt;/strong&gt; に追加する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;.image_carousel img &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+    -webkit-box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+    -moz-box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ついで，メインファイルである &lt;strong&gt;reveal_test.org&lt;/strong&gt; の画像を含む部分を修正する．例えば，以下のようにする．「hogefuga症例の画像」の部分を以下のように修正する． &lt;strong&gt;#+REVEAL_HTML:&lt;/strong&gt; を使うのは同様である．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像 &lt;span style=&#34;color:#a6e22e&#34;&gt;shadow&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;figure image_carousel&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;img src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./figures/hoge_fuga.jpg&amp;#34;&lt;/span&gt; alt=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;/&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを保存したのちに，C-c C-e RBとして確認すると下図のようになる．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CSS-2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/CSS-2.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;画像に影をつけると，centering（中央寄せ）がなかなかうまくいかず苦労したが， &lt;strong&gt;figure&lt;/strong&gt; と組み合わせることでなんとかなった．もっとうまい方法があるのだろうが，私にはこれが精一杯であった．&lt;/p&gt;
+&lt;h2 id=&#34;how-to-add-color-to-table-row&#34;&gt;How to add color to table row&lt;/h2&gt;
+&lt;p&gt;次はテーブルの色つけである．これもbeamerを参考にほんのりラベンダーにしてみた．以下のコードを &lt;strong&gt;custom_oer.css&lt;/strong&gt; に追加する．タイトル行は濃い目に，奇数行は薄めに，偶数行は中間の透明度にしてみた．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;/* テーブルのセルの色を変更 */
+.reveal section table th &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  background-color: rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+  font-weight: bold; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+.reveal section table tr:nth-child&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;even&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  background-color:  rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.7&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+
+.reveal section table tr:nth-child&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;odd&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  background-color:  rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.3&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;テーブルの色つけは，reveal_test.orgをいじる必要はなく，cssを設定するだけで良い．以下のようになる．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CSS-3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/CSS-3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;割合と良い感じになった．&lt;/p&gt;
+&lt;p&gt;こんなところであろうか．個人的には，LaTeXのbeamerでやれていたことはほぼできるようになり，beamerでは不可能なこともできるようになったので，かなり満足している．CSSに詳しい人なら，もっと色々できると思う．アドバイスなどコメントいただければ有り難い．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>How to create presentation slides by reveal.js and org-mode (org-reveal)</title>

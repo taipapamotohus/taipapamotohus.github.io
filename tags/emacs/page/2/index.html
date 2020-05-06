@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-04-24T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2020-05-05T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,16 @@
   
   
   <div>
+    <h2><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></h2>
+    <div class="article-style">
+      
+      Emacsでpdf文書を読もうとするとdefaultではDocViewで読むことになるが，解像度がイマイチで動きもややモッサリとしていて使い勝手が悪かったため，サクッと止めて，skimを使っている．ただ，pdf-toolsというのがあって，こちらは割とスグレモノらしいとの噂は聞いていた．そこで，今回はこれを試してみることにした．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/live/">mojaveのライブ変換で快適日本語入力（カーソルの色も日英で変わるように設定）</a></h2>
     <div class="article-style">
       
@@ -425,17 +435,6 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
 #+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
 実際の使用例 adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．
       これも一度使い始めると，無くてはならないモノとなるパッケージである．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/auto_html_export/">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a></h2>
-    <div class="article-style">
-      
-      org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法    toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
-#+begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #+end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
       
     </div>
   </div>
