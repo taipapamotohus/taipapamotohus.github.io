@@ -5,12 +5,220 @@
     <link>/tags/org-mode/</link>
       <atom:link href="/tags/org-mode/index.xml" rel="self" type="application/rss+xml" />
     <description>org-mode</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 05 May 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 09 May 2020 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>org-mode</title>
       <link>/tags/org-mode/</link>
     </image>
+    
+    <item>
+      <title>How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page.</title>
+      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part3/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part3/</guid>
+      <description>&lt;p&gt;前回までの2回でプレゼンテーション用スライドをorg-revealを介してreveal.jsで作成する方法を説明してきた．今回は，作成したスライドをwebで公開したり，web pageにそのスライドを埋め込む方法を紹介する．&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-publish-a-web-page-on-github&#34;&gt;How to publish a web page on GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-embed-presentation-slides-in-web-page&#34;&gt;How to embed presentation slides in web page&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/Yuki%5FYamashina/items/5d8208c450195b65344c&#34;&gt;GitHubでWebページを公開する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/sota%5Fmikami/items/c6038cf13fd84b519a61&#34;&gt;【初心者向け】Github pagesでwebページを公開する方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/tonkotsuboy%5Fcom/items/f98667b89228b98bc096&#34;&gt;GitHubのmasterブランチをWebページとして公開する手順（GitHub Pages）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;この2つのサイトを読めば，ここはもう読まなくても良いような．．．&lt;/p&gt;
+&lt;h2 id=&#34;how-to-publish-a-web-page-on-github&#34;&gt;How to publish a web page on GitHub&lt;/h2&gt;
+&lt;p&gt;前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）で&lt;a href=&#34;https://taipapamotohus.com/MySlides/&#34;&gt;live demo&lt;/a&gt;を作成したが，その際の手順を将来の自分のためにまとめておく．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;localでwebページを作る．&lt;/p&gt;
+&lt;p&gt;ここでは，以下のようにdirectoryを作って行うこととする．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Data/
+$ mkdir Slides
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そして，このSlides directoryの中でweb pageを作成する．作成方法は，前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）を参照．このdirectoryの中にreveal.jsをgit cloneしてnpm installも行っておく．プラグインなどもインストールするが，後で不要なファイルを削除し必要最小限に減らしてからGitHub pageにアップすれば良い．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;GitHub pageに新しいrepositoryを作成する．&lt;/p&gt;
+&lt;p&gt;自分のGitHub pageに行き， &lt;strong&gt;Repositories&lt;/strong&gt; tagをクリックして， &lt;strong&gt;Repositories&lt;/strong&gt; ページに移動すると下図のようになるので，右端の &lt;strong&gt;New&lt;/strong&gt; をクリックする．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/GitHub-1.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;New&lt;/strong&gt; をクリックすると下図のようになるので，適当な名前を &lt;strong&gt;Repository name&lt;/strong&gt; に 入力して新しいrepositoryを作成する．名前はなんでも良いが，ここではMySlidesにした．名前を入力したら，一番下の &lt;strong&gt;Create repository&lt;/strong&gt; をクリックして作成する．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-2.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/GitHub-2.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;作成したGitHub pageのrepositoryをlocalにクローンする．&lt;/p&gt;
+&lt;p&gt;ターミナルで以下のように行った．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Data/Slides
+$ git clone https://github.com/ユーザー名/リポジトリ名.git
+&lt;span style=&#34;color:#75715e&#34;&gt;# 今回の場合だと以下のようになる&lt;/span&gt;
+$ git clone https://github.com/taipapamotohus/MySlides.git
+&lt;span style=&#34;color:#75715e&#34;&gt;# クローンしたrepositoryのdirectoryに移動する&lt;/span&gt;
+$ cd MySlides
+$ pwd
+/Users/taipapa/Data/Slides/MySlides
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;localで作成したウェブページをこのMySlides directoryにコピーする．&lt;/p&gt;
+&lt;p&gt;この時に，reveal.jsの中身などを全てコピーする必要はなく，ウェブページができる最小限にすれば容量が節約できる．cssとか画像とか動画など必要なものは全てコピーする．今回は以下のような内容とした．そうそう，作成したhtmlファイルの名前を &lt;strong&gt;index.html&lt;/strong&gt; に直すことを忘れないように注意する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ pwd
+$ /Users/taipapa/Data/Slides/MySlides
+$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+.
+├── Movies
+│   └── Knight-33990.mp4
+├── custom_oer.css
+├── figures
+│   ├── hoge_fuga.jpg
+│   └── hoge_fuga.meta
+├── index.html
+└── reveal.js
+    ├── bower_components
+    │   ├── reveal.js-menu
+    │   └── reveal.js-plugins
+    ├── css
+    │   ├── print
+    │   ├── reset.css
+    │   ├── reveal.css
+    │   ├── reveal.scss
+    │   └── theme
+    ├── js
+    │   └── reveal.js
+    ├── lib
+    │   ├── css
+    │   ├── font
+    │   └── js
+    └── plugin
+        ├── highlight
+        ├── markdown
+        ├── math
+        ├── multiplex
+        ├── notes
+        ├── notes-server
+        ├── print-pdf
+        ├── search
+        └── zoom-js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gitで，add, commit, push&lt;/p&gt;
+&lt;p&gt;必要なファイルがMySlides directoryにコピーできたら以下のようにする．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Slides/MySlides
+$ git add .
+$ git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# pushしてGitHub pageのrepositoryに反映させる&lt;/span&gt;
+$ git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;GitHub pageを確認&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/taipapamotohus/MySlides&#34;&gt;https://github.com/taipapamotohus/MySlides&lt;/a&gt; に行くとこんな感じになる．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-3.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/GitHub-3.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;私の下手な説明を読むよりも，このページをgit cloneするかzipを落として．内容を見て貰えば，一番わかりやすいかもしれない．&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;上の画像の右端の &lt;strong&gt;Settings&lt;/strong&gt; をクリックしてSettingsに移動する．下の方までスクリールして &lt;strong&gt;GitHub Pages&lt;/strong&gt; に移動する．ここで下図のように， &lt;strong&gt;Source&lt;/strong&gt; を &lt;strong&gt;master branch&lt;/strong&gt; にセットする．&lt;/p&gt;
+
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-4.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/GitHub-4.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/tonkotsuboy%5Fcom/items/f98667b89228b98bc096&#34;&gt;GitHubのmasterブランチをWebページとして公開する手順（GitHub Pages）&lt;/a&gt;によれば，以前は，gh-pagesという別ブランチを作成して、そこにソースコードをプッシュする必要があったが，2016年8月18日以降は，master branchのみでweb pageを公開できるようになったとのことである．もちろん，不要なデータを公開したくない場合は，gh-pages branchを使用すれば良い（&lt;a href=&#34;https://qiita.com/TakuyaHara/items/031294b7a2e586b5c1a4&#34;&gt;ブランチ上の一部のデータのみをGitHub Pagesで公開する&lt;/a&gt;）．&lt;/p&gt;
+&lt;p&gt;これで完成である．&lt;a href=&#34;https://taipapamotohus.com/MySlides/&#34;&gt;https://taipapamotohus.com/MySlides/&lt;/a&gt; をクリックして，ちゃんとスライドが見られることを確認する．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;how-to-embed-presentation-slides-in-web-page&#34;&gt;How to embed presentation slides in web page&lt;/h2&gt;
+&lt;p&gt;次の課題は，作成したウェブページを別のウェブページに埋め込むことである．私の場合はHugoで作成したブログにreveal.jsで作成したスライドを埋め込むということになる．前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）では埋め込みについてはさらっと書いているだけだが，実は一番苦労したのはこの埋め込みであった． &lt;strong&gt;iframe&lt;/strong&gt; を使えば良いのであろうということはなんとなく分かったのだが，どう使えば良いのかでかなり試行錯誤した．結局，HugoのForumで &lt;strong&gt;shortcodes&lt;/strong&gt; を使えば良いという記事（&lt;a href=&#34;https://discourse.gohugo.io/t/how-to-use-iframe-content-correctly-in-a-yaml-file/14360/3&#34;&gt;How to use iframe content correctly in a yaml file&lt;/a&gt;）を見つけてなんとかなった．とは言え，紆余曲折を経てのことなので，以下にその過程を失敗も含めてまとめてみた．&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;shortcode templateをHugoのroot directoryに作成する．具体的には/Users/taipapa/Data/MyBlog/Taipapablog/layouts/shortcodes/SlideInclusion.htmlとして作成する． &lt;strong&gt;SlideInclusion.html&lt;/strong&gt; の中身は以下の通りである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{.Get 0}}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;frameborder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;投稿記事の内部でこのshortcodeを呼ぶ．&lt;/p&gt;
+&lt;p&gt;投稿記事の内部で，埋め込みたい場所に以下のように記述すれば良い．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;｛{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;SlideInclusion&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;https:&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;taipapamotohus&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;github&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;MySlides&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;上記の書き込みにより，以下のように作成したウェブページが埋め込まれる．&lt;/p&gt;
+&lt;p&gt;私の場合は，org-modeのパッケージであるox-hugoを使用して書いているのだが，上記のコードをそのまま書いても埋め込まれることは埋め込まれる．&lt;/p&gt;
+&lt;iframe src=&#34;#ZgotmplZ&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;br /&gt;
+というわけでうまく埋め込まれ．．．ていない！この記事自体が埋め込まれてしまっている．これはこれで面白いが（笑）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;iframeを，ox-hugoの中に直接書き込む．&lt;/p&gt;
+&lt;p&gt;shortcodeをox-hugoから呼ぶとうまく行かないので，以下のように，直接 &lt;strong&gt;iframe&lt;/strong&gt; のコードをox-hugoのファイルに書き込むことにした．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_EXPORT html
+&amp;lt;iframe src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://taipapamotohus.github.io/MySlides/&amp;#34;&lt;/span&gt; width=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; height=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; frameborder=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; allowfullscreen=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; allow=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_EXPORT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;br /&gt;
+このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる．
+&lt;br /&gt;&lt;/p&gt;
+&lt;iframe src=&#34;https://taipapamotohus.github.io/MySlides/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;br /&gt;
+前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）も今回の内容に合わせて修正しておいた．&lt;/p&gt;
+&lt;p&gt;reveal.jsに関しては，まだ色々と面白そうなことがある．D3.jsとの組みわせとか．．．いずれまとめることができたらと考えている．&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     
     <item>
       <title>How to create presentation slides by reveal.js and org-mode (org-reveal) Part2</title>
@@ -558,9 +766,13 @@ history: true,
  &amp;lt;/script&amp;gt;
  &amp;lt;/body&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するに，keyboard以下が追加部分である．chalkboardの設定を&lt;a href=&#34;https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard&#34;&gt;reveal.js-plugins/chalkboard/&lt;/a&gt;の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．&lt;/p&gt;
-&lt;p&gt;下に，Hugoのshortcodeを使って，できあがったスライドそのものを埋め込んでみた． &lt;strong&gt;”f”&lt;/strong&gt; を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．&lt;/p&gt;
-&lt;iframe src=&#34;#ZgotmplZ&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．&lt;/p&gt;</description>
+&lt;p&gt;下に， &lt;del&gt;Hugoのshortcodeを使って&lt;/del&gt; &lt;strong&gt;BEGIN_EXPORT html&lt;/strong&gt; を使ってできあがったスライドそのものを埋め込んでみた．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+BEGIN_EXPORT &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;html&lt;/span&gt;
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://taipapamotohus.github.io/MySlides/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;frameborder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt;&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#+END_EXPORT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる． &lt;strong&gt;”f”&lt;/strong&gt; を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．&lt;/p&gt;
+&lt;iframe src=&#34;https://taipapamotohus.github.io/MySlides/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;br /&gt;  これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．&lt;/p&gt;</description>
     </item>
     
     <item>

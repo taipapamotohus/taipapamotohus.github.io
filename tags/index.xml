@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 05 May 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 09 May 2020 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -15,15 +15,23 @@
     <item>
       <title>emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>/tags/github/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <guid>/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javascript</title>
       <link>/tags/javascript/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/javascript/</guid>
       <description></description>
     </item>
@@ -31,7 +39,7 @@
     <item>
       <title>js</title>
       <link>/tags/js/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/js/</guid>
       <description></description>
     </item>
@@ -39,7 +47,7 @@
     <item>
       <title>org-mode</title>
       <link>/tags/org-mode/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/org-mode/</guid>
       <description></description>
     </item>
@@ -47,7 +55,7 @@
     <item>
       <title>org-reveal</title>
       <link>/tags/org-reveal/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/org-reveal/</guid>
       <description></description>
     </item>
@@ -55,7 +63,7 @@
     <item>
       <title>presentation</title>
       <link>/tags/presentation/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/presentation/</guid>
       <description></description>
     </item>
@@ -63,7 +71,7 @@
     <item>
       <title>reveal</title>
       <link>/tags/reveal/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/reveal/</guid>
       <description></description>
     </item>
@@ -71,7 +79,7 @@
     <item>
       <title>slide</title>
       <link>/tags/slide/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/slide/</guid>
       <description></description>
     </item>

@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-05-05T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2020-05-09T00:00:00&#43;09:00">
   
 
   
@@ -321,6 +321,21 @@
   
   
   <div>
+    <h2><a href="/post/adaptive-wrap/">Emacsの長い行を折り返して見やすくするが実際の行は変えない．adaptive-wrap —Correct indentation for wrapped lines</a></h2>
+    <div class="article-style">
+      
+      Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．
+ Table of Contents  adaptive-wrap  インストールと設定 実際の使用例      adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
+インストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
+#+begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode +1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #+end_src なお，最後の行を入れておかないと，org-mode fileに
+#+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
+実際の使用例 adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．
+      これも一度使い始めると，無くてはならないモノとなるパッケージである．
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/auto_html_export/">Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする</a></h2>
     <div class="article-style">
       
@@ -435,18 +450,6 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
   MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
 $ sudo /usr/local/texlive/????/bin/*/tlmgr path add   上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
 $ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのインストールと設定  latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見） preludeをインストールした時点で，auctexもインストールされる． auctexの設定などについては以下を参照（手抜き&hellip;.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/japanese_setup/">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></h2>
-    <div class="article-style">
-      
-      ようやく，ここからinit.orgの具体的な記述になる．
-Table of Contents Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
-  init.orgに以下のように書き込む
-​* Coding System Environment ** 言語を日本語にする #+BEGIN_SRC lisp (set-language-environment &#39;Japanese) #+END_SRC ** 極力UTF-8とする #+BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #+END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #+BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.
       
     </div>
   </div>
