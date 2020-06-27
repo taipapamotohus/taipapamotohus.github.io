@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/</loc>
+    <lastmod>2020-06-27T12:32:28+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part3/</loc>
     <lastmod>2020-05-09T19:54:24+09:00</lastmod>
   </url>
@@ -273,6 +278,11 @@
   </url>
   
   <url>
+    <loc>/post/</loc>
+    <lastmod>2020-06-27T12:32:28+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/emacs/</loc>
     <lastmod>2020-05-10T13:04:32+09:00</lastmod>
   </url>
@@ -299,11 +309,6 @@
   
   <url>
     <loc>/tags/org-reveal/</loc>
-    <lastmod>2020-05-10T13:04:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-05-10T13:04:32+09:00</lastmod>
   </url>
   
