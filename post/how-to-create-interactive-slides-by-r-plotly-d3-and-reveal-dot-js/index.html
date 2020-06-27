@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="前回までreveal.jsとorg-revealを使ったスライド作成についてまとめてきたが，interactiveなスライドの作成には触れていない．そこで，これから何回かに分けてインタラクティブなスライドを作るための私の試行錯誤を後日の自分のためにまとめておくことにした．第１回目の今回はD3.jsについてである．">
+  <meta name="description" content="前回までreveal.jsとorg-revealを使ったスライド作成についてまとめてきたが，interactiveなスライドの作成には触れていない．そこで，これから何回かに分けてインタラクティブなスライドを作るための私の試行錯誤を後日の自分のためにまとめておくことにした．第１回目の今回はD3.jsについてである．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/">
@@ -122,13 +122,13 @@
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/">
   <meta property="og:title" content="How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1) | A perfect autumn day">
-  <meta property="og:description" content="前回までreveal.jsとorg-revealを使ったスライド作成についてまとめてきたが，interactiveなスライドの作成には触れていない．そこで，これから何回かに分けてインタラクティブなスライドを作るための私の試行錯誤を後日の自分のためにまとめておくことにした．第１回目の今回はD3.jsについてである．"><meta property="og:image" content="/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/featured.jpg">
+  <meta property="og:description" content="前回までreveal.jsとorg-revealを使ったスライド作成についてまとめてきたが，interactiveなスライドの作成には触れていない．そこで，これから何回かに分けてインタラクティブなスライドを作るための私の試行錯誤を後日の自分のためにまとめておくことにした．第１回目の今回はD3.jsについてである．"><meta property="og:image" content="/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/featured.jpg">
   <meta property="twitter:image" content="/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/featured.jpg"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2020-06-14T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2020-06-27T12:32:28&#43;09:00">
+    <meta property="article:modified_time" content="2020-06-27T19:48:55&#43;09:00">
   
 
   
@@ -316,7 +316,7 @@
   <h1 itemprop="name">How to create interactive slides by R, plotly, d3.js and reveal.js (Part 1)</h1>
 
   
-  <p class="page-subtitle">R, plotly, d3.js, reveal.jsでインタラクティブなスライドを作成する （その１）</p>
+  <p class="page-subtitle">R, plotly, d3.js, reveal.jsでインタラクティブなスライドを作成する （その１）</p>
   
 
   
@@ -324,7 +324,7 @@
 
 
 <meta content="2020-06-14 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2020-06-27 12:32:28 &#43;0900 JST" itemprop="dateModified">
+<meta content="2020-06-27 19:48:55 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -399,7 +399,7 @@
   <div class="article-container">
 
     <div class="article-style" itemprop="articleBody">
-      <p>前回までreveal.jsとorg-revealを使ったスライド作成についてまとめてきたが，interactiveなスライドの作成には触れていない．そこで，これから何回かに分けてインタラクティブなスライドを作るための私の試行錯誤を後日の自分のためにまとめておくことにした．第１回目の今回はD3.jsについてである．</p>
+      <p>前回までreveal.jsとorg-revealを使ったスライド作成についてまとめてきたが，interactiveなスライドの作成には触れていない．そこで，これから何回かに分けてインタラクティブなスライドを作るための私の試行錯誤を後日の自分のためにまとめておくことにした．第１回目の今回はD3.jsについてである．</p>
 <div class="ox-hugo-toc toc">
 <div></div>
 <div class="heading">Table of Contents</div>
@@ -418,27 +418,27 @@
 <p><strong>Rainbow Worm</strong></p>
  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
  <div id='demo'></div>
- <script src="/js/RainbowWorm.js"></script>
-<p>D3.jsとはデータに基づいて文書を操作するためのJavaScript libraryである，と御本家に書いてあるが，これだけではよく分からない．私としてはウェブページの図がインタラクティブになるように設定したり，図の動きを設定したりするもの（上図のようなもの）ぐらいに理解した．d3について膨大な情報がネットに流れているのでそれを利用すれば良い，と言うのは易く，行なうのは難い（笑）．とりあえず情報を独断と偏見で以下にまとめた．</p>
+ <script src="/RainbowWorm.js"></script>
+<p>D3.jsとはデータに基づいて文書を操作するためのJavaScript libraryである，と御本家に書いてあるが，これだけではよく分からない．私としてはウェブページの図がインタラクティブになるように設定したり，図の動きを設定したりするもの（上図のようなもの）ぐらいに理解した．d3について膨大な情報がネットに流れているのでそれを利用すれば良い，と言うのは易く，行なうのは難い（笑）．とりあえず情報を独断と偏見で以下にまとめた．</p>
 <h3 id="references">References</h3>
 <ul>
 <li><a href="https://d3js.org/">D3 Data-Driven Documents</a> 御本家</li>
-<li><a href="https://info343.github.io/">Client-Side Web Development</a> Webの基礎知識をつけるために素人が流し読みするには最適</li>
-<li><a href="https://alignedleft.com/tutorials/d3">Interactive Data Visualization for the Web, 2nd Ed</a>　下記のサイトでベストと推薦</li>
+<li><a href="https://info343.github.io/">Client-Side Web Development</a> Webの基礎知識をつけるために素人が流し読みするには最適</li>
+<li><a href="https://alignedleft.com/tutorials/d3">Interactive Data Visualization for the Web, 2nd Ed</a>　下記のサイトでベストと推薦</li>
 <li><a href="http://www.rebeccabarter.com/useful%5Fresources/">Resources that are useful</a>　色々なリソースを集積してくれている</li>
 <li><a href="https://techplay.jp/event/452880">D3.js と reveal.js の紹介</a></li>
 <li><a href="https://qiita.com/corestate55/items/e70d5981c33a89f63367">これから D3.js を始める人のためのメモ</a></li>
-<li><a href="https://stackoverflow.com/questions/60746090/can-d3-js-visualizations-be-served-using-hugo">Can D3.js visualizations be served using Hugo?</a> HugoでのD3.jsの使い方</li>
+<li><a href="https://stackoverflow.com/questions/60746090/can-d3-js-visualizations-be-served-using-hugo">Can D3.js visualizations be served using Hugo?</a> HugoでのD3.jsの使い方</li>
 <li><a href="https://bl.ocks.org/mbostock/4165404/c9d1f8d69fcdf17b352235419c190e1a36645ce8">Rainbow Worm</a></li>
 </ul>
 <h4 id="注意点">注意点</h4>
-<p>D3.jsはv3, v4, v5があり，v3からv4, v5にupgradeした時に色々と変更されており，ウェブで見たら動いているのに，ローカルにコピーして，自分でコードを変更したら動かない，なんて時はversionが違うせいのことがあるので注意．</p>
+<p>D3.jsはv3, v4, v5があり，v3からv4, v5にupgradeした時に色々と変更されており，ウェブで見たら動いているのに，ローカルにコピーして，自分でコードを変更したら動かない，なんて時はversionが違うせいのことがあるので注意．</p>
 <ul>
 <li><a href="https://qiita.com/mk-tool/items/d9f74e9b8ecaf1a3e3ab">【d3.js】v3からv4とかv5にしたらいろいろ動かない</a></li>
-<li><a href="https://qiita.com/zak%5Fy/items/1a4e7117d7a1791d54d3">D3.jsをv3からv4/v5にバージョンアップした際の変更点メモ</a></li>
+<li><a href="https://qiita.com/zak%5Fy/items/1a4e7117d7a1791d54d3">D3.jsをv3からv4/v5にバージョンアップした際の変更点メモ</a></li>
 </ul>
 <h3 id="how-to-insert-a-figure-created-by-d3-dot-js-into-blog-by-hugo">How to insert a figure created by d3.js into blog by hugo</h3>
-<p>それではインタラクティブなスライドを作成する前に，実際にこのページにd3.jsで書いた図を埋め込んでみよう．ただのグラフでは面白くないので，有名な（？）<a href="https://bl.ocks.org/mbostock/4165404/c9d1f8d69fcdf17b352235419c190e1a36645ce8">Rainbow Worm</a>を埋め込むことにした．やり方は上にあげた<a href="https://stackoverflow.com/questions/60746090/can-d3-js-visualizations-be-served-using-hugo">Can D3.js visualizations be served using Hugo?</a>にあるとおり．<a href="https://bl.ocks.org/mbostock/4165404/c9d1f8d69fcdf17b352235419c190e1a36645ce8">Rainbow Worm</a>にあるコードのうちscript以下の部分をコピーし以下のように若干変更して，RainbowWorm.jsとして保存する．</p>
+<p>それではインタラクティブなスライドを作成する前に，実際にこのページにd3.jsで書いた図を埋め込んでみよう．ただのグラフでは面白くないので，有名な（？）<a href="https://bl.ocks.org/mbostock/4165404/c9d1f8d69fcdf17b352235419c190e1a36645ce8">Rainbow Worm</a>を埋め込むことにした．やり方は上にあげた<a href="https://stackoverflow.com/questions/60746090/can-d3-js-visualizations-be-served-using-hugo">Can D3.js visualizations be served using Hugo?</a>にあるとおり．<a href="https://bl.ocks.org/mbostock/4165404/c9d1f8d69fcdf17b352235419c190e1a36645ce8">Rainbow Worm</a>にあるコードのうちscript以下の部分をコピーし以下のように若干変更して，RainbowWorm.jsとして保存する．</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -623,24 +623,24 @@
 </div>
 </div>
 <br>
-<p>最初の部分の変更は大きさや位置の調整である．25行目の var svg = d3.select(&quot;#demo&rdquo;).append(&ldquo;svg&rdquo;) の部分は元のままでも良いと思うが，何かを参考にbodyをdemoに書き換えた．このRainbowWorm.jsを/Users/taipapa/Data/MyBlog/Taipapablog/static/js/に保存すればhugoが読みに行ってくれる（要するにhugoのstatic directory以下に保存すれば良い．subdirectoryを作っても良い）．そして，以下のようにox-hugoの原稿に書き込む．</p>
+<p>最初の部分の変更は大きさや位置の調整である．25行目の var svg = d3.select(&quot;#demo&rdquo;).append(&ldquo;svg&rdquo;) の部分は元のままでも良いと思うが，何かを参考にbodyをdemoに書き換えた．このRainbowWorm.jsを/Users/taipapa/Data/MyBlog/Taipapablog/static/js/に保存すればhugoが読みに行ってくれる（要するにhugoのstatic directory以下に保存すれば良い．subdirectoryを作っても良い）．そして，以下のようにox-hugoの原稿に書き込む．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://d3js.org/d3.v3.min.js&#34;</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;demo&#39;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/js/RainbowWorm.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>（最初の行が，d3.v3.min.js とversion 3であることに注意．version 5を意味するv5にすると動かない）</p>
-<p>しかし，これではexportされたmarkdownの該当部分が，</p>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/RainbowWorm.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>（最初の行が，d3.v3.min.js とversion 3であることに注意．version 5を意味するv5にすると動かない）</p>
+<p>しかし，これではexportされたmarkdownの該当部分が，</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;http://d3js.org/d3.v3.min.js&gt;&#34;</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>と言う具合にurlが &ldquo;&lt;&rdquo; と &ldquo;&gt;&rdquo; に囲まれてしまい読みに行かなくなってしまう．そこで，export先である /Users/taipapa/Data/MyBlog/Taipapablog/content/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/index.md の中の該当部分の &ldquo;&lt;&rdquo; と &ldquo;&gt;&rdquo; を消去すると，そこで初めて，最初の図のようにrainbow wormが表示される．美しい．．．</p>
+</code></pre></div><p>と言う具合にurlが &ldquo;&lt;&rdquo; と &ldquo;&gt;&rdquo; に囲まれてしまい読みに行かなくなってしまう．そこで，export先である /Users/taipapa/Data/MyBlog/Taipapablog/content/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/index.md の中の該当部分の &ldquo;&lt;&rdquo; と &ldquo;&gt;&rdquo; を消去すると，そこで初めて，最初の図のようにrainbow wormが表示される．美しい．．．</p>
 <h3 id="how-to-insert-a-figure-created-by-d3-dot-js-into-slide-by-reveal-dot-js">How to insert a figure created by d3.js into slide by reveal.js</h3>
-<p>それでは，スライドにd3.jsで作成した図，今回はRainbow wormを埋め込んでみよう．上述のコードをox-revealのファイルに書き込めば良い． <strong>#+REVEAL_HTML:</strong> をつけるのがミソである．</p>
+<p>それでは，スライドにd3.jsで作成した図，今回はRainbow wormを埋め込んでみよう．上述のコードをox-revealのファイルに書き込めば良い． <strong>#+REVEAL_HTML:</strong> をつけるのがミソである．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#a6e22e">*</span> Rainbow Worm
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;script src=<span style="color:#e6db74">&#34;http://d3js.org/d3.v3.min.js&#34;</span> charset=<span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/script&gt;
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;div id=<span style="color:#e6db74">&#39;demo</span><span style="color:#e6db74">&#39;&gt;&lt;/div&gt;</span>
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;script src=<span style="color:#e6db74">&#34;RainbowWorm.js&#34;</span>&gt;&lt;/script&gt;
-</code></pre></div><p>これでexportすれば，スライドタイトルが &ldquo;Rainbow Worm&rdquo; となりその下にrainbow wormが蠢いているhtml スライドができる．</p>
-<p>ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった．しかし，問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．</p>
-<p>と言うことで，ようやく <strong>Plotly</strong> の存在を思い出した．とりあえず，今回はここまで．苦労した挙句に，どうやらD3.jsは，私にはあまり使えそうにないと言うことが分かったと言う顛末である&hellip;..😅</p>
-<p>次回はplotlyについてまとめるつもりである．</p>
+</code></pre></div><p>これでexportすれば，スライドタイトルが &ldquo;Rainbow Worm&rdquo; となりその下にrainbow wormが蠢いているhtml スライドができる．</p>
+<p>ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった．しかし，問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．</p>
+<p>と言うことで，ようやく <strong>Plotly</strong> の存在を思い出した．とりあえず，今回はここまで．苦労した挙句に，どうやらD3.jsは，私にはあまり使えそうにないと言うことが分かったと言う顛末である&hellip;..😅</p>
+<p>次回はplotlyについてまとめるつもりである．</p>
     </div>
 
     
