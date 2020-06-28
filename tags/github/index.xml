@@ -134,6 +134,15 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
         └── zoom-js
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;もう一つ大事なことは，index.htmlの中に記載されている絶対パスを相対パスに直すことである．例えば，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;file:///Users/taipapa/Data/Slides/reveal.js/js/reveal.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+
+-------&amp;gt;
+
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;reveal.js/js/reveal.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と言うふうに修正する．このように修正しておかないと，GitHubに置いた時に動かなくなってしまう．私はこれにハマった．（ &lt;strong&gt;2020年6月28日追加&lt;/strong&gt; ）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;gitで，add, commit, push&lt;/p&gt;
 &lt;p&gt;必要なファイルがMySlides directoryにコピーできたら以下のようにする．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Slides/MySlides
