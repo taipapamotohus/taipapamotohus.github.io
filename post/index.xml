@@ -257,7 +257,7 @@
   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div id=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;demo&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;script src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;RainbowWorm.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでexportすれば，スライドタイトルが &amp;ldquo;Rainbow Worm&amp;rdquo; となりその下にrainbow wormが蠢いているhtml スライドができる．せっかくなので，出来上がったスライドを，&lt;a href=&#34;http://taipapamotohus.com/MySlide%5Fv2/&#34;&gt;http://taipapamotohus.com/MySlide%5Fv2/&lt;/a&gt;にアップしておくとともに，このページにも埋め込んでおくことにする．前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal) Part2&lt;/a&gt; ）で説明したボックス，カラー，シャドウの追加なども行って，D3.jsも加えて置く．Rainbow wormは最後のページ（9ページ）に表示されている．&lt;/p&gt;
-&lt;iframe src=&#34;http://taipapamotohus.com/MySlide_v2/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
+&lt;iframe src=&#34;http://taipapamotohus.github.io/MySlide_v2/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
 &lt;br&gt;
 &lt;br&gt;
     よく考えてみたら，rainbow wormではinteractive slideとは言えないことに気が付いたが，その辺りは次回以降で検討していくことにする．どうしてもあれは載せてみたかった．．．．
