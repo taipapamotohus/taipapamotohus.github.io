@@ -128,7 +128,7 @@
     
       <meta property="article:published_time" content="2020-06-14T00:00:00&#43;09:00">
     
-    <meta property="article:modified_time" content="2020-07-04T23:59:46&#43;09:00">
+    <meta property="article:modified_time" content="2020-07-05T11:47:27&#43;09:00">
   
 
   
@@ -324,7 +324,7 @@
 
 
 <meta content="2020-06-14 00:00:00 &#43;0900 JST" itemprop="datePublished">
-<meta content="2020-07-04 23:59:46 &#43;0900 JST" itemprop="dateModified">
+<meta content="2020-07-05 11:47:27 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
 
@@ -339,7 +339,7 @@
           Last updated on
       
     
-    <time>Jul 4, 2020</time>
+    <time>Jul 5, 2020</time>
   </span>
   
 
@@ -419,7 +419,7 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <div id='demo'></div>
 <!-- <iframe src="/js/RainbowWorm_v2.js"></iframe> -->
-<script src="RainbowWorm.js"></script>
+<script src="/js/RainbowWorm.js"></script>
 <p>D3.jsとはデータに基づいて文書を操作するためのJavaScript libraryである，と御本家に書いてあるが，これだけではよく分からない．私としてはウェブページの図がインタラクティブになるように設定したり，図の動きを設定したりするもの（上図のようなもの）ぐらいに理解した．d3について膨大な情報がネットに流れているのでそれを利用すれば良い，と言うのは易く，行なうのは難い（笑）．とりあえず情報を独断と偏見で以下にまとめた．</p>
 <h3 id="references">References</h3>
 <ul>
@@ -632,19 +632,22 @@
 #+end_export
 </code></pre></div><p>（最初の行が，d3.v3.min.js とversion 3であることに注意．version 5を意味するv5にすると動かない）</p>
 <p>これでC-c C-e HAによりexportすれば，最初の図のようにrainbow wormが表示される．美しい．．．</p>
+<p><strong>となるはずであったが，localhostではRainbow wormが表示されるのに，GitHubにアップすると消えてしまう．色々やってみたが，ダメであった&hellip;.. 😭 後日さらに検討するとして，とりあえず，記録のためにこのままアップしておく．</strong></p>
 <h3 id="how-to-insert-a-figure-created-by-d3-dot-js-into-slide-by-reveal-dot-js">How to insert a figure created by d3.js into slide by reveal.js</h3>
 <p>それでは，スライドにd3.jsで作成した図，今回はRainbow wormを埋め込んでみよう．上述のコードをox-revealのファイルに書き込めば良い． <strong>#+REVEAL_HTML:</strong> をつけるのがミソである．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#a6e22e">*</span> Rainbow Worm
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;script src=<span style="color:#e6db74">&#34;http://d3js.org/d3.v3.min.js&#34;</span> charset=<span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/script&gt;
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;div id=<span style="color:#e6db74">&#39;demo</span><span style="color:#e6db74">&#39;&gt;&lt;/div&gt;</span>
-  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;script src=<span style="color:#e6db74">&#34;RainbowWorm.js&#34;</span>&gt;&lt;/script&gt;
+  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;script src=<span style="color:#e6db74">&#34;/js/RainbowWorm.js&#34;</span>&gt;&lt;/script&gt;
 </code></pre></div><p>これでexportすれば，スライドタイトルが &ldquo;Rainbow Worm&rdquo; となりその下にrainbow wormが蠢いているhtml スライドができる．せっかくなので，出来上がったスライドを，<a href="http://taipapamotohus.com/MySlide%5Fv2/">http://taipapamotohus.com/MySlide%5Fv2/</a>にアップしておくとともに，このページにも埋め込んでおくことにする．前々回の記事（<a href="../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2">How to create presentation slides by reveal.js and org-mode (org-reveal) Part2</a> ）で説明したボックス，カラー，シャドウの追加なども行って，D3.jsも加えて置く．Rainbow wormは最後のページ（9ページ）に表示されている．</p>
-<iframe src="http://taipapamotohus.github.io/MySlide_v2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+<iframe src="http://taipapamotohus.github.io/MySlide%5Fv2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
 <br>
+<p><strong>となるはずであったが，localhostではこちらもまたスライドが表示されるのに，GitHubにアップすると消えてしまう．色々やってみたが，ダメであった&hellip;.. 😭 こちらも後日さらに検討するとして，とりあえず，記録のためにこのままアップしておく．なお，<a href="http://taipapamotohus.com/MySlide%5Fv2/">http://taipapamotohus.com/MySlide%5Fv2/</a>にアップしたスライドはちゃんとRainbow wormが動いているので確認していただきたい</strong></p>
 <br>
     よく考えてみたら，rainbow wormではinteractive slideとは言えないことに気が付いたが，その辺りは次回以降で検討していくことにする．どうしてもあれは載せてみたかった．．．．
 <br>
-<br> ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった．しかし，問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
+<br>
+    ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった（うまくいってない部分もあるが．．．）．しかし，一番の問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
 <p>と言うことで，ようやく <strong>Plotly</strong> の存在を思い出した．とりあえず，今回はここまで．苦労した挙句に，どうやらD3.jsは，私にはあまり使えそうにないと言うことが分かったと言う顛末である&hellip;..😅</p>
 <p>次回はplotlyについてまとめるつもりである．</p>
     </div>

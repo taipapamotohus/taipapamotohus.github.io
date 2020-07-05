@@ -37,7 +37,7 @@
 &lt;script src=&#34;http://d3js.org/d3.v3.min.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 &lt;div id=&#39;demo&#39;&gt;&lt;/div&gt;
 &lt;!-- &lt;iframe src=&#34;/js/RainbowWorm_v2.js&#34;&gt;&lt;/iframe&gt; --&gt;
-&lt;script src=&#34;RainbowWorm.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/js/RainbowWorm.js&#34;&gt;&lt;/script&gt;
 &lt;p&gt;D3.jsとはデータに基づいて文書を操作するためのJavaScript libraryである，と御本家に書いてあるが，これだけではよく分からない．私としてはウェブページの図がインタラクティブになるように設定したり，図の動きを設定したりするもの（上図のようなもの）ぐらいに理解した．d3について膨大な情報がネットに流れているのでそれを利用すれば良い，と言うのは易く，行なうのは難い（笑）．とりあえず情報を独断と偏見で以下にまとめた．&lt;/p&gt;
 &lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
 &lt;ul&gt;
@@ -250,19 +250,22 @@
 #+end_export
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（最初の行が，d3.v3.min.js とversion 3であることに注意．version 5を意味するv5にすると動かない）&lt;/p&gt;
 &lt;p&gt;これでC-c C-e HAによりexportすれば，最初の図のようにrainbow wormが表示される．美しい．．．&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;となるはずであったが，localhostではRainbow wormが表示されるのに，GitHubにアップすると消えてしまう．色々やってみたが，ダメであった&amp;hellip;.. 😭 後日さらに検討するとして，とりあえず，記録のためにこのままアップしておく．&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;how-to-insert-a-figure-created-by-d3-dot-js-into-slide-by-reveal-dot-js&#34;&gt;How to insert a figure created by d3.js into slide by reveal.js&lt;/h3&gt;
 &lt;p&gt;それでは，スライドにd3.jsで作成した図，今回はRainbow wormを埋め込んでみよう．上述のコードをox-revealのファイルに書き込めば良い． &lt;strong&gt;#+REVEAL_HTML:&lt;/strong&gt; をつけるのがミソである．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Rainbow Worm
   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;script src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://d3js.org/d3.v3.min.js&amp;#34;&lt;/span&gt; charset=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;
   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div id=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;demo&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;script src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;RainbowWorm.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;script src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/js/RainbowWorm.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでexportすれば，スライドタイトルが &amp;ldquo;Rainbow Worm&amp;rdquo; となりその下にrainbow wormが蠢いているhtml スライドができる．せっかくなので，出来上がったスライドを，&lt;a href=&#34;http://taipapamotohus.com/MySlide%5Fv2/&#34;&gt;http://taipapamotohus.com/MySlide%5Fv2/&lt;/a&gt;にアップしておくとともに，このページにも埋め込んでおくことにする．前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal) Part2&lt;/a&gt; ）で説明したボックス，カラー，シャドウの追加なども行って，D3.jsも加えて置く．Rainbow wormは最後のページ（9ページ）に表示されている．&lt;/p&gt;
-&lt;iframe src=&#34;http://taipapamotohus.github.io/MySlide_v2/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
+&lt;iframe src=&#34;http://taipapamotohus.github.io/MySlide%5Fv2/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
 &lt;br&gt;
+&lt;p&gt;&lt;strong&gt;となるはずであったが，localhostではこちらもまたスライドが表示されるのに，GitHubにアップすると消えてしまう．色々やってみたが，ダメであった&amp;hellip;.. 😭 こちらも後日さらに検討するとして，とりあえず，記録のためにこのままアップしておく．なお，&lt;a href=&#34;http://taipapamotohus.com/MySlide%5Fv2/&#34;&gt;http://taipapamotohus.com/MySlide%5Fv2/&lt;/a&gt;にアップしたスライドはちゃんとRainbow wormが動いているので確認していただきたい&lt;/strong&gt;&lt;/p&gt;
 &lt;br&gt;
     よく考えてみたら，rainbow wormではinteractive slideとは言えないことに気が付いたが，その辺りは次回以降で検討していくことにする．どうしてもあれは載せてみたかった．．．．
 &lt;br&gt;
-&lt;br&gt; ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった．しかし，問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
+&lt;br&gt;
+    ここまでで，hugoで作成するブログやreveal.jsで作成するスライドにD3.jsで作成する画像やグラフを埋め込む方法は分かった（うまくいってない部分もあるが．．．）．しかし，一番の問題は，d3.jsでグラフを作成するのが（私には）とても面倒である，と言うことである．Rなら，使い慣れているので，Rで作ったグラフをインタラクティブにできないかと考えた．ん，そう言うものがあったような．．．
 &lt;p&gt;と言うことで，ようやく &lt;strong&gt;Plotly&lt;/strong&gt; の存在を思い出した．とりあえず，今回はここまで．苦労した挙句に，どうやらD3.jsは，私にはあまり使えそうにないと言うことが分かったと言う顛末である&amp;hellip;..😅&lt;/p&gt;
 &lt;p&gt;次回はplotlyについてまとめるつもりである．&lt;/p&gt;</description>
     </item>
