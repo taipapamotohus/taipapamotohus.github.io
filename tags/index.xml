@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 09 May 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -15,8 +15,48 @@
     <item>
       <title>emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
       <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>/tags/latex/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
+      <guid>/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latexmk</title>
+      <link>/tags/latexmk/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
+      <guid>/tags/latexmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-mode</title>
+      <link>/tags/org-mode/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
+      <guid>/tags/org-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf</title>
+      <link>/tags/pdf/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
+      <guid>/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>preview</title>
+      <link>/tags/preview/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
+      <guid>/tags/preview/</guid>
       <description></description>
     </item>
     
@@ -41,14 +81,6 @@
       <link>/tags/js/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
       <guid>/tags/js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>org-mode</title>
-      <link>/tags/org-mode/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
-      <guid>/tags/org-mode/</guid>
       <description></description>
     </item>
     
@@ -105,14 +137,6 @@
       <link>/tags/catalina/</link>
       <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
       <guid>/tags/catalina/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>latex</title>
-      <link>/tags/latex/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/latex/</guid>
       <description></description>
     </item>
     
@@ -229,7 +253,7 @@
     </item>
     
     <item>
-      <title>Hugo</title>
+      <title>hugo</title>
       <link>/tags/hugo/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
       <guid>/tags/hugo/</guid>
@@ -305,14 +329,6 @@
       <link>/tags/mojave/</link>
       <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
       <guid>/tags/mojave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pdf</title>
-      <link>/tags/pdf/</link>
-      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/pdf/</guid>
       <description></description>
     </item>
     
@@ -993,14 +1009,6 @@
       <link>/tags/movie/</link>
       <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/tags/movie/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>latexmk</title>
-      <link>/tags/latexmk/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
-      <guid>/tags/latexmk/</guid>
       <description></description>
     </item>
     

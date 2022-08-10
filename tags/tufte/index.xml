@@ -5,7 +5,7 @@
     <link>/tags/tufte/</link>
       <atom:link href="/tags/tufte/index.xml" rel="self" type="application/rss+xml" />
     <description>tufte</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>tufte</title>
@@ -19,7 +19,19 @@
       <guid>/post/tufte/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#設定&#34;&gt;設定&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#tufte-org-modeのインストールと設定&#34;&gt;tufte-org-modeのインストールと設定&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeでtufte-latexの設定&#34;&gt;org-modeでtufte-latexの設定&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufteの使用の実例&#34;&gt;tufteの使用の実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;

@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-05-09T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2022-08-03T00:00:00&#43;09:00">
   
 
   
@@ -321,11 +321,22 @@
   
   
   <div>
+    <h2><a href="/post/latexmk/">LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）</a></h2>
+    <div class="article-style">
+      
+      Table of Contents  TeX Live 2018のインストール TeX Live 2018のインストール（2018年9月1日追記）  ヒラギノフォントの埋め込みなど インストール後のパスの修正（symbolic linkを張る）   auctexのインストールと設定 latexmk 実際の作業 XeLaTeXについて   TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
+ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）   参考サイト：TeX Wiki TeX LiveMac
+  MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/japanese_setup/">Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</a></h2>
     <div class="article-style">
       
       ようやく，ここからinit.orgの具体的な記述になる．
-Table of Contents Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
+Table of Contents  Coding systemの設定 Inline-patchの設定   Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
   init.orgに以下のように書き込む
 ​* Coding System Environment ** 言語を日本語にする #+BEGIN_SRC lisp (set-language-environment &#39;Japanese) #+END_SRC ** 極力UTF-8とする #+BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #+END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #+BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.
       
@@ -500,7 +511,7 @@ $ brew tap railwaycat/emacsmacport $ brew install emacs-mac --with-modern-icon -
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -525,7 +536,7 @@ $ brew tap railwaycat/emacsmacport $ brew install emacs-mac --with-modern-icon -
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

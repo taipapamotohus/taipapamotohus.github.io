@@ -5,7 +5,7 @@
     <link>/tags/bibtex/</link>
       <atom:link href="/tags/bibtex/index.xml" rel="self" type="application/rss+xml" />
     <description>bibtex</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 15 Sep 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sat, 15 Sep 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>bibtex</title>
@@ -19,7 +19,22 @@
       <guid>/post/org-mode_paper_3/</guid>
       <description>&lt;p&gt;前回（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setupの使用方法&#34;&gt;org-mode-reftex-setupの使用方法&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#ox-bibtex-dot-el&#34;&gt;&lt;a href=&#34;https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el&#34;&gt;ox-bibtex.el&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#bst-ファイルについて&#34;&gt;bst ファイルについて&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#bst-ファイルの置き場所&#34;&gt;bst ファイルの置き場所&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#文献を引用したorg-modeからのexportの実例&#34;&gt;文献を引用したorg-modeからのexportの実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -160,7 +175,7 @@ option:-r    &lt;span style=&#34;color:#a6e22e&#34;&gt;reverse&lt;/span&gt; &lt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.tug.org/mactex/2013/faq/#qm05&#34;&gt;The Most Frequently Asked Questions (FAQ)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&amp;rsquo;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
 &lt;br /&gt;
 &lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;br /&gt;
 &lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;br /&gt;

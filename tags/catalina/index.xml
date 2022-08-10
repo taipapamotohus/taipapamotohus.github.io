@@ -5,7 +5,7 @@
     <link>/tags/catalina/</link>
       <atom:link href="/tags/catalina/index.xml" rel="self" type="application/rss+xml" />
     <description>Catalina</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Catalina</title>
@@ -138,7 +138,7 @@ PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes 
 &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/taipapa/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
+&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/taipapa/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
 &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでブラウザによるpdf fileの全文検索が可能となった．なお，MacBook Pro late 2016では，document数が11734個，語数が1351563のindex作成に要した時間は約40分強であったが，今回，MacBook Pro 2019 16 inch では，document数が11782個，語数が1362430のindex作成に要した時間は約31分強であった．&lt;/p&gt;
 &lt;h2 id=&#34;encountered-problems-遭遇した問題点&#34;&gt;Encountered problems: 遭遇した問題点&lt;/h2&gt;

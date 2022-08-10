@@ -5,7 +5,7 @@
     <link>/tags/init-org/</link>
       <atom:link href="/tags/init-org/index.xml" rel="self" type="application/rss+xml" />
     <description>init-org</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 17 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Fri, 17 Aug 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>init-org</title>
@@ -61,7 +61,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;org-modeで以下のようにする．（後述する設定が必要）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．．．）&lt;/span&gt;
 以下のように展開される
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
 

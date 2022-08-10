@@ -82,7 +82,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -451,8 +451,8 @@
 trap<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SIGINT&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> exit <span style="color:#f92672">}</span>
 
 <span style="color:#66d9ef">if</span> ARGV.length &lt; <span style="color:#ae81ff">2</span>
-   puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Usage: #{</span>$0<span style="color:#e6db74">} watch_folder keyword</span><span style="color:#e6db74">&#34;</span>
-   puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Example: #{</span>$0<span style="color:#e6db74">} . mywebproject</span><span style="color:#e6db74">&#34;</span>
+   puts <span style="color:#e6db74">&#34;Usage: #{</span>$0<span style="color:#e6db74">} watch_folder keyword&#34;</span>
+   puts <span style="color:#e6db74">&#34;Example: #{</span>$0<span style="color:#e6db74">} . mywebproject&#34;</span>
    exit
    end
 
@@ -463,12 +463,12 @@ trap<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;SIGINT&
    puts <span style="color:#e6db74">&#34;Watching #{watch_folder} and subfolders for changes in project files...&#34;</span>
 
    <span style="color:#66d9ef">while</span> true <span style="color:#66d9ef">do</span>
-         files <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+         files <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
          filetypes.each <span style="color:#f92672">{</span>|type|
 files <span style="color:#f92672">+=</span> Dir.glob<span style="color:#f92672">(</span> File.join<span style="color:#f92672">(</span> watch_folder, <span style="color:#e6db74">&#34;**&#34;</span>, <span style="color:#e6db74">&#34;*.#{type}&#34;</span> <span style="color:#f92672">)</span> <span style="color:#f92672">)</span>
                         <span style="color:#f92672">}</span>
          new_hash <span style="color:#f92672">=</span> files.collect <span style="color:#f92672">{</span>|f| <span style="color:#f92672">[</span> f, File.stat<span style="color:#f92672">(</span>f<span style="color:#f92672">)</span>.mtime.to_i <span style="color:#f92672">]</span> <span style="color:#f92672">}</span>
-         hash <span style="color:#f92672">||</span><span style="color:#f92672">=</span> new_hash
+         hash <span style="color:#f92672">||=</span> new_hash
          diff_hash <span style="color:#f92672">=</span> new_hash - hash
 
          unless diff_hash.empty?
@@ -813,7 +813,7 @@ $ watch_safari.rb Hoge hogefuga.html
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -838,7 +838,7 @@ $ watch_safari.rb Hoge hogefuga.html
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

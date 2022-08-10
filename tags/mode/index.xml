@@ -5,7 +5,7 @@
     <link>/tags/mode/</link>
       <atom:link href="/tags/mode/index.xml" rel="self" type="application/rss+xml" />
     <description>mode</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>mode</title>
@@ -19,7 +19,19 @@
       <guid>/post/tufte/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#設定&#34;&gt;設定&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#tufte-org-modeのインストールと設定&#34;&gt;tufte-org-modeのインストールと設定&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeでtufte-latexの設定&#34;&gt;org-modeでtufte-latexの設定&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufteの使用の実例&#34;&gt;tufteの使用の実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;
@@ -222,7 +234,34 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;ba
       <description>&lt;p&gt;医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．&lt;/p&gt;
 &lt;p&gt;いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， &lt;strong&gt;pandoc&lt;/strong&gt; とそれをorg−modeから利用するための &lt;strong&gt;ox-pandoc&lt;/strong&gt; である．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#ox-pandoc&#34;&gt;ox-pandoc&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#文書の中で実際に引用された論文のみからなる文献リストを生成する方法&#34;&gt;文書の中で実際に引用された論文のみからなる文献リストを生成する方法&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#reftex-create-bibtex-file&#34;&gt;reftex-create-bibtex-file&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#bibexport&#34;&gt;bibexport&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#pandocのための設定&#34;&gt;pandocのための設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#citation-style-language--csl--の設定&#34;&gt;Citation Style Language (CSL)の設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#英語論文の場合のorg-fileの設定&#34;&gt;英語論文の場合のorg fileの設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#英語論文のword-fileのexport&#34;&gt;英語論文のWord fileのexport&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#日本語論文の場合のorg-fileの設定&#34;&gt;日本語論文の場合のorg fileの設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#word-file-の濁点分離を修正する方法&#34;&gt;Word file の濁点分離を修正する方法&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#pythonの導入&#34;&gt;Pythonの導入&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#docx-normarize-nfcの導入&#34;&gt;docx-normarize-nfcの導入&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#濁点分離の修正&#34;&gt;濁点分離の修正&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;ox-pandoc&#34;&gt;ox-pandoc&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -750,7 +789,22 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <guid>/post/org-mode_paper_3/</guid>
       <description>&lt;p&gt;前回（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setupの使用方法&#34;&gt;org-mode-reftex-setupの使用方法&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#ox-bibtex-dot-el&#34;&gt;&lt;a href=&#34;https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el&#34;&gt;ox-bibtex.el&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#bst-ファイルについて&#34;&gt;bst ファイルについて&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#bst-ファイルの置き場所&#34;&gt;bst ファイルの置き場所&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#文献を引用したorg-modeからのexportの実例&#34;&gt;文献を引用したorg-modeからのexportの実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -891,7 +945,7 @@ option:-r    &lt;span style=&#34;color:#a6e22e&#34;&gt;reverse&lt;/span&gt; &lt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.tug.org/mactex/2013/faq/#qm05&#34;&gt;The Most Frequently Asked Questions (FAQ)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&amp;rsquo;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
 &lt;br /&gt;
 &lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;br /&gt;
 &lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;br /&gt;
@@ -1003,7 +1057,21 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <guid>/post/org-mode_paper_1/</guid>
       <description>&lt;p&gt;私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#目的&#34;&gt;目的&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く利点&#34;&gt;org-modeで論文を書く利点&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeの設定-セットアップ-pdfとhtmlへの出力用&#34;&gt;org-modeの設定・セットアップ（pdfとhtmlへの出力用）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#koma-script-a-bundle-of-versatile-classes-and-packages&#34;&gt;&lt;a href=&#34;https://ctan.org/pkg/koma-script&#34;&gt;koma-script – A bundle of versatile classes and packages&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-bullet&#34;&gt;org-bullet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeのinit-dot-elの設定-pdf出力用&#34;&gt;org-modeのinit.elの設定（pdf出力用）&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く-の実例&#34;&gt;「org-modeで論文を書く」の実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする&lt;/li&gt;

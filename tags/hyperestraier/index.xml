@@ -5,7 +5,7 @@
     <link>/tags/hyperestraier/</link>
       <atom:link href="/tags/hyperestraier/index.xml" rel="self" type="application/rss+xml" />
     <description>hyperestraier</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 24 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 24 Jul 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>hyperestraier</title>
@@ -71,9 +71,9 @@ https://fallabs.com/hyperestraier/
 /usr/local/Cellar/hyperestraier/1.4.13 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;278&lt;/span&gt; files, 3.1MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
 Built from source on 2016-12-24 at 22:34:54 with: --with-mecab
 From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hyperestraier.rb
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Dependencies
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Dependencies
 Required: qdbm
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Analytics
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Analytics
 install: &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 install_on_request: &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 build_error: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
@@ -258,7 +258,7 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;p&gt;これでApacheを起動したので，hyperestraierに含まれている検索用CGI scriptを利用する．&lt;/p&gt;
 &lt;h3 id=&#34;cgiが動くかどうかのテスト&#34;&gt;CGIが動くかどうかのテスト&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://httpd.apache.org/docs/2.4/ja/howto/cgi.html&#34;&gt;Apache Tutorial: CGI による動的コンテンツ&lt;/a&gt; には，「ScriptAlias ディレクティブを使用して、 CGI プログラム用の特別な別ディレクトリを Apache に設定します。 Apache は、このディレクトリ中の全てのファイルを CGI プログラムであると仮定します。 そして、この特別なリソースがクライアントから要求されると、 そのプログラムの実行を試みます。」と記載されている．一方, mojaveのデフォルトの /etc/apache2/httpd.confでは，ScriptAliasではなく，以下のようにScriptAliasMatchを用いている．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;373&lt;/span&gt;  ScriptAliasMatch ^/cgi-bin/&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;?!&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;?i:webobjects&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.*$&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/Library/WebServer/CGI-Executables/&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;373&lt;/span&gt;  ScriptAliasMatch ^/cgi-bin/&lt;span style=&#34;color:#f92672&#34;&gt;((&lt;/span&gt;?!&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;?i:webobjects&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;.*$&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/CGI-Executables/&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;この正規表現の記述により，cgi-bin/というパスが/Library/WebServer/CGI-Executables/に対応するようになっている（詳細は，&lt;a href=&#34;http://httpd.apache.org/docs/2.4/mod/mod%5Falias.html#scriptalias&#34;&gt;ScriptAlias ディレクティブ&lt;/a&gt;  のScriptAliasMatch ディレクティブを参照）&lt;/p&gt;
 &lt;p&gt;ということで，/Library/WebServer/CGI-Executables/にcgi scriptを置けば，CGI programとして動くはずである．macでは最初からperlがインストールされているので，以下のようなperl script（&amp;ldquo;Hello&amp;quot;と表示するだけ）を作成して試してみる．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-perl&#34; data-lang=&#34;perl&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/perl&lt;/span&gt;
@@ -275,11 +275,11 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;p&gt;/etc/apache2/httpd.confを，lessを使って読んでみると以下のように書かれている．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ less -N /etc/apache2/httpd.conf
 ..........
-&lt;span style=&#34;color:#ae81ff&#34;&gt;240&lt;/span&gt; #
+&lt;span style=&#34;color:#ae81ff&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;241&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# DocumentRoot: The directory out of which you will serve your&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;242&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# documents. By default, all requests are taken from this directory, but&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;243&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# symbolic links and aliases may be used to point to other locations.&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;244&lt;/span&gt; #
+&lt;span style=&#34;color:#ae81ff&#34;&gt;244&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;245&lt;/span&gt; DocumentRoot &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/Documents&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;246&lt;/span&gt; &amp;lt;Directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/Documents&amp;#34;&lt;/span&gt;&amp;gt;
 ..........
@@ -332,20 +332,20 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo vi /etc/apache2/extra/httpd-userdir.conf
 
 &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Settings for user home directories&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; #
+&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Required module: mod_authz_core, mod_authz_host, mod_userdir&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; #
+&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# UserDir: The name of the directory that is appended onto a user&amp;#39;s home&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# directory if a ~user request is received.  Note that you must also set&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# the default access control for these directories, as in the example below.&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; #
+&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; UserDir Sites
 &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; #
+&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Control access to UserDir directories.  The following is an example&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# for a site where these directories are restricted to read-only.&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; #
+&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Include /private/etc/apache2/users/*.conf&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &amp;lt;IfModule bonjour_module&amp;gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;        RegisterUserSite customized-users
@@ -448,7 +448,7 @@ $ less -N estseek.conf
 &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; pseudoindex:
 &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; replace: ^file:///home/mikio/public_html/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/
+&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; replace: ^file:///home/mikio/public_html/&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;http://localhost/
 &lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; replace: /index&lt;span style=&#34;color:#ae81ff&#34;&gt;\.&lt;/span&gt;html?&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;{!&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;/
 &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; showlreal: false
@@ -470,7 +470,7 @@ $ less -N estseek.conf
 &lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: /index\.html?${{!}}/&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; replace: ^file:///Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
+&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; replace: ^file:///Data/&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
 &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;17行目の &lt;strong&gt;replace:&lt;/strong&gt; の部分はかなりの試行錯誤が必要であった．マニュアルでは，「replaceは正規表現によってURIを変換するのに使います。複数回指定できます。先頭にマッチする「^」を駆使すれば接頭辞（ディレクトリ）の変換ができますし、末尾にマッチする「$」を駆使すれば接尾辞（拡張子）の変換ができます。」とあるように，どこにpdf文書を置くかで適切に変更する必要がある．私の場合は，前述のごとく，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc で，/Users/taipapa/Sites/pdf/PDFs にシンボリックリンクで集約したので，このような設定になった．他のファイルはdefaultのままとした．&lt;/p&gt;
 &lt;p&gt;これで，全ての準備は整った．Sites ディレクトリには前半部で説明した通り，pdf archiveへのシンボリックリンクが集約されており，かつ，全文検索用の索引であるcasketも置いてある．全てが正しく設定されていれば，ブラウザのurl windowに &lt;strong&gt;&lt;a href=&#34;http://localhost/~username/cgi-bin/est/estseek.cgi&#34;&gt;http://localhost/~username/cgi-bin/est/estseek.cgi&lt;/a&gt;&lt;/strong&gt; （今回は~usernameは~taipapa） と打ち込むと，以下のような全文検索の画面になるはずである．&lt;/p&gt;

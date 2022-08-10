@@ -5,7 +5,7 @@
     <link>/tags/autorefresh/</link>
       <atom:link href="/tags/autorefresh/index.xml" rel="self" type="application/rss+xml" />
     <description>autorefresh</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 06 Jan 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>autorefresh</title>
@@ -65,8 +65,8 @@
 trap&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SIGINT&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; exit &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ARGV.length &amp;lt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Usage: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} watch_folder keyword&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Example: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} . mywebproject&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Usage: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} watch_folder keyword&amp;#34;&lt;/span&gt;
+   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Example: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} . mywebproject&amp;#34;&lt;/span&gt;
    exit
    end
 
@@ -77,12 +77,12 @@ trap&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;
    puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Watching #{watch_folder} and subfolders for changes in project files...&amp;#34;&lt;/span&gt;
 
    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; true &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-         files &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+         files &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt;
          filetypes.each &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;|type|
 files &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; Dir.glob&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; File.join&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; watch_folder, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*.#{type}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
                         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
          new_hash &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; files.collect &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;|f| &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; f, File.stat&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;f&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.mtime.to_i &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-         hash &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; new_hash
+         hash &lt;span style=&#34;color:#f92672&#34;&gt;||=&lt;/span&gt; new_hash
          diff_hash &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; new_hash - hash
 
          unless diff_hash.empty?

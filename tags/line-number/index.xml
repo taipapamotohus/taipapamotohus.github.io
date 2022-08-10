@@ -5,7 +5,7 @@
     <link>/tags/line-number/</link>
       <atom:link href="/tags/line-number/index.xml" rel="self" type="application/rss+xml" />
     <description>line-number</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>line-number</title>
@@ -137,7 +137,7 @@
 &lt;h2 id=&#34;iterm2のcolor-schemeが効かない&#34;&gt;iTerm2のColor Schemeが効かない&lt;/h2&gt;
 &lt;p&gt;いつのまにかiTerm2のcolor schemeを変えても反映されなくなってしまった．ネットを探ると，同じようなことで悩んでいる人が結構いるようで，すぐに解決法が見つかった．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34;&gt;Profile colors won&#39;t change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34;&gt;Profile colors won&amp;rsquo;t change&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上記のサイトによれば，terminal windowがprofileと連絡を失ってしまったことが原因とのことで，iTerm2の Session &amp;gt; Edit Sessionで下の画像のようにdialogue boxがpop upするので，そこで，好きなcolor scheme (下の画像ではJapanesque) を選択し，右下のUse Selected Profileをクリックすればよい．&lt;/p&gt;
 

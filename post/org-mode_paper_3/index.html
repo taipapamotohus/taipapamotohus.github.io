@@ -29,13 +29,10 @@
     
   
   <meta name="description" content="前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
-Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
+Table of Contents  org-mode-reftex-setup  org-mode-reftex-setupの使用方法   ox-bibtex.el bst ファイルについて  bst ファイルの置き場所   文献を引用したorg-modeからのexportの実例   org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
   RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
 #&#43;begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #&#43;end_src   上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
-  すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
-  次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
-     上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）">
+  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/org-mode_paper_3/">
@@ -87,7 +84,7 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -130,13 +127,10 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
   <meta property="og:url" content="/post/org-mode_paper_3/">
   <meta property="og:title" content="Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化） | A perfect autumn day">
   <meta property="og:description" content="前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
-Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
+Table of Contents  org-mode-reftex-setup  org-mode-reftex-setupの使用方法   ox-bibtex.el bst ファイルについて  bst ファイルの置き場所   文献を引用したorg-modeからのexportの実例   org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
   RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
 #&#43;begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #&#43;end_src   上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
-  すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
-  次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
-     上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）"><meta property="og:image" content="/post/org-mode_paper_3/featured.jpg">
+  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ"><meta property="og:image" content="/post/org-mode_paper_3/featured.jpg">
   <meta property="twitter:image" content="/post/org-mode_paper_3/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -402,7 +396,7 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 <div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 1632px; max-height: 484px;">
   <div style="position: relative">
     <img src="/post/org-mode_paper_3/featured.jpg" alt="" class="featured-image">
-    <span class="article-header-caption">Arc de triomphe de l'Étoile</span>
+    <span class="article-header-caption">Arc de triomphe de l&rsquo;Étoile</span>
   </div>
 </div>
 
@@ -413,7 +407,22 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
     <div class="article-style" itemprop="articleBody">
       <p>前回（<a href="../org-mode_paper_2">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a>）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．</p>
 <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#org-mode-reftex-setup">org-mode-reftex-setup</a>
+      <ul>
+        <li><a href="#org-mode-reftex-setupの使用方法">org-mode-reftex-setupの使用方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#ox-bibtex-dot-el"><a href="https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el">ox-bibtex.el</a></a></li>
+    <li><a href="#bst-ファイルについて">bst ファイルについて</a>
+      <ul>
+        <li><a href="#bst-ファイルの置き場所">bst ファイルの置き場所</a></li>
+      </ul>
+    </li>
+    <li><a href="#文献を引用したorg-modeからのexportの実例">文献を引用したorg-modeからのexportの実例</a></li>
+  </ul>
+</nav>
 <h2 id="org-mode-reftex-setup">org-mode-reftex-setup</h2>
 <ul>
 <li>
@@ -554,7 +563,7 @@ option:-r    <span style="color:#a6e22e">reverse</span> <span style="color:#66d9
 </li>
 <li>
 <p><a href="http://www.tug.org/mactex/2013/faq/#qm05">The Most Frequently Asked Questions (FAQ)</a></p>
-<p><strong>QM.06 :</strong> Why can't the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  <br />
+<p><strong>QM.06 :</strong> Why can&rsquo;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  <br />
 <br />
 <strong>AM.06 :</strong> TeX Live is slightly pickier about placement of these files. &ldquo;.bib&rdquo; files go in <br />
 <strong>~/Library/texmf/bibtex/bib</strong> <br />
@@ -968,7 +977,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -993,7 +1002,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

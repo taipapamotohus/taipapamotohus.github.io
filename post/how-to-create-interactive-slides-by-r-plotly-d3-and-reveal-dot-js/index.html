@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -533,8 +533,8 @@
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// var margin = {top: 100, right: 100, bottom: 100, left: 100},
-</span><span style="color:#75715e"></span><span style="color:#75715e">//     width = 960 - margin.left - margin.right,
-</span><span style="color:#75715e"></span><span style="color:#75715e">//     height = 500 - margin.top - margin.bottom;
+</span><span style="color:#75715e">//     width = 960 - margin.left - margin.right,
+</span><span style="color:#75715e">//     height = 500 - margin.top - margin.bottom;
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">margin</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span>, <span style="color:#a6e22e">bottom</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span>, <span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span>},
     <span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">700</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">margin</span>.<span style="color:#a6e22e">left</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">margin</span>.<span style="color:#a6e22e">right</span>,
@@ -552,7 +552,7 @@
     .<span style="color:#a6e22e">domain</span>([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5.9</span>])
     .<span style="color:#a6e22e">range</span>([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">360</span>]);
 
-<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">points</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">range</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">.1</span>).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">t</span>) {
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">points</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">range</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">6</span>, .<span style="color:#ae81ff">1</span>).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">t</span>) {
   <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">t</span>, <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">x</span>(<span style="color:#a6e22e">t</span>), <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">y</span>(Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">t</span>))};
 });
 
@@ -565,12 +565,12 @@
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">svg</span>.<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#34;path&#34;</span>)
     .<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">quad</span>(<span style="color:#a6e22e">points</span>))
   .<span style="color:#a6e22e">enter</span>().<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#34;path&#34;</span>)
-    .<span style="color:#a6e22e">style</span>(<span style="color:#e6db74">&#34;fill&#34;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">hsl</span>(<span style="color:#a6e22e">z</span>(<span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">value</span>), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">.5</span>); })
+    .<span style="color:#a6e22e">style</span>(<span style="color:#e6db74">&#34;fill&#34;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">hsl</span>(<span style="color:#a6e22e">z</span>(<span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">value</span>), <span style="color:#ae81ff">1</span>, .<span style="color:#ae81ff">5</span>); })
     .<span style="color:#a6e22e">style</span>(<span style="color:#e6db74">&#34;stroke&#34;</span>, <span style="color:#e6db74">&#34;#000&#34;</span>);
 
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">t0</span> <span style="color:#f92672">=</span> Date.<span style="color:#a6e22e">now</span>();
 <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">timer</span>(<span style="color:#66d9ef">function</span>() {
-  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dt</span> <span style="color:#f92672">=</span> (Date.<span style="color:#a6e22e">now</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">t0</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">.001</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">dt</span> <span style="color:#f92672">=</span> (Date.<span style="color:#a6e22e">now</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">t0</span>) <span style="color:#f92672">*</span> .<span style="color:#ae81ff">001</span>;
   <span style="color:#a6e22e">points</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>) { <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">y</span>(<span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">scale</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">sin</span>(<span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dt</span>)); });
   <span style="color:#a6e22e">path</span>.<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;d&#34;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">lineJoin</span>(<span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">1</span>], <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">2</span>], <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">3</span>], <span style="color:#ae81ff">80</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">scale</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">d</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">scale</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>); });
 });
@@ -619,12 +619,11 @@
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">u01x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">p0</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#a6e22e">p1</span>[<span style="color:#ae81ff">1</span>], <span style="color:#a6e22e">u01y</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">p1</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> <span style="color:#a6e22e">p0</span>[<span style="color:#ae81ff">0</span>],
       <span style="color:#a6e22e">u01d</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">sqrt</span>(<span style="color:#a6e22e">u01x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">u01x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">u01y</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">u01y</span>);
   <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">u01x</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">u01d</span>, <span style="color:#a6e22e">u01y</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">u01d</span>];
-}
-</code></pre></td></tr></table>
+}</code></pre></td></tr></table>
 </div>
 </div>
 <br>
-<p>最初の部分の変更は大きさや位置の調整である．25行目の var svg = d3.select(&quot;#demo&rdquo;).append(&ldquo;svg&rdquo;) の部分は元のままでも良いと思うが，何かを参考にbodyをdemoに書き換えた．このRainbowWorm.jsを/Users/taipapa/Data/MyBlog/Taipapablog/static/js/に保存すればhugoが読みに行ってくれる（要するにhugoのstatic directory以下に保存すれば良い．subdirectoryを作っても良い）．そして，以下のようにox-hugoの原稿に書き込む．</p>
+<p>最初の部分の変更は大きさや位置の調整である．25行目の var svg = d3.select(&quot;#demo&quot;).append(&ldquo;svg&rdquo;) の部分は元のままでも良いと思うが，何かを参考にbodyをdemoに書き換えた．このRainbowWorm.jsを/Users/taipapa/Data/MyBlog/Taipapablog/static/js/に保存すればhugoが読みに行ってくれる（要するにhugoのstatic directory以下に保存すれば良い．subdirectoryを作っても良い）．そして，以下のようにox-hugoの原稿に書き込む．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">#+begin_export html
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://d3js.org/d3.v3.min.js&#34;</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;demo&#39;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
@@ -637,7 +636,7 @@
 <p>それでは，スライドにd3.jsで作成した図，今回はRainbow wormを埋め込んでみよう．上述のコードをox-revealのファイルに書き込めば良い． <strong>#+REVEAL_HTML:</strong> をつけるのがミソである．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#a6e22e">*</span> Rainbow Worm
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;script src=<span style="color:#e6db74">&#34;http://d3js.org/d3.v3.min.js&#34;</span> charset=<span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;&lt;/script&gt;
-  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;div id=<span style="color:#e6db74">&#39;demo</span><span style="color:#e6db74">&#39;&gt;&lt;/div&gt;</span>
+  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;div id=<span style="color:#e6db74">&#39;demo&#39;&gt;&lt;/div&gt;</span>
   <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;script src=<span style="color:#e6db74">&#34;/js/RainbowWorm.js&#34;</span>&gt;&lt;/script&gt;
 </code></pre></div><p>これでexportすれば，スライドタイトルが &ldquo;Rainbow Worm&rdquo; となりその下にrainbow wormが蠢いているhtml スライドができる．せっかくなので，出来上がったスライドを，<a href="http://taipapamotohus.com/MySlide%5Fv2/">http://taipapamotohus.com/MySlide%5Fv2/</a>にアップしておくとともに，このページにも埋め込んでおくことにする．前々回の記事（<a href="../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2">How to create presentation slides by reveal.js and org-mode (org-reveal) Part2</a> ）で説明したボックス，カラー，シャドウの追加なども行って，D3.jsも加えて置く．Rainbow wormは最後のページ（9ページ）に表示されている．</p>
 <iframe src="http://taipapamotohus.github.io/MySlide%5Fv2/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
@@ -754,6 +753,13 @@
     <div class="article-widget">
       
 <div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/post/real-time-document-pdf-preview-in-org-mode/" rel="next">Real-time document (pdf) preview in org-mode</a>
+  </div>
   
   
   
@@ -916,7 +922,7 @@
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -941,7 +947,7 @@
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

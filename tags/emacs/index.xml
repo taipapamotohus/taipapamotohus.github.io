@@ -5,12 +5,65 @@
     <link>/tags/emacs/</link>
       <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <description>emacs</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 09 May 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>emacs</title>
       <link>/tags/emacs/</link>
     </image>
+    
+    <item>
+      <title>Real-time document (pdf) preview in org-mode</title>
+      <link>/post/real-time-document-pdf-preview-in-org-mode/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
+      <guid>/post/real-time-document-pdf-preview-in-org-mode/</guid>
+      <description>&lt;p&gt;いやーなんと2020年7月以来約2年ぶりの記事である．本業多忙でしばらく放置していると，ブログの書き方まで忘れてしまいすっかり億劫になり，今回この夏休みにようやく取り掛かる決心がついた．まずはリハビリも兼ねて軽めの記事を書く事にした．以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）でorg-modeで文書を書いてpdfにexportする方法をまとめた．ただ，exportする際にC-c C-e l oと打ってcompileされるのを待つのが結構面倒なのである．この部分を自動化する方法，つまり，org-mode文書を保存すれば何もしなくても自動的にpdfが更新されるようになる設定を見つけたので，それについてまとめてみた．&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/57nps0/orgmode_need_a_realtime_document_preview/&#34;&gt;Org-mode need a real-time document preview&lt;/a&gt; : 例によってredditを探ってみると，そのものズバリがあった．この記事のlarstvei氏の投稿でうまくいった．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;latexmkをインストールする．&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt; にlatexmkのインストール方法，設定を既述したが，ほとんどそのままでいける．&lt;/li&gt;
+&lt;li&gt;~/.latexmkrcを以下のように設定する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$pdflatex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&amp;#39;&lt;/span&gt;;
+$pdf_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;
+$postscript_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $dvi_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0;
+$pdf_previewer  &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;open -a Skim&amp;#39;&lt;/span&gt;;
+$preview_continuous_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;  &lt;span style=&#34;color:#75715e&#34;&gt;# equivalent to -pvc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;上記の $pdf_previewer  = &amp;lsquo;open -a Skim&amp;rsquo;; の行で，skimでpdfを開くようにしているが，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$pdf_previewer&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;emacsclient -e &amp;#39;(find-file-other-window %S)&amp;#39;&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とすれば，emacsのpdf-toolで見られる．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;そして，org文書の最後に以下を追加すれば良い．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; COMMENT Local Variables
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; Local Variables:
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (server-start)
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;after-save-hook&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-export-to-latex&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (compile &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;latexmk -pdf -pvc -pdflatex=&amp;#39;xelatex -shell-escape -interaction nonstopmode&amp;#39;&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; End:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;以上の設定が終わると，org-modeの文書を開くたびにlocal variablesを評価するかどうかを訊かれるようになる．yesと答えると（&amp;lsquo;y&amp;rsquo;を叩けば良い），emacsclientが接続できるようにサーバーが立ち上がって保存するたびにorg-mode文書がLaTeXにexportされ，最後にバックグランドでlatexmkを用いてコンパイルされ，pdfが更新される．実に快適である．&lt;/li&gt;
+&lt;li&gt;なお，上記の操作の前に一度，C-c C-e loを行なってtex fileを作成しておかないとうまく動かない．１回やっておけば，あとは自動でやってくれるようになる．&lt;/li&gt;
+&lt;li&gt;私は，xelatexを使用しているが，他のlatexを使用している方はそこの部分を書き換えれば使えるはずである．&lt;/li&gt;
+&lt;li&gt;MacBook Pro (16inch, 2019) 8コアIntel Core i9, 2.4 GHz メモリ:	64 GB (macOS Monterey 12.4)では，保存するたびに少しcompilationを待たないといけないが，MacBook Pro（16インチ、2021）Apple M1 Max コアの総数:10（パフォーマンス: 8、効率性: 2）メモリ:	64 GB (macOS Monterey 12.4)では，待ち時間が明らかに短縮されているのを実感できる．&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page.</title>
@@ -202,7 +255,7 @@ $ git push origin master
 &lt;li&gt;
 &lt;p&gt;投稿記事の内部でこのshortcodeを呼ぶ．&lt;/p&gt;
 &lt;p&gt;投稿記事の内部で，埋め込みたい場所に以下のように記述すれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;｛{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;SlideInclusion&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;https:&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;taipapamotohus&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;github&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;MySlides&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt;}}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;｛{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;SlideInclusion&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;https:&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;//&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;taipapamotohus&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;github&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;MySlides&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&amp;#34;&lt;/span&gt; &amp;gt;}}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -581,7 +634,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_TITLE_SLIDE: &amp;lt;h3&amp;gt;%t&amp;lt;/h3&amp;gt;&amp;lt;h5&amp;gt;%a&amp;lt;/h5&amp;gt;
 
 &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; スライド移動のコントローラーは右下に表示&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;スライド番号は&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;スライドの番号&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;／&lt;/span&gt;全スライド数&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_INIT_OPTIONS: width:1200, height:800, controlsLayout: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bottom-right&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; slideNumber:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c/t&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; margin: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; minScale:0.2, maxScale:2.5, transition: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fade&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; menu: {side: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;left&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; titleSelector: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;h1,&lt;/span&gt; h2, h3, h4, h5, h6&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; hideMissingTitles: false, markers: true, custom: false, themes: true, transitions: true, openButton: true, openSlideNumber: false, keyboard: true, sticky: false, autoOpen: true}, chalkboard: {boardmarkerWidth: &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;	toggleChalkboardButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80px&amp;#34;&lt;/span&gt; }, toggleNotesButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;130px&amp;#34;&lt;/span&gt;}}
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_INIT_OPTIONS: width:1200, height:800, controlsLayout: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bottom-right&amp;#39;,&lt;/span&gt; slideNumber:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c/t&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; margin: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; minScale:0.2, maxScale:2.5, transition: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fade&amp;#39;,&lt;/span&gt; menu: {side: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;left&amp;#39;,&lt;/span&gt; titleSelector: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;h1,&lt;/span&gt; h2, h3, h4, h5, h6&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; hideMissingTitles: false, markers: true, custom: false, themes: true, transitions: true, openButton: true, openSlideNumber: false, keyboard: true, sticky: false, autoOpen: true}, chalkboard: {boardmarkerWidth: &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;	toggleChalkboardButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80px&amp;#34;&lt;/span&gt; }, toggleNotesButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;130px&amp;#34;&lt;/span&gt;}}
 
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_THEME: oer-reveal
 
@@ -590,8 +643,8 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTRA_CSS: &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;/custom_oer.css
 
 &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; [[https://github.com/yjwen/org-reveal/issues/254][List of external plugins?#254]]
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; async: true }
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;}&lt;/span&gt;
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&amp;#39;,&lt;/span&gt; async: true }
+&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&amp;#39;}&lt;/span&gt;
 
 
 &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTRA_CSS: https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
@@ -757,21 +810,21 @@ history: true,
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;--- org-reveal_for_blog_oer-FINAL_v2.html	2020-04-20 21:08:18.000000000 +0900
 +++ org-reveal_for_blog_oer-FINAL_v2-keyboard.html	2020-04-11 13:28:15.000000000 +0900
 @@ -219,7 +219,16 @@
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/marked.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/markdown.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/zoom-js/zoom.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
-- &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
-+    &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;,
+  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/marked.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/markdown.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/zoom-js/zoom.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+- &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}]&lt;/span&gt;
++    &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}]&lt;/span&gt;,
 +    keyboard: &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-+	    67: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleNotesCanvas&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle notes canvas when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt; is pressed
-+	    66: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleChalkboard&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt; is pressed
-+	    46: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.clear&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// clear chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;DEL&amp;#39;&lt;/span&gt; is pressed
-+	     8: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.reset&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// reset chalkboard data on current slide when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;BACKSPACE&amp;#39;&lt;/span&gt; is pressed
-+	    68: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.download&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// downlad recorded chalkboard drawing when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt; is pressed
-+	    88: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorNext&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors forward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt; is pressed
-+	    89: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorPrev&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors backward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt; is pressed
++	    67: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleNotesCanvas&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle notes canvas when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt; is pressed
++	    66: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleChalkboard&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt; is pressed
++	    46: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.clear&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// clear chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;DEL&amp;#39;&lt;/span&gt; is pressed
++	     8: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.reset&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// reset chalkboard data on current slide when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;BACKSPACE&amp;#39;&lt;/span&gt; is pressed
++	    68: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.download&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// downlad recorded chalkboard drawing when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt; is pressed
++	    88: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorNext&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors forward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt; is pressed
++	    89: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorPrev&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors backward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt; is pressed
 +	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
- &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+ &lt;span style=&#34;color:#f92672&#34;&gt;})&lt;/span&gt;;
  &amp;lt;/script&amp;gt;
  &amp;lt;/body&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するに，keyboard以下が追加部分である．chalkboardの設定を&lt;a href=&#34;https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard&#34;&gt;reveal.js-plugins/chalkboard/&lt;/a&gt;の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．&lt;/p&gt;
@@ -1119,7 +1172,7 @@ PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes 
 &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/taipapa/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
+&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/taipapa/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
 &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでブラウザによるpdf fileの全文検索が可能となった．なお，MacBook Pro late 2016では，document数が11734個，語数が1351563のindex作成に要した時間は約40分強であったが，今回，MacBook Pro 2019 16 inch では，document数が11782個，語数が1362430のindex作成に要した時間は約31分強であった．&lt;/p&gt;
 &lt;h2 id=&#34;encountered-problems-遭遇した問題点&#34;&gt;Encountered problems: 遭遇した問題点&lt;/h2&gt;
@@ -1280,7 +1333,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\begin{center}
 &lt;span style=&#34;color:#f92672&#34;&gt;-          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
 &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          % \includegraphics[width=.6\linewidth]{logos/i6-hks44}
-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
+&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\end{center}
 \vskip1ex
 \end{column}
@@ -1298,7 +1351,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 \begin{center}
 &lt;span style=&#34;color:#f92672&#34;&gt;-          \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
 &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          % \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
+&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\end{center}
 \vskip1.5cm
 \end{column}
@@ -1720,15 +1773,15 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;{itemize/enumerate subbody}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\normalsize&lt;/span&gt;}
 
 &lt;span style=&#34;color:#75715e&#34;&gt;% additional packages
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{times}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{times}
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;%% 上記だけではsans serifにならないので，下記を設定　
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[T1]{fontenc}
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[usefilenames,% Important for XeLaTeX
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% DefaultFeatures={Ligatures=Common}]{plex-otf} %
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[T1]{fontenc}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[usefilenames,% Important for XeLaTeX
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% DefaultFeatures={Ligatures=Common}]{plex-otf} %
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsanstext/
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[T1]&lt;/span&gt;{fontenc}
@@ -1737,7 +1790,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 SSstyle={Text,Semibold},
 TTstyle={Text,Semibold},
 DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&#34;&gt;%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\renewcommand&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\familydefault&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\sfdefault&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;%% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\renewcommand*\familydefault&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\sfdefault&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;%% Only if the base font of the document is to be sans serif
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{amsmath,amsthm, amssymb, latexsym}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{exscale}
@@ -1753,7 +1806,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{latexsym}
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;% Display a grid to help align images
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \beamertemplategridbackground[1cm]
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \beamertemplategridbackground[1cm]
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\huge&lt;/span&gt; Perioperative Assessment Of Cerebral Perfusion Territories Through Arterial Spin Labeling Magnetic Resonance Imaging In Carotid Stenosis}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[taipapa et al.]&lt;/span&gt;{taipapa, taimama, taison, taidaughter, other person1,
@@ -1764,27 +1817,27 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;span style=&#34;color:#75715e&#34;&gt;% abbreviations
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{xspace}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatletter&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\DeclareRobustCommand&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\futurelet&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;let@token&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot{&lt;span style=&#34;color:#66d9ef&#34;&gt;\ifx&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;let@token.&lt;span style=&#34;color:#66d9ef&#34;&gt;\else&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;\null&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\fi&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\xspace&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\eg&lt;/span&gt;{{e.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Eg&lt;/span&gt;{{E.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\ie&lt;/span&gt;{{i.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Ie&lt;/span&gt;{{I.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\cf&lt;/span&gt;{{c.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Cf&lt;/span&gt;{{C.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\etc&lt;/span&gt;{{etc}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\vs&lt;/span&gt;{{vs}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\wrt&lt;/span&gt;{w.r.t&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\dof&lt;/span&gt;{d.o.f&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\etal&lt;/span&gt;{{et al}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\DeclareRobustCommand\onedot&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\futurelet\@&lt;/span&gt;let@token&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\@&lt;/span&gt;onedot{&lt;span style=&#34;color:#66d9ef&#34;&gt;\ifx\@&lt;/span&gt;let@token.&lt;span style=&#34;color:#66d9ef&#34;&gt;\else&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;\null\fi\xspace&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\eg&lt;/span&gt;{{e.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Eg&lt;/span&gt;{{E.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\ie&lt;/span&gt;{{i.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Ie&lt;/span&gt;{{I.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\cf&lt;/span&gt;{{c.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Cf&lt;/span&gt;{{C.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etc&lt;/span&gt;{{etc}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\vs&lt;/span&gt;{{vs}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\wrt&lt;/span&gt;{w.r.t&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\dof&lt;/span&gt;{d.o.f&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etal&lt;/span&gt;{{et al}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatother&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}{}
   &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
 
       &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-2.35cm}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Introduction}
         &lt;span style=&#34;color:#75715e&#34;&gt;% \begin{columns}[t]
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;%   \begin{column}{.75\linewidth}
@@ -1862,12 +1915,12 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
     &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-2.35cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Results}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{General postoperative changes in PV of ICA}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-17cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-17cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The preoperative perfusion volume (&lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{PV}) of the
               stenotic ICA in the carotid stenosis group was significantly
@@ -1883,7 +1936,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=1\linewidth]&lt;/span&gt;{Figures/Figure-2-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.5cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The patients were divided into 2 groups on the basis of
           the preoperative PV of the stenotic ICA, that is,
@@ -1900,7 +1953,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-18cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-18cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The changes in the PV of the stenotic ICA
               before and after CEA or CAS in the normal PV group and the
@@ -1928,7 +1981,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.45&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-24cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-24cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The rate of PV increase is significantly
               higher in the reduced PV group than in the normal PV
@@ -1944,7 +1997,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.55&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-1.75cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1.75cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.96\linewidth]&lt;/span&gt;{Figures/Figure-4-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
@@ -1957,7 +2010,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
     &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-3cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-3cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Differential postoperative ICA flow changes}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
@@ -1974,7 +2027,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
 
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-4cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-4cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.8\linewidth]&lt;/span&gt;{Figures/Figure-5-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
 
@@ -2006,9 +2059,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
 
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.95cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.95cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Conclusion}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-1cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; TASL demonstrated that CEA and CAS elicited increases in the
           PV of stenotic ICAs, which resulted in equalization of the
@@ -2025,9 +2078,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{-1ex}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
 
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.5cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{References}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.75cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.75cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{enumerate}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\scriptsize&lt;/span&gt;{
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Uchihashi et al. Clinical application of arterial
@@ -2049,11 +2102,11 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
 &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% Local Variables:
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% mode: latex
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-PDF-mode: t
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-master: t
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt; End:&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% Local Variables:
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% mode: latex
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-PDF-mode: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-master: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%%%&lt;/span&gt; End:&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;templates&#34;&gt;Templates&lt;/h3&gt;
@@ -2473,7 +2526,7 @@ height &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Slides.&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Duplicate an `[[item]]` block to add more slides.&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;item&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt;item&lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;
 title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;完璧な秋の日&amp;#34;&lt;/span&gt;
 content &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;とりあえず備忘録として 🚀&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;#  align = &amp;#34;center&amp;#34;  # Choose `center`, `left`, or `right`.&lt;/span&gt;
@@ -2814,22 +2867,22 @@ https://gohugo.io/
 /usr/local/Cellar/hugo/0.57.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;41&lt;/span&gt; files, 59.2MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
 Poured from bottle on 2019-08-19 at 21:45:45
 From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Dependencies
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Dependencies
 Build: go ✘
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Options
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Options
 --HEAD
 Install HEAD version
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Caveats
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Caveats
 Bash completion has been installed to:
 /usr/local/etc/bash_completion.d
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Analytics
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Analytics
 install: 23,734 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 46,557 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 196,750 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 install_on_request: 22,865 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 45,011 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 186,183 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 build_error: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ox-hugo-update&#34;&gt;ox-hugo update&lt;/h2&gt;
 &lt;p&gt;ox-hugoを最新版にする．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;M-x package-utils-upgrade-by-name
-&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;...........&lt;/span&gt;
 ox-hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C-h C-l ox-hugo-pkg.elすると，&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(define-package &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ox-hugo&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;20190802.1755&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hugo Markdown Back-End for Org Export Engine&amp;#34;&lt;/span&gt;
@@ -2938,19 +2991,19 @@ $ less refactor-pages-to-page-bundles.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Helps migrate from v2.4.0 to v3.0.0&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Refactor a page named `X.md` to `content/&amp;lt;section&amp;gt;/X/index.md` to use the&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# new page bundles and featured image system&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 ..........
 $ less refactor-homepage-sections-to-bundles.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Helps migrate from v4.1 to v4.2&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# treating homepage sections as headless page bundles in Hugo.&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`&lt;/span&gt;
 ..........
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．&lt;/p&gt;
@@ -3049,14 +3102,14 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;li&gt;
 &lt;p&gt;以下のように，li_card.htmlの53行目を変更する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;.....
-&lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; with $resource &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Fill &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;918x517 q90 %s&amp;#34;&lt;/span&gt; $anchor&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;54&lt;/span&gt; &amp;lt;a href&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{{ &lt;/span&gt;$item&lt;span style=&#34;color:#e6db74&#34;&gt;.RelPermalink }}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; with $resource &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Fill &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;918x517 q90 %s&amp;#34;&lt;/span&gt; $anchor&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;54&lt;/span&gt; &amp;lt;a href&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{ &lt;/span&gt;$item&lt;span style=&#34;color:#e6db74&#34;&gt;.RelPermalink }}&amp;#34;&lt;/span&gt;&amp;gt;
 .....
 
 -----&amp;gt;
 .....
-&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Resize &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;900x&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Resize &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;900x&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
 .....
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは， &lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34;&gt;Image Processing&lt;/a&gt; に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．&lt;/p&gt;
 &lt;/li&gt;
@@ -3096,7 +3149,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 &lt;/div&gt;
 &lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;You have updated to the unreleased version. You&#39;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
+&lt;p&gt;You have updated to the unreleased version. You&amp;rsquo;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;ということなので，以下のように作業した．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ vi /Data/hoge/Taipapablog/config/_default/config.toml
@@ -3603,7 +3656,7 @@ Build succeeded. &lt;span style=&#34;color:#e6db74&#34;&gt;:O&lt;/span&gt;)
 &lt;h2 id=&#34;iterm2のcolor-schemeが効かない&#34;&gt;iTerm2のColor Schemeが効かない&lt;/h2&gt;
 &lt;p&gt;いつのまにかiTerm2のcolor schemeを変えても反映されなくなってしまった．ネットを探ると，同じようなことで悩んでいる人が結構いるようで，すぐに解決法が見つかった．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34;&gt;Profile colors won&#39;t change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34;&gt;Profile colors won&amp;rsquo;t change&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上記のサイトによれば，terminal windowがprofileと連絡を失ってしまったことが原因とのことで，iTerm2の Session &amp;gt; Edit Sessionで下の画像のようにdialogue boxがpop upするので，そこで，好きなcolor scheme (下の画像ではJapanesque) を選択し，右下のUse Selected Profileをクリックすればよい．&lt;/p&gt;
 
@@ -4202,8 +4255,8 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 trap&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SIGINT&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; exit &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; ARGV.length &amp;lt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Usage: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} watch_folder keyword&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Example: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} . mywebproject&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Usage: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} watch_folder keyword&amp;#34;&lt;/span&gt;
+   puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Example: #{&lt;/span&gt;$0&lt;span style=&#34;color:#e6db74&#34;&gt;} . mywebproject&amp;#34;&lt;/span&gt;
    exit
    end
 
@@ -4214,12 +4267,12 @@ trap&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;
    puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Watching #{watch_folder} and subfolders for changes in project files...&amp;#34;&lt;/span&gt;
 
    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; true &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-         files &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+         files &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt;
          filetypes.each &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;|type|
 files &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; Dir.glob&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; File.join&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; watch_folder, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*.#{type}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
                         &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
          new_hash &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; files.collect &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;|f| &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; f, File.stat&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;f&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.mtime.to_i &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-         hash &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; new_hash
+         hash &lt;span style=&#34;color:#f92672&#34;&gt;||=&lt;/span&gt; new_hash
          diff_hash &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; new_hash - hash
 
          unless diff_hash.empty?
@@ -4341,7 +4394,12 @@ $ watch_safari.rb Hoge hogefuga.html
 &lt;/ol&gt;
 &lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#readtheorg&#34;&gt;ReadTheOrg&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
 &lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
@@ -4491,7 +4549,29 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
       <guid>/post/swiper_migemo/</guid>
       <description>&lt;p&gt;文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#swiper-dot-el&#34;&gt;swiper.el&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#使い方&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#migemo&#34;&gt;migemo&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#cmigemoのinstall&#34;&gt;cmigemoのinstall&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#migemo-dot-elのinstall-and-setup&#34;&gt;migemo.elのInstall &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#avy-migemo-swiperのmigemo対応&#34;&gt;avy-migemo（swiperのmigemo対応）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#使い方&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#最近開いたディレクトリを開く&#34;&gt;最近開いたディレクトリを開く&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;swiper-dot-el&#34;&gt;swiper.el&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://github.com/abo-abo/swiper&#34;&gt;swiper&lt;/a&gt;  ご本家&lt;/li&gt;
@@ -4702,7 +4782,12 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
       <guid>/post/synchronization/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;）で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiの&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX#h32722ec&#34;&gt;macOS での設定例&lt;/a&gt; を参照していただきたい．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#backward-search&#34;&gt;backward search&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#forward-search&#34;&gt;forward search&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;ul&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://ryogan.org/blog/2015/12/30/mac-os-x-el-capitan-%E3%81%AE-auctex-%E3%81%AE%E8%A8%AD%E5%AE%9A/&#34;&gt;Mac OS X El Capitan の AUCTeX の設定&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://texwiki.texjp.org/?Emacs#e9c08b3d&#34;&gt;skimとの連携&lt;/a&gt;&lt;/li&gt;
@@ -4800,7 +4885,21 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
       <guid>/post/org-mode_paper_1/</guid>
       <description>&lt;p&gt;私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#目的&#34;&gt;目的&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く利点&#34;&gt;org-modeで論文を書く利点&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeの設定-セットアップ-pdfとhtmlへの出力用&#34;&gt;org-modeの設定・セットアップ（pdfとhtmlへの出力用）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#koma-script-a-bundle-of-versatile-classes-and-packages&#34;&gt;&lt;a href=&#34;https://ctan.org/pkg/koma-script&#34;&gt;koma-script – A bundle of versatile classes and packages&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-bullet&#34;&gt;org-bullet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeのinit-dot-elの設定-pdf出力用&#34;&gt;org-modeのinit.elの設定（pdf出力用）&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く-の実例&#34;&gt;「org-modeで論文を書く」の実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする&lt;/li&gt;
@@ -5068,7 +5167,7 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetheme&lt;/span&gt;{Darmstadt}
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[onlylarge]&lt;/span&gt;{structurebold}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{navigation symbols}{}
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[english]&lt;/span&gt;{babel}
@@ -5180,7 +5279,7 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
 
 
@@ -5214,7 +5313,21 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/latexmk/</guid>
       <description>&lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#latexmk&#34;&gt;latexmk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#実際の作業&#34;&gt;実際の作業&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#xelatexについて&#34;&gt;XeLaTeXについて&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;
@@ -5313,7 +5426,12 @@ $preview_continuous_mode &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt
       <guid>/post/japanese_setup/</guid>
       <description>&lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#coding-systemの設定&#34;&gt;Coding systemの設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#inline-patchの設定&#34;&gt;Inline-patchの設定&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;coding-systemの設定&#34;&gt;Coding systemの設定&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -5475,7 +5593,7 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;org-modeで以下のようにする．（後述する設定が必要）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．．．）&lt;/span&gt;
 以下のように展開される
 &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
 
@@ -5581,7 +5699,7 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;p&gt;prelude-modules.elを見て必要なmodulesがロードされるようにコメントアウトを外す．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;prelude-helm&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; Interface for narrowing and search&lt;/span&gt;
 (&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;prelude-helm-everywhere&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; Enable Helm everywhere&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;..................&lt;/span&gt;
 (&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;prelude-latex&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;helmにすっかり慣らされてしまったのでこのあたりは外している．prelude-latexのコメントアウトを外すことにより，次回にEmacsを立ち上げるときに &lt;strong&gt;auctex&lt;/strong&gt; がインストールされる．&lt;/p&gt;
 &lt;/li&gt;

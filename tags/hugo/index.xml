@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo | A perfect autumn day</title>
+    <title>hugo | A perfect autumn day</title>
     <link>/tags/hugo/</link>
       <atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    <description>Hugo</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0900</lastBuildDate>
+    <description>hugo</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
-      <title>Hugo</title>
+      <title>hugo</title>
       <link>/tags/hugo/</link>
     </image>
     
@@ -79,7 +79,7 @@ height &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Slides.&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Duplicate an `[[item]]` block to add more slides.&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;item&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt;item&lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;
 title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;完璧な秋の日&amp;#34;&lt;/span&gt;
 content &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;とりあえず備忘録として 🚀&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;#  align = &amp;#34;center&amp;#34;  # Choose `center`, `left`, or `right`.&lt;/span&gt;
@@ -163,22 +163,22 @@ https://gohugo.io/
 /usr/local/Cellar/hugo/0.57.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;41&lt;/span&gt; files, 59.2MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
 Poured from bottle on 2019-08-19 at 21:45:45
 From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Dependencies
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Dependencies
 Build: go ✘
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Options
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Options
 --HEAD
 Install HEAD version
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Caveats
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Caveats
 Bash completion has been installed to:
 /usr/local/etc/bash_completion.d
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Analytics
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Analytics
 install: 23,734 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 46,557 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 196,750 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 install_on_request: 22,865 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 45,011 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 186,183 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 build_error: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ox-hugo-update&#34;&gt;ox-hugo update&lt;/h2&gt;
 &lt;p&gt;ox-hugoを最新版にする．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;M-x package-utils-upgrade-by-name
-&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;...........&lt;/span&gt;
 ox-hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C-h C-l ox-hugo-pkg.elすると，&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(define-package &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ox-hugo&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;20190802.1755&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hugo Markdown Back-End for Org Export Engine&amp;#34;&lt;/span&gt;
@@ -287,19 +287,19 @@ $ less refactor-pages-to-page-bundles.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Helps migrate from v2.4.0 to v3.0.0&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Refactor a page named `X.md` to `content/&amp;lt;section&amp;gt;/X/index.md` to use the&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# new page bundles and featured image system&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 ..........
 $ less refactor-homepage-sections-to-bundles.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Helps migrate from v4.1 to v4.2&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# treating homepage sections as headless page bundles in Hugo.&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`&lt;/span&gt;
 ..........
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．&lt;/p&gt;
@@ -398,14 +398,14 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;li&gt;
 &lt;p&gt;以下のように，li_card.htmlの53行目を変更する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;.....
-&lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; with $resource &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Fill &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;918x517 q90 %s&amp;#34;&lt;/span&gt; $anchor&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;54&lt;/span&gt; &amp;lt;a href&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{{ &lt;/span&gt;$item&lt;span style=&#34;color:#e6db74&#34;&gt;.RelPermalink }}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; with $resource &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Fill &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;918x517 q90 %s&amp;#34;&lt;/span&gt; $anchor&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;54&lt;/span&gt; &amp;lt;a href&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{ &lt;/span&gt;$item&lt;span style=&#34;color:#e6db74&#34;&gt;.RelPermalink }}&amp;#34;&lt;/span&gt;&amp;gt;
 .....
 
 -----&amp;gt;
 .....
-&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Resize &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;900x&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Resize &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;900x&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
 .....
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは， &lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34;&gt;Image Processing&lt;/a&gt; に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．&lt;/p&gt;
 &lt;/li&gt;
@@ -445,7 +445,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 &lt;/div&gt;
 &lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;You have updated to the unreleased version. You&#39;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
+&lt;p&gt;You have updated to the unreleased version. You&amp;rsquo;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;ということなので，以下のように作業した．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ vi /Data/hoge/Taipapablog/config/_default/config.toml
@@ -523,9 +523,9 @@ hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&
 
 &lt;p&gt;これは３行のcodeであるが，はっきり言って見にくい．．．．．　&lt;/p&gt;
 &lt;p&gt;行番号を入れるという方法もあるが，それよりもscrollbarをつけて横にスライドさせる方が分かりやすい．つまり，こうである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boxplot&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;axis&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#a6e22e&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;beeswarm&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;blue&amp;#34;&lt;/span&gt;))
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boxplot&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;axis&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#a6e22e&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;beeswarm&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これなら，確実に１行を把握できる．&lt;/p&gt;
 &lt;p&gt;ここ（&lt;a href=&#34;http://seankross.com/notes/css-for-code/&#34;&gt;Fix How Your Blog’s Code is Displayed on Mobile&lt;/a&gt;）を見るともっと分かりやすく書いてある．&lt;/p&gt;
 &lt;h2 id=&#34;how-to-add-horizontal-scrollbar&#34;&gt;How to add horizontal scrollbar&lt;/h2&gt;
@@ -588,9 +588,9 @@ border-color: rgb&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;248, 24
 &lt;/figure&gt;
 
 &lt;p&gt;は，以下のように表示されるようになる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boxplot&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;axis&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#a6e22e&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;beeswarm&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;blue&amp;#34;&lt;/span&gt;))
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boxplot&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;axis&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#a6e22e&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;beeswarm&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;-nをつけて行番号をつけると&lt;/p&gt;
 
 
@@ -615,130 +615,13 @@ border-color: rgb&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;248, 24
 &lt;/span&gt;&lt;span style=&#34;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boxplot&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;axis&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#a6e22e&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;beeswarm&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;blue&amp;#34;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;boxplot&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, xlab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, main &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Drug1&amp;#34;&lt;/span&gt;, xaxt&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;n&amp;#34;&lt;/span&gt;, cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, ylab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Relative value&amp;#34;&lt;/span&gt;, cex.lab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, pch&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;axis&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;),&lt;span style=&#34;color:#a6e22e&#34;&gt;formatC&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Control&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Day7&amp;#34;&lt;/span&gt;)), cex.axis&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;)
+&lt;span style=&#34;color:#a6e22e&#34;&gt;beeswarm&lt;/span&gt;(data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Drug1 &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; data_melt.df&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Day, pch &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;, ad &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;black&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;green&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;br /&gt;
 なんとか，これで，code blockにhorizontal scrollbarをつけることができた．次に時間ができたときにacademic themeをupgradeして追いつこう．．．いつになることやら．．．(^^;;;;;;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>How to automatically embed R plot in blog created by Hugo via ox-hugo</title>
-      <link>/post/embedrplotinblog/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
-      <guid>/post/embedrplotinblog/</guid>
-      <description>&lt;p&gt;（承前）前回（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．&lt;/p&gt;
-&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
-&lt;div&gt;&lt;/div&gt;
-&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;!--endtoc--&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;HUGO&lt;/a&gt;  &lt;br /&gt;
-Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again. Hugoのsetupについてはネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co&#34;&gt;ox-hugo&lt;/a&gt;  &lt;br /&gt;
-ox-hugo is an Org exporter backend that exports Org to Hugo-compatible Markdown (Blackfriday) and also generates the front-matter (in TOML or YAML format).&lt;/p&gt;
-&lt;p&gt;要するに，Markdownを直接書くのではなく，org-modeで書いてしまおうというもので，私のようなorg-mode maniacにピッタリのパッケージである．ox-hugoのsetupについてもネットに山のように情報があるので，そちらを参照（手抜き）(^^;;;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;configuration-of-hugo-section&#34;&gt;Configuration of Hugo section&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://sfus.net/blog/2018/12/org-mode-with-ox-hugo/&#34;&gt;Org-mode で記事を書いて Hugo 向け markdown を ox-hugo で自動生成する話&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;そもそも，まず，Hugoのディレクトリ・ファイルの構成を把握する必要があった．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.org に書き込んでおり，directory/file構成は以下の通りである．上記参考サイトと同じく，/hogehoge/hogeblog/hogefugablog/，つまり，Hugo の content/ と同じ階層に hogefugablog.org ファイルを置いている．なお，themeは &lt;a href=&#34;https://themes.gohugo.io/academic/&#34;&gt;&lt;strong&gt;academic&lt;/strong&gt;&lt;/a&gt; を使用している．また，ox-hugoのdirectoryは今回の作業により新たに作成されたものであり，当初はなかった．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-.
-├── config.toml
-├── content
-│   ├── home
-│   ├── post
-│   └── privacy.md
-├── data
-│   └── 6F
-├── hogefugablog.org
-├── layouts
-│   ├── js
-│   ├── partials
-│   └── search
-├── static
-│   ├── css
-│   ├── files
-│   ├── img
-│   └── ox-hugo
-└── themes
-    └── academic
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;setup-of-hugo-section-and-hugo-base-dir-in-ox-hugo&#34;&gt;Setup of HUGO_SECTION &amp;amp; HUGO_BASE_DIR in ox-hugo&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/usage/#before-you-export&#34;&gt;Before you export&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;本サイトでは，HUGO_SECTIONは特に設定しておらず，C-h v org-hugo-default-section-directoryの値は default valueであるpostsになっている．&lt;/p&gt;
-&lt;p&gt;また，hogefugablog.orgの文頭に以下のように記述して，HUGO_BASE_DIRを設定している．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HUGO_BASE_DIR: &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;/&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ここまでで，ox-hugoからのexportの準備が整った．&lt;/p&gt;
-&lt;h2 id=&#34;references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#references-to-files-outside-the-static-directory&#34;&gt;References to files outside the static directory&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hugoのstatic directory以外の場所にあるファイルへのreferenceを作成し，かつ，そのファイルが &lt;strong&gt;org-hugo-external-file-extensions-allowed-for-copying&lt;/strong&gt; のリストに挙げられている拡張子を有している場合は，そのファイルはox-hugoによりstatic directoryにコピーされる．ちなみに，C-h v org-hugo-external-file-extensions-allowed-for-copyingとすると，以下のような値を得る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;org-hugo-external-file-extensions-allowed-for-copying is a variable defined in &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;‘&lt;/span&gt;ox-hugo.el&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;’&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
-Its value is
-(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jpeg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tiff&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;png&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;svg&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;gif&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;odt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;doc&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ppt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xls&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;docx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pptx&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xlsx&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://ox-hugo.scripter.co/doc/image-links/#source-path-does-not-contain-static&#34;&gt;Source path does not contain &lt;code&gt;/static/&lt;/code&gt;&lt;/a&gt;    &lt;br /&gt;
-このサイトの &lt;strong&gt;Table 2: Where files get copied to if their path does not contain static/&lt;/strong&gt; が本サイトに当てはまる．これが分かるまでに時間を要した．本サイトは，/hogehoge/hogeblog/hogefugablog/hogefugablog.orgに書き込んでいる．この環境で，postの中にorg-babelを使ってRのcode blockを評価すると，Rにより作成されるplot（foo.png）は，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/foo.png
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;に作成される．そして，このファイルは，最終的に，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;/hogehoge/hogeblog/hogefugablog/static/ox-hugo/foo.png
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;にコピーされ，ブログ記事に挿入されるということになる．なお，ox-hugo directoryはこの時に自動的に作成される．&lt;/p&gt;
-&lt;p&gt;つまり，前回の記事（&lt;a href=&#34;../ExportRplot&#34;&gt;How to automatically embed R plot into html exported by org-mode with org-babel&lt;/a&gt;）のように，R plotのcode blockを含むorg ファイルを作成し，それをexportして，R plotが自動で組み込まれるようなら，そのorg-babelのcode blockをそのままox-hugoで書いたブログ記事のorg ファイルにコピペすれば，あとはox-hugoが良きにはからってくれるはずである．&lt;/p&gt;
-&lt;p&gt;実は，できたグラフの画像を自分でいろいろな場所にコピーしては失敗していた．Hugoのroot directory，つまり，/hogehoge/hogeblog/hogefugablog/でRを動かして，できたグラフ画像に対して何もせずに放置しておけば，ox-hugoが全て面倒を見てくれるということに気がつかず，余計なことをしていたわけである．&lt;/p&gt;
-&lt;p&gt;まとめとして，前回記事のcode blockをこの記事に挿入して試してみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test1.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
-boxplot(islands)
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/test1.png&#34; &gt;
-
-&lt;img src=&#34;/ox-hugo/test1.png&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test2.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
-library(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ggplot2&amp;#34;&lt;/span&gt;)
-ggplot(iris, aes(x &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Width, y &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Length, color &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Species)) &lt;span style=&#34;color:#a6e22e&#34;&gt;+&lt;/span&gt;
-geom_point()
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/ox-hugo/test2.png&#34; &gt;
-
-&lt;img src=&#34;/ox-hugo/test2.png&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
-
-&lt;p&gt;ちゃんとグラフが自動的に挿入されている．&lt;/p&gt;
-&lt;p&gt;org-babelとRの組み合わせは強力で，ox-hugoも便利と改めて痛感．&lt;/p&gt;
 </description>
     </item>
     

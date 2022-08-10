@@ -5,12 +5,65 @@
     <link>/tags/latex/</link>
       <atom:link href="/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     <description>latex</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 31 Dec 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>latex</title>
       <link>/tags/latex/</link>
     </image>
+    
+    <item>
+      <title>Real-time document (pdf) preview in org-mode</title>
+      <link>/post/real-time-document-pdf-preview-in-org-mode/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0900</pubDate>
+      <guid>/post/real-time-document-pdf-preview-in-org-mode/</guid>
+      <description>&lt;p&gt;いやーなんと2020年7月以来約2年ぶりの記事である．本業多忙でしばらく放置していると，ブログの書き方まで忘れてしまいすっかり億劫になり，今回この夏休みにようやく取り掛かる決心がついた．まずはリハビリも兼ねて軽めの記事を書く事にした．以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）でorg-modeで文書を書いてpdfにexportする方法をまとめた．ただ，exportする際にC-c C-e l oと打ってcompileされるのを待つのが結構面倒なのである．この部分を自動化する方法，つまり，org-mode文書を保存すれば何もしなくても自動的にpdfが更新されるようになる設定を見つけたので，それについてまとめてみた．&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/57nps0/orgmode_need_a_realtime_document_preview/&#34;&gt;Org-mode need a real-time document preview&lt;/a&gt; : 例によってredditを探ってみると，そのものズバリがあった．この記事のlarstvei氏の投稿でうまくいった．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;latexmkをインストールする．&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt; にlatexmkのインストール方法，設定を既述したが，ほとんどそのままでいける．&lt;/li&gt;
+&lt;li&gt;~/.latexmkrcを以下のように設定する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$pdflatex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&amp;#39;&lt;/span&gt;;
+$pdf_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;
+$postscript_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $dvi_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0;
+$pdf_previewer  &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;open -a Skim&amp;#39;&lt;/span&gt;;
+$preview_continuous_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;  &lt;span style=&#34;color:#75715e&#34;&gt;# equivalent to -pvc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;上記の $pdf_previewer  = &amp;lsquo;open -a Skim&amp;rsquo;; の行で，skimでpdfを開くようにしているが，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$pdf_previewer&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;emacsclient -e &amp;#39;(find-file-other-window %S)&amp;#39;&amp;#34;&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とすれば，emacsのpdf-toolで見られる．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;そして，org文書の最後に以下を追加すれば良い．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; COMMENT Local Variables
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; Local Variables:
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (server-start)
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;after-save-hook&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-export-to-latex&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (compile &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;latexmk -pdf -pvc -pdflatex=&amp;#39;xelatex -shell-escape -interaction nonstopmode&amp;#39;&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; End:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;以上の設定が終わると，org-modeの文書を開くたびにlocal variablesを評価するかどうかを訊かれるようになる．yesと答えると（&amp;lsquo;y&amp;rsquo;を叩けば良い），emacsclientが接続できるようにサーバーが立ち上がって保存するたびにorg-mode文書がLaTeXにexportされ，最後にバックグランドでlatexmkを用いてコンパイルされ，pdfが更新される．実に快適である．&lt;/li&gt;
+&lt;li&gt;なお，上記の操作の前に一度，C-c C-e loを行なってtex fileを作成しておかないとうまく動かない．１回やっておけば，あとは自動でやってくれるようになる．&lt;/li&gt;
+&lt;li&gt;私は，xelatexを使用しているが，他のlatexを使用している方はそこの部分を書き換えれば使えるはずである．&lt;/li&gt;
+&lt;li&gt;MacBook Pro (16inch, 2019) 8コアIntel Core i9, 2.4 GHz メモリ:	64 GB (macOS Monterey 12.4)では，保存するたびに少しcompilationを待たないといけないが，MacBook Pro（16インチ、2021）Apple M1 Max コアの総数:10（パフォーマンス: 8、効率性: 2）メモリ:	64 GB (macOS Monterey 12.4)では，待ち時間が明らかに短縮されているのを実感できる．&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</title>
@@ -138,7 +191,7 @@ PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes 
 &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/&lt;/span&gt;
 &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/taipapa/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
+&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; replace: ^file:///Users/taipapa/Data/&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
 &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでブラウザによるpdf fileの全文検索が可能となった．なお，MacBook Pro late 2016では，document数が11734個，語数が1351563のindex作成に要した時間は約40分強であったが，今回，MacBook Pro 2019 16 inch では，document数が11782個，語数が1362430のindex作成に要した時間は約31分強であった．&lt;/p&gt;
 &lt;h2 id=&#34;encountered-problems-遭遇した問題点&#34;&gt;Encountered problems: 遭遇した問題点&lt;/h2&gt;
@@ -299,7 +352,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\begin{center}
 &lt;span style=&#34;color:#f92672&#34;&gt;-          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
 &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          % \includegraphics[width=.6\linewidth]{logos/i6-hks44}
-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
+&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\end{center}
 \vskip1ex
 \end{column}
@@ -317,7 +370,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 \begin{center}
 &lt;span style=&#34;color:#f92672&#34;&gt;-          \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
 &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          % \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
+&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\end{center}
 \vskip1.5cm
 \end{column}
@@ -739,15 +792,15 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;{itemize/enumerate subbody}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\normalsize&lt;/span&gt;}
 
 &lt;span style=&#34;color:#75715e&#34;&gt;% additional packages
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{times}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{times}
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;%% 上記だけではsans serifにならないので，下記を設定　
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[T1]{fontenc}
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[usefilenames,% Important for XeLaTeX
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% DefaultFeatures={Ligatures=Common}]{plex-otf} %
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[T1]{fontenc}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[usefilenames,% Important for XeLaTeX
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% DefaultFeatures={Ligatures=Common}]{plex-otf} %
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsanstext/
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[T1]&lt;/span&gt;{fontenc}
@@ -756,7 +809,7 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
 SSstyle={Text,Semibold},
 TTstyle={Text,Semibold},
 DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&#34;&gt;%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\renewcommand&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\familydefault&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\sfdefault&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;%% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\renewcommand*\familydefault&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\sfdefault&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;%% Only if the base font of the document is to be sans serif
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{amsmath,amsthm, amssymb, latexsym}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{exscale}
@@ -772,7 +825,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{latexsym}
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;% Display a grid to help align images
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \beamertemplategridbackground[1cm]
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \beamertemplategridbackground[1cm]
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\huge&lt;/span&gt; Perioperative Assessment Of Cerebral Perfusion Territories Through Arterial Spin Labeling Magnetic Resonance Imaging In Carotid Stenosis}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[taipapa et al.]&lt;/span&gt;{taipapa, taimama, taison, taidaughter, other person1,
@@ -783,27 +836,27 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;span style=&#34;color:#75715e&#34;&gt;% abbreviations
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{xspace}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatletter&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\DeclareRobustCommand&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\futurelet&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;let@token&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot{&lt;span style=&#34;color:#66d9ef&#34;&gt;\ifx&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;let@token.&lt;span style=&#34;color:#66d9ef&#34;&gt;\else&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;\null&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\fi&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\xspace&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\eg&lt;/span&gt;{{e.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Eg&lt;/span&gt;{{E.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\ie&lt;/span&gt;{{i.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Ie&lt;/span&gt;{{I.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\cf&lt;/span&gt;{{c.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Cf&lt;/span&gt;{{C.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\etc&lt;/span&gt;{{etc}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\vs&lt;/span&gt;{{vs}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\wrt&lt;/span&gt;{w.r.t&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\dof&lt;/span&gt;{d.o.f&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\etal&lt;/span&gt;{{et al}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\DeclareRobustCommand\onedot&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\futurelet\@&lt;/span&gt;let@token&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\@&lt;/span&gt;onedot{&lt;span style=&#34;color:#66d9ef&#34;&gt;\ifx\@&lt;/span&gt;let@token.&lt;span style=&#34;color:#66d9ef&#34;&gt;\else&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;\null\fi\xspace&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\eg&lt;/span&gt;{{e.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Eg&lt;/span&gt;{{E.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\ie&lt;/span&gt;{{i.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Ie&lt;/span&gt;{{I.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\cf&lt;/span&gt;{{c.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Cf&lt;/span&gt;{{C.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etc&lt;/span&gt;{{etc}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\vs&lt;/span&gt;{{vs}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\wrt&lt;/span&gt;{w.r.t&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\dof&lt;/span&gt;{d.o.f&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etal&lt;/span&gt;{{et al}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatother&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}{}
   &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
 
       &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-2.35cm}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Introduction}
         &lt;span style=&#34;color:#75715e&#34;&gt;% \begin{columns}[t]
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;%   \begin{column}{.75\linewidth}
@@ -881,12 +934,12 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
     &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-2.35cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Results}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{General postoperative changes in PV of ICA}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-17cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-17cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The preoperative perfusion volume (&lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{PV}) of the
               stenotic ICA in the carotid stenosis group was significantly
@@ -902,7 +955,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=1\linewidth]&lt;/span&gt;{Figures/Figure-2-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.5cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The patients were divided into 2 groups on the basis of
           the preoperative PV of the stenotic ICA, that is,
@@ -919,7 +972,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-18cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-18cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The changes in the PV of the stenotic ICA
               before and after CEA or CAS in the normal PV group and the
@@ -947,7 +1000,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.45&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-24cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-24cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The rate of PV increase is significantly
               higher in the reduced PV group than in the normal PV
@@ -963,7 +1016,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.55&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-1.75cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1.75cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.96\linewidth]&lt;/span&gt;{Figures/Figure-4-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
@@ -976,7 +1029,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
     &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-3cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-3cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Differential postoperative ICA flow changes}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
@@ -993,7 +1046,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
 
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-4cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-4cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.8\linewidth]&lt;/span&gt;{Figures/Figure-5-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
 
@@ -1025,9 +1078,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
 
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.95cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.95cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Conclusion}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-1cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; TASL demonstrated that CEA and CAS elicited increases in the
           PV of stenotic ICAs, which resulted in equalization of the
@@ -1044,9 +1097,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{-1ex}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
 
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.5cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{References}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.75cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.75cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{enumerate}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\scriptsize&lt;/span&gt;{
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Uchihashi et al. Clinical application of arterial
@@ -1068,11 +1121,11 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
 &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% Local Variables:
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% mode: latex
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-PDF-mode: t
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-master: t
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt; End:&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% Local Variables:
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% mode: latex
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-PDF-mode: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-master: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%%%&lt;/span&gt; End:&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;templates&#34;&gt;Templates&lt;/h3&gt;
@@ -1225,7 +1278,19 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
       <guid>/post/tufte/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#設定&#34;&gt;設定&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#tufte-org-modeのインストールと設定&#34;&gt;tufte-org-modeのインストールと設定&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeでtufte-latexの設定&#34;&gt;org-modeでtufte-latexの設定&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufteの使用の実例&#34;&gt;tufteの使用の実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;
@@ -1427,7 +1492,12 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;ba
       <guid>/post/synchronization/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;）で，Emacsでbeamerを用いてlatexのソースを書いてコンパイルし，スライド原稿としてpdfを出力する方法をまとめた．この際に，pdfの特定の箇所がlatexのソースでどこに当たるのかがわかったり，逆に，latexのソースの特定の箇所がpdf上のどこに当たるのかがわかったりすると便利である．今回はそれについてまとめる．なお，auctexの全般的な設定については，TeXWikiの&lt;a href=&#34;https://texwiki.texjp.org/?AUCTeX#h32722ec&#34;&gt;macOS での設定例&lt;/a&gt; を参照していただきたい．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#backward-search&#34;&gt;backward search&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#forward-search&#34;&gt;forward search&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;ul&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://ryogan.org/blog/2015/12/30/mac-os-x-el-capitan-%E3%81%AE-auctex-%E3%81%AE%E8%A8%AD%E5%AE%9A/&#34;&gt;Mac OS X El Capitan の AUCTeX の設定&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;参照：&lt;a href=&#34;https://texwiki.texjp.org/?Emacs#e9c08b3d&#34;&gt;skimとの連携&lt;/a&gt;&lt;/li&gt;
@@ -1525,7 +1595,22 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;ba
       <guid>/post/org-mode_paper_3/</guid>
       <description>&lt;p&gt;前回（&lt;a href=&#34;../org-mode_paper_2&#34;&gt;Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）&lt;/a&gt;）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-mode-reftex-setupの使用方法&#34;&gt;org-mode-reftex-setupの使用方法&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#ox-bibtex-dot-el&#34;&gt;&lt;a href=&#34;https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el&#34;&gt;ox-bibtex.el&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#bst-ファイルについて&#34;&gt;bst ファイルについて&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#bst-ファイルの置き場所&#34;&gt;bst ファイルの置き場所&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#文献を引用したorg-modeからのexportの実例&#34;&gt;文献を引用したorg-modeからのexportの実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;org-mode-reftex-setup&#34;&gt;org-mode-reftex-setup&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1666,7 +1751,7 @@ option:-r    &lt;span style=&#34;color:#a6e22e&#34;&gt;reverse&lt;/span&gt; &lt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.tug.org/mactex/2013/faq/#qm05&#34;&gt;The Most Frequently Asked Questions (FAQ)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&#39;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;QM.06 :&lt;/strong&gt; Why can&amp;rsquo;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  &lt;br /&gt;
 &lt;br /&gt;
 &lt;strong&gt;AM.06 :&lt;/strong&gt; TeX Live is slightly pickier about placement of these files. &amp;ldquo;.bib&amp;rdquo; files go in &lt;br /&gt;
 &lt;strong&gt;~/Library/texmf/bibtex/bib&lt;/strong&gt; &lt;br /&gt;
@@ -1778,7 +1863,21 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <guid>/post/org-mode_paper_1/</guid>
       <description>&lt;p&gt;私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#目的&#34;&gt;目的&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く利点&#34;&gt;org-modeで論文を書く利点&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeの設定-セットアップ-pdfとhtmlへの出力用&#34;&gt;org-modeの設定・セットアップ（pdfとhtmlへの出力用）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#koma-script-a-bundle-of-versatile-classes-and-packages&#34;&gt;&lt;a href=&#34;https://ctan.org/pkg/koma-script&#34;&gt;koma-script – A bundle of versatile classes and packages&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-bullet&#34;&gt;org-bullet&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeのinit-dot-elの設定-pdf出力用&#34;&gt;org-modeのinit.elの設定（pdf出力用）&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeで論文を書く-の実例&#34;&gt;「org-modeで論文を書く」の実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;目的&#34;&gt;目的&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする&lt;/li&gt;
@@ -2026,7 +2125,15 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
       <guid>/post/beamer_movie2/</guid>
       <description>&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#media9&#34;&gt;media9&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#beamerで動画が走るスライド原稿を作る-media9版&#34;&gt;beamerで動画が走るスライド原稿を作る（media9版）&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#media9を使用したときの利点&#34;&gt;media9を使用したときの利点&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#media9を使用したときの欠点&#34;&gt;media9を使用したときの欠点&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#結論&#34;&gt;結論&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
 &lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
 &lt;ul&gt;
@@ -2203,7 +2310,7 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetheme&lt;/span&gt;{Darmstadt}
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[onlylarge]&lt;/span&gt;{structurebold}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{navigation symbols}{}
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[english]&lt;/span&gt;{babel}
@@ -2315,7 +2422,7 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
 
 
@@ -2349,7 +2456,21 @@ An annotation is considered as an object with a location on a page. The type of 
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/latexmk/</guid>
       <description>&lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#latexmk&#34;&gt;latexmk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#実際の作業&#34;&gt;実際の作業&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#xelatexについて&#34;&gt;XeLaTeXについて&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;

@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．">
+Table of Contents  swiper.el  Install &amp; setup 使い方   migemo  cmigemoのinstall migemo.elのInstall &amp; setup   avy-migemo（swiperのmigemo対応）  Install &amp; setup 使い方   最近開いたディレクトリを開く   swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/swiper_migemo/">
@@ -81,7 +81,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -124,7 +124,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
   <meta property="og:url" content="/post/swiper_migemo/">
   <meta property="og:title" content="Swiper, ivy, avy, migemoによるEmacsの検索強化 | A perfect autumn day">
   <meta property="og:description" content="文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．"><meta property="og:image" content="/post/swiper_migemo/featured.jpg">
+Table of Contents  swiper.el  Install &amp; setup 使い方   migemo  cmigemoのinstall migemo.elのInstall &amp; setup   avy-migemo（swiperのmigemo対応）  Install &amp; setup 使い方   最近開いたディレクトリを開く   swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #&#43;begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #&#43;end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．"><meta property="og:image" content="/post/swiper_migemo/featured.jpg">
   <meta property="twitter:image" content="/post/swiper_migemo/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -403,7 +403,29 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
     <div class="article-style" itemprop="articleBody">
       <p>文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;</p>
 <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#swiper-dot-el">swiper.el</a>
+      <ul>
+        <li><a href="#install-and-setup">Install &amp; setup</a></li>
+        <li><a href="#使い方">使い方</a></li>
+      </ul>
+    </li>
+    <li><a href="#migemo">migemo</a>
+      <ul>
+        <li><a href="#cmigemoのinstall">cmigemoのinstall</a></li>
+        <li><a href="#migemo-dot-elのinstall-and-setup">migemo.elのInstall &amp; setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#avy-migemo-swiperのmigemo対応">avy-migemo（swiperのmigemo対応）</a>
+      <ul>
+        <li><a href="#install-and-setup">Install &amp; setup</a></li>
+        <li><a href="#使い方">使い方</a></li>
+      </ul>
+    </li>
+    <li><a href="#最近開いたディレクトリを開く">最近開いたディレクトリを開く</a></li>
+  </ul>
+</nav>
 <h2 id="swiper-dot-el">swiper.el</h2>
 <ul>
 <li>参照1：<a href="https://github.com/abo-abo/swiper">swiper</a>  ご本家</li>
@@ -912,7 +934,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -937,7 +959,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

@@ -5,7 +5,7 @@
     <link>/tags/texlive/</link>
       <atom:link href="/tags/texlive/index.xml" rel="self" type="application/rss+xml" />
     <description>texlive</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>texlive</title>
@@ -39,7 +39,7 @@
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetheme&lt;/span&gt;{Darmstadt}
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[onlylarge]&lt;/span&gt;{structurebold}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{navigation symbols}{}
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[english]&lt;/span&gt;{babel}
@@ -151,7 +151,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
 
 

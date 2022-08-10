@@ -5,7 +5,7 @@
     <link>/tags/upgrade/</link>
       <atom:link href="/tags/upgrade/index.xml" rel="self" type="application/rss+xml" />
     <description>upgrade</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 04 Sep 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>upgrade</title>
@@ -79,7 +79,7 @@ height &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Slides.&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Duplicate an `[[item]]` block to add more slides.&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;item&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt;item&lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;
 title &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;完璧な秋の日&amp;#34;&lt;/span&gt;
 content &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;とりあえず備忘録として 🚀&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;#  align = &amp;#34;center&amp;#34;  # Choose `center`, `left`, or `right`.&lt;/span&gt;
@@ -163,22 +163,22 @@ https://gohugo.io/
 /usr/local/Cellar/hugo/0.57.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;41&lt;/span&gt; files, 59.2MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
 Poured from bottle on 2019-08-19 at 21:45:45
 From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Dependencies
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Dependencies
 Build: go ✘
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Options
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Options
 --HEAD
 Install HEAD version
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Caveats
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Caveats
 Bash completion has been installed to:
 /usr/local/etc/bash_completion.d
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Analytics
+&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Analytics
 install: 23,734 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 46,557 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 196,750 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 install_on_request: 22,865 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 45,011 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 186,183 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 build_error: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ox-hugo-update&#34;&gt;ox-hugo update&lt;/h2&gt;
 &lt;p&gt;ox-hugoを最新版にする．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;M-x package-utils-upgrade-by-name
-&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;...........&lt;/span&gt;
 ox-hugo
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C-h C-l ox-hugo-pkg.elすると，&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(define-package &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ox-hugo&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;20190802.1755&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hugo Markdown Back-End for Org Export Engine&amp;#34;&lt;/span&gt;
@@ -287,19 +287,19 @@ $ less refactor-pages-to-page-bundles.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/sh&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Helps migrate from v2.4.0 to v3.0.0&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Refactor a page named `X.md` to `content/&amp;lt;section&amp;gt;/X/index.md` to use the&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# new page bundles and featured image system&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 ..........
 $ less refactor-homepage-sections-to-bundles.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env bash&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Helps migrate from v4.1 to v4.2&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# treating homepage sections as headless page bundles in Hugo.&lt;/span&gt;
-#
+&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`&lt;/span&gt;
 ..........
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．&lt;/p&gt;
@@ -398,14 +398,14 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 &lt;li&gt;
 &lt;p&gt;以下のように，li_card.htmlの53行目を変更する．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;.....
-&lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; with $resource &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Fill &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;918x517 q90 %s&amp;#34;&lt;/span&gt; $anchor&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;54&lt;/span&gt; &amp;lt;a href&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{{ &lt;/span&gt;$item&lt;span style=&#34;color:#e6db74&#34;&gt;.RelPermalink }}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; with $resource &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Fill &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;printf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;918x517 q90 %s&amp;#34;&lt;/span&gt; $anchor&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;54&lt;/span&gt; &amp;lt;a href&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{ &lt;/span&gt;$item&lt;span style=&#34;color:#e6db74&#34;&gt;.RelPermalink }}&amp;#34;&lt;/span&gt;&amp;gt;
 .....
 
 -----&amp;gt;
 .....
-&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Resize &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;900x&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ae81ff&#34;&gt;53&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt; $image :&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; .Resize &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;900x&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
 .....
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは， &lt;a href=&#34;https://gohugo.io/content-management/image-processing/&#34;&gt;Image Processing&lt;/a&gt; に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．&lt;/p&gt;
 &lt;/li&gt;
@@ -445,7 +445,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 &lt;/div&gt;
 &lt;p&gt;のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの &lt;a href=&#34;https://github.com/gcushen/hugo-academic/issues/1060&#34;&gt;Featurette widget does not change from example #1060&lt;/a&gt; があった．&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;You have updated to the unreleased version. You&#39;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
+&lt;p&gt;You have updated to the unreleased version. You&amp;rsquo;ll need to remove the &amp;ldquo;CSS&amp;rdquo; output entry from config.Toml&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;ということなので，以下のように作業した．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ vi /Data/hoge/Taipapablog/config/_default/config.toml

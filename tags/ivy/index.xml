@@ -5,7 +5,7 @@
     <link>/tags/ivy/</link>
       <atom:link href="/tags/ivy/index.xml" rel="self" type="application/rss+xml" />
     <description>ivy</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 14 Oct 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>ivy</title>
@@ -19,7 +19,29 @@
       <guid>/post/swiper_migemo/</guid>
       <description>&lt;p&gt;文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#swiper-dot-el&#34;&gt;swiper.el&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#使い方&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#migemo&#34;&gt;migemo&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#cmigemoのinstall&#34;&gt;cmigemoのinstall&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#migemo-dot-elのinstall-and-setup&#34;&gt;migemo.elのInstall &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#avy-migemo-swiperのmigemo対応&#34;&gt;avy-migemo（swiperのmigemo対応）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#install-and-setup&#34;&gt;Install &amp;amp; setup&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#使い方&#34;&gt;使い方&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#最近開いたディレクトリを開く&#34;&gt;最近開いたディレクトリを開く&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;swiper-dot-el&#34;&gt;swiper.el&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参照1：&lt;a href=&#34;https://github.com/abo-abo/swiper&#34;&gt;swiper&lt;/a&gt;  ご本家&lt;/li&gt;

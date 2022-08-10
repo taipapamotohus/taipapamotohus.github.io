@@ -5,7 +5,7 @@
     <link>/tags/skim/</link>
       <atom:link href="/tags/skim/index.xml" rel="self" type="application/rss+xml" />
     <description>skim</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>skim</title>
@@ -18,7 +18,21 @@
       <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       <guid>/post/latexmk/</guid>
       <description>&lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tex-live-2018のインストール-2018年9月1日追記&#34;&gt;TeX Live 2018のインストール（2018年9月1日追記）&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#ヒラギノフォントの埋め込みなど&#34;&gt;ヒラギノフォントの埋め込みなど&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#インストール後のパスの修正-symbolic-linkを張る&#34;&gt;インストール後のパスの修正（symbolic linkを張る）&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#auctexのインストールと設定&#34;&gt;auctexのインストールと設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#latexmk&#34;&gt;latexmk&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#実際の作業&#34;&gt;実際の作業&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#xelatexについて&#34;&gt;XeLaTeXについて&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;tex-live-2018のインストール&#34;&gt;TeX Live 2018のインストール&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;参考サイト１：&lt;a href=&#34;https://texwiki.texjp.org/?TeX%20Live&#34;&gt;TeX Wiki TeX Live&lt;/a&gt;&lt;/li&gt;

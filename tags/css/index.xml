@@ -5,7 +5,7 @@
     <link>/tags/css/</link>
       <atom:link href="/tags/css/index.xml" rel="self" type="application/rss+xml" />
     <description>css</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>css</title>
@@ -27,7 +27,12 @@
 &lt;/ol&gt;
 &lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#readtheorg&#34;&gt;ReadTheOrg&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
 &lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup

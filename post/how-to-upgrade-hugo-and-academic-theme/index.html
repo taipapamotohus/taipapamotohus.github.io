@@ -87,7 +87,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -467,22 +467,22 @@ https://gohugo.io/
 /usr/local/Cellar/hugo/0.57.2 <span style="color:#f92672">(</span><span style="color:#ae81ff">41</span> files, 59.2MB<span style="color:#f92672">)</span> *
 Poured from bottle on 2019-08-19 at 21:45:45
 From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Dependencies
+<span style="color:#f92672">==</span>&gt; Dependencies
 Build: go ✘
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Options
+<span style="color:#f92672">==</span>&gt; Options
 --HEAD
 Install HEAD version
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Caveats
+<span style="color:#f92672">==</span>&gt; Caveats
 Bash completion has been installed to:
 /usr/local/etc/bash_completion.d
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Analytics
+<span style="color:#f92672">==</span>&gt; Analytics
 install: 23,734 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 46,557 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 196,750 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
 install_on_request: 22,865 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 45,011 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 186,183 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
 build_error: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>
 </code></pre></div><h2 id="ox-hugo-update">ox-hugo update</h2>
 <p>ox-hugoを最新版にする．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">M-x package-utils-upgrade-by-name
-<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">...........</span>
 ox-hugo
 </code></pre></div><p>C-h C-l ox-hugo-pkg.elすると，</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(define-package <span style="color:#e6db74">&#34;ox-hugo&#34;</span> <span style="color:#e6db74">&#34;20190802.1755&#34;</span> <span style="color:#e6db74">&#34;Hugo Markdown Back-End for Org Export Engine&#34;</span>
@@ -591,19 +591,19 @@ $ less refactor-pages-to-page-bundles.sh
 <span style="color:#75715e">#!/bin/sh</span>
 
 <span style="color:#75715e"># Helps migrate from v2.4.0 to v3.0.0</span>
-#
+<span style="color:#75715e">#</span>
 <span style="color:#75715e"># Refactor a page named `X.md` to `content/&lt;section&gt;/X/index.md` to use the</span>
 <span style="color:#75715e"># new page bundles and featured image system</span>
-#
+<span style="color:#75715e">#</span>
 ..........
 $ less refactor-homepage-sections-to-bundles.sh
 <span style="color:#75715e">#!/usr/bin/env bash</span>
 
 <span style="color:#75715e"># Helps migrate from v4.1 to v4.2</span>
-#
+<span style="color:#75715e">#</span>
 <span style="color:#75715e"># Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,</span>
 <span style="color:#75715e"># treating homepage sections as headless page bundles in Hugo.</span>
-#
+<span style="color:#75715e">#</span>
 <span style="color:#75715e"># - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`</span>
 ..........
 </code></pre></div><p>という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．</p>
@@ -702,14 +702,14 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 <li>
 <p>以下のように，li_card.htmlの53行目を変更する．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">.....
-<span style="color:#ae81ff">52</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> with $resource <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
-<span style="color:#ae81ff">53</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> $image :<span style="color:#f92672">=</span> .Fill <span style="color:#f92672">(</span>printf <span style="color:#e6db74">&#34;918x517 q90 %s&#34;</span> $anchor<span style="color:#f92672">)</span> <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
-<span style="color:#ae81ff">54</span> &lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{{ </span>$item<span style="color:#e6db74">.RelPermalink }}</span><span style="color:#e6db74">&#34;</span>&gt;
+<span style="color:#ae81ff">52</span> <span style="color:#f92672">{{</span> with $resource <span style="color:#f92672">}}</span>
+<span style="color:#ae81ff">53</span> <span style="color:#f92672">{{</span> $image :<span style="color:#f92672">=</span> .Fill <span style="color:#f92672">(</span>printf <span style="color:#e6db74">&#34;918x517 q90 %s&#34;</span> $anchor<span style="color:#f92672">)</span> <span style="color:#f92672">}}</span>
+<span style="color:#ae81ff">54</span> &lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ </span>$item<span style="color:#e6db74">.RelPermalink }}&#34;</span>&gt;
 .....
 
 -----&gt;
 .....
-<span style="color:#ae81ff">53</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> $image :<span style="color:#f92672">=</span> .Resize <span style="color:#e6db74">&#34;900x&#34;</span>  <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
+<span style="color:#ae81ff">53</span> <span style="color:#f92672">{{</span> $image :<span style="color:#f92672">=</span> .Resize <span style="color:#e6db74">&#34;900x&#34;</span>  <span style="color:#f92672">}}</span>
 .....
 </code></pre></div><p>これは， <a href="https://gohugo.io/content-management/image-processing/">Image Processing</a> に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．</p>
 </li>
@@ -749,7 +749,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 </div>
 <p>のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの <a href="https://github.com/gcushen/hugo-academic/issues/1060">Featurette widget does not change from example #1060</a> があった．</p>
 <blockquote>
-<p>You have updated to the unreleased version. You'll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>
+<p>You have updated to the unreleased version. You&rsquo;ll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>
 </blockquote>
 <p>ということなので，以下のように作業した．</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vi /Data/hoge/Taipapablog/config/_default/config.toml
@@ -1094,7 +1094,7 @@ hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for mo
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -1119,7 +1119,7 @@ hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for mo
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

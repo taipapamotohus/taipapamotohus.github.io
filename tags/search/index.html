@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -350,7 +350,7 @@ $ brew install ripgrep ついで，以下のようにinit.orgに書き込ん�
     <div class="article-style">
       
       文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #+end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．
+Table of Contents  swiper.el  Install &amp; setup 使い方   migemo  cmigemoのinstall migemo.elのInstall &amp; setup   avy-migemo（swiperのmigemo対応）  Install &amp; setup 使い方   最近開いたディレクトリを開く   swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #+end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．
       
     </div>
   </div>
@@ -475,7 +475,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -500,7 +500,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

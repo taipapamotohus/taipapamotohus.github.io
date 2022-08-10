@@ -30,14 +30,9 @@
   
   <meta name="description" content="医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
 いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents ox-pandoc   参照サイト1：本家　ox-pandoc
+Table of Contents  ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport   pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法   日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正     ox-pandoc   参照サイト1：本家　ox-pandoc
   参照サイト2：ox-pandoc - org-mode &#43; org-ref to docx with bibliographies
-  参照サイト3：もっと本家　Pandoc a universal document converter
-  pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．
-  ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．
-  pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．
-$ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．
-#&#43;begin_src emacs-lisp (use-package ox-pandoc :ensure t :config ;; default options for all output formats (setq org-pandoc-options &#39;((standalone .">
+  参照サイト3：もっと本家　Pandoc a universal document converter">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/org-mode_paper_4/">
@@ -89,7 +84,7 @@ $ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下の�
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -133,14 +128,9 @@ $ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下の�
   <meta property="og:title" content="Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする） | A perfect autumn day">
   <meta property="og:description" content="医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
 いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents ox-pandoc   参照サイト1：本家　ox-pandoc
+Table of Contents  ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法  reftex-create-bibtex-file bibexport   pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport  org-modeからWord fileへのexportの方法   日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法  Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正     ox-pandoc   参照サイト1：本家　ox-pandoc
   参照サイト2：ox-pandoc - org-mode &#43; org-ref to docx with bibliographies
-  参照サイト3：もっと本家　Pandoc a universal document converter
-  pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．
-  ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．
-  pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．
-$ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．
-#&#43;begin_src emacs-lisp (use-package ox-pandoc :ensure t :config ;; default options for all output formats (setq org-pandoc-options &#39;((standalone ."><meta property="og:image" content="/post/org-mode_paper_4/featured.jpg">
+  参照サイト3：もっと本家　Pandoc a universal document converter"><meta property="og:image" content="/post/org-mode_paper_4/featured.jpg">
   <meta property="twitter:image" content="/post/org-mode_paper_4/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -364,7 +354,7 @@ $ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下の�
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    7 min read
   </span>
   
 
@@ -418,7 +408,34 @@ $ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下の�
       <p>医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．</p>
 <p>いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， <strong>pandoc</strong> とそれをorg−modeから利用するための <strong>ox-pandoc</strong> である．</p>
 <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#ox-pandoc">ox-pandoc</a></li>
+    <li><a href="#文書の中で実際に引用された論文のみからなる文献リストを生成する方法">文書の中で実際に引用された論文のみからなる文献リストを生成する方法</a>
+      <ul>
+        <li><a href="#reftex-create-bibtex-file">reftex-create-bibtex-file</a></li>
+        <li><a href="#bibexport">bibexport</a></li>
+      </ul>
+    </li>
+    <li><a href="#pandocのための設定">pandocのための設定</a></li>
+    <li><a href="#citation-style-language--csl--の設定">Citation Style Language (CSL)の設定</a></li>
+    <li><a href="#英語論文の場合のorg-fileの設定">英語論文の場合のorg fileの設定</a></li>
+    <li><a href="#英語論文のword-fileのexport">英語論文のWord fileのexport</a>
+      <ul>
+        <li><a href="#org-modeからword-fileへのexportの方法">org-modeからWord fileへのexportの方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#日本語論文の場合のorg-fileの設定">日本語論文の場合のorg fileの設定</a></li>
+    <li><a href="#org-modeからword-fileへのexportの方法">org-modeからWord fileへのexportの方法</a></li>
+    <li><a href="#word-file-の濁点分離を修正する方法">Word file の濁点分離を修正する方法</a>
+      <ul>
+        <li><a href="#pythonの導入">Pythonの導入</a></li>
+        <li><a href="#docx-normarize-nfcの導入">docx-normarize-nfcの導入</a></li>
+        <li><a href="#濁点分離の修正">濁点分離の修正</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 <h2 id="ox-pandoc">ox-pandoc</h2>
 <ul>
 <li>
@@ -1244,7 +1261,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -1269,7 +1286,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

@@ -5,7 +5,7 @@
     <link>/tags/overleaf/</link>
       <atom:link href="/tags/overleaf/index.xml" rel="self" type="application/rss+xml" />
     <description>overleaf</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Fri, 22 Nov 2019 00:00:00 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>overleaf</title>
@@ -129,7 +129,7 @@
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\begin{center}
 &lt;span style=&#34;color:#f92672&#34;&gt;-          %\includegraphics[width=.6\linewidth]{logos/i6-hks44}
 &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          % \includegraphics[width=.6\linewidth]{logos/i6-hks44}
-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
+&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=0.7\linewidth]{ISC2017-Logo.pdf}
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\end{center}
 \vskip1ex
 \end{column}
@@ -147,7 +147,7 @@
 \begin{center}
 &lt;span style=&#34;color:#f92672&#34;&gt;-          \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
 &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          % \includegraphics[width=.7\linewidth]{/u/figures/deselaers/logos/rwthaachenuniversity-whitegray}
-&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
+&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;+          \includegraphics[height=.45\linewidth]{Kobito.jpg}
 &lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&lt;/span&gt;\end{center}
 \vskip1.5cm
 \end{column}
@@ -569,15 +569,15 @@
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;{itemize/enumerate subbody}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\normalsize&lt;/span&gt;}
 
 &lt;span style=&#34;color:#75715e&#34;&gt;% additional packages
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{times}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{times}
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;%% 上記だけではsans serifにならないので，下記を設定　
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[T1]{fontenc}
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[usefilenames,% Important for XeLaTeX
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% DefaultFeatures={Ligatures=Common}]{plex-otf} %
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsansregular/
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/sansseriffonts.html
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[T1]{fontenc}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage[usefilenames,% Important for XeLaTeX
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% DefaultFeatures={Ligatures=Common}]{plex-otf} %
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;%% http://www.tug.dk/FontCatalogue/ibmplexsanstext/
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[T1]&lt;/span&gt;{fontenc}
@@ -586,7 +586,7 @@
 SSstyle={Text,Semibold},
 TTstyle={Text,Semibold},
 DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&#34;&gt;%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\renewcommand&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\familydefault&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\sfdefault&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;%% Only if the base font of the document is to be sans serif
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\renewcommand*\familydefault&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\sfdefault&lt;/span&gt;} &lt;span style=&#34;color:#75715e&#34;&gt;%% Only if the base font of the document is to be sans serif
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{amsmath,amsthm, amssymb, latexsym}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{exscale}
@@ -602,7 +602,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;span style=&#34;color:#75715e&#34;&gt;% \usepackage{latexsym}
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;% Display a grid to help align images
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \beamertemplategridbackground[1cm]
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% \beamertemplategridbackground[1cm]
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\huge&lt;/span&gt; Perioperative Assessment Of Cerebral Perfusion Territories Through Arterial Spin Labeling Magnetic Resonance Imaging In Carotid Stenosis}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[taipapa et al.]&lt;/span&gt;{taipapa, taimama, taison, taidaughter, other person1,
@@ -613,27 +613,27 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 &lt;span style=&#34;color:#75715e&#34;&gt;% abbreviations
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{xspace}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatletter&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\DeclareRobustCommand&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\futurelet&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;let@token&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot{&lt;span style=&#34;color:#66d9ef&#34;&gt;\ifx&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;let@token.&lt;span style=&#34;color:#66d9ef&#34;&gt;\else&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;\null&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\fi&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\xspace&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\eg&lt;/span&gt;{{e.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Eg&lt;/span&gt;{{E.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\ie&lt;/span&gt;{{i.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Ie&lt;/span&gt;{{I.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\cf&lt;/span&gt;{{c.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\Cf&lt;/span&gt;{{C.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\etc&lt;/span&gt;{{etc}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\vs&lt;/span&gt;{{vs}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\wrt&lt;/span&gt;{w.r.t&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\dof&lt;/span&gt;{d.o.f&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\def&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\etal&lt;/span&gt;{{et al}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\DeclareRobustCommand\onedot&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\futurelet\@&lt;/span&gt;let@token&lt;span style=&#34;color:#66d9ef&#34;&gt;\@&lt;/span&gt;onedot}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\@&lt;/span&gt;onedot{&lt;span style=&#34;color:#66d9ef&#34;&gt;\ifx\@&lt;/span&gt;let@token.&lt;span style=&#34;color:#66d9ef&#34;&gt;\else&lt;/span&gt;.&lt;span style=&#34;color:#66d9ef&#34;&gt;\null\fi\xspace&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\eg&lt;/span&gt;{{e.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Eg&lt;/span&gt;{{E.g}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\ie&lt;/span&gt;{{i.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Ie&lt;/span&gt;{{I.e}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\cf&lt;/span&gt;{{c.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;\def\Cf&lt;/span&gt;{{C.f}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etc&lt;/span&gt;{{etc}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\vs&lt;/span&gt;{{vs}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\wrt&lt;/span&gt;{w.r.t&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\dof&lt;/span&gt;{d.o.f&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;\def\etal&lt;/span&gt;{{et al}&lt;span style=&#34;color:#66d9ef&#34;&gt;\onedot&lt;/span&gt;}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\makeatother&lt;/span&gt;
 
 &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}{}
   &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
 
       &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-2.35cm}
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Introduction}
         &lt;span style=&#34;color:#75715e&#34;&gt;% \begin{columns}[t]
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;%   \begin{column}{.75\linewidth}
@@ -711,12 +711,12 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
     &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-2.35cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-2.35cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Results}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{General postoperative changes in PV of ICA}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-17cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-17cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The preoperative perfusion volume (&lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{PV}) of the
               stenotic ICA in the carotid stenosis group was significantly
@@ -732,7 +732,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=1\linewidth]&lt;/span&gt;{Figures/Figure-2-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{columns}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.5cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; The patients were divided into 2 groups on the basis of
           the preoperative PV of the stenotic ICA, that is,
@@ -749,7 +749,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-18cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-18cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The changes in the PV of the stenotic ICA
               before and after CEA or CAS in the normal PV group and the
@@ -777,7 +777,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.45&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-24cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-24cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{A:} The rate of PV increase is significantly
               higher in the reduced PV group than in the normal PV
@@ -793,7 +793,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.55&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-1.75cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1.75cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.96\linewidth]&lt;/span&gt;{Figures/Figure-4-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{column}
@@ -806,7 +806,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
     &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
     &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.32&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-3cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-3cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\textbf&lt;/span&gt;{Differential postoperative ICA flow changes}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{columns}[t]
@@ -823,7 +823,7 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{column}{.4&lt;span style=&#34;color:#66d9ef&#34;&gt;\linewidth&lt;/span&gt;}
 
-            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-4cm}
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-4cm}
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
             &lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=0.8\linewidth]&lt;/span&gt;{Figures/Figure-5-WNS.pdf}&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[2ex]&lt;/span&gt;
 
@@ -855,9 +855,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
 
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.95cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.95cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{Conclusion}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-1cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-1cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; TASL demonstrated that CEA and CAS elicited increases in the
           PV of stenotic ICAs, which resulted in equalization of the
@@ -874,9 +874,9 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{-1ex}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
 
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.5cm}
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.5cm}
       &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{References}
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{-0.75cm}
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace*&lt;/span&gt;{-0.75cm}
         &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{enumerate}
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\scriptsize&lt;/span&gt;{
           &lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; Uchihashi et al. Clinical application of arterial
@@ -898,11 +898,11 @@ DefaultFeatures={Ligatures=Common}]{plex-otf} &lt;span style=&#34;color:#75715e&
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
 &lt;span style=&#34;color:#75715e&#34;&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% Local Variables:
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% mode: latex
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-PDF-mode: t
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-master: t
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%&lt;/span&gt; End:&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% Local Variables:
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% mode: latex
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-PDF-mode: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%%% TeX-master: t
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;%%%&lt;/span&gt; End:&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;templates&#34;&gt;Templates&lt;/h3&gt;

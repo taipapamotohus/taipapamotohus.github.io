@@ -29,13 +29,10 @@
     
   
   <meta name="description" content="前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．
-Table of Contents media9 media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．
+Table of Contents  media9 beamerで動画が走るスライド原稿を作る（media9版） media9を使用したときの利点 media9を使用したときの欠点 結論   media9 media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．
  参考サイト１：TeXWiki media9 参考サイト２：TeXでプレゼン - LaTeX Beamerを使う人のためのTips集 参考サイト３：How to embed video files in a PDF using LaTeX (a media9/beamer example) 参考サイト４：Beamer で PDF ファイルに動画を埋め込む 参考サイト５：media9 problems  beamerで動画が走るスライド原稿を作る（media9版）   同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い
   preambleに，\usepackage{media9}を忘れずに追加しておく．
-\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}   110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．
-  loopは，ループ再生するかどうか
-  autoplayは自動再生するかどうか
-  media9を使用したときの利点  なんと言ってもべた書きよりもelegant!">
+\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}   110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/beamer_movie2/">
@@ -87,7 +84,7 @@ Table of Contents media9 media9はtexlive2018に含まれており，特に別�
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -130,13 +127,10 @@ Table of Contents media9 media9はtexlive2018に含まれており，特に別�
   <meta property="og:url" content="/post/beamer_movie2/">
   <meta property="og:title" content="beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記） | A perfect autumn day">
   <meta property="og:description" content="前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．
-Table of Contents media9 media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．
+Table of Contents  media9 beamerで動画が走るスライド原稿を作る（media9版） media9を使用したときの利点 media9を使用したときの欠点 結論   media9 media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．
  参考サイト１：TeXWiki media9 参考サイト２：TeXでプレゼン - LaTeX Beamerを使う人のためのTips集 参考サイト３：How to embed video files in a PDF using LaTeX (a media9/beamer example) 参考サイト４：Beamer で PDF ファイルに動画を埋め込む 参考サイト５：media9 problems  beamerで動画が走るスライド原稿を作る（media9版）   同一directoryにhogefuga.movがあるとすれば，以下のように書けば良い
   preambleに，\usepackage{media9}を忘れずに追加しておく．
-\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}   110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．
-  loopは，ループ再生するかどうか
-  autoplayは自動再生するかどうか
-  media9を使用したときの利点  なんと言ってもべた書きよりもelegant!"><meta property="og:image" content="/post/beamer_movie2/featured.jpg">
+\newcommand{\showmovie}[1]{\includemedia[ activate=pageopen, deactivate=pageclose, width=110mm, height=72mm, addresource=#1, flashvars={ src=#1 &amp;loop=true &amp;autoPlay=false } ]{}{StrobeMediaPlayback.swf} } \begin{frame} \frametitle{hogefugaの動画} \centering \showmovie{hogefuga.mov} \end{frame}   110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．"><meta property="og:image" content="/post/beamer_movie2/featured.jpg">
   <meta property="twitter:image" content="/post/beamer_movie2/featured.jpg"><meta property="og:locale" content="en-us">
   
     
@@ -415,7 +409,15 @@ Table of Contents media9 media9はtexlive2018に含まれており，特に別�
     <div class="article-style" itemprop="articleBody">
       <p>前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．</p>
 <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#media9">media9</a></li>
+    <li><a href="#beamerで動画が走るスライド原稿を作る-media9版">beamerで動画が走るスライド原稿を作る（media9版）</a></li>
+    <li><a href="#media9を使用したときの利点">media9を使用したときの利点</a></li>
+    <li><a href="#media9を使用したときの欠点">media9を使用したときの欠点</a></li>
+    <li><a href="#結論">結論</a></li>
+  </ul>
+</nav>
 <h2 id="media9">media9</h2>
 <p>media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．</p>
 <ul>
@@ -779,7 +781,7 @@ Table of Contents media9 media9はtexlive2018に含まれており，特に別�
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -804,7 +806,7 @@ Table of Contents media9 media9はtexlive2018に含まれており，特に別�
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

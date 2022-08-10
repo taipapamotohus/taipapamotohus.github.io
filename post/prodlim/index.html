@@ -82,7 +82,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.2758ae07ce1265f56cdd1aaeaaba4c67.css">
 
   
 
@@ -473,7 +473,7 @@
 <li>cuminc is used to investigate whether a statistically significant difference is present between the groups (see &ldquo;Tests:&rdquo; below).</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#a6e22e">library</span>(cmprsk)
-Results_cmprsk <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">with</span>(Melanoma, <span style="color:#a6e22e">cuminc</span>(time, event, group <span style="color:#f92672">=</span> sex, cencode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">censored&#34;</span>))
+Results_cmprsk <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">with</span>(Melanoma, <span style="color:#a6e22e">cuminc</span>(time, event, group <span style="color:#f92672">=</span> sex, cencode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;censored&#34;</span>))
 Results_cmprsk
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Tests:
                               stat        pv df
@@ -547,7 +547,7 @@ sex<span style="color:#f92672">=</span>Male :
 <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">3042</span>     <span style="color:#ae81ff">18</span>       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0669    0.0291 0.00992 0.1240
 <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">5565</span>      <span style="color:#ae81ff">0</span>       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span>     NA        NA      NA     NA
 </code></pre></div><h3 id="years">Years</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">CompRskAnalysis2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">prodlim</span>(<span style="color:#a6e22e">Hist</span>(time<span style="color:#f92672">/</span><span style="color:#ae81ff">365.25</span>, event, cens.code<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">censored&#34;</span>) <span style="color:#f92672">~</span> sex, data <span style="color:#f92672">=</span> Melanoma)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R">CompRskAnalysis2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">prodlim</span>(<span style="color:#a6e22e">Hist</span>(time<span style="color:#f92672">/</span><span style="color:#ae81ff">365.25</span>, event, cens.code<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;censored&#34;</span>) <span style="color:#f92672">~</span> sex, data <span style="color:#f92672">=</span> Melanoma)
 <span style="color:#a6e22e">summary</span>(CompRskAnalysis2)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
 
@@ -616,22 +616,22 @@ sex<span style="color:#f92672">=</span>Male :
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># Plot with modification</span>
 <span style="color:#a6e22e">plot</span>(CompRskAnalysis2,
-     cause <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">death.malignant.melanoma&#34;</span>,
+     cause <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;death.malignant.melanoma&#34;</span>,
      xlim<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">15</span>),
-     legend.x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">topleft&#34;</span>, <span style="color:#75715e"># position of legend</span>
+     legend.x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;topleft&#34;</span>, <span style="color:#75715e"># position of legend</span>
      legend.cex<span style="color:#f92672">=</span><span style="color:#ae81ff">1.5</span>, <span style="color:#75715e"># font size of legend</span>
      marktime <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, <span style="color:#75715e"># the curves are tick-marked at right censoring times by invoking the function markTime.</span>
-     legend.title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>,
-     atrisk.title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>,
+     legend.title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>,
+     atrisk.title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>,
      axis2.at<span style="color:#f92672">=</span><span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0.2</span>),
      background.horizontal<span style="color:#f92672">=</span><span style="color:#a6e22e">seq</span>(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0.2</span>),
      axis2.las<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,                            <span style="color:#75715e"># rotate labels of y-axis</span>
      percent <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>,
      confint <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>,
-     atrisk.col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">black&#34;</span>,
-     xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Time to primary outcome (years)&#34;</span>
+     atrisk.col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;black&#34;</span>,
+     xlab<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Time to primary outcome (years)&#34;</span>
      )
-<span style="color:#a6e22e">text</span>(<span style="color:#ae81ff">6.5</span>,<span style="color:#ae81ff">0.85</span>,adj<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Gray&#39;s test: p-value=&#34;</span>, <span style="color:#a6e22e">round</span>(Results_cmprsk<span style="color:#f92672">$</span>Tests[1,<span style="color:#ae81ff">2</span>],<span style="color:#ae81ff">3</span>)), cex <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.2</span>)
+<span style="color:#a6e22e">text</span>(<span style="color:#ae81ff">6.5</span>,<span style="color:#ae81ff">0.85</span>,adj<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">paste</span>(<span style="color:#e6db74">&#34;Gray&#39;s test: p-value=&#34;</span>, <span style="color:#a6e22e">round</span>(Results_cmprsk<span style="color:#f92672">$</span>Tests[1,<span style="color:#ae81ff">2</span>],<span style="color:#ae81ff">3</span>)), cex <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.2</span>)
 </code></pre></div>
 
 
@@ -954,7 +954,7 @@ sex<span style="color:#f92672">=</span>Male :
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.b22d2266dab94c8508ae1f0cf6b7056c.js"></script>
 
     
 
@@ -979,7 +979,7 @@ sex<span style="color:#f92672">=</span>Male :
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
