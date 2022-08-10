@@ -5,7 +5,7 @@
     <link>/tags/css/</link>
       <atom:link href="/tags/css/index.xml" rel="self" type="application/rss+xml" />
     <description>css</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>css</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Org-modeでhtml exportの際のthemeについて</title>
       <link>/post/org-html-export-theme/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/post/org-html-export-theme/</guid>
       <description>&lt;p&gt;org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並べていくときは，side columnなどがあって，すぐに行きたいところに飛べるようになっていると嬉しい．ということで，今回はorg-modeをhtmlにexportするときのthemeがテーマである．．．．．&lt;/p&gt;
 &lt;p&gt;とにかく，たくさんのthemesが存在する．まずは以下のサイトをチェック，というか以下を読めばこのブログは読まなくても良いような．．．(^^;;;&lt;/p&gt;
@@ -27,13 +27,18 @@
 &lt;/ol&gt;
 &lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#readtheorg&#34;&gt;ReadTheOrg&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
 &lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あるいは，3からOrg-HTML themes projectをダウンロードしてきて解凍しローカルの&amp;quot;setup file&amp;quot;へのパスを書き込めば，ネットの接続に依存せずにexportできるようになる．たとえば，/Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setupに設定ファイルがあるとすると以下のようにすれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: /Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に研究会で発表するスライド原稿を作る下準備として，実際に10個の論文をまとめたorg fileの一部を掲示しておく．左に論文のタイトルが並び，見ている論文の小見出しが自動的に展開される．subheadの色も設定されており，読みやすい．デザインもプロっぽい印象である．書いた内容にかかわらず，なんとなく賢くなったような気分になれる（笑）．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あるいは，3からOrg-HTML themes projectをダウンロードしてきて解凍しローカルの&amp;quot;setup file&amp;quot;へのパスを書き込めば，ネットの接続に依存せずにexportできるようになる．たとえば，/Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setupに設定ファイルがあるとすると以下のようにすれば良い．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: /Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に研究会で発表するスライド原稿を作る下準備として，実際に10個の論文をまとめたorg fileの一部を掲示しておく．左に論文のタイトルが並び，見ている論文の小見出しが自動的に展開される．subheadの色も設定されており，読みやすい．デザインもプロっぽい印象である．書いた内容にかかわらず，なんとなく賢くなったような気分になれる（笑）．&lt;/p&gt;
 
 
 
@@ -52,18 +57,18 @@
 &lt;h2 id=&#34;org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;An Org-mode template for technical specification documents and HTML publishing. とのことで，技術よりのthemeである．特徴としては，Ditaa, Graphviz &amp;amp; PlantUMLなどによりテキストベースで図が書ける．表に対応，自動的にアップデートするフィールド，PDF生成にも対応，コードブロックの基本的なsyntax highlightingなどがある．実際の例として&lt;a href=&#34;https://demo.thi.ng/org-spec/&#34;&gt;https://demo.thi.ng/org-spec/&lt;/a&gt;がある．&lt;/p&gt;
 &lt;p&gt;こちらの使い方は少しだけ面倒である．リンク先からorg-specをダウンロードして解凍する．ここで，style.cssが/Hoge/Fuga/org-spec-master/css/style.cssに保存されたとする．ダウンロードして来たファイルに含まれているindex.orgに全て書いてあるので，それを真似てorg fileのpreambleに次のように書いておく．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Hoge/Fuga/org-spec-master/css/style.css&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;EMAIL: your@mail.address
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;outline-2&amp;#34;&lt;/span&gt; id=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;meta&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
-| *Author* | {{{author}}} ({{{email}}})    |
-| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;/div&amp;gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TOC: headlines &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に前述の論文のまとめをこのcssでexportしたものを掲示しておく．印象がかなり変わると思う．subheadなどは最初から展開されている．ReadTheOrgよりもビジネスライクな感じであるが，よりスマートな気もする．その日の気分によって，この2つを使い分けている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Hoge/Fuga/org-spec-master/css/style.css&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;EMAIL: your@mail.address
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;outline-2&amp;#34;&lt;/span&gt; id=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;meta&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| *Author* | {{{author}}} ({{{email}}})    |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TOC: headlines &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に前述の論文のまとめをこのcssでexportしたものを掲示しておく．印象がかなり変わると思う．subheadなどは最初から展開されている．ReadTheOrgよりもビジネスライクな感じであるが，よりスマートな気もする．その日の気分によって，この2つを使い分けている．&lt;/p&gt;
 
 
 
@@ -86,13 +91,13 @@
     <item>
       <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）</title>
       <link>/post/html_export/</link>
-      <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/post/html_export/</guid>
       <description>&lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
 &lt;h2 id=&#34;org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの &lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;del&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/del&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -103,19 +108,19 @@
 &lt;p&gt;As you see, I use a lot of Org macros, and they all work in my &amp;ldquo;one post per subtree&amp;rdquo; flow.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;いくつか使い方の例をあげておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{color(red, 赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{color(blue, ボールドで赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-{{{highlight(yellow, 黄色にハイライトされるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{color(red, 赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*{{{color(blue, ボールドで赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{highlight(yellow, 黄色にハイライトされるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span style=&#34;color: red&#34;&gt; 赤くなるかな？&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;span style=&#34;color: red&#34;&gt; ボールドで赤くなるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
@@ -127,15 +132,15 @@
 &lt;li&gt;&lt;strong&gt;&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになって文字はボールドになるかな？&lt;/div&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{begin_panel}}} Panel example This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt; {{{end_panel}}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{begin_panel}}} Panel example This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt; {{{end_panel}}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
 &lt;div class=&#34;panel&#34;&gt;&lt;p&gt; Panel example This is a formatted block of text… &lt;/p&gt;&lt;/div&gt;
 となる．マニュアルでは以下の使い方を薦めている．
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_panel
-*Panel example* \\
-This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text...
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_panel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;panel&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_panel
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*Panel example* \\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_panel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;panel&#34;&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Panel example&lt;/strong&gt; &lt;br /&gt;
 This is a formatted block of text&amp;hellip;&lt;/p&gt;
@@ -150,15 +155,15 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
 &lt;p&gt;参考サイト1：&lt;a href=&#34;https://gohugo.io/news/0.60.0-relnotes/&#34;&gt;Goldmark – CommonMark compliant, GitHub flavored, fast and flexible – is the new default library for Markdown in Hugo.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参考サイト2：&lt;a href=&#34;https://discourse.gohugo.io/t/ox-hugo-go-org/21254/7&#34;&gt;Just wonder if the migration to Goldmark is going to be smooth ?&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;上記のサイトには，「マークダウンファイルにinline HTMLがたくさんあるのなら，unsafe modeを有効にしないといけないかもね」とあるので，config/default/config.tomlの最後に，&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;[markup]
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;[markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;を追加した．これで，Markdownがうまく働くようになり，再びフォントの色も変更されるようになった．&lt;/p&gt;
 &lt;h2 id=&#34;exporting-org-mode-to-html-in-place-coloring&#34;&gt;&lt;a href=&#34;https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring&#34;&gt;Exporting org-mode to HTML: In-place coloring&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;フォントの色を変える別の方法である．リンク先にある通り，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;br /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;br /&gt;
 この文章は， &lt;strong&gt;&lt;font color = &#34;red&#34;&gt;赤のボールド&lt;/font&gt;&lt;/strong&gt; になって欲しい！&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;

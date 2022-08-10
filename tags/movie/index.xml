@@ -5,7 +5,7 @@
     <link>/tags/movie/</link>
       <atom:link href="/tags/movie/index.xml" rel="self" type="application/rss+xml" />
     <description>movie</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 26 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 26 Aug 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>movie</title>
@@ -15,11 +15,19 @@
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その3）動画が走るスライド原稿を作る（media9に関する追記）</title>
       <link>/post/beamer_movie2/</link>
-      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/post/beamer_movie2/</guid>
       <description>&lt;p&gt;前回のポストを書いた後に，念のために調べてみると，どうやら，media9なるものが，いまやpdfに動画を埋め込むために普通に使われているようだということが判明してしまった！う〜む，勉強不足を痛感する．遅れを取り返すべく，早速やってみたので，それを追加報告とする．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#media9&#34;&gt;media9&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#beamerで動画が走るスライド原稿を作る-media9版&#34;&gt;beamerで動画が走るスライド原稿を作る（media9版）&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#media9を使用したときの利点&#34;&gt;media9を使用したときの利点&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#media9を使用したときの欠点&#34;&gt;media9を使用したときの欠点&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#結論&#34;&gt;結論&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;media9&#34;&gt;media9&lt;/h2&gt;
 &lt;p&gt;media9はtexlive2018に含まれており，特に別途インストールする必要はなかった．media9については様々な情報があったが，多くはWindowsやLinuxに関してであり，そのままコピペして動くような極楽情報はなかなか見つからなかった．やはり，餅は餅屋で，OS X TeXにそのものズバリの情報があった．それが参考サイト５である．&lt;/p&gt;
 &lt;ul&gt;
@@ -36,25 +44,25 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;preambleに，\usepackage{media9}を忘れずに追加しておく．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\newcommand&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\showmovie&lt;/span&gt;}[1]{&lt;span style=&#34;color:#66d9ef&#34;&gt;\includemedia&lt;/span&gt;[
-  activate=pageopen,
-  deactivate=pageclose,
-  width=110mm, height=72mm,
-  addresource=#1,
-  flashvars={
-    src=#1
-    &amp;amp;loop=true
-    &amp;amp;autoPlay=false
-  }
-  ]{}{StrobeMediaPlayback.swf}
-}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefugaの動画}
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;\showmovie&lt;/span&gt;{hogefuga.mov}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\newcommand&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\showmovie&lt;/span&gt;}[1]{&lt;span style=&#34;color:#66d9ef&#34;&gt;\includemedia&lt;/span&gt;[
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  activate=pageopen,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  deactivate=pageclose,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  width=110mm, height=72mm,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  addresource=#1,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  flashvars={
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    src=#1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;amp;loop=true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;amp;autoPlay=false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ]{}{StrobeMediaPlayback.swf}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefugaの動画}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;\showmovie&lt;/span&gt;{hogefuga.mov}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;110mmと72mmの数値はフレーム内の動画の収まり具合により適宜調整する．&lt;/p&gt;
 &lt;/li&gt;
@@ -89,7 +97,7 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
     <item>
       <title>beamerでスライド原稿用pdfを作成する（その2）動画が走るスライド原稿を作る</title>
       <link>/post/beamer_movie/</link>
-      <pubDate>Sat, 25 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/post/beamer_movie/</guid>
       <description>&lt;p&gt;実は，同じような内容について2010年に，&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=399#p2100&#34;&gt;TeX QA&lt;/a&gt; に投稿しているが，その後現在に至るまで使い続けることができており，一応，こちらでもまとめておくことにした．&lt;/p&gt;
 &lt;h2 id=&#34;beamerで動画が走るスライド原稿を作る&#34;&gt;beamerで動画が走るスライド原稿を作る&lt;/h2&gt;
@@ -99,19 +107,19 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;参考にしたのは，Adobeのpdfのマニュアル（DVI specials for PDF generation） &lt;a href=&#34;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&#34;&gt;https://www.tug.org/TUGboat/tb30-1/tb94cho.pdf&lt;/a&gt; の以下の部分&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;3 Annotations
-
-An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&amp;#39;, for instance, `/Text&amp;#39;, `/Link&amp;#39;, `/Sound&amp;#39;, `/Movie&amp;#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&amp;#39;. DVIPDFM(x) provides the following special command for annotations............
-
- The following example shows a movie annotation that enables us to run the movie file ‘mymovie.avi’ inside a PDF viewer program.
-
- \special{pdf:ann bbox 0 0 360 180 &amp;lt;&amp;lt;
- /Subtype /Movie /Border [1 0 0]
- /T (My Movie) /Movie &amp;lt;&amp;lt;
- /F (mymovie.avi) /Aspect [720 360]
- /Poster true &amp;gt;&amp;gt;
- /A &amp;lt;&amp;lt; /ShowControls false &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3 Annotations
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;An annotation is considered as an object with a location on a page. The type of the object is given by the value of the key `/Subtype&amp;#39;, for instance, `/Text&amp;#39;, `/Link&amp;#39;, `/Sound&amp;#39;, `/Movie&amp;#39;, etc. (See [1, p. 615] for the list of all annotation types.) The location is given by an array object associated to the key `/Rect&amp;#39;. DVIPDFM(x) provides the following special command for annotations............
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; The following example shows a movie annotation that enables us to run the movie file ‘mymovie.avi’ inside a PDF viewer program.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \special{pdf:ann bbox 0 0 360 180 &amp;lt;&amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; /Subtype /Movie /Border [1 0 0]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; /T (My Movie) /Movie &amp;lt;&amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; /F (mymovie.avi) /Aspect [720 360]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; /Poster true &amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; /A &amp;lt;&amp;lt; /ShowControls false &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;アスペクト比やコントロールバーの有無，リピートするかどうかなども指示できる（下記参照）&lt;/p&gt;
 &lt;/li&gt;
@@ -123,21 +131,21 @@ An annotation is considered as an object with a location on a page. The type of 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;最近の書き方は以下の通りで，もっぱら，mov形式の画像を使用している．コンテナがaviやwmvだと動かないが，Mac以外でどうなるのかは不明．そういえば，Windowsで試したことはなかった&amp;hellip;..&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;{
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;\usebackgroundtemplate&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\put&lt;/span&gt;(20, -265){&lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[scale=0.45]&lt;/span&gt;{/Data/.../..../Figures/hogefuga.pdf}}}
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefugaの対策}
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;\special&lt;/span&gt;{pdf:ann bbox -10 -130 320 90 &amp;lt;&amp;lt;
-             /Subtype /Movie /Border [0 0 1]
-             /T (My Movie) /Movie &amp;lt;&amp;lt;
-             /F (/Data/.../hogefuga.mov)
-             &lt;span style=&#34;color:#75715e&#34;&gt;%/Aspect [720 480]
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;             /Aspect [640 480]
-             /Poster false &amp;gt;&amp;gt;
-             /A &amp;lt;&amp;lt; /ShowControls true /Mode /Repeat &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;\usebackgroundtemplate&lt;/span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\put&lt;/span&gt;(20, -265){&lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[scale=0.45]&lt;/span&gt;{/Data/.../..../Figures/hogefuga.pdf}}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefugaの対策}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;\special&lt;/span&gt;{pdf:ann bbox -10 -130 320 90 &amp;lt;&amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             /Subtype /Movie /Border [0 0 1]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             /T (My Movie) /Movie &amp;lt;&amp;lt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             /F (/Data/.../hogefuga.mov)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#75715e&#34;&gt;%/Aspect [720 480]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;             /Aspect [640 480]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             /Poster false &amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             /A &amp;lt;&amp;lt; /ShowControls true /Mode /Repeat &amp;gt;&amp;gt; &amp;gt;&amp;gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;\usebackgroundtemplateの部分には動画のキャプチャー画像を貼り付けておく．なにもないと，動画が動き出す前の画面が空白になってしまう（もっと良い方法があれば，どなたかご教示ください）．&lt;/p&gt;
 &lt;/li&gt;

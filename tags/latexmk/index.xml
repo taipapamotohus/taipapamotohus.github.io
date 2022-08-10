@@ -5,7 +5,7 @@
     <link>/tags/latexmk/</link>
       <atom:link href="/tags/latexmk/index.xml" rel="self" type="application/rss+xml" />
     <description>latexmk</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 24 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>latexmk</title>
@@ -13,9 +13,62 @@
     </image>
     
     <item>
+      <title>Real-time document (pdf) preview in org-mode</title>
+      <link>/post/real-time-document-pdf-preview-in-org-mode/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/post/real-time-document-pdf-preview-in-org-mode/</guid>
+      <description>&lt;p&gt;いやーなんと2020年7月以来約2年ぶりの記事である．本業多忙でしばらく放置していると，ブログの書き方まで忘れてしまいすっかり億劫になり，今回この夏休みにようやく取り掛かる決心がついた．まずはリハビリも兼ねて軽めの記事を書く事にした．以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）でorg-modeで文書を書いてpdfにexportする方法をまとめた．ただ，exportする際にC-c C-e l oと打ってcompileされるのを待つのが結構面倒なのである．この部分を自動化する方法，つまり，org-mode文書を保存すれば何もしなくても自動的にpdfが更新されるようになる設定を見つけたので，それについてまとめてみた．&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/57nps0/orgmode_need_a_realtime_document_preview/&#34;&gt;Org-mode need a real-time document preview&lt;/a&gt; : 例によってredditを探ってみると，そのものズバリがあった．この記事のlarstvei氏の投稿でうまくいった．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;latexmkをインストールする．&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt; にlatexmkのインストール方法，設定を既述したが，ほとんどそのままでいける．&lt;/li&gt;
+&lt;li&gt;~/.latexmkrcを以下のように設定する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdflatex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdf_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$postscript_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $dvi_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdf_previewer  &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;open -a Skim&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$preview_continuous_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;  &lt;span style=&#34;color:#75715e&#34;&gt;# equivalent to -pvc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;上記の $pdf_previewer  = &amp;lsquo;open -a Skim&amp;rsquo;; の行で，skimでpdfを開くようにしているが，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdf_previewer&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;emacsclient -e &amp;#39;(find-file-other-window %S)&amp;#39;&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とすれば，emacsのpdf-toolで見られる．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;そして，org文書の最後に以下を追加すれば良い．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; COMMENT Local Variables
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; Local Variables:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (server-start)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;after-save-hook&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-export-to-latex&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (compile &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;latexmk -pdf -pvc -pdflatex=&amp;#39;xelatex -shell-escape -interaction nonstopmode&amp;#39;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; End:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;以上の設定が終わると，org-modeの文書を開くたびにlocal variablesを評価するかどうかを訊かれるようになる．yesと答えると（&amp;lsquo;y&amp;rsquo;を叩けば良い），emacsclientが接続できるようにサーバーが立ち上がって保存するたびにorg-mode文書がLaTeXにexportされ，最後にバックグランドでlatexmkを用いてコンパイルされ，pdfが更新される．実に快適である．&lt;/li&gt;
+&lt;li&gt;なお，上記の操作の前に一度，C-c C-e loを行なってtex fileを作成しておかないとうまく動かない．１回やっておけば，あとは自動でやってくれるようになる．&lt;/li&gt;
+&lt;li&gt;私は，xelatexを使用しているが，他のlatexを使用している方はそこの部分を書き換えれば使えるはずである．&lt;/li&gt;
+&lt;li&gt;MacBook Pro (16inch, 2019) 8コアIntel Core i9, 2.4 GHz メモリ:	64 GB (macOS Monterey 12.4)では，保存するたびに少しcompilationを待たないといけないが，MacBook Pro（16インチ、2021）Apple M1 Max コアの総数:10（パフォーマンス: 8、効率性: 2）メモリ:	64 GB (macOS Monterey 12.4)では，待ち時間が明らかに短縮されているのを実感できる．&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>beamerでスライド原稿用pdfを作成する（その１）</title>
       <link>/post/beamer/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/post/beamer/</guid>
       <description>&lt;p&gt;前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;）により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる．
 　&lt;/p&gt;
@@ -26,147 +79,147 @@
 &lt;li&gt;なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：&lt;a href=&#34;https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=729&#34;&gt;beamerでの数式フォントの変更&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% -*-coding:utf-8-*-
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[svgnames, table, 14pt]&lt;/span&gt;{beamer}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{zxjatype}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hiragino-dx]&lt;/span&gt;{zxjafont}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;% ヒラギノ角ゴ Proを使う
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setjamainfont&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]&lt;/span&gt;{ヒラギノ角ゴ Pro W3}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\setjasansfont&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]&lt;/span&gt;{ヒラギノ角ゴ Pro W3}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;% themeを指定する
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetheme&lt;/span&gt;{Darmstadt}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[onlylarge]&lt;/span&gt;{structurebold}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{navigation symbols}{}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[english]&lt;/span&gt;{babel}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[latin1]&lt;/span&gt;{inputenc}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{times}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[T1]&lt;/span&gt;{fontenc}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{hyperref}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;% Setup TikZ
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{tikz}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetikzlibrary&lt;/span&gt;{arrows}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\tikzstyle&lt;/span&gt;{block}=[draw opacity=0.7,line width=1.4cm]
-&lt;span style=&#34;color:#75715e&#34;&gt;% Figure position
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[absolute,overlay]&lt;/span&gt;{textpos}
-&lt;span style=&#34;color:#75715e&#34;&gt;% math
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{mathabx}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;{professionalfonts}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;% Author, Title, etc.
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hoge/fugaによる相補的な治療における高難度症例の治療と成績]&lt;/span&gt;
-{hoge/fugaによる相補的な治療における高難度症例の治療と成績}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[taipapa]&lt;/span&gt;
-{taipapa, 織田信長, 豊臣秀吉, 徳川家康}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\institute&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hogefuga University]&lt;/span&gt;
-{hogefuga大学大学院 hogefuga研究科　hogefuga分野}
-
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\date&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]&lt;/span&gt;
-{&lt;span style=&#34;color:#66d9ef&#34;&gt;\scriptsize&lt;/span&gt;{Symposium-02「とっーても難しいhogeとfuga」
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
-完了しています．&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;本演題の発表に関して開示すべきCOIはありません
-}}
-
-&lt;span style=&#34;color:#75715e&#34;&gt;% 学会名，日付，スライド番号を挿入
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{footline}
-{&lt;span style=&#34;color:#66d9ef&#34;&gt;\color&lt;/span&gt;{gray} &lt;span style=&#34;color:#75715e&#34;&gt;%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\hspace&lt;/span&gt;{.075cm}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\insertshortdate&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\hspace&lt;/span&gt;{4cm}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\insertframenumber&lt;/span&gt;{} / &lt;span style=&#34;color:#66d9ef&#34;&gt;\inserttotalframenumber&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\titlepage&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{Introduction}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}{背景と目的}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; hogeとfugaを比較してみると，一方で難易度の高い症例で
-も他方では容易に行える場合も多い.
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
-用いることにより合併症の減少を目指す方針をとっている．
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; そこで，自験例から高難度のhogefuga症例についての
-方針と成績を主にhogefuga surgeonの立場から検討した.
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{Results}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefuga症例の画像}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=3.5in]&lt;/span&gt;{hoge_fuga.pdf}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% -*-coding:utf-8-*-
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\documentclass&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[svgnames, table, 14pt]&lt;/span&gt;{beamer}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{zxjatype}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hiragino-dx]&lt;/span&gt;{zxjafont}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% ヒラギノ角ゴ Proを使う
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setjamainfont&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]&lt;/span&gt;{ヒラギノ角ゴ Pro W3}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setjasansfont&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]&lt;/span&gt;{ヒラギノ角ゴ Pro W3}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% themeを指定する
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetheme&lt;/span&gt;{Darmstadt}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[onlylarge]&lt;/span&gt;{structurebold}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamerfont*&lt;/span&gt;{frametitle}{size=&lt;span style=&#34;color:#66d9ef&#34;&gt;\large&lt;/span&gt;,series=&lt;span style=&#34;color:#66d9ef&#34;&gt;\bfseries&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{navigation symbols}{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[english]&lt;/span&gt;{babel}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[latin1]&lt;/span&gt;{inputenc}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{times}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[T1]&lt;/span&gt;{fontenc}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{hyperref}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% Setup TikZ
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{tikz}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usetikzlibrary&lt;/span&gt;{arrows}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\tikzstyle&lt;/span&gt;{block}=[draw opacity=0.7,line width=1.4cm]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% Figure position
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[absolute,overlay]&lt;/span&gt;{textpos}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% math
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usepackage&lt;/span&gt;{mathabx}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\usefonttheme&lt;/span&gt;{professionalfonts}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% Author, Title, etc.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\title&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hoge/fugaによる相補的な治療における高難度症例の治療と成績]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{hoge/fugaによる相補的な治療における高難度症例の治療と成績}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\author&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[taipapa]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{taipapa, 織田信長, 豊臣秀吉, 徳川家康}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\institute&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[hogefuga University]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{hogefuga大学大学院 hogefuga研究科　hogefuga分野}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\date&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[日本hogefuga外科学会 第??回学術総会　\hspace{2.4cm} 201X年X月XX日]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\scriptsize&lt;/span&gt;{Symposium-02「とっーても難しいhogeとfuga」
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;\vspace&lt;/span&gt;{0.15cm} 筆頭演者はhogefuga外科学会へ過去3年間のCOI自己申告を
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;完了しています．&lt;span style=&#34;color:#66d9ef&#34;&gt;\\&lt;/span&gt;本演題の発表に関して開示すべきCOIはありません
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;% 学会名，日付，スライド番号を挿入
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\setbeamertemplate&lt;/span&gt;{footline}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{&lt;span style=&#34;color:#66d9ef&#34;&gt;\color&lt;/span&gt;{gray} &lt;span style=&#34;color:#75715e&#34;&gt;%
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\hspace&lt;/span&gt;{.075cm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\insertshortdate&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\hspace&lt;/span&gt;{4cm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\insertframenumber&lt;/span&gt;{} / &lt;span style=&#34;color:#66d9ef&#34;&gt;\inserttotalframenumber&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;%
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{document}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\titlepage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{Introduction}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}{背景と目的}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{block}{}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{itemize}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; hogeとfugaを比較してみると，一方で難易度の高い症例で
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;も他方では容易に行える場合も多い.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; 当施設では，一方に片寄ることなく，hogeとfugaを相補的に
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;用いることにより合併症の減少を目指す方針をとっている．
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\item&lt;/span&gt; そこで，自験例から高難度のhogefuga症例についての
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;方針と成績を主にhogefuga surgeonの立場から検討した.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{itemize}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{block}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\section&lt;/span&gt;{Results}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\begin&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\frametitle&lt;/span&gt;{hogefuga症例の画像}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\centering&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\includegraphics&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;[width=3.5in]&lt;/span&gt;{hoge_fuga.pdf}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{frame}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;\end&lt;/span&gt;{document}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;ターミナルで，cdして上記のbeamer_test.texのあるdirectoryに移動し，shellで以下のように打ち込む．前回のポスト（&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする&lt;/a&gt;を参考　&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;latexmk -pvc -pdf -view&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;none beamer_test.tex
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;latexmk -pvc -pdf -view&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;none beamer_test.tex
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;これで下記のようなpdfが出来上がるはず．&lt;/p&gt;
 
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/beamer_test.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/beamer_test.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
-
-
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test2.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/beamer_test2.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test2.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/beamer_test2.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;画像の貼り付けが必要なら，上の文書にもあるように必要な箇所で，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\i&lt;/span&gt;ncludegraphics&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;2in&lt;span style=&#34;color:#f92672&#34;&gt;]{&lt;/span&gt;/Data/hoge/fuga/......./hoge_fuga.pdf&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;などと打てばよい．以下のようなスライドが得られる．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test3.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/beamer_test3.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/beamer_test3.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/beamer_test3.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;

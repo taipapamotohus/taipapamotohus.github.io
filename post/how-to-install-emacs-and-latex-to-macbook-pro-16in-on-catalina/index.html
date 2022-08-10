@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -126,7 +126,7 @@
   <meta property="twitter:image" content="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-12-31T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-12-31T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2020-01-05T23:00:41&#43;09:00">
   
@@ -323,7 +323,7 @@
 
 
 
-<meta content="2019-12-31 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-12-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2020-01-05 23:00:41 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -433,28 +433,28 @@
 </ul>
 <p>Catalinaのファイルシステムではファイルアクセスが厳格化されており，APFS (Apple File System)でフォーマットされたルートボリューム(起動ディスク)はシステム領域とデータ領域に2分割され，そのうちシステム領域は完全にリードオンリーとなる（上記の参照サイトが詳細かつわかりやすく解説しているので参照されたい）．</p>
 <p>私はこれまでは，root directoryにData directoryを作成し，そこにほぼ全てのデータを入れ，また，各種ソフトウェアのソースなどは，root directoryにSources directoryを作成し保存してきた．しかし，Catalinaでは上述の変化に伴い，これが不可能となった．実際，管理者権限でdirectoryをrootに作成しようとしても，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /
-$ sudo mkdir test
-Password:
-mkdir: test: Read-only file system
-</code></pre></div><p>と言う具合に撥ねられてしまう．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /
+</span></span><span style="display:flex;"><span>$ sudo mkdir test
+</span></span><span style="display:flex;"><span>Password:
+</span></span><span style="display:flex;"><span>mkdir: test: Read-only file system
+</span></span></code></pre></div><p>と言う具合に撥ねられてしまう．</p>
 <p>そこで，Data directoryやSources directoryを自分のhome directory，即ち，/Users/taipapa/の下に入れることにした．つまり，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/
-├── Data
-└── Sources
-</code></pre></div><p>から</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">taipapa
-├── Data
-└── Sources
-</code></pre></div><p>に変更した．これに伴い，各ファイル内のパスも修正した．基本的にはファイルパスの最初に，/Users/taipapa/もしくは <strong>~</strong> をつければ良いだけであるが，これでうまくいかないものは個別に対応するしかない．例えば，文献管理ソフトの <strong>BibDesk</strong> がそうであった．これらの問題は別稿にまとめることにする．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/
+</span></span><span style="display:flex;"><span>├── Data
+</span></span><span style="display:flex;"><span>└── Sources
+</span></span></code></pre></div><p>から</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>taipapa
+</span></span><span style="display:flex;"><span>├── Data
+</span></span><span style="display:flex;"><span>└── Sources
+</span></span></code></pre></div><p>に変更した．これに伴い，各ファイル内のパスも修正した．基本的にはファイルパスの最初に，/Users/taipapa/もしくは <strong>~</strong> をつければ良いだけであるが，これでうまくいかないものは個別に対応するしかない．例えば，文献管理ソフトの <strong>BibDesk</strong> がそうであった．これらの問題は別稿にまとめることにする．</p>
 <h2 id="preparation-for-emacs-installation">Preparation for Emacs installation</h2>
 <p>つい先日やったばかりなのに，もはや記憶が定かではないのだが，要は，<a href="../mojave//#upgrade-to-xcode-10-dot-2-dot-1">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrewのUpgrade to Xcode 10.2.1</a>にまとめたことを行った．tmp directoryのpermissionの問題があったかどうかは覚えていない（笑）．homebrew自体のインストールにも特に問題はなかった．要するに，ほとんど何も覚えていないくらいスムーズにことは運んだと言うことである．</p>
 <h2 id="how-to-install-emacs-26-dot-3-into-macbook-pro-16-inch--catalina">How to install Emacs 26.3 into MacBook Pro 16 inch (Catalina)</h2>
 <p>Emacsのインストールも，<a href="../mojave/#upgrade-to-emacs-26-dot-2-from-26-dot-1">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew の Upgrade to Emacs 26.2 from 26.1</a> にまとめたことを行っただけである．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew tap railwaycat/emacsmacport
-$ brew install emacs-mac --with-modern-icon --with-imagemagick
-$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-</code></pre></div><p>これで， <strong>/usr/local/Cellar/emacs-mac/emacs-26.3-z-mac-7.8 (4,010 files, 129.7MB)</strong> がインストールされた．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap railwaycat/emacsmacport
+</span></span><span style="display:flex;"><span>$ brew install emacs-mac --with-modern-icon --with-imagemagick
+</span></span><span style="display:flex;"><span>$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
+</span></span></code></pre></div><p>これで， <strong>/usr/local/Cellar/emacs-mac/emacs-26.3-z-mac-7.8 (4,010 files, 129.7MB)</strong> がインストールされた．</p>
 <p>あとは，以前に書いた以下の記事に従ってセットアップした．</p>
 <p><a href="../prelude_install">Emacsの設定（その1）Preludeの導入（2018年10月9日修正）</a></p>
 <p><a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a></p>
@@ -470,26 +470,26 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 <p>最初の<a href="https://doratex.hatenablog.jp/entry/20190502/1556775026">MacTeX 2019 のインストール＆日本語環境構築法</a>の通りにすれば良い．これにより， <strong>texlive2019</strong> がインストールされる．下の2つのサイトは当ブログの以前の記事であるが，これをもとに補足作業を行なった．なお，<a href="https://texwiki.texjp.org/?%E3%83%92%E3%83%A9%E3%82%AE%E3%83%8E%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88#macos-hiragino-setup">macOS Catalina / macOS Mojave / macOS High Sierra / macOS Sierra / OS X El Capitan に付属するヒラギノフォントのセットアップ</a> にCatalinaでのtexlive2019のインストールの方法が詳細に記載されているが，私は前述の通りにやった後にこのサイトに気が付いたので，こちらのやり方は行っていない．</p>
 <h3 id="フォントマップの確認とpdfへのフォントの埋め込みの確認">フォントマップの確認とpdfへのフォントの埋め込みの確認</h3>
 <p><a href="https://qiita.com/potato%5Fomom/items/88b5964bb057bbddf2c3">いまさらMacTeXの更新</a> を参考に，フォントマップを見ると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ kanji-config-updmap-sys status
-Cannot find ptex-fontmaps-macos-data.dat, skipping!
-CURRENT family <span style="color:#66d9ef">for</span> ja: hiragino-highsierra-pron
-Standby family : ipa
-Standby family : ipaex
-</code></pre></div><p>とりあえず， <strong>CURRENT family for ja: hiragino-highsierra-pron</strong> になっているのでよしとする．latexで生成したhogehoge.pdfのフォントの埋め込みを，pdffontを用いて確認してみると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pdffonts SMC-Ab.pdf
-name                                 type              encoding         emb sub uni object ID
------------------------------------- ----------------- ---------------- --- --- --- ---------
-RWTTMJ+LMSans10-Bold                 Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">0</span>
-CZOKCD+CMMI12                        Type 1C           Builtin          yes yes yes      <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">0</span>
-NBDCJR+HiraKakuProN-W6-Identity-H    CID Type 0C       Identity-H       yes yes no       <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">0</span>
-TYTYWC+LMRoman17-Regular             Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">0</span>
-GWABID+LMRoman12-Bold                Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">0</span>
-AJNMNY+LMRoman12-Regular             Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">10</span>  <span style="color:#ae81ff">0</span>
-HCOYDP+HiraMinProN-W3-Identity-H     CID Type 0C       Identity-H       yes yes no      <span style="color:#ae81ff">16</span>  <span style="color:#ae81ff">0</span>
-RMUEJU+LMRoman8-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">21</span>  <span style="color:#ae81ff">0</span>
-XXHLXJ+LMRoman7-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">23</span>  <span style="color:#ae81ff">0</span>
-PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">0</span>
-</code></pre></div><p>とヒラギノフォントも含めて全てのフォントはemb = yesとなっており，確かに埋め込まれている．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ kanji-config-updmap-sys status
+</span></span><span style="display:flex;"><span>Cannot find ptex-fontmaps-macos-data.dat, skipping!
+</span></span><span style="display:flex;"><span>CURRENT family <span style="color:#66d9ef">for</span> ja: hiragino-highsierra-pron
+</span></span><span style="display:flex;"><span>Standby family : ipa
+</span></span><span style="display:flex;"><span>Standby family : ipaex
+</span></span></code></pre></div><p>とりあえず， <strong>CURRENT family for ja: hiragino-highsierra-pron</strong> になっているのでよしとする．latexで生成したhogehoge.pdfのフォントの埋め込みを，pdffontを用いて確認してみると，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pdffonts SMC-Ab.pdf
+</span></span><span style="display:flex;"><span>name                                 type              encoding         emb sub uni object ID
+</span></span><span style="display:flex;"><span>------------------------------------ ----------------- ---------------- --- --- --- ---------
+</span></span><span style="display:flex;"><span>RWTTMJ+LMSans10-Bold                 Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">4</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>CZOKCD+CMMI12                        Type 1C           Builtin          yes yes yes      <span style="color:#ae81ff">5</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>NBDCJR+HiraKakuProN-W6-Identity-H    CID Type 0C       Identity-H       yes yes no       <span style="color:#ae81ff">7</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>TYTYWC+LMRoman17-Regular             Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">8</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>GWABID+LMRoman12-Bold                Type 1C           Custom           yes yes yes      <span style="color:#ae81ff">9</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>AJNMNY+LMRoman12-Regular             Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">10</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>HCOYDP+HiraMinProN-W3-Identity-H     CID Type 0C       Identity-H       yes yes no      <span style="color:#ae81ff">16</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>RMUEJU+LMRoman8-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">21</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>XXHLXJ+LMRoman7-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">23</span>  <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes yes     <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>とヒラギノフォントも含めて全てのフォントはemb = yesとなっており，確かに埋め込まれている．</p>
 <p>なお，文献管理ソフトであるBibDeskのpdfの管理に問題が生じたが，これについては解決策とともに別稿でまとめる．</p>
 <h2 id="how-to-setup-org-mode-in-macbook-pro-16-inch--catalina">How to setup org-mode in MacBook Pro 16 inch (Catalina)</h2>
 <p>最もよく使うorg-modeのセットアップは以下の以前の記事の通りに作業した．</p>
@@ -502,27 +502,27 @@ PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes 
 <p>といっても実際にやったのは，以前の/Users/taipapa/.emacs.d/personal/init.orgをコピペしたことがほぼ全てである．</p>
 <h2 id="how-to-setup-full-text-search-of-pdf-files-on-catalina">How to setup full text search of pdf files on Catalina</h2>
 <p>以前の記事で全文検索についてまとめたが（<a href="../fulltextsearch">Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</a>），Catalinaでもこの記事と同じ設定でpdf fileの全文検索が可能となった．Mojaveでもhome directoryでセットアップしたので，大きな問題はなかったのであろう．ただし，Catalinaでは，pdf fileの置き場所がhome directoryの下のData directory以下に変更されているため，/Users/taipapa/Sites/cgi-bin/est/estseek.confの設定は以下のように変更した．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">1</span> <span style="color:#75715e">#indexname: casket</span>
-<span style="color:#ae81ff">2</span> indexname: /Users/taipapa/Sites/pdf/casket
-<span style="color:#ae81ff">3</span>
-<span style="color:#ae81ff">4</span> tmplfile: estseek.tmpl
-<span style="color:#ae81ff">5</span>
-<span style="color:#ae81ff">6</span> topfile: estseek.top
-<span style="color:#ae81ff">7</span>
-<span style="color:#ae81ff">8</span> helpfile: estseek.help
-<span style="color:#ae81ff">9</span>
-<span style="color:#ae81ff">10</span> lockindex: true
-<span style="color:#ae81ff">11</span>
-<span style="color:#ae81ff">12</span> pseudoindex:
-<span style="color:#ae81ff">13</span>
-<span style="color:#ae81ff">14</span> <span style="color:#75715e">#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/</span>
-<span style="color:#ae81ff">15</span> <span style="color:#75715e">#replace: /index\.html?${{!}}/</span>
-<span style="color:#ae81ff">16</span>
-<span style="color:#ae81ff">17</span> <span style="color:#75715e">#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/</span>
-<span style="color:#ae81ff">18</span>
-<span style="color:#ae81ff">19</span> replace: ^file:///Users/taipapa/Data/<span style="color:#f92672">{</span><span style="color:#f92672">{</span>!<span style="color:#f92672">}</span><span style="color:#f92672">}</span>http://localhost/~taipapa/pdf/PDFs/
-<span style="color:#ae81ff">20</span>
-</code></pre></div><p>これでブラウザによるpdf fileの全文検索が可能となった．なお，MacBook Pro late 2016では，document数が11734個，語数が1351563のindex作成に要した時間は約40分強であったが，今回，MacBook Pro 2019 16 inch では，document数が11782個，語数が1362430のindex作成に要した時間は約31分強であった．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#75715e">#indexname: casket</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> indexname: /Users/taipapa/Sites/pdf/casket
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> tmplfile: estseek.tmpl
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> topfile: estseek.top
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> helpfile: estseek.help
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> lockindex: true
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span> pseudoindex:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">13</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">14</span> <span style="color:#75715e">#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">15</span> <span style="color:#75715e">#replace: /index\.html?${{!}}/</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">17</span> <span style="color:#75715e">#replace: ^file:///Data/{{!}}http://localhost/~taipapa/pdf/PDFs/</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">19</span> replace: ^file:///Users/taipapa/Data/<span style="color:#f92672">{{</span>!<span style="color:#f92672">}}</span>http://localhost/~taipapa/pdf/PDFs/
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">20</span>
+</span></span></code></pre></div><p>これでブラウザによるpdf fileの全文検索が可能となった．なお，MacBook Pro late 2016では，document数が11734個，語数が1351563のindex作成に要した時間は約40分強であったが，今回，MacBook Pro 2019 16 inch では，document数が11782個，語数が1362430のindex作成に要した時間は約31分強であった．</p>
 <h2 id="encountered-problems-遭遇した問題点">Encountered problems: 遭遇した問題点</h2>
 <p>ここからは，上述のセットアップの際に遭遇した問題点についてまとめておく．</p>
 <h3 id="zxjafontのプリセットの変更">zxjafontのプリセットの変更</h3>
@@ -531,35 +531,35 @@ PPVQFL+LMMono10-Regular              Type 1C           Custom           yes yes 
 <li>zxjafontとは，「和文フォントのプリセット設定」を XeLaTeX + zxjatype の環境で行うためのもの</li>
 </ul>
 <p>上記サイト（<a href="../org-mode_paper_1">Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）</a>）にあるorg fileをコピペして，org fileからpdfをexportしようとすると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">! Package zxjafont Error: The old preset <span style="color:#e6db74">&#39;hiragino-dx&#39;</span> is *abolished*.
-
-See the zxjafont package documentation <span style="color:#66d9ef">for</span> explanation.
-Type  H &lt;<span style="color:#66d9ef">return</span>&gt;  <span style="color:#66d9ef">for</span> immediate help.
-</code></pre></div><p>と言うようなエラーになる．要するに，texlive2019をインストールしてzxjafontが新しくなったのに伴い，&ldquo;hiragino-dx&quot;と言うpresetは古くてもう廃止されたと言われているのである．指示に従ってドキュメントを読むと， <strong>hiragino-pron</strong> を使えとあるので，init.orgの中のhiragino-dxを全てhiragino-pronに変更するとうまくいくようになった．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>! Package zxjafont Error: The old preset <span style="color:#e6db74">&#39;hiragino-dx&#39;</span> is *abolished*.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>See the zxjafont package documentation <span style="color:#66d9ef">for</span> explanation.
+</span></span><span style="display:flex;"><span>Type  H &lt;<span style="color:#66d9ef">return</span>&gt;  <span style="color:#66d9ef">for</span> immediate help.
+</span></span></code></pre></div><p>と言うようなエラーになる．要するに，texlive2019をインストールしてzxjafontが新しくなったのに伴い，&ldquo;hiragino-dx&quot;と言うpresetは古くてもう廃止されたと言われているのである．指示に従ってドキュメントを読むと， <strong>hiragino-pron</strong> を使えとあるので，init.orgの中のhiragino-dxを全てhiragino-pronに変更するとうまくいくようになった．</p>
 <h3 id="org-modeからhtml-exportの際のthemeを読み込まない-パスを読まない">org-modeからhtml exportの際のthemeを読み込まない（パスを読まない）</h3>
 <p>以前の記事（<a href="../org-html-export-theme">Org-modeでhtml exportの際のthemeについて</a>）で，好きなテーマとしてあげた <strong>org-spec</strong> であるが，org fileの冒頭の部分は以下のようになっている．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
-<span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;/Hoge/Fuga/org-spec-master/css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
-</code></pre></div><p>これを，Catalinaではパスの変更に合わせて以下のように設定した．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
-<span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;/Users/taipapa/Hoge/Fuga/org-spec-master/css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
-</code></pre></div><p>しかし，上記の2行目を，Catalinaではうまく読めなくなり，設定が読み込まれなくなった．スッピンのhtml とでも言うか，単なるテキストに近いものとしてexportされてしまう．しかし，org-specのcss/style.cssをorg fileと同じdirectoryに置いて，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
-</code></pre></div><p>と冒頭の部分を書き直すとうまくいく．前述の1行目はなくてもよかった．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;/Hoge/Fuga/org-spec-master/css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</span></span></code></pre></div><p>これを，Catalinaではパスの変更に合わせて以下のように設定した．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;/Users/taipapa/Hoge/Fuga/org-spec-master/css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</span></span></code></pre></div><p>しかし，上記の2行目を，Catalinaではうまく読めなくなり，設定が読み込まれなくなった．スッピンのhtml とでも言うか，単なるテキストに近いものとしてexportされてしまう．しかし，org-specのcss/style.cssをorg fileと同じdirectoryに置いて，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>HTML_HEAD: &lt;link href=<span style="color:#e6db74">&#34;css/style.css&#34;</span> rel=<span style="color:#e6db74">&#34;stylesheet&#34;</span> type=<span style="color:#e6db74">&#34;text/css&#34;</span> /&gt;
+</span></span></code></pre></div><p>と冒頭の部分を書き直すとうまくいく．前述の1行目はなくてもよかった．</p>
 <h3 id="location-of-pdf-files-in-bibdesk-on-catalina">Location of pdf files in BibDesk on Catalina</h3>
 <p>以前の記事でBibDeskについてまとめた（<a href="../org-mode_paper_2">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a>）が，その中で，自分の文献リストに“hogefuga-reference.bib”と名前をつけて保存していることを記載している．ただ，保存場所については記述していなかった．実はこのリストは，/Users/taipapa/Documentsに置いており，iCloudを利用して，仕事場のiMacでも同じ文献リストが使えるようにしている．BibDeskでは，その論文のpdfも一緒に管理できるのだが，上述のファイルシステム構造の変化により，全て，pdfが行方不明になってしまった．</p>
 <p>BibDeskにおけるpdfのlocationを修正しようとしてhogefuga-reference.bibの中を見てみると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tex" data-lang="tex">Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxAhLi4vLi4vLi4vRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmTxEBQgAAAAABQgACAAAKSGllcm9ueW11cwAAAAAAAAAAAAAAAAAAAAAAAAAAAEJEAAH/////DDI1XzNfMzEzLnBkZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAAAAAwADAAAKIGN1AAAAAAAAAAAAAAAAAAZOUy1wZGYAAgApLzpVc2Vyczprb2hraWNoaTpEYXRhOk5TLXBkZjoyNV8zXzMxMy5wZGYAAA4AGgAMADIANQBfADMAXwAzADEAMwAuAHAAZABmAA8AFgAKAEgAaQBlAHIAbwBuAHkAbQB1AHMAEgAnVXNlcnMva29oa2ljaGkvRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmAAATAAEvAAAVAAIAD///AAAACAANABoAJABIAAAAAAAAAgEAAAAAAAAABQAAAAAAAAAAAAAAAAAAAY4=}}
-</code></pre></div><p>と言うふうに，pdfの場所は暗号化？されており，修正などできないことが判明した．1万数千のpdf fileをもう一度手作業でBibDeskに認識させないといけないのかと気が遠くなりかけた．しかし，よく考えてみると，BibDeskは相対的な場所やパスを認識している．以前のMacBook Pro late 2016では，/Data/hoge-pdf/のように，/Dataの下にdirectoryを作成して，そこにpdfを保存していた．Catalinaでは，Data directoryはhome directoryである/Users/taipapaの下に置かれるようになった．つまり，相対的には2レベル下のdirectoryに文献リストであるhogefuga-References.bibを置けば良いのである．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users
-$ tree -L <span style="color:#ae81ff">5</span>
-.
-└── taipapa
-     └── Documents
-          └── taipapa2
-               └── Documents
-                    └── hogefuga-References.bib
-</code></pre></div><p>上図のように，Documentsの下にtaipapa2 directoryを作成し，さらにその下にDocuments directoryを作成し，そこにhogefuga-References.bibを置くようにしたところ，BibDeskがpdfの場所を認識するようになった．ただ，iCloudを介してMojaveがインストールされた他のマック（まだmojave）からもこの文献リストを共有するためには，/Users/taipapa/Documents/にhogefuga-References.bibをコピーしておかなければならない．symbolic linkではオリジナルの方を認識してしまいうまくいかないし，hard linkではiCloudを経由するとうまくいかない．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tex" data-lang="tex"><span style="display:flex;"><span>Bdsk-File-1 = {YnBsaXN0MDDSAQIDBFxyZWxhdGl2ZVBhdGhZYWxpYXNEYXRhXxAhLi4vLi4vLi4vRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmTxEBQgAAAAABQgACAAAKSGllcm9ueW11cwAAAAAAAAAAAAAAAAAAAAAAAAAAAEJEAAH/////DDI1XzNfMzEzLnBkZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8AAAAAAAAAAAAAAAAAAwADAAAKIGN1AAAAAAAAAAAAAAAAAAZOUy1wZGYAAgApLzpVc2Vyczprb2hraWNoaTpEYXRhOk5TLXBkZjoyNV8zXzMxMy5wZGYAAA4AGgAMADIANQBfADMAXwAzADEAMwAuAHAAZABmAA8AFgAKAEgAaQBlAHIAbwBuAHkAbQB1AHMAEgAnVXNlcnMva29oa2ljaGkvRGF0YS9OUy1wZGYvMjVfM18zMTMucGRmAAATAAEvAAAVAAIAD///AAAACAANABoAJABIAAAAAAAAAgEAAAAAAAAABQAAAAAAAAAAAAAAAAAAAY4=}}
+</span></span></code></pre></div><p>と言うふうに，pdfの場所は暗号化？されており，修正などできないことが判明した．1万数千のpdf fileをもう一度手作業でBibDeskに認識させないといけないのかと気が遠くなりかけた．しかし，よく考えてみると，BibDeskは相対的な場所やパスを認識している．以前のMacBook Pro late 2016では，/Data/hoge-pdf/のように，/Dataの下にdirectoryを作成して，そこにpdfを保存していた．Catalinaでは，Data directoryはhome directoryである/Users/taipapaの下に置かれるようになった．つまり，相対的には2レベル下のdirectoryに文献リストであるhogefuga-References.bibを置けば良いのである．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users
+</span></span><span style="display:flex;"><span>$ tree -L <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>└── taipapa
+</span></span><span style="display:flex;"><span>     └── Documents
+</span></span><span style="display:flex;"><span>          └── taipapa2
+</span></span><span style="display:flex;"><span>               └── Documents
+</span></span><span style="display:flex;"><span>                    └── hogefuga-References.bib
+</span></span></code></pre></div><p>上図のように，Documentsの下にtaipapa2 directoryを作成し，さらにその下にDocuments directoryを作成し，そこにhogefuga-References.bibを置くようにしたところ，BibDeskがpdfの場所を認識するようになった．ただ，iCloudを介してMojaveがインストールされた他のマック（まだmojave）からもこの文献リストを共有するためには，/Users/taipapa/Documents/にhogefuga-References.bibをコピーしておかなければならない．symbolic linkではオリジナルの方を認識してしまいうまくいかないし，hard linkではiCloudを経由するとうまくいかない．</p>
 <h2 id="まとめ">まとめ</h2>
 <p>今回はかなり苦労すると予想していたのだが，意外とスムーズに行ってしまった（笑）．問題になったのは細かい点が多く，ファイルシステムの変更に伴う問題が一番厄介であった．そのほかでは，GIMPも特に問題なく動き，動画ファイルも問題なかった．お陰で仕事ができる環境を素早く確立することができた．今回も，「案ずるより産むが易し」であった．😄</p>
     </div>
@@ -692,7 +692,7 @@ $ tree -L <span style="color:#ae81ff">5</span>
   
   <div class="post-nav-item">
     <div class="meta-nav">Previous</div>
-    <a href="/post/how-to-create-conference-poster-by-latex-beamer/" rel="prev">How to create conference posters by latex (beamer)</a>
+    <a href="/post/how-to-create-conference-poster-by-latex--beamer/" rel="prev">How to create conference posters by latex (beamer)</a>
   </div>
   
 </div>
@@ -849,7 +849,7 @@ $ tree -L <span style="color:#ae81ff">5</span>
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -874,7 +874,7 @@ $ tree -L <span style="color:#ae81ff">5</span>
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

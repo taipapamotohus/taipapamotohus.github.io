@@ -5,7 +5,7 @@
     <link>/tags/ring/</link>
       <atom:link href="/tags/ring/index.xml" rel="self" type="application/rss+xml" />
     <description>ring</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>ring</title>
@@ -15,7 +15,7 @@
     <item>
       <title>How to use mark in Emacs (helm-all-mark-rings)</title>
       <link>/post/mark-and-desktop-saving/</link>
-      <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/post/mark-and-desktop-saving/</guid>
       <description>&lt;p&gt;Emacsのカーソルは画面をスクロールして上端または下端に至ると画面の中に表示される状態を維持するように動いてしまい，元の位置には止まらないのが仕様になっている．これは通常のエディターとは違っており，不便と感じて，色々と調べたり試したりしたのだが，要するに思想の違いであると考えるに至った．カーソルの位置は保持できない代わりにマークという方法が提供されている．まぁ，これが結構分かりにくいのだが，使ってみると案外便利である．そこで，マークについてまとめることにした．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;

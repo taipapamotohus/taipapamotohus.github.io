@@ -5,7 +5,7 @@
     <link>/tags/init-org/</link>
       <atom:link href="/tags/init-org/index.xml" rel="self" type="application/rss+xml" />
     <description>init-org</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 17 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Fri, 17 Aug 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>init-org</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</title>
       <link>/post/init_org/</link>
-      <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 17 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/post/init_org/</guid>
       <description>&lt;p&gt;自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．&lt;/p&gt;
 &lt;h2 id=&#34;参考サイト&#34;&gt;参考サイト&lt;/h2&gt;
@@ -40,11 +40,11 @@
 &lt;ul&gt;
 &lt;li&gt;~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org&lt;/span&gt;)
-(defvar my-config-dir (concat user-emacs-directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;personal/&amp;#34;&lt;/span&gt;))
-(org-babel-load-file
- (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;init.org&amp;#34;&lt;/span&gt; my-config-dir))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(defvar my-config-dir (concat user-emacs-directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;personal/&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(org-babel-load-file
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;init.org&amp;#34;&lt;/span&gt; my-config-dir))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;工夫と言っても， &lt;strong&gt;init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう&lt;/strong&gt;  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．&lt;/li&gt;
 &lt;li&gt;これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．&lt;/li&gt;
 &lt;/ul&gt;
@@ -61,12 +61,12 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;org-modeで以下のようにする．（後述する設定が必要）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
-以下のように展開される
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．．．）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;以下のように展開される
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;2019年1月14日追加&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -109,19 +109,19 @@
 &lt;li&gt;
 &lt;p&gt;当該のcode blockだけのバッファが表示される（下図の下のバッファ）&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CodeBlock_small.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+        
+        
+        
+        
+        
+        &lt;figure&gt;
+        
+          &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CodeBlock_small.jpg&#34; &gt;
+        
+        &lt;img src=&#34;/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; &gt;
+        &lt;/a&gt;
+        
+        &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;

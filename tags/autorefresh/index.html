@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-01-06T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-01-06T00:00:00&#43;00:00">
   
 
   
@@ -325,8 +325,9 @@
     <div class="article-style">
       
       org-modeで文書を書いていてhtmlにexportする際は，C-e h oとするわけだが，段々とこれが面倒になってくることがある．そこで，ネットを探ってみると，やはり，なんでも載ってるredditにhtml exportを自動化する関数の記事があった．
- Table of Contents  toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法    toggle-org-html-export-on-save  情報元：How to auto export html when saving in org-mode?  例によって，下記のようにinit.orgに書き込めばよい．
+Table of Contents toggle-org-html-export-on-save directoryの内容が変更されると，自動でhtmlを再読込する． 使用方法 toggle-org-html-export-on-save 情報元：How to auto export html when saving in org-mode? 例によって，下記のようにinit.orgに書き込めばよい．
 #+begin_src emacs-lisp (defun toggle-org-html-export-on-save () (interactive) (if (memq &#39;org-html-export-to-html after-save-hook) (progn (remove-hook &#39;after-save-hook &#39;org-html-export-to-html t) (message &#34;Disabled org html export on save for current buffer...&#34;)) (add-hook &#39;after-save-hook &#39;org-html-export-to-html nil t) (message &#34;Enabled org html export on save for current buffer...&#34;))) #+end_src これで，toggle-org-html-export-on-saveで，htmlを自動で出力するかどうかを切り替え可能となる．しかし，これだけでは，org文書を保存するたびにブラウザーを手動でreloadしないといけなくなり，面倒である．自動でreloadしてくれるコマンドがあれば便利である．探してみると，これもネットに転がっていた．
+directoryの内容が変更されると，自動でhtmlを再読込する． 情報元：Watch for file changes and refresh your browser automatically 上記サイトに有るrubyのスクリプトが使えそうなので，頂いた． rubyのインストールについては，以下のようなサイトを参考 MacにHomeBrew,rbenv,bundlerをインストールする Ruby入門 01.
       
     </div>
   </div>
@@ -451,7 +452,7 @@
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -476,7 +477,7 @@
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

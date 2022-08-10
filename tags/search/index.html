@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-10-14T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-10-14T00:00:00&#43;00:00">
   
 
   
@@ -335,12 +335,13 @@
     <div class="article-style">
       
       次世代grepで最速と言われるripgrepをバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．
- Table of Contents  Ref Install How to use  2019年6月2日追記      Ref  deadgrep: use ripgrep from Emacs ご本家 複雑になった時使うツール とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．．  Install まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．
+Table of Contents Ref Install How to use 2019年6月2日追記 Ref deadgrep: use ripgrep from Emacs ご本家 複雑になった時使うツール とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．． Install まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．
 $ brew install ripgrep ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．
 #+begin_src emacs-lisp (use-package deadgrep :ensure t :config (global-set-key (kbd &#34;&lt;f5&gt;&#34;) #&#39;deadgrep) ) #+end_src How to use 使用方法の詳細はご本家に書いてあるが，f5を叩いて，検索キーワードを入れるだけである．下の画像は，このブログのあるdirectoryで，「検索」をキーワードとしてdeadgrepを走らせたところである．defaultでdirectory内を再帰的に検索する．キーワードは青くハイライトされており，左端の数字はその文書での行番号である． o を叩くと下のバッファに該当箇所にカーソルがある状態でその文書が開く． C-c C-k で検索を止めることができる．また，swiperとの併用も可能である．
-   一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．
+一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．
 個人的には，swiperでほぼ事足りているのだが，大きなプロジェクト内の複数のファイルを一気に検索する必要がある人には非常に有益なツールだと思う．
 2019年6月2日追記 上記のように自分にはあまり役に立たないようなことを書いたが，早速，deadgrepが役に立ったので追記しておく．hyperestraierで全文検索をしようとして，H@estfxpdftohtml というコマンドを使おうとしたのだが，うまくいかず，その原因を探るために，/usr/local/で，H@estfxpdftohtmlをSearch termとして，deadgrepを下の画像のように走らせてみたところ，下側のバッファにあるように，一発で原因が判明してしまった．要するに，xpdfが必要ということであった．なるほど，こういう風に使うのかと納得した．
+なお，全文検索については，いずれ別の機会にまとめてみたい．
       
     </div>
   </div>
@@ -350,7 +351,7 @@ $ brew install ripgrep ついで，以下のようにinit.orgに書き込ん�
     <div class="article-style">
       
       文章を書いている際に，ある単語を検索したくなるようなことがよくある．Emacsでのデフォルトはisearchであるが，今回は，これを強化するpackageを紹介する．また，最近開いたディレクトリ directory をまた開きたいこともよくあることである．これについてもivyによる検索が便利であるので紹介する．例によってネタ元を見たほうが早いかもしれない．．．(^^;;;
-Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である．  Install &amp; setup  以下を，int.orgに書き込む．  #+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #+end_src  ivyのコメントアウトしている部分については後述する．  使い方   現在開いているEmacsのバッファで，C-sとするだけでよい．
+Table of Contents swiper.el Install &amp; setup 使い方 migemo cmigemoのinstall migemo.elのInstall &amp; setup avy-migemo（swiperのmigemo対応） Install &amp; setup 使い方 最近開いたディレクトリを開く swiper.el 参照1：swiper ご本家 参照2：swiper.el: 一覧付き正規表現isearch！C-sを置き換えろ 参照3：Emacsの補完&amp;検索を超強化する Emacsでは，C-sに割り当てられたisearchによる正規表現検索がデフォルトで存在する．これをivyを用いて一覧を付加するようにした強化版である． Install &amp; setup 以下を，int.orgに書き込む． #+begin_src emacs-lisp (use-package swiper :ensure t :config (defun isearch-forward-or-swiper (use-swiper) (interactive &#34;p&#34;) ;; (interactive &#34;P&#34;) ;; 大文字のPだと，C-u C-sでないと効かない (let (current-prefix-arg) (call-interactively (if use-swiper &#39;swiper &#39;isearch-forward)))) (global-set-key (kbd &#34;C-s&#34;) &#39;isearch-forward-or-swiper) ) (use-package ivy :ensure t ;; :config ;; (fset &#39;ivy--regex &#39;identity) ) #+end_src ivyのコメントアウトしている部分については後述する． 使い方 現在開いているEmacsのバッファで，C-sとするだけでよい．
       
     </div>
   </div>
@@ -475,7 +476,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -500,7 +501,7 @@ Table of Contents swiper.el  参照1：swiper ご本家 参照2：swiper.el: 
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

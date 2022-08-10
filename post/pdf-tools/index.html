@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -126,7 +126,7 @@
   <meta property="twitter:image" content="/post/pdf-tools/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-07-17T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-07-17T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2019-07-24T21:57:23&#43;09:00">
   
@@ -323,7 +323,7 @@
 
 
 
-<meta content="2019-07-17 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-07-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2019-07-24 21:57:23 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -437,63 +437,63 @@
 <p>　　「実際のところ，PDFファイルを表示するのはPDF toolsの仕事の一部に過ぎない．popplerは文書に関する全ての情報を提供でき，かつ，それを修飾もできるので，遥かにたくさんのことができる」とイントロの最後で大見得を切って，何ができるかを示す<a href="https://www.dailymotion.com/video/x2bc1is?forcedQuality=hd720">動画</a>を紹介している．</p>
 <h3 id="インストール">インストール</h3>
 <p>OSXは公式にはサポートされていないが，コンパイルできたと報告されている，と書いてあり，実際，以下のように出来た．まず，homebrewでpopplerをインストールする．もし，まだ，automakeを入れていなければそれもhomebrewでインストールする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install poppler automake
-</code></pre></div><p>ついで，pkg-configをexportでいじるようなことが書いてあるが，特にそれはせずともよかった．ただし，pdf-toolsのインストールの際にコンパイルエラーが出た．どういうわけか， <strong>pdf-tools          20180428.1527</strong> ではだめだったが，幸い， <strong>pdf-tools          20181221.1913</strong> が出たので，参考4：<a href="https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/">pdf-tools on macos</a>を頼りに，これにアップデートしたところ，あとは問題なくインストールできた．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install poppler automake
+</span></span></code></pre></div><p>ついで，pkg-configをexportでいじるようなことが書いてあるが，特にそれはせずともよかった．ただし，pdf-toolsのインストールの際にコンパイルエラーが出た．どういうわけか， <strong>pdf-tools          20180428.1527</strong> ではだめだったが，幸い， <strong>pdf-tools          20181221.1913</strong> が出たので，参考4：<a href="https://www.reddit.com/r/emacs/comments/6x9gtb/pdftools%5Fon%5Fmacos/">pdf-tools on macos</a>を頼りに，これにアップデートしたところ，あとは問題なくインストールできた．</p>
 <h3 id="追記-2019年7月17日">追記（2019年7月17日）</h3>
 <p>その後何度かpdf-toolをコンパイルすることがあったが，「libffiがどこにあるか分からん」というようなエラーメッセージが出て，「pkg-configでなんとかせい」と怒られるようになった．つまり，ご本家に書いてある通りになったわけである．そこで，libffiのpkgconfigを探して，それをPKG_CONFIG_PATHに含めるようにした．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mdfind -name pkgconfig | grep libffi
-/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
-$ export PKG_CONFIG_PATH<span style="color:#f92672">=</span>/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
-$ /Applications/Emacs.app/Contents/MacOS/Emacs --debug-init
-</code></pre></div><p>これで下記のように設定していると，以下のようにpdf-toolが無事にコンパイルされる．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/build/server/autobuild -i /Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/
----------------------------
-Installing packages
----------------------------
-Skipping <span style="color:#a6e22e">package</span> installation (already installed)
-
----------------------------
-Configuring and compiling
----------------------------
-<span style="color:#f92672">.</span>/configure -q --bindir=/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/ &amp;&amp; make -s
-
-Is case-sensitive searching enabled ?     yes
-Is modifying text annotations enabled ?   yes
-Is modifying markup annotations enabled ? yes
-
-
----------------------------
-Installing
----------------------------
-make -s install
-/usr/local/bin/gmkdir -p <span style="color:#e6db74">&#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018</span><span style="color:#f92672">&#39;</span>
-/usr/local/bin/ginstall -c epdfinfo <span style="color:#e6db74">&#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018</span><span style="color:#f92672">&#39;</span>
-make[1]: Nothing to be done for <span style="color:#f92672">`</span>install-data-am<span style="color:#e6db74">&#39;.</span>
-
-===========================
-Build succeeded. <span style="color:#e6db74">:O</span>)
-===========================
-</code></pre></div><h3 id="設定">設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mdfind -name pkgconfig | grep libffi
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
+</span></span><span style="display:flex;"><span>$ export PKG_CONFIG_PATH<span style="color:#f92672">=</span>/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
+</span></span><span style="display:flex;"><span>$ /Applications/Emacs.app/Contents/MacOS/Emacs --debug-init
+</span></span></code></pre></div><p>これで下記のように設定していると，以下のようにpdf-toolが無事にコンパイルされる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/build/server/autobuild -i /Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/
+</span></span><span style="display:flex;"><span>---------------------------
+</span></span><span style="display:flex;"><span>Installing packages
+</span></span><span style="display:flex;"><span>---------------------------
+</span></span><span style="display:flex;"><span>Skipping <span style="color:#a6e22e">package</span> installation (already installed)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---------------------------
+</span></span><span style="display:flex;"><span>Configuring and compiling
+</span></span><span style="display:flex;"><span>---------------------------
+</span></span><span style="display:flex;"><span><span style="color:#f92672">.</span>/configure -q --bindir=/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018/ &amp;&amp; make -s
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Is case-sensitive searching enabled ?     yes
+</span></span><span style="display:flex;"><span>Is modifying text annotations enabled ?   yes
+</span></span><span style="display:flex;"><span>Is modifying markup annotations enabled ? yes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---------------------------
+</span></span><span style="display:flex;"><span>Installing
+</span></span><span style="display:flex;"><span>---------------------------
+</span></span><span style="display:flex;"><span>make -s install
+</span></span><span style="display:flex;"><span>/usr/local/bin/gmkdir -p <span style="color:#e6db74">&#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018</span><span style="color:#f92672">&#39;</span>
+</span></span><span style="display:flex;"><span>/usr/local/bin/ginstall -c epdfinfo <span style="color:#e6db74">&#39;/Users/taipapa/.emacs.d/elpa/pdf-tools-20190413.2018</span><span style="color:#f92672">&#39;</span>
+</span></span><span style="display:flex;"><span>make[1]: Nothing to be done for <span style="color:#f92672">`</span>install-data-am<span style="color:#e6db74">&#39;.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>===========================
+</span></span><span style="display:flex;"><span>Build succeeded. <span style="color:#e6db74">:O</span>)
+</span></span><span style="display:flex;"><span>===========================
+</span></span></code></pre></div><h3 id="設定">設定</h3>
 <p>例によって，use-packagを用いて以下のように，init.orgに書けばよい．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
-(<span style="color:#a6e22e">use-package</span> pdf-tools
-  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-  <span style="color:#e6db74">:config</span>
-  <span style="color:#75715e">;; initialise</span>
-  (pdf-tools-install)
-  <span style="color:#75715e">;; PDF Tools does not work well together with linum-mode</span>
-  (add-hook <span style="color:#e6db74">&#39;pdf-view-mode-hook</span> (lambda() (nlinum-mode <span style="color:#ae81ff">-1</span>)))
-  <span style="color:#75715e">;; open pdfs scaled to fit page</span>
-  <span style="color:#75715e">;; (setq-default pdf-view-display-size &#39;fit-page)</span>
-  <span style="color:#75715e">;; automatically annotate highlights</span>
-  (<span style="color:#66d9ef">setq</span> pdf-annot-activate-created-annotations <span style="color:#66d9ef">t</span>)
-  <span style="color:#75715e">;; use normal isearch</span>
-  (define-key pdf-view-mode-map (kbd <span style="color:#e6db74">&#34;C-s&#34;</span>) <span style="color:#e6db74">&#39;isearch-forward</span>)
-  <span style="color:#75715e">;; more fine-grained zooming</span>
-  (<span style="color:#66d9ef">setq</span> pdf-view-resize-factor <span style="color:#ae81ff">1.1</span>)
-  )
-<span style="color:#f92672">#+</span>end_src
-</code></pre></div><p>以下に内容を説明する．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> pdf-tools
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:config</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; initialise</span>
+</span></span><span style="display:flex;"><span>  (pdf-tools-install)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; PDF Tools does not work well together with linum-mode</span>
+</span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;pdf-view-mode-hook</span> (lambda() (nlinum-mode <span style="color:#ae81ff">-1</span>)))
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; open pdfs scaled to fit page</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; (setq-default pdf-view-display-size &#39;fit-page)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; automatically annotate highlights</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">setq</span> pdf-annot-activate-created-annotations <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; use normal isearch</span>
+</span></span><span style="display:flex;"><span>  (define-key pdf-view-mode-map (kbd <span style="color:#e6db74">&#34;C-s&#34;</span>) <span style="color:#e6db74">&#39;isearch-forward</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; more fine-grained zooming</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">setq</span> pdf-view-resize-factor <span style="color:#ae81ff">1.1</span>)
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div><p>以下に内容を説明する．</p>
 <ul>
 <li>pdf-tools-installにより最初のときにepdfinfoがコンパイルされる．</li>
 <li>行番号を表示するとうまく動かない．私はnlinum-modeを使っているのでpdf-view-modeの際には止めておく．</li>
@@ -596,11 +596,11 @@ Build succeeded. <span style="color:#e6db74">:O</span>)
 </ul>
 <h3 id="インストールと設定">インストールと設定</h3>
 <p>例によって，use-packagを用いて以下のように，init.orgに書くだけ．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
-(<span style="color:#a6e22e">use-package</span> org-pdfview
-  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>)
-<span style="color:#f92672">#+</span>end_src
-</code></pre></div><p>例えば，Emacsのpdf-toolsを用いて，hogehoge.pdfを開いて読んでいるとする．そこで，C-c lとすると， <strong>Stored: /Data/Hoge/Fuga/hogefuga.pdf</strong> と今読んでいるpdfへのリンクが保存される．そして，それを保存しておきたいorg文書の適当な場所で，C-c C-lとすれば，そのリンクが貼り付けられる．以前の記事（<a href="../org-html-export-theme">Org-modeでhtml exportの際のthemeについて</a>）で書いたような文献のまとめを作成しているときに，元文献とリンクさせておく際などに便利である．貼り付けたリンクをクリックすれば，元文献がEmacsのpdf-toolsによって開かれるようになる（画面が分割され，下に新たなバッファが開いてそこにpdfが表示される）．割と便利である．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> org-pdfview
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div><p>例えば，Emacsのpdf-toolsを用いて，hogehoge.pdfを開いて読んでいるとする．そこで，C-c lとすると， <strong>Stored: /Data/Hoge/Fuga/hogefuga.pdf</strong> と今読んでいるpdfへのリンクが保存される．そして，それを保存しておきたいorg文書の適当な場所で，C-c C-lとすれば，そのリンクが貼り付けられる．以前の記事（<a href="../org-html-export-theme">Org-modeでhtml exportの際のthemeについて</a>）で書いたような文献のまとめを作成しているときに，元文献とリンクさせておく際などに便利である．貼り付けたリンクをクリックすれば，元文献がEmacsのpdf-toolsによって開かれるようになる（画面が分割され，下に新たなバッファが開いてそこにpdfが表示される）．割と便利である．</p>
 <h2 id="pdf-toolsと他のアプリ-skim-previewなど-との比較">PDF Toolsと他のアプリ（skim, Previewなど）との比較</h2>
 <ul>
 <li>注釈の一覧表示，C−s， occurなどの機能は便利である．</li>
@@ -915,7 +915,7 @@ Build succeeded. <span style="color:#e6db74">:O</span>)
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -940,7 +940,7 @@ Build succeeded. <span style="color:#e6db74">:O</span>)
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

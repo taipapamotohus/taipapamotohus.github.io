@@ -32,9 +32,9 @@
 インストールと設定 インストールは例によって，init.orgに以下のように書き込むだけである．
 #&#43;begin_src emacs-lisp (use-package recursive-narrow :ensure t) #&#43;end_src これでインストールと設定は終了である．
 使用法 使い方も実に簡単であり，&ldquo;C-x n n&quot;で現在カーソルがあるsubtree以下のみが表示されるようになり，&ldquo;C-x n w&quot;で元の表示に戻る．これではよくわからないので，実際の画像を示す．まず，最初の画像では全体の画面が表示されており，1951行目の「Org-modeで再帰的に」の行にカーソルがある．
-   ここで，&ldquo;C-x n n&quot;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．
-   次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&quot;C-x n n&quot;とやると，以下の画像のようになる．
-   つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．
+ここで，&ldquo;C-x n n&quot;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．
+次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&quot;C-x n n&quot;とやると，以下の画像のようになる．
+つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．
 広い領域の表示が必要となれば，&ldquo;C-x n w&quot;とやると，1つ前の画像の状態に戻る．そして，もう一度&quot;C-x n w&quot;とやると，最初の状態に戻る．なんということはないのであるが，便利である．">
 
   
@@ -87,7 +87,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -133,14 +133,14 @@
 インストールと設定 インストールは例によって，init.orgに以下のように書き込むだけである．
 #&#43;begin_src emacs-lisp (use-package recursive-narrow :ensure t) #&#43;end_src これでインストールと設定は終了である．
 使用法 使い方も実に簡単であり，&ldquo;C-x n n&quot;で現在カーソルがあるsubtree以下のみが表示されるようになり，&ldquo;C-x n w&quot;で元の表示に戻る．これではよくわからないので，実際の画像を示す．まず，最初の画像では全体の画面が表示されており，1951行目の「Org-modeで再帰的に」の行にカーソルがある．
-   ここで，&ldquo;C-x n n&quot;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．
-   次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&quot;C-x n n&quot;とやると，以下の画像のようになる．
-   つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．
+ここで，&ldquo;C-x n n&quot;とやると，次の画面のようになる．つまり，1951行目以降のsubtreeのみが表示される．
+次にカーソルを1962行目の「インストールと設定」に移動する（画像ではすでに移動済み）．そして，再度&quot;C-x n n&quot;とやると，以下の画像のようになる．
+つまり，「インストールと設定」のsubtreeのみの表示となるわけである．集中したい領域だけが表示されて，効率よく入力できる．
 広い領域の表示が必要となれば，&ldquo;C-x n w&quot;とやると，1つ前の画像の状態に戻る．そして，もう一度&quot;C-x n w&quot;とやると，最初の状態に戻る．なんということはないのであるが，便利である．"><meta property="og:image" content="/post/org-mode_recursive-narrow/featured.jpg">
   <meta property="twitter:image" content="/post/org-mode_recursive-narrow/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2018-12-24T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2018-12-24T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2018-12-24T21:38:53&#43;09:00">
   
@@ -337,7 +337,7 @@
 
 
 
-<meta content="2018-12-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2018-12-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-12-24 21:38:53 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -416,11 +416,11 @@
       <p>org-modeで文章を書いているときに，他のsubtreeが邪魔で消したくなることがある．そして必要になれば，また，もとに戻すことができれば便利である．これを実現してくれるパッケージが<a href="https://github.com/nflath/recursive-narrow">recursive-narrow</a>である．</p>
 <h2 id="インストールと設定">インストールと設定</h2>
 <p>インストールは例によって，init.orgに以下のように書き込むだけである．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
-(<span style="color:#a6e22e">use-package</span> recursive-narrow
-  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>)
-<span style="color:#f92672">#+</span>end_src
-</code></pre></div><p>これでインストールと設定は終了である．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> recursive-narrow
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div><p>これでインストールと設定は終了である．</p>
 <h2 id="使用法">使用法</h2>
 <p>使い方も実に簡単であり，&ldquo;C-x n n&quot;で現在カーソルがあるsubtree以下のみが表示されるようになり，&ldquo;C-x n w&quot;で元の表示に戻る．これではよくわからないので，実際の画像を示す．まず，最初の画像では全体の画面が表示されており，1951行目の「Org-modeで再帰的に」の行にカーソルがある．</p>
 
@@ -776,7 +776,7 @@
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -801,7 +801,7 @@
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

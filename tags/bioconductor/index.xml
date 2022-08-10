@@ -5,7 +5,7 @@
     <link>/tags/bioconductor/</link>
       <atom:link href="/tags/bioconductor/index.xml" rel="self" type="application/rss+xml" />
     <description>bioconductor</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sat, 27 Oct 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>bioconductor</title>
@@ -15,37 +15,37 @@
     <item>
       <title>RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</title>
       <link>/post/r_homebrew_update_error/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/post/r_homebrew_update_error/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.r-project.org&#34;&gt;R&lt;/a&gt;とは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&amp;hellip;..(^^;;;&lt;/p&gt;
 &lt;h2 id=&#34;gccのリンク絡みのトラブル&#34;&gt;gccのリンク絡みのトラブル&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;大体は以下で直ることが多い（&lt;a href=&#34;https://github.com/Homebrew/homebrew-science/issues/5587&#34;&gt;r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587&lt;/a&gt;）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ brew link --overwrite gcc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew link --overwrite gcc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;xmlが入らない&#34;&gt;XMLが入らない&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，&lt;a href=&#34;https://medium.com/biosyntax/installing-r-package-xml-on-macos-10-13-6-1738146d4ee0&#34;&gt;Installing R package XML on MacOS 10.13.6&lt;/a&gt;と同じである．対処法は，同サイトや引用元の&lt;a href=&#34;https://stackoverflow.com/questions/40682615/cannot-install-xml-package-in-r&#34;&gt;Cannot install XML package in r&lt;/a&gt;にある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;XML_CONFIG &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;XML_CONFIG &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;cairoなどのインストール時に-include-and-lt-x11-xlib-dot-h-and-gt-でハマる&#34;&gt;Cairoなどのインストール時に，#include &amp;lt;X11/Xlib.h&amp;gt; でハマる．&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&amp;lsquo;X11/Xlib.h&amp;rsquo; file not found, #include &amp;lt;X11/Xlib.h&amp;gt; のようなエラーが出てコンパイルできないことがある（例えば，&amp;ldquo;Cairo&amp;rdquo; packageなど）．要するにXlib.hの在り処が分からんということである．mdfind（Mac版のlocate）で探してみると，以下のような結果が得られる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mdfind -name Xlib.h | grep X11
-/opt/X11/include/cairo/cairo-xlib.h
-/opt/X11/include/X11/Xlib.h
-/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/Xlib.h
-/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
-/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;C_INCLUDE_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/include&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，コンパイルできるようになるはずである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mdfind -name Xlib.h | grep X11
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/include/cairo/cairo-xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/include/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;C_INCLUDE_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/include&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，コンパイルできるようになるはずである．&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;どこにX11/Xlib.hが入っているかは，インストールの仕方により色々であろうから，場所を確認してから上記の操作を行うようにする．&lt;/p&gt;
@@ -58,50 +58,50 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;こんな感じである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; biocLite&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rsvg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-...................................
-Package xcb-shm was not found in the pkg-config search path.
-Perhaps you should add the directory containing &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;xcb-shm.pc&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;to the PKG_CONFIG_PATH environment variable
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Package &amp;#39;&lt;/span&gt;xcb-shm&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, required by &amp;#39;&lt;/span&gt;cairo&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, not found
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Found INCLUDE_DIR and/or LIB_DIR!
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_CFLAGS=-I/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig/librsvg-2.0.pc
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_LIBS=-L/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig -lrsvg
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;------------------------- ANTICONF ERROR ---------------------------
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Configuration failed because librsvg-2.0 was not found. Try installing:
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* deb: librsvg2-dev (Debian, Ubuntu, etc)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* rpm: librsvg2-devel (Fedora, EPEL)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* csw: librsvg_dev, sunx11_devel (Solaris)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* brew: librsvg (OSX)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;If librsvg-2.0 is already installed, check that &amp;#39;&lt;/span&gt;pkg-config&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; is in your
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;PATH and PKG_CONFIG_PATH contains a librsvg-2.0.pc file. If pkg-config
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;R CMD INSTALL --configure-vars=&amp;#39;&lt;/span&gt;INCLUDE_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;... LIB_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;...&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;--------------------------------------------------------------------
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;ERROR: configuration failed for package ‘rsvg’
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* removing ‘/usr/local/Cellar/r/3.5.1/lib/R/library/rsvg’
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;The downloaded source packages are in
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;‘/private/var/folders/rq/hj_634613dbfzs41djqt52y80000gn/T/RtmpzsGqp0/downloaded_packages’
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Updating HTML index of packages in &amp;#39;&lt;/span&gt;.Library&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Making &amp;#39;&lt;/span&gt;packages.html&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt; ... &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
-警告メッセージ:
-install.packages&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pkgs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; doing, lib &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; lib, ...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; で:
-installation of package ‘rsvg’ had non-zero exit status
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; biocLite&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rsvg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...................................
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Package xcb-shm was not found in the pkg-config search path.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Perhaps you should add the directory containing &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;xcb-shm.pc&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;to the PKG_CONFIG_PATH environment variable
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Package &amp;#39;&lt;/span&gt;xcb-shm&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, required by &amp;#39;&lt;/span&gt;cairo&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, not found
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Found INCLUDE_DIR and/or LIB_DIR!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_CFLAGS=-I/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig/librsvg-2.0.pc
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_LIBS=-L/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig -lrsvg
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;------------------------- ANTICONF ERROR ---------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Configuration failed because librsvg-2.0 was not found. Try installing:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* deb: librsvg2-dev (Debian, Ubuntu, etc)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* rpm: librsvg2-devel (Fedora, EPEL)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* csw: librsvg_dev, sunx11_devel (Solaris)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* brew: librsvg (OSX)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;If librsvg-2.0 is already installed, check that &amp;#39;&lt;/span&gt;pkg-config&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; is in your
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;PATH and PKG_CONFIG_PATH contains a librsvg-2.0.pc file. If pkg-config
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;R CMD INSTALL --configure-vars=&amp;#39;&lt;/span&gt;INCLUDE_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;... LIB_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;...&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;--------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;ERROR: configuration failed for package ‘rsvg’
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* removing ‘/usr/local/Cellar/r/3.5.1/lib/R/library/rsvg’
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;The downloaded source packages are in
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;‘/private/var/folders/rq/hj_634613dbfzs41djqt52y80000gn/T/RtmpzsGqp0/downloaded_packages’
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Updating HTML index of packages in &amp;#39;&lt;/span&gt;.Library&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Making &amp;#39;&lt;/span&gt;packages.html&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt; ... &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;警告メッセージ:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;install.packages&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pkgs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; doing, lib &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; lib, ...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; で:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;installation of package ‘rsvg’ had non-zero exit status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;要するに，xcb-shm.pcのあるディレクトリをPKG＿CONFIG＿DIRに追加しろと言ってるので，xcb-shm.pcがどこにあるかをmdfindで探してから，言われるとおり追加する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mdfind -name xcb-shm.pc
-/opt/X11/lib/pkgconfig/cairo-xcb-shm.pc
-/opt/X11/lib/pkgconfig/xcb-shm.pc
-/usr/local/Cellar/cairo/1.14.8/lib/pkgconfig/cairo-xcb-shm.pc
-/usr/local/Cellar/cairo/1.14.10/lib/pkgconfig/cairo-xcb-shm.pc
-/usr/local/Cellar/cairo/1.14.12/lib/pkgconfig/cairo-xcb-shm.pc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mdfind -name xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/lib/pkgconfig/xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/cairo/1.14.8/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/cairo/1.14.10/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/cairo/1.14.12/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;上記のように，/opt/X11/lib/pkgconfig/xcb-shm.pcとなっているので，これを追加する．このときも上述のごとく，RのコンソールでSys.setenvを使う．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;PKG_CONFIG_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/lib/pkgconfig&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;PKG_CONFIG_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/lib/pkgconfig&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;これで，rsvgはうまくコンパイルされる．&lt;/p&gt;
 &lt;/li&gt;

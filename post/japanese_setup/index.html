@@ -29,9 +29,9 @@
     
   
   <meta name="description" content="ようやく，ここからinit.orgの具体的な記述になる．
-Table of Contents Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
-  init.orgに以下のように書き込む
-​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.">
+Table of Contents Coding systemの設定 Inline-patchの設定 Coding systemの設定 まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
+init.orgに以下のように書き込む
+​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.*Hiragino Kaku Gothic ProN.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/japanese_setup/">
@@ -83,7 +83,7 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -126,13 +126,13 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
   <meta property="og:url" content="/post/japanese_setup/">
   <meta property="og:title" content="Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など | A perfect autumn day">
   <meta property="og:description" content="ようやく，ここからinit.orgの具体的な記述になる．
-Table of Contents Coding systemの設定   まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
-  init.orgに以下のように書き込む
-​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;."><meta property="og:image" content="/post/japanese_setup/featured.jpg">
+Table of Contents Coding systemの設定 Inline-patchの設定 Coding systemの設定 まずは，coding systemの設定，つまり，日本語の設定，日本語フォントの設定から
+init.orgに以下のように書き込む
+​* Coding System Environment ** 言語を日本語にする #&#43;BEGIN_SRC lisp (set-language-environment &#39;Japanese) #&#43;END_SRC ** 極力UTF-8とする #&#43;BEGIN_SRC lisp (prefer-coding-system &#39;utf-8) #&#43;END_SRC ** 日本語フォントをヒラギノにする ​ - 日本語のサイズを指定しないと動的にサイズを変えられるようになる ​ - 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/ #&#43;BEGIN_SRC lisp (when (or (eq window-system &#39;mac) (eq window-system &#39;ns)) (set-face-attribute &#39;default nil :family &#34;Menlo&#34; :height 180) ;; 18pt (set-fontset-font nil &#39;japanese-jisx0208 (font-spec :family &#34;Hiragino Kaku Gothic ProN&#34;)) (setq face-font-rescale-alist &#39;((&#34;.*Hiragino Kaku Gothic ProN."><meta property="og:image" content="/post/japanese_setup/featured.jpg">
   <meta property="twitter:image" content="/post/japanese_setup/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2018-08-18T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2018-08-18T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2018-08-27T22:12:54&#43;09:00">
   
@@ -329,7 +329,7 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
 
 
 
-<meta content="2018-08-18 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2018-08-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-08-27 22:12:54 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -407,7 +407,12 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
     <div class="article-style" itemprop="articleBody">
       <p>ようやく，ここからinit.orgの具体的な記述になる．</p>
 <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#coding-systemの設定">Coding systemの設定</a></li>
+    <li><a href="#inline-patchの設定">Inline-patchの設定</a></li>
+  </ul>
+</nav>
 <h2 id="coding-systemの設定">Coding systemの設定</h2>
 <ul>
 <li>
@@ -415,44 +420,44 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
 </li>
 <li>
 <p>init.orgに以下のように書き込む</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#960050;background-color:#1e0010">​</span><span style="color:#a6e22e">*</span> Coding System Environment
-** 言語を日本語にする
-   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
-   (set-language-environment <span style="color:#e6db74">&#39;Japanese</span>)
-   <span style="color:#f92672">#+</span>END_SRC
-** 極力UTF-8とする
-   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
-     (prefer-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
-   <span style="color:#f92672">#+</span>END_SRC
-** 日本語フォントをヒラギノにする
-<span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 日本語のサイズを指定しないと動的にサイズを変えられるようになる
-<span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/
-   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
-     (when (or (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;mac</span>) (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;ns</span>))
-       (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span>
-                           <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Menlo&#34;</span>
-                           <span style="color:#e6db74">:height</span> <span style="color:#ae81ff">180</span>) <span style="color:#75715e">;; 18pt</span>
-       (set-fontset-font <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0208</span>
-                         (font-spec <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Hiragino Kaku Gothic ProN&#34;</span>))
-       (<span style="color:#66d9ef">setq</span> face-font-rescale-alist
-             <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;.*Hiragino Kaku Gothic ProN.*&#34;</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">1.1</span>))))
-   <span style="color:#f92672">#+</span>END_SRC
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span><span style="color:#a6e22e">*</span> Coding System Environment
+</span></span><span style="display:flex;"><span>** 言語を日本語にする
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
+</span></span><span style="display:flex;"><span>   (set-language-environment <span style="color:#e6db74">&#39;Japanese</span>)
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>END_SRC
+</span></span><span style="display:flex;"><span>** 極力UTF-8とする
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
+</span></span><span style="display:flex;"><span>     (prefer-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>END_SRC
+</span></span><span style="display:flex;"><span>** 日本語フォントをヒラギノにする
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 日本語のサイズを指定しないと動的にサイズを変えられるようになる
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
+</span></span><span style="display:flex;"><span>     (when (or (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;mac</span>) (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;ns</span>))
+</span></span><span style="display:flex;"><span>       (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>                           <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Menlo&#34;</span>
+</span></span><span style="display:flex;"><span>                           <span style="color:#e6db74">:height</span> <span style="color:#ae81ff">180</span>) <span style="color:#75715e">;; 18pt</span>
+</span></span><span style="display:flex;"><span>       (set-fontset-font <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0208</span>
+</span></span><span style="display:flex;"><span>                         (font-spec <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Hiragino Kaku Gothic ProN&#34;</span>))
+</span></span><span style="display:flex;"><span>       (<span style="color:#66d9ef">setq</span> face-font-rescale-alist
+</span></span><span style="display:flex;"><span>             <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;.*Hiragino Kaku Gothic ProN.*&#34;</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">1.1</span>))))
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>END_SRC
+</span></span></code></pre></div></li>
 <li>
 <p>これがEmacs起動時にorg-babel-load-fileにより変換されて下記のようなinit.elとなる．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(set-language-environment <span style="color:#e6db74">&#39;Japanese</span>)
-
-(prefer-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
-
-(when (or (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;mac</span>) (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;ns</span>))
-  (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span>
-                      <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Menlo&#34;</span>
-                      <span style="color:#e6db74">:height</span> <span style="color:#ae81ff">180</span>) <span style="color:#75715e">;; 18pt</span>
-  (set-fontset-font <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0208</span>
-                    (font-spec <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Hiragino Kaku Gothic ProN&#34;</span>))
-  (<span style="color:#66d9ef">setq</span> face-font-rescale-alist
-        <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;.*Hiragino Kaku Gothic ProN.*&#34;</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">1.1</span>))))
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(set-language-environment <span style="color:#e6db74">&#39;Japanese</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(prefer-coding-system <span style="color:#e6db74">&#39;utf-8</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(when (or (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;mac</span>) (<span style="color:#a6e22e">eq</span> window-system <span style="color:#e6db74">&#39;ns</span>))
+</span></span><span style="display:flex;"><span>  (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Menlo&#34;</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">:height</span> <span style="color:#ae81ff">180</span>) <span style="color:#75715e">;; 18pt</span>
+</span></span><span style="display:flex;"><span>  (set-fontset-font <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0208</span>
+</span></span><span style="display:flex;"><span>                    (font-spec <span style="color:#e6db74">:family</span> <span style="color:#e6db74">&#34;Hiragino Kaku Gothic ProN&#34;</span>))
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">setq</span> face-font-rescale-alist
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;.*Hiragino Kaku Gothic ProN.*&#34;</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">1.1</span>))))
+</span></span></code></pre></div></li>
 <li>
 <p>つまり，org-modeで書いたinit.orgでの解説はすべて除かれて，lispのみのcodeになってinit.elが生成される．</p>
 </li>
@@ -473,43 +478,43 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
 </li>
 <li>
 <p>init.orgに以下のように書き込む．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#960050;background-color:#1e0010">​</span><span style="color:#a6e22e">*</span> inline-patch on macosx
-** ミニバッファ入力時に自動的に英語入力モードにする
-<span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 参考<span style="color:#960050;background-color:#1e0010">：</span>http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
-     (when (<span style="color:#a6e22e">functionp</span> <span style="color:#e6db74">&#39;mac-auto-ascii-mode</span>)  <span style="color:#75715e">;; ミニバッファに入力時、自動的に英語モード</span>
-       (mac-auto-ascii-mode <span style="color:#ae81ff">1</span>))
-   <span style="color:#f92672">#+</span>END_SRC
-** 日本語か英語かで<span style="color:#960050;background-color:#1e0010">，</span>カーソルの色を変える<span style="color:#960050;background-color:#1e0010">．</span>
-<span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 参考１<span style="color:#960050;background-color:#1e0010">：</span>http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-<span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 参考２<span style="color:#960050;background-color:#1e0010">：</span>http://suzuki.tdiary.net/20160103.html
-   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
-     (when (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;mac-input-source</span>)
-       (defun my-mac-selected-keyboard-input-source-chage-function ()
-         (<span style="color:#66d9ef">let</span> ((mac-input-source (mac-input-source)))
-           (set-cursor-color
-                                             <span style="color:#75715e">; (if (string-match &#34;com.apple.inputmethod.Kotoeri.Roman&#34; mac-input-source)</span>
-            (<span style="color:#66d9ef">if</span> (string-match <span style="color:#e6db74">&#34;com.google.inputmethod.Japanese.Roman&#34;</span> mac-input-source)
-                <span style="color:#e6db74">&#34;#91C3FF&#34;</span> <span style="color:#e6db74">&#34;#FF9300&#34;</span>))))
-       (add-hook <span style="color:#e6db74">&#39;mac-selected-keyboard-input-source-change-hook</span>
-                 <span style="color:#e6db74">&#39;my-mac-selected-keyboard-input-source-chage-function</span>))
-   <span style="color:#f92672">#+</span>END_SRC
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span><span style="color:#a6e22e">*</span> inline-patch on macosx
+</span></span><span style="display:flex;"><span>** ミニバッファ入力時に自動的に英語入力モードにする
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 参考<span style="color:#960050;background-color:#1e0010">：</span>http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
+</span></span><span style="display:flex;"><span>     (when (<span style="color:#a6e22e">functionp</span> <span style="color:#e6db74">&#39;mac-auto-ascii-mode</span>)  <span style="color:#75715e">;; ミニバッファに入力時、自動的に英語モード</span>
+</span></span><span style="display:flex;"><span>       (mac-auto-ascii-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>END_SRC
+</span></span><span style="display:flex;"><span>** 日本語か英語かで<span style="color:#960050;background-color:#1e0010">，</span>カーソルの色を変える<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 参考１<span style="color:#960050;background-color:#1e0010">：</span>http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">​</span>   <span style="color:#a6e22e">-</span> 参考２<span style="color:#960050;background-color:#1e0010">：</span>http://suzuki.tdiary.net/20160103.html
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>BEGIN_SRC lisp
+</span></span><span style="display:flex;"><span>     (when (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;mac-input-source</span>)
+</span></span><span style="display:flex;"><span>       (defun my-mac-selected-keyboard-input-source-chage-function ()
+</span></span><span style="display:flex;"><span>         (<span style="color:#66d9ef">let</span> ((mac-input-source (mac-input-source)))
+</span></span><span style="display:flex;"><span>           (set-cursor-color
+</span></span><span style="display:flex;"><span>                                             <span style="color:#75715e">; (if (string-match &#34;com.apple.inputmethod.Kotoeri.Roman&#34; mac-input-source)</span>
+</span></span><span style="display:flex;"><span>            (<span style="color:#66d9ef">if</span> (string-match <span style="color:#e6db74">&#34;com.google.inputmethod.Japanese.Roman&#34;</span> mac-input-source)
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;#91C3FF&#34;</span> <span style="color:#e6db74">&#34;#FF9300&#34;</span>))))
+</span></span><span style="display:flex;"><span>       (add-hook <span style="color:#e6db74">&#39;mac-selected-keyboard-input-source-change-hook</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#39;my-mac-selected-keyboard-input-source-chage-function</span>))
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">#+</span>END_SRC
+</span></span></code></pre></div></li>
 <li>
 <p>これがEmacsの起動時に，org-babel-load-fileによって，下記のようにcodeだけ抜き出されて，init.elに書き込まれる．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(when (<span style="color:#a6e22e">functionp</span> <span style="color:#e6db74">&#39;mac-auto-ascii-mode</span>)  <span style="color:#75715e">;; ミニバッファに入力時、自動的に英語モード</span>
-  (mac-auto-ascii-mode <span style="color:#ae81ff">1</span>))
-
-(when (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;mac-input-source</span>)
-  (defun my-mac-selected-keyboard-input-source-chage-function ()
-    (<span style="color:#66d9ef">let</span> ((mac-input-source (mac-input-source)))
-      (set-cursor-color
-                                        <span style="color:#75715e">; (if (string-match &#34;com.apple.inputmethod.Kotoeri.Roman&#34; mac-input-source)</span>
-       (<span style="color:#66d9ef">if</span> (string-match <span style="color:#e6db74">&#34;com.google.inputmethod.Japanese.Roman&#34;</span> mac-input-source)
-           <span style="color:#e6db74">&#34;#91C3FF&#34;</span> <span style="color:#e6db74">&#34;#FF9300&#34;</span>))))
-  (add-hook <span style="color:#e6db74">&#39;mac-selected-keyboard-input-source-change-hook</span>
-            <span style="color:#e6db74">&#39;my-mac-selected-keyboard-input-source-chage-function</span>))
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(when (<span style="color:#a6e22e">functionp</span> <span style="color:#e6db74">&#39;mac-auto-ascii-mode</span>)  <span style="color:#75715e">;; ミニバッファに入力時、自動的に英語モード</span>
+</span></span><span style="display:flex;"><span>  (mac-auto-ascii-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(when (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;mac-input-source</span>)
+</span></span><span style="display:flex;"><span>  (defun my-mac-selected-keyboard-input-source-chage-function ()
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">let</span> ((mac-input-source (mac-input-source)))
+</span></span><span style="display:flex;"><span>      (set-cursor-color
+</span></span><span style="display:flex;"><span>                                        <span style="color:#75715e">; (if (string-match &#34;com.apple.inputmethod.Kotoeri.Roman&#34; mac-input-source)</span>
+</span></span><span style="display:flex;"><span>       (<span style="color:#66d9ef">if</span> (string-match <span style="color:#e6db74">&#34;com.google.inputmethod.Japanese.Roman&#34;</span> mac-input-source)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;#91C3FF&#34;</span> <span style="color:#e6db74">&#34;#FF9300&#34;</span>))))
+</span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;mac-selected-keyboard-input-source-change-hook</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#39;my-mac-selected-keyboard-input-source-chage-function</span>))
+</span></span></code></pre></div></li>
 <li>
 <p>これで日本語入力中であっても，M-xなどでミニバッファ入力時に自動的に英語入力モードになってくれる．</p>
 </li>
@@ -815,7 +820,7 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -840,7 +845,7 @@ Table of Contents Coding systemの設定   まずは，coding systemの設定
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

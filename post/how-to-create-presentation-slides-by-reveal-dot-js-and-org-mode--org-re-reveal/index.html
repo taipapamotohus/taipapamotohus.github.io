@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="このブログを始めた頃にLaTeXを用いたスライド作成について一連の記事（beamerでスライド原稿用pdfを作成する（その１）など）にまとめた．しかし，10年以上もこの方法を使ってきて，少々飽きてきたと言うのが正直な感想である．そんな時に気になっていたのが， reveal.js である．今回は，思いきってreveal.jsによるスライド作成に挑んでみたので，その顛末をまとめておく．私にはhtmlやjavascriptはさっぱりなので，例によってorg-modeを介しての作成となった．">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/">
+  <meta property="og:title" content="How to create presentation slides by reveal.js and org-mode (org-reveal) | A perfect autumn day">
+  <meta property="og:description" content="このブログを始めた頃にLaTeXを用いたスライド作成について一連の記事（beamerでスライド原稿用pdfを作成する（その１）など）にまとめた．しかし，10年以上もこの方法を使ってきて，少々飽きてきたと言うのが正直な感想である．そんな時に気になっていたのが， reveal.js である．今回は，思いきってreveal.jsによるスライド作成に挑んでみたので，その顛末をまとめておく．私にはhtmlやjavascriptはさっぱりなので，例によってorg-modeを介しての作成となった．"><meta property="og:image" content="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/featured.jpg">
+  <meta property="twitter:image" content="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2020-04-24T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2020-05-10T13:04:31&#43;09:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>How to create presentation slides by reveal.js and org-mode (org-reveal) | A perfect autumn day</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1 itemprop="name">How to create presentation slides by reveal.js and org-mode (org-reveal)</h1>
+
+  
+  <p class="page-subtitle">reveal.jsとorg-modeでプレゼン用スライドを作成する（org-reveal）（2020年5月9日修正）</p>
+  
+
+  
+
+
+
+<meta content="2020-04-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2020-05-10 13:04:31 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>May 10, 2020</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+    
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 3300px; max-height: 1095px;">
+  <div style="position: relative">
+    <img src="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Trinity College Dublin</span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>このブログを始めた頃にLaTeXを用いたスライド作成について一連の記事（<a href="../beamer">beamerでスライド原稿用pdfを作成する（その１）</a>など）にまとめた．しかし，10年以上もこの方法を使ってきて，少々飽きてきたと言うのが正直な感想である．そんな時に気になっていたのが， <strong>reveal.js</strong> である．今回は，思いきってreveal.jsによるスライド作成に挑んでみたので，その顛末をまとめておく．私にはhtmlやjavascriptはさっぱりなので，例によってorg-modeを介しての作成となった．</p>
+<div class="ox-hugo-toc toc">
+<div></div>
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#reveal-dot-js">reveal.js</a>
+<ul>
+<li><a href="#installation-of-reveal-dot-js">Installation of reveal.js</a></li>
+<li><a href="#example-presentations">Example Presentations</a></li>
+</ul>
+</li>
+<li><a href="#org-reveal">org-reveal</a>
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#installation-of-org-reveal">Installation of org-reveal</a></li>
+<li><a href="#configuration-of-org-reveal">Configuration of org-reveal</a></li>
+</ul>
+</li>
+<li><a href="#plugin-of-reveal-dot-js">Plugin of reveal.js</a>
+<ul>
+<li><a href="#default-plugin--reveal-dot-js-plugin">Default plugin (reveal.js/plugin/)</a></li>
+<li><a href="#reveal-dot-js-plugins">reveal.js-plugins</a></li>
+<li><a href="#reveal-dot-js-menu">reveal.js-menu</a></li>
+<li><a href="#plugin-location">Plugin location</a></li>
+</ul>
+</li>
+<li><a href="#creation-of-slides-by-org-reveal-and-reveal-dot-js">Creation of slides by org-reveal and reveal.js</a>
+<ul>
+<li><a href="#creation-of-main-file">Creation of main file</a></li>
+<li><a href="#creation-of-custom-css-file">creation of custom css file</a></li>
+<li><a href="#modification-of-main-file">Modification of main file</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="reveal-dot-js"><a href="https://github.com/hakimel/reveal.js">reveal.js</a></h2>
+<p>「HTMLを使って簡単に美しいプレゼンテーションを作成できるフレームワーク」だそうである．nested slides, Markdown support, PDF export, speaker notes, JavaScript APIなどの特徴を有する．<a href="https://revealjs.com/#/">リンク先のデモ</a>を見れば，どんなことができるか一目瞭然である．これがなかなかカッコ良い．．．</p>
+<h3 id="installation-of-reveal-dot-js">Installation of reveal.js</h3>
+<p>上述のご本家のサイトに詳細に記述されているとおりにすれば良い．</p>
+<ol>
+<li>
+<p>まず，node.jsをインストールする．macであれば，homebrewを使うのが簡単である．ついでにnpmもインストールする．他のOSでは，各自ググっていただきたい．．．(^^;;;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install node.js
+</span></span><span style="display:flex;"><span>$ brew install npm
+</span></span></code></pre></div></li>
+<li>
+<p>スライドを作る場所として，適当なdirectoryを作成し，そこに移動して，reveal.jsのリポジトリをクローンする．ここでは，Slidesと言うdirectoryを作った．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mkdir /Users/taipapa/Data/Slides
+</span></span><span style="display:flex;"><span>$ cd /Users/taipapa/Data/Slides
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/hakimel/reveal.js.git
+</span></span></code></pre></div></li>
+<li>
+<p>reveal.js directoryに移動する</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd reveal.js
+</span></span></code></pre></div></li>
+<li>
+<p>依存関係をインストールする</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$  npm install
+</span></span></code></pre></div></li>
+<li>
+<p>プレゼンテーションを開始する</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>  $ npm start
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; reveal.js@3.9.2 start /Users/taipapa/Data/Slides/reveal.js
+</span></span><span style="display:flex;"><span>&gt; grunt serve
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Running <span style="color:#e6db74">&#34;connect:server&#34;</span> <span style="color:#f92672">(</span>connect<span style="color:#f92672">)</span> task
+</span></span><span style="display:flex;"><span>Started connect web server on http://localhost:8000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Running <span style="color:#e6db74">&#34;watch&#34;</span> task
+</span></span><span style="display:flex;"><span>Waiting...
+</span></span></code></pre></div></li>
+<li>
+<p>ブラウザで， <a href="http://localhost:8000">http://localhost:8000</a> が開き，プレゼンテーションが見られる．</p>
+</li>
+</ol>
+<p>ここまで非常に簡単である．defaultで開くプレゼンは素っ気ないものであるが，reveal.js directoryにあるdemo.htmlを以下のようにindex.htmlにすれば，上述のご本家のGitHub pageのリンクにあるデモと同じスライドが開くようになる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Data/Slides/reveal.js
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>CONTRIBUTING.md     css                 js                   package.json
+</span></span><span style="display:flex;"><span>LICENSE             demo.html           lib                  plugin
+</span></span><span style="display:flex;"><span>README.md           gruntfile.js        node_modules         test
+</span></span><span style="display:flex;"><span>bower.json          index.html          package-lock.json
+</span></span><span style="display:flex;"><span>$ mv index.html index.html_original
+</span></span><span style="display:flex;"><span>$ cp demo.html index.html
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>CONTRIBUTING.md     css                 index.html_original  package-lock.json
+</span></span><span style="display:flex;"><span>LICENSE             demo.html           js                   package.json
+</span></span><span style="display:flex;"><span>README.md           gruntfile.js        lib                  plugin
+</span></span><span style="display:flex;"><span>bower.json          index.html          node_modules         test
+</span></span><span style="display:flex;"><span>$ npm start
+</span></span></code></pre></div><p>directory（フォルダ）の中身は以下のようになっている．</p>
+<ul>
+<li>css/ : これがないとプロジェクトが機能しないコアのスタイル</li>
+<li>js/ : 上記に同じだがJavascript用</li>
+<li>plugin/ : reveal.jsの拡張用として開発されてきたコンポーネント</li>
+<li>lib/ : 他のすべてのthird party assets (JavaScript, CSS, fonts)</li>
+</ul>
+<h3 id="example-presentations"><a href="https://github.com/hakimel/reveal.js/wiki/Example-Presentations">Example Presentations</a></h3>
+<p>reveal.jsでどんなスライドを作れるのか実例を集めたページ．</p>
+<ul>
+<li><a href="https://www.cfa.harvard.edu/~pwilliam/htmltalk/#/">Sample scientific talk (on magnetism in small stars) by Peter Williams</a></li>
+<li><a href="https://leefsmp.github.io/forge-connected-data/#/1">Autodesk Forge Viewer: Visual Reports with Connected Data by Philippe Leefsma</a></li>
+</ul>
+<p>などは興味深い．</p>
+<p>reveal.jsの特徴として，Markdownでもスライドが作成できると言うことがあるが，私はいつも通りorg-modeを使用することにした．</p>
+<h2 id="org-reveal">org-reveal</h2>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://github.com/yjwen/org-reveal">org-reveal</a>: 御本家</li>
+<li><a href="http://jr0cket.co.uk/slides/revealjs.html">Introduction to org-reveal</a>：御本家のデモ</li>
+<li><a href="https://dev.classmethod.jp/articles/org-mode-re-reveal/">【Org-mode】Org文書から reveal.js スライドを作成する</a></li>
+<li><a href="https://gitlab.com/oer/emacs-reveal">emacs-reveal</a>：御本家からのフォーク</li>
+<li><a href="https://gitlab.com/oer/org-re-reveal">org-re-reveal</a>：御本家からのフォーク</li>
+</ul>
+<p>htmlもJavascriptも知らなくてもブログが書けるように，これらを知らなくても，org-modeとreveal.jsを組み合わせて使えばスライドが簡単に作れる．reveal.js用のorg-modeのパッケージは，元来は， <strong>org-reveal</strong> (<a href="https://github.com/yjwen/org-reveal">org-reveal</a>, <a href="http://jr0cket.co.uk/slides/revealjs.html">Introduction to org-reveal</a>) であり，そのforkである <strong>org-re-reveal</strong> も活発に開発されているとのことで，どちらをインストールするか迷ったのであるが，上記の御本家のGitHub pageを見ると，2018年6月ごろから作者のyiwenさんが再び盛んにcommitするようになっている．また，フォークのorg-re-revealはemacs-revealのバンドルの一部となっており，少し複雑である．以上の理由から，やはり，御本家を使うことにした．なお，フォークのorg-re-revealに関しては，<a href="https://dev.classmethod.jp/articles/org-mode-re-reveal/">【Org-mode】Org文書から reveal.js スライドを作成する</a> に詳しく紹介されているので，参考にされたい．</p>
+<h3 id="installation-of-org-reveal">Installation of org-reveal</h3>
+<p>御本家の<a href="https://github.com/yjwen/org-reveal">org-reveal</a>に書いてある通りにすれば良いのだが，私は，いつものごとく，use-packageを用いて以下のようにinit.orgに書き込んでインストールした．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> ox-reveal
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div><h4 id="installation-of-emacs-reveal">Installation of emacs-reveal</h4>
+<p>前述したように，org-revealのフォークであるorg-re-revealはemacs-revealのバンドルの一部である．後述するが，reveal.jsのthemeや設定ファイルとして有用なものが含まれているので，emacs-revealもクローンしておいて必要に応じて使えるようにすることをお勧めする．個々に行うと面倒なので，全部突っ込むことにして，<a href="https://gitlab.com/oer/emacs-reveal#emacs-reveal-for-daily-use">Emacs-reveal for daily use</a>の方法に従い，emacs-revealをクローンする．この際にrecursive optionをつけて再帰的にクローンすれば，org-re-reveal, org-re-reveal-ref, oer-revealなどが全部一緒に（161MB）入ってくる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sources
+</span></span><span style="display:flex;"><span>$ git clone --recursive https://gitlab.com/oer/emacs-reveal.git
+</span></span><span style="display:flex;"><span>$ cd emacs-reveal
+</span></span><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/Users/taipapa/Sources/emacs-reveal
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>CHANGELOG.org           docker                  org-re-reveal-ref
+</span></span><span style="display:flex;"><span>CONTRIBUTING.md         emacs-reveal-submodules paper.bib
+</span></span><span style="display:flex;"><span>LICENSE                 emacs-reveal.el         paper.bib.license
+</span></span><span style="display:flex;"><span>LICENSES                oer-reveal              paper.md
+</span></span><span style="display:flex;"><span>Makefile                org-mode                paper.md.license
+</span></span><span style="display:flex;"><span>README.md               org-re-reveal           tests
+</span></span></code></pre></div><h3 id="configuration-of-org-reveal">Configuration of org-reveal</h3>
+<p>設定に関しては， <a href="https://github.com/yjwen/org-reveal">org-reveal</a>に詳細に記載されているが，重要なことを中心に抜粋しておく．</p>
+<h4 id="set-the-location-of-reveal-dot-js"><a href="https://github.com/yjwen/org-reveal#set-the-location-of-revealjs">Set the location of Reveal.js</a></h4>
+<p>org-revealはファイルの内容をexportする前にreveal.jsがどこにあるかを知っておく必要がある．reveal.jsの在り処というのは，reveal.jsのパッケージのトップディレクトリへのパスのことであり，そのディレクトリは <strong>reveal.jsのファイルを含むディレクトリではなく，</strong>  <strong>README.mdを含むディレクトリ</strong> のことである．</p>
+<p>デフォルトでは，./reveal.js であるが，このままだと，全てのスライド原稿がreveal.jsと同じディレクトリにないといけなくなり不便である．そこで，init.orgにパスを書き込むか，あるいは，個々のorg fileの冒頭にrevieal.jsの在り処を書き込む．私は後者の方法をとっており，以下のように書き込んでいる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_ROOT: file:///Users/taipapa/Data/Slides/reveal.js
+</span></span></code></pre></div><p>なお，org-re-revealでは，このパスを書き込んでも読み込んでくれない．私の環境の問題なのかは追及していないが，これも御本家のorg-revealを使用する理由である．</p>
+<h4 id="select-theme"><a href="https://github.com/yjwen/org-reveal#select-theme">Select theme</a></h4>
+<p>テーマをREVEAL_THEMEでセットする．テーマはdefaultで11個ぐらいついてくるが，ネットのあちこちにいろいろなテーマが落ちているので，あちこちのテーマを見て参考にし，自分なりに変更して好みのテーマを作れば良い．上述のemacs-orgの中のテーマ（oer-reveal.css）が割と良かったので，使用することにした．テーマを使用するには，reveal.jsのcss directoryの中のtheme directoryに入れれば良い．具体的には以下のようにした．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sources/emacs-reveal/oer-reveal/css
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>dbis-longtitle.css             folder_inbox.png.license
+</span></span><span style="display:flex;"><span>dbis.css                       index.css
+</span></span><span style="display:flex;"><span>ercis-quote.css                oer-reveal.css
+</span></span><span style="display:flex;"><span>ercis.css                      outgoing-link.png
+</span></span><span style="display:flex;"><span>ercis2019.css                  outgoing-link.png.base
+</span></span><span style="display:flex;"><span>folder_inbox.png               outgoing-link.png.base.license
+</span></span><span style="display:flex;"><span>folder_inbox.png.base          outgoing-link.png.license
+</span></span><span style="display:flex;"><span>folder_inbox.png.base.license  toc-style.css
+</span></span><span style="display:flex;"><span>$ cp oer-reveal.css /Users/taipapa/Slides/reveal.js/css/theme/
+</span></span></code></pre></div><h2 id="plugin-of-reveal-dot-js">Plugin of reveal.js</h2>
+<p>reveal.jsを素のままで使っても十分に有用ではあるが，やはり，pdfやパワーポイントではできないことをやれるようにしたいものである．そこで，プラグインの登場である．</p>
+<h3 id="default-plugin--reveal-dot-js-plugin">Default plugin (<a href="https://github.com/hakimel/reveal.js/tree/master/plugin">reveal.js/plugin/</a>)</h3>
+<p>デフォルトのプラグインについては，．<a href="https://revealjs.com/#/">デモ</a>を見て貰えばどんな機能か分かると思う．例えば，notesは，発表者用の別フレームが表示され，その中に現在と次のスライドとタイマーが表示される．あるいは，zoomでは，option keyを押しながらクリックすると拡大し，もう一度同じことをすると元に戻る．</p>
+<h3 id="reveal-dot-js-plugins"><a href="https://github.com/rajgoel/reveal.js-plugins">reveal.js-plugins</a></h3>
+<p>これはthird-partyのプラグインである．このサイトにはデモのリンクも貼ってあるので参考にしていただきたい．私は蛍光ペンをスライドショーの際中にリアルタイムで使いたかったので，chalkboardをインストールして設定した．</p>
+<h4 id="installation">Installation</h4>
+<p>リンク先に書いてある通りbowerを用いてインストールする．bower自体はbrewでインストールした．前述のchalkboardだけでなく，このサイトの全プラグインがインストールされる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install bower
+</span></span><span style="display:flex;"><span>$ brew info bower
+</span></span><span style="display:flex;"><span>bower: stable 1.8.8 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Package manager <span style="color:#66d9ef">for</span> the web
+</span></span><span style="display:flex;"><span>https://bower.io/
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/bower/1.8.8 <span style="color:#f92672">(</span>5,413 files, 16.9MB<span style="color:#f92672">)</span> *
+</span></span><span style="display:flex;"><span>Poured from bottle on 2020-03-01 at 17:58:14
+</span></span><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span>$ bower install reveal.js-plugins
+</span></span></code></pre></div><p>なお，次節のmenu-pluginはsubmoduleであり，別途インストールする必要がある．</p>
+<h3 id="reveal-dot-js-menu"><a href="https://github.com/denehyg/reveal.js-menu">reveal.js-menu</a></h3>
+<p>各スライドのタイトルにジャンプできるようにするslide out menu プラグインである．また，テーマやスライド遷移を変更できる．この<a href="https://denehyg.github.io/reveal.js-menu/#/home">live demo</a>を見ると分かりやすい．同じく，bowerでインストールする．</p>
+<h4 id="installation">Installation</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ bower install reveal.js-menu
+</span></span></code></pre></div><h3 id="plugin-location">Plugin location</h3>
+<p>上述のthird partyのプラグインのインストールされる場所は以下の通りである．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Data/Slides/reveal.js/bower_components
+</span></span><span style="display:flex;"><span>$ tree -L <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── reveal.js-menu
+</span></span><span style="display:flex;"><span>│   ├── CONTRIBUTING.md
+</span></span><span style="display:flex;"><span>│   ├── LICENSE
+</span></span><span style="display:flex;"><span>│   ├── README.md
+</span></span><span style="display:flex;"><span>│   ├── bower.json
+</span></span><span style="display:flex;"><span>│   ├── font-awesome
+</span></span><span style="display:flex;"><span>│   ├── menu.css
+</span></span><span style="display:flex;"><span>│   ├── menu.js
+</span></span><span style="display:flex;"><span>│   └── package.json
+</span></span><span style="display:flex;"><span>└── reveal.js-plugins
+</span></span><span style="display:flex;"><span>├── LICENSE
+</span></span><span style="display:flex;"><span>├── README.md
+</span></span><span style="display:flex;"><span>├── anything
+</span></span><span style="display:flex;"><span>├── audio-slideshow
+</span></span><span style="display:flex;"><span>├── bower.json
+</span></span><span style="display:flex;"><span>├── broadcast
+</span></span><span style="display:flex;"><span>├── chalkboard
+</span></span><span style="display:flex;"><span>├── chart
+</span></span><span style="display:flex;"><span>├── customcontrols
+</span></span><span style="display:flex;"><span>├── embed-tweet
+</span></span><span style="display:flex;"><span>├── fullscreen
+</span></span><span style="display:flex;"><span>├── mathsvg
+</span></span><span style="display:flex;"><span>├── package.json
+</span></span><span style="display:flex;"><span>└── spreadsheet
+</span></span></code></pre></div><p>つまり，reveal.jsのbower_components directoryに入る．</p>
+<p>なお，default pluginはreveal.jsのすぐしたのplugin directoryに入る．</p>
+<h2 id="creation-of-slides-by-org-reveal-and-reveal-dot-js">Creation of slides by org-reveal and reveal.js</h2>
+<p>以前の記事（<a href="../beamer">beamerでスライド原稿用pdfを作成する（その１）</a>）と同じような内容のスライド原稿をorg-revealを用いて作成してみる．作成したものはまとめてGithub pageに置いておくので（<a href="https://github.com/taipapamotohus/MySlides">MySlides</a>，live demoは<a href="https://taipapamotohus.com/MySlides/">こちら</a>），クローンするか落とすかして中身を見て貰えば良いのだが，こちらでも順番に説明しておく．なお，前述のプラグインの中にはこのままでは動かないものもあるので，後述するように，一旦，exportしてからhtmlを修正する．（Github pageとlive demoは修正済みのものである）</p>
+<h3 id="creation-of-main-file">Creation of main file</h3>
+<p>まず以下のファイルを作成する．簡単に解説をつけておく．</p>
+<ol>
+<li>REVEAL_ROOTでreveal.jsを設定する．</li>
+<li>REVEAL_HLEVELを999にすると遷移が全て横向きとなる．</li>
+<li>REVEAL_TITLE_SLIDEでタイトル（%t）と著者（%a）のヘッダーレベルを決める．</li>
+<li>REVEAL_INIT_OPTIONで各種のコントロールを行う．下図の設定を参照</li>
+<li>REVEAL_THEMEでテーマを決める．前述のように，emacs-revealのバンドルから取ってきたoer-reveal.cssを使用した．</li>
+<li>REVEAL_EXTRA_CSSで追加のCSSを設定し，これで細かな調整を行う．</li>
+<li>REVEAL_PREAMBLEで，フッターを指定した．</li>
+</ol>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_ROOT: <span style="color:#f92672">.</span>/reveal.js <span style="color:#960050;background-color:#1e0010">#</span> パスは各自の環境に合わせて書き換えていただきたい
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_HLEVEL: <span style="color:#ae81ff">999</span> <span style="color:#960050;background-color:#1e0010">#</span> transitionsは全て横向き
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_TITLE_SLIDE: &lt;h3&gt;%t&lt;/h3&gt;&lt;h5&gt;%a&lt;/h5&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> スライド移動のコントローラーは右下に表示<span style="color:#960050;background-color:#1e0010">．</span>スライド番号は<span style="color:#960050;background-color:#1e0010">，</span>スライドの番号<span style="color:#960050;background-color:#1e0010">／</span>全スライド数<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_INIT_OPTIONS: width:1200, height:800, controlsLayout: <span style="color:#e6db74">&#39;bottom-right&#39;,</span> slideNumber:<span style="color:#e6db74">&#34;c/t&#34;</span><span style="color:#f92672">,</span> margin: <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> minScale:0.2, maxScale:2.5, transition: <span style="color:#e6db74">&#39;fade&#39;,</span> menu: {side: <span style="color:#e6db74">&#39;left&#39;,</span> titleSelector: <span style="color:#e6db74">&#39;h1,</span> h2, h3, h4, h5, h6<span style="color:#e6db74">&#39;,</span> hideMissingTitles: false, markers: true, custom: false, themes: true, transitions: true, openButton: true, openSlideNumber: false, keyboard: true, sticky: false, autoOpen: true}, chalkboard: {boardmarkerWidth: <span style="color:#ae81ff">8</span><span style="color:#f92672">,</span>	toggleChalkboardButton: { left: <span style="color:#e6db74">&#34;80px&#34;</span> }, toggleNotesButton: { left: <span style="color:#e6db74">&#34;130px&#34;</span>}}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_THEME: oer-reveal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>OPTIONS: num:nil toc:nil
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_EXTRA_CSS: <span style="color:#f92672">.</span>/custom_oer.css
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> [[https://github.com/yjwen/org-reveal/issues/254][List of external plugins?#254]]
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#f92672">#+</span>REVEAL_EXTERNAL_PLUGINS: {src: <span style="color:#e6db74">&#39;%sbower_components/reveal.js-menu/menu.js&#39;,</span> async: true }
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_EXTERNAL_PLUGINS: {src: <span style="color:#e6db74">&#39;%sbower_components/reveal.js-menu/menu.js&#39;}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#f92672">#+</span>REVEAL_EXTRA_CSS: https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> フッター
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>REVEAL_PREAMBLE: &lt;div class=<span style="color:#e6db74">&#34;footer&#34;</span>&gt;&lt;p&gt;日本hogefuga外科学会 第??回学術総会　202X年X月XX日 日本のどこか&lt;/p&gt;&lt;/div&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>Author: \\
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>Author: hogefuga大学大学院 hogefuga研究科　hogefuga分野　\\
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>Author: taipapa, 織田信長, 豊臣秀吉, 徳川家康
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> <span style="color:#f92672">#+</span>DATE: 2020年3月22日
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 背景と目的
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">-</span> hogeとfugaを比較してみると<span style="color:#960050;background-color:#1e0010">，</span>一方で難易度の高い症例でも他方では容易に行える場合も多い.
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">-</span> 当施設では<span style="color:#960050;background-color:#1e0010">，</span>一方に片寄ることなく<span style="color:#960050;background-color:#1e0010">，</span>hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">-</span> そこで<span style="color:#960050;background-color:#1e0010">，</span>自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した.
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">-</span> 参照サイト<span style="color:#960050;background-color:#1e0010">：</span>[[https://github.com/yjwen/org-reveal][Introduction to Org-Reveal]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> Table
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_HTML: <span style="color:#e6db74">:width</span> 25%
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  |        | cTIA/SIE |  stable   | asymptomatic |  P   |
+</span></span><span style="display:flex;"><span>  |        | (n <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">12</span>) | (n = 122) |  (n <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">186</span>)   |      |
+</span></span><span style="display:flex;"><span>  |        |   &lt;c&gt;    |   &lt;c4&gt;    |     &lt;c4&gt;     | &lt;c&gt;  |
+</span></span><span style="display:flex;"><span>  |--------+----------+-----------+--------------+------|
+</span></span><span style="display:flex;"><span>  | stroke | <span style="color:#ae81ff">1</span> (8.3%) | 4 (3.3%)  |   <span style="color:#ae81ff">5</span> (2.7%)   | 0.32 |
+</span></span><span style="display:flex;"><span>  | death  |    <span style="color:#ae81ff">0</span>     | 1 (0.8%)  |      <span style="color:#ae81ff">0</span>       | 0.42 |
+</span></span><span style="display:flex;"><span>  | MI     |    <span style="color:#ae81ff">0</span>     | 1 (0.8%)  |      <span style="color:#ae81ff">0</span>       | 0.42 |
+</span></span><span style="display:flex;"><span>  | Total  | <span style="color:#ae81ff">1</span> (8.3%) | 6 (4.9%)  |   <span style="color:#ae81ff">5</span> (2.7%)   | 0.26 |
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> hogefuga症例の画像
+</span></span><span style="display:flex;"><span>  [[./figures/hoge_fuga.jpg]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> hogefuga症例の画像２
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_REVEAL: <span style="color:#e6db74">:frag</span> roll-in
+</span></span><span style="display:flex;"><span>  遅延表示も可能
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_REVEAL: <span style="color:#e6db74">:frag</span> roll-in
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_HTML: <span style="color:#e6db74">:height</span> 600px
+</span></span><span style="display:flex;"><span>   [[./figures/hoge_fuga.jpg]]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> hogefuga症例の画像３
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_REVEAL: <span style="color:#e6db74">:frag</span> roll-in
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">-</span> 遅延表示も可能
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_REVEAL: <span style="color:#e6db74">:frag</span> roll-in
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">-</span> 画像の大きさを変更することも可能
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_REVEAL: <span style="color:#e6db74">:frag</span> roll-in
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_HTML: <span style="color:#e6db74">:height</span> 400px
+</span></span><span style="display:flex;"><span>  [[./figures/hoge_fuga.jpg]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> ダブルコラムも可能
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;div class=<span style="color:#e6db74">&#34;column&#34;</span> style=<span style="color:#e6db74">&#34;float:left; width: 50%&#34;</span><span style="color:#a6e22e">&gt;</span>
+</span></span><span style="display:flex;"><span>  Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;/div&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;div class=<span style="color:#e6db74">&#34;column&#34;</span> style=<span style="color:#e6db74">&#34;float:right; width: 50%&#34;</span><span style="color:#a6e22e">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>CAPTION: Hoge-fuga (<span style="color:#ae81ff">2020</span>)
+</span></span><span style="display:flex;"><span>   [[./figures/hoge_fuga.jpg]]
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;/div&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>ATTR_REVEAL: <span style="color:#e6db74">:frag</span> roll-in
+</span></span><span style="display:flex;"><span>  キャプションも可能
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 動画もOK
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;video controls data-autoplay src=<span style="color:#e6db74">&#34;./Movies/Knight-33990.mp4&#34;</span>&gt;&lt;/video&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>CAPTION: Coronavirus
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 動画もOK<span style="color:#960050;background-color:#1e0010">（</span>大きな画面<span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>REVEAL_HTML: &lt;video class=<span style="color:#e6db74">&#34;stretch&#34;</span> controls data-autoplay src=<span style="color:#e6db74">&#34;./Movies/Knight-33990.mp4&#34;</span>&gt;&lt;/video&gt;
+</span></span></code></pre></div><p>このファイルを，/Users/taipapa/Slides/reveal_test.org として保存する．</p>
+<h3 id="creation-of-custom-css-file">creation of custom css file</h3>
+<p>ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．このファイルでは，フォントの大きさや色などを指定している．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>/* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */
+</span></span><span style="display:flex;"><span>.reveal table th, .reveal table td {
+</span></span><span style="display:flex;"><span>/* text-align: center; */
+</span></span><span style="display:flex;"><span>border: 1px solid white;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/* https://stackoverflow.com/questions/4012872/how-to-center-a-footer-div-on-a-webpage/4012888 */
+</span></span><span style="display:flex;"><span>/* https://stackoverflow.com/questions/15629511/how-can-i-make-my-footer-center-to-the-bottom-of-the-page/15629635 */
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/* div.footer { */
+</span></span><span style="display:flex;"><span>/*   /\* font-family: &#34;Source Sans Pro&#34;, Helvetica, sans-serif; *\/ */
+</span></span><span style="display:flex;"><span>/*   font-size: 2vh; */
+</span></span><span style="display:flex;"><span>/*   color: gray; */
+</span></span><span style="display:flex;"><span>/*   position: fixed; */
+</span></span><span style="display:flex;"><span>/*   left: 400px; */
+</span></span><span style="display:flex;"><span>/*   bottom: 2px; */
+</span></span><span style="display:flex;"><span>/*   /\* z-index: 50; *\/ } */
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>div.footer {
+</span></span><span style="display:flex;"><span>/* font-family: &#34;Source Sans Pro&#34;, Helvetica, sans-serif; */
+</span></span><span style="display:flex;"><span>font-size: 2vh;
+</span></span><span style="display:flex;"><span>color: gray;
+</span></span><span style="display:flex;"><span>position: fixed;
+</span></span><span style="display:flex;"><span>/* left: 400px; */
+</span></span><span style="display:flex;"><span>bottom: 1px;
+</span></span><span style="display:flex;"><span>width: 100%;
+</span></span><span style="display:flex;"><span>text-align: center;
+</span></span><span style="display:flex;"><span>/* margin-left:auto; */
+</span></span><span style="display:flex;"><span>/* margin-right:auto; */
+</span></span><span style="display:flex;"><span>/* margin-top:2em; */
+</span></span><span style="display:flex;"><span>/* z-index: 50; */ }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.reveal .slides section &gt; section {  /*これによりフレームタイトルが上部に固定される．*/
+</span></span><span style="display:flex;"><span>/* height: 100%; */
+</span></span><span style="display:flex;"><span>height: 95%;
+</span></span><span style="display:flex;"><span>/* width:  100%; */
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.reveal h3 {
+</span></span><span style="display:flex;"><span>font-size: 1.8em; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.reveal h2 {
+</span></span><span style="display:flex;"><span>font-size: 2.0em; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/* 段落内の行間の調整 */
+</span></span><span style="display:flex;"><span>/* https://github.com/yjwen/org-reveal/issues/38 */
+</span></span><span style="display:flex;"><span>/* .reveal p { */
+</span></span><span style="display:flex;"><span>/*   line-height: 3; */
+</span></span><span style="display:flex;"><span>/* } */
+</span></span><span style="display:flex;"><span>/* .reveal .org-ul { */
+</span></span><span style="display:flex;"><span>/*   line-height: 2; */
+</span></span><span style="display:flex;"><span>/* } */
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/* リストの間のスペースの調整 */
+</span></span><span style="display:flex;"><span>/* https://github.com/yjwen/org-reveal/issues/38 */
+</span></span><span style="display:flex;"><span>.reveal li { margin: 0; padding: 0.5em}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/* Push each slide change to the browser history */
+</span></span><span style="display:flex;"><span>/* スライドの変更をブラウザの履歴に記録する */
+</span></span><span style="display:flex;"><span>Reveal.initialize({
+</span></span><span style="display:flex;"><span>history: true,
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>（うーむ，何故かhtml blockはsyntax highlightが効かない．．．まぁ，ここは後日に追求することにする．．．😅）</p>
+<p>これでようやく準備が整った．reveal_test.orgをhtmlファイルとしてexportするために， <strong>C-c C-e</strong> とすると，下図のような画面になる．</p>
+
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/ox-reveal-export.jpg" >
+
+<img src="/img/ox-reveal-export.jpg" width="100%" >
+</a>
+
+</figure>
+
+<p><strong>R</strong> が <strong>Export to reveal.js HTML Presentation</strong> になっており， <strong>B</strong> によりファイルに保存してブラウザで開くことになる，つまり，続けて <strong>C-c C-e RB</strong> と打てば，作成したスライドがブラウザーで開く．1200x800でwideに設定してあるので，横長の画面で見た方が見やすいと思う．</p>
+<p>出来上がったスライドは，ほぼ期待通り動いてくれた．動画も問題なく動く．しかし，残念ながら，プラグインが問題であった．解決策を次節でまとめる．</p>
+<h3 id="modification-of-main-file">Modification of main file</h3>
+<p>これでできたhtmlファイルのスライドをいじってみると，いくつか不具合があることが分かる．要するにプラグインのいくつかが動かないのである．</p>
+<ol>
+<li>スライドの左下にある3つのアイコンは，それぞれ，メニュー，黒板，notesのボタンである．</li>
+<li>メニューは問題なく動く．</li>
+<li>黒板も動く．ペンで書くことも，右クリックでwipeして書いたものを消すこともできる．</li>
+<li>しかし，delete keyで描いたものを一挙に消すことはできない．</li>
+<li>右端のnotesをクリックすると，カーソルがマーカーに変わり，グレーの蛍光ペンとして書くことはできる．しかし，&ldquo;x&quot;を押すことにより，グレー，青，赤，緑，オレンジ，紫，黄色と順番に色が変わっていく機能は効かない．また，右クリックでwipeして書いたものを消すことはできるが，delete keyで描いたものを一挙に消すことはできない．</li>
+</ol>
+<p>いちばん使いたかった蛍光ペンがうまく動かないのである．色々と弄ってみたが，ox-revealのレベルではorg-modeをどう設定しても機能するようにはならず，結局，出来上がったhtmlファイルに直に以下のように追記することにした．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>--- org-reveal_for_blog_oer-FINAL_v2.html	2020-04-20 21:08:18.000000000 +0900
+</span></span><span style="display:flex;"><span>+++ org-reveal_for_blog_oer-FINAL_v2-keyboard.html	2020-04-11 13:28:15.000000000 +0900
+</span></span><span style="display:flex;"><span>@@ -219,7 +219,16 @@
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span> src: <span style="color:#e6db74">&#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/marked.js&#39;</span>, condition: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> !!document.querySelector<span style="color:#f92672">(</span> <span style="color:#e6db74">&#39;[data-markdown]&#39;</span> <span style="color:#f92672">)</span>; <span style="color:#f92672">}</span> <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span> src: <span style="color:#e6db74">&#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/markdown.js&#39;</span>, condition: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> !!document.querySelector<span style="color:#f92672">(</span> <span style="color:#e6db74">&#39;[data-markdown]&#39;</span> <span style="color:#f92672">)</span>; <span style="color:#f92672">}</span> <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">{</span> src: <span style="color:#e6db74">&#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/zoom-js/zoom.js&#39;</span>, async: true, condition: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> !!document.body.classList; <span style="color:#f92672">}</span> <span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">{</span> src: <span style="color:#e6db74">&#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&#39;</span>, async: true, condition: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> !!document.body.classList; <span style="color:#f92672">}</span> <span style="color:#f92672">}]</span>
+</span></span><span style="display:flex;"><span>+    <span style="color:#f92672">{</span> src: <span style="color:#e6db74">&#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&#39;</span>, async: true, condition: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> <span style="color:#66d9ef">return</span> !!document.body.classList; <span style="color:#f92672">}</span> <span style="color:#f92672">}]</span>,
+</span></span><span style="display:flex;"><span>+    keyboard: <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>+	    67: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> RevealChalkboard.toggleNotesCanvas<span style="color:#f92672">()</span> <span style="color:#f92672">}</span>,	// toggle notes canvas when <span style="color:#e6db74">&#39;c&#39;</span> is pressed
+</span></span><span style="display:flex;"><span>+	    66: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> RevealChalkboard.toggleChalkboard<span style="color:#f92672">()</span> <span style="color:#f92672">}</span>,	// toggle chalkboard when <span style="color:#e6db74">&#39;b&#39;</span> is pressed
+</span></span><span style="display:flex;"><span>+	    46: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> RevealChalkboard.clear<span style="color:#f92672">()</span> <span style="color:#f92672">}</span>,	// clear chalkboard when <span style="color:#e6db74">&#39;DEL&#39;</span> is pressed
+</span></span><span style="display:flex;"><span>+	     8: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> RevealChalkboard.reset<span style="color:#f92672">()</span> <span style="color:#f92672">}</span>,	// reset chalkboard data on current slide when <span style="color:#e6db74">&#39;BACKSPACE&#39;</span> is pressed
+</span></span><span style="display:flex;"><span>+	    68: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> RevealChalkboard.download<span style="color:#f92672">()</span> <span style="color:#f92672">}</span>,	// downlad recorded chalkboard drawing when <span style="color:#e6db74">&#39;d&#39;</span> is pressed
+</span></span><span style="display:flex;"><span>+	    88: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> RevealChalkboard.colorNext<span style="color:#f92672">()</span> <span style="color:#f92672">}</span>,	// cycle colors forward when <span style="color:#e6db74">&#39;x&#39;</span> is pressed
+</span></span><span style="display:flex;"><span>+	    89: <span style="color:#66d9ef">function</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> RevealChalkboard.colorPrev<span style="color:#f92672">()</span> <span style="color:#f92672">}</span>,	// cycle colors backward when <span style="color:#e6db74">&#39;y&#39;</span> is pressed
+</span></span><span style="display:flex;"><span>+	<span style="color:#f92672">}</span>,
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">})</span>;
+</span></span><span style="display:flex;"><span> &lt;/script&gt;
+</span></span><span style="display:flex;"><span> &lt;/body&gt;
+</span></span></code></pre></div><p>要するに，keyboard以下が追加部分である．chalkboardの設定を<a href="https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard">reveal.js-plugins/chalkboard/</a>の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．</p>
+<p>下に， <del>Hugoのshortcodeを使って</del> <strong>BEGIN_EXPORT html</strong> を使ってできあがったスライドそのものを埋め込んでみた．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-org" data-lang="org"><span style="display:flex;"><span><span style="color:#75715e">#+BEGIN_EXPORT </span><span style="color:#75715e">html</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://taipapamotohus.github.io/MySlides/&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1000&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;600&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">allowfullscreen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;allowfullscreen&#34;</span> <span style="color:#a6e22e">allow</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#+END_EXPORT</span>
+</span></span></code></pre></div><p>このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる． <strong>”f”</strong> を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．</p>
+<iframe src="https://taipapamotohus.github.io/MySlides/" width="1000" height="600" frameborder="0" allowfullscreen="allowfullscreen" allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+<p><br />  これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．</p>
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/reveal/">reveal</a>
+  
+  <a class="badge badge-light" href="/tags/js/">js</a>
+  
+  <a class="badge badge-light" href="/tags/org-reveal/">org-reveal</a>
+  
+  <a class="badge badge-light" href="/tags/emacs/">emacs</a>
+  
+  <a class="badge badge-light" href="/tags/org-mode/">org-mode</a>
+  
+  <a class="badge badge-light" href="/tags/presentation/">presentation</a>
+  
+  <a class="badge badge-light" href="/tags/slide/">slide</a>
+  
+  <a class="badge badge-light" href="/tags/javascript/">javascript</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar%20%28Copy%201%29_hu0e0eac0269c34ce41ed30e928150bd75_369085_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">taipapa</a></h5>
+      <h6 class="card-subtitle">本人ではありません　(^^)</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:taipapamotohus@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=x1m6M2IAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/taipapamotohus" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/org-rifle/">Org-rifle</a></li>
+          
+          <li><a href="/post/how-to-update-hugo-and-academic-theme--part3/">How to update hugo and academic theme (Part3)</a></li>
+          
+          <li><a href="/post/how-to-upgrade-hugo-and-academic-theme/">How to update hugo and academic theme (Part 1)</a></li>
+          
+          <li><a href="/post/pdf-tools/">Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a></li>
+          
+          <li><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+    <div class="article-widget">
+      
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2/" rel="next">How to create presentation slides by reveal.js and org-mode (org-reveal) Part2</a>
+  </div>
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/dired/" rel="prev">Dired reinforcement</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/ocaml.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/sh.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/tex.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/emacs-lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/pearl.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    © 2022 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

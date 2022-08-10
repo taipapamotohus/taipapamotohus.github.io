@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2018-08-24T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2022-08-03T00:00:00&#43;00:00">
   
 
   
@@ -321,10 +321,20 @@
   
   
   <div>
+    <h2><a href="/post/real-time-document-pdf-preview-in-org-mode/">Real-time document (pdf) preview in org-mode</a></h2>
+    <div class="article-style">
+      
+      いやーなんと2020年7月以来約2年ぶりの記事である．本業多忙でしばらく放置していると，ブログの書き方まで忘れてしまいすっかり億劫になり，今回この夏休みにようやく取り掛かる決心がついた．まずはリハビリも兼ねて軽めの記事を書く事にした．以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））でorg-modeで文書を書いてpdfにexportする方法をまとめた．ただ，exportする際にC-c C-e l oと打ってcompileされるのを待つのが結構面倒なのである．この部分を自動化する方法，つまり，org-mode文書を保存すれば何もしなくても自動的にpdfが更新されるようになる設定を見つけたので，それについてまとめてみた．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></h2>
     <div class="article-style">
       
-      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成  基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する．  % -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?
+      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成 基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する． % -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?
       
     </div>
   </div>
@@ -449,7 +459,7 @@
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -474,7 +484,7 @@
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

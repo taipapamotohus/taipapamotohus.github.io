@@ -5,7 +5,7 @@
     <link>/tags/line-number/</link>
       <atom:link href="/tags/line-number/index.xml" rel="self" type="application/rss+xml" />
     <description>line-number</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 02 Jun 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>line-number</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Gleanings (display-line-numbers, whitespace-mode, accessibility of iTerm2, etc)</title>
       <link>/post/gleanings/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/post/gleanings/</guid>
       <description>&lt;p&gt;前回久しぶりに記事を投稿したが，しばらく更新していない間に，いくつか細かな環境修正が必要であったので，落ち穂拾いとしてまとめておく．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
@@ -38,10 +38,10 @@
 &lt;li&gt;Ref 4: &lt;a href=&#34;https://qiita.com/mamo3gr/items/1c6862cba09d5876e52c&#34;&gt;Emacsの行番号表示にモヤモヤした話&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;設定は，いつものように，init.orgに下記のとおりに書き込めばよい．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(global-display-line-numbers-mode)
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(global-display-line-numbers-mode)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでもう行番号を表示していても重くならない．表示領域を確保するための設定も不要である．実際の表示状況は下の画像のとおりである．nlinum-modeの設定は削除した．&lt;/p&gt;
 
 
 
@@ -109,8 +109,8 @@
 
 &lt;h2 id=&#34;iterm2の権限の変更-mojaveで必要&#34;&gt;iTerm2の権限の変更（mojaveで必要）&lt;/h2&gt;
 &lt;p&gt;以前の記事（&lt;a href=&#34;../auto_html_export&#34;&gt;Emacsのorg-modeを保存すると自動的にhtmlにexportされブラウザーが更新されるようにする&lt;/a&gt;）の中で，directoryの内容が変更されると，自動でhtmlを再読込するwatch_safari.rbというスクリプトを紹介した．しかし，mojaveにupgradeしたあとは&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;1002&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;85:141: execution error: System Eventsでエラーが起きました: osascriptにはキー操作の送信は許可されません。 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;1002&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;というエラーを吐いて，自動更新しなくなってしまった．調べてみると，mojaveでユーザーのデータや個人情報を保護するための機能が強化された結果であった．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ref 1: &lt;a href=&#34;https://minatokobe.com/wp/os-x/macos-mojave/post-51360.html&#34;&gt;macOS Mojaveでのアプリケーションの権限、アクセシビリティとフルディスクアクセスの違いは何か？&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Ref 2: &lt;a href=&#34;https://www.softantenna.com/wp/tips/macos-mojave-iterm2-full-disk-access/&#34;&gt;macOS MojaveでiTerm2を利用する場合にフルディスクアクセスを許可する方法&lt;/a&gt;&lt;/li&gt;
@@ -137,7 +137,7 @@
 &lt;h2 id=&#34;iterm2のcolor-schemeが効かない&#34;&gt;iTerm2のColor Schemeが効かない&lt;/h2&gt;
 &lt;p&gt;いつのまにかiTerm2のcolor schemeを変えても反映されなくなってしまった．ネットを探ると，同じようなことで悩んでいる人が結構いるようで，すぐに解決法が見つかった．&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34;&gt;Profile colors won&#39;t change&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ref: &lt;a href=&#34;https://gitlab.com/gnachman/iterm2/issues/4844&#34;&gt;Profile colors won&amp;rsquo;t change&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上記のサイトによれば，terminal windowがprofileと連絡を失ってしまったことが原因とのことで，iTerm2の Session &amp;gt; Edit Sessionで下の画像のようにdialogue boxがpop upするので，そこで，好きなcolor scheme (下の画像ではJapanesque) を選択し，右下のUse Selected Profileをクリックすればよい．&lt;/p&gt;
 

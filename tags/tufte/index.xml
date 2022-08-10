@@ -5,7 +5,7 @@
     <link>/tags/tufte/</link>
       <atom:link href="/tags/tufte/index.xml" rel="self" type="application/rss+xml" />
     <description>tufte</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 14 Nov 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>tufte</title>
@@ -15,11 +15,23 @@
     <item>
       <title>Tufte-LaTeXとtufte-org-modeについて</title>
       <link>/post/tufte/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       <guid>/post/tufte/</guid>
       <description>&lt;p&gt;以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufte-org-mode&#34;&gt;&lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34;&gt;tufte-org-mode&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#設定&#34;&gt;設定&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#tufte-org-modeのインストールと設定&#34;&gt;tufte-org-modeのインストールと設定&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeでtufte-latexの設定&#34;&gt;org-modeでtufte-latexの設定&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#tufteの使用の実例&#34;&gt;tufteの使用の実例&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;tufte-latex&#34;&gt;&lt;a href=&#34;https://tufte-latex.github.io/tufte-latex/&#34;&gt;Tufte-LaTeX&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.edwardtufte.com/tufte/index&#34;&gt;Edward R. Tufte&lt;/a&gt;によって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．&lt;/li&gt;
@@ -42,13 +54,13 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;ox-tufte-latex.elは上記の &lt;a href=&#34;https://github.com/tsdye/tufte-org-mode&#34;&gt;tufte-org-mode&lt;/a&gt;からダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(quelpa
- &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(ox-tufte-latex &lt;span style=&#34;color:#e6db74&#34;&gt;:fetcher&lt;/span&gt; file &lt;span style=&#34;color:#e6db74&#34;&gt;:path&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/path/to/ox-tufte-latex.el&amp;#34;&lt;/span&gt;)
- )
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-tufte-latex)
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(quelpa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(ox-tufte-latex &lt;span style=&#34;color:#e6db74&#34;&gt;:fetcher&lt;/span&gt; file &lt;span style=&#34;color:#e6db74&#34;&gt;:path&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/path/to/ox-tufte-latex.el&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-tufte-latex)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;quelpaは，use-packageでうまくインストール出来ないときに重宝する．&lt;/p&gt;
 &lt;/li&gt;
@@ -68,46 +80,46 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;以下のようにinit.orgに書き込んで設定する．これは以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）と重複するが，念のためにここにも書いておく．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-&lt;span style=&#34;color:#75715e&#34;&gt;;; tufte-handout class for writing classy handouts and papers&lt;/span&gt;
-(add-to-list &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-classes&lt;/span&gt;
-             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tufte-handout&amp;#34;&lt;/span&gt;
-               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\documentclass[twoside,nobib]{tufte-handout}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                   [NO-DEFAULT-PACKAGES]
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage{zxjatype}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;#34;&lt;/span&gt;
-               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section*{%s}&amp;#34;&lt;/span&gt;)
-               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection*{%s}&amp;#34;&lt;/span&gt;)))
-&lt;span style=&#34;color:#75715e&#34;&gt;;; tufte-book class&lt;/span&gt;
-(add-to-list &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-classes&lt;/span&gt;
-             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tufte-book&amp;#34;&lt;/span&gt;
-               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\documentclass[twoside,nobib]{tufte-book}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                  [NO-DEFAULT-PACKAGES]
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                   \\usepackage{zxjatype}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;#34;&lt;/span&gt;
-               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\part{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\part*{%s}&amp;#34;&lt;/span&gt;)
-               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\chapter{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\chapter*{%s}&amp;#34;&lt;/span&gt;)
-               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section*{%s}&amp;#34;&lt;/span&gt;)
-               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection*{%s}&amp;#34;&lt;/span&gt;)
-               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\paragraph{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\paragraph*{%s}&amp;#34;&lt;/span&gt;)))
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;;; tufte-handout class for writing classy handouts and papers&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(add-to-list &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-classes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tufte-handout&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\documentclass[twoside,nobib]{tufte-handout}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                   [NO-DEFAULT-PACKAGES]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage{zxjatype}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section*{%s}&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection*{%s}&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;;; tufte-book class&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(add-to-list &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-classes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tufte-book&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\documentclass[twoside,nobib]{tufte-book}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                  [NO-DEFAULT-PACKAGES]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                   \\usepackage{zxjatype}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;                                                                    \\usepackage[hiragino-dx]{zxjafont}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\part{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\part*{%s}&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\chapter{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\chapter*{%s}&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\section*{%s}&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\subsection*{%s}&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\paragraph{%s}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\paragraph*{%s}&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-C-c-C-e.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/org-C-c-C-e.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-C-c-C-e.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/org-C-c-C-e.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
@@ -125,78 +137,78 @@
 &lt;li&gt;前半の＃で始まる行が続く部分はorg-modeの設定であり，latexのこのパッケージを使うぞ，とか，org-modeのヘッダーをどの深さまで表示するかなどを決めている．詳細はググればすぐに分かるので略&amp;hellip;..(^^;;;&lt;/li&gt;
 &lt;li&gt;:offset -8inによって，図の位置を上にずらしてバランスをとるようにしているのにご注意いただきたい．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: tufte-handout
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=0.6in,top=1in,bottom=1in}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:4 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: author:nil date:nil
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_fullwidth
-\centering
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \huge{\textbf{hoge/fugaによる相補的な治療における高難度症例の治療と成績}}
-\vspace{0.5cm}\\
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \normalsize{taipapa, 織田信長, 豊臣秀吉, 徳川家康}\\
-\vspace{0.5cm}\\
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \normalsize{hogefuga大学大学院 hogefuga研究科 hogefuga分野}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_fullwidth
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *背景と目的*
-hogeとfugaを比較し&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;治療成績を比較する&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *結果*
-まず&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogefugaの軽症例の画像を呈示する (*Fig. [[hoge_fuga2]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-
-\vspace{0.25cm}
-
-そのころわたくしは&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;モリーオ市の博物局に勤めて居りました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
-
-十八等官でしたから役所のなかでも&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;ずうっと下の方でしたし俸給もほんのわずかでしたが&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;受持ちが標本の採集や整理で生れ付き好きなことでしたから&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしは毎日ずいぶん愉快にはたらきました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;殊にそのころ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;モリーオ市では競馬場を植物園に拵え直すというので&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;その景色のいいまわりにアカシヤを植え込んだ広い地面が&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;切符売場や信号所の建物のついたまま&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしどもの役所の方へまわって来たものですから&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしはすぐ宿直という名前で月賦で買った小さな蓄音器と二十枚ばかりのレコードをもって&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;その番小屋にひとり住むことになりました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;わたくしはそこの馬を置く場所に板で小さなしきいをつけて一疋の山羊を飼いました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;毎朝その乳をしぼってつめたいパンをひたしてたべ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;それから黒い革のかばんへすこしの書類や雑誌を入れ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;靴もきれいにみがき&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;並木のポプラの影法師を大股にわたって市の役所へ出て行くのでした&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
-
-あのイーハトーヴォのすきとおった風&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;夏でも底に冷たさをもつ青いそら&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;うつくしい森で飾られたモリーオ市&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;郊外のぎらぎらひかる草の波&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
-
-またそのなかでいっしょになったたくさんのひとたち&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;ファゼーロとロザーロ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;羊飼のミーロや&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;顔の赤いこどもたち&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;地主のテーモ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;山猫博士のボーガント&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;・&lt;/span&gt;デストゥパーゴなど&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;いまこの暗い巨きな石の建物のなかで考えていると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;みんなむかし風のなつかしい青い幻燈のように思われます&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしはいつかの小さなみだしをつけながら&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
-
-\vspace{0.25cm}
-
-ついで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogefugaの重症例の画像を呈示する (*Fig. [[hoge_fuga]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga2
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;軽症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; margin &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 2.8in &lt;span style=&#34;color:#e6db74&#34;&gt;:offset&lt;/span&gt; -8in
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:vertical-alignment&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-[[./hoge_fuga2.jpg]]
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;重症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; margin &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 2.8in &lt;span style=&#34;color:#e6db74&#34;&gt;:offset&lt;/span&gt; -2in
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:vertical-alignment&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-[[./hoge_fuga.jpg]]
-
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *結論*
-hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: tufte-handout
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=0.6in,top=1in,bottom=1in}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:4 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: author:nil date:nil
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_fullwidth
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;\centering
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \huge{\textbf{hoge/fugaによる相補的な治療における高難度症例の治療と成績}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;\vspace{0.5cm}\\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \normalsize{taipapa, 織田信長, 豊臣秀吉, 徳川家康}\\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;\vspace{0.5cm}\\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX: \normalsize{hogefuga大学大学院 hogefuga研究科 hogefuga分野}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_fullwidth
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *背景と目的*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hogeとfugaを比較し&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;治療成績を比較する&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *結果*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;まず&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogefugaの軽症例の画像を呈示する (*Fig. [[hoge_fuga2]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;\vspace{0.25cm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;そのころわたくしは&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;モリーオ市の博物局に勤めて居りました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;十八等官でしたから役所のなかでも&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;ずうっと下の方でしたし俸給もほんのわずかでしたが&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;受持ちが標本の採集や整理で生れ付き好きなことでしたから&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしは毎日ずいぶん愉快にはたらきました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;殊にそのころ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;モリーオ市では競馬場を植物園に拵え直すというので&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;その景色のいいまわりにアカシヤを植え込んだ広い地面が&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;切符売場や信号所の建物のついたまま&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしどもの役所の方へまわって来たものですから&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしはすぐ宿直という名前で月賦で買った小さな蓄音器と二十枚ばかりのレコードをもって&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;その番小屋にひとり住むことになりました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;わたくしはそこの馬を置く場所に板で小さなしきいをつけて一疋の山羊を飼いました&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;毎朝その乳をしぼってつめたいパンをひたしてたべ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;それから黒い革のかばんへすこしの書類や雑誌を入れ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;靴もきれいにみがき&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;並木のポプラの影法師を大股にわたって市の役所へ出て行くのでした&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;あのイーハトーヴォのすきとおった風&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;夏でも底に冷たさをもつ青いそら&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;うつくしい森で飾られたモリーオ市&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;郊外のぎらぎらひかる草の波&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;またそのなかでいっしょになったたくさんのひとたち&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;ファゼーロとロザーロ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;羊飼のミーロや&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;顔の赤いこどもたち&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;地主のテーモ&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;山猫博士のボーガント&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;・&lt;/span&gt;デストゥパーゴなど&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;いまこの暗い巨きな石の建物のなかで考えていると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;みんなむかし風のなつかしい青い幻燈のように思われます&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;わたくしはいつかの小さなみだしをつけながら&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;、&lt;/span&gt;しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;\vspace{0.25cm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ついで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogefugaの重症例の画像を呈示する (*Fig. [[hoge_fuga]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga2
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;軽症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; margin &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 2.8in &lt;span style=&#34;color:#e6db74&#34;&gt;:offset&lt;/span&gt; -8in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:vertical-alignment&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[./hoge_fuga2.jpg]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;重症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; margin &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 2.8in &lt;span style=&#34;color:#e6db74&#34;&gt;:offset&lt;/span&gt; -2in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:vertical-alignment&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[./hoge_fuga.jpg]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; *結論*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;ついで，前述のごとく，Emacsでこの文書を開いた状態で，C-c C-e T pと打てば，以下のようなpdfがskimで開かれる．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/Tufte_test_v5.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/Tufte_test_v5.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+        
+        
+        
+        
+        
+        &lt;figure&gt;
+        
+          &lt;a data-fancybox=&#34;&#34; href=&#34;/img/Tufte_test_v5.jpg&#34; &gt;
+        
+        &lt;img src=&#34;/img/Tufte_test_v5.jpg&#34; width=&#34;100%&#34; &gt;
+        &lt;/a&gt;
+        
+        &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;

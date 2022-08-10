@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-01-27T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-01-27T00:00:00&#43;00:00">
   
 
   
@@ -325,12 +325,12 @@
     <div class="article-style">
       
       Emacsで長い行を書いていると，デフォルトの状態ではどんどん横に伸びていく．後で読み返そうと思うと横にスクロールしないといけなくて，非常に不便である．M-qでauro-fillをやればよいと言われそうだが，そうすると改行されてしまい，これまた不便である．そこで，なんとかならないかと探してみると，ちゃんとそういうモノがあったので，まとめておく．
- Table of Contents  adaptive-wrap  インストールと設定 実際の使用例      adaptive-wrap  参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　  長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
+Table of Contents adaptive-wrap インストールと設定 実際の使用例 adaptive-wrap 参照1：adaptive-wrap　ご本家 参照2：Correct indentation for wrapped lines 参照3：Emacsの折り返しの挙動 参照4：.emacs settings loading issue　長い行をワープロのようにword-wrapしてくれるパッケージである．Emacsのバッファ上では折り返されているように見えるが，実際は長い横1行のままである．
 インストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
 #+begin_src emacs-lisp (use-package adaptive-wrap :ensure t :config (setq-default adaptive-wrap-extra-indent 1) (add-hook &#39;visual-line-mode-hook #&#39;adaptive-wrap-prefix-mode) (global-visual-line-mode +1) (add-hook &#39;org-mode-hook &#39;visual-line-mode) ;; For org macros ) #+end_src なお，最後の行を入れておかないと，org-mode fileに
 #+setupfile: /Sources/org-mode-folder/org-macros-master/org-macros.setup を追加してマクロのパッケージを使用する場合（Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（12月19日追記）を参照のこと）に，adaptive-wrapが効かなくなる．
 実際の使用例 adaptive-wrapをインストールしていない場合が上図，インストールして設定すれば下図のように見える．あくまで，Emacsの画面上でword-wrapしているように見えるだけで，実際のファイルではなが～い横１行のままの状態が維持されている．
-      これも一度使い始めると，無くてはならないモノとなるパッケージである．
+これも一度使い始めると，無くてはならないモノとなるパッケージである．
       
     </div>
   </div>
@@ -455,7 +455,7 @@
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -480,7 +480,7 @@
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

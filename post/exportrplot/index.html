@@ -29,10 +29,10 @@
     
   
   <meta name="description" content="本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．
- Table of Contents  Org-babel setup How to use org-babel Org-babel evaluation of R code block    Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
+Table of Contents Org-babel setup How to use org-babel Org-babel evaluation of R code block Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
 ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．
 Ref: Org-babel Setup　ここからコピペ (^^;;;
-#&#43;begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R .">
+#&#43;begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R . t) (python . t) (ruby .">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/exportrplot/">
@@ -84,7 +84,7 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -127,14 +127,14 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
   <meta property="og:url" content="/post/exportrplot/">
   <meta property="og:title" content="How to automatically embed R plot into html exported by org-mode with org-babel | A perfect autumn day">
   <meta property="og:description" content="本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．
- Table of Contents  Org-babel setup How to use org-babel Org-babel evaluation of R code block    Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
+Table of Contents Org-babel setup How to use org-babel Org-babel evaluation of R code block Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
 ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．
 Ref: Org-babel Setup　ここからコピペ (^^;;;
-#&#43;begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R ."><meta property="og:image" content="/post/exportrplot/featured.jpg">
+#&#43;begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R . t) (python . t) (ruby ."><meta property="og:image" content="/post/exportrplot/featured.jpg">
   <meta property="twitter:image" content="/post/exportrplot/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-03-25T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-03-25T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2019-03-30T12:01:01&#43;09:00">
   
@@ -331,7 +331,7 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
 
 
 
-<meta content="2019-03-25 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-03-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2019-03-30 12:01:01 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -422,24 +422,24 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
 <p>org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;</p>
 <p>ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．</p>
 <p><strong>Ref:</strong> <a href="http://doc.norang.ca/org-mode.html#OrgBabel">Org-babel Setup</a>　ここからコピペ  (^^;;;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
-(org-babel-do-load-languages
- (<span style="color:#66d9ef">quote</span> org-babel-load-languages)
- (<span style="color:#66d9ef">quote</span> ((emacs-lisp <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (dot <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (ditaa <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (R <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (python <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (ruby <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (gnuplot <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (clojure <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (shell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (ledger <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (org <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (plantuml <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-         (latex <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>))))
-<span style="color:#f92672">#+</span>end_src
-</code></pre></div><h2 id="how-to-use-org-babel">How to use org-babel</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(org-babel-do-load-languages
+</span></span><span style="display:flex;"><span> (<span style="color:#66d9ef">quote</span> org-babel-load-languages)
+</span></span><span style="display:flex;"><span> (<span style="color:#66d9ef">quote</span> ((emacs-lisp <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (dot <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (ditaa <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (R <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (python <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (ruby <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (gnuplot <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (clojure <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (shell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (ledger <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (org <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (plantuml <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>         (latex <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>))))
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div><h2 id="how-to-use-org-babel">How to use org-babel</h2>
 <p>以下のサイトを参考にした．</p>
 <p><strong>Ref 1:</strong> Official manual <a href="https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code">14 Working with Source Code</a></p>
 <p><strong>Ref 2:</strong> <a href="http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html">org-modeのコードブロック(Babel)の使い方</a>   <br />
@@ -447,21 +447,21 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
 <h2 id="org-babel-evaluation-of-r-code-block">Org-babel evaluation of R code block</h2>
 <p><a href="http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/">R and Emacs with org mode</a>   <br />
 org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>TITLE: R-test
-<span style="color:#f92672">#+</span>AUTHOR: taipapa
-
-<span style="color:#a6e22e">*</span> Test
-
-  <span style="color:#f92672">#+</span>begin_src R <span style="color:#e6db74">:session</span> *R* <span style="color:#e6db74">:results</span> output graphics <span style="color:#e6db74">:file</span> test1.png <span style="color:#e6db74">:exports</span> both
-  boxplot(islands)
-  <span style="color:#f92672">#+</span>end_src
-
-  <span style="color:#f92672">#+</span>begin_src R <span style="color:#e6db74">:session</span> *R* <span style="color:#e6db74">:results</span> output graphics <span style="color:#e6db74">:file</span> test2.png <span style="color:#e6db74">:exports</span> both
-  library(<span style="color:#e6db74">&#34;ggplot2&#34;</span>)
-  ggplot(iris, aes(x <span style="color:#a6e22e">=</span> Sepal.Width, y <span style="color:#a6e22e">=</span> Sepal.Length, color <span style="color:#a6e22e">=</span> Species)) <span style="color:#a6e22e">+</span>
-  geom_point()
-  <span style="color:#f92672">#+</span>END_SRC
-</code></pre></div><p>C-c C-e h oとしてhtmlにexportすると，以下のように簡単にグラフがプロットされたhtmlが作成される．いちいちできたグラフ画像を挿入する必要はなく，自動で挿入される．便利である．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>TITLE: R-test
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>AUTHOR: taipapa
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> Test
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>begin_src R <span style="color:#e6db74">:session</span> *R* <span style="color:#e6db74">:results</span> output graphics <span style="color:#e6db74">:file</span> test1.png <span style="color:#e6db74">:exports</span> both
+</span></span><span style="display:flex;"><span>  boxplot(islands)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>end_src
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>begin_src R <span style="color:#e6db74">:session</span> *R* <span style="color:#e6db74">:results</span> output graphics <span style="color:#e6db74">:file</span> test2.png <span style="color:#e6db74">:exports</span> both
+</span></span><span style="display:flex;"><span>  library(<span style="color:#e6db74">&#34;ggplot2&#34;</span>)
+</span></span><span style="display:flex;"><span>  ggplot(iris, aes(x <span style="color:#a6e22e">=</span> Sepal.Width, y <span style="color:#a6e22e">=</span> Sepal.Length, color <span style="color:#a6e22e">=</span> Species)) <span style="color:#a6e22e">+</span>
+</span></span><span style="display:flex;"><span>  geom_point()
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">#+</span>END_SRC
+</span></span></code></pre></div><p>C-c C-e h oとしてhtmlにexportすると，以下のように簡単にグラフがプロットされたhtmlが作成される．いちいちできたグラフ画像を挿入する必要はなく，自動で挿入される．便利である．</p>
 
 
 
@@ -790,7 +790,7 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -815,7 +815,7 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

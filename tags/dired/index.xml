@@ -5,7 +5,7 @@
     <link>/tags/dired/</link>
       <atom:link href="/tags/dired/index.xml" rel="self" type="application/rss+xml" />
     <description>dired</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>dired</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Dired reinforcement</title>
       <link>/post/dired/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/post/dired/</guid>
       <description>&lt;p&gt;考えてみれば，EmacsのFile ViewerであるDiredについては，&lt;a href=&#34;../peep&#34;&gt;peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）&lt;/a&gt;を投稿した以外はほとんど何も書いていないことに気がついた．そこで，今回は，Diredを強化するパッケージについてまとめることにした．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
@@ -55,24 +55,24 @@
 &lt;!--endtoc--&gt;
 &lt;h2 id=&#34;dired-human-readable-sizes-and-sort-by-size&#34;&gt;&lt;a href=&#34;http://pragmaticemacs.com/emacs/dired-human-readable-sizes-and-sort-by-size/&#34;&gt;DIRED: HUMAN-READABLE SIZES AND SORT BY SIZE&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Emacsの老舗ブログの一つである &lt;strong&gt;Pragmatic Emacs&lt;/strong&gt; からのパクリである．diredのデフォルトではファイルサイズが &lt;strong&gt;24345&lt;/strong&gt; のようにバイトサイズで正確に表示されるのであるが，はっきり言って見にくい．そこで人間に読みやすい表示になるようにls commandのオプションを与える．例によって，~/.emacs.d/personal/init.orgに以下を追記する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; dired-listing-switches &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-alh&amp;#34;&lt;/span&gt;)
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで上記の例では， &lt;strong&gt;24K&lt;/strong&gt; と表示されるようになる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; dired-listing-switches &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-alh&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで上記の例では， &lt;strong&gt;24K&lt;/strong&gt; と表示されるようになる．&lt;/p&gt;
 &lt;h2 id=&#34;dired-subtree&#34;&gt;&lt;a href=&#34;https://github.com/Fuco1/dired-hacks#dired-subtree&#34;&gt;dired-subtree&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;参照サイト-dired-hacks&#34;&gt;参照サイト： &lt;a href=&#34;https://github.com/Fuco1/dired-hacks&#34;&gt;dired-hacks&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;これはdiredの様々な追加物のコレクションであるが，この中のdired-subtreeが便利である．&lt;/p&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 &lt;p&gt;diredのデフォルトでは，directoryでEnterすると新しいバッファが開いてそのdirectoryが表示される．しかし，ここは，やはり，同じバッファでsubdirectoryとして表示して欲しいところである．それを実現するのが，このdired-subtreeである．これも以下を，~/.emacs.d/personal/init.orgに書き込めば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; dired-subtree
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-  (bind-keys &lt;span style=&#34;color:#e6db74&#34;&gt;:map&lt;/span&gt; dired-mode-map
-             (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; dired-subtree-insert)
-             (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; dired-subtree-remove)))
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，directoryにカーソルを持っていって &lt;strong&gt;i&lt;/strong&gt; を叩けば同じバッファ内でsubdirectoryとしてそのdirectoryが開き， &lt;strong&gt;;&lt;/strong&gt; を叩けば閉じるようになる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; dired-subtree
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (bind-keys &lt;span style=&#34;color:#e6db74&#34;&gt;:map&lt;/span&gt; dired-mode-map
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; dired-subtree-insert)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; dired-subtree-remove)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，directoryにカーソルを持っていって &lt;strong&gt;i&lt;/strong&gt; を叩けば同じバッファ内でsubdirectoryとしてそのdirectoryが開き， &lt;strong&gt;;&lt;/strong&gt; を叩けば閉じるようになる．&lt;/p&gt;
 &lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;以下の図で説明する．（前述の設定でファイルサイズはKBやMBで表示されている）&lt;/p&gt;
 
@@ -131,20 +131,20 @@
 &lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/84thzd/what%5Fhappened%5Fto%5Fdired%5Fpackage/&#34;&gt;What happened to dired+ package?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; dired+
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:quelpa&lt;/span&gt; (dired+ &lt;span style=&#34;color:#e6db74&#34;&gt;:fetcher&lt;/span&gt; github &lt;span style=&#34;color:#e6db74&#34;&gt;:repo&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;emacsmirror/dired-plus&amp;#34;&lt;/span&gt;)
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:defer&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; diredp-hide-details-initially-flag &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;)
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; diredp-hide-details-propagate-flag &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;)
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-  (diredp-toggle-find-file-reuse-dir &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((gls &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin/gls&amp;#34;&lt;/span&gt;))
-    (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (file-exists-p gls) (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; insert-directory-program gls)))
-  )
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; dired+
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:quelpa&lt;/span&gt; (dired+ &lt;span style=&#34;color:#e6db74&#34;&gt;:fetcher&lt;/span&gt; github &lt;span style=&#34;color:#e6db74&#34;&gt;:repo&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;emacsmirror/dired-plus&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:defer&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; diredp-hide-details-initially-flag &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; diredp-hide-details-propagate-flag &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (diredp-toggle-find-file-reuse-dir &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((gls &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/bin/gls&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (file-exists-p gls) (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; insert-directory-program gls)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;上記のご本家サイトを参照．ここまでの画像はDired Plusがインストールされた状態のものであり，ファイル名，拡張子，time, size, permissionなどが色分けされているのが分かる．&lt;/p&gt;
 &lt;h2 id=&#34;dired-quick-sort&#34;&gt;dired-quick-sort&lt;/h2&gt;
 &lt;p&gt;dired-modeにおいて，&amp;ldquo;S&amp;quot;をsort用のhydra立ち上げにバインドする．&lt;/p&gt;
@@ -154,13 +154,13 @@
 &lt;li&gt;&lt;a href=&#34;http://pragmaticemacs.com/emacs/speedy-sorting-in-dired-with-dired-quick-sort/&#34;&gt;http://pragmaticemacs.com/emacs/speedy-sorting-in-dired-with-dired-quick-sort/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; dired-quick-sort
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-  (dired-quick-sort-setup))
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; dired-quick-sort
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (dired-quick-sort-setup))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;以下の図で説明する．&lt;/p&gt;
 
 
@@ -224,7 +224,7 @@
     <item>
       <title>peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</title>
       <link>/post/peep/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/post/peep/</guid>
       <description>&lt;p&gt;最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
@@ -245,14 +245,14 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;peep-diredのインストールと設定&#34;&gt;peep-diredのインストールと設定&lt;/h2&gt;
 &lt;p&gt;例によって，use-packagを用いて以下のように，init.orgに書けばよい．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; peep-dired
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:defer&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;; don&amp;#39;t access `dired-mode-map&amp;#39; until `peep-dired&amp;#39; is loaded&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:bind&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;:map&lt;/span&gt; dired-mode-map
-              (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;P&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; peep-dired)))
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定は上記参照サイトのパクリで，diredで&amp;quot;P&amp;quot;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&amp;quot;P&amp;quot;と打つとpeep-dired modeは終了する．　&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; peep-dired
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:defer&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;; don&amp;#39;t access `dired-mode-map&amp;#39; until `peep-dired&amp;#39; is loaded&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:bind&lt;/span&gt; (&lt;span style=&#34;color:#e6db74&#34;&gt;:map&lt;/span&gt; dired-mode-map
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;P&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; peep-dired)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定は上記参照サイトのパクリで，diredで&amp;quot;P&amp;quot;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&amp;quot;P&amp;quot;と打つとpeep-dired modeは終了する．　&lt;/p&gt;
 &lt;h2 id=&#34;peep-diredの使い方&#34;&gt;peep-diredの使い方&lt;/h2&gt;
 &lt;p&gt;File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&amp;quot;P&amp;quot;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．&lt;/p&gt;
 

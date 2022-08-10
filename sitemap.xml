@@ -1,1053 +1,640 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>/post/real-time-document-pdf-preview-in-org-mode/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
     <loc>/post/how-to-create-interactive-slides-by-r-plotly-d3-and-reveal-dot-js/</loc>
     <lastmod>2020-07-05T11:47:27+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part3/</loc>
+  </url><url>
+    <loc>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2/</loc>
+  </url><url>
+    <loc>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2/</loc>
     <lastmod>2020-05-10T13:04:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/</loc>
+  </url><url>
+    <loc>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/</loc>
     <lastmod>2020-05-10T13:04:31+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/dired/</loc>
     <lastmod>2020-02-23T21:56:21+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/</loc>
     <lastmod>2020-01-05T23:00:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-create-conference-poster-by-latex-beamer/</loc>
+  </url><url>
+    <loc>/post/how-to-create-conference-poster-by-latex--beamer/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/mark-and-desktop-saving/</loc>
     <lastmod>2019-11-06T22:09:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-sidebar/</loc>
     <lastmod>2019-10-19T22:16:46+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-rifle/</loc>
     <lastmod>2019-10-19T22:12:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-update-hugo-and-academic-theme-part3/</loc>
+  </url><url>
+    <loc>/post/how-to-update-hugo-and-academic-theme--part3/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/treemacs_projectile/</loc>
     <lastmod>2019-09-01T16:34:54+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-update-hugo-and-academic-theme-part2/</loc>
+  </url><url>
+    <loc>/post/how-to-update-hugo-and-academic-theme--part2/</loc>
     <lastmod>2019-08-25T01:11:46+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/how-to-upgrade-hugo-and-academic-theme/</loc>
     <lastmod>2019-08-25T00:28:02+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/fulltextsearch/</loc>
     <lastmod>2019-09-17T21:59:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/pdf-tools/</loc>
     <lastmod>2019-07-24T21:57:23+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/live/</loc>
     <lastmod>2019-07-13T14:50:27+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/symbol-overlay/</loc>
     <lastmod>2019-07-10T20:24:34+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/annotation/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/gleanings/</loc>
     <lastmod>2019-06-08T23:16:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/deadgrep/</loc>
     <lastmod>2019-06-02T17:08:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/courses/example/example1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/horizontal_scrollbar/</loc>
     <lastmod>2019-05-04T20:28:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/mojave/</loc>
     <lastmod>2019-04-30T23:38:39+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/peep/</loc>
     <lastmod>2019-04-20T13:33:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/different-segment-to-each-facet-in-ggplot/</loc>
     <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/embedrplotinblog/</loc>
     <lastmod>2019-03-30T21:54:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/exportrplot/</loc>
     <lastmod>2019-03-30T12:01:01+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/prodlim/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/adaptive-wrap/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/auto_html_export/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-mode_recursive-narrow/</loc>
     <lastmod>2018-12-24T21:38:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-html-export-theme/</loc>
     <lastmod>2018-12-22T12:13:19+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/html_export/</loc>
     <lastmod>2020-04-27T19:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/tufte/</loc>
     <lastmod>2018-11-16T22:13:15+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/r_homebrew_update_error/</loc>
     <lastmod>2018-11-15T22:09:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/swiper_migemo/</loc>
     <lastmod>2018-10-14T17:28:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/synchronization/</loc>
     <lastmod>2018-10-08T17:21:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-mode_paper_4/</loc>
     <lastmod>2018-09-29T12:37:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-mode_paper_3/</loc>
     <lastmod>2018-09-17T16:39:07+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-mode_paper_2/</loc>
     <lastmod>2018-09-16T21:44:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/courses/example/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/org-mode_paper_1/</loc>
     <lastmod>2018-09-09T20:17:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/beamer_movie2/</loc>
     <lastmod>2018-08-27T22:12:55+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/beamer_movie/</loc>
     <lastmod>2018-08-27T22:12:55+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/beamer/</loc>
     <lastmod>2018-09-30T14:49:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/latexmk/</loc>
     <lastmod>2018-09-03T22:46:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/japanese_setup/</loc>
     <lastmod>2018-08-27T22:12:54+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/init_org/</loc>
     <lastmod>2019-01-14T14:05:55+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/prelude_install/</loc>
     <lastmod>2019-06-01T15:02:39+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/emacs_install/</loc>
     <lastmod>2018-08-27T22:12:54+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/courses/example/example2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/talk/example/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-07-05T11:47:27+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/emacs/</loc>
-    <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
+    <loc>/tags/latex/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
+    <loc>/tags/latexmk/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
+    <loc>/tags/org-mode/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
+    <loc>/tags/pdf/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
+    <loc>/tags/preview/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-08-10T17:20:31+09:00</lastmod>
+  </url><url>
     <loc>/tags/github/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/javascript/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/js/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/org-mode/</loc>
-    <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/org-reveal/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/presentation/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/reveal/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/slide/</loc>
     <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-06-28T17:49:35+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/dired/</loc>
     <lastmod>2020-02-23T21:56:21+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/treemacs/</loc>
     <lastmod>2020-02-23T21:56:21+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/catalina/</loc>
     <lastmod>2020-01-05T23:00:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/latex/</loc>
-    <lastmod>2020-01-05T23:00:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/macbookpro16/</loc>
     <lastmod>2020-01-05T23:00:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/setup/</loc>
     <lastmod>2020-01-05T23:00:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/beamer/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/conference/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/inkscape/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/overleaf/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/poster/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/tikz/</loc>
     <lastmod>2019-12-01T15:21:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/helm/</loc>
     <lastmod>2019-11-06T22:09:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/mark/</loc>
     <lastmod>2019-11-06T22:09:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ring/</loc>
     <lastmod>2019-11-06T22:09:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/org-rifle/</loc>
     <lastmod>2019-10-19T22:12:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/search/</loc>
     <lastmod>2019-10-19T22:12:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/academic/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/hugo/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ox-hugo/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/theme/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/upgrade/</loc>
     <lastmod>2019-09-04T21:19:38+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/project/</loc>
     <lastmod>2019-09-01T16:34:54+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/projectile/</loc>
     <lastmod>2019-09-01T16:34:54+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/full-text-search/</loc>
     <lastmod>2019-09-17T21:59:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/hyperestraier/</loc>
     <lastmod>2019-09-17T21:59:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/macos/</loc>
     <lastmod>2019-09-17T21:59:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/mojave/</loc>
     <lastmod>2019-09-17T21:59:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/pdf/</loc>
-    <lastmod>2019-09-17T21:59:41+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/pdf-tools/</loc>
     <lastmod>2019-07-24T21:57:23+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/color/</loc>
     <lastmod>2020-04-27T19:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/cursor/</loc>
     <lastmod>2019-07-13T14:50:27+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/input/</loc>
     <lastmod>2019-07-13T14:50:27+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/japanese/</loc>
     <lastmod>2019-07-13T14:50:27+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/highlight/</loc>
     <lastmod>2019-07-10T20:24:34+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/replace/</loc>
     <lastmod>2019-07-10T20:24:34+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/symbol/</loc>
     <lastmod>2019-07-10T20:24:34+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/annotation/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/box/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ggplot2/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/line/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/plot/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/r/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/vertical/</loc>
     <lastmod>2019-07-04T20:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/accessibility/</loc>
     <lastmod>2019-06-08T23:16:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/iterm2/</loc>
     <lastmod>2019-06-08T23:16:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/line-number/</loc>
     <lastmod>2019-06-08T23:16:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/thunderbird/</loc>
     <lastmod>2019-06-08T23:16:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/whitespace/</loc>
     <lastmod>2019-06-08T23:16:25+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/deadgrep/</loc>
     <lastmod>2019-06-02T17:08:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ripgrep/</loc>
     <lastmod>2019-06-02T17:08:05+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/courses/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url><url>
     <loc>/tags/blog/</loc>
     <lastmod>2019-05-04T20:28:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/codeblock/</loc>
     <lastmod>2019-05-04T20:28:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/horizontal/</loc>
     <lastmod>2019-05-04T20:28:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/scrollbar/</loc>
     <lastmod>2019-05-04T20:28:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/26-2/</loc>
     <lastmod>2019-04-30T23:38:39+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/homebrew/</loc>
     <lastmod>2019-04-30T23:38:39+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/image/</loc>
     <lastmod>2019-04-20T13:33:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/link/</loc>
     <lastmod>2019-04-20T13:33:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/peep-dired/</loc>
     <lastmod>2019-04-20T13:33:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/authors/admin/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication_types/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/authors/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication_types/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/source-themes/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/colour/</loc>
     <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/facet/</loc>
     <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/patchwork/</loc>
     <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/segment/</loc>
     <lastmod>2019-04-07T16:30:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/embed/</loc>
     <lastmod>2019-03-30T21:54:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/export/</loc>
     <lastmod>2020-04-27T19:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/graph/</loc>
     <lastmod>2019-03-30T12:01:01+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/org-babel/</loc>
     <lastmod>2019-03-30T12:01:01+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ox/</loc>
     <lastmod>2019-03-30T21:54:40+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/at/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/censored/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/competing/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/curve/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/number/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/prodlim/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/risk/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/survival/</loc>
     <lastmod>2019-03-24T21:58:18+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/adaptive/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/indentation/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/wrap/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/autoexport/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/autorefresh/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/browser/</loc>
     <lastmod>2019-02-01T01:06:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/html/</loc>
     <lastmod>2020-04-27T19:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/narrow/</loc>
     <lastmod>2018-12-24T21:38:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/orgmode/</loc>
     <lastmod>2020-04-27T19:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/recursive/</loc>
     <lastmod>2018-12-24T21:38:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/css/</loc>
     <lastmod>2020-04-27T19:58:57+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/mode/</loc>
     <lastmod>2018-11-16T22:13:15+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/org/</loc>
     <lastmod>2018-11-16T22:13:15+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/tufte/</loc>
     <lastmod>2018-11-16T22:13:15+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/bioconductor/</loc>
     <lastmod>2018-11-15T22:09:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/error/</loc>
     <lastmod>2018-11-15T22:09:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/install/</loc>
     <lastmod>2018-11-15T22:09:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/rstudio/</loc>
     <lastmod>2018-11-15T22:09:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/update/</loc>
     <lastmod>2018-11-15T22:09:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/avy/</loc>
     <lastmod>2018-10-14T17:28:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ivy/</loc>
     <lastmod>2018-10-14T17:28:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/migemo/</loc>
     <lastmod>2018-10-14T17:28:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/swiper/</loc>
     <lastmod>2018-10-14T17:28:22+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/emacsclient/</loc>
     <lastmod>2018-10-08T17:21:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/synchronization/</loc>
     <lastmod>2018-10-08T17:21:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/tex/</loc>
     <lastmod>2018-10-08T17:21:48+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/citation/</loc>
     <lastmod>2018-09-29T12:37:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/pandoc/</loc>
     <lastmod>2018-09-29T12:37:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/reference/</loc>
     <lastmod>2018-09-29T12:37:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/word/</loc>
     <lastmod>2018-09-29T12:37:33+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/automation/</loc>
     <lastmod>2018-09-17T16:39:07+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/bibtex/</loc>
     <lastmod>2018-09-17T16:39:07+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/reftex/</loc>
     <lastmod>2018-09-17T16:39:07+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/bibdesk/</loc>
     <lastmod>2018-09-16T21:44:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/pubmed/</loc>
     <lastmod>2018-09-16T21:44:45+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/movie/</loc>
     <lastmod>2018-08-27T22:12:55+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/latexmk/</loc>
-    <lastmod>2018-09-30T14:49:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/mactex/</loc>
     <lastmod>2018-09-30T14:49:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/texlive/</loc>
     <lastmod>2018-09-30T14:49:51+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/auctex/</loc>
     <lastmod>2018-09-03T22:46:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/skim/</loc>
     <lastmod>2018-09-03T22:46:10+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/init-el/</loc>
     <lastmod>2019-01-14T14:05:55+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/prelude/</loc>
     <lastmod>2019-06-01T15:02:39+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/init-org/</loc>
     <lastmod>2019-01-14T14:05:55+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/privacy/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/terms/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/demo/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/project/external-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/project/internal-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication_types/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/authors/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication_types/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/publication/conference-paper/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
   </url>
-  
-  <url>
-    <loc>/courses/</loc>
-  </url>
-  
 </urlset>

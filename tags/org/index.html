@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2018-11-14T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2018-11-14T00:00:00&#43;00:00">
   
 
   
@@ -325,11 +325,13 @@
     <div class="article-style">
       
       以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））にも書いたが，Tufte−LaTeXなるものを愛用している．今回はこれについてもう少し詳しく書いてみたい．
-Table of Contents Tufte-LaTeX  Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&ldquo;the style of Edward R. Tufte and Richard Feynman&quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない．  tufte-org-mode  tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる．  設定  下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く．  tufte-org-modeのインストールと設定   以下のようにinit.orgに書き込んで設定する．
-  ox-tufte-latex.elは上記の tufte-org-modeからダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．
-#+begin_src emacs-lisp (quelpa &#39;(ox-tufte-latex :fetcher file :path &#34;/path/to/ox-tufte-latex.el&#34;) ) (use-package ox-tufte-latex) #+end_src   quelpaは，use-packageでうまくインストール出来ないときに重宝する．
-  quelpaについては以下を参照
- Quelpa quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム CaskからQuelpaに移行する    org-modeでtufte-latexの設定   ox-latexの設定などは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））に書いたようにinit.
+Table of Contents Tufte-LaTeX tufte-org-mode 設定 tufte-org-modeのインストールと設定 org-modeでtufte-latexの設定 tufteの使用の実例 Tufte-LaTeX Edward R. Tufteによって作られたページレイアウトのためのlatex packageである．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである． さて，このスタイルが何の役に立つかというと，報告書の作成の際に図を入れたりするときに，latexのfloatを使うと案外思うところに挿入されないことがある．このスタイルだと，図は少し小さくなるが，きちんと横に納まってくれるのがよい． Tufte-LaTeXのサイトには，&ldquo;the style of Edward R. Tufte and Richard Feynman&quot;と書かれている．ん，と思って調べてみると，やはり，あの物理学者のファインマンのことであった．興味のある方は，The Feynman-Tufte Principleでググってみると面白いかもしれない． 以前の記事（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））に書いたようにtexliveをインストールしてあれば，tufte-latexは一緒にインストールされているので，新たにインストールする必要はない． tufte-org-mode tufte-org-modeは，上述のlatexのtufte classをorg-modeから使えるようにした有り難いパッケージである．このおかげでlatexの記法を意識することなく，org-modeで普通に文章を書いていき，最後に後述する如く，オマジナイを唱えればTufte styleのpdfができあがる． 設定 下記の2つの設定で使えるようになる．init.orgでの設定の順番はどちらが先でも動く． tufte-org-modeのインストールと設定 以下のようにinit.orgに書き込んで設定する．
+ox-tufte-latex.elは上記の tufte-org-modeからダウンロードしてローカルに置いてインストールしている．パスは各自の環境に合わせて変更していただきたい．
+#+begin_src emacs-lisp (quelpa &#39;(ox-tufte-latex :fetcher file :path &#34;/path/to/ox-tufte-latex.el&#34;) ) (use-package ox-tufte-latex) #+end_src quelpaは，use-packageでうまくインストール出来ないときに重宝する．
+quelpaについては以下を参照
+Quelpa quelpa.el : 【本邦初公開】MELPAを改善した新しいパッケージ管理システム CaskからQuelpaに移行する org-modeでtufte-latexの設定 ox-latexの設定などは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））に書いたようにinit.orgに記述しておく．
+以下のようにinit.orgに書き込んで設定する．これは以前の記事（Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力））と重複するが，念のためにここにも書いておく．
+#+begin_src emacs-lisp ;; tufte-handout class for writing classy handouts and papers (add-to-list &#39;org-latex-classes &#39;(&#34;tufte-handout&#34; &#34;\\documentclass[twoside,nobib]{tufte-handout} [NO-DEFAULT-PACKAGES] \\usepackage{zxjatype} \\usepackage[hiragino-dx]{zxjafont}&#34; (&#34;\\section{%s}&#34; .
       
     </div>
   </div>
@@ -340,14 +342,13 @@ Table of Contents Tufte-LaTeX  Edward R. Tufteによって作られたペー�
       
       医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
 いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents ox-pandoc   参照サイト1：本家　ox-pandoc
-  参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies
-  参照サイト3：もっと本家　Pandoc a universal document converter
-  pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．
-  ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．
-  pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．
-$ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．
-#+begin_src emacs-lisp (use-package ox-pandoc :ensure t :config ;; default options for all output formats (setq org-pandoc-options &#39;((standalone .
+Table of Contents ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法 reftex-create-bibtex-file bibexport pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport org-modeからWord fileへのexportの方法 日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法 Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正 ox-pandoc 参照サイト1：本家　ox-pandoc
+参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies
+参照サイト3：もっと本家　Pandoc a universal document converter
+pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．
+ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．
+pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．
+$ brew install pandoc $ brew install pandoc-citeproc init.
       
     </div>
   </div>
@@ -357,13 +358,16 @@ $ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下の�
     <div class="article-style">
       
       前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
-Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
-  RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
-#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #+end_src   上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
-  すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
-  次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
-     上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）
+Table of Contents org-mode-reftex-setup org-mode-reftex-setupの使用方法 ox-bibtex.el bst ファイルについて bst ファイルの置き場所 文献を引用したorg-modeからのexportの実例 org-mode-reftex-setup 参照サイト：Using Emacs Org-mode to Draft Papers
+RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
+#+begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #+end_src 上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
+org-mode-reftex-setupの使用方法 org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
+すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
+次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
+上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）
+ox-bibtex.el 参考サイト：Org and Bibtex
+上述の作業で，文献を本文中にcite-keyとして引用することはできた．次に必要なのはorg-modeからpdfやhtmlにexportする際に，cite-keyをもとに，文献が雑誌の規定の様式で引用され，最後に文献リストが規定の様式で記述されるようにすることである．この面倒をみてくれるのが，ox-bibtex.el である．
+ox-bibtex.elは，org-plus-contrib packageの中に含まれているので，まず，org-plus-contribをインストールする．これは，package.el を使えば簡単である．
       
     </div>
   </div>
@@ -373,9 +377,9 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
     <div class="article-style">
       
       私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．
-Table of Contents 目的  org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする  org-modeで論文を書く利点  LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう．  org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
+Table of Contents 目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用） koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用） 「org-modeで論文を書く」の実例 目的 org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする org-modeで論文を書く利点 LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう． org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
 私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
-koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R. Tufteによって作られたページレイアウト．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．こういうスタイルはよく見かけるものだと思うが，作者がはっきりしているとは，恥ずかしながら全く知らなかった． tufte-org-modeはこのtufte classをorg-modeから使えるようにした有り難いパッケージである．  org-bullet   参考サイト１：https://github.
+koma-script – A bundle of versatile classes and packages 参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている． Tufte-LaTeX 参考サイト１： tufte-org-mode Edward R.
       
     </div>
   </div>
@@ -500,7 +504,7 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -525,7 +529,7 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

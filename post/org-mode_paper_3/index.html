@@ -29,13 +29,16 @@
     
   
   <meta name="description" content="前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
-Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
-  RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
-#&#43;begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #&#43;end_src   上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
-  すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
-  次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
-     上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）">
+Table of Contents org-mode-reftex-setup org-mode-reftex-setupの使用方法 ox-bibtex.el bst ファイルについて bst ファイルの置き場所 文献を引用したorg-modeからのexportの実例 org-mode-reftex-setup 参照サイト：Using Emacs Org-mode to Draft Papers
+RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
+#&#43;begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #&#43;end_src 上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
+org-mode-reftex-setupの使用方法 org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
+すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
+次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
+上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）
+ox-bibtex.el 参考サイト：Org and Bibtex
+上述の作業で，文献を本文中にcite-keyとして引用することはできた．次に必要なのはorg-modeからpdfやhtmlにexportする際に，cite-keyをもとに，文献が雑誌の規定の様式で引用され，最後に文献リストが規定の様式で記述されるようにすることである．この面倒をみてくれるのが，ox-bibtex.el である．
+ox-bibtex.elは，org-plus-contrib packageの中に含まれているので，まず，org-plus-contribをインストールする．これは，package.el を使えば簡単である．">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/org-mode_paper_3/">
@@ -87,7 +90,7 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -130,17 +133,20 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
   <meta property="og:url" content="/post/org-mode_paper_3/">
   <meta property="og:title" content="Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化） | A perfect autumn day">
   <meta property="og:description" content="前回（Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理））は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．
-Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode to Draft Papers
-  RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
-#&#43;begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #&#43;end_src   上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
-  org-mode-reftex-setupの使用方法   org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
-  すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
-  次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
-     上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）"><meta property="og:image" content="/post/org-mode_paper_3/featured.jpg">
+Table of Contents org-mode-reftex-setup org-mode-reftex-setupの使用方法 ox-bibtex.el bst ファイルについて bst ファイルの置き場所 文献を引用したorg-modeからのexportの実例 org-mode-reftex-setup 参照サイト：Using Emacs Org-mode to Draft Papers
+RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する）に記載したとおり，init.orgに書き込めば良い．
+#&#43;begin_src emacs-lisp (defun org-mode-reftex-setup () (load-library &#34;reftex&#34;) (and (buffer-file-name) (file-exists-p (buffer-file-name)) (reftex-parse-all)) (define-key org-mode-map (kbd &#34;C-c )&#34;) &#39;reftex-citation) ) (add-hook &#39;org-mode-hook &#39;org-mode-reftex-setup) #&#43;end_src 上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．
+org-mode-reftex-setupの使用方法 org-modeで文書を書いている最中に文献を引用したい箇所で，C-c ) と打つ
+すると，まず，どの文献リストを使うかを聞いてくるので，hogefuga-reference.bibなど使いたいリストの名前を打つ．前回説明した方法で収集した文献のbib ファイルが有るはずである．
+次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．
+上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（Emacsの設定（その1）Preludeの導入）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）
+ox-bibtex.el 参考サイト：Org and Bibtex
+上述の作業で，文献を本文中にcite-keyとして引用することはできた．次に必要なのはorg-modeからpdfやhtmlにexportする際に，cite-keyをもとに，文献が雑誌の規定の様式で引用され，最後に文献リストが規定の様式で記述されるようにすることである．この面倒をみてくれるのが，ox-bibtex.el である．
+ox-bibtex.elは，org-plus-contrib packageの中に含まれているので，まず，org-plus-contribをインストールする．これは，package.el を使えば簡単である．"><meta property="og:image" content="/post/org-mode_paper_3/featured.jpg">
   <meta property="twitter:image" content="/post/org-mode_paper_3/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2018-09-15T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2018-09-15T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2018-09-17T16:39:07&#43;09:00">
   
@@ -335,7 +341,7 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 
 
 
-<meta content="2018-09-15 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2018-09-15 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-09-17 16:39:07 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -402,7 +408,7 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 <div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 1632px; max-height: 484px;">
   <div style="position: relative">
     <img src="/post/org-mode_paper_3/featured.jpg" alt="" class="featured-image">
-    <span class="article-header-caption">Arc de triomphe de l'Étoile</span>
+    <span class="article-header-caption">Arc de triomphe de l&rsquo;Étoile</span>
   </div>
 </div>
 
@@ -413,7 +419,22 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
     <div class="article-style" itemprop="articleBody">
       <p>前回（<a href="../org-mode_paper_2">Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</a>）は，BibDeskを用いて文献情報をbibtex ファイルとして収集する方法についてまとめた．今回は，この文献情報を利用した引用をEmacsのorg-modeでどのように自動化するかについてまとめる．早い話が，org-modeからlatexのbibtexとreftexの機能を利用するということになる．</p>
 <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#org-mode-reftex-setup">org-mode-reftex-setup</a>
+      <ul>
+        <li><a href="#org-mode-reftex-setupの使用方法">org-mode-reftex-setupの使用方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#ox-bibtex-dot-el"><a href="https://code.orgmode.org/bzg/org-mode/raw/master/contrib/lisp/ox-bibtex.el">ox-bibtex.el</a></a></li>
+    <li><a href="#bst-ファイルについて">bst ファイルについて</a>
+      <ul>
+        <li><a href="#bst-ファイルの置き場所">bst ファイルの置き場所</a></li>
+      </ul>
+    </li>
+    <li><a href="#文献を引用したorg-modeからのexportの実例">文献を引用したorg-modeからのexportの実例</a></li>
+  </ul>
+</nav>
 <h2 id="org-mode-reftex-setup">org-mode-reftex-setup</h2>
 <ul>
 <li>
@@ -421,17 +442,17 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 </li>
 <li>
 <p>RefTex-ModeというものがEmacsには含まれている．文献や引用の管理のためのパッケージである．詳細はC-h iでマニュアルを見れば分かる，と言いたいところだが，このマニュアルが膨大である．そこで，RefTeX in a Nutshellという2ページほどの要約を読めば，使うのには十分であるとマニュアル自体に書いてある（笑）．実は私はそれすらろくに読んでいないが，以下のように設定すれば，十分に使える．設定方法は，以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）に記載したとおり，init.orgに書き込めば良い．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
-(defun org-mode-reftex-setup ()
-  (load-library <span style="color:#e6db74">&#34;reftex&#34;</span>)
-  (and (buffer-file-name)
-       (file-exists-p (buffer-file-name))
-       (reftex-parse-all))
-  (define-key org-mode-map (kbd <span style="color:#e6db74">&#34;C-c )&#34;</span>) <span style="color:#e6db74">&#39;reftex-citation</span>)
-  )
-(add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> <span style="color:#e6db74">&#39;org-mode-reftex-setup</span>)
-<span style="color:#f92672">#+</span>end_src
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(defun org-mode-reftex-setup ()
+</span></span><span style="display:flex;"><span>  (load-library <span style="color:#e6db74">&#34;reftex&#34;</span>)
+</span></span><span style="display:flex;"><span>  (and (buffer-file-name)
+</span></span><span style="display:flex;"><span>       (file-exists-p (buffer-file-name))
+</span></span><span style="display:flex;"><span>       (reftex-parse-all))
+</span></span><span style="display:flex;"><span>  (define-key org-mode-map (kbd <span style="color:#e6db74">&#34;C-c )&#34;</span>) <span style="color:#e6db74">&#39;reftex-citation</span>)
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> <span style="color:#e6db74">&#39;org-mode-reftex-setup</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div></li>
 <li>
 <p>上記の設定により，参照サイトの説明のように，org-modeの中でreftex-citationの機能が働くようになる．</p>
 </li>
@@ -447,37 +468,37 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 <li>
 <p>次に，文献を絞り込むためにキーワードを打つように催促されるので，それを打つ．すると，そのキーワードを有する文献のリストがずらずらと並ぶ．下図の例では，stetler と著者名を打ったときの結果が下のバッファに表示されている．該当する文献にカーソルを持ってくるか，クリックして選択し，リターンを押せば決定され，本文の該当箇所にその論文の cite-key，つまり，\cite{Stetler:2012jt} が入力される．</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/reftex.jpg" >
-
-<img src="/img/reftex.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/reftex.jpg" >
+    
+    <img src="/img/reftex.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 <li>
 <p>上図の下のバッファ内でも，C-sの検索機能は使えるので，さらに絞り込みが必要な際は便利である．以前の記事（<a href="../prelude_install">Emacsの設定（その1）Preludeの導入</a>）で述べたようにpreludeを導入して，かつ，helmを有効にしておけば，下図のようにC-sでswiperが使えて更に便利である．（なお，下図では，まず，heat shock proteinと打ち，ズラッと並んだ真ん中のバッファでC-sとやってstetlerと打ったところである．一番下のバッファにstetlerで絞り込まれた候補が並んでいる）</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/reftex-2.jpg" >
-
-<img src="/img/reftex-2.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/reftex-2.jpg" >
+    
+    <img src="/img/reftex-2.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 </ul>
@@ -494,8 +515,8 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 </li>
 <li>
 <p>次いで，use-packageを使って，ox-bibtexを設定する．と言っても以下のようにinit.orgに書くだけである．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> ox-bibtex)
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> ox-bibtex)
+</span></span></code></pre></div></li>
 <li>
 <p>なお，use-packageを使ってox-bibtexを設定する際に，defer t にすると，htmlへの文献のexportができなくなるので注意！</p>
 </li>
@@ -508,14 +529,14 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 </li>
 <li>
 <p>ox-bibtex.elはbibtexをLaTeX, html, asciiにexportしてくれる．HTMLへのexportには，<a href="https://www.lri.fr/~filliatr/bibtex2html/">bibtex2html</a> が使われる．そこで，bibtex2htmlをインストールしておく．homebrewがインストールされていれば以下のようにすれば良い．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">brew install bibtex2html
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install bibtex2html
+</span></span></code></pre></div></li>
 <li>
 <p>ox-bibtexの使い方はソースの最初に書いてあるとおりである．すなわち，文献をexportするためには，org-mode文書の冒頭に例えば以下を追加し，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-</code></pre></div><p>最後に，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-references.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-</code></pre></div><p>を追加する．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+</span></span></code></pre></div><p>最後に，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-references.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
+</span></span></code></pre></div><p>を追加する．</p>
 </li>
 <li>
 <p>#+LaTeX_HEADER: の行の最後の<a href="https://ctan.org/pkg/natbib">natbib</a> は，texliveに含まれる文献サポートのパッケージであり，1, 2, 3,&hellip;.というような番号付タイプの文献引用や author-yearタイプの文献引用の両方に（それ以外にも）対応している．その手前はnatbibのオプションである．</p>
@@ -525,15 +546,15 @@ Table of Contents org-mode-reftex-setup   参照サイト：Using Emacs Org-mode
 </li>
 <li>
 <p>option: -foobar はbibtex2htmlに &lsquo;foobar&rsquo; を渡す．つまり</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">option:-d    <span style="color:#a6e22e">sort</span> by date
-option:-a    <span style="color:#a6e22e">sort</span> as BibTeX (usually by author) *default*
-option:-u    unsorted i.e. same order as in <span style="color:#f92672">.</span>bib file
-option:-r    <span style="color:#a6e22e">reverse</span> <span style="color:#66d9ef">the</span> <span style="color:#a6e22e">sort</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>option:-d    <span style="color:#a6e22e">sort</span> by date
+</span></span><span style="display:flex;"><span>option:-a    <span style="color:#a6e22e">sort</span> as BibTeX (usually by author) *default*
+</span></span><span style="display:flex;"><span>option:-u    unsorted i.e. same order as in <span style="color:#f92672">.</span>bib file
+</span></span><span style="display:flex;"><span>option:-r    <span style="color:#a6e22e">reverse</span> <span style="color:#66d9ef">the</span> <span style="color:#a6e22e">sort</span>
+</span></span></code></pre></div></li>
 <li>
 <p>複数のオプションを使用することも可能</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">option:-d option:-r
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>option:-d option:-r
+</span></span></code></pre></div></li>
 <li>
 <p>上述のように， <strong>limit:t</strong> とすることにより，引用された文献のみのリストになる．これをしないと bib ファイルの中のすべての論文がリストになってしまう．</p>
 </li>
@@ -554,7 +575,7 @@ option:-r    <span style="color:#a6e22e">reverse</span> <span style="color:#66d9
 </li>
 <li>
 <p><a href="http://www.tug.org/mactex/2013/faq/#qm05">The Most Frequently Asked Questions (FAQ)</a></p>
-<p><strong>QM.06 :</strong> Why can't the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  <br />
+<p><strong>QM.06 :</strong> Why can&rsquo;t the latest MacTeX find my local BibTeX files? Earlier versions of MacTeX worked correctly.  <br />
 <br />
 <strong>AM.06 :</strong> TeX Live is slightly pickier about placement of these files. &ldquo;.bib&rdquo; files go in <br />
 <strong>~/Library/texmf/bibtex/bib</strong> <br />
@@ -570,40 +591,40 @@ or subfolders of this directory.</p>
 <ul>
 <li>ようやく，これで準備が整ったので，実例を示す．以下のファイルを作成し，hogefuga.orgとして保存する．</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>LaTeX_CLASS: koma-jarticle
-<span style="color:#f92672">#+</span>LaTeX_CLASS_OPTIONS: [12pt]
-<span style="color:#f92672">#+</span>LATEX_HEADER: \usepackage{geometry}
-<span style="color:#f92672">#+</span>LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-<span style="color:#f92672">#+</span>LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-<span style="color:#f92672">#+</span>STARTUP:  overview
-<span style="color:#f92672">#+</span>STARTUP:  hidestars
-<span style="color:#f92672">#+</span>OPTIONS:   H:4 num:nil toc:nil \n:nil @:t <span style="color:#e6db74">::t</span> <span style="color:#960050;background-color:#1e0010">|</span><span style="color:#e6db74">:t</span> ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-<span style="color:#f92672">#+</span>OPTIONS: date:nil
-<span style="color:#f92672">#+</span>LINK_UP:
-<span style="color:#f92672">#+</span>LINK_HOME:
-
-<span style="color:#f92672">#+</span>TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
-<span style="color:#f92672">#+</span>AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
-\vspace*{-1.5cm}
-
-\hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
-
-<span style="color:#a6e22e">*</span> 背景と目的
-hogeとfugaを比較してみると<span style="color:#960050;background-color:#1e0010">，</span>一方で難易度の高い症例でも他方では容易に行える場合も多い<span style="color:#960050;background-color:#1e0010">．</span>\cite{Stetler:2012jt}当施設では<span style="color:#960050;background-color:#1e0010">，</span>一方に片寄ることなく<span style="color:#960050;background-color:#1e0010">，</span>hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている<span style="color:#960050;background-color:#1e0010">．</span>そこで<span style="color:#960050;background-color:#1e0010">，</span>自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した<span style="color:#960050;background-color:#1e0010">．</span>
-<span style="color:#a6e22e">*</span> 結果
-hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)<span style="color:#960050;background-color:#1e0010">．</span>\cite{Cosentino:2011dn}
-
-<span style="color:#f92672">#+</span>NAME: hoge_fuga
-<span style="color:#f92672">#+</span>caption: hoge-fuga<span style="color:#960050;background-color:#1e0010">（</span>重症例である<span style="color:#960050;background-color:#1e0010">）</span>
-<span style="color:#f92672">#+</span>attr_latex: <span style="color:#e6db74">:float</span> <span style="color:#66d9ef">t</span> <span style="color:#e6db74">:width</span> 3in  <span style="color:#e6db74">:align</span> center
-<span style="color:#f92672">#+</span>ATTR_HTML: <span style="color:#e6db74">:width</span> <span style="color:#ae81ff">500</span>  <span style="color:#e6db74">:float:</span> wrap <span style="color:#e6db74">:align</span> center
-[[./hoge_fuga.jpg]]
-
-<span style="color:#a6e22e">*</span> 結論
-hogefugaによる治療は有効である<span style="color:#960050;background-color:#1e0010">．</span>
-
-<span style="color:#f92672">#+</span>BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>LaTeX_CLASS: koma-jarticle
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LaTeX_CLASS_OPTIONS: [12pt]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LATEX_HEADER: \usepackage{geometry}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>STARTUP:  overview
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>STARTUP:  hidestars
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>OPTIONS:   H:4 num:nil toc:nil \n:nil @:t <span style="color:#e6db74">::t</span> <span style="color:#960050;background-color:#1e0010">|</span><span style="color:#e6db74">:t</span> ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>OPTIONS: date:nil
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LINK_UP:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LINK_HOME:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
+</span></span><span style="display:flex;"><span>\vspace*{-1.5cm}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>\hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 背景と目的
+</span></span><span style="display:flex;"><span>hogeとfugaを比較してみると<span style="color:#960050;background-color:#1e0010">，</span>一方で難易度の高い症例でも他方では容易に行える場合も多い<span style="color:#960050;background-color:#1e0010">．</span>\cite{Stetler:2012jt}当施設では<span style="color:#960050;background-color:#1e0010">，</span>一方に片寄ることなく<span style="color:#960050;background-color:#1e0010">，</span>hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている<span style="color:#960050;background-color:#1e0010">．</span>そこで<span style="color:#960050;background-color:#1e0010">，</span>自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 結果
+</span></span><span style="display:flex;"><span>hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)<span style="color:#960050;background-color:#1e0010">．</span>\cite{Cosentino:2011dn}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>NAME: hoge_fuga
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>caption: hoge-fuga<span style="color:#960050;background-color:#1e0010">（</span>重症例である<span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>attr_latex: <span style="color:#e6db74">:float</span> <span style="color:#66d9ef">t</span> <span style="color:#e6db74">:width</span> 3in  <span style="color:#e6db74">:align</span> center
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>ATTR_HTML: <span style="color:#e6db74">:width</span> <span style="color:#ae81ff">500</span>  <span style="color:#e6db74">:float:</span> wrap <span style="color:#e6db74">:align</span> center
+</span></span><span style="display:flex;"><span>[[./hoge_fuga.jpg]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 結論
+</span></span><span style="display:flex;"><span>hogefugaによる治療は有効である<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
+</span></span></code></pre></div><ul>
 <li>
 <p>hogefuga-References.bibの部分やbstの部分は，それぞれ該当するファイルに置き換えていただきたい．</p>
 </li>
@@ -616,19 +637,19 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
 <li>
 <p>下図のように，文献リストも付いているし，本文中の番号をクリックすれば文献リストの該当論文にジャンプするリンク付きである．また，このbstでは著者名のアルファベット順を指定しているので，最初にでてきた文献が2に，二番目にでてきた文献が1になっていることに注意してほしい．さらに，著者名は3人までは全員記載し，4人以上の論文では4人目以降はet alになっている．bibtexの活用により，これらのことが自動的になされている．</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/ref-pdf.jpg" >
-
-<img src="/img/ref-pdf.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/ref-pdf.jpg" >
+    
+    <img src="/img/ref-pdf.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 <li>
@@ -637,19 +658,19 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
 <li>
 <p>下図のように，文献リストも付いているし，本文中の番号をクリックすれば文献リストの該当論文にジャンプするリンク付きである．その他もpdfと同様であるが，文献リストにはabstractやDOIも追加される．投稿する際はpdfか，別記事のようにwordにしてしまうので，html出力の設定はこれ以上触っていない．</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/ref-html.jpg" >
-
-<img src="/img/ref-html.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/ref-html.jpg" >
+    
+    <img src="/img/ref-html.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 <li>
@@ -968,7 +989,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -993,7 +1014,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

@@ -5,7 +5,7 @@
     <link>/tags/reveal/</link>
       <atom:link href="/tags/reveal/index.xml" rel="self" type="application/rss+xml" />
     <description>reveal</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 09 May 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>reveal</title>
@@ -14,9 +14,9 @@
     
     <item>
       <title>How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page.</title>
-      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part3/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
-      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part3/</guid>
+      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3/</guid>
       <description>&lt;p&gt;前回までの2回でプレゼンテーション用スライドをorg-revealを介してreveal.jsで作成する方法を説明してきた．今回は，作成したスライドをwebで公開したり，web pageにそのスライドを埋め込む方法を紹介する．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
 &lt;div&gt;&lt;/div&gt;
@@ -41,152 +41,152 @@
 &lt;li&gt;
 &lt;p&gt;localでwebページを作る．&lt;/p&gt;
 &lt;p&gt;ここでは，以下のようにdirectoryを作って行うこととする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Data/
-$ mkdir Slides
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そして，このSlides directoryの中でweb pageを作成する．作成方法は，前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）を参照．このdirectoryの中にreveal.jsをgit cloneしてnpm installも行っておく．プラグインなどもインストールするが，後で不要なファイルを削除し必要最小限に減らしてからGitHub pageにアップすれば良い．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Data/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir Slides
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そして，このSlides directoryの中でweb pageを作成する．作成方法は，前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）を参照．このdirectoryの中にreveal.jsをgit cloneしてnpm installも行っておく．プラグインなどもインストールするが，後で不要なファイルを削除し必要最小限に減らしてからGitHub pageにアップすれば良い．&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;GitHub pageに新しいrepositoryを作成する．&lt;/p&gt;
 &lt;p&gt;自分のGitHub pageに行き， &lt;strong&gt;Repositories&lt;/strong&gt; tagをクリックして， &lt;strong&gt;Repositories&lt;/strong&gt; ページに移動すると下図のようになるので，右端の &lt;strong&gt;New&lt;/strong&gt; をクリックする．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-1.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/GitHub-1.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-1.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/GitHub-1.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;New&lt;/strong&gt; をクリックすると下図のようになるので，適当な名前を &lt;strong&gt;Repository name&lt;/strong&gt; に 入力して新しいrepositoryを作成する．名前はなんでも良いが，ここではMySlidesにした．名前を入力したら，一番下の &lt;strong&gt;Create repository&lt;/strong&gt; をクリックして作成する．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-2.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/GitHub-2.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-2.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/GitHub-2.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;作成したGitHub pageのrepositoryをlocalにクローンする．&lt;/p&gt;
 &lt;p&gt;ターミナルで以下のように行った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Data/Slides
-$ git clone https://github.com/ユーザー名/リポジトリ名.git
-&lt;span style=&#34;color:#75715e&#34;&gt;# 今回の場合だと以下のようになる&lt;/span&gt;
-$ git clone https://github.com/taipapamotohus/MySlides.git
-&lt;span style=&#34;color:#75715e&#34;&gt;# クローンしたrepositoryのdirectoryに移動する&lt;/span&gt;
-$ cd MySlides
-$ pwd
-/Users/taipapa/Data/Slides/MySlides
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Data/Slides
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/ユーザー名/リポジトリ名.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 今回の場合だと以下のようになる&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/taipapamotohus/MySlides.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# クローンしたrepositoryのdirectoryに移動する&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd MySlides
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/taipapa/Data/Slides/MySlides
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;localで作成したウェブページをこのMySlides directoryにコピーする．&lt;/p&gt;
 &lt;p&gt;この時に，reveal.jsの中身などを全てコピーする必要はなく，ウェブページができる最小限にすれば容量が節約できる．cssとか画像とか動画など必要なものは全てコピーする．今回は以下のような内容とした．そうそう，作成したhtmlファイルの名前を &lt;strong&gt;index.html&lt;/strong&gt; に直すことを忘れないように注意する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ pwd
-$ /Users/taipapa/Data/Slides/MySlides
-$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
-.
-├── Movies
-│   └── Knight-33990.mp4
-├── custom_oer.css
-├── figures
-│   ├── hoge_fuga.jpg
-│   └── hoge_fuga.meta
-├── index.html
-└── reveal.js
-    ├── bower_components
-    │   ├── reveal.js-menu
-    │   └── reveal.js-plugins
-    ├── css
-    │   ├── print
-    │   ├── reset.css
-    │   ├── reveal.css
-    │   ├── reveal.scss
-    │   └── theme
-    ├── js
-    │   └── reveal.js
-    ├── lib
-    │   ├── css
-    │   ├── font
-    │   └── js
-    └── plugin
-        ├── highlight
-        ├── markdown
-        ├── math
-        ├── multiplex
-        ├── notes
-        ├── notes-server
-        ├── print-pdf
-        ├── search
-        └── zoom-js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ /Users/taipapa/Data/Slides/MySlides
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── Movies
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── Knight-33990.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── custom_oer.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── figures
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── hoge_fuga.jpg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── hoge_fuga.meta
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── reveal.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ├── bower_components
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── reveal.js-menu
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   └── reveal.js-plugins
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ├── css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── print
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── reset.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── reveal.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── reveal.scss
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   └── theme
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ├── js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   └── reveal.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ├── lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── font
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   └── js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    └── plugin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── highlight
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── markdown
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── math
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── multiplex
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── notes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── notes-server
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── print-pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ├── search
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        └── zoom-js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;もう一つ大事なことは，index.htmlの中に記載されている絶対パスを相対パスに直すことである．例えば，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;file:///Users/taipapa/Data/Slides/reveal.js/js/reveal.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
-
--------&amp;gt;
-
-&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;reveal.js/js/reveal.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と言うふうに修正する．このように修正しておかないと，GitHubに置いた時に動かなくなってしまう．私はこれにハマった．（ &lt;strong&gt;2020年6月28日追加&lt;/strong&gt; ）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;file:///Users/taipapa/Data/Slides/reveal.js/js/reveal.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-------&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;reveal.js/js/reveal.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と言うふうに修正する．このように修正しておかないと，GitHubに置いた時に動かなくなってしまう．私はこれにハマった．（ &lt;strong&gt;2020年6月28日追加&lt;/strong&gt; ）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;gitで，add, commit, push&lt;/p&gt;
 &lt;p&gt;必要なファイルがMySlides directoryにコピーできたら以下のようにする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Slides/MySlides
-$ git add .
-$ git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# pushしてGitHub pageのrepositoryに反映させる&lt;/span&gt;
-$ git push origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Slides/MySlides
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;first commit&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# pushしてGitHub pageのrepositoryに反映させる&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git push origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;GitHub pageを確認&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/taipapamotohus/MySlides&#34;&gt;https://github.com/taipapamotohus/MySlides&lt;/a&gt; に行くとこんな感じになる．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-3.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/GitHub-3.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-3.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/GitHub-3.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;p&gt;私の下手な説明を読むよりも，このページをgit cloneするかzipを落として．内容を見て貰えば，一番わかりやすいかもしれない．&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;上の画像の右端の &lt;strong&gt;Settings&lt;/strong&gt; をクリックしてSettingsに移動する．下の方までスクリールして &lt;strong&gt;GitHub Pages&lt;/strong&gt; に移動する．ここで下図のように， &lt;strong&gt;Source&lt;/strong&gt; を &lt;strong&gt;master branch&lt;/strong&gt; にセットする．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-4.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/GitHub-4.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/GitHub-4.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/GitHub-4.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://qiita.com/tonkotsuboy%5Fcom/items/f98667b89228b98bc096&#34;&gt;GitHubのmasterブランチをWebページとして公開する手順（GitHub Pages）&lt;/a&gt;によれば，以前は，gh-pagesという別ブランチを作成して、そこにソースコードをプッシュする必要があったが，2016年8月18日以降は，master branchのみでweb pageを公開できるようになったとのことである．もちろん，不要なデータを公開したくない場合は，gh-pages branchを使用すれば良い（&lt;a href=&#34;https://qiita.com/TakuyaHara/items/031294b7a2e586b5c1a4&#34;&gt;ブランチ上の一部のデータのみをGitHub Pagesで公開する&lt;/a&gt;）．&lt;/p&gt;
 &lt;p&gt;これで完成である．&lt;a href=&#34;https://taipapamotohus.com/MySlides/&#34;&gt;https://taipapamotohus.com/MySlides/&lt;/a&gt; をクリックして，ちゃんとスライドが見られることを確認する．&lt;/p&gt;
@@ -197,33 +197,33 @@ $ git push origin master
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;shortcode templateをHugoのroot directoryに作成する．具体的には/Users/taipapa/Data/MyBlog/Taipapablog/layouts/shortcodes/SlideInclusion.htmlとして作成する． &lt;strong&gt;SlideInclusion.html&lt;/strong&gt; の中身は以下の通りである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{.Get 0}}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;frameborder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt;&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{{.Get 0}}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;frameborder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;投稿記事の内部でこのshortcodeを呼ぶ．&lt;/p&gt;
 &lt;p&gt;投稿記事の内部で，埋め込みたい場所に以下のように記述すれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;｛{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;SlideInclusion&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;https:&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;taipapamotohus&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;github&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;MySlides&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt;}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;｛{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;SlideInclusion&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;https:&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;//&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;taipapamotohus&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;github&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;MySlides&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;/&amp;#34;&lt;/span&gt; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（最初の &lt;strong&gt;&amp;quot;{&amp;quot;&lt;/strong&gt; はescapeできないので全角の &lt;strong&gt;&amp;quot;｛&amp;quot;&lt;/strong&gt; にしていることに注意）&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;上記の書き込みにより，以下のように作成したウェブページが埋め込まれる．&lt;/p&gt;
 &lt;p&gt;私の場合は，org-modeのパッケージであるox-hugoを使用して書いているのだが，上記のコードをそのまま書いても埋め込まれることは埋め込まれる．&lt;/p&gt;
 &lt;iframe src=&#34;#ZgotmplZ&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;br /&gt;
-というわけでうまく埋め込まれ．．．ていない！この記事自体が埋め込まれてしまっている．これはこれで面白いが（笑）&lt;/p&gt;
+&lt;br /&gt;
+というわけでうまく埋め込まれ．．．ていない！この記事自体が埋め込まれてしまっている．これはこれで面白いが（笑）
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;iframeを，ox-hugoの中に直接書き込む．&lt;/p&gt;
 &lt;p&gt;shortcodeをox-hugoから呼ぶとうまく行かないので，以下のように，直接 &lt;strong&gt;iframe&lt;/strong&gt; のコードをox-hugoのファイルに書き込むことにした．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_EXPORT html
-&amp;lt;iframe src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://taipapamotohus.github.io/MySlides/&amp;#34;&lt;/span&gt; width=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; height=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; frameborder=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; allowfullscreen=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; allow=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/iframe&amp;gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_EXPORT
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;br /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_EXPORT html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;iframe src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://taipapamotohus.github.io/MySlides/&amp;#34;&lt;/span&gt; width=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; height=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; frameborder=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; allowfullscreen=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; allow=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_EXPORT
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br /&gt;
 このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる．
-&lt;br /&gt;&lt;/p&gt;
+&lt;br /&gt;
 &lt;iframe src=&#34;https://taipapamotohus.github.io/MySlides/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;br /&gt;
-前々回の記事（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）も今回の内容に合わせて修正しておいた．&lt;/p&gt;
+&lt;br /&gt;
+前々回の記事（[How to create presentation slides by reveal.js and org-mode (org-reveal)](../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal)）も今回の内容に合わせて修正しておいた．
 &lt;p&gt;reveal.jsに関しては，まだ色々と面白そうなことがある．D3.jsとの組みわせとか．．．いずれまとめることができたらと考えている．&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;</description>
@@ -231,9 +231,9 @@ $ git push origin master
     
     <item>
       <title>How to create presentation slides by reveal.js and org-mode (org-reveal) Part2</title>
-      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0900</pubDate>
-      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-reveal-part2/</guid>
+      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2/</guid>
       <description>&lt;h2 id=&#34;コロナ肺炎-covid-19-について&#34;&gt;コロナ肺炎（COVID-19）について&lt;/h2&gt;
 &lt;p&gt;COVID-19に対する緊急事態宣言が5月末まで延長されることになった．現状を鑑みればやむを得ない判断であろう．今回の会見で，ようやくPCR検査が少ないことを認めた．&lt;a href=&#34;https://www.covid19-yamanaka.com/cont3/17.html&#34;&gt;山中伸弥による新型コロナウイルス情報発信&lt;/a&gt;から辿れる&lt;a href=&#34;https://ourworldindata.org/covid-testing#testing-coverage&#34;&gt;Testing coverage&lt;/a&gt;に行けば，PCR検査の国別の比較の最新データを見ることができる．冒頭の写真はいつものお気楽な観光写真ではなく，このサイトからのグラフである．一目瞭然ではあるが，既にこれまでも報道されてきた通り，日本のPCR検査数は圧倒的に少ない．「途上国並み」と揶揄する報道もあったが，それでは多くの途上国に失礼になるような数字である．グラフは1000人あたりのPCR検査数を示しており，アイスランドの147.8人（人口の15%!）は別格として，いわゆる先進国は2桁以上である．トルコ，韓国も12ー13，台湾 2.71，ベトナム 2.68などに対して， &lt;strong&gt;日本は1.46&lt;/strong&gt; である．&lt;/p&gt;
 &lt;p&gt;PCR検査が少ないことを認めたわけなので，今後は一刻も早く増やしてもらいたい．脳卒中，心筋梗塞，外傷などの救急治療や癌の手術などは延期することは困難であり，救急に携わる医療スタッフ，救急医，麻酔科医，外科医，手術室スタッフなどは高い感染リスクに晒されている．特に，全身麻酔の際に気管内挿管を行う麻酔科医はエアロゾルを直接浴びることになる．基本的に通常の手術の前でも，B型肝炎，C型肝炎，梅毒，HIVなどの感染症をルーチンに調べる．緊急手術か定期手術かにかかわらず，術前検査にCOVID-19のPCRを加えることは医療崩壊を防ぐためにも必須であろう．僅かではあるが，既にそうしている病院もある．中国からの報告によれば，COVID-19 の確定患者の29%は医療従事者であり，12%は入院患者，即ち，合計41%が院内感染であることを肝に銘じる必要がある（JAMA. 2020 Feb 7. doi: 10.1001/jama.2020.1585）．&lt;/p&gt;
@@ -252,25 +252,25 @@ $ git push origin master
 &lt;h2 id=&#34;how-to-add-shadow-and-color-to-the-text-box&#34;&gt;How to add shadow and color to the text box&lt;/h2&gt;
 &lt;p&gt;前回（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）にデザインを変更するために &lt;strong&gt;custom_oer.css&lt;/strong&gt; を作成した．今回はこのcssにいくつか追記をしてスライドをさらにattractiveにしようという内容である．もはやreveal.jsそのものとはほとんど関係ない．．．．&lt;/p&gt;
 &lt;p&gt;まず，定番からやってみた．テキストの部分に影をつけて立体的にし四角の角を丸くし，背景色をラベンダーにしてみる．LaTeXのbeamerのblockからのパクリである．以下のコードを &lt;strong&gt;custom_oer.css&lt;/strong&gt; に追加する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;.shadowLavender&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-  /*影を入れて角を丸くし背景色をラベンダーにする*/
-  -webkit-box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-  -moz-box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-  box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-  border-radius: 20px;
-  padding-left: 15pt;
-  background-color: rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;padding-leftの部分は文字がテキストボックスの左端に寄りすぎるので，少し隙間が空くように調整している．その上で，前回（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）に作成したメインファイルである &lt;strong&gt;reveal_test.org&lt;/strong&gt; の最初の部分である「背景と目的」を以下のように修正する． &lt;strong&gt;#+REVEAL_HTML:&lt;/strong&gt; を使うのがミソである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;shadowLavender&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い.
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した.
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参照サイト&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;[[https://github.com/yjwen/org-reveal][Introduction to Org-Reveal]]
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを保存したのちに，C-c C-e RBとして確認すると下図のようになる．やはり多少装飾性を有する方がattractiveであろう．shadowの大きさや背景色はお好みに合わせて調整していただきたい．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.shadowLavender&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  /*影を入れて角を丸くし背景色をラベンダーにする*/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -webkit-box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -moz-box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  box-shadow: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  border-radius: 20px;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  padding-left: 15pt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  background-color: rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;padding-leftの部分は文字がテキストボックスの左端に寄りすぎるので，少し隙間が空くように調整している．その上で，前回（&lt;a href=&#34;../how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal&#34;&gt;How to create presentation slides by reveal.js and org-mode (org-reveal)&lt;/a&gt;）に作成したメインファイルである &lt;strong&gt;reveal_test.org&lt;/strong&gt; の最初の部分である「背景と目的」を以下のように修正する． &lt;strong&gt;#+REVEAL_HTML:&lt;/strong&gt; を使うのがミソである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;shadowLavender&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参照サイト&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;[[https://github.com/yjwen/org-reveal][Introduction to Org-Reveal]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを保存したのちに，C-c C-e RBとして確認すると下図のようになる．やはり多少装飾性を有する方がattractiveであろう．shadowの大きさや背景色はお好みに合わせて調整していただきたい．&lt;/p&gt;
 
 
 
@@ -288,15 +288,15 @@ $ git push origin master
 
 &lt;h2 id=&#34;how-to-add-shadow-to-the-image&#34;&gt;How to add shadow to the image&lt;/h2&gt;
 &lt;p&gt;次も定番である．画像に同様に影をつけてみる．先ほどと同様に，以下のコードを &lt;strong&gt;custom_oer.css&lt;/strong&gt; に追加する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;.image_carousel img &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-    box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-    -webkit-box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-    -moz-box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ついで，メインファイルである &lt;strong&gt;reveal_test.org&lt;/strong&gt; の画像を含む部分を修正する．例えば，以下のようにする．「hogefuga症例の画像」の部分を以下のように修正する． &lt;strong&gt;#+REVEAL_HTML:&lt;/strong&gt; を使うのは同様である．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像 &lt;span style=&#34;color:#a6e22e&#34;&gt;shadow&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;figure image_carousel&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;img src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./figures/hoge_fuga.jpg&amp;#34;&lt;/span&gt; alt=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;/&amp;gt;&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを保存したのちに，C-c C-e RBとして確認すると下図のようになる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.image_carousel img &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -webkit-box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    -moz-box-shadow: 0px 4px 8px &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0, 0, 0, 0.5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ついで，メインファイルである &lt;strong&gt;reveal_test.org&lt;/strong&gt; の画像を含む部分を修正する．例えば，以下のようにする．「hogefuga症例の画像」の部分を以下のように修正する． &lt;strong&gt;#+REVEAL_HTML:&lt;/strong&gt; を使うのは同様である．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像 &lt;span style=&#34;color:#a6e22e&#34;&gt;shadow&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;figure image_carousel&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;img src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./figures/hoge_fuga.jpg&amp;#34;&lt;/span&gt; alt=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;/&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを保存したのちに，C-c C-e RBとして確認すると下図のようになる．&lt;/p&gt;
 
 
 
@@ -315,17 +315,17 @@ $ git push origin master
 &lt;p&gt;画像に影をつけると，centering（中央寄せ）がなかなかうまくいかず苦労したが， &lt;strong&gt;figure&lt;/strong&gt; と組み合わせることでなんとかなった．もっとうまい方法があるのだろうが，私にはこれが精一杯であった．&lt;/p&gt;
 &lt;h2 id=&#34;how-to-add-color-to-table-row&#34;&gt;How to add color to table row&lt;/h2&gt;
 &lt;p&gt;次はテーブルの色つけである．これもbeamerを参考にほんのりラベンダーにしてみた．以下のコードを &lt;strong&gt;custom_oer.css&lt;/strong&gt; に追加する．タイトル行は濃い目に，奇数行は薄めに，偶数行は中間の透明度にしてみた．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;/* テーブルのセルの色を変更 */
-.reveal section table th &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-  background-color: rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-  font-weight: bold; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-.reveal section table tr:nth-child&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;even&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-  background-color:  rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.7&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-
-.reveal section table tr:nth-child&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;odd&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-  background-color:  rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.3&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;テーブルの色つけは，reveal_test.orgをいじる必要はなく，cssを設定するだけで良い．以下のようになる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* テーブルのセルの色を変更 */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal section table th &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  background-color: rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  font-weight: bold; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal section table tr:nth-child&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;even&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  background-color:  rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.7&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal section table tr:nth-child&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;odd&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  background-color:  rgba&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;230, 230, 250, 0.3&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;テーブルの色つけは，reveal_test.orgをいじる必要はなく，cssを設定するだけで良い．以下のようになる．&lt;/p&gt;
 
 
 
@@ -347,9 +347,9 @@ $ git push origin master
     
     <item>
       <title>How to create presentation slides by reveal.js and org-mode (org-reveal)</title>
-      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/</link>
-      <pubDate>Fri, 24 Apr 2020 00:00:00 +0900</pubDate>
-      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode-org-re-reveal/</guid>
+      <link>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/</guid>
       <description>&lt;p&gt;このブログを始めた頃にLaTeXを用いたスライド作成について一連の記事（&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;など）にまとめた．しかし，10年以上もこの方法を使ってきて，少々飽きてきたと言うのが正直な感想である．そんな時に気になっていたのが， &lt;strong&gt;reveal.js&lt;/strong&gt; である．今回は，思いきってreveal.jsによるスライド作成に挑んでみたので，その顛末をまとめておく．私にはhtmlやjavascriptはさっぱりなので，例によってorg-modeを介しての作成となった．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
 &lt;div&gt;&lt;/div&gt;
@@ -393,56 +393,56 @@ $ git push origin master
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;まず，node.jsをインストールする．macであれば，homebrewを使うのが簡単である．ついでにnpmもインストールする．他のOSでは，各自ググっていただきたい．．．(^^;;;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install node.js
-$ brew install npm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install node.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install npm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;スライドを作る場所として，適当なdirectoryを作成し，そこに移動して，reveal.jsのリポジトリをクローンする．ここでは，Slidesと言うdirectoryを作った．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mkdir /Users/taipapa/Data/Slides
-$ cd /Users/taipapa/Data/Slides
-$ git clone https://github.com/hakimel/reveal.js.git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir /Users/taipapa/Data/Slides
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Data/Slides
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/hakimel/reveal.js.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;reveal.js directoryに移動する&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd reveal.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd reveal.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;依存関係をインストールする&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$  npm install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$  npm install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;プレゼンテーションを開始する&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;  $ npm start
-
-&amp;gt; reveal.js@3.9.2 start /Users/taipapa/Data/Slides/reveal.js
-&amp;gt; grunt serve
-
-Running &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;connect:server&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;connect&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; task
-Started connect web server on http://localhost:8000
-
-Running &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;watch&amp;#34;&lt;/span&gt; task
-Waiting...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  $ npm start
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; reveal.js@3.9.2 start /Users/taipapa/Data/Slides/reveal.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; grunt serve
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Running &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;connect:server&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;connect&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; task
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Started connect web server on http://localhost:8000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Running &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;watch&amp;#34;&lt;/span&gt; task
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Waiting...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;ブラウザで， &lt;a href=&#34;http://localhost:8000&#34;&gt;http://localhost:8000&lt;/a&gt; が開き，プレゼンテーションが見られる．&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;ここまで非常に簡単である．defaultで開くプレゼンは素っ気ないものであるが，reveal.js directoryにあるdemo.htmlを以下のようにindex.htmlにすれば，上述のご本家のGitHub pageのリンクにあるデモと同じスライドが開くようになる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Data/Slides/reveal.js
-$ ls
-CONTRIBUTING.md     css                 js                   package.json
-LICENSE             demo.html           lib                  plugin
-README.md           gruntfile.js        node_modules         test
-bower.json          index.html          package-lock.json
-$ mv index.html index.html_original
-$ cp demo.html index.html
-$ ls
-CONTRIBUTING.md     css                 index.html_original  package-lock.json
-LICENSE             demo.html           js                   package.json
-README.md           gruntfile.js        lib                  plugin
-bower.json          index.html          node_modules         test
-$ npm start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;directory（フォルダ）の中身は以下のようになっている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Data/Slides/reveal.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CONTRIBUTING.md     css                 js                   package.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LICENSE             demo.html           lib                  plugin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;README.md           gruntfile.js        node_modules         test
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bower.json          index.html          package-lock.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mv index.html index.html_original
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cp demo.html index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CONTRIBUTING.md     css                 index.html_original  package-lock.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LICENSE             demo.html           js                   package.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;README.md           gruntfile.js        lib                  plugin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bower.json          index.html          node_modules         test
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ npm start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;directory（フォルダ）の中身は以下のようになっている．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;css/ : これがないとプロジェクトが機能しないコアのスタイル&lt;/li&gt;
 &lt;li&gt;js/ : 上記に同じだがJavascript用&lt;/li&gt;
@@ -469,45 +469,45 @@ $ npm start
 &lt;p&gt;htmlもJavascriptも知らなくてもブログが書けるように，これらを知らなくても，org-modeとreveal.jsを組み合わせて使えばスライドが簡単に作れる．reveal.js用のorg-modeのパッケージは，元来は， &lt;strong&gt;org-reveal&lt;/strong&gt; (&lt;a href=&#34;https://github.com/yjwen/org-reveal&#34;&gt;org-reveal&lt;/a&gt;, &lt;a href=&#34;http://jr0cket.co.uk/slides/revealjs.html&#34;&gt;Introduction to org-reveal&lt;/a&gt;) であり，そのforkである &lt;strong&gt;org-re-reveal&lt;/strong&gt; も活発に開発されているとのことで，どちらをインストールするか迷ったのであるが，上記の御本家のGitHub pageを見ると，2018年6月ごろから作者のyiwenさんが再び盛んにcommitするようになっている．また，フォークのorg-re-revealはemacs-revealのバンドルの一部となっており，少し複雑である．以上の理由から，やはり，御本家を使うことにした．なお，フォークのorg-re-revealに関しては，&lt;a href=&#34;https://dev.classmethod.jp/articles/org-mode-re-reveal/&#34;&gt;【Org-mode】Org文書から reveal.js スライドを作成する&lt;/a&gt; に詳しく紹介されているので，参考にされたい．&lt;/p&gt;
 &lt;h3 id=&#34;installation-of-org-reveal&#34;&gt;Installation of org-reveal&lt;/h3&gt;
 &lt;p&gt;御本家の&lt;a href=&#34;https://github.com/yjwen/org-reveal&#34;&gt;org-reveal&lt;/a&gt;に書いてある通りにすれば良いのだが，私は，いつものごとく，use-packageを用いて以下のようにinit.orgに書き込んでインストールした．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-reveal
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;installation-of-emacs-reveal&#34;&gt;Installation of emacs-reveal&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-reveal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;installation-of-emacs-reveal&#34;&gt;Installation of emacs-reveal&lt;/h4&gt;
 &lt;p&gt;前述したように，org-revealのフォークであるorg-re-revealはemacs-revealのバンドルの一部である．後述するが，reveal.jsのthemeや設定ファイルとして有用なものが含まれているので，emacs-revealもクローンしておいて必要に応じて使えるようにすることをお勧めする．個々に行うと面倒なので，全部突っ込むことにして，&lt;a href=&#34;https://gitlab.com/oer/emacs-reveal#emacs-reveal-for-daily-use&#34;&gt;Emacs-reveal for daily use&lt;/a&gt;の方法に従い，emacs-revealをクローンする．この際にrecursive optionをつけて再帰的にクローンすれば，org-re-reveal, org-re-reveal-ref, oer-revealなどが全部一緒に（161MB）入ってくる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sources
-$ git clone --recursive https://gitlab.com/oer/emacs-reveal.git
-$ cd emacs-reveal
-$ pwd
-/Users/taipapa/Sources/emacs-reveal
-$ ls
-CHANGELOG.org           docker                  org-re-reveal-ref
-CONTRIBUTING.md         emacs-reveal-submodules paper.bib
-LICENSE                 emacs-reveal.el         paper.bib.license
-LICENSES                oer-reveal              paper.md
-Makefile                org-mode                paper.md.license
-README.md               org-re-reveal           tests
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configuration-of-org-reveal&#34;&gt;Configuration of org-reveal&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sources
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone --recursive https://gitlab.com/oer/emacs-reveal.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd emacs-reveal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/taipapa/Sources/emacs-reveal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CHANGELOG.org           docker                  org-re-reveal-ref
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CONTRIBUTING.md         emacs-reveal-submodules paper.bib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LICENSE                 emacs-reveal.el         paper.bib.license
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LICENSES                oer-reveal              paper.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Makefile                org-mode                paper.md.license
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;README.md               org-re-reveal           tests
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configuration-of-org-reveal&#34;&gt;Configuration of org-reveal&lt;/h3&gt;
 &lt;p&gt;設定に関しては， &lt;a href=&#34;https://github.com/yjwen/org-reveal&#34;&gt;org-reveal&lt;/a&gt;に詳細に記載されているが，重要なことを中心に抜粋しておく．&lt;/p&gt;
 &lt;h4 id=&#34;set-the-location-of-reveal-dot-js&#34;&gt;&lt;a href=&#34;https://github.com/yjwen/org-reveal#set-the-location-of-revealjs&#34;&gt;Set the location of Reveal.js&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;org-revealはファイルの内容をexportする前にreveal.jsがどこにあるかを知っておく必要がある．reveal.jsの在り処というのは，reveal.jsのパッケージのトップディレクトリへのパスのことであり，そのディレクトリは &lt;strong&gt;reveal.jsのファイルを含むディレクトリではなく，&lt;/strong&gt;  &lt;strong&gt;README.mdを含むディレクトリ&lt;/strong&gt; のことである．&lt;/p&gt;
 &lt;p&gt;デフォルトでは，./reveal.js であるが，このままだと，全てのスライド原稿がreveal.jsと同じディレクトリにないといけなくなり不便である．そこで，init.orgにパスを書き込むか，あるいは，個々のorg fileの冒頭にrevieal.jsの在り処を書き込む．私は後者の方法をとっており，以下のように書き込んでいる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_ROOT: file:///Users/taipapa/Data/Slides/reveal.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，org-re-revealでは，このパスを書き込んでも読み込んでくれない．私の環境の問題なのかは追及していないが，これも御本家のorg-revealを使用する理由である．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_ROOT: file:///Users/taipapa/Data/Slides/reveal.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，org-re-revealでは，このパスを書き込んでも読み込んでくれない．私の環境の問題なのかは追及していないが，これも御本家のorg-revealを使用する理由である．&lt;/p&gt;
 &lt;h4 id=&#34;select-theme&#34;&gt;&lt;a href=&#34;https://github.com/yjwen/org-reveal#select-theme&#34;&gt;Select theme&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;テーマをREVEAL_THEMEでセットする．テーマはdefaultで11個ぐらいついてくるが，ネットのあちこちにいろいろなテーマが落ちているので，あちこちのテーマを見て参考にし，自分なりに変更して好みのテーマを作れば良い．上述のemacs-orgの中のテーマ（oer-reveal.css）が割と良かったので，使用することにした．テーマを使用するには，reveal.jsのcss directoryの中のtheme directoryに入れれば良い．具体的には以下のようにした．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sources/emacs-reveal/oer-reveal/css
-$ ls
-dbis-longtitle.css             folder_inbox.png.license
-dbis.css                       index.css
-ercis-quote.css                oer-reveal.css
-ercis.css                      outgoing-link.png
-ercis2019.css                  outgoing-link.png.base
-folder_inbox.png               outgoing-link.png.base.license
-folder_inbox.png.base          outgoing-link.png.license
-folder_inbox.png.base.license  toc-style.css
-$ cp oer-reveal.css /Users/taipapa/Slides/reveal.js/css/theme/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;plugin-of-reveal-dot-js&#34;&gt;Plugin of reveal.js&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sources/emacs-reveal/oer-reveal/css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dbis-longtitle.css             folder_inbox.png.license
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dbis.css                       index.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ercis-quote.css                oer-reveal.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ercis.css                      outgoing-link.png
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ercis2019.css                  outgoing-link.png.base
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;folder_inbox.png               outgoing-link.png.base.license
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;folder_inbox.png.base          outgoing-link.png.license
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;folder_inbox.png.base.license  toc-style.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cp oer-reveal.css /Users/taipapa/Slides/reveal.js/css/theme/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;plugin-of-reveal-dot-js&#34;&gt;Plugin of reveal.js&lt;/h2&gt;
 &lt;p&gt;reveal.jsを素のままで使っても十分に有用ではあるが，やはり，pdfやパワーポイントではできないことをやれるようにしたいものである．そこで，プラグインの登場である．&lt;/p&gt;
 &lt;h3 id=&#34;default-plugin--reveal-dot-js-plugin&#34;&gt;Default plugin (&lt;a href=&#34;https://github.com/hakimel/reveal.js/tree/master/plugin&#34;&gt;reveal.js/plugin/&lt;/a&gt;)&lt;/h3&gt;
 &lt;p&gt;デフォルトのプラグインについては，．&lt;a href=&#34;https://revealjs.com/#/&#34;&gt;デモ&lt;/a&gt;を見て貰えばどんな機能か分かると思う．例えば，notesは，発表者用の別フレームが表示され，その中に現在と次のスライドとタイマーが表示される．あるいは，zoomでは，option keyを押しながらクリックすると拡大し，もう一度同じことをすると元に戻る．&lt;/p&gt;
@@ -515,50 +515,50 @@ $ cp oer-reveal.css /Users/taipapa/Slides/reveal.js/css/theme/
 &lt;p&gt;これはthird-partyのプラグインである．このサイトにはデモのリンクも貼ってあるので参考にしていただきたい．私は蛍光ペンをスライドショーの際中にリアルタイムで使いたかったので，chalkboardをインストールして設定した．&lt;/p&gt;
 &lt;h4 id=&#34;installation&#34;&gt;Installation&lt;/h4&gt;
 &lt;p&gt;リンク先に書いてある通りbowerを用いてインストールする．bower自体はbrewでインストールした．前述のchalkboardだけでなく，このサイトの全プラグインがインストールされる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install bower
-$ brew info bower
-bower: stable 1.8.8 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Package manager &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; the web
-https://bower.io/
-/usr/local/Cellar/bower/1.8.8 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;5,413 files, 16.9MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
-Poured from bottle on 2020-03-01 at 17:58:14
-.....
-$ bower install reveal.js-plugins
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，次節のmenu-pluginはsubmoduleであり，別途インストールする必要がある．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install bower
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info bower
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bower: stable 1.8.8 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Package manager &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; the web
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://bower.io/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/bower/1.8.8 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;5,413 files, 16.9MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Poured from bottle on 2020-03-01 at 17:58:14
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.....
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ bower install reveal.js-plugins
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，次節のmenu-pluginはsubmoduleであり，別途インストールする必要がある．&lt;/p&gt;
 &lt;h3 id=&#34;reveal-dot-js-menu&#34;&gt;&lt;a href=&#34;https://github.com/denehyg/reveal.js-menu&#34;&gt;reveal.js-menu&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;各スライドのタイトルにジャンプできるようにするslide out menu プラグインである．また，テーマやスライド遷移を変更できる．この&lt;a href=&#34;https://denehyg.github.io/reveal.js-menu/#/home&#34;&gt;live demo&lt;/a&gt;を見ると分かりやすい．同じく，bowerでインストールする．&lt;/p&gt;
 &lt;h4 id=&#34;installation&#34;&gt;Installation&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ bower install reveal.js-menu
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;plugin-location&#34;&gt;Plugin location&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ bower install reveal.js-menu
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;plugin-location&#34;&gt;Plugin location&lt;/h3&gt;
 &lt;p&gt;上述のthird partyのプラグインのインストールされる場所は以下の通りである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Data/Slides/reveal.js/bower_components
-$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-.
-├── reveal.js-menu
-│   ├── CONTRIBUTING.md
-│   ├── LICENSE
-│   ├── README.md
-│   ├── bower.json
-│   ├── font-awesome
-│   ├── menu.css
-│   ├── menu.js
-│   └── package.json
-└── reveal.js-plugins
-├── LICENSE
-├── README.md
-├── anything
-├── audio-slideshow
-├── bower.json
-├── broadcast
-├── chalkboard
-├── chart
-├── customcontrols
-├── embed-tweet
-├── fullscreen
-├── mathsvg
-├── package.json
-└── spreadsheet
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;つまり，reveal.jsのbower_components directoryに入る．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Data/Slides/reveal.js/bower_components
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── reveal.js-menu
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── CONTRIBUTING.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── LICENSE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── README.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── bower.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── font-awesome
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── menu.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── menu.js
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── package.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── reveal.js-plugins
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── LICENSE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── README.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── anything
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── audio-slideshow
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── bower.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── broadcast
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── chalkboard
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── chart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── customcontrols
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── embed-tweet
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── fullscreen
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── mathsvg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── package.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── spreadsheet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;つまり，reveal.jsのbower_components directoryに入る．&lt;/p&gt;
 &lt;p&gt;なお，default pluginはreveal.jsのすぐしたのplugin directoryに入る．&lt;/p&gt;
 &lt;h2 id=&#34;creation-of-slides-by-org-reveal-and-reveal-dot-js&#34;&gt;Creation of slides by org-reveal and reveal.js&lt;/h2&gt;
 &lt;p&gt;以前の記事（&lt;a href=&#34;../beamer&#34;&gt;beamerでスライド原稿用pdfを作成する（その１）&lt;/a&gt;）と同じような内容のスライド原稿をorg-revealを用いて作成してみる．作成したものはまとめてGithub pageに置いておくので（&lt;a href=&#34;https://github.com/taipapamotohus/MySlides&#34;&gt;MySlides&lt;/a&gt;，live demoは&lt;a href=&#34;https://taipapamotohus.com/MySlides/&#34;&gt;こちら&lt;/a&gt;），クローンするか落とすかして中身を見て貰えば良いのだが，こちらでも順番に説明しておく．なお，前述のプラグインの中にはこのままでは動かないものもあるので，後述するように，一旦，exportしてからhtmlを修正する．（Github pageとlive demoは修正済みのものである）&lt;/p&gt;
@@ -574,158 +574,158 @@ $ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 &lt;li&gt;REVEAL_PREAMBLEで，フッターを指定した．&lt;/li&gt;
 &lt;/ol&gt;
 &lt;!--listend--&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_ROOT: &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;/reveal.js &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; パスは各自の環境に合わせて書き換えていただきたい
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HLEVEL: &lt;span style=&#34;color:#ae81ff&#34;&gt;999&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; transitionsは全て横向き
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_TITLE_SLIDE: &amp;lt;h3&amp;gt;%t&amp;lt;/h3&amp;gt;&amp;lt;h5&amp;gt;%a&amp;lt;/h5&amp;gt;
-
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; スライド移動のコントローラーは右下に表示&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;スライド番号は&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;スライドの番号&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;／&lt;/span&gt;全スライド数&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_INIT_OPTIONS: width:1200, height:800, controlsLayout: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bottom-right&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; slideNumber:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c/t&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; margin: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; minScale:0.2, maxScale:2.5, transition: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fade&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; menu: {side: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;left&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; titleSelector: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;h1,&lt;/span&gt; h2, h3, h4, h5, h6&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; hideMissingTitles: false, markers: true, custom: false, themes: true, transitions: true, openButton: true, openSlideNumber: false, keyboard: true, sticky: false, autoOpen: true}, chalkboard: {boardmarkerWidth: &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;	toggleChalkboardButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80px&amp;#34;&lt;/span&gt; }, toggleNotesButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;130px&amp;#34;&lt;/span&gt;}}
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_THEME: oer-reveal
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: num:nil toc:nil
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTRA_CSS: &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;/custom_oer.css
-
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; [[https://github.com/yjwen/org-reveal/issues/254][List of external plugins?#254]]
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; async: true }
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;}&lt;/span&gt;
-
-
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTRA_CSS: https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
-
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; フッター
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_PREAMBLE: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;footer&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;p&amp;gt;日本hogefuga外科学会 第??回学術総会　202X年X月XX日 日本のどこか&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;Author: \\
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;Author: hogefuga大学大学院 hogefuga研究科　hogefuga分野　\\
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;Author: taipapa, 織田信長, 豊臣秀吉, 徳川家康
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;DATE: 2020年3月22日
-
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い.
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した.
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参照サイト&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;[[https://github.com/yjwen/org-reveal][Introduction to Org-Reveal]]
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Table
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 25%
-
-  |        | cTIA/SIE |  stable   | asymptomatic |  P   |
-  |        | (n &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;) | (n = 122) |  (n &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;186&lt;/span&gt;)   |      |
-  |        |   &amp;lt;c&amp;gt;    |   &amp;lt;c4&amp;gt;    |     &amp;lt;c4&amp;gt;     | &amp;lt;c&amp;gt;  |
-  |--------+----------+-----------+--------------+------|
-  | stroke | &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; (8.3%) | 4 (3.3%)  |   &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; (2.7%)   | 0.32 |
-  | death  |    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     | 1 (0.8%)  |      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       | 0.42 |
-  | MI     |    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     | 1 (0.8%)  |      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       | 0.42 |
-  | Total  | &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; (8.3%) | 6 (4.9%)  |   &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; (2.7%)   | 0.26 |
-
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像
-  [[./figures/hoge_fuga.jpg]]
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像２
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
-  遅延表示も可能
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; 600px
-   [[./figures/hoge_fuga.jpg]]
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像３
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 遅延表示も可能
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 画像の大きさを変更することも可能
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; 400px
-  [[./figures/hoge_fuga.jpg]]
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; ダブルコラムも可能
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;column&amp;#34;&lt;/span&gt; style=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;float:left; width: 50%&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
-  Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;/div&amp;gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;column&amp;#34;&lt;/span&gt; style=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;float:right; width: 50%&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;CAPTION: Hoge-fuga (&lt;span style=&#34;color:#ae81ff&#34;&gt;2020&lt;/span&gt;)
-   [[./figures/hoge_fuga.jpg]]
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;/div&amp;gt;
-
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
-  キャプションも可能
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 動画もOK
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;video controls data-autoplay src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./Movies/Knight-33990.mp4&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/video&amp;gt;
-
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;CAPTION: Coronavirus
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 動画もOK&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;大きな画面&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;video class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stretch&amp;#34;&lt;/span&gt; controls data-autoplay src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./Movies/Knight-33990.mp4&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/video&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このファイルを，/Users/taipapa/Slides/reveal_test.org として保存する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_ROOT: &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;/reveal.js &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; パスは各自の環境に合わせて書き換えていただきたい
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HLEVEL: &lt;span style=&#34;color:#ae81ff&#34;&gt;999&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; transitionsは全て横向き
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_TITLE_SLIDE: &amp;lt;h3&amp;gt;%t&amp;lt;/h3&amp;gt;&amp;lt;h5&amp;gt;%a&amp;lt;/h5&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; スライド移動のコントローラーは右下に表示&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;スライド番号は&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;スライドの番号&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;／&lt;/span&gt;全スライド数&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_INIT_OPTIONS: width:1200, height:800, controlsLayout: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bottom-right&amp;#39;,&lt;/span&gt; slideNumber:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c/t&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; margin: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; minScale:0.2, maxScale:2.5, transition: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fade&amp;#39;,&lt;/span&gt; menu: {side: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;left&amp;#39;,&lt;/span&gt; titleSelector: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;h1,&lt;/span&gt; h2, h3, h4, h5, h6&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;,&lt;/span&gt; hideMissingTitles: false, markers: true, custom: false, themes: true, transitions: true, openButton: true, openSlideNumber: false, keyboard: true, sticky: false, autoOpen: true}, chalkboard: {boardmarkerWidth: &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;	toggleChalkboardButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80px&amp;#34;&lt;/span&gt; }, toggleNotesButton: { left: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;130px&amp;#34;&lt;/span&gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_THEME: oer-reveal
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: num:nil toc:nil
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTRA_CSS: &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;/custom_oer.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; [[https://github.com/yjwen/org-reveal/issues/254][List of external plugins?#254]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&amp;#39;,&lt;/span&gt; async: true }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTERNAL_PLUGINS: {src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%sbower_components/reveal.js-menu/menu.js&amp;#39;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_EXTRA_CSS: https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; フッター
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_PREAMBLE: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;footer&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;p&amp;gt;日本hogefuga外科学会 第??回学術総会　202X年X月XX日 日本のどこか&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;Author: \\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;Author: hogefuga大学大学院 hogefuga研究科　hogefuga分野　\\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;Author: taipapa, 織田信長, 豊臣秀吉, 徳川家康
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;DATE: 2020年3月22日
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参照サイト&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;[[https://github.com/yjwen/org-reveal][Introduction to Org-Reveal]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Table
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 25%
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  |        | cTIA/SIE |  stable   | asymptomatic |  P   |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  |        | (n &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;) | (n = 122) |  (n &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;186&lt;/span&gt;)   |      |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  |        |   &amp;lt;c&amp;gt;    |   &amp;lt;c4&amp;gt;    |     &amp;lt;c4&amp;gt;     | &amp;lt;c&amp;gt;  |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  |--------+----------+-----------+--------------+------|
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  | stroke | &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; (8.3%) | 4 (3.3%)  |   &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; (2.7%)   | 0.32 |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  | death  |    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     | 1 (0.8%)  |      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       | 0.42 |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  | MI     |    &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     | 1 (0.8%)  |      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       | 0.42 |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  | Total  | &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; (8.3%) | 6 (4.9%)  |   &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; (2.7%)   | 0.26 |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [[./figures/hoge_fuga.jpg]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像２
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  遅延表示も可能
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; 600px
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   [[./figures/hoge_fuga.jpg]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; hogefuga症例の画像３
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 遅延表示も可能
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 画像の大きさを変更することも可能
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; 400px
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  [[./figures/hoge_fuga.jpg]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; ダブルコラムも可能
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;column&amp;#34;&lt;/span&gt; style=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;float:left; width: 50%&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Nullam eu ante vel est convallis dignissim.  Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.  Nunc porta vulputate tellus.  Nunc rutrum turpis sed pede.  Sed bibendum.  Aliquam posuere.  Nunc aliquet, augue nec adipiscing interdum, lacus tellus malesuada massa, quis varius mi purus non odio.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;column&amp;#34;&lt;/span&gt; style=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;float:right; width: 50%&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;CAPTION: Hoge-fuga (&lt;span style=&#34;color:#ae81ff&#34;&gt;2020&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   [[./figures/hoge_fuga.jpg]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_REVEAL: &lt;span style=&#34;color:#e6db74&#34;&gt;:frag&lt;/span&gt; roll-in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  キャプションも可能
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 動画もOK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;video controls data-autoplay src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./Movies/Knight-33990.mp4&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/video&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;CAPTION: Coronavirus
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 動画もOK&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;大きな画面&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;REVEAL_HTML: &amp;lt;video class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stretch&amp;#34;&lt;/span&gt; controls data-autoplay src=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./Movies/Knight-33990.mp4&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/video&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このファイルを，/Users/taipapa/Slides/reveal_test.org として保存する．&lt;/p&gt;
 &lt;h3 id=&#34;creation-of-custom-css-file&#34;&gt;creation of custom css file&lt;/h3&gt;
 &lt;p&gt;ついで，微調整のために以下に示すcssファイルを作成し，/Users/taipapa/Slides/custom_oer.cssとして作成する．locationが内容と齟齬のないように注意する．試行錯誤の痕跡もそのままにしておく．このファイルでは，フォントの大きさや色などを指定している．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;/* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */
-.reveal table th, .reveal table td {
-/* text-align: center; */
-border: 1px solid white;
-}
-
-/* https://stackoverflow.com/questions/4012872/how-to-center-a-footer-div-on-a-webpage/4012888 */
-/* https://stackoverflow.com/questions/15629511/how-can-i-make-my-footer-center-to-the-bottom-of-the-page/15629635 */
-
-/* div.footer { */
-/*   /\* font-family: &amp;#34;Source Sans Pro&amp;#34;, Helvetica, sans-serif; *\/ */
-/*   font-size: 2vh; */
-/*   color: gray; */
-/*   position: fixed; */
-/*   left: 400px; */
-/*   bottom: 2px; */
-/*   /\* z-index: 50; *\/ } */
-
-div.footer {
-/* font-family: &amp;#34;Source Sans Pro&amp;#34;, Helvetica, sans-serif; */
-font-size: 2vh;
-color: gray;
-position: fixed;
-/* left: 400px; */
-bottom: 1px;
-width: 100%;
-text-align: center;
-/* margin-left:auto; */
-/* margin-right:auto; */
-/* margin-top:2em; */
-/* z-index: 50; */ }
-
-.reveal .slides section &amp;gt; section {  /*これによりフレームタイトルが上部に固定される．*/
-/* height: 100%; */
-height: 95%;
-/* width:  100%; */
-}
-
-.reveal h3 {
-font-size: 1.8em; }
-
-.reveal h2 {
-font-size: 2.0em; }
-
-/* 段落内の行間の調整 */
-/* https://github.com/yjwen/org-reveal/issues/38 */
-/* .reveal p { */
-/*   line-height: 3; */
-/* } */
-/* .reveal .org-ul { */
-/*   line-height: 2; */
-/* } */
-
-/* リストの間のスペースの調整 */
-/* https://github.com/yjwen/org-reveal/issues/38 */
-.reveal li { margin: 0; padding: 0.5em}
-
-/* Push each slide change to the browser history */
-/* スライドの変更をブラウザの履歴に記録する */
-Reveal.initialize({
-history: true,
-});
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（うーむ，何故かhtml blockはsyntax highlightが効かない．．．まぁ，ここは後日に追求することにする．．．😅）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* http://nwidger.github.io/blog/post/making-a-reveal.js-presentation-with-org-reveal/ */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal table th, .reveal table td {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* text-align: center; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;border: 1px solid white;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* https://stackoverflow.com/questions/4012872/how-to-center-a-footer-div-on-a-webpage/4012888 */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* https://stackoverflow.com/questions/15629511/how-can-i-make-my-footer-center-to-the-bottom-of-the-page/15629635 */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* div.footer { */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   /\* font-family: &amp;#34;Source Sans Pro&amp;#34;, Helvetica, sans-serif; *\/ */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   font-size: 2vh; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   color: gray; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   position: fixed; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   left: 400px; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   bottom: 2px; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   /\* z-index: 50; *\/ } */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;div.footer {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* font-family: &amp;#34;Source Sans Pro&amp;#34;, Helvetica, sans-serif; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;font-size: 2vh;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color: gray;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;position: fixed;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* left: 400px; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bottom: 1px;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;width: 100%;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;text-align: center;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* margin-left:auto; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* margin-right:auto; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* margin-top:2em; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* z-index: 50; */ }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal .slides section &amp;gt; section {  /*これによりフレームタイトルが上部に固定される．*/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* height: 100%; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;height: 95%;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* width:  100%; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal h3 {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;font-size: 1.8em; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal h2 {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;font-size: 2.0em; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* 段落内の行間の調整 */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* https://github.com/yjwen/org-reveal/issues/38 */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* .reveal p { */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   line-height: 3; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* } */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* .reveal .org-ul { */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/*   line-height: 2; */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* } */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* リストの間のスペースの調整 */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* https://github.com/yjwen/org-reveal/issues/38 */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.reveal li { margin: 0; padding: 0.5em}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* Push each slide change to the browser history */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/* スライドの変更をブラウザの履歴に記録する */
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Reveal.initialize({
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;history: true,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（うーむ，何故かhtml blockはsyntax highlightが効かない．．．まぁ，ここは後日に追求することにする．．．😅）&lt;/p&gt;
 &lt;p&gt;これでようやく準備が整った．reveal_test.orgをhtmlファイルとしてexportするために， &lt;strong&gt;C-c C-e&lt;/strong&gt; とすると，下図のような画面になる．&lt;/p&gt;
 
 
@@ -754,32 +754,32 @@ history: true,
 &lt;li&gt;右端のnotesをクリックすると，カーソルがマーカーに変わり，グレーの蛍光ペンとして書くことはできる．しかし，&amp;ldquo;x&amp;quot;を押すことにより，グレー，青，赤，緑，オレンジ，紫，黄色と順番に色が変わっていく機能は効かない．また，右クリックでwipeして書いたものを消すことはできるが，delete keyで描いたものを一挙に消すことはできない．&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;いちばん使いたかった蛍光ペンがうまく動かないのである．色々と弄ってみたが，ox-revealのレベルではorg-modeをどう設定しても機能するようにはならず，結局，出来上がったhtmlファイルに直に以下のように追記することにした．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;--- org-reveal_for_blog_oer-FINAL_v2.html	2020-04-20 21:08:18.000000000 +0900
-+++ org-reveal_for_blog_oer-FINAL_v2-keyboard.html	2020-04-11 13:28:15.000000000 +0900
-@@ -219,7 +219,16 @@
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/marked.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/markdown.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
-  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/zoom-js/zoom.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
-- &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
-+    &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;,
-+    keyboard: &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
-+	    67: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleNotesCanvas&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle notes canvas when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt; is pressed
-+	    66: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleChalkboard&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt; is pressed
-+	    46: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.clear&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// clear chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;DEL&amp;#39;&lt;/span&gt; is pressed
-+	     8: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.reset&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// reset chalkboard data on current slide when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;BACKSPACE&amp;#39;&lt;/span&gt; is pressed
-+	    68: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.download&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// downlad recorded chalkboard drawing when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt; is pressed
-+	    88: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorNext&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors forward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt; is pressed
-+	    89: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorPrev&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors backward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt; is pressed
-+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
- &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
- &amp;lt;/script&amp;gt;
- &amp;lt;/body&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するに，keyboard以下が追加部分である．chalkboardの設定を&lt;a href=&#34;https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard&#34;&gt;reveal.js-plugins/chalkboard/&lt;/a&gt;の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--- org-reveal_for_blog_oer-FINAL_v2.html	2020-04-20 21:08:18.000000000 +0900
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+++ org-reveal_for_blog_oer-FINAL_v2-keyboard.html	2020-04-11 13:28:15.000000000 +0900
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@@ -219,7 +219,16 @@
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/marked.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/markdown/markdown.js&amp;#39;&lt;/span&gt;, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.querySelector&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[data-markdown]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/zoom-js/zoom.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;- &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+    &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; src: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;file:///Users/kohkichi/Data/Slides/reveal.js/plugin/notes/notes.js&amp;#39;&lt;/span&gt;, async: true, condition: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; !!document.body.classList; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}]&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+    keyboard: &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	    67: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleNotesCanvas&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle notes canvas when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt; is pressed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	    66: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.toggleChalkboard&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// toggle chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt; is pressed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	    46: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.clear&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// clear chalkboard when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;DEL&amp;#39;&lt;/span&gt; is pressed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	     8: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.reset&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// reset chalkboard data on current slide when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;BACKSPACE&amp;#39;&lt;/span&gt; is pressed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	    68: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.download&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// downlad recorded chalkboard drawing when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d&amp;#39;&lt;/span&gt; is pressed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	    88: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorNext&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors forward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;x&amp;#39;&lt;/span&gt; is pressed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	    89: &lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; RevealChalkboard.colorPrev&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,	// cycle colors backward when &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;y&amp;#39;&lt;/span&gt; is pressed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+	&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;})&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &amp;lt;/body&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するに，keyboard以下が追加部分である．chalkboardの設定を&lt;a href=&#34;https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard&#34;&gt;reveal.js-plugins/chalkboard/&lt;/a&gt;の解説に従って追記した．これにより，上記1ー5で述べた問題は全て解消された．&lt;/p&gt;
 &lt;p&gt;下に， &lt;del&gt;Hugoのshortcodeを使って&lt;/del&gt; &lt;strong&gt;BEGIN_EXPORT html&lt;/strong&gt; を使ってできあがったスライドそのものを埋め込んでみた．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+BEGIN_EXPORT &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;html&lt;/span&gt;
-&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://taipapamotohus.github.io/MySlides/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;frameborder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt;&amp;gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#+END_EXPORT&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる． &lt;strong&gt;”f”&lt;/strong&gt; を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-org&#34; data-lang=&#34;org&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+BEGIN_EXPORT &lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;html&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://taipapamotohus.github.io/MySlides/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;width&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1000&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;height&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;600&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;frameborder&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allowfullscreen&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;allowfullscreen&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;allow&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;iframe&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#+END_EXPORT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このコードをox-hugoで書いた記事に入力すれば，下のように，スライドが埋め込まれる． &lt;strong&gt;”f”&lt;/strong&gt; を叩けば，フルスクリーンになる．色々と弄って遊んでいただければ有り難い．&lt;/p&gt;
 &lt;iframe src=&#34;https://taipapamotohus.github.io/MySlides/&#34; width=&#34;1000&#34; height=&#34;600&#34; frameborder=&#34;0&#34; allowfullscreen=&#34;allowfullscreen&#34; allow=&#34;geolocation *; microphone *; camera *; midi *; encrypted-media *&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;&lt;br /&gt;  これで，やりたいことがほぼ出来るスライドの作成が可能になった．他にも色々な機能があるので，うまく動くようになれば，今後も報告していくつもりである．&lt;/p&gt;</description>
     </item>

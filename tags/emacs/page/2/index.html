@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2020-05-09T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2022-08-03T00:00:00&#43;00:00">
   
 
   
@@ -321,14 +321,24 @@
   
   
   <div>
+    <h2><a href="/post/treemacs_projectile/">Treemacs and Projectile</a></h2>
+    <div class="article-style">
+      
+      MacのFinderに相当するのは，EmacsではDiredであろう．しかし，なにかのプロジェクトに関わる文書群を管理するということになると，Diredでは力不足である．というか目的が違う．これにぴったりなのが，treemacsであり，そのバックボーンになるのが，Projectileである．これらは，プログラマーでもない自分には必要ないものと思っていたのだが，このblogを書くのに使用しているHugoとそのテーマであるacademicをアップデートする際に，非常に役に立ったので，いまだによく分かっていない自分自身のために書き留めておく．
+
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/how-to-upgrade-hugo-and-academic-theme/">How to update hugo and academic theme (Part 1)</a></h2>
     <div class="article-style">
       
       最近のニュースを見ていて思い出した言葉がある．
- &ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow
+&ldquo;True patriotism hates injustice in its own land more than anywhere else.” ― Clarence Darrow
 &ldquo;Patriotism is the last refuge of a scoundrel.&rdquo; ― Samuel Johnson
 &ldquo;Violence is the last refuge of the incompetent.&rdquo;&rdquo; ― Salvor Hardin ( Isaac Asimov)
- 3番目はオマケ
+3番目はオマケ
 閑話休題，以前の記事（How to add horizontal scrollbar for codeblock in academic theme of hugo）で触れたように，このブログは，Hugoという静的サイトジェネレーター（themeはacademic）で作成している．
 
       
@@ -380,12 +390,13 @@
     <div class="article-style">
       
       次世代grepで最速と言われるripgrepをバックエンドとするEmacs用検索ツールであるdeadgrepをインストールしてみた．
- Table of Contents  Ref Install How to use  2019年6月2日追記      Ref  deadgrep: use ripgrep from Emacs ご本家 複雑になった時使うツール とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．．  Install まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．
+Table of Contents Ref Install How to use 2019年6月2日追記 Ref deadgrep: use ripgrep from Emacs ご本家 複雑になった時使うツール とても勉強になるサイト，こちらを読めば本サイトは読まなくても良いような．．． Install まず，バックエンドのripgrepをインストールする．brewを使えば簡単である．
 $ brew install ripgrep ついで，以下のようにinit.orgに書き込んでMRLPAからdeadgrep.elをインストールする．f5にキーバインドしておく．
 #+begin_src emacs-lisp (use-package deadgrep :ensure t :config (global-set-key (kbd &#34;&lt;f5&gt;&#34;) #&#39;deadgrep) ) #+end_src How to use 使用方法の詳細はご本家に書いてあるが，f5を叩いて，検索キーワードを入れるだけである．下の画像は，このブログのあるdirectoryで，「検索」をキーワードとしてdeadgrepを走らせたところである．defaultでdirectory内を再帰的に検索する．キーワードは青くハイライトされており，左端の数字はその文書での行番号である． o を叩くと下のバッファに該当箇所にカーソルがある状態でその文書が開く． C-c C-k で検索を止めることができる．また，swiperとの併用も可能である．
-   一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．
+一番上のSearch termの行のchangeにカーソルを持っていってReturnすると，Minibufferで検索語を変更できる．その下にあるSearch type, Case, Context, Directory, Filesも同様に条件を変更できる．とくに，Directoryは適切なものを選ばないと巨大なデータを検索することになってしまうので注意が必要である．
 個人的には，swiperでほぼ事足りているのだが，大きなプロジェクト内の複数のファイルを一気に検索する必要がある人には非常に有益なツールだと思う．
 2019年6月2日追記 上記のように自分にはあまり役に立たないようなことを書いたが，早速，deadgrepが役に立ったので追記しておく．hyperestraierで全文検索をしようとして，H@estfxpdftohtml というコマンドを使おうとしたのだが，うまくいかず，その原因を探るために，/usr/local/で，H@estfxpdftohtmlをSearch termとして，deadgrepを下の画像のように走らせてみたところ，下側のバッファにあるように，一発で原因が判明してしまった．要するに，xpdfが必要ということであった．なるほど，こういう風に使うのかと納得した．
+なお，全文検索については，いずれ別の機会にまとめてみたい．
       
     </div>
   </div>
@@ -395,7 +406,7 @@ $ brew install ripgrep ついで，以下のようにinit.orgに書き込ん�
     <div class="article-style">
       
       世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから Mojave にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．
- Table of Contents  Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX  pdfにフォントが埋め込まれているかどうかを確認する方法   感想    Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
+Table of Contents Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade to Emacs 26.2 from 26.1 LaTeX pdfにフォントが埋め込まれているかどうかを確認する方法 感想 Upgrade to Mojave from Sierra Ref: macOS Mojave にアップグレードする方法
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
 $ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．
@@ -408,10 +419,12 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
     <div class="article-style">
       
       最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．
- Table of Contents  References peep-diredのインストールと設定 peep-diredの使い方 bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ）    References  peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED  peep-diredのインストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
+Table of Contents References peep-diredのインストールと設定 peep-diredの使い方 bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ） References peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED peep-diredのインストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
 #+begin_src emacs-lisp (use-package peep-dired :ensure t :defer t ; don&#39;t access `dired-mode-map&#39; until `peep-dired&#39; is loaded :bind (:map dired-mode-map (&#34;P&#34; . peep-dired))) #+end_src 設定は上記参照サイトのパクリで，diredで&quot;P&quot;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&quot;P&quot;と打つとpeep-dired modeは終了する．　peep-diredの使い方 File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&quot;P&quot;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．
-   ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．
-   文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．
+ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．
+文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．
+bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ） diredでdirectoryを開けるときにその名前を入力する必要があるが，これが結構面倒である．特に深いところにあるファイルはフルパスを書くのが大変である．どうせ，同じファイルに何回も行くことが多いので，「最近訪れたdirectoryの履歴」みたいなのが一覧表示されると嬉しい．まさに，こんなのぞみにピッタリのものが，bjm/ivy-dired-recent-dirsである．これについては，以前に書いたのでそちらを参考にしていただきたい．というか，以前に書いた事自体を忘れていたので，自分への戒めとして記録しておく．．．(^^;;;
+Ref: 最近開いたディレクトリを開く
       
     </div>
   </div>
@@ -421,20 +434,7 @@ $ brew install hogehoge ......... xcrun: error: invalid active developer path (/
     <div class="article-style">
       
       （承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory    References   HUGO Hugo is one of the most popular open-source static site generators.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></h2>
-    <div class="article-style">
-      
-      本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．
- Table of Contents  Org-babel setup How to use org-babel Org-babel evaluation of R code block    Org-babel setup org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &hellip;..(^^;;;
-ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．
-Ref: Org-babel Setup　ここからコピペ (^^;;;
-#+begin_src emacs-lisp (org-babel-do-load-languages (quote org-babel-load-languages) (quote ((emacs-lisp . t) (dot . t) (ditaa . t) (R .
+Table of Contents References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory References HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
       
     </div>
   </div>
@@ -570,7 +570,7 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -595,7 +595,7 @@ Ref: Org-babel Setup　ここからコピペ (^^;;;
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

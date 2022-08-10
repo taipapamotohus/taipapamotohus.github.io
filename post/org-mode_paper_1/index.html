@@ -29,9 +29,9 @@
     
   
   <meta name="description" content="私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．
-Table of Contents 目的  org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする  org-modeで論文を書く利点  LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう．  org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
+Table of Contents 目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用） koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用） 「org-modeで論文を書く」の実例 目的 org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする org-modeで論文を書く利点 LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう． org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
 私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
-koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R. Tufteによって作られたページレイアウト．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．こういうスタイルはよく見かけるものだと思うが，作者がはっきりしているとは，恥ずかしながら全く知らなかった． tufte-org-modeはこのtufte classをorg-modeから使えるようにした有り難いパッケージである．  org-bullet   参考サイト１：https://github.">
+koma-script – A bundle of versatile classes and packages 参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている． Tufte-LaTeX 参考サイト１： tufte-org-mode Edward R.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/org-mode_paper_1/">
@@ -83,7 +83,7 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -126,13 +126,13 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
   <meta property="og:url" content="/post/org-mode_paper_1/">
   <meta property="og:title" content="Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力） | A perfect autumn day">
   <meta property="og:description" content="私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．
-Table of Contents 目的  org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする  org-modeで論文を書く利点  LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう．  org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
+Table of Contents 目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用） koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用） 「org-modeで論文を書く」の実例 目的 org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする org-modeで論文を書く利点 LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう． org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
 私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
-koma-script – A bundle of versatile classes and packages  参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている．  Tufte-LaTeX  参考サイト１： tufte-org-mode Edward R. Tufteによって作られたページレイアウト．典型的には文章が左側に配置され，右側には広いマージンがありノート，文献，表，図などが配置されるスタイルである．こういうスタイルはよく見かけるものだと思うが，作者がはっきりしているとは，恥ずかしながら全く知らなかった． tufte-org-modeはこのtufte classをorg-modeから使えるようにした有り難いパッケージである．  org-bullet   参考サイト１：https://github."><meta property="og:image" content="/post/org-mode_paper_1/featured.jpg">
+koma-script – A bundle of versatile classes and packages 参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている． Tufte-LaTeX 参考サイト１： tufte-org-mode Edward R."><meta property="og:image" content="/post/org-mode_paper_1/featured.jpg">
   <meta property="twitter:image" content="/post/org-mode_paper_1/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2018-09-01T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2018-09-01T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2018-09-09T20:17:51&#43;09:00">
   
@@ -327,7 +327,7 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
 
 
 
-<meta content="2018-09-01 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2018-09-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-09-09 20:17:51 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -405,7 +405,21 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
     <div class="article-style" itemprop="articleBody">
       <p>私がEmacsを使用している理由の一番大きなものはorg-modeである．あらゆる文書作成にorg-modeを用いている．org-modeを使って論文を書くことに関しては，ググってもらえばおわかりのように，ネット上に山のように情報が存在する．「屋上屋を架してどうする」と言う自分の中の声を押し殺し，あくまで備忘録ということで，あえてここにまとめておく．なお，私はGTDのツールとしてはorg-modeを全く使用していないので，その種の情報はここにはまったくないことをお断りしておく．</p>
 <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#目的">目的</a></li>
+    <li><a href="#org-modeで論文を書く利点">org-modeで論文を書く利点</a></li>
+    <li><a href="#org-modeの設定-セットアップ-pdfとhtmlへの出力用">org-modeの設定・セットアップ（pdfとhtmlへの出力用）</a>
+      <ul>
+        <li><a href="#koma-script-a-bundle-of-versatile-classes-and-packages"><a href="https://ctan.org/pkg/koma-script">koma-script – A bundle of versatile classes and packages</a></a></li>
+        <li><a href="#tufte-latex"><a href="https://tufte-latex.github.io/tufte-latex/">Tufte-LaTeX</a></a></li>
+        <li><a href="#org-bullet">org-bullet</a></li>
+        <li><a href="#org-modeのinit-dot-elの設定-pdf出力用">org-modeのinit.elの設定（pdf出力用）</a></li>
+      </ul>
+    </li>
+    <li><a href="#org-modeで論文を書く-の実例">「org-modeで論文を書く」の実例</a></li>
+  </ul>
+</nav>
 <h2 id="目的">目的</h2>
 <ol>
 <li>org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする</li>
@@ -446,28 +460,28 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
 <li>
 <p>pdf出力とは関係ないが，ついでに触れておく．要するにorg-modeの見た目が良くなるパッケージである．星印が色付きの丸や二重丸になる．やる気に繋がるので，見た目は大事である．こんな感じになる．</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/org-bullet.jpg" >
-
-<img src="/img/org-bullet.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/org-bullet.jpg" >
+    
+    <img src="/img/org-bullet.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 <li>
 <p>init.elには以下のように<a href="https://github.com/jwiegley/use-package">use-package</a>を用いて記述してインストール兼設定となる．もちろん，これも以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）で説明したように，init.orgに書いたものから生成されたinit.elである．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">use-package</span> org-bullets
-  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-  <span style="color:#e6db74">:config</span>
-  (add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> (lambda () (org-bullets-mode <span style="color:#ae81ff">1</span>))))
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> org-bullets
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:config</span>
+</span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> (lambda () (org-bullets-mode <span style="color:#ae81ff">1</span>))))
+</span></span></code></pre></div></li>
 </ul>
 <h3 id="org-modeのinit-dot-elの設定-pdf出力用">org-modeのinit.elの設定（pdf出力用）</h3>
 <ul>
@@ -476,87 +490,87 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
 </li>
 <li>
 <p>何回もしつこいようだが，これも以前の記事（<a href="../init_org">Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</a>）で説明したように，init.orgに書いたものから生成されたinit.elである．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;ox-latex</span>)
-(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.org$&#34;</span> <span style="color:#f92672">.</span> org-mode))
-(<span style="color:#66d9ef">setq</span> org-latex-default-class <span style="color:#e6db74">&#34;bxjsarticle&#34;</span>)
-
-(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
-             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;koma-article&#34;</span>
-               <span style="color:#e6db74">&#34;\\documentclass{scrartcl}&#34;</span>
-               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subsubsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsubsection*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\paragraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\paragraph*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subparagraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subparagraph*{%s}&#34;</span>)))
-
-(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
-             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;koma-jarticle&#34;</span>
-               <span style="color:#e6db74">&#34;\\documentclass{scrartcl}
-</span><span style="color:#e6db74">               \\usepackage{amsmath}
-</span><span style="color:#e6db74">               \\usepackage{amssymb}
-</span><span style="color:#e6db74">               \\usepackage{xunicode}
-</span><span style="color:#e6db74">               \\usepackage{fixltx2e}
-</span><span style="color:#e6db74">               \\usepackage{zxjatype}
-</span><span style="color:#e6db74">               \\usepackage[hiragino-dx]{zxjafont}
-</span><span style="color:#e6db74">               \\usepackage{xltxtra}
-</span><span style="color:#e6db74">               \\usepackage{graphicx}
-</span><span style="color:#e6db74">               \\usepackage{longtable}
-</span><span style="color:#e6db74">               \\usepackage{float}
-</span><span style="color:#e6db74">               \\usepackage{wrapfig}
-</span><span style="color:#e6db74">               \\usepackage{soul}
-</span><span style="color:#e6db74">               \\usepackage{hyperref}&#34;</span>
-               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subsubsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsubsection*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\paragraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\paragraph*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subparagraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subparagraph*{%s}&#34;</span>)))
-
-<span style="color:#75715e">;; tufte-handout class for writing classy handouts and papers</span>
-(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
-             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;tufte-handout&#34;</span>
-               <span style="color:#e6db74">&#34;\\documentclass[twoside,nobib]{tufte-handout}
-</span><span style="color:#e6db74">                                 [NO-DEFAULT-PACKAGES]
-</span><span style="color:#e6db74">                \\usepackage{zxjatype}
-</span><span style="color:#e6db74">                \\usepackage[hiragino-dx]{zxjafont}&#34;</span>
-               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)))
-<span style="color:#75715e">;; tufte-book class</span>
-(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
-             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;tufte-book&#34;</span>
-               <span style="color:#e6db74">&#34;\\documentclass[twoside,nobib]{tufte-book}
-</span><span style="color:#e6db74">                                [NO-DEFAULT-PACKAGES]
-</span><span style="color:#e6db74">                 \\usepackage{zxjatype}
-</span><span style="color:#e6db74">                 \\usepackage[hiragino-dx]{zxjafont}&#34;</span>
-               (<span style="color:#e6db74">&#34;\\part{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\part*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\chapter{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\chapter*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)
-               (<span style="color:#e6db74">&#34;\\paragraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\paragraph*{%s}&#34;</span>)))
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;ox-latex</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.org$&#34;</span> <span style="color:#f92672">.</span> org-mode))
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> org-latex-default-class <span style="color:#e6db74">&#34;bxjsarticle&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;koma-article&#34;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;\\documentclass{scrartcl}&#34;</span>
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subsubsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsubsection*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\paragraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\paragraph*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subparagraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subparagraph*{%s}&#34;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;koma-jarticle&#34;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;\\documentclass{scrartcl}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{amsmath}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{amssymb}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{xunicode}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{fixltx2e}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{zxjatype}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage[hiragino-dx]{zxjafont}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{xltxtra}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{graphicx}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{longtable}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{float}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{wrapfig}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{soul}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">               \\usepackage{hyperref}&#34;</span>
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subsubsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsubsection*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\paragraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\paragraph*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subparagraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subparagraph*{%s}&#34;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; tufte-handout class for writing classy handouts and papers</span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;tufte-handout&#34;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;\\documentclass[twoside,nobib]{tufte-handout}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                 [NO-DEFAULT-PACKAGES]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                \\usepackage{zxjatype}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                \\usepackage[hiragino-dx]{zxjafont}&#34;</span>
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; tufte-book class</span>
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;tufte-book&#34;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;\\documentclass[twoside,nobib]{tufte-book}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                                [NO-DEFAULT-PACKAGES]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                 \\usepackage{zxjatype}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                 \\usepackage[hiragino-dx]{zxjafont}&#34;</span>
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\part{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\part*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\chapter{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\chapter*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)
+</span></span><span style="display:flex;"><span>               (<span style="color:#e6db74">&#34;\\paragraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\paragraph*{%s}&#34;</span>)))
+</span></span></code></pre></div></li>
 <li>
 <p>私はxelatexを使っているので，compileは以下のように設定している．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#66d9ef">setq</span> org-latex-pdf-process
-      <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;xelatex -interaction nonstopmode -output-directory %o %f&#34;</span>
-        <span style="color:#e6db74">&#34;bibtex %b&#34;</span>
-        <span style="color:#e6db74">&#34;xelatex -interaction nontopmode -output-directory %o %f&#34;</span>
-        <span style="color:#e6db74">&#34;xelatex -interaction nonstopmode -output-directory %o %f&#34;</span>))
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> org-latex-pdf-process
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;xelatex -interaction nonstopmode -output-directory %o %f&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;bibtex %b&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;xelatex -interaction nontopmode -output-directory %o %f&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;xelatex -interaction nonstopmode -output-directory %o %f&#34;</span>))
+</span></span></code></pre></div></li>
 <li>
 <p>ここまでEmacsを設定した上で，orgで原稿を書き，C-c C-eと打てば，以下のような画面になる．なお，pandocやTufteの項は別途記事にするので，とりあえずは無視してほしい．</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/org-C-c-C-e.jpg" >
-
-<img src="/img/org-C-c-C-e.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/org-C-c-C-e.jpg" >
+    
+    <img src="/img/org-C-c-C-e.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 <li>
@@ -571,72 +585,72 @@ koma-script – A bundle of versatile classes and packages  参考サイト１�
 <li>それでは実例を示してみる．以下のような書類を作成し，hogefuga.orgとして保存する．hoge_fuga.jpgはorg fileと同じdirectoryにあるものとする．</li>
 <li>前半の＃で始まる行が続く部分はorg-modeの設定であり，latexのこのパッケージを使うぞ，とか，org-modeのヘッダーをどの深さまで表示するかなどを決めている．詳細はググればすぐに分かるので略&hellip;..(^^;;;</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>LaTeX_CLASS: koma-jarticle
-<span style="color:#f92672">#+</span>LaTeX_CLASS_OPTIONS: [12pt]
-<span style="color:#f92672">#+</span>LATEX_HEADER: \usepackage{geometry}
-<span style="color:#f92672">#+</span>LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-<span style="color:#f92672">#+</span>LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-<span style="color:#f92672">#+</span>STARTUP:  overview
-<span style="color:#f92672">#+</span>STARTUP:  hidestars
-<span style="color:#f92672">#+</span>OPTIONS:   H:4 num:nil toc:nil \n:nil @:t <span style="color:#e6db74">::t</span> <span style="color:#960050;background-color:#1e0010">|</span><span style="color:#e6db74">:t</span> ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-<span style="color:#f92672">#+</span>OPTIONS: date:nil
-<span style="color:#f92672">#+</span>LINK_UP:
-<span style="color:#f92672">#+</span>LINK_HOME:
-
-<span style="color:#f92672">#+</span>TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
-<span style="color:#f92672">#+</span>AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
-\vspace*{-1.5cm}
-
-\hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
-
-<span style="color:#a6e22e">*</span> 背景と目的
-hogeとfugaを比較してみると<span style="color:#960050;background-color:#1e0010">，</span>一方で難易度の高い症例でも他方では容易に行える場合も多い<span style="color:#960050;background-color:#1e0010">．</span>当施設では<span style="color:#960050;background-color:#1e0010">，</span>一方に片寄ることなく<span style="color:#960050;background-color:#1e0010">，</span>hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている<span style="color:#960050;background-color:#1e0010">．</span>そこで<span style="color:#960050;background-color:#1e0010">，</span>自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した<span style="color:#960050;background-color:#1e0010">．</span>
-<span style="color:#a6e22e">*</span> 結果
-hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)<span style="color:#960050;background-color:#1e0010">．</span>
-
-<span style="color:#f92672">#+</span>NAME: hoge_fuga
-<span style="color:#f92672">#+</span>caption: hoge-fuga<span style="color:#960050;background-color:#1e0010">（</span>重症例である<span style="color:#960050;background-color:#1e0010">）</span>
-<span style="color:#f92672">#+</span>attr_latex: <span style="color:#e6db74">:float</span> <span style="color:#66d9ef">t</span> <span style="color:#e6db74">:width</span> 3in  <span style="color:#e6db74">:align</span> center
-<span style="color:#f92672">#+</span>ATTR_HTML: <span style="color:#e6db74">:width</span> <span style="color:#ae81ff">500</span>  <span style="color:#e6db74">:float:</span> wrap <span style="color:#e6db74">:align</span> center
-[[./hoge_fuga.jpg]]
-
-<span style="color:#a6e22e">*</span> 結論
-hogefugaによる治療は有効である<span style="color:#960050;background-color:#1e0010">．</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>LaTeX_CLASS: koma-jarticle
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LaTeX_CLASS_OPTIONS: [12pt]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LATEX_HEADER: \usepackage{geometry}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>STARTUP:  overview
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>STARTUP:  hidestars
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>OPTIONS:   H:4 num:nil toc:nil \n:nil @:t <span style="color:#e6db74">::t</span> <span style="color:#960050;background-color:#1e0010">|</span><span style="color:#e6db74">:t</span> ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>OPTIONS: date:nil
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LINK_UP:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>LINK_HOME:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
+</span></span><span style="display:flex;"><span>\vspace*{-1.5cm}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>\hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 背景と目的
+</span></span><span style="display:flex;"><span>hogeとfugaを比較してみると<span style="color:#960050;background-color:#1e0010">，</span>一方で難易度の高い症例でも他方では容易に行える場合も多い<span style="color:#960050;background-color:#1e0010">．</span>当施設では<span style="color:#960050;background-color:#1e0010">，</span>一方に片寄ることなく<span style="color:#960050;background-color:#1e0010">，</span>hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている<span style="color:#960050;background-color:#1e0010">．</span>そこで<span style="color:#960050;background-color:#1e0010">，</span>自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 結果
+</span></span><span style="display:flex;"><span>hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>NAME: hoge_fuga
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>caption: hoge-fuga<span style="color:#960050;background-color:#1e0010">（</span>重症例である<span style="color:#960050;background-color:#1e0010">）</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>attr_latex: <span style="color:#e6db74">:float</span> <span style="color:#66d9ef">t</span> <span style="color:#e6db74">:width</span> 3in  <span style="color:#e6db74">:align</span> center
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>ATTR_HTML: <span style="color:#e6db74">:width</span> <span style="color:#ae81ff">500</span>  <span style="color:#e6db74">:float:</span> wrap <span style="color:#e6db74">:align</span> center
+</span></span><span style="display:flex;"><span>[[./hoge_fuga.jpg]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">*</span> 結論
+</span></span><span style="display:flex;"><span>hogefugaによる治療は有効である<span style="color:#960050;background-color:#1e0010">．</span>
+</span></span></code></pre></div><ul>
 <li>
 <p>ついで，前述のごとく，Emacsでこの文書を開いた状態で，C-c C-e l oと打てば，以下のようなpdfがskimで開かれる．</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/hogefuga_text.jpg" >
-
-<img src="/img/hogefuga_text.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/hogefuga_text.jpg" >
+    
+    <img src="/img/hogefuga_text.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 <li>
 <p>また，C-c C-e h oと打てば，以下のようなhtmlがbrowserで開かれる．latexのコマンドが見えてしまっているのがご愛嬌だが，htmlにしか出力しないのであれば，削除すればよい．</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/hogefuga_html.jpg" >
-
-<img src="/img/hogefuga_html.jpg" width="100%" >
-</a>
-
-</figure>
+    
+    
+    
+    
+    
+    <figure>
+    
+      <a data-fancybox="" href="/img/hogefuga_html.jpg" >
+    
+    <img src="/img/hogefuga_html.jpg" width="100%" >
+    </a>
+    
+    </figure>
 
 </li>
 <li>
@@ -953,7 +967,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -978,7 +992,7 @@ hogefugaによる治療は有効である<span style="color:#960050;background-c
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

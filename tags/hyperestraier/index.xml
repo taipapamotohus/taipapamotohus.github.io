@@ -5,7 +5,7 @@
     <link>/tags/hyperestraier/</link>
       <atom:link href="/tags/hyperestraier/index.xml" rel="self" type="application/rss+xml" />
     <description>hyperestraier</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 24 Jul 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 24 Jul 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>hyperestraier</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Full text search of PDF archives with hyperestraier on maos (mojave) — Hyper Estraierでpdfの全文検索を行う</title>
       <link>/post/fulltextsearch/</link>
-      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/post/fulltextsearch/</guid>
       <description>&lt;p&gt;論文というものはすぐにたまる．読みもしないのにどんどんたまる．21世紀に入った頃は論文のプリントアウトの山ができて定期的に捨てたりしていたのだが，それも今は昔，現在はpdfの時代であり，かなり前からpdfで読んで，注釈など書き込んだりするようになった．しかし，どんどんたまるのは昔以上である．何しろ取るスペースはディスクの容量だけで，物理空間を占拠するわけではないから，いくらでも気兼ねなくため込める．ため込んだ論文数が数千を越えるあたりで，ふと思うわけである．「これを全て読むのは不可能としても，全文検索ができたら便利だろうなぁ．．．」&lt;/p&gt;
 &lt;p&gt;という訳で，今回は，hyperestraierを使ってため込んだpdfの全文検索をできるようにしようという話である．&lt;/p&gt;
@@ -61,140 +61,140 @@
 &lt;p&gt;今回用いるのは&lt;a href=&#34;https://fallabs.com/hyperestraier/index.ja.html&#34;&gt;Hyper Estraier&lt;/a&gt;という全文検索システムである．これがどんなものかはリンク先の文書を読んでもらうとして，早速インストールである．&lt;/p&gt;
 &lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
 &lt;p&gt;homebrewを使用すれば一発である．qdbmなどの依存関係も全部面倒を見てくれるので楽である．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install hyperestraier
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;インストールされたものを見るとこうなっている．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew info hyperestraier
-
-hyperestraier: stable 1.4.13 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Full-text search system &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; communities
-https://fallabs.com/hyperestraier/
-/usr/local/Cellar/hyperestraier/1.4.13 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;278&lt;/span&gt; files, 3.1MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
-Built from source on 2016-12-24 at 22:34:54 with: --with-mecab
-From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hyperestraier.rb
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Dependencies
-Required: qdbm
-&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&amp;gt; Analytics
-install: &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-install_on_request: &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-build_error: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;pdfのindexを作成する際に，hyperestraierに含まれているestfxpdftohtmlというフィルタでPDFのファイルをHTML形式に変換する．しかし，このフィルタは/usr/local/bin/などには入ってくれないので，brewによりインストールされた場所を探して，pathの通るところにsymbolic linkを張っておく．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mdfind -name filter | grep hyperestraier
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
-
-$ ls -al /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
-total &lt;span style=&#34;color:#ae81ff&#34;&gt;48&lt;/span&gt;
-drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt; Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2017&lt;/span&gt; ./
-drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;608&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; ../
--rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1118&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxasis*
--rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1063&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxmantotxt*
--rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1263&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxmsotohtml*
--rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1016&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxpdftohtml*
--rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1007&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxxdwtotxt*
--rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1057&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estwnetxpnd*
-
-$ ln -s /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter/* /usr/local/bin/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;pdftotext&#34;&gt;pdftotext&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install hyperestraier
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;インストールされたものを見るとこうなっている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info hyperestraier
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hyperestraier: stable 1.4.13 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Full-text search system &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; communities
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://fallabs.com/hyperestraier/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;278&lt;/span&gt; files, 3.1MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Built from source on 2016-12-24 at 22:34:54 with: --with-mecab
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hyperestraier.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Dependencies
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Required: qdbm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Analytics
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;install: &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;install_on_request: &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;build_error: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt; days&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;pdfのindexを作成する際に，hyperestraierに含まれているestfxpdftohtmlというフィルタでPDFのファイルをHTML形式に変換する．しかし，このフィルタは/usr/local/bin/などには入ってくれないので，brewによりインストールされた場所を探して，pathの通るところにsymbolic linkを張っておく．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mdfind -name filter | grep hyperestraier
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls -al /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;total &lt;span style=&#34;color:#ae81ff&#34;&gt;48&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt; Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2017&lt;/span&gt; ./
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;608&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; ../
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1118&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxasis*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1063&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxmantotxt*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1263&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxmsotohtml*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1016&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxpdftohtml*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1007&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estfxxdwtotxt*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1057&lt;/span&gt; Dec &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;2016&lt;/span&gt; estwnetxpnd*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -s /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter/* /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;pdftotext&#34;&gt;pdftotext&lt;/h3&gt;
 &lt;p&gt;上述のestfxpdftohtmlであるが，内部でpdftotextを使用している．そして，厄介なことに，このpdftotextはxpdfとpopplerの両方に含まれている．しかも，xpdfに含まれているpdftotextには &lt;strong&gt;-htmlmeta&lt;/strong&gt; optionがないのである．つまり， &lt;strong&gt;xpdfに含まれているpdftotextを使用するとpdf文書のindexができない&lt;/strong&gt; ということになる．実際にそれぞれのversionを見てみると，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;xpdf&amp;gt;&amp;gt;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$ pdftotex&lt;/span&gt;t -h
-pdftotext version 4.01.01
-Copyright 1996-2019 Glyph &amp;amp; Cog, LLC
-..........
-
-&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;poppler&amp;gt;&amp;gt;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$ pdftotext -h
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;pdftotext version 0.77.0
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Copyright 2005-2019 The Poppler Developers - http://poppler&lt;/span&gt;.freedesktop.org
-Copyright 1996-2011 Glyph &amp;amp; Cog, LLC
-..........
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このように，全く異なったものになっているが，どうやら，xpdfのものの方が古いらしい．もし，xpdfをすでに入れている場合は，popplerをインストールしようとすると，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install poppler
-
-Error: Cannot install poppler because conflicting formulae are installed.
-xpdf: because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables
-
-Please &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;brew unlink xpdf&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt; before continuing.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と怒られるので，言われる通りに brew unlink xpdf してから，再度，brew install popplerを行えば良い．これで，popplerの方のpdftotextが使われるようになって，ちゃんとindexができるようになる．私は2台あるMacの片方でだけ何故かindexが作成できないので，原因を調べているうちにこのことに気がついたが，ネットで他に触れている記事が見当たらないので，ここにまとめておく．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;xpdf&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$ pdftotex&lt;/span&gt;t -h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pdftotext version 4.01.01
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Copyright 1996-2019 Glyph &amp;amp; Cog, LLC
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;lt;&amp;lt;poppler&amp;gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;$ pdftotext -h
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;pdftotext version 0.77.0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Copyright 2005-2019 The Poppler Developers - http://poppler&lt;/span&gt;.freedesktop.org
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Copyright 1996-2011 Glyph &amp;amp; Cog, LLC
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このように，全く異なったものになっているが，どうやら，xpdfのものの方が古いらしい．もし，xpdfをすでに入れている場合は，popplerをインストールしようとすると，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install poppler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Error: Cannot install poppler because conflicting formulae are installed.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xpdf: because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Please &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;brew unlink xpdf&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt; before continuing.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;と怒られるので，言われる通りに brew unlink xpdf してから，再度，brew install popplerを行えば良い．これで，popplerの方のpdftotextが使われるようになって，ちゃんとindexができるようになる．私は2台あるMacの片方でだけ何故かindexが作成できないので，原因を調べているうちにこのことに気がついたが，ネットで他に触れている記事が見当たらないので，ここにまとめておく．&lt;/p&gt;
 &lt;p&gt;また，このようにしてxpdfとpopplerをインストールしていると，&lt;a href=&#34;../pdf-tools/#%E8%BF%BD%E8%A8%98-2019%E5%B9%B47%E6%9C%8817%E6%97%A5&#34;&gt; Emacsでpdfを読む (pdf-tools) (2019.07.17追記)&lt;/a&gt;に書いたように，pdf-toolをコンパイルする際に「libffiがどこにあるか分からん」というようなエラーメッセージが出ることがある．その際の対処法は，&lt;a href=&#34;../pdf-tools/#%E8%BF%BD%E8%A8%98-2019%E5%B9%B47%E6%9C%8817%E6%97%A5&#34;&gt; Emacsでpdfを読む (pdf-tools) (2019.07.17追記)&lt;/a&gt;に書いたとおりである．&lt;/p&gt;
 &lt;h3 id=&#34;ユーザー用のウェブディレクトリの作成&#34;&gt;ユーザー用のウェブディレクトリの作成&lt;/h3&gt;
 &lt;p&gt;まず，Apacheを用いてブラウザで検索できるように（これについては後述），自分のhome directoryにSitesというdirectoryを作成する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd ~
-$ mkdir Sites
-$ cd Sites
-$ pwd
-/Users/taipapa/Sites
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Apacheの設定のところで述べるが，このSitesというディレクトリにウェブサイトを構築できるように設定し，WWW ブラウザで全文検索できるようにする．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd ~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir Sites
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd Sites
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/taipapa/Sites
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Apacheの設定のところで述べるが，このSitesというディレクトリにウェブサイトを構築できるように設定し，WWW ブラウザで全文検索できるようにする．&lt;/p&gt;
 &lt;h3 id=&#34;全文検索用のディレクトリの作成&#34;&gt;全文検索用のディレクトリの作成&lt;/h3&gt;
 &lt;p&gt;Sites ディレクトリの中に全文検索用のディレクトリを作成する．ここではpdfファイルの全文検索を行うので，pdfという名前にした．さらに，pdf ディレクトリの中に全文検索の対象となるpdfを集約するためのPDFsというディレクトリを作成する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd ~/Sites
-$ mkdir pdf
-$ cd pdf
-$ mkdir PDFs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;pdfsディレクトリへのpdfの集約&#34;&gt;PDFsディレクトリへのpdfの集約&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd ~/Sites
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir PDFs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;pdfsディレクトリへのpdfの集約&#34;&gt;PDFsディレクトリへのpdfの集約&lt;/h4&gt;
 &lt;p&gt;さて，pdfは，大抵の場合，いくつかのディレクトリに分けて置いてあるであろう．それを全て1箇所に集約して全文検索ができるようにするために，シンボリックリンクを使用する．具体的には，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc とすると，以下のようにする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf/PDFs
-$ ln -s /Data/hogehoge .
-$ ln -s /Data/fugafuga .
-$ ln -s /Data/misc .
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;全文検索用のindexの作成&#34;&gt;全文検索用のindexの作成&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/pdf/PDFs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -s /Data/hogehoge .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -s /Data/fugafuga .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -s /Data/misc .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;全文検索用のindexの作成&#34;&gt;全文検索用のindexの作成&lt;/h3&gt;
 &lt;p&gt;hyperestraierのestcmdを用いて，空のindexを作成する．名前はマニュアルの真似をしてcasketとする（わかれば何でも良いと思う）．これはpdfの配下でPDFsと同じレベルに置く&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ pwd
-/Users/taipapa/Sites/pdf
-$ estcmd create casket
-$ ls -la
-total &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;
-drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;160&lt;/span&gt; Jul &lt;span style=&#34;color:#ae81ff&#34;&gt;29&lt;/span&gt; 20:34 .
-drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt; Aug  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; 22:19 ..
--rw-r--r--@  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; taipapa  staff  &lt;span style=&#34;color:#ae81ff&#34;&gt;8196&lt;/span&gt; Aug  &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 22:12 .DS_Store
-drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;320&lt;/span&gt; Jul &lt;span style=&#34;color:#ae81ff&#34;&gt;29&lt;/span&gt; 20:21 PDFs
-drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;352&lt;/span&gt; Jul &lt;span style=&#34;color:#ae81ff&#34;&gt;29&lt;/span&gt; 21:14 casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでようやく，indexを作成する準備が整った．後は以下のように叩けば良い．optionについてはマニュアルを参照．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
-$ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;document数が11734個，語数が1351563のindex作成に要した時間は約40分強であった．これは，MacBook Pro (15-inch, Late 2016)でもiMac 2012 でも，ほとんど変わらなかった．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/taipapa/Sites/pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd create casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls -la
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;total &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;160&lt;/span&gt; Jul &lt;span style=&#34;color:#ae81ff&#34;&gt;29&lt;/span&gt; 20:34 .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt; Aug  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; 22:19 ..
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--@  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; taipapa  staff  &lt;span style=&#34;color:#ae81ff&#34;&gt;8196&lt;/span&gt; Aug  &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 22:12 .DS_Store
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;320&lt;/span&gt; Jul &lt;span style=&#34;color:#ae81ff&#34;&gt;29&lt;/span&gt; 20:21 PDFs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; taipapa  staff   &lt;span style=&#34;color:#ae81ff&#34;&gt;352&lt;/span&gt; Jul &lt;span style=&#34;color:#ae81ff&#34;&gt;29&lt;/span&gt; 21:14 casket
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでようやく，indexを作成する準備が整った．後は以下のように叩けば良い．optionについてはマニュアルを参照．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;document数が11734個，語数が1351563のindex作成に要した時間は約40分強であった．これは，MacBook Pro (15-inch, Late 2016)でもiMac 2012 でも，ほとんど変わらなかった．&lt;/p&gt;
 &lt;p&gt;optionとしては，optimizeがインデックスを最適化して、不要な領域を削除，purgeはインデックス内にあってファイルシステム上にない文書の情報を削除する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
-$ estcmd optimize /Library/WebServer/Documents/pdf/casket
-$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd optimize /Library/WebServer/Documents/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     &lt;strong&gt;2019年9月17日修正：&lt;/strong&gt;  上記の後二者はdirectoryを間違えている．下記が正しい．
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
-$ estcmd optimize /Users/taipapa/Sites/pdf/casket
-$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;indexの更新&#34;&gt;indexの更新&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd optimize /Users/taipapa/Sites/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;indexの更新&#34;&gt;indexの更新&lt;/h3&gt;
 &lt;p&gt;前述の3つのコマンドを打てば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
-$ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
-$ estcmd optimize /Library/WebServer/Documents/pdf/casket
-$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd optimize /Library/WebServer/Documents/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     &lt;strong&gt;2019年9月17日修正：&lt;/strong&gt;  上記の後二者はdirectoryを間違えている．下記が正しい．
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
-$ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
-$ estcmd optimize /Users/taipapa/Sites/pdf/casket
-$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの &lt;a href=&#34;https://skalldan.wordpress.com/2011/07/01/hyper-estraier-%E3%81%A7-pdf-%E6%96%87%E6%9B%B8%E7%AE%A1%E7%90%86/#sec-3&#34;&gt;インデックス更新の自動化&lt;/a&gt; を参考にされたい．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd gather -pc UTF-8 -cl -fx &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.pdf&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;H@estfxpdftohtml&amp;#34;&lt;/span&gt; -il ja -lf -1 -sd -cm -um casket PDFs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd optimize /Users/taipapa/Sites/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの &lt;a href=&#34;https://skalldan.wordpress.com/2011/07/01/hyper-estraier-%E3%81%A7-pdf-%E6%96%87%E6%9B%B8%E7%AE%A1%E7%90%86/#sec-3&#34;&gt;インデックス更新の自動化&lt;/a&gt; を参考にされたい．&lt;/p&gt;
 &lt;h3 id=&#34;検索のテスト&#34;&gt;検索のテスト&lt;/h3&gt;
 &lt;p&gt;試しにterminalで検索してみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/pdf
-$ estcmd search -vh casket HSP27
---------&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;02D18ACF711B9586&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;--------
-VERSION  1.0
-NODE     local
-HIT      &lt;span style=&#34;color:#ae81ff&#34;&gt;288&lt;/span&gt;
-HINT#1   hsp27   &lt;span style=&#34;color:#ae81ff&#34;&gt;288&lt;/span&gt;
-TIME     0.001226
-DOCNUM   &lt;span style=&#34;color:#ae81ff&#34;&gt;11734&lt;/span&gt;
-WORDNUM  &lt;span style=&#34;color:#ae81ff&#34;&gt;1354563&lt;/span&gt;
-VIEW     HUMAN
-..........
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;うん，ちゃんと動いている．それに速い！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ estcmd search -vh casket HSP27
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;02D18ACF711B9586&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;--------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;VERSION  1.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NODE     local
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;HIT      &lt;span style=&#34;color:#ae81ff&#34;&gt;288&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;HINT#1   hsp27   &lt;span style=&#34;color:#ae81ff&#34;&gt;288&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TIME     0.001226
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DOCNUM   &lt;span style=&#34;color:#ae81ff&#34;&gt;11734&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;WORDNUM  &lt;span style=&#34;color:#ae81ff&#34;&gt;1354563&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;VIEW     HUMAN
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;うん，ちゃんと動いている．それに速い！&lt;/p&gt;
 &lt;h2 id=&#34;apache-set-up&#34;&gt;Apache set up&lt;/h2&gt;
 &lt;p&gt;terminalで検索ではあまりに寂しいので，ブラウザで検索できるようにするために，Web serverを立ち上げる．MacにはデフォルトでApacheがインストールされているというありがたい状態になっているので，これを使う．なお，Apacheについては，&lt;a href=&#34;https://www.kagoya.jp/howto/rentalserver/apache/&#34;&gt;Apacheとは？Webサーバーの仕組みと人気サーバーソフトを徹底解説&lt;/a&gt;などを参考にされたい．&lt;/p&gt;
 &lt;p&gt;Apacheの設定については，以下を参考にした．&lt;/p&gt;
@@ -206,10 +206,10 @@ VIEW     HUMAN
 &lt;/ul&gt;
 &lt;p&gt;これらのサイトを読んだ方が早いのだが，自分のために設定などをまとめておく．&lt;/p&gt;
 &lt;p&gt;まず，念のためにApacheが既にインストールされているかどうかを確かめてみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ httpd -v
-Server version: Apache/2.4.34 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Unix&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-Server built:   Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2019&lt;/span&gt; 20:20:11
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;確かにインストールされている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ httpd -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Server version: Apache/2.4.34 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Unix&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Server built:   Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2019&lt;/span&gt; 20:20:11
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;確かにインストールされている．&lt;/p&gt;
 &lt;h3 id=&#34;cgi-を許可するように-apache-を設定する&#34;&gt;CGI を許可するように Apache を設定する&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -226,12 +226,12 @@ Server built:   Feb &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; &l
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Apache が共有モジュール機能付きでビルドされている場合、モジュールがロードされていることを確認する．具体的には，/etc/apache2/httpd.conf をviを使って以下のように書き換えれば良い（root権限が必要なので sudo している）．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;sudo vi /etc/apache2/httpd.conf
-....
-&lt;span style=&#34;color:#ae81ff&#34;&gt;165&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule cgi_module libexec/apache2/mod_cgi.so&lt;/span&gt;
------&amp;gt;
-LoadModule cgi_module libexec/apache2/mod_cgi.so
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;165行目の行頭の＃を外してアンコメントし，有効化しておく．&lt;br /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vi /etc/apache2/httpd.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;....
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;165&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule cgi_module libexec/apache2/mod_cgi.so&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-----&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LoadModule cgi_module libexec/apache2/mod_cgi.so
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;165行目の行頭の＃を外してアンコメントし，有効化しておく．&lt;br /&gt;
 これをやらないと，cgiが働かず，そのファイル自体がダウンロードされてしまう．&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -242,48 +242,48 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Apacheの起動&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apachectl start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apachectl start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Apacheの停止&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!--listend--&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apachectl stop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apachectl stop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;Apacheの再起動&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!--listend--&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo apachectl restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apachectl restart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;これでApacheを起動したので，hyperestraierに含まれている検索用CGI scriptを利用する．&lt;/p&gt;
 &lt;h3 id=&#34;cgiが動くかどうかのテスト&#34;&gt;CGIが動くかどうかのテスト&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://httpd.apache.org/docs/2.4/ja/howto/cgi.html&#34;&gt;Apache Tutorial: CGI による動的コンテンツ&lt;/a&gt; には，「ScriptAlias ディレクティブを使用して、 CGI プログラム用の特別な別ディレクトリを Apache に設定します。 Apache は、このディレクトリ中の全てのファイルを CGI プログラムであると仮定します。 そして、この特別なリソースがクライアントから要求されると、 そのプログラムの実行を試みます。」と記載されている．一方, mojaveのデフォルトの /etc/apache2/httpd.confでは，ScriptAliasではなく，以下のようにScriptAliasMatchを用いている．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;373&lt;/span&gt;  ScriptAliasMatch ^/cgi-bin/&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;?!&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;?i:webobjects&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.*$&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;/Library/WebServer/CGI-Executables/&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;この正規表現の記述により，cgi-bin/というパスが/Library/WebServer/CGI-Executables/に対応するようになっている（詳細は，&lt;a href=&#34;http://httpd.apache.org/docs/2.4/mod/mod%5Falias.html#scriptalias&#34;&gt;ScriptAlias ディレクティブ&lt;/a&gt;  のScriptAliasMatch ディレクティブを参照）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;373&lt;/span&gt;  ScriptAliasMatch ^/cgi-bin/&lt;span style=&#34;color:#f92672&#34;&gt;((&lt;/span&gt;?!&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;?i:webobjects&lt;span style=&#34;color:#f92672&#34;&gt;))&lt;/span&gt;.*$&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/CGI-Executables/&lt;/span&gt;$1&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;この正規表現の記述により，cgi-bin/というパスが/Library/WebServer/CGI-Executables/に対応するようになっている（詳細は，&lt;a href=&#34;http://httpd.apache.org/docs/2.4/mod/mod%5Falias.html#scriptalias&#34;&gt;ScriptAlias ディレクティブ&lt;/a&gt;  のScriptAliasMatch ディレクティブを参照）&lt;/p&gt;
 &lt;p&gt;ということで，/Library/WebServer/CGI-Executables/にcgi scriptを置けば，CGI programとして動くはずである．macでは最初からperlがインストールされているので，以下のようなperl script（&amp;ldquo;Hello&amp;quot;と表示するだけ）を作成して試してみる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-perl&#34; data-lang=&#34;perl&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/perl&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Content-type: text/html \n\n&amp;#34;&lt;/span&gt;;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを，test.cgiとして保存し，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ chomod &lt;span style=&#34;color:#ae81ff&#34;&gt;755&lt;/span&gt; test.cgi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;して，実行権限を付与した上で，/Library/WebServer/CGI-Executables/に置く．この状態で，ブラウザのurl windowに localhost/cgi-bin/test.cgi と打ち込むと，&amp;ldquo;Hello&amp;rdquo; と表示される．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-perl&#34; data-lang=&#34;perl&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/perl&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Content-type: text/html \n\n&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを，test.cgiとして保存し，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chomod &lt;span style=&#34;color:#ae81ff&#34;&gt;755&lt;/span&gt; test.cgi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;して，実行権限を付与した上で，/Library/WebServer/CGI-Executables/に置く．この状態で，ブラウザのurl windowに localhost/cgi-bin/test.cgi と打ち込むと，&amp;ldquo;Hello&amp;rdquo; と表示される．&lt;/p&gt;
 &lt;p&gt;さて，次の段階に進む前にDocumentRootについて，ちょっと説明が必要（後日の自分のため）．&lt;/p&gt;
 &lt;h3 id=&#34;documentroot&#34;&gt;DocumentRoot&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;参考：&lt;a href=&#34;https://www.adminweb.jp/apache/docroot/index1.html&#34;&gt;ドキュメントルート(DocumentRoot)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;/etc/apache2/httpd.confを，lessを使って読んでみると以下のように書かれている．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ less -N /etc/apache2/httpd.conf
-..........
-&lt;span style=&#34;color:#ae81ff&#34;&gt;240&lt;/span&gt; #
-&lt;span style=&#34;color:#ae81ff&#34;&gt;241&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# DocumentRoot: The directory out of which you will serve your&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;242&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# documents. By default, all requests are taken from this directory, but&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;243&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# symbolic links and aliases may be used to point to other locations.&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;244&lt;/span&gt; #
-&lt;span style=&#34;color:#ae81ff&#34;&gt;245&lt;/span&gt; DocumentRoot &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/Documents&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;246&lt;/span&gt; &amp;lt;Directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/Documents&amp;#34;&lt;/span&gt;&amp;gt;
-..........
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するにDocumentRootというのは文書やコンテンツの置き場所として使われるディレクトリである．Macの場合は， &lt;strong&gt;DocumentRoot &amp;ldquo;/Library/WebServer/Documents&amp;rdquo;&lt;/strong&gt; と指定されており，WWW serverとして公開する内容は，/Library/WebServer/Documents 以下に配置していくことになる．他の場所を参照するためにシンボリックリンクやエーリアスを使用しても良いと書かれている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ less -N /etc/apache2/httpd.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;240&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;241&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# DocumentRoot: The directory out of which you will serve your&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;242&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# documents. By default, all requests are taken from this directory, but&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;243&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# symbolic links and aliases may be used to point to other locations.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;244&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;245&lt;/span&gt; DocumentRoot &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/Documents&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;246&lt;/span&gt; &amp;lt;Directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Library/WebServer/Documents&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要するにDocumentRootというのは文書やコンテンツの置き場所として使われるディレクトリである．Macの場合は， &lt;strong&gt;DocumentRoot &amp;ldquo;/Library/WebServer/Documents&amp;rdquo;&lt;/strong&gt; と指定されており，WWW serverとして公開する内容は，/Library/WebServer/Documents 以下に配置していくことになる．他の場所を参照するためにシンボリックリンクやエーリアスを使用しても良いと書かれている．&lt;/p&gt;
 &lt;p&gt;先ほど起動したApacheへブラウザからアクセスすると（ブラウザのurl が表示されているところにlocalhostと打てば良い）以下のような画面が表示される．&lt;/p&gt;
 
 
@@ -301,10 +301,10 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;/figure&gt;
 
 &lt;p&gt;これは，/Library/WebServer/Documents/index.html.en が表示されているのである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ less /Library/WebServer/Documents/index.html.en
-&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;It works!&amp;lt;/h1&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
-/Library/WebServer/Documents/index.html.en &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;END&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;つまり，この  /Library/WebServer/Documents ディレクトリの配下が， &lt;a href=&#34;http://localhost&#34;&gt;http://localhost&lt;/a&gt; のroot直下となる．pdfを含むディレクトリ，あるいはそのシンボリックリンクを/Library/WebServer/Documents ディレクトリの配下に置けば全文検索を行うcgi scriptの対象とできるわけである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ less /Library/WebServer/Documents/index.html.en
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;It works!&amp;lt;/h1&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/WebServer/Documents/index.html.en &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;END&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;つまり，この  /Library/WebServer/Documents ディレクトリの配下が， &lt;a href=&#34;http://localhost&#34;&gt;http://localhost&lt;/a&gt; のroot直下となる．pdfを含むディレクトリ，あるいはそのシンボリックリンクを/Library/WebServer/Documents ディレクトリの配下に置けば全文検索を行うcgi scriptの対象とできるわけである．&lt;/p&gt;
 &lt;p&gt;しかし，そうなると，前述の/Library/WebServer/CGI-Executables/に於いても同じであるが，全ての作業をrootとして行わなければならなくなり，何をするにもsudoしないといけないのが面倒であるし，security上でも問題であろう．そこで，UserDir ディレクティブを使って 各ユーザがホームディレクトリにSites directoryを作成し，ウェブサイトを構築できるように設定する．要するに，先ほど作成した/Users/taipapa/Sites/pdf/以下のディレクトリで全文検索ができるように設定するということである．&lt;/p&gt;
 &lt;h3 id=&#34;ユーザ毎のウェブディレクトリ&#34;&gt;ユーザ毎のウェブディレクトリ&lt;/h3&gt;
 &lt;ul&gt;
@@ -320,67 +320,67 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 &lt;/ul&gt;
 &lt;h4 id=&#34;httpd-userdir-dot-confの有効化&#34;&gt;httpd-userdir.confの有効化&lt;/h4&gt;
 &lt;p&gt;手順としては，まず，/etc/apache2/httpd.confの511行目の行頭の#を外し，コメントアウトを外してhttpd-userdir.confを有効にする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo vi /etc/apache2/httpd.conf
-..........
-&lt;span style=&#34;color:#ae81ff&#34;&gt;510&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# User home directories&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;511&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#Include /private/etc/apache2/extra/httpd-userdir.conf&lt;/span&gt;
------&amp;gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;511&lt;/span&gt; Include /private/etc/apache2/extra/httpd-userdir.conf
-..........
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;httpd-userdir-dot-confの編集-ユーザー毎の設定ファイルを読み込む様にする&#34;&gt;httpd-userdir.confの編集（ユーザー毎の設定ファイルを読み込む様にする）&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo vi /etc/apache2/httpd.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;510&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# User home directories&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;511&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#Include /private/etc/apache2/extra/httpd-userdir.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-----&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;511&lt;/span&gt; Include /private/etc/apache2/extra/httpd-userdir.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;httpd-userdir-dot-confの編集-ユーザー毎の設定ファイルを読み込む様にする&#34;&gt;httpd-userdir.confの編集（ユーザー毎の設定ファイルを読み込む様にする）&lt;/h4&gt;
 &lt;p&gt;ついで，有効にした /etc/apache2/extra/httpd-userdir.confを見て，編集する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ sudo vi /etc/apache2/extra/httpd-userdir.conf
-
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Settings for user home directories&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; #
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Required module: mod_authz_core, mod_authz_host, mod_userdir&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; #
-&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# UserDir: The name of the directory that is appended onto a user&amp;#39;s home&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# directory if a ~user request is received.  Note that you must also set&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# the default access control for these directories, as in the example below.&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; #
-&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; UserDir Sites
-&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; #
-&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Control access to UserDir directories.  The following is an example&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# for a site where these directories are restricted to read-only.&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; #
-&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Include /private/etc/apache2/users/*.conf&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &amp;lt;IfModule bonjour_module&amp;gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;        RegisterUserSite customized-users
-&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; &amp;lt;/IfModule&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;10行目の&amp;quot;UserDir Sites&amp;quot;は デフォルトでアンコメントされており，そのままで良い．これにより，~usernameでSites directoryにアクセスできるようになる．編集する部分は，16行目の &amp;quot; # Include /private/etc/apache2/users/*.conf&amp;rdquo; であり，行頭の＃を外してアンコメントし，有効化しておく．これによりユーザーごとの設定ファイルを読み込む様になる（&lt;a href=&#34;https://qiita.com/colorrabbit/items/3ab4c2d863a55ca72d35&#34;&gt;MacOS X の Yosemite (10.10) で Sites ディレクトリを使って localhost をアカウント別に利用する方法&lt;/a&gt;）．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo vi /etc/apache2/extra/httpd-userdir.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Settings for user home directories&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Required module: mod_authz_core, mod_authz_host, mod_userdir&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# UserDir: The name of the directory that is appended onto a user&amp;#39;s home&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# directory if a ~user request is received.  Note that you must also set&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# the default access control for these directories, as in the example below.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; UserDir Sites
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Control access to UserDir directories.  The following is an example&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# for a site where these directories are restricted to read-only.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Include /private/etc/apache2/users/*.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; &amp;lt;IfModule bonjour_module&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;        RegisterUserSite customized-users
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; &amp;lt;/IfModule&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;10行目の&amp;quot;UserDir Sites&amp;quot;は デフォルトでアンコメントされており，そのままで良い．これにより，~usernameでSites directoryにアクセスできるようになる．編集する部分は，16行目の &amp;quot; # Include /private/etc/apache2/users/*.conf&amp;rdquo; であり，行頭の＃を外してアンコメントし，有効化しておく．これによりユーザーごとの設定ファイルを読み込む様になる（&lt;a href=&#34;https://qiita.com/colorrabbit/items/3ab4c2d863a55ca72d35&#34;&gt;MacOS X の Yosemite (10.10) で Sites ディレクトリを使って localhost をアカウント別に利用する方法&lt;/a&gt;）．&lt;/p&gt;
 &lt;p&gt;また，3行目にあるように，ユーザーのホームディレクトリのセットアップのために， &lt;strong&gt;mod_authz_core, mod_authz_host, mod_userdirを全て有効&lt;/strong&gt; にしておく必要がある．以下のように， &lt;strong&gt;/etc/apache2/httpd.conf&lt;/strong&gt; を編集する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;sudo vi /etc/apache2/httpd.conf
-......
-&lt;span style=&#34;color:#ae81ff&#34;&gt;77&lt;/span&gt; LoadModule authz_host_module libexec/apache2/mod_authz_host.so
-&lt;span style=&#34;color:#ae81ff&#34;&gt;78&lt;/span&gt; LoadModule authz_groupfile_module libexec/apache2/mod_authz_groupfile.so
-&lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt; LoadModule authz_user_module libexec/apache2/mod_authz_user.so
-&lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule authz_dbm_module libexec/apache2/mod_authz_dbm.so&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;81&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule authz_owner_module libexec/apache2/mod_authz_owner.so&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;82&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule authz_dbd_module libexec/apache2/mod_authz_dbd.so&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;83&lt;/span&gt; LoadModule authz_core_module libexec/apache2/mod_authz_core.so
-......
-&lt;span style=&#34;color:#ae81ff&#34;&gt;173&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule speling_module libexec/apache2/mod_speling.so&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;174&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule userdir_module libexec/apache2/mod_userdir.so&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;175&lt;/span&gt; LoadModule alias_module libexec/apache2/mod_alias.so
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;77行目の &amp;ldquo;LoadModule authz_host_module libexec/apache2/mod_authz_host.so&amp;rdquo; と83行目の &amp;ldquo;LoadModule authz_core_module libexec/apache2/mod_authz_core.so&amp;quot;はデフォルトでアンコメントされていたが，174行目の &amp;ldquo;#LoadModule userdir_module libexec/apache2/mod_userdir.so&amp;rdquo; はコメントアウトされていたので，#を外して有効化した．これらの設定で， &lt;strong&gt;ユーザーディレクトリが有効&lt;/strong&gt; になる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vi /etc/apache2/httpd.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;......
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;77&lt;/span&gt; LoadModule authz_host_module libexec/apache2/mod_authz_host.so
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;78&lt;/span&gt; LoadModule authz_groupfile_module libexec/apache2/mod_authz_groupfile.so
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt; LoadModule authz_user_module libexec/apache2/mod_authz_user.so
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule authz_dbm_module libexec/apache2/mod_authz_dbm.so&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;81&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule authz_owner_module libexec/apache2/mod_authz_owner.so&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;82&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule authz_dbd_module libexec/apache2/mod_authz_dbd.so&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;83&lt;/span&gt; LoadModule authz_core_module libexec/apache2/mod_authz_core.so
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;......
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;173&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule speling_module libexec/apache2/mod_speling.so&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;174&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#LoadModule userdir_module libexec/apache2/mod_userdir.so&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;175&lt;/span&gt; LoadModule alias_module libexec/apache2/mod_alias.so
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;77行目の &amp;ldquo;LoadModule authz_host_module libexec/apache2/mod_authz_host.so&amp;rdquo; と83行目の &amp;ldquo;LoadModule authz_core_module libexec/apache2/mod_authz_core.so&amp;quot;はデフォルトでアンコメントされていたが，174行目の &amp;ldquo;#LoadModule userdir_module libexec/apache2/mod_userdir.so&amp;rdquo; はコメントアウトされていたので，#を外して有効化した．これらの設定で， &lt;strong&gt;ユーザーディレクトリが有効&lt;/strong&gt; になる．&lt;/p&gt;
 &lt;h4 id=&#34;ユーザー毎の設定ファイルを作成&#34;&gt;ユーザー毎の設定ファイルを作成&lt;/h4&gt;
 &lt;p&gt;自分の使っているusernameを知らない人はいないと思うが，万一分からなければ以下のコマンドを使う．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ whoami
-taipapa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ついで，/etc/apache2/users にユーザー毎の設定ファイルを作成する．今回はtaipapaの設定ファイルということになる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo vi /etc/apache2/users/taipapa.conf
-
-&amp;lt;Directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Users/taipapa/Sites/&amp;#34;&lt;/span&gt;&amp;gt;
-AddHandler cgi-script cgi
-AllowOverride All
-Options Indexes FollowSymLinks Multiviews ExecCGI
-Require all granted
-&amp;lt;/Directory&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;内容を簡単に説明する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ whoami
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;taipapa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ついで，/etc/apache2/users にユーザー毎の設定ファイルを作成する．今回はtaipapaの設定ファイルということになる．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo vi /etc/apache2/users/taipapa.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;Directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Users/taipapa/Sites/&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;AddHandler cgi-script cgi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;AllowOverride All
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Options Indexes FollowSymLinks Multiviews ExecCGI
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Require all granted
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/Directory&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;内容を簡単に説明する．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Directory (&lt;a href=&#34;https://httpd.apache.org/docs/2.4/ja/mod/core.html#directory&#34;&gt;Directory ディレクティブ&lt;/a&gt;): 指定されたディレクトリとそのサブディレクトリにのみ ディレクティブを適用させるためには、 Directory と /Directory を対として、ディレクティブ群を囲む．以下はディレクティブの説明&lt;/li&gt;
 &lt;li&gt;AddHandler (&lt;a href=&#34;https://httpd.apache.org/docs/2.4/ja/mod/mod%5Fmime.html#addhandler&#34;&gt;AddHandler ディレクティブ&lt;/a&gt; ): ファイル名の拡張子を指定されたハンドラにマップする．&amp;ldquo;AddHandler cgi-script cgi&amp;rdquo; により，/Users/taipapa/Sites/の配下にある拡張子 &amp;ldquo;.&amp;rdquo; で終わるファイルを CGI スクリプトとして扱うようになる．&lt;/li&gt;
@@ -391,88 +391,88 @@ Require all granted
 &lt;p&gt;これで，Apache関連の設定が終了した．次はいよいよCGI scriptの設定である．&lt;/p&gt;
 &lt;h2 id=&#34;hyperestraier付属の全文検索用cgi-scriptのset-up&#34;&gt;Hyperestraier付属の全文検索用CGI scriptのset up&lt;/h2&gt;
 &lt;p&gt;ようやく，ブラウザによる全文検索ができるようにするためにCGI scriptのset upをするところまでたどり着いた．hyperestraierに含まれている検索用CGI scriptは，&lt;a href=&#34;https://fallabs.com/hyperestraier/uguide-ja.html#estseek&#34;&gt;estseek.cgi&lt;/a&gt;である．詳細はリンク先のマニュアルを参照していただきたい．そこにはこうある．「estseek.cgiが動作するには、設定ファイルとテンプレートファイルとトップページファイルとヘルプファイルが必要です。それぞれestseek.conf、estseek.tmpl、estseek.top、estseek.helpというのが標準的な名前です。」これらのscriptおよび関連ファイルは，brewでインストールした場合は，以下のような場所に入る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mdfind -name estseek
-/usr/local/Cellar/hyperestraier/1.4.13/libexec/estseek.cgi
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.top
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.tmpl
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.help
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.conf
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-frame.html
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-form.html
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.top
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.tmpl
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.help
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.conf
-
-$ ls /usr/local/Cellar/hyperestraier/1.4.13/libexec/
-estfraud.cgi* estproxy.cgi* estscout.cgi* estseek.cgi*  estsupt.cgi*
-
-$ ls /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/
-COPYING        estfraud.conf  estscout.conf  estseek.top    locale/
-ChangeLog      estproxy.conf  estseek.conf   estsupt.conf
-THANKS         estraier.idl   estseek.help   filter/
-doc/           estresult.dtd  estseek.tmpl   increm/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そこで，これらのscriptをユーザーディレクトリのしかるべき場所にコピーする．今回は，まず，前半部で作成した/Users/taipapa/Sitesにcgi-bin というディレクトリを作成し，CGI scriptの置き場所とした．そして，その配下にestというディレクトリを作って，そこにhyperestraierによる全文検索用のscript などをコピーした．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites
-$ mkdir -p cgi-bin/est
-$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-.
-├── cgi-bin
-│   ├── est
-│   └── test.cgi
-├── index.html
-├── pdf
-│   ├── PDFs
-│   └── casket
-└── test.cgi
-$ cd cgi-bin/est
-$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/libexec/* .
-$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/est* .
-$ ls
-estfraud.cgi*  estproxy.conf  estscout.cgi*  estseek.conf   estseek.top
-estfraud.conf  estraier.idl   estscout.conf  estseek.help   estsupt.cgi*
-estproxy.cgi*  estresult.dtd  estseek.cgi*   estseek.tmpl   estsupt.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定ファイルであるestseek.confはdefaultでは以下のようになっている．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd /Users/taipapa/Sites/cgi-bin/est
-$ less -N estseek.conf
-..........
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; indexname: casket
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; tmplfile: estseek.tmpl
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; topfile: estseek.top
-&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; helpfile: estseek.help
-&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; lockindex: true
-&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; pseudoindex:
-&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; replace: ^file:///home/mikio/public_html/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/
-&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; replace: /index&lt;span style=&#34;color:#ae81ff&#34;&gt;\.&lt;/span&gt;html?&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;{!&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;/
-&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; showlreal: false
-..........
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを以下のように編集する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#indexname: casket&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; indexname: /Users/taipapa/Sites/pdf/casket
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; tmplfile: estseek.tmpl
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; topfile: estseek.top
-&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; helpfile: estseek.help
-&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; lockindex: true
-&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; pseudoindex:
-&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: /index\.html?${{!}}/&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
-&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; replace: ^file:///Data/&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
-&lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;17行目の &lt;strong&gt;replace:&lt;/strong&gt; の部分はかなりの試行錯誤が必要であった．マニュアルでは，「replaceは正規表現によってURIを変換するのに使います。複数回指定できます。先頭にマッチする「^」を駆使すれば接頭辞（ディレクトリ）の変換ができますし、末尾にマッチする「$」を駆使すれば接尾辞（拡張子）の変換ができます。」とあるように，どこにpdf文書を置くかで適切に変更する必要がある．私の場合は，前述のごとく，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc で，/Users/taipapa/Sites/pdf/PDFs にシンボリックリンクで集約したので，このような設定になった．他のファイルはdefaultのままとした．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mdfind -name estseek
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/libexec/estseek.cgi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.top
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.tmpl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-frame.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-form.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.top
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.tmpl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls /usr/local/Cellar/hyperestraier/1.4.13/libexec/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;estfraud.cgi* estproxy.cgi* estscout.cgi* estseek.cgi*  estsupt.cgi*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;COPYING        estfraud.conf  estscout.conf  estseek.top    locale/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ChangeLog      estproxy.conf  estseek.conf   estsupt.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;THANKS         estraier.idl   estseek.help   filter/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;doc/           estresult.dtd  estseek.tmpl   increm/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そこで，これらのscriptをユーザーディレクトリのしかるべき場所にコピーする．今回は，まず，前半部で作成した/Users/taipapa/Sitesにcgi-bin というディレクトリを作成し，CGI scriptの置き場所とした．そして，その配下にestというディレクトリを作って，そこにhyperestraierによる全文検索用のscript などをコピーした．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mkdir -p cgi-bin/est
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tree -L &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── cgi-bin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── est
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── test.cgi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── index.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── PDFs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── test.cgi
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd cgi-bin/est
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/libexec/* .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/est* .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;estfraud.cgi*  estproxy.conf  estscout.cgi*  estseek.conf   estseek.top
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;estfraud.conf  estraier.idl   estscout.conf  estseek.help   estsupt.cgi*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;estproxy.cgi*  estresult.dtd  estseek.cgi*   estseek.tmpl   estsupt.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;設定ファイルであるestseek.confはdefaultでは以下のようになっている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /Users/taipapa/Sites/cgi-bin/est
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ less -N estseek.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; indexname: casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; tmplfile: estseek.tmpl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; topfile: estseek.top
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; helpfile: estseek.help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; lockindex: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; pseudoindex:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; replace: ^file:///home/mikio/public_html/&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;http://localhost/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; replace: /index&lt;span style=&#34;color:#ae81ff&#34;&gt;\.&lt;/span&gt;html?&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;{!&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; showlreal: false
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これを以下のように編集する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#indexname: casket&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; indexname: /Users/taipapa/Sites/pdf/casket
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; tmplfile: estseek.tmpl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; topfile: estseek.top
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; helpfile: estseek.help
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; lockindex: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; pseudoindex:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;#replace: /index\.html?${{!}}/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt; replace: ^file:///Data/&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;http://localhost/~taipapa/pdf/PDFs/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;17行目の &lt;strong&gt;replace:&lt;/strong&gt; の部分はかなりの試行錯誤が必要であった．マニュアルでは，「replaceは正規表現によってURIを変換するのに使います。複数回指定できます。先頭にマッチする「^」を駆使すれば接頭辞（ディレクトリ）の変換ができますし、末尾にマッチする「$」を駆使すれば接尾辞（拡張子）の変換ができます。」とあるように，どこにpdf文書を置くかで適切に変更する必要がある．私の場合は，前述のごとく，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc で，/Users/taipapa/Sites/pdf/PDFs にシンボリックリンクで集約したので，このような設定になった．他のファイルはdefaultのままとした．&lt;/p&gt;
 &lt;p&gt;これで，全ての準備は整った．Sites ディレクトリには前半部で説明した通り，pdf archiveへのシンボリックリンクが集約されており，かつ，全文検索用の索引であるcasketも置いてある．全てが正しく設定されていれば，ブラウザのurl windowに &lt;strong&gt;&lt;a href=&#34;http://localhost/~username/cgi-bin/est/estseek.cgi&#34;&gt;http://localhost/~username/cgi-bin/est/estseek.cgi&lt;/a&gt;&lt;/strong&gt; （今回は~usernameは~taipapa） と打ち込むと，以下のような全文検索の画面になるはずである．&lt;/p&gt;
 
 

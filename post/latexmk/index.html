@@ -28,11 +28,11 @@
   
     
   
-  <meta name="description" content="Table of Contents TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
-ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）   参考サイト：TeX Wiki TeX LiveMac
-  MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
-$ sudo /usr/local/texlive/????/bin/*/tlmgr path add   上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
-$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのインストールと設定  latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見） preludeをインストールした時点で，auctexもインストールされる． auctexの設定などについては以下を参照（手抜き&hellip;.">
+  <meta name="description" content="Table of Contents TeX Live 2018のインストール TeX Live 2018のインストール（2018年9月1日追記） ヒラギノフォントの埋め込みなど インストール後のパスの修正（symbolic linkを張る） auctexのインストールと設定 latexmk 実際の作業 XeLaTeXについて TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし． TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
+ヒラギノフォントの埋め込みなど 参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい． インストール後のパスの修正（symbolic linkを張る） 参考サイト：TeX Wiki TeX LiveMac
+MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
+$ sudo /usr/local/texlive/????/bin/*/tlmgr path add 上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
+$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add auctexのインストールと設定 latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見） preludeをインストールした時点で，auctexもインストールされる． auctexの設定などについては以下を参照（手抜き&hellip;.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/latexmk/">
@@ -84,7 +84,7 @@ $ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのイ�
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -126,15 +126,15 @@ $ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのイ�
   <meta property="og:site_name" content="A perfect autumn day">
   <meta property="og:url" content="/post/latexmk/">
   <meta property="og:title" content="LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記） | A perfect autumn day">
-  <meta property="og:description" content="Table of Contents TeX Live 2018のインストール  参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし．  TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
-ヒラギノフォントの埋め込みなど  参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい．  インストール後のパスの修正（symbolic linkを張る）   参考サイト：TeX Wiki TeX LiveMac
-  MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
-$ sudo /usr/local/texlive/????/bin/*/tlmgr path add   上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
-$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのインストールと設定  latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見） preludeをインストールした時点で，auctexもインストールされる． auctexの設定などについては以下を参照（手抜き&hellip;."><meta property="og:image" content="/post/latexmk/featured.jpg">
+  <meta property="og:description" content="Table of Contents TeX Live 2018のインストール TeX Live 2018のインストール（2018年9月1日追記） ヒラギノフォントの埋め込みなど インストール後のパスの修正（symbolic linkを張る） auctexのインストールと設定 latexmk 実際の作業 XeLaTeXについて TeX Live 2018のインストール 参考サイト１：TeX Wiki TeX Live 参考サイト２：TeX Wiki TeX LiveMac 参考サイト３：The MacTeX-2018 Distribution 上記サイトを参考にTeX Live 2018もしくはMacTeX-2018をインストールする． これでスライド作成ソフトであるbeamerも一緒にインストールされる． beamerに固有の設定は特に必要なし． TeX Live 2018のインストール（2018年9月1日追記） 大事なことを２つ忘れていたので追記する．
+ヒラギノフォントの埋め込みなど 参考サイト：MacTeX 2018のインストール&amp;日本語環境構築法 こんなところを読んでいないで，直ちに上記のサイトに飛んでいただきたい． マックユーザーにとっての最大の問題点は 「macos標準添付のヒラギノフォントなど商用フォントに関する設定ファイル群が，TeX LiveからTLContriに移動になった」 ということである．この問題に対する対応方法は，すべて上記のサイトに記載されているので，そのとおりにすれば良い．実にありがたい． インストール後のパスの修正（symbolic linkを張る） 参考サイト：TeX Wiki TeX LiveMac
+MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記のTeX Wiki TeX LiveMacに書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．
+$ sudo /usr/local/texlive/????/bin/*/tlmgr path add 上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．
+$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add auctexのインストールと設定 latex文書を扱うなら，Emacsのパッケージであるauctexが最強（according to 独断と偏見） preludeをインストールした時点で，auctexもインストールされる． auctexの設定などについては以下を参照（手抜き&hellip;."><meta property="og:image" content="/post/latexmk/featured.jpg">
   <meta property="twitter:image" content="/post/latexmk/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2018-08-19T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2018-08-19T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2018-09-03T22:46:10&#43;09:00">
   
@@ -331,7 +331,7 @@ $ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのイ�
 
 
 
-<meta content="2018-08-19 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2018-08-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2018-09-03 22:46:10 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -408,7 +408,21 @@ $ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのイ�
 
     <div class="article-style" itemprop="articleBody">
       <h2>Table of Contents</h2>
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#tex-live-2018のインストール">TeX Live 2018のインストール</a></li>
+    <li><a href="#tex-live-2018のインストール-2018年9月1日追記">TeX Live 2018のインストール（2018年9月1日追記）</a>
+      <ul>
+        <li><a href="#ヒラギノフォントの埋め込みなど">ヒラギノフォントの埋め込みなど</a></li>
+        <li><a href="#インストール後のパスの修正-symbolic-linkを張る">インストール後のパスの修正（symbolic linkを張る）</a></li>
+      </ul>
+    </li>
+    <li><a href="#auctexのインストールと設定">auctexのインストールと設定</a></li>
+    <li><a href="#latexmk">latexmk</a></li>
+    <li><a href="#実際の作業">実際の作業</a></li>
+    <li><a href="#xelatexについて">XeLaTeXについて</a></li>
+  </ul>
+</nav>
 <h2 id="tex-live-2018のインストール">TeX Live 2018のインストール</h2>
 <ul>
 <li>参考サイト１：<a href="https://texwiki.texjp.org/?TeX%20Live">TeX Wiki TeX Live</a></li>
@@ -433,12 +447,12 @@ $ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのイ�
 </li>
 <li>
 <p>MacTeX 2018を普通にインストールすると，/usr/local/texlive/2018/bin/x86_64-darwin/bibtexというふうにbinの下にx86_64-darwinというdirectoryが入って，tex関連のコマンドのパスが上手く通らなくなる．そこで，上記の<a href="https://texwiki.texjp.org/?TeX%20Live%2FMac">TeX Wiki TeX LiveMac</a>に書いてあるように，/usr/local/binディレクトリの下にsymbolic linkを張る．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo /usr/local/texlive/????/bin/*/tlmgr path add
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo /usr/local/texlive/????/bin/*/tlmgr path add
+</span></span></code></pre></div></li>
 <li>
 <p>上記でうまくいかないときは下記のように具体的なディレクトリ名を指定する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add
+</span></span></code></pre></div></li>
 </ul>
 <h2 id="auctexのインストールと設定">auctexのインストールと設定</h2>
 <ul>
@@ -467,12 +481,12 @@ $ sudo /usr/local/texlive/2018/bin/x86_64-darwin/tlmgr path add   auctexのイ�
 </li>
 <li>
 <p>~/.latexmkrcの中に以下のように記述する（ちなみに私はxelatexを使用している）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">$pdflatex <span style="color:#a6e22e">=</span> <span style="color:#e6db74">&#39;xelatex</span> -interaction=nonstopmode -synctex=1 %O %S<span style="color:#f92672">&#39;</span><span style="color:#75715e">;</span>
-$pdf_mode <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">1</span><span style="color:#75715e">;</span>
-$postscript_mode <span style="color:#a6e22e">=</span> $dvi_mode <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">0</span><span style="color:#75715e">;</span>
-$pdf_previewer  <span style="color:#a6e22e">=</span> <span style="color:#e6db74">&#39;open</span> -a Skim<span style="color:#f92672">&#39;</span><span style="color:#75715e">;</span>
-$preview_continuous_mode <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">1</span><span style="color:#75715e">;  # equivalent to -pvc</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>$pdflatex <span style="color:#a6e22e">=</span> <span style="color:#e6db74">&#39;xelatex</span> -interaction=nonstopmode -synctex=1 %O %S<span style="color:#f92672">&#39;</span><span style="color:#75715e">;</span>
+</span></span><span style="display:flex;"><span>$pdf_mode <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">1</span><span style="color:#75715e">;</span>
+</span></span><span style="display:flex;"><span>$postscript_mode <span style="color:#a6e22e">=</span> $dvi_mode <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">0</span><span style="color:#75715e">;</span>
+</span></span><span style="display:flex;"><span>$pdf_previewer  <span style="color:#a6e22e">=</span> <span style="color:#e6db74">&#39;open</span> -a Skim<span style="color:#f92672">&#39;</span><span style="color:#75715e">;</span>
+</span></span><span style="display:flex;"><span>$preview_continuous_mode <span style="color:#a6e22e">=</span> <span style="color:#ae81ff">1</span><span style="color:#75715e">;  # equivalent to -pvc</span>
+</span></span></code></pre></div></li>
 </ul>
 <h2 id="実際の作業">実際の作業</h2>
 <ul>
@@ -481,8 +495,8 @@ $preview_continuous_mode <span style="color:#a6e22e">=</span> <span style="color
 </li>
 <li>
 <p>ターミナルで，texファイルが有るdirectoryに移動し，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">latexmk -pvc -pdf -view<span style="color:#f92672">=</span>none document.tex
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>latexmk -pvc -pdf -view<span style="color:#f92672">=</span>none document.tex
+</span></span></code></pre></div></li>
 <li>
 <p>これで，texファイルへの変更を保存すると自動でコンパイルされて，設定にもよるが，skimで開いているpdfファイルも更新される．</p>
 </li>
@@ -803,7 +817,7 @@ $preview_continuous_mode <span style="color:#a6e22e">=</span> <span style="color
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -828,7 +842,7 @@ $preview_continuous_mode <span style="color:#a6e22e">=</span> <span style="color
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

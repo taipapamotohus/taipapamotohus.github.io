@@ -5,7 +5,7 @@
     <link>/tags/export/</link>
       <atom:link href="/tags/export/index.xml" rel="self" type="application/rss+xml" />
     <description>export</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Mon, 25 Mar 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>export</title>
@@ -15,7 +15,7 @@
     <item>
       <title>How to automatically embed R plot into html exported by org-mode with org-babel</title>
       <link>/post/exportrplot/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/post/exportrplot/</guid>
       <description>&lt;p&gt;本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成しているが，前回の記事（&lt;a href=&#34;../prodlim&#34;&gt;How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)&lt;/a&gt;）を書いている際に，Rでplotしたgraphを記事の中に自動ではめ込むよう設定するのに苦労したので，これも忘れないうちにまとめておく．まず，今回はorg-babelの設定について書き，次回にHugoでの設定をまとめる．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
@@ -32,24 +32,24 @@
 &lt;p&gt;org-babelとは，う～～～ん，なにもの？　ものすごく端折って言うと，Code blockを評価して結果を表示するorg-modeの拡張，といったところだろうか．．．実例を見たほうが早いと思う．今回，org-babelによる R code の評価について書こうとして，ふと，ブログを見直してみると，なんとorg-babelの設定をまとめた記事を投稿してない &amp;hellip;..(^^;;;&lt;/p&gt;
 &lt;p&gt;ということで，org-babelの設定を改めて記しておく．例によって，init.orgに以下のように書き込んでおけばよい．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref:&lt;/strong&gt; &lt;a href=&#34;http://doc.norang.ca/org-mode.html#OrgBabel&#34;&gt;Org-babel Setup&lt;/a&gt;　ここからコピペ  (^^;;;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(org-babel-do-load-languages
- (&lt;span style=&#34;color:#66d9ef&#34;&gt;quote&lt;/span&gt; org-babel-load-languages)
- (&lt;span style=&#34;color:#66d9ef&#34;&gt;quote&lt;/span&gt; ((emacs-lisp &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (dot &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (ditaa &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (R &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (python &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (ruby &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (gnuplot &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (clojure &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (shell &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (ledger &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (org &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (plantuml &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-         (latex &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;))))
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(org-babel-do-load-languages
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;quote&lt;/span&gt; org-babel-load-languages)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;quote&lt;/span&gt; ((emacs-lisp &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (dot &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (ditaa &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (R &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (python &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (ruby &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (gnuplot &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (clojure &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (shell &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (ledger &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (org &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (plantuml &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (latex &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-to-use-org-babel&#34;&gt;How to use org-babel&lt;/h2&gt;
 &lt;p&gt;以下のサイトを参考にした．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; Official manual &lt;a href=&#34;https://orgmode.org/manual/Working-with-Source-Code.html#Working-with-Source-Code&#34;&gt;14 Working with Source Code&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;http://misohena.jp/blog/2017-10-26-how-to-use-code-block-of-emacs-org-mode.html&#34;&gt;org-modeのコードブロック(Babel)の使い方&lt;/a&gt;   &lt;br /&gt;
@@ -57,21 +57,21 @@
 &lt;h2 id=&#34;org-babel-evaluation-of-r-code-block&#34;&gt;Org-babel evaluation of R code block&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;http://blogs.neuwirth.priv.at/software/2012/03/28/r-and-emacs-with-org-mode/&#34;&gt;R and Emacs with org mode&lt;/a&gt;   &lt;br /&gt;
 org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは，このサイトが分かりやすい．ここに有る”Using org mode with R”というサンプルを参考に，以下のようなorgファイルを/Data/hogehoge/hogefugaに作成する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: R-test
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Test
-
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test1.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
-  boxplot(islands)
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test2.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
-  library(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ggplot2&amp;#34;&lt;/span&gt;)
-  ggplot(iris, aes(x &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Width, y &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Length, color &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Species)) &lt;span style=&#34;color:#a6e22e&#34;&gt;+&lt;/span&gt;
-  geom_point()
-  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C-c C-e h oとしてhtmlにexportすると，以下のように簡単にグラフがプロットされたhtmlが作成される．いちいちできたグラフ画像を挿入する必要はなく，自動で挿入される．便利である．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: R-test
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Test
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test1.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  boxplot(islands)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src R &lt;span style=&#34;color:#e6db74&#34;&gt;:session&lt;/span&gt; *R* &lt;span style=&#34;color:#e6db74&#34;&gt;:results&lt;/span&gt; output graphics &lt;span style=&#34;color:#e6db74&#34;&gt;:file&lt;/span&gt; test2.png &lt;span style=&#34;color:#e6db74&#34;&gt;:exports&lt;/span&gt; both
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  library(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ggplot2&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ggplot(iris, aes(x &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Width, y &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Sepal.Length, color &lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; Species)) &lt;span style=&#34;color:#a6e22e&#34;&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  geom_point()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;C-c C-e h oとしてhtmlにexportすると，以下のように簡単にグラフがプロットされたhtmlが作成される．いちいちできたグラフ画像を挿入する必要はなく，自動で挿入される．便利である．&lt;/p&gt;
 
 
 
@@ -96,7 +96,7 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
     <item>
       <title>Org-modeでhtml exportの際のthemeについて</title>
       <link>/post/org-html-export-theme/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/post/org-html-export-theme/</guid>
       <description>&lt;p&gt;org-modeで文書を書いてhtmlにexportすると，素のままでは，なんの愛想もない．特にいくつかの項目をまとめた要約などを並べていくときは，side columnなどがあって，すぐに行きたいところに飛べるようになっていると嬉しい．ということで，今回はorg-modeをhtmlにexportするときのthemeがテーマである．．．．．&lt;/p&gt;
 &lt;p&gt;とにかく，たくさんのthemesが存在する．まずは以下のサイトをチェック，というか以下を読めばこのブログは読まなくても良いような．．．(^^;;;&lt;/p&gt;
@@ -108,13 +108,18 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;/ol&gt;
 &lt;p&gt;私のお気に入りは，ReadTheOrg（上記の1, 3にある）とorg-spec（上記の4）である．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#readtheorg&#34;&gt;ReadTheOrg&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;readtheorg&#34;&gt;ReadTheOrg&lt;/h2&gt;
 &lt;p&gt;これは&lt;a href=&#34;https://docs.readthedocs.io/en/latest/&#34;&gt;Read the Docs&lt;/a&gt;で使われているthemeのcloneである．一番簡単な使い方は，3にあるようにsetup fileをorg fileのpreambleに書いておくことである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あるいは，3からOrg-HTML themes projectをダウンロードしてきて解凍しローカルの&amp;quot;setup file&amp;quot;へのパスを書き込めば，ネットの接続に依存せずにexportできるようになる．たとえば，/Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setupに設定ファイルがあるとすると以下のようにすれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: /Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に研究会で発表するスライド原稿を作る下準備として，実際に10個の論文をまとめたorg fileの一部を掲示しておく．左に論文のタイトルが並び，見ている論文の小見出しが自動的に展開される．subheadの色も設定されており，読みやすい．デザインもプロっぽい印象である．書いた内容にかかわらず，なんとなく賢くなったような気分になれる（笑）．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あるいは，3からOrg-HTML themes projectをダウンロードしてきて解凍しローカルの&amp;quot;setup file&amp;quot;へのパスを書き込めば，ネットの接続に依存せずにexportできるようになる．たとえば，/Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setupに設定ファイルがあるとすると以下のようにすれば良い．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;SETUPFILE: /Hoge/Fuga/org-html-themes-master/setup/theme-readtheorg.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に研究会で発表するスライド原稿を作る下準備として，実際に10個の論文をまとめたorg fileの一部を掲示しておく．左に論文のタイトルが並び，見ている論文の小見出しが自動的に展開される．subheadの色も設定されており，読みやすい．デザインもプロっぽい印象である．書いた内容にかかわらず，なんとなく賢くなったような気分になれる（笑）．&lt;/p&gt;
 
 
 
@@ -133,18 +138,18 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;h2 id=&#34;org-spec&#34;&gt;&lt;a href=&#34;https://github.com/thi-ng/org-spec&#34;&gt;org-spec&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;An Org-mode template for technical specification documents and HTML publishing. とのことで，技術よりのthemeである．特徴としては，Ditaa, Graphviz &amp;amp; PlantUMLなどによりテキストベースで図が書ける．表に対応，自動的にアップデートするフィールド，PDF生成にも対応，コードブロックの基本的なsyntax highlightingなどがある．実際の例として&lt;a href=&#34;https://demo.thi.ng/org-spec/&#34;&gt;https://demo.thi.ng/org-spec/&lt;/a&gt;がある．&lt;/p&gt;
 &lt;p&gt;こちらの使い方は少しだけ面倒である．リンク先からorg-specをダウンロードして解凍する．ここで，style.cssが/Hoge/Fuga/org-spec-master/css/style.cssに保存されたとする．ダウンロードして来たファイルに含まれているindex.orgに全て書いてあるので，それを真似てorg fileのpreambleに次のように書いておく．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Hoge/Fuga/org-spec-master/css/style.css&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;EMAIL: your@mail.address
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;outline-2&amp;#34;&lt;/span&gt; id=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;meta&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
-| *Author* | {{{author}}} ({{{email}}})    |
-| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;/div&amp;gt;
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TOC: headlines &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に前述の論文のまとめをこのcssでexportしたものを掲示しておく．印象がかなり変わると思う．subheadなどは最初から展開されている．ReadTheOrgよりもビジネスライクな感じであるが，よりスマートな気もする．その日の気分によって，この2つを使い分けている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Inconsolata:400,700&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML_HEAD: &amp;lt;link href=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/Hoge/Fuga/org-spec-master/css/style.css&amp;#34;&lt;/span&gt; rel=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; type=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text/css&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;EMAIL: your@mail.address
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;div class=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;outline-2&amp;#34;&lt;/span&gt; id=&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;meta&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| *Author* | {{{author}}} ({{{email}}})    |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| *Date*   | {{{time(%Y-%m-%d %H:%M:%S)}}} |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;HTML: &amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TOC: headlines &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下に前述の論文のまとめをこのcssでexportしたものを掲示しておく．印象がかなり変わると思う．subheadなどは最初から展開されている．ReadTheOrgよりもビジネスライクな感じであるが，よりスマートな気もする．その日の気分によって，この2つを使い分けている．&lt;/p&gt;
 
 
 
@@ -167,13 +172,13 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
     <item>
       <title>Emacsのorg-modeで論文を書く（その5：htmlへのexportの際のフォントの色の変更，ハイライトなど）（2018年12月19日追記）（2020年1月12日追記）</title>
       <link>/post/html_export/</link>
-      <pubDate>Mon, 10 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/post/html_export/</guid>
       <description>&lt;p&gt;学会発表や論文作成にあたっては，当然のことながら，その分野の他の研究者の論文を読んでまとめるなどの作業を行う．そこで，論文の要旨などをorg-modeにざっとまとめておくと，pdfにもhtmlにもtextにもexport出来て便利である．pdfは印刷に向いているが，htmlは多くの論文をいっぺんに見るのに向いており，また，compileの時間もpdfより圧倒的に速い．また，色を変えたり，ハイライトしたりするのもhtmlなら容易である．そこで，今回は，org-modeからhtmlへexportする際の有用な小技について書いてみたい．&lt;/p&gt;
 &lt;h2 id=&#34;org-macros&#34;&gt;&lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;フォントの色を変更する方法はいろいろあるが，ハイライトや背景の色の変更までできるこの &lt;a href=&#34;https://github.com/fniessen/org-macros&#34;&gt;Org Macros&lt;/a&gt;が一番便利である．内容は，org-modeの便利なマクロ集である．リンク先からダウンロードして，適当なところに保存し，解凍しておく．ここでは，/Users/taipapa/hoge/fuga/org-macros.setupに置くことにする．使い方は簡単で上記のwebsiteに書いてあるとおり，各org fileの先頭に以下のように記述してorg-macros.setupの場所を教えてやれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;INCLUDE: /Users/taipapa/hoge/fuga/org-macros.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけである．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;del&gt;注意事項としては，このブログはox-hugoで書いているが，ox-hugoの場合は文書の先頭に上記を書いても効かない．各ポストのpropertyのあとに書いておけば効く．各ポストごとに設定するようになっているらしい．．．．．（全国15人？ぐらいの人にしか意味のない注意書きである）&lt;/del&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -184,19 +189,19 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;p&gt;As you see, I use a lot of Org macros, and they all work in my &amp;ldquo;one post per subtree&amp;rdquo; flow.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;ということで，ox-hugoの場合は，以下のように文書の先頭に書いておけば，one-post per subtreeの投稿全てにorg-macroが効くことを確認した．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;setupfile: /Users/taipapa/hoge/fuga/org-macros.setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんなブログにまで目を通してコメントしてくれるのには驚いた．親切な方である．日本語が読める人なのかとも思ったが，どうやらGoogleの翻訳を利用されているようだ．このページだと，&lt;a href=&#34;https://translate.google.com/translate?depth=1&amp;amp;sl=auto&amp;amp;sp=nmt4&amp;amp;tl=en&amp;amp;u=https://taipapamotohus.com/post/html%5Fexport/&amp;amp;xid=17259,1500004,15700019,15700124,15700149,15700186,15700190,15700201,15700237,15700242#comment-4245099680&#34;&gt;A Perfect Autumn Day&lt;/a&gt;に行くと翻訳版を見ることができる．その翻訳レベルにも今更ながら感心した．．．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;残念ながら，LaTeXへのexportでは，この方法による色の変更などは（現在のところ）効かない．&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;いくつか使い方の例をあげておく&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{color(red, 赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{color(blue, ボールドで赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-{{{highlight(yellow, 黄色にハイライトされるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
-*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{color(red, 赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*{{{color(blue, ボールドで赤くなるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{highlight(yellow, 黄色にハイライトされるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*{{{highlight(yellow, 黄色にハイライトされて文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{bgcolor(cyan, 背景がシアンになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*{{{bgcolor(cyan, 背景がシアンになって文字はボールドになるかな&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;？&lt;/span&gt;)}}}*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span style=&#34;color: red&#34;&gt; 赤くなるかな？&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;span style=&#34;color: red&#34;&gt; ボールドで赤くなるかな？&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
@@ -208,15 +213,15 @@ org-babelによるR codeの評価とhtmlへのgraph plotの自動埋め込みは
 &lt;li&gt;&lt;strong&gt;&lt;div style=&#34;background-color: cyan;&#34;&gt; 背景がシアンになって文字はボールドになるかな？&lt;/div&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;上記以外にも多くのマクロが含まれており，そちらも人によっては有用かもしれない．少しだけ例をあげておく．以下はパネルの例．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;{{{begin_panel}}} Panel example This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt; {{{end_panel}}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{{begin_panel}}} Panel example This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;…&lt;/span&gt; {{{end_panel}}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが，&lt;/p&gt;
 &lt;div class=&#34;panel&#34;&gt;&lt;p&gt; Panel example This is a formatted block of text… &lt;/p&gt;&lt;/div&gt;
 となる．マニュアルでは以下の使い方を薦めている．
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_panel
-*Panel example* \\
-This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text...
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_panel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;panel&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_panel
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;*Panel example* \\
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;This is a formatted &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt; of text...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_panel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;panel&#34;&gt;
   &lt;div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Panel example&lt;/strong&gt; &lt;br /&gt;
 This is a formatted block of text&amp;hellip;&lt;/p&gt;
@@ -231,15 +236,15 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
 &lt;p&gt;参考サイト1：&lt;a href=&#34;https://gohugo.io/news/0.60.0-relnotes/&#34;&gt;Goldmark – CommonMark compliant, GitHub flavored, fast and flexible – is the new default library for Markdown in Hugo.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参考サイト2：&lt;a href=&#34;https://discourse.gohugo.io/t/ox-hugo-go-org/21254/7&#34;&gt;Just wonder if the migration to Goldmark is going to be smooth ?&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;上記のサイトには，「マークダウンファイルにinline HTMLがたくさんあるのなら，unsafe modeを有効にしないといけないかもね」とあるので，config/default/config.tomlの最後に，&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;[markup]
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-nil&#34; data-lang=&#34;nil&#34;&gt;[markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;を追加した．これで，Markdownがうまく働くようになり，再びフォントの色も変更されるようになった．&lt;/p&gt;
 &lt;h2 id=&#34;exporting-org-mode-to-html-in-place-coloring&#34;&gt;&lt;a href=&#34;https://stackoverflow.com/questions/21340380/exporting-org-mode-to-html-in-place-coloring&#34;&gt;Exporting org-mode to HTML: In-place coloring&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;フォントの色を変える別の方法である．リンク先にある通り，&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;br /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;この文章は， *@@html:&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color &lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blue&amp;#34;&lt;/span&gt;&amp;gt;@@青のボールド@@html:&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;font&lt;/span&gt;&amp;gt;@@*になって欲しい！
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これが以下のように表示される．&lt;br /&gt;
 この文章は， &lt;strong&gt;&lt;font color = &#34;red&#34;&gt;赤のボールド&lt;/font&gt;&lt;/strong&gt; になって欲しい！&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -254,12 +259,39 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
     <item>
       <title>Emacsのorg-modeで論文を書く（その4：pandocを利用してorg-modeからword [docx]を文献付きでexportする）</title>
       <link>/post/org-mode_paper_4/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/post/org-mode_paper_4/</guid>
       <description>&lt;p&gt;医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．&lt;/p&gt;
 &lt;p&gt;いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， &lt;strong&gt;pandoc&lt;/strong&gt; とそれをorg−modeから利用するための &lt;strong&gt;ox-pandoc&lt;/strong&gt; である．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#ox-pandoc&#34;&gt;ox-pandoc&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#文書の中で実際に引用された論文のみからなる文献リストを生成する方法&#34;&gt;文書の中で実際に引用された論文のみからなる文献リストを生成する方法&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#reftex-create-bibtex-file&#34;&gt;reftex-create-bibtex-file&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#bibexport&#34;&gt;bibexport&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#pandocのための設定&#34;&gt;pandocのための設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#citation-style-language--csl--の設定&#34;&gt;Citation Style Language (CSL)の設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#英語論文の場合のorg-fileの設定&#34;&gt;英語論文の場合のorg fileの設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#英語論文のword-fileのexport&#34;&gt;英語論文のWord fileのexport&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#日本語論文の場合のorg-fileの設定&#34;&gt;日本語論文の場合のorg fileの設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#word-file-の濁点分離を修正する方法&#34;&gt;Word file の濁点分離を修正する方法&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#pythonの導入&#34;&gt;Pythonの導入&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#docx-normarize-nfcの導入&#34;&gt;docx-normarize-nfcの導入&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#濁点分離の修正&#34;&gt;濁点分離の修正&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;ox-pandoc&#34;&gt;ox-pandoc&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -279,25 +311,25 @@ This is a formatted block of text&amp;hellip;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$  brew install pandoc
-$  brew install pandoc-citeproc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$  brew install pandoc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$  brew install pandoc-citeproc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-pandoc
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-  &lt;span style=&#34;color:#75715e&#34;&gt;;; default options for all output formats&lt;/span&gt;
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((standalone &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)))
-  &lt;span style=&#34;color:#75715e&#34;&gt;;; cancel above settings only for &amp;#39;docx&amp;#39; format&lt;/span&gt;
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-docx &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((standalone &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;)))
-  &lt;span style=&#34;color:#75715e&#34;&gt;;; special settings for beamer-pdf and latex-pdf exporters&lt;/span&gt;
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-beamer-pdf &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((pdf-engine &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xelatex&amp;#34;&lt;/span&gt;)))
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-latex-pdf &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((pdf-engine &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xelatex&amp;#34;&lt;/span&gt;)))
-  )
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; ox-pandoc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;;; default options for all output formats&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((standalone &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;;; cancel above settings only for &amp;#39;docx&amp;#39; format&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-docx &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((standalone &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;;; special settings for beamer-pdf and latex-pdf exporters&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-beamer-pdf &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((pdf-engine &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xelatex&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; org-pandoc-options-for-latex-pdf &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((pdf-engine &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xelatex&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;latex engineにxelatex以外を使っている場合は，上記の設定をそちらに変更する．&lt;/p&gt;
 &lt;/li&gt;
@@ -336,34 +368,34 @@ $  brew install pandoc-citeproc
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;使い方は以下を参考&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;bibexport --help
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;bibexport: a tool to extract BibTeX entries out of .bib files.
-usage: bibexport &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-h|v|n|c|a|d|s|t&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-b|e|es|ec|o|r file&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; file...
-
-Basic options:
---------------
- -a, --all                  export the entire .bib files
- -o bib, --output-file bib  write output to file       &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: bibexport.bib&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
- -t, --terse                operate silently
- -h, --help                 print this message and exit
- -v, --version              print version number and exit
-
-Advanced options:
------------------
- -b bst, --bst bst          specifies the .bst style file &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: export.bst&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
- -c, --crossref             preserve crossref field               &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: no&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
- -n, --no-crossref          remove crossref&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d entries             [default: no]
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -e bib, --extra bib        extra .bib file to be used (crossrefs and strings)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -es bib, --extras bib      extra .bib file to be used (for strings)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -ec bib, --extrac bib      extra .bib file to be used (for crossrefs)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -p, --preamble             write a preamble at beginning of output
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -r bib, --replace bib      replace .bib file(s) in the .aux file
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -d, --debug                create intermediate files but don&amp;#39;&lt;/span&gt;t run BibTeX
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bibexport --help
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bibexport: a tool to extract BibTeX entries out of .bib files.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;usage: bibexport &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-h|v|n|c|a|d|s|t&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-b|e|es|ec|o|r file&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; file...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Basic options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -a, --all                  export the entire .bib files
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -o bib, --output-file bib  write output to file       &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: bibexport.bib&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -t, --terse                operate silently
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -h, --help                 print this message and exit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -v, --version              print version number and exit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Advanced options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-----------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -b bst, --bst bst          specifies the .bst style file &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: export.bst&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -c, --crossref             preserve crossref field               &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;default: no&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; -n, --no-crossref          remove crossref&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;d entries             [default: no]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -e bib, --extra bib        extra .bib file to be used (crossrefs and strings)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -es bib, --extras bib      extra .bib file to be used (for strings)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -ec bib, --extrac bib      extra .bib file to be used (for crossrefs)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -p, --preamble             write a preamble at beginning of output
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -r bib, --replace bib      replace .bib file(s) in the .aux file
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; -d, --debug                create intermediate files but don&amp;#39;&lt;/span&gt;t run BibTeX
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;例えばこんなふうにshellで打つ&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ bibexport -o extract2.bib hogefuga_English.aux
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ bibexport -o extract2.bib hogefuga_English.aux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;pandocのための設定&#34;&gt;pandocのための設定&lt;/h2&gt;
 &lt;ul&gt;
@@ -394,36 +426,35 @@ Advanced options:
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;早速実例を見てみる．まず下のorg fileをhogefuga_English.orgとして保存する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-article
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{times}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:3 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa
-
- \vspace*{-1.5cm}
-
-      \hspace{2.5cm} Department of Hogefuga, Hogefuga University
-
-&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Introduction
-
-Stroke is estimated to be ranked as &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;second&lt;/span&gt; leading cause of death and &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;third&lt;/span&gt; most common cause of permanent disability around &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; world.\cite{Donnan:2008ax} The proportion of ischemic stroke is more than 90% in all stroke. The underlying metabolomic pathophysiology of ischemic stroke, however, remains poorly understood.
-
-Recently, metabolome analysis using &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;omics&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; has developed. Mass spectrometry (MS) and nuclear magnetic resonance (NMR) spectroscopy have garnered &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; most use for profiling a large &lt;span style=&#34;color:#a6e22e&#34;&gt;number&lt;/span&gt; of metabolites simultaneously.\cite{Lewis:2008uq} These technologies offer comprehensive information about thousands of low-molecular mass compounds (less than 2kDa) including lipids, amino acids, peptides, nucleic acids, organic acids, vitamins, thiols and carbohydrates. Metabolomics renders &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; metabolic profile of a system, &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; end points of biological events, and reflect &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; state of a cell or group of cells at a given time.\cite{Gerszten:2008uq} Gas-chromatography/mass-spectrometry (GC/MS) is one of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; wide-spread techniques, which enables researchers to determine analyte masses with such high precision and accuracy that peptides and metabolites can be identified unambiguously even in &lt;span style=&#34;color:#a6e22e&#34;&gt;complex&lt;/span&gt; fluids.\cite{Lewis:2010oq}
-
-The profiling of low molecular weight biochemicals that serve as substrates and products in metabolic pathways is particularly relevant to cardiovascular diseases.\cite{Lewis:2008uq} At present, however, very few studies have been reported on metabolic profiling of stroke. Unlike myocardial infarction, metabolomic changes in &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; brain are &lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; sufficiently reflected by blood biomarkers due to &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; presence of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; blood-brain barrier and dilution by peripheral blood.\cite{kim2013biomarkers} In addition, most of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; studies focused on acute stage of stroke.\cite{Jiang:2011uq,Jung:2011fk,Kimberly:2013mq
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_6-authors.bst option:-a limit:t
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-article
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{times}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:3 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; \vspace*{-1.5cm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      \hspace{2.5cm} Department of Hogefuga, Hogefuga University
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Introduction
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Stroke is estimated to be ranked as &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;second&lt;/span&gt; leading cause of death and &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;third&lt;/span&gt; most common cause of permanent disability around &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; world.\cite{Donnan:2008ax} The proportion of ischemic stroke is more than 90% in all stroke. The underlying metabolomic pathophysiology of ischemic stroke, however, remains poorly understood.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Recently, metabolome analysis using &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;omics&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; has developed. Mass spectrometry (MS) and nuclear magnetic resonance (NMR) spectroscopy have garnered &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; most use for profiling a large &lt;span style=&#34;color:#a6e22e&#34;&gt;number&lt;/span&gt; of metabolites simultaneously.\cite{Lewis:2008uq} These technologies offer comprehensive information about thousands of low-molecular mass compounds (less than 2kDa) including lipids, amino acids, peptides, nucleic acids, organic acids, vitamins, thiols and carbohydrates. Metabolomics renders &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; metabolic profile of a system, &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; end points of biological events, and reflect &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; state of a cell or group of cells at a given time.\cite{Gerszten:2008uq} Gas-chromatography/mass-spectrometry (GC/MS) is one of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; wide-spread techniques, which enables researchers to determine analyte masses with such high precision and accuracy that peptides and metabolites can be identified unambiguously even in &lt;span style=&#34;color:#a6e22e&#34;&gt;complex&lt;/span&gt; fluids.\cite{Lewis:2010oq}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The profiling of low molecular weight biochemicals that serve as substrates and products in metabolic pathways is particularly relevant to cardiovascular diseases.\cite{Lewis:2008uq} At present, however, very few studies have been reported on metabolic profiling of stroke. Unlike myocardial infarction, metabolomic changes in &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; brain are &lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; sufficiently reflected by blood biomarkers due to &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; presence of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; blood-brain barrier and dilution by peripheral blood.\cite{kim2013biomarkers} In addition, most of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; studies focused on acute stage of stroke.\cite{Jiang:2011uq,Jung:2011fk,Kimberly:2013mq
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_6-authors.bst option:-a limit:t
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;何故か *Introductionの前に２つコンマを打たないとうまくhugoでブログにexportされない（理由は不明，ご教示を乞う）．このために画面上 *Introduction の前にコンマが一つ残っているが，もしコピーして試して見るなら，この余分なコンマは除かないとうまくいかないので注意していただきたい．&lt;/p&gt;
 &lt;/li&gt;
@@ -465,9 +496,9 @@ The profiling of low molecular weight biochemicals that serve as substrates and 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;そこで，上述のように &lt;strong&gt;bibexport&lt;/strong&gt; を利用することにした．texファイルをxelatexでコンパイルし，できたaux ファイルにbibexportを適用した．&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;のlatexmkの項を参照のこと．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ latexmk -pvc -pdf -view&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;none hogefuga_English.tex
-$ bibexport -o extract2.bib hogefuga_English.aux
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ latexmk -pvc -pdf -view&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;none hogefuga_English.tex
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ bibexport -o extract2.bib hogefuga_English.aux
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;これで，８つの文献をすべて含むextract2.bibが生成された．&lt;/p&gt;
 &lt;/li&gt;
@@ -481,73 +512,73 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;上記で作成したhogefuga_Engolish.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．多分パスも効くが，この原稿専用のリストなので，同じdirectoryの方が混乱することがないであろう．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract2.bib
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract2.bib
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;さらに，最後の文献についての以下の部分は削除する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;以上で，下図のようになるので，hogefuga_English_WORD.org として保存する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-article
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{times}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:3 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/Stroke2018/Survival_CEA_CAS-MN/stroke.csl
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract2.bib
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa.
-
-         \vspace*{-1.5cm}
-
-              \hspace{3cm} Department of Hogefuga, Hogefuga University
-
-&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Introduction
-  Stroke is estimated to be ranked as &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;second&lt;/span&gt; leading cause of
-  death and &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;third&lt;/span&gt; most common cause of permanent disability
-  around &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; world.\cite{Donnan:2008ax} The proportion of ischemic
-  stroke is more than 90% in all stroke. The underlying metabolomic
-  pathophysiology of ischemic stroke, however, remains poorly
-  understood.
-
-  Recently, metabolome analysis using &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;omics&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; has
-  developed. Mass spectrometry (MS) and nuclear magnetic resonance
-  (NMR) spectroscopy have garnered &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; most use for profiling a large
-  &lt;span style=&#34;color:#a6e22e&#34;&gt;number&lt;/span&gt; of metabolites simultaneously.\cite{Lewis:2008uq} These
-  technologies offer comprehensive information about thousands of
-  low-molecular mass compounds (less than 2kDa) including lipids,
-  amino acids, peptides, nucleic acids, organic acids, vitamins,
-  thiols and carbohydrates. Metabolomics renders &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; metabolic profile
-  of a system, &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; end points of biological events, and reflect &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
-  state of a cell or group of cells at a given
-  time.\cite{Gerszten:2008uq} Gas-chromatography/mass-spectrometry
-  (GC/MS) is one of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; wide-spread techniques, which enables
-  researchers to determine analyte masses with such high precision and
-  accuracy that peptides and metabolites can be identified
-  unambiguously even in &lt;span style=&#34;color:#a6e22e&#34;&gt;complex&lt;/span&gt; fluids.\cite{Lewis:2010oq}
-
-  The profiling of low molecular weight biochemicals that serve as
-  substrates and products in metabolic pathways is particularly
-  relevant to cardiovascular diseases.\cite{Lewis:2008uq} At present,
-  however, very few studies have been reported on metabolic profiling
-  of stroke. Unlike myocardial infarction, metabolomic changes in &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
-  brain are &lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; sufficiently reflected by blood biomarkers due to &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
-  presence of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; blood-brain barrier and dilution by peripheral
-  blood.\cite{kim2013biomarkers} In addition, most of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; studies
-  focused on acute stage of
-  stroke.\cite{Jiang:2011uq, Jung:2011fk, Kimberly:2013mq}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-article
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{times}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:3 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc DATE:nil
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/Stroke2018/Survival_CEA_CAS-MN/stroke.csl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract2.bib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: Hogefuga profiling to identify distinct changes associated with hogefuga events in hogefuga disease
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, Nobunaga Oda, Hideyoshi Toyotomi, Ieyasu Tokugawa.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         \vspace*{-1.5cm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              \hspace{3cm} Department of Hogefuga, Hogefuga University
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Introduction
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Stroke is estimated to be ranked as &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;second&lt;/span&gt; leading cause of
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  death and &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;third&lt;/span&gt; most common cause of permanent disability
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  around &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; world.\cite{Donnan:2008ax} The proportion of ischemic
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  stroke is more than 90% in all stroke. The underlying metabolomic
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  pathophysiology of ischemic stroke, however, remains poorly
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  understood.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Recently, metabolome analysis using &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;“&lt;/span&gt;omics&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;”&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt; has
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  developed. Mass spectrometry (MS) and nuclear magnetic resonance
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (NMR) spectroscopy have garnered &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; most use for profiling a large
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;number&lt;/span&gt; of metabolites simultaneously.\cite{Lewis:2008uq} These
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  technologies offer comprehensive information about thousands of
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  low-molecular mass compounds (less than 2kDa) including lipids,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  amino acids, peptides, nucleic acids, organic acids, vitamins,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  thiols and carbohydrates. Metabolomics renders &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; metabolic profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  of a system, &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; end points of biological events, and reflect &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  state of a cell or group of cells at a given
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  time.\cite{Gerszten:2008uq} Gas-chromatography/mass-spectrometry
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (GC/MS) is one of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; wide-spread techniques, which enables
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  researchers to determine analyte masses with such high precision and
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  accuracy that peptides and metabolites can be identified
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  unambiguously even in &lt;span style=&#34;color:#a6e22e&#34;&gt;complex&lt;/span&gt; fluids.\cite{Lewis:2010oq}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  The profiling of low molecular weight biochemicals that serve as
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  substrates and products in metabolic pathways is particularly
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  relevant to cardiovascular diseases.\cite{Lewis:2008uq} At present,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  however, very few studies have been reported on metabolic profiling
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  of stroke. Unlike myocardial infarction, metabolomic changes in &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  brain are &lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; sufficiently reflected by blood biomarkers due to &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  presence of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; blood-brain barrier and dilution by peripheral
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  blood.\cite{kim2013biomarkers} In addition, most of &lt;span style=&#34;color:#66d9ef&#34;&gt;the&lt;/span&gt; studies
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  focused on acute stage of
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  stroke.\cite{Jiang:2011uq, Jung:2011fk, Kimberly:2013mq}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;*Introductionの前のコンマについては前述のとおりである．&lt;/p&gt;
 &lt;/li&gt;
@@ -557,37 +588,37 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 &lt;li&gt;
 &lt;p&gt;ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, &lt;strong&gt;export via pandoc&lt;/strong&gt; のメニューが見える．そこで，p xとして，export via pandoc &amp;mdash;&amp;gt; to docx and openを選択する．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-C-c-C-e.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/org-C-c-C-e.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-C-c-C-e.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/org-C-c-C-e.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;暫く待つと，下図のようにWordが立ち上がって，docx file（ &lt;strong&gt;hogefuga_English_WORD.docx&lt;/strong&gt; ）が開かれる．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/hogefuga_English-WORD.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/hogefuga_English-WORD.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/hogefuga_English-WORD.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/hogefuga_English-WORD.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -612,89 +643,88 @@ $ bibexport -o extract2.bib hogefuga_English.aux
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;前回の記事（&lt;a href=&#34;../org-mode_paper_3&#34;&gt;Emacsのorg-modeで論文を書く（その3：org-modeとbibtexとreftexの連携による文献引用の自動化&lt;/a&gt;）の際に作成したhogefuga.orgをEmacsでオープンし，冒頭に以下の3行を追加する．1行目は引用のスタイルファイルを指定し，2行目はWordのスタイルファイルを指定し，3行目は文書の中で実際に引用された文献のみのリストを指定している．この文献リストはorg-modeと同じdirectoryに置いておく．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract.bib
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract.bib
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;さらに，最後の文献についての以下の部分は削除する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: /Users/taipapa/Documents/hogefuga-References.bib Stroke_3-authors_alphabetical.bst option:-a limit:t
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;以上で，下図のようになるので，hogefuga_WORD.org として保存する．&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-jarticle
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:4 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: date:nil
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract.bib
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
-\vspace*{-1.5cm}
-
-\hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
-hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;\cite{Stetler:2012jt}当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 結果
-hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;\cite{Cosentino:2011dn}
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;重症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 3in  &lt;span style=&#34;color:#e6db74&#34;&gt;:align&lt;/span&gt; center
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;500&lt;/span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:float:&lt;/span&gt; wrap &lt;span style=&#34;color:#e6db74&#34;&gt;:align&lt;/span&gt; center
-[[./hoge_fuga.jpg]]
-
-&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 結論
-hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS: koma-jarticle
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_CLASS_OPTIONS: [12pt]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \usepackage{geometry}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LATEX_HEADER: \geometry{left=1in,right=1in,top=1in,bottom=1in}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LaTeX_HEADER: \usepackage[sort,compress,super,comma]{natbib}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  overview
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;STARTUP:  hidestars
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS:   H:4 num:nil toc:nil \n:nil @:t &lt;span style=&#34;color:#e6db74&#34;&gt;::t&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:t&lt;/span&gt; ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;OPTIONS: date:nil
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: csl:/Data/hoge/fuga/stroke.csl
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;PANDOC_OPTIONS: reference-doc:~/.pandoc/reference.docx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BIBLIOGRAPHY: extract.bib
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_UP:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;LINK_HOME:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;TITLE: hoge/fugaによる相補的な治療における高難度症例の治療と成績
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;AUTHOR: taipapa, 織田信長, 豊臣秀吉, 徳川家康
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;\vspace*{-1.5cm}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;\hspace{2.5cm} hogefuga大学大学院 hogefuga研究科 hogefuga分野
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 背景と目的
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hogeとfugaを比較してみると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方で難易度の高い症例でも他方では容易に行える場合も多い&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;\cite{Stetler:2012jt}当施設では&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;一方に片寄ることなく&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;hogeとfugaを相補的に用いることにより合併症の減少を目指す方針をとっている&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;そこで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;自験例から高難度のhogefuga症例についての方針と成績を主にhogefuga surgeonの立場から検討した&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 結果
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hogefuga症例の画像である (*Fig. [[hoge_fuga]]*)&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;\cite{Cosentino:2011dn}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;NAME: hoge_fuga
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;caption: hoge-fuga&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;重症例である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;attr_latex: &lt;span style=&#34;color:#e6db74&#34;&gt;:float&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; 3in  &lt;span style=&#34;color:#e6db74&#34;&gt;:align&lt;/span&gt; center
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;ATTR_HTML: &lt;span style=&#34;color:#e6db74&#34;&gt;:width&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;500&lt;/span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:float:&lt;/span&gt; wrap &lt;span style=&#34;color:#e6db74&#34;&gt;:align&lt;/span&gt; center
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[./hoge_fuga.jpg]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; 結論
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;org-modeからword-fileへのexportの方法&#34;&gt;org-modeからWord fileへのexportの方法&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;ここで，C-c C-e とすると，exportのバッファが表示される．C-nで下の方まで下がると，下図のように, &lt;strong&gt;export via pandoc&lt;/strong&gt; のメニューが見える．そこで，p xとして，export via pandoc &amp;mdash;&amp;gt; to docx and openを選択する．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-C-c-C-e.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/org-C-c-C-e.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/org-C-c-C-e.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/org-C-c-C-e.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;暫く待つと，下図のようにWordが立ち上がって，docx file（ &lt;strong&gt;hogefuga_WORD.docx&lt;/strong&gt; ）が開かれる．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/word-1.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/word-1.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/word-1.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/word-1.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;ul&gt;
 &lt;li&gt;
@@ -730,8 +760,8 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;homebrew でpython3をインストール&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ brew install python3
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install python3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;docx-normarize-nfcの導入&#34;&gt;docx-normarize-nfcの導入&lt;/h3&gt;
 &lt;ul&gt;
@@ -747,24 +777,24 @@ hogefugaによる治療は有効である&lt;span style=&#34;color:#960050;backg
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;そのうえで，shellで以下の操作を行う&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ docx-normarize-nfc hogefuga_WORD_濁点分離修正済み.docx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ docx-normarize-nfc hogefuga_WORD_濁点分離修正済み.docx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;一瞬で修正は終わるので，ファイルをオープンして確かめてみると，下図のように修正されている．素晴らしい．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/word-fixed.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/word-fixed.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/word-fixed.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/word-fixed.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;

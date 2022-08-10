@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -126,7 +126,7 @@
   <meta property="twitter:image" content="/post/symbol-overlay/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-07-10T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-07-10T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2019-07-10T20:24:34&#43;09:00">
   
@@ -323,7 +323,7 @@
 
 
 
-<meta content="2019-07-10 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-07-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2019-07-10 20:24:34 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -418,16 +418,16 @@
 </ul>
 <h2 id="install">Install</h2>
 <p>例によって，以下のようにinit.orgに書き込んでMELPAからsymbol-overlayをインストールする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#f92672">#+</span>begin_src emacs-lisp
-(<span style="color:#a6e22e">use-package</span> symbol-overlay             <span style="color:#75715e">; Highlight symbols</span>
-  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
-  <span style="color:#e6db74">:config</span>
-  (global-set-key (kbd <span style="color:#e6db74">&#34;M-i&#34;</span>) <span style="color:#e6db74">&#39;symbol-overlay-put</span>)
-  (global-set-key (kbd <span style="color:#e6db74">&#34;&lt;f7&gt;&#34;</span>) <span style="color:#e6db74">&#39;symbol-overlay-mode</span>)
-  (global-set-key (kbd <span style="color:#e6db74">&#34;&lt;f8&gt;&#34;</span>) <span style="color:#e6db74">&#39;symbol-overlay-remove-all</span>)
-  )
-<span style="color:#f92672">#+</span>end_src
-</code></pre></div><h2 id="how-to-use">How to use</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> symbol-overlay             <span style="color:#75715e">; Highlight symbols</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:config</span>
+</span></span><span style="display:flex;"><span>  (global-set-key (kbd <span style="color:#e6db74">&#34;M-i&#34;</span>) <span style="color:#e6db74">&#39;symbol-overlay-put</span>)
+</span></span><span style="display:flex;"><span>  (global-set-key (kbd <span style="color:#e6db74">&#34;&lt;f7&gt;&#34;</span>) <span style="color:#e6db74">&#39;symbol-overlay-mode</span>)
+</span></span><span style="display:flex;"><span>  (global-set-key (kbd <span style="color:#e6db74">&#34;&lt;f8&gt;&#34;</span>) <span style="color:#e6db74">&#39;symbol-overlay-remove-all</span>)
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div><h2 id="how-to-use">How to use</h2>
 <p>使用法はご本家に書いてあるが，まず，”M-i”を叩けば，カーソルが位置しているシンボル（単語と思えば良い）が色付きでハイライトされる．同時に，同一バッファ内での全ての同じ単語も同様にハイライトされる．カーソルを動かしてもハイライトされた状態はそのままである．続けて，別の単語にカーソルを持って行って，&ldquo;M-i&quot;とすれば，その単語が別の色でハイライトされる．勿論，バッファ内の同一の単語も全て同じ色でハイライトされる．しかも，最初にハイライトした単語は，カーソルが離れた後もハイライトされた状態を維持している．文章で書くとわかりにくいが，要するに下図のような状態になる．</p>
 
 
@@ -445,16 +445,16 @@
 </figure>
 
 <p>さらに，各単語間は &ldquo;n&rdquo; で先に進み， &ldquo;p&rdquo; で逆戻りできる．別の色のハイライトの単語にカーソルを移動させれば，今度はその単語間で同様に移動できる．そのほかご本家サイトによれば，以下のようなキーバインドになっている．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#e6db74">&#34;n&#34;</span> -&gt; symbol-overlay-jump-next
-<span style="color:#e6db74">&#34;p&#34;</span> -&gt; symbol-overlay-jump-prev
-<span style="color:#e6db74">&#34;w&#34;</span> -&gt; symbol-overlay-save-symbol
-<span style="color:#e6db74">&#34;t&#34;</span> -&gt; symbol-overlay-toggle-in-scope
-<span style="color:#e6db74">&#34;e&#34;</span> -&gt; symbol-overlay-echo-mark
-<span style="color:#e6db74">&#34;d&#34;</span> -&gt; symbol-overlay-jump-to-definition
-<span style="color:#e6db74">&#34;s&#34;</span> -&gt; symbol-overlay-isearch-literally
-<span style="color:#e6db74">&#34;q&#34;</span> -&gt; symbol-overlay-query-replace
-<span style="color:#e6db74">&#34;r&#34;</span> -&gt; symbol-overlay-rename
-</code></pre></div><p>なかでも特筆すべきは &ldquo;r&rdquo; のsymbol-overlay-renameで，ハイライトされた単語を一気に書き換えることができる．例えば下図のように &ldquo;global-set-key&rdquo; が赤くハイライトされている時，どれかの&quot;global-set-key&quot;にカーソルを置いて &ldquo;r&rdquo; を叩けば，minibufferにRenameが表示され，これを消去して新しい名前を書くと赤くハイライトされている単語は一気に新しい名前に変わる．この機能は場合によっては非常に便利である．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#e6db74">&#34;n&#34;</span> -&gt; symbol-overlay-jump-next
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;p&#34;</span> -&gt; symbol-overlay-jump-prev
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;w&#34;</span> -&gt; symbol-overlay-save-symbol
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;t&#34;</span> -&gt; symbol-overlay-toggle-in-scope
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;e&#34;</span> -&gt; symbol-overlay-echo-mark
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;d&#34;</span> -&gt; symbol-overlay-jump-to-definition
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;s&#34;</span> -&gt; symbol-overlay-isearch-literally
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;q&#34;</span> -&gt; symbol-overlay-query-replace
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;r&#34;</span> -&gt; symbol-overlay-rename
+</span></span></code></pre></div><p>なかでも特筆すべきは &ldquo;r&rdquo; のsymbol-overlay-renameで，ハイライトされた単語を一気に書き換えることができる．例えば下図のように &ldquo;global-set-key&rdquo; が赤くハイライトされている時，どれかの&quot;global-set-key&quot;にカーソルを置いて &ldquo;r&rdquo; を叩けば，minibufferにRenameが表示され，これを消去して新しい名前を書くと赤くハイライトされている単語は一気に新しい名前に変わる．この機能は場合によっては非常に便利である．</p>
 
 
 
@@ -774,7 +774,7 @@
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -799,7 +799,7 @@
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

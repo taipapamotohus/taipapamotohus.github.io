@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2019-03-25T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2019-03-25T00:00:00&#43;00:00">
   
 
   
@@ -325,7 +325,7 @@
     <div class="article-style">
       
       （承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
- Table of Contents  References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory    References   HUGO Hugo is one of the most popular open-source static site generators.
+Table of Contents References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory References HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
       
     </div>
   </div>
@@ -336,14 +336,13 @@
       
       医学系の多くのジャーナルでは，論文投稿の際のフォーマットを Microsoft Word と指定しているところが多い．．．．．
 いま，一瞬，憤りのあまり意識を失いかけたが，気を取り直して続ける．実際のところ，仕事でもしばしばword文書を要求される．イチからwordで文書を書くのはやりたくないわけで，ふと，org-modeからexportできないかと調べてみた．やはり，同じようなことを考える人はいるもので，エライ人はそれを実現させるべく色々な方法を開発していた．それらの中から，自分で試してみてうまく行った方法をまとめておく．使用するのは， pandoc とそれをorg−modeから利用するための ox-pandoc である．
-Table of Contents ox-pandoc   参照サイト1：本家　ox-pandoc
-  参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies
-  参照サイト3：もっと本家　Pandoc a universal document converter
-  pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．
-  ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．
-  pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．
-$ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下のように書き込んで，ox-pandocをインストールし，設定する．use-packageを使うと両方がいっぺんにできて便利である．
-#+begin_src emacs-lisp (use-package ox-pandoc :ensure t :config ;; default options for all output formats (setq org-pandoc-options &#39;((standalone .
+Table of Contents ox-pandoc 文書の中で実際に引用された論文のみからなる文献リストを生成する方法 reftex-create-bibtex-file bibexport pandocのための設定 Citation Style Language (CSL)の設定 英語論文の場合のorg fileの設定 英語論文のWord fileのexport org-modeからWord fileへのexportの方法 日本語論文の場合のorg fileの設定 org-modeからWord fileへのexportの方法 Word file の濁点分離を修正する方法 Pythonの導入 docx-normarize-nfcの導入 濁点分離の修正 ox-pandoc 参照サイト1：本家　ox-pandoc
+参照サイト2：ox-pandoc - org-mode + org-ref to docx with bibliographies
+参照サイト3：もっと本家　Pandoc a universal document converter
+pandoc自体の説明は略．ご存知，フォーマット変換のスイスアーミーナイフ．
+ox-pandocは，pandocを介してorg-mode fileを様々なフォーマットに変換する新しいexporterであり，40種ものフォーマットに変換できる．
+pandoc 2.0 (or later version)と，bibliography featureを使うならpandoc-citeproc 0.3 (or later)が必要なので，homebrewでインストールする．
+$ brew install pandoc $ brew install pandoc-citeproc init.
       
     </div>
   </div>
@@ -468,7 +467,7 @@ $ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下の�
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -493,7 +492,7 @@ $ brew install pandoc $ brew install pandoc-citeproc   init.orgには以下の�
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

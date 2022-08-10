@@ -80,7 +80,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2018-10-27T00:00:00&#43;09:00">
+    <meta property="og:updated_time" content="2018-10-27T00:00:00&#43;00:00">
   
 
   
@@ -325,10 +325,11 @@
     <div class="article-style">
       
       Rとは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&hellip;..(^^;;;
-gccのリンク絡みのトラブル   大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
-$ brew link --overwrite gcc   XMLが入らない   XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
+gccのリンク絡みのトラブル 大体は以下で直ることが多い（r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587）
+$ brew link --overwrite gcc XMLが入らない XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，Installing R package XML on MacOS 10.13.6と同じである．対処法は，同サイトや引用元のCannot install XML package in rにある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．
 Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34;) なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）
-  Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる．   &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&ldquo;Cairo&rdquo; packageなど）．要するにXlib.
+Cairoなどのインストール時に，#include &lt;X11/Xlib.h&gt; でハマる． &lsquo;X11/Xlib.h&rsquo; file not found, #include &lt;X11/Xlib.h&gt; のようなエラーが出てコンパイルできないことがある（例えば，&ldquo;Cairo&rdquo; packageなど）．要するにXlib.hの在り処が分からんということである．mdfind（Mac版のlocate）で探してみると，以下のような結果が得られる．
+$ mdfind -name Xlib.h | grep X11 /opt/X11/include/cairo/cairo-xlib.h /opt/X11/include/X11/Xlib.
       
     </div>
   </div>
@@ -453,7 +454,7 @@ Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -478,7 +479,7 @@ Sys.setenv(XML_CONFIG = &#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&#34
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

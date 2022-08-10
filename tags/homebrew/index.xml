@@ -5,7 +5,7 @@
     <link>/tags/homebrew/</link>
       <atom:link href="/tags/homebrew/index.xml" rel="self" type="application/rss+xml" />
     <description>homebrew</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Mon, 29 Apr 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>homebrew</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</title>
       <link>/post/mojave/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/post/mojave/</guid>
       <description>&lt;p&gt;世はゴールデンウィークまっただ中である．完全な10連休ではないが，それなりに長い休みとなるので，この機会に，ようやく Sierraから &lt;strong&gt;Mojave&lt;/strong&gt; にupgradeすることにした．ついでにEmacsも26.1から 26.2にupgradeした．今回は，このupgradeの際に遭遇したトラブルについてまとめる．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
@@ -39,35 +39,35 @@
 &lt;p&gt;結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．&lt;/p&gt;
 &lt;h2 id=&#34;upgrade-to-xcode-10-dot-2-dot-1&#34;&gt;Upgrade to Xcode 10.2.1&lt;/h2&gt;
 &lt;p&gt;早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして &lt;strong&gt;brew install&lt;/strong&gt; すると以下のようなエラーが出る．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install hogehoge
-.........
-xcrun: error: invalid active developer path &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;/Library/Developer/CommandLineTools&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは，「&lt;a href=&#34;https://gotohayato.com/content/487&#34;&gt;macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題&lt;/a&gt;」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;xcode-select --install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;さぁ，これでようやくと思って，再度 &lt;strong&gt;brew install&lt;/strong&gt; すると，またもエラーである&amp;hellip;..(ToT)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install hogehoge
-..........
-Error: parent directory is world writable but not sticky
-Please report this bug:
-https://docs.brew.sh/Troubleshooting
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install hogehoge
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.........
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xcrun: error: invalid active developer path &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;/Library/Developer/CommandLineTools&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは，「&lt;a href=&#34;https://gotohayato.com/content/487&#34;&gt;macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題&lt;/a&gt;」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xcode-select --install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;さぁ，これでようやくと思って，再度 &lt;strong&gt;brew install&lt;/strong&gt; すると，またもエラーである&amp;hellip;..(ToT)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install hogehoge
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;..........
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Error: parent directory is world writable but not sticky
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Please report this bug:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://docs.brew.sh/Troubleshooting
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;調べてみるとpermissionの問題で，tmp directoryの状態を調べれば良いことがわかった．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ref 1:&lt;/strong&gt; &lt;a href=&#34;https://qiita.com/analsky/items/20755a3ba10119e9a4b6&#34;&gt;brew で `Error: parent directory is world writable but not sticky`&lt;/a&gt; &lt;br /&gt;
 &lt;strong&gt;Ref 2:&lt;/strong&gt; &lt;a href=&#34;https://stackoverflow.com/questions/42893700/error-parent-directory-is-world-writable-but-not-sticky&#34;&gt;Error: parent directory is world writable but not sticky&lt;/a&gt; &lt;br /&gt;
 上記サイトの記載に従って，ls -ld /tmpを行うと以下のようになる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ ls -ld /tmp
-lrwxr-xr-x@ &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; root  wheel  &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;27&lt;/span&gt; 18:45 /tmp@ -&amp;gt; private/tmp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは，tmp directoryはprivate/tmpを使用しているということであり，以下のようにしてpermissionを付与する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo chmod +t /private/tmp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;私の場合はこれでbrewが働くようになった．これらの操作は，今後のmajor upgradeの際にはまた必要になりそうなので，ここにまとめておく．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls -ld /tmp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lrwxr-xr-x@ &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; root  wheel  &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;27&lt;/span&gt; 18:45 /tmp@ -&amp;gt; private/tmp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは，tmp directoryはprivate/tmpを使用しているということであり，以下のようにしてpermissionを付与する．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo chmod +t /private/tmp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;私の場合はこれでbrewが働くようになった．これらの操作は，今後のmajor upgradeの際にはまた必要になりそうなので，ここにまとめておく．&lt;/p&gt;
 &lt;h2 id=&#34;upgrade-to-emacs-26-dot-2-from-26-dot-1&#34;&gt;Upgrade to Emacs 26.2 from 26.1&lt;/h2&gt;
 &lt;p&gt;ようやくEmacsのupgradeである．mojaveにupgradeした直後にemacs26.1を起動してみるとキーが効かなかったような気がするが，26.2にupgradeするので，気にせず先に進んだ&amp;hellip;..(^^;;;　以前の記事（&lt;a href=&#34;../emacs_install&#34;&gt;Emacsのインストール&lt;/a&gt;）に書いたようにhomebrewでemacs-macを入れればよいのだが，念の為に単なるupgradeは避けて，Emacs 26.1をuninstallし，~/.emac.dも退避させてから，インストールし直すことにした．&lt;a href=&#34;https://github.com/railwaycat/homebrew-emacsmacport&#34;&gt;Emacs Mac Port&lt;/a&gt;の最終更新はわずか2週間前でありいろいろな問題が解決されていると期待してのupgradeである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ cd
-$ mv .emacs.d .emac.d.old  &lt;span style=&#34;color:#75715e&#34;&gt;# change name of old .emacs.d&lt;/span&gt;
-$ brew tap railwaycat/emacsmacport
-$ brew uninstall emacs-mac  &lt;span style=&#34;color:#75715e&#34;&gt;# uninstall old emacs-mac&lt;/span&gt;
-$ brew install emacs-mac --with-modern-icon --with-imagemagick  &lt;span style=&#34;color:#75715e&#34;&gt;# install new emacs-mac&lt;/span&gt;
-$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;br /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mv .emacs.d .emac.d.old  &lt;span style=&#34;color:#75715e&#34;&gt;# change name of old .emacs.d&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew tap railwaycat/emacsmacport
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew uninstall emacs-mac  &lt;span style=&#34;color:#75715e&#34;&gt;# uninstall old emacs-mac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install emacs-mac --with-modern-icon --with-imagemagick  &lt;span style=&#34;color:#75715e&#34;&gt;# install new emacs-mac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，&lt;br /&gt;
 &lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.1-z-mac-7.1 (4,009 files, 114.6MB)&lt;/strong&gt; &lt;br /&gt;
 から &lt;br /&gt;
 &lt;strong&gt;/usr/local/Cellar/emacs-mac/emacs-26.2-z-mac-7.6 (4,010 files, 114.8MB)&lt;/strong&gt;  &lt;br /&gt;
@@ -78,8 +78,8 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 &lt;a href=&#34;../japanese_setup&#34;&gt;Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;latex&#34;&gt;LaTeX&lt;/h2&gt;
 &lt;p&gt;これについては，以前の記事「&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt;」で書いたとおり &lt;strong&gt;MacTeX 2018&lt;/strong&gt; のままである．正確に言うと，mojaveにupgradeする直前に以下のようにして最新版にアップデートしておいた．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ sudo tlmgr update --self --all
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;400個ぐらいのパッケージのアップデートに30-40分を要した．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo tlmgr update --self --all
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;400個ぐらいのパッケージのアップデートに30-40分を要した．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;ヒラギノフォントの埋め込み&lt;/strong&gt; についても上述の記事に書いたように，既に，&lt;a href=&#34;https://github.com/munepi/bibunsho7-patch/releases&#34;&gt;bibunsho7-patch&lt;/a&gt;を適応済みなので，問題ないと考えた．&lt;/p&gt;
 &lt;p&gt;mojaveにupgradeしてから，latexmkによるcompileやorg-modeからのlatex exportなどを試してみたが，pdfの生成に特に問題なく，また，pdfへのヒラギノフォントの埋め込みも問題なくできていた．&lt;/p&gt;
 &lt;h3 id=&#34;pdfにフォントが埋め込まれているかどうかを確認する方法&#34;&gt;pdfにフォントが埋め込まれているかどうかを確認する方法&lt;/h3&gt;
@@ -89,21 +89,21 @@ $ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;以下のようにhomebrewでpopplerをインストールすれば，その中の &lt;strong&gt;pdffonts&lt;/strong&gt; というコマンドを使って確認することができる．このpopplerは以前の記事（&lt;a href=&#34;../pdf-tools&#34;&gt;Emacsでpdfを読む (pdf-tools)&lt;/a&gt;）で既にインストールしているが，もう一度書いておく．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew install poppler
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install poppler
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;たとえば，latexで生成したhogehoge.pdfのフォントの埋め込みを調べるためには，pdffontsを以下のように使う． &lt;strong&gt;emb&lt;/strong&gt; の項目で埋め込みの有無がわかる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ pdffonts hogehoge.pdf
-name                                 type              encoding         emb sub
------------------------------------- ----------------- ---------------- --- ---
-KQKHHV+LMSans10-Bold                 Type 1C           Custom           yes yes
-JQHYHW+LMRoman17-Regular             Type 1C           Custom           yes yes
-FENZQQ+HiraMinProN-W3-Identity-H     CID Type 0C       Identity-H       yes yes
-ZHPQAJ+LMRoman12-Regular             Type 1C           Custom           yes yes
-BMLTDB+HiraKakuProN-W6-Identity-H    CID Type 0C       Identity-H       yes yes
-NOWECW+LMRoman12-Regular             Type 1C           Custom           yes yes
-SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pdffonts hogehoge.pdf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;name                                 type              encoding         emb sub
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;------------------------------------ ----------------- ---------------- --- ---
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;KQKHHV+LMSans10-Bold                 Type 1C           Custom           yes yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;JQHYHW+LMRoman17-Regular             Type 1C           Custom           yes yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;FENZQQ+HiraMinProN-W3-Identity-H     CID Type 0C       Identity-H       yes yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ZHPQAJ+LMRoman12-Regular             Type 1C           Custom           yes yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;BMLTDB+HiraKakuProN-W6-Identity-H    CID Type 0C       Identity-H       yes yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NOWECW+LMRoman12-Regular             Type 1C           Custom           yes yes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;確かに，すべてのフォントは &lt;strong&gt;emb = yes&lt;/strong&gt; になっており，埋め込まれているのが確認できた．&lt;/p&gt;
 &lt;/li&gt;
@@ -116,37 +116,37 @@ SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
     <item>
       <title>RをMac OSX (Sierra)にbrewでinstallしていて，upgradeしてハマったときの対処法</title>
       <link>/post/r_homebrew_update_error/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/post/r_homebrew_update_error/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://www.r-project.org&#34;&gt;R&lt;/a&gt;とは，オープンソース・フリーソフトウェアの統計解析向けのプログラミング言語及びその開発実行環境である（Wikipediaより）．org-modeと同じくらい必要不可欠なRではあるが，定期的にupdateする必要がある．いや，まぁ，したほうが良い，というか，しないと新しいパッケージが試せなかったりするので，しないではいられない．しかし，updateすると，たいていどこかでハマる．そこで，今回は，ハマったときの対処法を自分のためにまとめておくことにする．ハマるのはbioconductorの方が多いような気がする．ちなみに当方の環境は，MacBook Pro (15-inch, Late 2016) macOS Sierra 10.12.6である．先日もRを3.5.1にupdateしてハマったばかりである&amp;hellip;..(^^;;;&lt;/p&gt;
 &lt;h2 id=&#34;gccのリンク絡みのトラブル&#34;&gt;gccのリンク絡みのトラブル&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;大体は以下で直ることが多い（&lt;a href=&#34;https://github.com/Homebrew/homebrew-science/issues/5587&#34;&gt;r has dependency on gcc@6, but only lists gcc (which has updated to 7) #5587&lt;/a&gt;）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ brew link --overwrite gcc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew link --overwrite gcc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;xmlが入らない&#34;&gt;XMLが入らない&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;XMLを入れるのが目的ではなく，なにか別のパッケージをインストールしようとして，それがXMLに依存しており，XMLを入れようとしてハマることが多いと思う．エラーメッセージは，configure: error: “libxml not found”である．しかし，homebrewで，brew listしてみると，libxml2はインストールされている．このあたりは，&lt;a href=&#34;https://medium.com/biosyntax/installing-r-package-xml-on-macos-10-13-6-1738146d4ee0&#34;&gt;Installing R package XML on MacOS 10.13.6&lt;/a&gt;と同じである．対処法は，同サイトや引用元の&lt;a href=&#34;https://stackoverflow.com/questions/40682615/cannot-install-xml-package-in-r&#34;&gt;Cannot install XML package in r&lt;/a&gt;にある通り，以下のようにコンパイラーに正しいxml2-configの場所を教えてやれば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;XML_CONFIG &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;XML_CONFIG &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/usr/local/Cellar/libxml2/2.9.7/bin/xml2-config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なお，上記を入力するのはRのコンソールである．通常のterminalにexportで入力しても効かないので注意すること！（これでどれだけ時間を無駄にしたことか．．．(ToT)）&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;cairoなどのインストール時に-include-and-lt-x11-xlib-dot-h-and-gt-でハマる&#34;&gt;Cairoなどのインストール時に，#include &amp;lt;X11/Xlib.h&amp;gt; でハマる．&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&amp;lsquo;X11/Xlib.h&amp;rsquo; file not found, #include &amp;lt;X11/Xlib.h&amp;gt; のようなエラーが出てコンパイルできないことがある（例えば，&amp;ldquo;Cairo&amp;rdquo; packageなど）．要するにXlib.hの在り処が分からんということである．mdfind（Mac版のlocate）で探してみると，以下のような結果が得られる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mdfind -name Xlib.h | grep X11
-/opt/X11/include/cairo/cairo-xlib.h
-/opt/X11/include/X11/Xlib.h
-/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/Xlib.h
-/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
-/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;C_INCLUDE_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/include&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，コンパイルできるようになるはずである．&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mdfind -name Xlib.h | grep X11
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/include/cairo/cairo-xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/include/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers/X11/Xlib.h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そこで，目的のXlib.hは，/opt/X11/include/X11/Xlib.hと分かるので，include directoryにこれを含めるように指示すれば良い．これも，前項と同じく，Rのコンソールに入力すること！（これでどれだけ．．．以下同文）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;C_INCLUDE_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/include&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，コンパイルできるようになるはずである．&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;どこにX11/Xlib.hが入っているかは，インストールの仕方により色々であろうから，場所を確認してから上記の操作を行うようにする．&lt;/p&gt;
@@ -159,50 +159,50 @@ SIHLPZ+LMRoman8-Regular              Type 1C           Custom           yes yes
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;こんな感じである．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; biocLite&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rsvg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-...................................
-Package xcb-shm was not found in the pkg-config search path.
-Perhaps you should add the directory containing &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;xcb-shm.pc&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;to the PKG_CONFIG_PATH environment variable
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Package &amp;#39;&lt;/span&gt;xcb-shm&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, required by &amp;#39;&lt;/span&gt;cairo&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, not found
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Found INCLUDE_DIR and/or LIB_DIR!
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_CFLAGS=-I/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig/librsvg-2.0.pc
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_LIBS=-L/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig -lrsvg
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;------------------------- ANTICONF ERROR ---------------------------
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Configuration failed because librsvg-2.0 was not found. Try installing:
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* deb: librsvg2-dev (Debian, Ubuntu, etc)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* rpm: librsvg2-devel (Fedora, EPEL)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* csw: librsvg_dev, sunx11_devel (Solaris)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* brew: librsvg (OSX)
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;If librsvg-2.0 is already installed, check that &amp;#39;&lt;/span&gt;pkg-config&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; is in your
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;PATH and PKG_CONFIG_PATH contains a librsvg-2.0.pc file. If pkg-config
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;R CMD INSTALL --configure-vars=&amp;#39;&lt;/span&gt;INCLUDE_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;... LIB_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;...&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;--------------------------------------------------------------------
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;ERROR: configuration failed for package ‘rsvg’
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* removing ‘/usr/local/Cellar/r/3.5.1/lib/R/library/rsvg’
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;The downloaded source packages are in
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;‘/private/var/folders/rq/hj_634613dbfzs41djqt52y80000gn/T/RtmpzsGqp0/downloaded_packages’
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Updating HTML index of packages in &amp;#39;&lt;/span&gt;.Library&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Making &amp;#39;&lt;/span&gt;packages.html&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt; ... &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
-警告メッセージ:
-install.packages&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pkgs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; doing, lib &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; lib, ...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; で:
-installation of package ‘rsvg’ had non-zero exit status
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; biocLite&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rsvg&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...................................
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Package xcb-shm was not found in the pkg-config search path.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Perhaps you should add the directory containing &lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;xcb-shm.pc&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;to the PKG_CONFIG_PATH environment variable
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Package &amp;#39;&lt;/span&gt;xcb-shm&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, required by &amp;#39;&lt;/span&gt;cairo&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;, not found
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Found INCLUDE_DIR and/or LIB_DIR!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_CFLAGS=-I/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig/librsvg-2.0.pc
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Using PKG_LIBS=-L/usr/local/Cellar/librsvg/2.40.20/lib/pkgconfig -lrsvg
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;------------------------- ANTICONF ERROR ---------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Configuration failed because librsvg-2.0 was not found. Try installing:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* deb: librsvg2-dev (Debian, Ubuntu, etc)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* rpm: librsvg2-devel (Fedora, EPEL)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* csw: librsvg_dev, sunx11_devel (Solaris)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* brew: librsvg (OSX)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;If librsvg-2.0 is already installed, check that &amp;#39;&lt;/span&gt;pkg-config&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; is in your
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;PATH and PKG_CONFIG_PATH contains a librsvg-2.0.pc file. If pkg-config
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;R CMD INSTALL --configure-vars=&amp;#39;&lt;/span&gt;INCLUDE_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;... LIB_DIR&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;...&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;--------------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;ERROR: configuration failed for package ‘rsvg’
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;​* removing ‘/usr/local/Cellar/r/3.5.1/lib/R/library/rsvg’
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;The downloaded source packages are in
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;‘/private/var/folders/rq/hj_634613dbfzs41djqt52y80000gn/T/RtmpzsGqp0/downloaded_packages’
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Updating HTML index of packages in &amp;#39;&lt;/span&gt;.Library&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Making &amp;#39;&lt;/span&gt;packages.html&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt; ... &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;警告メッセージ:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;install.packages&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;pkgs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; doing, lib &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; lib, ...&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; で:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;installation of package ‘rsvg’ had non-zero exit status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;要するに，xcb-shm.pcのあるディレクトリをPKG＿CONFIG＿DIRに追加しろと言ってるので，xcb-shm.pcがどこにあるかをmdfindで探してから，言われるとおり追加する．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ mdfind -name xcb-shm.pc
-/opt/X11/lib/pkgconfig/cairo-xcb-shm.pc
-/opt/X11/lib/pkgconfig/xcb-shm.pc
-/usr/local/Cellar/cairo/1.14.8/lib/pkgconfig/cairo-xcb-shm.pc
-/usr/local/Cellar/cairo/1.14.10/lib/pkgconfig/cairo-xcb-shm.pc
-/usr/local/Cellar/cairo/1.14.12/lib/pkgconfig/cairo-xcb-shm.pc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ mdfind -name xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/X11/lib/pkgconfig/xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/cairo/1.14.8/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/cairo/1.14.10/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/usr/local/Cellar/cairo/1.14.12/lib/pkgconfig/cairo-xcb-shm.pc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;上記のように，/opt/X11/lib/pkgconfig/xcb-shm.pcとなっているので，これを追加する．このときも上述のごとく，RのコンソールでSys.setenvを使う．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&amp;gt; Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;PKG_CONFIG_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/lib/pkgconfig&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Sys.setenv&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;PKG_CONFIG_PATH &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/opt/X11/lib/pkgconfig&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;これで，rsvgはうまくコンパイルされる．&lt;/p&gt;
 &lt;/li&gt;
@@ -214,23 +214,23 @@ installation of package ‘rsvg’ had non-zero exit status
     <item>
       <title>Emacsのインストール</title>
       <link>/post/emacs_install/</link>
-      <pubDate>Tue, 14 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/post/emacs_install/</guid>
       <description>&lt;p&gt;なにはともあれ，まずはEmacsのインストールから．様々な方法があるが，Mac userなので，ここでは&lt;a href=&#34;https://brew.sh/index%5Fja&#34;&gt;Homebrew&lt;/a&gt;を使ってサクッとインストール．Homebrew自体のインストールはそちらのサイトを参照．&lt;/p&gt;
 &lt;p&gt;Emacsで日本語を書いてると，M-xしたときに面倒なことになるので，&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%83%95%E3%82%9A%E3%83%83%E3%83%88%5F%E3%83%A1%E3%82%BD%E3%83%83%E3%83%88%E3%82%99%5F%E3%82%A8%E3%83%86%E3%82%99%E3%82%A3%E3%82%BF&#34;&gt;Imput Method Editor (IME)&lt;/a&gt;用のパッチを当てる．既にパッチの当たっているYAMAMOTO Mitsuharu版のMac Port用のemacs-macがよい．railwaycatさんがHomebrewでインストールできるようにしてくれているので，これを使わせていただく（&lt;a href=&#34;https://github.com/railwaycat/homebrew-emacsmacport&#34;&gt;Emacs Mac Port&lt;/a&gt;）．ありがたい．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ brew tap railwaycat/emacsmacport
-$ brew install emacs-mac --with-modern-icon --with-imagemagick
-$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew tap railwaycat/emacsmacport
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install emacs-mac --with-modern-icon --with-imagemagick
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;&amp;ndash;with-modern-iconを指定すると、新しいアイコンになる。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;!--listend--&gt;
 &lt;ul&gt;
 &lt;li&gt;なお，他のoptionは以下のように打てば分かる．&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ brew tap railwaycat/emacsmacport
-$ brew info emacs-mac
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew tap railwaycat/emacsmacport
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info emacs-mac
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

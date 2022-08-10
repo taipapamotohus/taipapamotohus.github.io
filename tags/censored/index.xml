@@ -5,7 +5,7 @@
     <link>/tags/censored/</link>
       <atom:link href="/tags/censored/index.xml" rel="self" type="application/rss+xml" />
     <description>censored</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 20 Mar 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>censored</title>
@@ -15,7 +15,7 @@
     <item>
       <title>How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)</title>
       <link>/post/prodlim/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/post/prodlim/</guid>
       <description>&lt;p&gt;Rを用いて生存分析を行う際に， &lt;strong&gt;Kaplan-Meier curve&lt;/strong&gt; に打ち切りのマークを入れたり，number at risk (at risk table)を併記する方法はすぐに見つかるが（&lt;a href=&#34;http://rstudio-pubs-static.s3.amazonaws.com/5588%5F72eb65bfbe0a4cb7b655d2eee0751584.html&#34;&gt;Drawing survival curves in R&lt;/a&gt;, &lt;a href=&#34;https://github.com/michaelway/ggkm&#34;&gt;ggkm&lt;/a&gt;, &lt;a href=&#34;https://cran.r-project.org/web/packages/survminer/vignettes/Informative%5FSurvival%5FPlots.html&#34;&gt;Survival plots have never been so informative&lt;/a&gt;），competing riskのplotの場合はあまり情報がない．prodlimを使えば簡単なので，まとめておく．&lt;/p&gt;
 &lt;p&gt;なお， &lt;strong&gt;competing risk&lt;/strong&gt; については以下を参照．&lt;/p&gt;
@@ -43,169 +43,169 @@
 &lt;/div&gt;
 &lt;!--endtoc--&gt;
 &lt;h2 id=&#34;prepare-dataset-melanoma-from-riskregression-package&#34;&gt;Prepare dataset &amp;ldquo;Melanoma&amp;rdquo; from &amp;ldquo;riskRegression&amp;rdquo; package&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(riskRegression)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;(Melanoma)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(Melanoma)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;summary&lt;/span&gt;(Melanoma)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;  time status                    event invasion ici      epicel       ulcer
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;       death.other.causes  level.1   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;     present     present
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;       death.other.causes  level.0   &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; not present not present
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;                 censored  level.1   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; not present not present
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;       death.other.causes  level.0   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; not present not present
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;185&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; death.malignant.melanoma  level.2   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;     present     present
-&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;204&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; death.malignant.melanoma  level.2   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; not present     present
-  thick    sex age   logthick
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  6.76   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;76&lt;/span&gt;  1.9110229
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  0.65   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;56&lt;/span&gt; -0.4307829
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  1.34   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;41&lt;/span&gt;  0.2926696
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  2.90 Female  &lt;span style=&#34;color:#ae81ff&#34;&gt;71&lt;/span&gt;  1.0647107
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 12.08   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt;  2.4915512
-&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;  4.84   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;  1.5769147
-      time          status                            event        invasion
- Min.   :  &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;   Min.   :0.0000   censored                :134   level.0:99
- 1st Qu.:1525   1st Qu.:0.0000   death.malignant.melanoma: &lt;span style=&#34;color:#ae81ff&#34;&gt;57&lt;/span&gt;   level.1:77
- Median :2005   Median :0.0000   death.other.causes      : &lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt;   level.2:29
- Mean   :2153   Mean   :0.4146
- 3rd Qu.:3042   3rd Qu.:1.0000
- Max.   :5565   Max.   :2.0000
- ici             epicel            ulcer         thick           sex
- 0: &lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt;   not present:116   not present:115   Min.   : 0.10   Female:126
- 1: &lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt;   present    : &lt;span style=&#34;color:#ae81ff&#34;&gt;89&lt;/span&gt;   present    : &lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt;   1st Qu.: 0.97   Male  : &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;
- 2:107                                       Median : 1.94
- 3: &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;                                       Mean   : 2.92
-                                             3rd Qu.: 3.56
-                                             Max.   :17.42
-      age           logthick
- Min.   : 4.00   Min.   :-2.30259
- 1st Qu.:42.00   1st Qu.:-0.03046
- Median :54.00   Median : 0.66269
- Mean   :52.46   Mean   : 0.61817
- 3rd Qu.:65.00   3rd Qu.: 1.26976
- Max.   :95.00   Max.   : 2.85762
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;competing-risk-analysis-with-cuminc-of-cmprsk-package&#34;&gt;Competing risk analysis with cuminc of &amp;ldquo;cmprsk&amp;rdquo; package&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(riskRegression)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;(Melanoma)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;head&lt;/span&gt;(Melanoma)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;summary&lt;/span&gt;(Melanoma)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  time status                    event invasion ici      epicel       ulcer
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;       death.other.causes  level.1   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;     present     present
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;       death.other.causes  level.0   &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; not present not present
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;                 censored  level.1   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; not present not present
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;99&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;       death.other.causes  level.0   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; not present not present
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;185&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; death.malignant.melanoma  level.2   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;     present     present
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;  &lt;span style=&#34;color:#ae81ff&#34;&gt;204&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; death.malignant.melanoma  level.2   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; not present     present
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  thick    sex age   logthick
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  6.76   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;76&lt;/span&gt;  1.9110229
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  0.65   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;56&lt;/span&gt; -0.4307829
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  1.34   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;41&lt;/span&gt;  0.2926696
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  2.90 Female  &lt;span style=&#34;color:#ae81ff&#34;&gt;71&lt;/span&gt;  1.0647107
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 12.08   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;52&lt;/span&gt;  2.4915512
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;  4.84   Male  &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;  1.5769147
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      time          status                            event        invasion
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Min.   :  &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;   Min.   :0.0000   censored                :134   level.0:99
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 1st Qu.:1525   1st Qu.:0.0000   death.malignant.melanoma: &lt;span style=&#34;color:#ae81ff&#34;&gt;57&lt;/span&gt;   level.1:77
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Median :2005   Median :0.0000   death.other.causes      : &lt;span style=&#34;color:#ae81ff&#34;&gt;14&lt;/span&gt;   level.2:29
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Mean   :2153   Mean   :0.4146
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 3rd Qu.:3042   3rd Qu.:1.0000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Max.   :5565   Max.   :2.0000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ici             epicel            ulcer         thick           sex
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 0: &lt;span style=&#34;color:#ae81ff&#34;&gt;17&lt;/span&gt;   not present:116   not present:115   Min.   : 0.10   Female:126
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 1: &lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt;   present    : &lt;span style=&#34;color:#ae81ff&#34;&gt;89&lt;/span&gt;   present    : &lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt;   1st Qu.: 0.97   Male  : &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 2:107                                       Median : 1.94
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 3: &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt;                                       Mean   : 2.92
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                             3rd Qu.: 3.56
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                             Max.   :17.42
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      age           logthick
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Min.   : 4.00   Min.   :-2.30259
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 1st Qu.:42.00   1st Qu.:-0.03046
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Median :54.00   Median : 0.66269
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Mean   :52.46   Mean   : 0.61817
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 3rd Qu.:65.00   3rd Qu.: 1.26976
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; Max.   :95.00   Max.   : 2.85762
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;competing-risk-analysis-with-cuminc-of-cmprsk-package&#34;&gt;Competing risk analysis with cuminc of &amp;ldquo;cmprsk&amp;rdquo; package&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;cuminc is used to investigate whether a statistically significant difference is present between the groups (see &amp;ldquo;Tests:&amp;rdquo; below).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(cmprsk)
-Results_cmprsk &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;with&lt;/span&gt;(Melanoma, &lt;span style=&#34;color:#a6e22e&#34;&gt;cuminc&lt;/span&gt;(time, event, group &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sex, cencode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;censored&amp;#34;&lt;/span&gt;))
-Results_cmprsk
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;Tests:
-                              stat        pv df
-death.malignant.melanoma 5.8140209 0.0158989  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-death.other.causes       0.8543656 0.3553203  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-Estimates and Variances:
-$est
-                                      &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;4000&lt;/span&gt;
-Female death.malignant.melanoma 0.08730159 0.18077594 0.23565169 0.28424490
-Male death.malignant.melanoma   0.19237175 0.31009828 0.42453587 0.42453587
-Female death.other.causes       0.03174603 0.03983516 0.05220642 0.08538385
-Male death.other.causes         0.03814124 0.06693942 0.06693942 0.13474271
-                                      &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
-Female death.malignant.melanoma 0.28424490
-Male death.malignant.melanoma           NA
-Female death.other.causes       0.08538385
-Male death.other.causes                 NA
-
-$var
-                                        &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;         &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt;         &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
-Female death.malignant.melanoma 0.0006378135 0.0012450462 0.0018102025
-Male death.malignant.melanoma   0.0020223293 0.0028196248 0.0042695603
-Female death.other.causes       0.0002459647 0.0003073878 0.0004529114
-Male death.other.causes         0.0004727379 0.0008614343 0.0008614343
-                                       &lt;span style=&#34;color:#ae81ff&#34;&gt;4000&lt;/span&gt;        &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
-Female death.malignant.melanoma 0.002755577 0.002755577
-Male death.malignant.melanoma   0.004269560          NA
-Female death.other.causes       0.001528480 0.001528480
-Male death.other.causes         0.002950698          NA
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;competing-risk-analysis-with-prodlim&#34;&gt;Competing risk analysis with prodlim&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;library&lt;/span&gt;(cmprsk)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results_cmprsk &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;with&lt;/span&gt;(Melanoma, &lt;span style=&#34;color:#a6e22e&#34;&gt;cuminc&lt;/span&gt;(time, event, group &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sex, cencode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;censored&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Results_cmprsk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Tests:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                              stat        pv df
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;death.malignant.melanoma 5.8140209 0.0158989  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;death.other.causes       0.8543656 0.3553203  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Estimates and Variances:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$est
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                      &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;4000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.malignant.melanoma 0.08730159 0.18077594 0.23565169 0.28424490
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.malignant.melanoma   0.19237175 0.31009828 0.42453587 0.42453587
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.other.causes       0.03174603 0.03983516 0.05220642 0.08538385
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.other.causes         0.03814124 0.06693942 0.06693942 0.13474271
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                      &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.malignant.melanoma 0.28424490
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.malignant.melanoma           NA
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.other.causes       0.08538385
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.other.causes                 NA
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$var
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;         &lt;span style=&#34;color:#ae81ff&#34;&gt;2000&lt;/span&gt;         &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.malignant.melanoma 0.0006378135 0.0012450462 0.0018102025
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.malignant.melanoma   0.0020223293 0.0028196248 0.0042695603
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.other.causes       0.0002459647 0.0003073878 0.0004529114
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.other.causes         0.0004727379 0.0008614343 0.0008614343
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                       &lt;span style=&#34;color:#ae81ff&#34;&gt;4000&lt;/span&gt;        &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.malignant.melanoma 0.002755577 0.002755577
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.malignant.melanoma   0.004269560          NA
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Female death.other.causes       0.001528480 0.001528480
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Male death.other.causes         0.002950698          NA
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;competing-risk-analysis-with-prodlim&#34;&gt;Competing risk analysis with prodlim&lt;/h2&gt;
 &lt;h3 id=&#34;days&#34;&gt;Days&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;CompRskAnalysis &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;prodlim&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Hist&lt;/span&gt;(time, status, cens.code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sex, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Melanoma)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;summary&lt;/span&gt;(CompRskAnalysis)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;
-
-----------&amp;gt; Cause:  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
-  time n.risk n.event n.lost cuminc se.cuminc  lower upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.0000 0.000
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.127    0.0297 0.0688 0.185
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.181    0.0351 0.1120 0.250
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.236    0.0423 0.1528 0.318
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.284    0.0519 0.1826 0.386
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
-  time n.risk n.event n.lost cuminc se.cuminc lower upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.000 0.000
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.270    0.0503 0.171 0.368
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.310    0.0527 0.207 0.413
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.425    0.0644 0.298 0.551
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA    NA    NA
-
-
-
-----------&amp;gt; Cause:  &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
-  time n.risk n.event n.lost cuminc se.cuminc   lower  upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0000    0.0000 0.00000 0.0000
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0317    0.0156 0.00113 0.0624
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0398    0.0175 0.00562 0.0741
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0522    0.0212 0.01073 0.0937
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; 0.0854    0.0383 0.01027 0.1605
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
-  time n.risk n.event n.lost cuminc se.cuminc   lower  upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0127    0.0126 0.00000 0.0373
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0510    0.0248 0.00230 0.0996
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA      NA     NA
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;years&#34;&gt;Years&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;CompRskAnalysis2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;prodlim&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Hist&lt;/span&gt;(time&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365.25&lt;/span&gt;, event, cens.code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;censored&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sex, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Melanoma)
-&lt;span style=&#34;color:#a6e22e&#34;&gt;summary&lt;/span&gt;(CompRskAnalysis2)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;
-
-----------&amp;gt; Cause:  death.malignant.melanoma
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
-     time n.risk n.event n.lost cuminc se.cuminc  lower upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.0000 0.000
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.127    0.0297 0.0688 0.185
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.181    0.0351 0.1120 0.250
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.236    0.0423 0.1528 0.318
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.284    0.0519 0.1826 0.386
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
-     time n.risk n.event n.lost cuminc se.cuminc lower upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.000 0.000
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.270    0.0503 0.171 0.368
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.310    0.0527 0.207 0.413
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.425    0.0644 0.298 0.551
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA    NA    NA
-
-
-
-----------&amp;gt; Cause:  death.other.causes
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
-     time n.risk n.event n.lost cuminc se.cuminc   lower  upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0000    0.0000 0.00000 0.0000
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0317    0.0156 0.00113 0.0624
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0398    0.0175 0.00562 0.0741
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0522    0.0212 0.01073 0.0937
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; 0.0854    0.0383 0.01027 0.1605
-
-sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
-     time n.risk n.event n.lost cuminc se.cuminc   lower  upper
-&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0127    0.0126 0.00000 0.0373
-&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0510    0.0248 0.00230 0.0996
-&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
-&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
-&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA      NA     NA
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;plot-survival-curve-of-competing-risk-analysis-with-prodlim--default&#34;&gt;Plot survival curve of competing risk analysis with prodlim (default)&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Default plot&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;plot&lt;/span&gt;(CompRskAnalysis2)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CompRskAnalysis &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;prodlim&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Hist&lt;/span&gt;(time, status, cens.code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sex, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Melanoma)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;summary&lt;/span&gt;(CompRskAnalysis)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----------&amp;gt; Cause:  &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  time n.risk n.event n.lost cuminc se.cuminc  lower upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.0000 0.000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.127    0.0297 0.0688 0.185
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.181    0.0351 0.1120 0.250
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.236    0.0423 0.1528 0.318
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.284    0.0519 0.1826 0.386
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  time n.risk n.event n.lost cuminc se.cuminc lower upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.000 0.000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.270    0.0503 0.171 0.368
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.310    0.0527 0.207 0.413
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.425    0.0644 0.298 0.551
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA    NA    NA
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----------&amp;gt; Cause:  &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0000    0.0000 0.00000 0.0000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0317    0.0156 0.00113 0.0624
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0398    0.0175 0.00562 0.0741
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0522    0.0212 0.01073 0.0937
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; 0.0854    0.0383 0.01027 0.1605
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;   &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0127    0.0126 0.00000 0.0373
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1513&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0510    0.0248 0.00230 0.0996
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2006&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3042&lt;/span&gt;     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;5565&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA      NA     NA
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;years&#34;&gt;Years&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;CompRskAnalysis2 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;prodlim&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;Hist&lt;/span&gt;(time&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;365.25&lt;/span&gt;, event, cens.code&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;censored&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;~&lt;/span&gt; sex, data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Melanoma)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;summary&lt;/span&gt;(CompRskAnalysis2)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----------&amp;gt; Cause:  death.malignant.melanoma
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     time n.risk n.event n.lost cuminc se.cuminc  lower upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.0000 0.000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.127    0.0297 0.0688 0.185
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.181    0.0351 0.1120 0.250
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.236    0.0423 0.1528 0.318
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.284    0.0519 0.1826 0.386
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     time n.risk n.event n.lost cuminc se.cuminc lower upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.000    0.0000 0.000 0.000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.270    0.0503 0.171 0.368
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.310    0.0527 0.207 0.413
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  0.425    0.0644 0.298 0.551
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA    NA    NA
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;----------&amp;gt; Cause:  death.other.causes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Female :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274    &lt;span style=&#34;color:#ae81ff&#34;&gt;126&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0000    0.0000 0.00000 0.0000
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424    &lt;span style=&#34;color:#ae81ff&#34;&gt;104&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0317    0.0156 0.00113 0.0624
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;67&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0398    0.0175 0.00562 0.0741
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;34&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0522    0.0212 0.01073 0.0937
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; 0.0854    0.0383 0.01027 0.1605
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     time n.risk n.event n.lost cuminc se.cuminc   lower  upper
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  0.0274     &lt;span style=&#34;color:#ae81ff&#34;&gt;79&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0127    0.0126 0.00000 0.0373
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;  4.1424     &lt;span style=&#34;color:#ae81ff&#34;&gt;51&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0510    0.0248 0.00230 0.0996
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;  5.4921     &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;  8.3272     &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; 0.0669    0.0291 0.00992 0.1240
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; 15.2361      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;       &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;      &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;     NA        NA      NA     NA
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;plot-survival-curve-of-competing-risk-analysis-with-prodlim--default&#34;&gt;Plot survival curve of competing risk analysis with prodlim (default)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Default plot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;plot&lt;/span&gt;(CompRskAnalysis2)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 
@@ -228,25 +228,25 @@ sex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;Male :
 &lt;li&gt;add statistical significance from results of cuminc described above&lt;/li&gt;
 &lt;li&gt;etc&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Plot with modification&lt;/span&gt;
-&lt;span style=&#34;color:#a6e22e&#34;&gt;plot&lt;/span&gt;(CompRskAnalysis2,
-     cause &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;death.malignant.melanoma&amp;#34;&lt;/span&gt;,
-     xlim&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;),
-     legend.x&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;topleft&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;# position of legend&lt;/span&gt;
-     legend.cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;# font size of legend&lt;/span&gt;
-     marktime &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;# the curves are tick-marked at right censoring times by invoking the function markTime.&lt;/span&gt;
-     legend.title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;,
-     atrisk.title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;,
-     axis2.at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;seq&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;),
-     background.horizontal&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;seq&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;),
-     axis2.las&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,                            &lt;span style=&#34;color:#75715e&#34;&gt;# rotate labels of y-axis&lt;/span&gt;
-     percent &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;,
-     confint &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;,
-     atrisk.col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;black&amp;#34;&lt;/span&gt;,
-     xlab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Time to primary outcome (years)&amp;#34;&lt;/span&gt;
-     )
-&lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;6.5&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0.85&lt;/span&gt;,adj&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;paste&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;Gray&amp;#39;s test: p-value=&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;round&lt;/span&gt;(Results_cmprsk&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Tests[1,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;],&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;)), cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.2&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Plot with modification&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;plot&lt;/span&gt;(CompRskAnalysis2,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     cause &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;death.malignant.melanoma&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     xlim&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     legend.x&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;topleft&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;# position of legend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     legend.cex&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;# font size of legend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     marktime &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TRUE&lt;/span&gt;, &lt;span style=&#34;color:#75715e&#34;&gt;# the curves are tick-marked at right censoring times by invoking the function markTime.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     legend.title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     atrisk.title&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     axis2.at&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;seq&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     background.horizontal&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;seq&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     axis2.las&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,                            &lt;span style=&#34;color:#75715e&#34;&gt;# rotate labels of y-axis&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     percent &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     confint &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FALSE&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     atrisk.col&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;black&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     xlab&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Time to primary outcome (years)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;text&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;6.5&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0.85&lt;/span&gt;,adj&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;paste&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Gray&amp;#39;s test: p-value=&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;round&lt;/span&gt;(Results_cmprsk&lt;span style=&#34;color:#f92672&#34;&gt;$&lt;/span&gt;Tests[1,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;],&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;)), cex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
 

@@ -5,7 +5,7 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 09 May 2020 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
@@ -15,15 +15,55 @@
     <item>
       <title>emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
       <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latex</title>
+      <link>/tags/latex/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>latexmk</title>
+      <link>/tags/latexmk/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/tags/latexmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org-mode</title>
+      <link>/tags/org-mode/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/tags/org-mode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pdf</title>
+      <link>/tags/pdf/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/tags/pdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>preview</title>
+      <link>/tags/preview/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/tags/preview/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github</title>
       <link>/tags/github/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/github/</guid>
       <description></description>
     </item>
@@ -31,7 +71,7 @@
     <item>
       <title>javascript</title>
       <link>/tags/javascript/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/javascript/</guid>
       <description></description>
     </item>
@@ -39,23 +79,15 @@
     <item>
       <title>js</title>
       <link>/tags/js/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>org-mode</title>
-      <link>/tags/org-mode/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
-      <guid>/tags/org-mode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>org-reveal</title>
       <link>/tags/org-reveal/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/org-reveal/</guid>
       <description></description>
     </item>
@@ -63,7 +95,7 @@
     <item>
       <title>presentation</title>
       <link>/tags/presentation/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/presentation/</guid>
       <description></description>
     </item>
@@ -71,7 +103,7 @@
     <item>
       <title>reveal</title>
       <link>/tags/reveal/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/reveal/</guid>
       <description></description>
     </item>
@@ -79,7 +111,7 @@
     <item>
       <title>slide</title>
       <link>/tags/slide/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/slide/</guid>
       <description></description>
     </item>
@@ -87,7 +119,7 @@
     <item>
       <title>dired</title>
       <link>/tags/dired/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/tags/dired/</guid>
       <description></description>
     </item>
@@ -95,7 +127,7 @@
     <item>
       <title>treemacs</title>
       <link>/tags/treemacs/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       <guid>/tags/treemacs/</guid>
       <description></description>
     </item>
@@ -103,23 +135,15 @@
     <item>
       <title>Catalina</title>
       <link>/tags/catalina/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       <guid>/tags/catalina/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>latex</title>
-      <link>/tags/latex/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/latex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>macbookpro16</title>
       <link>/tags/macbookpro16/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       <guid>/tags/macbookpro16/</guid>
       <description></description>
     </item>
@@ -127,7 +151,7 @@
     <item>
       <title>setup</title>
       <link>/tags/setup/</link>
-      <pubDate>Tue, 31 Dec 2019 00:00:00 +0900</pubDate>
+      <pubDate>Tue, 31 Dec 2019 00:00:00 +0000</pubDate>
       <guid>/tags/setup/</guid>
       <description></description>
     </item>
@@ -135,7 +159,7 @@
     <item>
       <title>beamer</title>
       <link>/tags/beamer/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/tags/beamer/</guid>
       <description></description>
     </item>
@@ -143,7 +167,7 @@
     <item>
       <title>conference</title>
       <link>/tags/conference/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/tags/conference/</guid>
       <description></description>
     </item>
@@ -151,7 +175,7 @@
     <item>
       <title>Inkscape</title>
       <link>/tags/inkscape/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/tags/inkscape/</guid>
       <description></description>
     </item>
@@ -159,7 +183,7 @@
     <item>
       <title>overleaf</title>
       <link>/tags/overleaf/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/tags/overleaf/</guid>
       <description></description>
     </item>
@@ -167,7 +191,7 @@
     <item>
       <title>poster</title>
       <link>/tags/poster/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/tags/poster/</guid>
       <description></description>
     </item>
@@ -175,7 +199,7 @@
     <item>
       <title>tikz</title>
       <link>/tags/tikz/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       <guid>/tags/tikz/</guid>
       <description></description>
     </item>
@@ -183,7 +207,7 @@
     <item>
       <title>helm</title>
       <link>/tags/helm/</link>
-      <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/tags/helm/</guid>
       <description></description>
     </item>
@@ -191,7 +215,7 @@
     <item>
       <title>mark</title>
       <link>/tags/mark/</link>
-      <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/tags/mark/</guid>
       <description></description>
     </item>
@@ -199,7 +223,7 @@
     <item>
       <title>ring</title>
       <link>/tags/ring/</link>
-      <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/tags/ring/</guid>
       <description></description>
     </item>
@@ -207,7 +231,7 @@
     <item>
       <title>org-rifle</title>
       <link>/tags/org-rifle/</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/tags/org-rifle/</guid>
       <description></description>
     </item>
@@ -215,7 +239,7 @@
     <item>
       <title>search</title>
       <link>/tags/search/</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/tags/search/</guid>
       <description></description>
     </item>
@@ -223,15 +247,15 @@
     <item>
       <title>academic</title>
       <link>/tags/academic/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       <guid>/tags/academic/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Hugo</title>
+      <title>hugo</title>
       <link>/tags/hugo/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       <guid>/tags/hugo/</guid>
       <description></description>
     </item>
@@ -239,7 +263,7 @@
     <item>
       <title>ox-hugo</title>
       <link>/tags/ox-hugo/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       <guid>/tags/ox-hugo/</guid>
       <description></description>
     </item>
@@ -247,7 +271,7 @@
     <item>
       <title>theme</title>
       <link>/tags/theme/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       <guid>/tags/theme/</guid>
       <description></description>
     </item>
@@ -255,7 +279,7 @@
     <item>
       <title>upgrade</title>
       <link>/tags/upgrade/</link>
-      <pubDate>Wed, 04 Sep 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       <guid>/tags/upgrade/</guid>
       <description></description>
     </item>
@@ -263,7 +287,7 @@
     <item>
       <title>project</title>
       <link>/tags/project/</link>
-      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       <guid>/tags/project/</guid>
       <description></description>
     </item>
@@ -271,7 +295,7 @@
     <item>
       <title>projectile</title>
       <link>/tags/projectile/</link>
-      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       <guid>/tags/projectile/</guid>
       <description></description>
     </item>
@@ -279,7 +303,7 @@
     <item>
       <title>full-text-search</title>
       <link>/tags/full-text-search/</link>
-      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/full-text-search/</guid>
       <description></description>
     </item>
@@ -287,7 +311,7 @@
     <item>
       <title>hyperestraier</title>
       <link>/tags/hyperestraier/</link>
-      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/hyperestraier/</guid>
       <description></description>
     </item>
@@ -295,7 +319,7 @@
     <item>
       <title>macos</title>
       <link>/tags/macos/</link>
-      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/macos/</guid>
       <description></description>
     </item>
@@ -303,23 +327,15 @@
     <item>
       <title>mojave</title>
       <link>/tags/mojave/</link>
-      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 24 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/mojave/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pdf</title>
-      <link>/tags/pdf/</link>
-      <pubDate>Wed, 24 Jul 2019 00:00:00 +0900</pubDate>
-      <guid>/tags/pdf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>pdf-tools</title>
       <link>/tags/pdf-tools/</link>
-      <pubDate>Wed, 17 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/pdf-tools/</guid>
       <description></description>
     </item>
@@ -327,7 +343,7 @@
     <item>
       <title>color</title>
       <link>/tags/color/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/color/</guid>
       <description></description>
     </item>
@@ -335,7 +351,7 @@
     <item>
       <title>cursor</title>
       <link>/tags/cursor/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/cursor/</guid>
       <description></description>
     </item>
@@ -343,7 +359,7 @@
     <item>
       <title>input</title>
       <link>/tags/input/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/input/</guid>
       <description></description>
     </item>
@@ -351,7 +367,7 @@
     <item>
       <title>japanese</title>
       <link>/tags/japanese/</link>
-      <pubDate>Thu, 11 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 11 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/japanese/</guid>
       <description></description>
     </item>
@@ -359,7 +375,7 @@
     <item>
       <title>highlight</title>
       <link>/tags/highlight/</link>
-      <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/highlight/</guid>
       <description></description>
     </item>
@@ -367,7 +383,7 @@
     <item>
       <title>replace</title>
       <link>/tags/replace/</link>
-      <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/replace/</guid>
       <description></description>
     </item>
@@ -375,7 +391,7 @@
     <item>
       <title>symbol</title>
       <link>/tags/symbol/</link>
-      <pubDate>Wed, 10 Jul 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
       <guid>/tags/symbol/</guid>
       <description></description>
     </item>
@@ -383,7 +399,7 @@
     <item>
       <title>annotation</title>
       <link>/tags/annotation/</link>
-      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/annotation/</guid>
       <description></description>
     </item>
@@ -391,7 +407,7 @@
     <item>
       <title>box</title>
       <link>/tags/box/</link>
-      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/box/</guid>
       <description></description>
     </item>
@@ -399,7 +415,7 @@
     <item>
       <title>ggplot2</title>
       <link>/tags/ggplot2/</link>
-      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/ggplot2/</guid>
       <description></description>
     </item>
@@ -407,7 +423,7 @@
     <item>
       <title>line</title>
       <link>/tags/line/</link>
-      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/line/</guid>
       <description></description>
     </item>
@@ -415,7 +431,7 @@
     <item>
       <title>plot</title>
       <link>/tags/plot/</link>
-      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/plot/</guid>
       <description></description>
     </item>
@@ -423,7 +439,7 @@
     <item>
       <title>R</title>
       <link>/tags/r/</link>
-      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/r/</guid>
       <description></description>
     </item>
@@ -431,7 +447,7 @@
     <item>
       <title>vertical</title>
       <link>/tags/vertical/</link>
-      <pubDate>Sun, 30 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/vertical/</guid>
       <description></description>
     </item>
@@ -439,7 +455,7 @@
     <item>
       <title>accessibility</title>
       <link>/tags/accessibility/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/accessibility/</guid>
       <description></description>
     </item>
@@ -447,7 +463,7 @@
     <item>
       <title>iTerm2</title>
       <link>/tags/iterm2/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/iterm2/</guid>
       <description></description>
     </item>
@@ -455,7 +471,7 @@
     <item>
       <title>line-number</title>
       <link>/tags/line-number/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/line-number/</guid>
       <description></description>
     </item>
@@ -463,7 +479,7 @@
     <item>
       <title>thunderbird</title>
       <link>/tags/thunderbird/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/thunderbird/</guid>
       <description></description>
     </item>
@@ -471,7 +487,7 @@
     <item>
       <title>whitespace</title>
       <link>/tags/whitespace/</link>
-      <pubDate>Sun, 02 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 02 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/whitespace/</guid>
       <description></description>
     </item>
@@ -479,7 +495,7 @@
     <item>
       <title>deadgrep</title>
       <link>/tags/deadgrep/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/deadgrep/</guid>
       <description></description>
     </item>
@@ -487,7 +503,7 @@
     <item>
       <title>ripgrep</title>
       <link>/tags/ripgrep/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       <guid>/tags/ripgrep/</guid>
       <description></description>
     </item>
@@ -495,7 +511,7 @@
     <item>
       <title>blog</title>
       <link>/tags/blog/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       <guid>/tags/blog/</guid>
       <description></description>
     </item>
@@ -503,7 +519,7 @@
     <item>
       <title>codeblock</title>
       <link>/tags/codeblock/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       <guid>/tags/codeblock/</guid>
       <description></description>
     </item>
@@ -511,7 +527,7 @@
     <item>
       <title>horizontal</title>
       <link>/tags/horizontal/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       <guid>/tags/horizontal/</guid>
       <description></description>
     </item>
@@ -519,7 +535,7 @@
     <item>
       <title>scrollbar</title>
       <link>/tags/scrollbar/</link>
-      <pubDate>Thu, 02 May 2019 00:00:00 +0900</pubDate>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       <guid>/tags/scrollbar/</guid>
       <description></description>
     </item>
@@ -527,7 +543,7 @@
     <item>
       <title>26-2</title>
       <link>/tags/26-2/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/26-2/</guid>
       <description></description>
     </item>
@@ -535,7 +551,7 @@
     <item>
       <title>homebrew</title>
       <link>/tags/homebrew/</link>
-      <pubDate>Mon, 29 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 29 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/homebrew/</guid>
       <description></description>
     </item>
@@ -543,7 +559,7 @@
     <item>
       <title>image</title>
       <link>/tags/image/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/image/</guid>
       <description></description>
     </item>
@@ -551,7 +567,7 @@
     <item>
       <title>link</title>
       <link>/tags/link/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/link/</guid>
       <description></description>
     </item>
@@ -559,7 +575,7 @@
     <item>
       <title>peep-dired</title>
       <link>/tags/peep-dired/</link>
-      <pubDate>Fri, 19 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/peep-dired/</guid>
       <description></description>
     </item>
@@ -575,7 +591,7 @@
     <item>
       <title>colour</title>
       <link>/tags/colour/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/colour/</guid>
       <description></description>
     </item>
@@ -583,7 +599,7 @@
     <item>
       <title>facet</title>
       <link>/tags/facet/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/facet/</guid>
       <description></description>
     </item>
@@ -591,7 +607,7 @@
     <item>
       <title>patchwork</title>
       <link>/tags/patchwork/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/patchwork/</guid>
       <description></description>
     </item>
@@ -599,7 +615,7 @@
     <item>
       <title>segment</title>
       <link>/tags/segment/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       <guid>/tags/segment/</guid>
       <description></description>
     </item>
@@ -607,7 +623,7 @@
     <item>
       <title>embed</title>
       <link>/tags/embed/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/embed/</guid>
       <description></description>
     </item>
@@ -615,7 +631,7 @@
     <item>
       <title>export</title>
       <link>/tags/export/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/export/</guid>
       <description></description>
     </item>
@@ -623,7 +639,7 @@
     <item>
       <title>graph</title>
       <link>/tags/graph/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/graph/</guid>
       <description></description>
     </item>
@@ -631,7 +647,7 @@
     <item>
       <title>org-babel</title>
       <link>/tags/org-babel/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/org-babel/</guid>
       <description></description>
     </item>
@@ -639,7 +655,7 @@
     <item>
       <title>ox</title>
       <link>/tags/ox/</link>
-      <pubDate>Mon, 25 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 25 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/ox/</guid>
       <description></description>
     </item>
@@ -647,7 +663,7 @@
     <item>
       <title>at</title>
       <link>/tags/at/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/at/</guid>
       <description></description>
     </item>
@@ -655,7 +671,7 @@
     <item>
       <title>censored</title>
       <link>/tags/censored/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/censored/</guid>
       <description></description>
     </item>
@@ -663,7 +679,7 @@
     <item>
       <title>competing</title>
       <link>/tags/competing/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/competing/</guid>
       <description></description>
     </item>
@@ -671,7 +687,7 @@
     <item>
       <title>curve</title>
       <link>/tags/curve/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/curve/</guid>
       <description></description>
     </item>
@@ -679,7 +695,7 @@
     <item>
       <title>number</title>
       <link>/tags/number/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/number/</guid>
       <description></description>
     </item>
@@ -687,7 +703,7 @@
     <item>
       <title>prodlim</title>
       <link>/tags/prodlim/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/prodlim/</guid>
       <description></description>
     </item>
@@ -695,7 +711,7 @@
     <item>
       <title>risk</title>
       <link>/tags/risk/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/risk/</guid>
       <description></description>
     </item>
@@ -703,7 +719,7 @@
     <item>
       <title>survival</title>
       <link>/tags/survival/</link>
-      <pubDate>Wed, 20 Mar 2019 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 20 Mar 2019 00:00:00 +0000</pubDate>
       <guid>/tags/survival/</guid>
       <description></description>
     </item>
@@ -711,7 +727,7 @@
     <item>
       <title>adaptive</title>
       <link>/tags/adaptive/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/tags/adaptive/</guid>
       <description></description>
     </item>
@@ -719,7 +735,7 @@
     <item>
       <title>indentation</title>
       <link>/tags/indentation/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/tags/indentation/</guid>
       <description></description>
     </item>
@@ -727,7 +743,7 @@
     <item>
       <title>wrap</title>
       <link>/tags/wrap/</link>
-      <pubDate>Sun, 27 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/tags/wrap/</guid>
       <description></description>
     </item>
@@ -735,7 +751,7 @@
     <item>
       <title>autoexport</title>
       <link>/tags/autoexport/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/tags/autoexport/</guid>
       <description></description>
     </item>
@@ -743,7 +759,7 @@
     <item>
       <title>autorefresh</title>
       <link>/tags/autorefresh/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/tags/autorefresh/</guid>
       <description></description>
     </item>
@@ -751,7 +767,7 @@
     <item>
       <title>browser</title>
       <link>/tags/browser/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/tags/browser/</guid>
       <description></description>
     </item>
@@ -759,7 +775,7 @@
     <item>
       <title>html</title>
       <link>/tags/html/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
       <guid>/tags/html/</guid>
       <description></description>
     </item>
@@ -767,7 +783,7 @@
     <item>
       <title>narrow</title>
       <link>/tags/narrow/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/tags/narrow/</guid>
       <description></description>
     </item>
@@ -775,7 +791,7 @@
     <item>
       <title>orgmode</title>
       <link>/tags/orgmode/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/tags/orgmode/</guid>
       <description></description>
     </item>
@@ -783,7 +799,7 @@
     <item>
       <title>recursive</title>
       <link>/tags/recursive/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/tags/recursive/</guid>
       <description></description>
     </item>
@@ -791,7 +807,7 @@
     <item>
       <title>css</title>
       <link>/tags/css/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
       <guid>/tags/css/</guid>
       <description></description>
     </item>
@@ -799,7 +815,7 @@
     <item>
       <title>mode</title>
       <link>/tags/mode/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       <guid>/tags/mode/</guid>
       <description></description>
     </item>
@@ -807,7 +823,7 @@
     <item>
       <title>org</title>
       <link>/tags/org/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       <guid>/tags/org/</guid>
       <description></description>
     </item>
@@ -815,7 +831,7 @@
     <item>
       <title>tufte</title>
       <link>/tags/tufte/</link>
-      <pubDate>Wed, 14 Nov 2018 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
       <guid>/tags/tufte/</guid>
       <description></description>
     </item>
@@ -823,7 +839,7 @@
     <item>
       <title>bioconductor</title>
       <link>/tags/bioconductor/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/bioconductor/</guid>
       <description></description>
     </item>
@@ -831,7 +847,7 @@
     <item>
       <title>error</title>
       <link>/tags/error/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/error/</guid>
       <description></description>
     </item>
@@ -839,7 +855,7 @@
     <item>
       <title>install</title>
       <link>/tags/install/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/install/</guid>
       <description></description>
     </item>
@@ -847,7 +863,7 @@
     <item>
       <title>Rstudio</title>
       <link>/tags/rstudio/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/rstudio/</guid>
       <description></description>
     </item>
@@ -855,7 +871,7 @@
     <item>
       <title>update</title>
       <link>/tags/update/</link>
-      <pubDate>Sat, 27 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/update/</guid>
       <description></description>
     </item>
@@ -863,7 +879,7 @@
     <item>
       <title>avy</title>
       <link>/tags/avy/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/avy/</guid>
       <description></description>
     </item>
@@ -871,7 +887,7 @@
     <item>
       <title>ivy</title>
       <link>/tags/ivy/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/ivy/</guid>
       <description></description>
     </item>
@@ -879,7 +895,7 @@
     <item>
       <title>migemo</title>
       <link>/tags/migemo/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/migemo/</guid>
       <description></description>
     </item>
@@ -887,7 +903,7 @@
     <item>
       <title>swiper</title>
       <link>/tags/swiper/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/swiper/</guid>
       <description></description>
     </item>
@@ -895,7 +911,7 @@
     <item>
       <title>emacsclient</title>
       <link>/tags/emacsclient/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/emacsclient/</guid>
       <description></description>
     </item>
@@ -903,7 +919,7 @@
     <item>
       <title>synchronization</title>
       <link>/tags/synchronization/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/synchronization/</guid>
       <description></description>
     </item>
@@ -911,7 +927,7 @@
     <item>
       <title>tex</title>
       <link>/tags/tex/</link>
-      <pubDate>Sun, 07 Oct 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 07 Oct 2018 00:00:00 +0000</pubDate>
       <guid>/tags/tex/</guid>
       <description></description>
     </item>
@@ -919,7 +935,7 @@
     <item>
       <title>citation</title>
       <link>/tags/citation/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/citation/</guid>
       <description></description>
     </item>
@@ -927,7 +943,7 @@
     <item>
       <title>pandoc</title>
       <link>/tags/pandoc/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/pandoc/</guid>
       <description></description>
     </item>
@@ -935,7 +951,7 @@
     <item>
       <title>reference</title>
       <link>/tags/reference/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/reference/</guid>
       <description></description>
     </item>
@@ -943,7 +959,7 @@
     <item>
       <title>word</title>
       <link>/tags/word/</link>
-      <pubDate>Mon, 17 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/word/</guid>
       <description></description>
     </item>
@@ -951,7 +967,7 @@
     <item>
       <title>automation</title>
       <link>/tags/automation/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/automation/</guid>
       <description></description>
     </item>
@@ -959,7 +975,7 @@
     <item>
       <title>bibtex</title>
       <link>/tags/bibtex/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/bibtex/</guid>
       <description></description>
     </item>
@@ -967,7 +983,7 @@
     <item>
       <title>reftex</title>
       <link>/tags/reftex/</link>
-      <pubDate>Sat, 15 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 15 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/reftex/</guid>
       <description></description>
     </item>
@@ -975,7 +991,7 @@
     <item>
       <title>bibdesk</title>
       <link>/tags/bibdesk/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/bibdesk/</guid>
       <description></description>
     </item>
@@ -983,7 +999,7 @@
     <item>
       <title>pubmed</title>
       <link>/tags/pubmed/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/tags/pubmed/</guid>
       <description></description>
     </item>
@@ -991,23 +1007,15 @@
     <item>
       <title>movie</title>
       <link>/tags/movie/</link>
-      <pubDate>Sun, 26 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/movie/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>latexmk</title>
-      <link>/tags/latexmk/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
-      <guid>/tags/latexmk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mactex</title>
       <link>/tags/mactex/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/mactex/</guid>
       <description></description>
     </item>
@@ -1015,7 +1023,7 @@
     <item>
       <title>texlive</title>
       <link>/tags/texlive/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/texlive/</guid>
       <description></description>
     </item>
@@ -1023,7 +1031,7 @@
     <item>
       <title>auctex</title>
       <link>/tags/auctex/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/auctex/</guid>
       <description></description>
     </item>
@@ -1031,7 +1039,7 @@
     <item>
       <title>skim</title>
       <link>/tags/skim/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/skim/</guid>
       <description></description>
     </item>
@@ -1039,7 +1047,7 @@
     <item>
       <title>init-el</title>
       <link>/tags/init-el/</link>
-      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 18 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/init-el/</guid>
       <description></description>
     </item>
@@ -1047,7 +1055,7 @@
     <item>
       <title>prelude</title>
       <link>/tags/prelude/</link>
-      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 18 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/prelude/</guid>
       <description></description>
     </item>
@@ -1055,7 +1063,7 @@
     <item>
       <title>init-org</title>
       <link>/tags/init-org/</link>
-      <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 17 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/tags/init-org/</guid>
       <description></description>
     </item>

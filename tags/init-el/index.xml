@@ -5,7 +5,7 @@
     <link>/tags/init-el/</link>
       <atom:link href="/tags/init-el/index.xml" rel="self" type="application/rss+xml" />
     <description>init-el</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sat, 18 Aug 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>init-el</title>
@@ -15,11 +15,16 @@
     <item>
       <title>Emacsの設定（その3）ようやくinit.orgの記述: 日本語の設定，inline-patchの設定など</title>
       <link>/post/japanese_setup/</link>
-      <pubDate>Sat, 18 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Sat, 18 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/post/japanese_setup/</guid>
       <description>&lt;p&gt;ようやく，ここからinit.orgの具体的な記述になる．&lt;/p&gt;
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
-HAHAHUGOSHORTCODE-TOC0-HBHB
+&lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#coding-systemの設定&#34;&gt;Coding systemの設定&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#inline-patchの設定&#34;&gt;Inline-patchの設定&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
 &lt;h2 id=&#34;coding-systemの設定&#34;&gt;Coding systemの設定&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -27,44 +32,44 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;init.orgに以下のように書き込む&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Coding System Environment
-** 言語を日本語にする
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
-   (set-language-environment &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Japanese&lt;/span&gt;)
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
-** 極力UTF-8とする
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
-     (prefer-coding-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&lt;/span&gt;)
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
-** 日本語フォントをヒラギノにする
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 日本語のサイズを指定しないと動的にサイズを変えられるようになる
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
-     (when (or (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ns&lt;/span&gt;))
-       (set-face-attribute &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-                           &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Menlo&amp;#34;&lt;/span&gt;
-                           &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; 18pt&lt;/span&gt;
-       (set-fontset-font &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;japanese-jisx0208&lt;/span&gt;
-                         (font-spec &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hiragino Kaku Gothic ProN&amp;#34;&lt;/span&gt;))
-       (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; face-font-rescale-alist
-             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*Hiragino Kaku Gothic ProN.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;))))
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; Coding System Environment
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;** 言語を日本語にする
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   (set-language-environment &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Japanese&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;** 極力UTF-8とする
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     (prefer-coding-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;** 日本語フォントをヒラギノにする
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 日本語のサイズを指定しないと動的にサイズを変えられるようになる
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 奥村先生のサイト参照 https://oku.edu.mie-u.ac.jp/~okumura/macosx/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     (when (or (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ns&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (set-face-attribute &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                           &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Menlo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                           &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; 18pt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (set-fontset-font &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;japanese-jisx0208&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                         (font-spec &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hiragino Kaku Gothic ProN&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; face-font-rescale-alist
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*Hiragino Kaku Gothic ProN.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;これがEmacs起動時にorg-babel-load-fileにより変換されて下記のようなinit.elとなる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(set-language-environment &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Japanese&lt;/span&gt;)
-
-(prefer-coding-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&lt;/span&gt;)
-
-(when (or (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ns&lt;/span&gt;))
-  (set-face-attribute &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-                      &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Menlo&amp;#34;&lt;/span&gt;
-                      &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; 18pt&lt;/span&gt;
-  (set-fontset-font &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;japanese-jisx0208&lt;/span&gt;
-                    (font-spec &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hiragino Kaku Gothic ProN&amp;#34;&lt;/span&gt;))
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; face-font-rescale-alist
-        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*Hiragino Kaku Gothic ProN.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;))))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(set-language-environment &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Japanese&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(prefer-coding-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(when (or (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac&lt;/span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;eq&lt;/span&gt; window-system &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ns&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (set-face-attribute &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;default&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Menlo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#e6db74&#34;&gt;:height&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;;; 18pt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (set-fontset-font &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;japanese-jisx0208&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    (font-spec &lt;span style=&#34;color:#e6db74&#34;&gt;:family&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hiragino Kaku Gothic ProN&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; face-font-rescale-alist
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#39;&lt;/span&gt;((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.*Hiragino Kaku Gothic ProN.*&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.1&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;つまり，org-modeで書いたinit.orgでの解説はすべて除かれて，lispのみのcodeになってinit.elが生成される．&lt;/p&gt;
 &lt;/li&gt;
@@ -85,43 +90,43 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;init.orgに以下のように書き込む．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; inline-patch on macosx
-** ミニバッファ入力時に自動的に英語入力モードにする
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
-     (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;functionp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-auto-ascii-mode&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;;; ミニバッファに入力時、自動的に英語モード&lt;/span&gt;
-       (mac-auto-ascii-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
-** 日本語か英語かで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;カーソルの色を変える&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考１&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
-&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考２&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://suzuki.tdiary.net/20160103.html
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
-     (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;fboundp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-input-source&lt;/span&gt;)
-       (defun my-mac-selected-keyboard-input-source-chage-function ()
-         (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((mac-input-source (mac-input-source)))
-           (set-cursor-color
-                                             &lt;span style=&#34;color:#75715e&#34;&gt;; (if (string-match &amp;#34;com.apple.inputmethod.Kotoeri.Roman&amp;#34; mac-input-source)&lt;/span&gt;
-            (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (string-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.google.inputmethod.Japanese.Roman&amp;#34;&lt;/span&gt; mac-input-source)
-                &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#91C3FF&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#FF9300&amp;#34;&lt;/span&gt;))))
-       (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-selected-keyboard-input-source-change-hook&lt;/span&gt;
-                 &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-mac-selected-keyboard-input-source-chage-function&lt;/span&gt;))
-   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; inline-patch on macosx
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;** ミニバッファ入力時に自動的に英語入力モードにする
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;functionp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-auto-ascii-mode&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;;; ミニバッファに入力時、自動的に英語モード&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (mac-auto-ascii-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;** 日本語か英語かで&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;，&lt;/span&gt;カーソルの色を変える&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考１&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://keisanbutsuriya.hateblo.jp/entry/2016/04/10/115945
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;​&lt;/span&gt;   &lt;span style=&#34;color:#a6e22e&#34;&gt;-&lt;/span&gt; 参考２&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;：&lt;/span&gt;http://suzuki.tdiary.net/20160103.html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;BEGIN_SRC lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;fboundp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-input-source&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (defun my-mac-selected-keyboard-input-source-chage-function ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((mac-input-source (mac-input-source)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (set-cursor-color
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                             &lt;span style=&#34;color:#75715e&#34;&gt;; (if (string-match &amp;#34;com.apple.inputmethod.Kotoeri.Roman&amp;#34; mac-input-source)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (string-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.google.inputmethod.Japanese.Roman&amp;#34;&lt;/span&gt; mac-input-source)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#91C3FF&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#FF9300&amp;#34;&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-selected-keyboard-input-source-change-hook&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-mac-selected-keyboard-input-source-chage-function&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;END_SRC
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;これがEmacsの起動時に，org-babel-load-fileによって，下記のようにcodeだけ抜き出されて，init.elに書き込まれる．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(when (&lt;span style=&#34;color:#a6e22e&#34;&gt;functionp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-auto-ascii-mode&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;;; ミニバッファに入力時、自動的に英語モード&lt;/span&gt;
-  (mac-auto-ascii-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
-
-(when (&lt;span style=&#34;color:#a6e22e&#34;&gt;fboundp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-input-source&lt;/span&gt;)
-  (defun my-mac-selected-keyboard-input-source-chage-function ()
-    (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((mac-input-source (mac-input-source)))
-      (set-cursor-color
-                                        &lt;span style=&#34;color:#75715e&#34;&gt;; (if (string-match &amp;#34;com.apple.inputmethod.Kotoeri.Roman&amp;#34; mac-input-source)&lt;/span&gt;
-       (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (string-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.google.inputmethod.Japanese.Roman&amp;#34;&lt;/span&gt; mac-input-source)
-           &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#91C3FF&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#FF9300&amp;#34;&lt;/span&gt;))))
-  (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-selected-keyboard-input-source-change-hook&lt;/span&gt;
-            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-mac-selected-keyboard-input-source-chage-function&lt;/span&gt;))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(when (&lt;span style=&#34;color:#a6e22e&#34;&gt;functionp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-auto-ascii-mode&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;;; ミニバッファに入力時、自動的に英語モード&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (mac-auto-ascii-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(when (&lt;span style=&#34;color:#a6e22e&#34;&gt;fboundp&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-input-source&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (defun my-mac-selected-keyboard-input-source-chage-function ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((mac-input-source (mac-input-source)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (set-cursor-color
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                        &lt;span style=&#34;color:#75715e&#34;&gt;; (if (string-match &amp;#34;com.apple.inputmethod.Kotoeri.Roman&amp;#34; mac-input-source)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (string-match &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;com.google.inputmethod.Japanese.Roman&amp;#34;&lt;/span&gt; mac-input-source)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#91C3FF&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#FF9300&amp;#34;&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mac-selected-keyboard-input-source-change-hook&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;my-mac-selected-keyboard-input-source-chage-function&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;これで日本語入力中であっても，M-xなどでミニバッファ入力時に自動的に英語入力モードになってくれる．&lt;/p&gt;
 &lt;/li&gt;
@@ -135,7 +140,7 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
     <item>
       <title>Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する</title>
       <link>/post/init_org/</link>
-      <pubDate>Fri, 17 Aug 2018 00:00:00 +0900</pubDate>
+      <pubDate>Fri, 17 Aug 2018 00:00:00 +0000</pubDate>
       <guid>/post/init_org/</guid>
       <description>&lt;p&gt;自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．&lt;/p&gt;
 &lt;h2 id=&#34;参考サイト&#34;&gt;参考サイト&lt;/h2&gt;
@@ -160,11 +165,11 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;ul&gt;
 &lt;li&gt;~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org&lt;/span&gt;)
-(defvar my-config-dir (concat user-emacs-directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;personal/&amp;#34;&lt;/span&gt;))
-(org-babel-load-file
- (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;init.org&amp;#34;&lt;/span&gt; my-config-dir))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;require&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(defvar my-config-dir (concat user-emacs-directory &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;personal/&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(org-babel-load-file
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;init.org&amp;#34;&lt;/span&gt; my-config-dir))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;工夫と言っても， &lt;strong&gt;init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう&lt;/strong&gt;  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．&lt;/li&gt;
 &lt;li&gt;これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．&lt;/li&gt;
 &lt;/ul&gt;
@@ -181,12 +186,12 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;org-modeで以下のようにする．（後述する設定が必要）&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;）&lt;/span&gt;
-以下のように展開される
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;l &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;（&lt;/span&gt;ここで&amp;lt;TAB&amp;gt;すると&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;．．．）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;以下のように展開される
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;2019年1月14日追加&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
@@ -229,19 +234,19 @@ HAHAHUGOSHORTCODE-TOC0-HBHB
 &lt;li&gt;
 &lt;p&gt;当該のcode blockだけのバッファが表示される（下図の下のバッファ）&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CodeBlock_small.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+        
+        
+        
+        
+        
+        &lt;figure&gt;
+        
+          &lt;a data-fancybox=&#34;&#34; href=&#34;/img/CodeBlock_small.jpg&#34; &gt;
+        
+        &lt;img src=&#34;/img/CodeBlock_small.jpg&#34; width=&#34;100%&#34; &gt;
+        &lt;/a&gt;
+        
+        &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;

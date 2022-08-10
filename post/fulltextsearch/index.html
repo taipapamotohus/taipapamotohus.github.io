@@ -81,7 +81,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -128,7 +128,7 @@
   <meta property="twitter:image" content="/post/fulltextsearch/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-07-24T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-07-24T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2019-09-17T21:59:41&#43;09:00">
   
@@ -325,7 +325,7 @@
 
 
 
-<meta content="2019-07-24 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-07-24 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2019-09-17 21:59:41 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -445,140 +445,140 @@
 <p>今回用いるのは<a href="https://fallabs.com/hyperestraier/index.ja.html">Hyper Estraier</a>という全文検索システムである．これがどんなものかはリンク先の文書を読んでもらうとして，早速インストールである．</p>
 <h3 id="install">Install</h3>
 <p>homebrewを使用すれば一発である．qdbmなどの依存関係も全部面倒を見てくれるので楽である．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install hyperestraier
-</code></pre></div><p>インストールされたものを見るとこうなっている．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew info hyperestraier
-
-hyperestraier: stable 1.4.13 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>
-Full-text search system <span style="color:#66d9ef">for</span> communities
-https://fallabs.com/hyperestraier/
-/usr/local/Cellar/hyperestraier/1.4.13 <span style="color:#f92672">(</span><span style="color:#ae81ff">278</span> files, 3.1MB<span style="color:#f92672">)</span> *
-Built from source on 2016-12-24 at 22:34:54 with: --with-mecab
-From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hyperestraier.rb
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Dependencies
-Required: qdbm
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Analytics
-install: <span style="color:#ae81ff">3</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">64</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
-install_on_request: <span style="color:#ae81ff">3</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">64</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
-build_error: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>
-</code></pre></div><p>pdfのindexを作成する際に，hyperestraierに含まれているestfxpdftohtmlというフィルタでPDFのファイルをHTML形式に変換する．しかし，このフィルタは/usr/local/bin/などには入ってくれないので，brewによりインストールされた場所を探して，pathの通るところにsymbolic linkを張っておく．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mdfind -name filter | grep hyperestraier
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
-
-$ ls -al /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
-total <span style="color:#ae81ff">48</span>
-drwxr-xr-x   <span style="color:#ae81ff">8</span> kohkichi  admin   <span style="color:#ae81ff">256</span> Feb <span style="color:#ae81ff">16</span>  <span style="color:#ae81ff">2017</span> ./
-drwxr-xr-x  <span style="color:#ae81ff">19</span> kohkichi  admin   <span style="color:#ae81ff">608</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> ../
--rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1118</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxasis*
--rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1063</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxmantotxt*
--rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1263</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxmsotohtml*
--rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1016</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxpdftohtml*
--rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1007</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxxdwtotxt*
--rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1057</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estwnetxpnd*
-
-$ ln -s /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter/* /usr/local/bin/
-</code></pre></div><h3 id="pdftotext">pdftotext</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install hyperestraier
+</span></span></code></pre></div><p>インストールされたものを見るとこうなっている．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew info hyperestraier
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hyperestraier: stable 1.4.13 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Full-text search system <span style="color:#66d9ef">for</span> communities
+</span></span><span style="display:flex;"><span>https://fallabs.com/hyperestraier/
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13 <span style="color:#f92672">(</span><span style="color:#ae81ff">278</span> files, 3.1MB<span style="color:#f92672">)</span> *
+</span></span><span style="display:flex;"><span>Built from source on 2016-12-24 at 22:34:54 with: --with-mecab
+</span></span><span style="display:flex;"><span>From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hyperestraier.rb
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Dependencies
+</span></span><span style="display:flex;"><span>Required: qdbm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Analytics
+</span></span><span style="display:flex;"><span>install: <span style="color:#ae81ff">3</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">64</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>install_on_request: <span style="color:#ae81ff">3</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">16</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, <span style="color:#ae81ff">64</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>build_error: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>pdfのindexを作成する際に，hyperestraierに含まれているestfxpdftohtmlというフィルタでPDFのファイルをHTML形式に変換する．しかし，このフィルタは/usr/local/bin/などには入ってくれないので，brewによりインストールされた場所を探して，pathの通るところにsymbolic linkを張っておく．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mdfind -name filter | grep hyperestraier
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ls -al /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">48</span>
+</span></span><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#ae81ff">8</span> kohkichi  admin   <span style="color:#ae81ff">256</span> Feb <span style="color:#ae81ff">16</span>  <span style="color:#ae81ff">2017</span> ./
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#ae81ff">19</span> kohkichi  admin   <span style="color:#ae81ff">608</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> ../
+</span></span><span style="display:flex;"><span>-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1118</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxasis*
+</span></span><span style="display:flex;"><span>-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1063</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxmantotxt*
+</span></span><span style="display:flex;"><span>-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1263</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxmsotohtml*
+</span></span><span style="display:flex;"><span>-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1016</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxpdftohtml*
+</span></span><span style="display:flex;"><span>-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1007</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estfxxdwtotxt*
+</span></span><span style="display:flex;"><span>-rwxr-xr-x   <span style="color:#ae81ff">1</span> kohkichi  admin  <span style="color:#ae81ff">1057</span> Dec <span style="color:#ae81ff">24</span>  <span style="color:#ae81ff">2016</span> estwnetxpnd*
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ln -s /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/filter/* /usr/local/bin/
+</span></span></code></pre></div><h3 id="pdftotext">pdftotext</h3>
 <p>上述のestfxpdftohtmlであるが，内部でpdftotextを使用している．そして，厄介なことに，このpdftotextはxpdfとpopplerの両方に含まれている．しかも，xpdfに含まれているpdftotextには <strong>-htmlmeta</strong> optionがないのである．つまり， <strong>xpdfに含まれているpdftotextを使用するとpdf文書のindexができない</strong> ということになる．実際にそれぞれのversionを見てみると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#e6db74">&lt;&lt;xpdf&gt;&gt;
-</span><span style="color:#e6db74">$ pdftotex</span>t -h
-pdftotext version 4.01.01
-Copyright 1996-2019 Glyph &amp; Cog, LLC
-..........
-
-<span style="color:#e6db74">&lt;&lt;poppler&gt;&gt;
-</span><span style="color:#e6db74">$ pdftotext -h
-</span><span style="color:#e6db74">pdftotext version 0.77.0
-</span><span style="color:#e6db74">Copyright 2005-2019 The Poppler Developers - http://poppler</span>.freedesktop.org
-Copyright 1996-2011 Glyph &amp; Cog, LLC
-..........
-</code></pre></div><p>このように，全く異なったものになっているが，どうやら，xpdfのものの方が古いらしい．もし，xpdfをすでに入れている場合は，popplerをインストールしようとすると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew install poppler
-
-Error: Cannot install poppler because conflicting formulae are installed.
-xpdf: because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables
-
-Please <span style="color:#e6db74">`</span>brew unlink xpdf<span style="color:#e6db74">`</span> before continuing.
-</code></pre></div><p>と怒られるので，言われる通りに brew unlink xpdf してから，再度，brew install popplerを行えば良い．これで，popplerの方のpdftotextが使われるようになって，ちゃんとindexができるようになる．私は2台あるMacの片方でだけ何故かindexが作成できないので，原因を調べているうちにこのことに気がついたが，ネットで他に触れている記事が見当たらないので，ここにまとめておく．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#e6db74">&lt;&lt;xpdf&gt;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">$ pdftotex</span>t -h
+</span></span><span style="display:flex;"><span>pdftotext version 4.01.01
+</span></span><span style="display:flex;"><span>Copyright 1996-2019 Glyph &amp; Cog, LLC
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;&lt;poppler&gt;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">$ pdftotext -h
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">pdftotext version 0.77.0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Copyright 2005-2019 The Poppler Developers - http://poppler</span>.freedesktop.org
+</span></span><span style="display:flex;"><span>Copyright 1996-2011 Glyph &amp; Cog, LLC
+</span></span><span style="display:flex;"><span>..........
+</span></span></code></pre></div><p>このように，全く異なったものになっているが，どうやら，xpdfのものの方が古いらしい．もし，xpdfをすでに入れている場合は，popplerをインストールしようとすると，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install poppler
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Error: Cannot install poppler because conflicting formulae are installed.
+</span></span><span style="display:flex;"><span>xpdf: because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Please <span style="color:#e6db74">`</span>brew unlink xpdf<span style="color:#e6db74">`</span> before continuing.
+</span></span></code></pre></div><p>と怒られるので，言われる通りに brew unlink xpdf してから，再度，brew install popplerを行えば良い．これで，popplerの方のpdftotextが使われるようになって，ちゃんとindexができるようになる．私は2台あるMacの片方でだけ何故かindexが作成できないので，原因を調べているうちにこのことに気がついたが，ネットで他に触れている記事が見当たらないので，ここにまとめておく．</p>
 <p>また，このようにしてxpdfとpopplerをインストールしていると，<a href="../pdf-tools/#%E8%BF%BD%E8%A8%98-2019%E5%B9%B47%E6%9C%8817%E6%97%A5"> Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a>に書いたように，pdf-toolをコンパイルする際に「libffiがどこにあるか分からん」というようなエラーメッセージが出ることがある．その際の対処法は，<a href="../pdf-tools/#%E8%BF%BD%E8%A8%98-2019%E5%B9%B47%E6%9C%8817%E6%97%A5"> Emacsでpdfを読む (pdf-tools) (2019.07.17追記)</a>に書いたとおりである．</p>
 <h3 id="ユーザー用のウェブディレクトリの作成">ユーザー用のウェブディレクトリの作成</h3>
 <p>まず，Apacheを用いてブラウザで検索できるように（これについては後述），自分のhome directoryにSitesというdirectoryを作成する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd ~
-$ mkdir Sites
-$ cd Sites
-$ pwd
-/Users/taipapa/Sites
-</code></pre></div><p>Apacheの設定のところで述べるが，このSitesというディレクトリにウェブサイトを構築できるように設定し，WWW ブラウザで全文検索できるようにする．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd ~
+</span></span><span style="display:flex;"><span>$ mkdir Sites
+</span></span><span style="display:flex;"><span>$ cd Sites
+</span></span><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/Users/taipapa/Sites
+</span></span></code></pre></div><p>Apacheの設定のところで述べるが，このSitesというディレクトリにウェブサイトを構築できるように設定し，WWW ブラウザで全文検索できるようにする．</p>
 <h3 id="全文検索用のディレクトリの作成">全文検索用のディレクトリの作成</h3>
 <p>Sites ディレクトリの中に全文検索用のディレクトリを作成する．ここではpdfファイルの全文検索を行うので，pdfという名前にした．さらに，pdf ディレクトリの中に全文検索の対象となるpdfを集約するためのPDFsというディレクトリを作成する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd ~/Sites
-$ mkdir pdf
-$ cd pdf
-$ mkdir PDFs
-</code></pre></div><h4 id="pdfsディレクトリへのpdfの集約">PDFsディレクトリへのpdfの集約</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd ~/Sites
+</span></span><span style="display:flex;"><span>$ mkdir pdf
+</span></span><span style="display:flex;"><span>$ cd pdf
+</span></span><span style="display:flex;"><span>$ mkdir PDFs
+</span></span></code></pre></div><h4 id="pdfsディレクトリへのpdfの集約">PDFsディレクトリへのpdfの集約</h4>
 <p>さて，pdfは，大抵の場合，いくつかのディレクトリに分けて置いてあるであろう．それを全て1箇所に集約して全文検索ができるようにするために，シンボリックリンクを使用する．具体的には，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc とすると，以下のようにする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf/PDFs
-$ ln -s /Data/hogehoge .
-$ ln -s /Data/fugafuga .
-$ ln -s /Data/misc .
-</code></pre></div><h3 id="全文検索用のindexの作成">全文検索用のindexの作成</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/pdf/PDFs
+</span></span><span style="display:flex;"><span>$ ln -s /Data/hogehoge .
+</span></span><span style="display:flex;"><span>$ ln -s /Data/fugafuga .
+</span></span><span style="display:flex;"><span>$ ln -s /Data/misc .
+</span></span></code></pre></div><h3 id="全文検索用のindexの作成">全文検索用のindexの作成</h3>
 <p>hyperestraierのestcmdを用いて，空のindexを作成する．名前はマニュアルの真似をしてcasketとする（わかれば何でも良いと思う）．これはpdfの配下でPDFsと同じレベルに置く</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pwd
-/Users/taipapa/Sites/pdf
-$ estcmd create casket
-$ ls -la
-total <span style="color:#ae81ff">24</span>
-drwxr-xr-x   <span style="color:#ae81ff">5</span> taipapa  staff   <span style="color:#ae81ff">160</span> Jul <span style="color:#ae81ff">29</span> 20:34 .
-drwxr-xr-x   <span style="color:#ae81ff">8</span> taipapa  staff   <span style="color:#ae81ff">256</span> Aug  <span style="color:#ae81ff">4</span> 22:19 ..
--rw-r--r--@  <span style="color:#ae81ff">1</span> taipapa  staff  <span style="color:#ae81ff">8196</span> Aug  <span style="color:#ae81ff">5</span> 22:12 .DS_Store
-drwxr-xr-x  <span style="color:#ae81ff">10</span> taipapa  staff   <span style="color:#ae81ff">320</span> Jul <span style="color:#ae81ff">29</span> 20:21 PDFs
-drwxr-xr-x  <span style="color:#ae81ff">11</span> taipapa  staff   <span style="color:#ae81ff">352</span> Jul <span style="color:#ae81ff">29</span> 21:14 casket
-</code></pre></div><p>これでようやく，indexを作成する準備が整った．後は以下のように叩けば良い．optionについてはマニュアルを参照．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
-$ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
-</code></pre></div><p>document数が11734個，語数が1351563のindex作成に要した時間は約40分強であった．これは，MacBook Pro (15-inch, Late 2016)でもiMac 2012 でも，ほとんど変わらなかった．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/Users/taipapa/Sites/pdf
+</span></span><span style="display:flex;"><span>$ estcmd create casket
+</span></span><span style="display:flex;"><span>$ ls -la
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">24</span>
+</span></span><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#ae81ff">5</span> taipapa  staff   <span style="color:#ae81ff">160</span> Jul <span style="color:#ae81ff">29</span> 20:34 .
+</span></span><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#ae81ff">8</span> taipapa  staff   <span style="color:#ae81ff">256</span> Aug  <span style="color:#ae81ff">4</span> 22:19 ..
+</span></span><span style="display:flex;"><span>-rw-r--r--@  <span style="color:#ae81ff">1</span> taipapa  staff  <span style="color:#ae81ff">8196</span> Aug  <span style="color:#ae81ff">5</span> 22:12 .DS_Store
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#ae81ff">10</span> taipapa  staff   <span style="color:#ae81ff">320</span> Jul <span style="color:#ae81ff">29</span> 20:21 PDFs
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#ae81ff">11</span> taipapa  staff   <span style="color:#ae81ff">352</span> Jul <span style="color:#ae81ff">29</span> 21:14 casket
+</span></span></code></pre></div><p>これでようやく，indexを作成する準備が整った．後は以下のように叩けば良い．optionについてはマニュアルを参照．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/pdf
+</span></span><span style="display:flex;"><span>$ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
+</span></span></code></pre></div><p>document数が11734個，語数が1351563のindex作成に要した時間は約40分強であった．これは，MacBook Pro (15-inch, Late 2016)でもiMac 2012 でも，ほとんど変わらなかった．</p>
 <p>optionとしては，optimizeがインデックスを最適化して、不要な領域を削除，purgeはインデックス内にあってファイルシステム上にない文書の情報を削除する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
-$ estcmd optimize /Library/WebServer/Documents/pdf/casket
-$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-</code></pre></div><div class="alert alert-note">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/pdf
+</span></span><span style="display:flex;"><span>$ estcmd optimize /Library/WebServer/Documents/pdf/casket
+</span></span><span style="display:flex;"><span>$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
+</span></span></code></pre></div><div class="alert alert-note">
   <div>
     <strong>2019年9月17日修正：</strong>  上記の後二者はdirectoryを間違えている．下記が正しい．
   </div>
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
-$ estcmd optimize /Users/taipapa/Sites/pdf/casket
-$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
-</code></pre></div><h3 id="indexの更新">indexの更新</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/pdf
+</span></span><span style="display:flex;"><span>$ estcmd optimize /Users/taipapa/Sites/pdf/casket
+</span></span><span style="display:flex;"><span>$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
+</span></span></code></pre></div><h3 id="indexの更新">indexの更新</h3>
 <p>前述の3つのコマンドを打てば良い．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
-$ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
-$ estcmd optimize /Library/WebServer/Documents/pdf/casket
-$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
-</code></pre></div><div class="alert alert-note">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/pdf
+</span></span><span style="display:flex;"><span>$ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
+</span></span><span style="display:flex;"><span>$ estcmd optimize /Library/WebServer/Documents/pdf/casket
+</span></span><span style="display:flex;"><span>$ estcmd purge -cl /Library/WebServer/Documents/pdf/casket
+</span></span></code></pre></div><div class="alert alert-note">
   <div>
     <strong>2019年9月17日修正：</strong>  上記の後二者はdirectoryを間違えている．下記が正しい．
   </div>
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
-$ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
-$ estcmd optimize /Users/taipapa/Sites/pdf/casket
-$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
-</code></pre></div><p>最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの <a href="https://skalldan.wordpress.com/2011/07/01/hyper-estraier-%E3%81%A7-pdf-%E6%96%87%E6%9B%B8%E7%AE%A1%E7%90%86/#sec-3">インデックス更新の自動化</a> を参考にされたい．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/pdf
+</span></span><span style="display:flex;"><span>$ estcmd gather -pc UTF-8 -cl -fx <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#e6db74">&#34;H@estfxpdftohtml&#34;</span> -il ja -lf -1 -sd -cm -um casket PDFs
+</span></span><span style="display:flex;"><span>$ estcmd optimize /Users/taipapa/Sites/pdf/casket
+</span></span><span style="display:flex;"><span>$ estcmd purge -cl /Users/taipapa/Sites/pdf/casket
+</span></span></code></pre></div><p>最初にゼロからindexを作成する際は，上記のようにかなり時間がかかるが，一旦作ってしまえば，更新はごく短時間で終了する．更新の自動化については，Amrtaさんの <a href="https://skalldan.wordpress.com/2011/07/01/hyper-estraier-%E3%81%A7-pdf-%E6%96%87%E6%9B%B8%E7%AE%A1%E7%90%86/#sec-3">インデックス更新の自動化</a> を参考にされたい．</p>
 <h3 id="検索のテスト">検索のテスト</h3>
 <p>試しにterminalで検索してみる．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/pdf
-$ estcmd search -vh casket HSP27
---------<span style="color:#f92672">[</span>02D18ACF711B9586<span style="color:#f92672">]</span>--------
-VERSION  1.0
-NODE     local
-HIT      <span style="color:#ae81ff">288</span>
-HINT#1   hsp27   <span style="color:#ae81ff">288</span>
-TIME     0.001226
-DOCNUM   <span style="color:#ae81ff">11734</span>
-WORDNUM  <span style="color:#ae81ff">1354563</span>
-VIEW     HUMAN
-..........
-</code></pre></div><p>うん，ちゃんと動いている．それに速い！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/pdf
+</span></span><span style="display:flex;"><span>$ estcmd search -vh casket HSP27
+</span></span><span style="display:flex;"><span>--------<span style="color:#f92672">[</span>02D18ACF711B9586<span style="color:#f92672">]</span>--------
+</span></span><span style="display:flex;"><span>VERSION  1.0
+</span></span><span style="display:flex;"><span>NODE     local
+</span></span><span style="display:flex;"><span>HIT      <span style="color:#ae81ff">288</span>
+</span></span><span style="display:flex;"><span>HINT#1   hsp27   <span style="color:#ae81ff">288</span>
+</span></span><span style="display:flex;"><span>TIME     0.001226
+</span></span><span style="display:flex;"><span>DOCNUM   <span style="color:#ae81ff">11734</span>
+</span></span><span style="display:flex;"><span>WORDNUM  <span style="color:#ae81ff">1354563</span>
+</span></span><span style="display:flex;"><span>VIEW     HUMAN
+</span></span><span style="display:flex;"><span>..........
+</span></span></code></pre></div><p>うん，ちゃんと動いている．それに速い！</p>
 <h2 id="apache-set-up">Apache set up</h2>
 <p>terminalで検索ではあまりに寂しいので，ブラウザで検索できるようにするために，Web serverを立ち上げる．MacにはデフォルトでApacheがインストールされているというありがたい状態になっているので，これを使う．なお，Apacheについては，<a href="https://www.kagoya.jp/howto/rentalserver/apache/">Apacheとは？Webサーバーの仕組みと人気サーバーソフトを徹底解説</a>などを参考にされたい．</p>
 <p>Apacheの設定については，以下を参考にした．</p>
@@ -590,10 +590,10 @@ VIEW     HUMAN
 </ul>
 <p>これらのサイトを読んだ方が早いのだが，自分のために設定などをまとめておく．</p>
 <p>まず，念のためにApacheが既にインストールされているかどうかを確かめてみる．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ httpd -v
-Server version: Apache/2.4.34 <span style="color:#f92672">(</span>Unix<span style="color:#f92672">)</span>
-Server built:   Feb <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">2019</span> 20:20:11
-</code></pre></div><p>確かにインストールされている．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ httpd -v
+</span></span><span style="display:flex;"><span>Server version: Apache/2.4.34 <span style="color:#f92672">(</span>Unix<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Server built:   Feb <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">2019</span> 20:20:11
+</span></span></code></pre></div><p>確かにインストールされている．</p>
 <h3 id="cgi-を許可するように-apache-を設定する">CGI を許可するように Apache を設定する</h3>
 <ul>
 <li>
@@ -610,12 +610,12 @@ Server built:   Feb <span style="color:#ae81ff">22</span> <span style="color:#ae
 </li>
 <li>
 <p>Apache が共有モジュール機能付きでビルドされている場合、モジュールがロードされていることを確認する．具体的には，/etc/apache2/httpd.conf をviを使って以下のように書き換えれば良い（root権限が必要なので sudo している）．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo vi /etc/apache2/httpd.conf
-....
-<span style="color:#ae81ff">165</span> <span style="color:#75715e">#LoadModule cgi_module libexec/apache2/mod_cgi.so</span>
------&gt;
-LoadModule cgi_module libexec/apache2/mod_cgi.so
-</code></pre></div><p>165行目の行頭の＃を外してアンコメントし，有効化しておく．<br />
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo vi /etc/apache2/httpd.conf
+</span></span><span style="display:flex;"><span>....
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">165</span> <span style="color:#75715e">#LoadModule cgi_module libexec/apache2/mod_cgi.so</span>
+</span></span><span style="display:flex;"><span>-----&gt;
+</span></span><span style="display:flex;"><span>LoadModule cgi_module libexec/apache2/mod_cgi.so
+</span></span></code></pre></div><p>165行目の行頭の＃を外してアンコメントし，有効化しておく．<br />
 これをやらないと，cgiが働かず，そのファイル自体がダウンロードされてしまう．</p>
 </li>
 <li>
@@ -626,48 +626,48 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 <ul>
 <li>
 <p>Apacheの起動</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apachectl start
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apachectl start
+</span></span></code></pre></div><ul>
 <li>Apacheの停止</li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apachectl stop
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apachectl stop
+</span></span></code></pre></div><ul>
 <li>Apacheの再起動</li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apachectl restart
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo apachectl restart
+</span></span></code></pre></div></li>
 </ul>
 <p>これでApacheを起動したので，hyperestraierに含まれている検索用CGI scriptを利用する．</p>
 <h3 id="cgiが動くかどうかのテスト">CGIが動くかどうかのテスト</h3>
 <p><a href="https://httpd.apache.org/docs/2.4/ja/howto/cgi.html">Apache Tutorial: CGI による動的コンテンツ</a> には，「ScriptAlias ディレクティブを使用して、 CGI プログラム用の特別な別ディレクトリを Apache に設定します。 Apache は、このディレクトリ中の全てのファイルを CGI プログラムであると仮定します。 そして、この特別なリソースがクライアントから要求されると、 そのプログラムの実行を試みます。」と記載されている．一方, mojaveのデフォルトの /etc/apache2/httpd.confでは，ScriptAliasではなく，以下のようにScriptAliasMatchを用いている．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">373</span>  ScriptAliasMatch ^/cgi-bin/<span style="color:#f92672">(</span><span style="color:#f92672">(</span>?!<span style="color:#f92672">(</span>?i:webobjects<span style="color:#f92672">)</span><span style="color:#f92672">)</span>.*$<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/Library/WebServer/CGI-Executables/</span>$1<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>この正規表現の記述により，cgi-bin/というパスが/Library/WebServer/CGI-Executables/に対応するようになっている（詳細は，<a href="http://httpd.apache.org/docs/2.4/mod/mod%5Falias.html#scriptalias">ScriptAlias ディレクティブ</a>  のScriptAliasMatch ディレクティブを参照）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#ae81ff">373</span>  ScriptAliasMatch ^/cgi-bin/<span style="color:#f92672">((</span>?!<span style="color:#f92672">(</span>?i:webobjects<span style="color:#f92672">))</span>.*$<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;/Library/WebServer/CGI-Executables/</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>この正規表現の記述により，cgi-bin/というパスが/Library/WebServer/CGI-Executables/に対応するようになっている（詳細は，<a href="http://httpd.apache.org/docs/2.4/mod/mod%5Falias.html#scriptalias">ScriptAlias ディレクティブ</a>  のScriptAliasMatch ディレクティブを参照）</p>
 <p>ということで，/Library/WebServer/CGI-Executables/にcgi scriptを置けば，CGI programとして動くはずである．macでは最初からperlがインストールされているので，以下のようなperl script（&ldquo;Hello&quot;と表示するだけ）を作成して試してみる．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/perl</span>
-<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Content-type: text/html \n\n&#34;</span>;
-<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Hello&#34;</span>;
-</code></pre></div><p>これを，test.cgiとして保存し，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ chomod <span style="color:#ae81ff">755</span> test.cgi
-</code></pre></div><p>して，実行権限を付与した上で，/Library/WebServer/CGI-Executables/に置く．この状態で，ブラウザのurl windowに localhost/cgi-bin/test.cgi と打ち込むと，&ldquo;Hello&rdquo; と表示される．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-perl" data-lang="perl"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/perl</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Content-type: text/html \n\n&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Hello&#34;</span>;
+</span></span></code></pre></div><p>これを，test.cgiとして保存し，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ chomod <span style="color:#ae81ff">755</span> test.cgi
+</span></span></code></pre></div><p>して，実行権限を付与した上で，/Library/WebServer/CGI-Executables/に置く．この状態で，ブラウザのurl windowに localhost/cgi-bin/test.cgi と打ち込むと，&ldquo;Hello&rdquo; と表示される．</p>
 <p>さて，次の段階に進む前にDocumentRootについて，ちょっと説明が必要（後日の自分のため）．</p>
 <h3 id="documentroot">DocumentRoot</h3>
 <ul>
 <li>参考：<a href="https://www.adminweb.jp/apache/docroot/index1.html">ドキュメントルート(DocumentRoot)</a></li>
 </ul>
 <p>/etc/apache2/httpd.confを，lessを使って読んでみると以下のように書かれている．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ less -N /etc/apache2/httpd.conf
-..........
-<span style="color:#ae81ff">240</span> #
-<span style="color:#ae81ff">241</span> <span style="color:#75715e"># DocumentRoot: The directory out of which you will serve your</span>
-<span style="color:#ae81ff">242</span> <span style="color:#75715e"># documents. By default, all requests are taken from this directory, but</span>
-<span style="color:#ae81ff">243</span> <span style="color:#75715e"># symbolic links and aliases may be used to point to other locations.</span>
-<span style="color:#ae81ff">244</span> #
-<span style="color:#ae81ff">245</span> DocumentRoot <span style="color:#e6db74">&#34;/Library/WebServer/Documents&#34;</span>
-<span style="color:#ae81ff">246</span> &lt;Directory <span style="color:#e6db74">&#34;/Library/WebServer/Documents&#34;</span>&gt;
-..........
-</code></pre></div><p>要するにDocumentRootというのは文書やコンテンツの置き場所として使われるディレクトリである．Macの場合は， <strong>DocumentRoot &ldquo;/Library/WebServer/Documents&rdquo;</strong> と指定されており，WWW serverとして公開する内容は，/Library/WebServer/Documents 以下に配置していくことになる．他の場所を参照するためにシンボリックリンクやエーリアスを使用しても良いと書かれている．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ less -N /etc/apache2/httpd.conf
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">240</span> <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">241</span> <span style="color:#75715e"># DocumentRoot: The directory out of which you will serve your</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">242</span> <span style="color:#75715e"># documents. By default, all requests are taken from this directory, but</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">243</span> <span style="color:#75715e"># symbolic links and aliases may be used to point to other locations.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">244</span> <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">245</span> DocumentRoot <span style="color:#e6db74">&#34;/Library/WebServer/Documents&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">246</span> &lt;Directory <span style="color:#e6db74">&#34;/Library/WebServer/Documents&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>..........
+</span></span></code></pre></div><p>要するにDocumentRootというのは文書やコンテンツの置き場所として使われるディレクトリである．Macの場合は， <strong>DocumentRoot &ldquo;/Library/WebServer/Documents&rdquo;</strong> と指定されており，WWW serverとして公開する内容は，/Library/WebServer/Documents 以下に配置していくことになる．他の場所を参照するためにシンボリックリンクやエーリアスを使用しても良いと書かれている．</p>
 <p>先ほど起動したApacheへブラウザからアクセスすると（ブラウザのurl が表示されているところにlocalhostと打てば良い）以下のような画面が表示される．</p>
 
 
@@ -685,10 +685,10 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 </figure>
 
 <p>これは，/Library/WebServer/Documents/index.html.en が表示されているのである．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ less /Library/WebServer/Documents/index.html.en
-&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
-/Library/WebServer/Documents/index.html.en <span style="color:#f92672">(</span>END<span style="color:#f92672">)</span>
-</code></pre></div><p>つまり，この  /Library/WebServer/Documents ディレクトリの配下が， <a href="http://localhost">http://localhost</a> のroot直下となる．pdfを含むディレクトリ，あるいはそのシンボリックリンクを/Library/WebServer/Documents ディレクトリの配下に置けば全文検索を行うcgi scriptの対象とできるわけである．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ less /Library/WebServer/Documents/index.html.en
+</span></span><span style="display:flex;"><span>&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</span></span><span style="display:flex;"><span>/Library/WebServer/Documents/index.html.en <span style="color:#f92672">(</span>END<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>つまり，この  /Library/WebServer/Documents ディレクトリの配下が， <a href="http://localhost">http://localhost</a> のroot直下となる．pdfを含むディレクトリ，あるいはそのシンボリックリンクを/Library/WebServer/Documents ディレクトリの配下に置けば全文検索を行うcgi scriptの対象とできるわけである．</p>
 <p>しかし，そうなると，前述の/Library/WebServer/CGI-Executables/に於いても同じであるが，全ての作業をrootとして行わなければならなくなり，何をするにもsudoしないといけないのが面倒であるし，security上でも問題であろう．そこで，UserDir ディレクティブを使って 各ユーザがホームディレクトリにSites directoryを作成し，ウェブサイトを構築できるように設定する．要するに，先ほど作成した/Users/taipapa/Sites/pdf/以下のディレクトリで全文検索ができるように設定するということである．</p>
 <h3 id="ユーザ毎のウェブディレクトリ">ユーザ毎のウェブディレクトリ</h3>
 <ul>
@@ -704,67 +704,67 @@ LoadModule cgi_module libexec/apache2/mod_cgi.so
 </ul>
 <h4 id="httpd-userdir-dot-confの有効化">httpd-userdir.confの有効化</h4>
 <p>手順としては，まず，/etc/apache2/httpd.confの511行目の行頭の#を外し，コメントアウトを外してhttpd-userdir.confを有効にする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo vi /etc/apache2/httpd.conf
-..........
-<span style="color:#ae81ff">510</span> <span style="color:#75715e"># User home directories</span>
-<span style="color:#ae81ff">511</span> <span style="color:#75715e">#Include /private/etc/apache2/extra/httpd-userdir.conf</span>
------&gt;
-<span style="color:#ae81ff">511</span> Include /private/etc/apache2/extra/httpd-userdir.conf
-..........
-</code></pre></div><h4 id="httpd-userdir-dot-confの編集-ユーザー毎の設定ファイルを読み込む様にする">httpd-userdir.confの編集（ユーザー毎の設定ファイルを読み込む様にする）</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo vi /etc/apache2/httpd.conf
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">510</span> <span style="color:#75715e"># User home directories</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">511</span> <span style="color:#75715e">#Include /private/etc/apache2/extra/httpd-userdir.conf</span>
+</span></span><span style="display:flex;"><span>-----&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">511</span> Include /private/etc/apache2/extra/httpd-userdir.conf
+</span></span><span style="display:flex;"><span>..........
+</span></span></code></pre></div><h4 id="httpd-userdir-dot-confの編集-ユーザー毎の設定ファイルを読み込む様にする">httpd-userdir.confの編集（ユーザー毎の設定ファイルを読み込む様にする）</h4>
 <p>ついで，有効にした /etc/apache2/extra/httpd-userdir.confを見て，編集する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo vi /etc/apache2/extra/httpd-userdir.conf
-
-<span style="color:#ae81ff">1</span> <span style="color:#75715e"># Settings for user home directories</span>
-<span style="color:#ae81ff">2</span> #
-<span style="color:#ae81ff">3</span> <span style="color:#75715e"># Required module: mod_authz_core, mod_authz_host, mod_userdir</span>
-<span style="color:#ae81ff">4</span>
-<span style="color:#ae81ff">5</span> #
-<span style="color:#ae81ff">6</span> <span style="color:#75715e"># UserDir: The name of the directory that is appended onto a user&#39;s home</span>
-<span style="color:#ae81ff">7</span> <span style="color:#75715e"># directory if a ~user request is received.  Note that you must also set</span>
-<span style="color:#ae81ff">8</span> <span style="color:#75715e"># the default access control for these directories, as in the example below.</span>
-<span style="color:#ae81ff">9</span> #
-<span style="color:#ae81ff">10</span> UserDir Sites
-<span style="color:#ae81ff">11</span>
-<span style="color:#ae81ff">12</span> #
-<span style="color:#ae81ff">13</span> <span style="color:#75715e"># Control access to UserDir directories.  The following is an example</span>
-<span style="color:#ae81ff">14</span> <span style="color:#75715e"># for a site where these directories are restricted to read-only.</span>
-<span style="color:#ae81ff">15</span> #
-<span style="color:#ae81ff">16</span> <span style="color:#75715e"># Include /private/etc/apache2/users/*.conf</span>
-<span style="color:#ae81ff">17</span> &lt;IfModule bonjour_module&gt;
-<span style="color:#ae81ff">18</span>        RegisterUserSite customized-users
-<span style="color:#ae81ff">19</span> &lt;/IfModule&gt;
-</code></pre></div><p>10行目の&quot;UserDir Sites&quot;は デフォルトでアンコメントされており，そのままで良い．これにより，~usernameでSites directoryにアクセスできるようになる．編集する部分は，16行目の &quot; # Include /private/etc/apache2/users/*.conf&rdquo; であり，行頭の＃を外してアンコメントし，有効化しておく．これによりユーザーごとの設定ファイルを読み込む様になる（<a href="https://qiita.com/colorrabbit/items/3ab4c2d863a55ca72d35">MacOS X の Yosemite (10.10) で Sites ディレクトリを使って localhost をアカウント別に利用する方法</a>）．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo vi /etc/apache2/extra/httpd-userdir.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#75715e"># Settings for user home directories</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> <span style="color:#75715e"># Required module: mod_authz_core, mod_authz_host, mod_userdir</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> <span style="color:#75715e"># UserDir: The name of the directory that is appended onto a user&#39;s home</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span> <span style="color:#75715e"># directory if a ~user request is received.  Note that you must also set</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> <span style="color:#75715e"># the default access control for these directories, as in the example below.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span> <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> UserDir Sites
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span> <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">13</span> <span style="color:#75715e"># Control access to UserDir directories.  The following is an example</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">14</span> <span style="color:#75715e"># for a site where these directories are restricted to read-only.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">15</span> <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">16</span> <span style="color:#75715e"># Include /private/etc/apache2/users/*.conf</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">17</span> &lt;IfModule bonjour_module&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">18</span>        RegisterUserSite customized-users
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">19</span> &lt;/IfModule&gt;
+</span></span></code></pre></div><p>10行目の&quot;UserDir Sites&quot;は デフォルトでアンコメントされており，そのままで良い．これにより，~usernameでSites directoryにアクセスできるようになる．編集する部分は，16行目の &quot; # Include /private/etc/apache2/users/*.conf&rdquo; であり，行頭の＃を外してアンコメントし，有効化しておく．これによりユーザーごとの設定ファイルを読み込む様になる（<a href="https://qiita.com/colorrabbit/items/3ab4c2d863a55ca72d35">MacOS X の Yosemite (10.10) で Sites ディレクトリを使って localhost をアカウント別に利用する方法</a>）．</p>
 <p>また，3行目にあるように，ユーザーのホームディレクトリのセットアップのために， <strong>mod_authz_core, mod_authz_host, mod_userdirを全て有効</strong> にしておく必要がある．以下のように， <strong>/etc/apache2/httpd.conf</strong> を編集する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo vi /etc/apache2/httpd.conf
-......
-<span style="color:#ae81ff">77</span> LoadModule authz_host_module libexec/apache2/mod_authz_host.so
-<span style="color:#ae81ff">78</span> LoadModule authz_groupfile_module libexec/apache2/mod_authz_groupfile.so
-<span style="color:#ae81ff">79</span> LoadModule authz_user_module libexec/apache2/mod_authz_user.so
-<span style="color:#ae81ff">80</span> <span style="color:#75715e">#LoadModule authz_dbm_module libexec/apache2/mod_authz_dbm.so</span>
-<span style="color:#ae81ff">81</span> <span style="color:#75715e">#LoadModule authz_owner_module libexec/apache2/mod_authz_owner.so</span>
-<span style="color:#ae81ff">82</span> <span style="color:#75715e">#LoadModule authz_dbd_module libexec/apache2/mod_authz_dbd.so</span>
-<span style="color:#ae81ff">83</span> LoadModule authz_core_module libexec/apache2/mod_authz_core.so
-......
-<span style="color:#ae81ff">173</span> <span style="color:#75715e">#LoadModule speling_module libexec/apache2/mod_speling.so</span>
-<span style="color:#ae81ff">174</span> <span style="color:#75715e">#LoadModule userdir_module libexec/apache2/mod_userdir.so</span>
-<span style="color:#ae81ff">175</span> LoadModule alias_module libexec/apache2/mod_alias.so
-...
-</code></pre></div><p>77行目の &ldquo;LoadModule authz_host_module libexec/apache2/mod_authz_host.so&rdquo; と83行目の &ldquo;LoadModule authz_core_module libexec/apache2/mod_authz_core.so&quot;はデフォルトでアンコメントされていたが，174行目の &ldquo;#LoadModule userdir_module libexec/apache2/mod_userdir.so&rdquo; はコメントアウトされていたので，#を外して有効化した．これらの設定で， <strong>ユーザーディレクトリが有効</strong> になる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo vi /etc/apache2/httpd.conf
+</span></span><span style="display:flex;"><span>......
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">77</span> LoadModule authz_host_module libexec/apache2/mod_authz_host.so
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">78</span> LoadModule authz_groupfile_module libexec/apache2/mod_authz_groupfile.so
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">79</span> LoadModule authz_user_module libexec/apache2/mod_authz_user.so
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">80</span> <span style="color:#75715e">#LoadModule authz_dbm_module libexec/apache2/mod_authz_dbm.so</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">81</span> <span style="color:#75715e">#LoadModule authz_owner_module libexec/apache2/mod_authz_owner.so</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">82</span> <span style="color:#75715e">#LoadModule authz_dbd_module libexec/apache2/mod_authz_dbd.so</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">83</span> LoadModule authz_core_module libexec/apache2/mod_authz_core.so
+</span></span><span style="display:flex;"><span>......
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">173</span> <span style="color:#75715e">#LoadModule speling_module libexec/apache2/mod_speling.so</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">174</span> <span style="color:#75715e">#LoadModule userdir_module libexec/apache2/mod_userdir.so</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">175</span> LoadModule alias_module libexec/apache2/mod_alias.so
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>77行目の &ldquo;LoadModule authz_host_module libexec/apache2/mod_authz_host.so&rdquo; と83行目の &ldquo;LoadModule authz_core_module libexec/apache2/mod_authz_core.so&quot;はデフォルトでアンコメントされていたが，174行目の &ldquo;#LoadModule userdir_module libexec/apache2/mod_userdir.so&rdquo; はコメントアウトされていたので，#を外して有効化した．これらの設定で， <strong>ユーザーディレクトリが有効</strong> になる．</p>
 <h4 id="ユーザー毎の設定ファイルを作成">ユーザー毎の設定ファイルを作成</h4>
 <p>自分の使っているusernameを知らない人はいないと思うが，万一分からなければ以下のコマンドを使う．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ whoami
-taipapa
-</code></pre></div><p>ついで，/etc/apache2/users にユーザー毎の設定ファイルを作成する．今回はtaipapaの設定ファイルということになる．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo vi /etc/apache2/users/taipapa.conf
-
-&lt;Directory <span style="color:#e6db74">&#34;/Users/taipapa/Sites/&#34;</span>&gt;
-AddHandler cgi-script cgi
-AllowOverride All
-Options Indexes FollowSymLinks Multiviews ExecCGI
-Require all granted
-&lt;/Directory&gt;
-</code></pre></div><p>内容を簡単に説明する．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ whoami
+</span></span><span style="display:flex;"><span>taipapa
+</span></span></code></pre></div><p>ついで，/etc/apache2/users にユーザー毎の設定ファイルを作成する．今回はtaipapaの設定ファイルということになる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo vi /etc/apache2/users/taipapa.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;Directory <span style="color:#e6db74">&#34;/Users/taipapa/Sites/&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>AddHandler cgi-script cgi
+</span></span><span style="display:flex;"><span>AllowOverride All
+</span></span><span style="display:flex;"><span>Options Indexes FollowSymLinks Multiviews ExecCGI
+</span></span><span style="display:flex;"><span>Require all granted
+</span></span><span style="display:flex;"><span>&lt;/Directory&gt;
+</span></span></code></pre></div><p>内容を簡単に説明する．</p>
 <ul>
 <li>Directory (<a href="https://httpd.apache.org/docs/2.4/ja/mod/core.html#directory">Directory ディレクティブ</a>): 指定されたディレクトリとそのサブディレクトリにのみ ディレクティブを適用させるためには、 Directory と /Directory を対として、ディレクティブ群を囲む．以下はディレクティブの説明</li>
 <li>AddHandler (<a href="https://httpd.apache.org/docs/2.4/ja/mod/mod%5Fmime.html#addhandler">AddHandler ディレクティブ</a> ): ファイル名の拡張子を指定されたハンドラにマップする．&ldquo;AddHandler cgi-script cgi&rdquo; により，/Users/taipapa/Sites/の配下にある拡張子 &ldquo;.&rdquo; で終わるファイルを CGI スクリプトとして扱うようになる．</li>
@@ -775,88 +775,88 @@ Require all granted
 <p>これで，Apache関連の設定が終了した．次はいよいよCGI scriptの設定である．</p>
 <h2 id="hyperestraier付属の全文検索用cgi-scriptのset-up">Hyperestraier付属の全文検索用CGI scriptのset up</h2>
 <p>ようやく，ブラウザによる全文検索ができるようにするためにCGI scriptのset upをするところまでたどり着いた．hyperestraierに含まれている検索用CGI scriptは，<a href="https://fallabs.com/hyperestraier/uguide-ja.html#estseek">estseek.cgi</a>である．詳細はリンク先のマニュアルを参照していただきたい．そこにはこうある．「estseek.cgiが動作するには、設定ファイルとテンプレートファイルとトップページファイルとヘルプファイルが必要です。それぞれestseek.conf、estseek.tmpl、estseek.top、estseek.helpというのが標準的な名前です。」これらのscriptおよび関連ファイルは，brewでインストールした場合は，以下のような場所に入る．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ mdfind -name estseek
-/usr/local/Cellar/hyperestraier/1.4.13/libexec/estseek.cgi
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.top
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.tmpl
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.help
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.conf
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-frame.html
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-form.html
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.top
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.tmpl
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.help
-/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.conf
-
-$ ls /usr/local/Cellar/hyperestraier/1.4.13/libexec/
-estfraud.cgi* estproxy.cgi* estscout.cgi* estseek.cgi*  estsupt.cgi*
-
-$ ls /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/
-COPYING        estfraud.conf  estscout.conf  estseek.top    locale/
-ChangeLog      estproxy.conf  estseek.conf   estsupt.conf
-THANKS         estraier.idl   estseek.help   filter/
-doc/           estresult.dtd  estseek.tmpl   increm/
-</code></pre></div><p>そこで，これらのscriptをユーザーディレクトリのしかるべき場所にコピーする．今回は，まず，前半部で作成した/Users/taipapa/Sitesにcgi-bin というディレクトリを作成し，CGI scriptの置き場所とした．そして，その配下にestというディレクトリを作って，そこにhyperestraierによる全文検索用のscript などをコピーした．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites
-$ mkdir -p cgi-bin/est
-$ tree -L <span style="color:#ae81ff">2</span>
-.
-├── cgi-bin
-│   ├── est
-│   └── test.cgi
-├── index.html
-├── pdf
-│   ├── PDFs
-│   └── casket
-└── test.cgi
-$ cd cgi-bin/est
-$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/libexec/* .
-$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/est* .
-$ ls
-estfraud.cgi*  estproxy.conf  estscout.cgi*  estseek.conf   estseek.top
-estfraud.conf  estraier.idl   estscout.conf  estseek.help   estsupt.cgi*
-estproxy.cgi*  estresult.dtd  estseek.cgi*   estseek.tmpl   estsupt.conf
-</code></pre></div><p>設定ファイルであるestseek.confはdefaultでは以下のようになっている．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Users/taipapa/Sites/cgi-bin/est
-$ less -N estseek.conf
-..........
-<span style="color:#ae81ff">1</span> indexname: casket
-<span style="color:#ae81ff">2</span>
-<span style="color:#ae81ff">3</span> tmplfile: estseek.tmpl
-<span style="color:#ae81ff">4</span>
-<span style="color:#ae81ff">5</span> topfile: estseek.top
-<span style="color:#ae81ff">6</span>
-<span style="color:#ae81ff">7</span> helpfile: estseek.help
-<span style="color:#ae81ff">8</span>
-<span style="color:#ae81ff">9</span> lockindex: true
-<span style="color:#ae81ff">10</span>
-<span style="color:#ae81ff">11</span> pseudoindex:
-<span style="color:#ae81ff">12</span>
-<span style="color:#ae81ff">13</span> replace: ^file:///home/mikio/public_html/<span style="color:#f92672">{</span><span style="color:#f92672">{</span>!<span style="color:#f92672">}</span><span style="color:#f92672">}</span>http://localhost/
-<span style="color:#ae81ff">14</span> replace: /index<span style="color:#ae81ff">\.</span>html?<span style="color:#e6db74">${</span>{!<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>/
-<span style="color:#ae81ff">15</span>
-<span style="color:#ae81ff">16</span> showlreal: false
-..........
-</code></pre></div><p>これを以下のように編集する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#ae81ff">1</span> <span style="color:#75715e">#indexname: casket</span>
-<span style="color:#ae81ff">2</span> indexname: /Users/taipapa/Sites/pdf/casket
-<span style="color:#ae81ff">3</span>
-<span style="color:#ae81ff">4</span> tmplfile: estseek.tmpl
-<span style="color:#ae81ff">5</span>
-<span style="color:#ae81ff">6</span> topfile: estseek.top
-<span style="color:#ae81ff">7</span>
-<span style="color:#ae81ff">8</span> helpfile: estseek.help
-<span style="color:#ae81ff">9</span>
-<span style="color:#ae81ff">10</span> lockindex: true
-<span style="color:#ae81ff">11</span>
-<span style="color:#ae81ff">12</span> pseudoindex:
-<span style="color:#ae81ff">13</span>
-<span style="color:#ae81ff">14</span> <span style="color:#75715e">#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/</span>
-<span style="color:#ae81ff">15</span> <span style="color:#75715e">#replace: /index\.html?${{!}}/</span>
-<span style="color:#ae81ff">16</span>
-<span style="color:#ae81ff">17</span> replace: ^file:///Data/<span style="color:#f92672">{</span><span style="color:#f92672">{</span>!<span style="color:#f92672">}</span><span style="color:#f92672">}</span>http://localhost/~taipapa/pdf/PDFs/
-<span style="color:#ae81ff">18</span>
-</code></pre></div><p>17行目の <strong>replace:</strong> の部分はかなりの試行錯誤が必要であった．マニュアルでは，「replaceは正規表現によってURIを変換するのに使います。複数回指定できます。先頭にマッチする「^」を駆使すれば接頭辞（ディレクトリ）の変換ができますし、末尾にマッチする「$」を駆使すれば接尾辞（拡張子）の変換ができます。」とあるように，どこにpdf文書を置くかで適切に変更する必要がある．私の場合は，前述のごとく，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc で，/Users/taipapa/Sites/pdf/PDFs にシンボリックリンクで集約したので，このような設定になった．他のファイルはdefaultのままとした．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ mdfind -name estseek
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/libexec/estseek.cgi
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.top
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.tmpl
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.help
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/locale/ja/estseek.conf
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-frame.html
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/increm/estseek-form.html
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.top
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.tmpl
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.help
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/estseek.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ls /usr/local/Cellar/hyperestraier/1.4.13/libexec/
+</span></span><span style="display:flex;"><span>estfraud.cgi* estproxy.cgi* estscout.cgi* estseek.cgi*  estsupt.cgi*
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ ls /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/
+</span></span><span style="display:flex;"><span>COPYING        estfraud.conf  estscout.conf  estseek.top    locale/
+</span></span><span style="display:flex;"><span>ChangeLog      estproxy.conf  estseek.conf   estsupt.conf
+</span></span><span style="display:flex;"><span>THANKS         estraier.idl   estseek.help   filter/
+</span></span><span style="display:flex;"><span>doc/           estresult.dtd  estseek.tmpl   increm/
+</span></span></code></pre></div><p>そこで，これらのscriptをユーザーディレクトリのしかるべき場所にコピーする．今回は，まず，前半部で作成した/Users/taipapa/Sitesにcgi-bin というディレクトリを作成し，CGI scriptの置き場所とした．そして，その配下にestというディレクトリを作って，そこにhyperestraierによる全文検索用のscript などをコピーした．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites
+</span></span><span style="display:flex;"><span>$ mkdir -p cgi-bin/est
+</span></span><span style="display:flex;"><span>$ tree -L <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── cgi-bin
+</span></span><span style="display:flex;"><span>│   ├── est
+</span></span><span style="display:flex;"><span>│   └── test.cgi
+</span></span><span style="display:flex;"><span>├── index.html
+</span></span><span style="display:flex;"><span>├── pdf
+</span></span><span style="display:flex;"><span>│   ├── PDFs
+</span></span><span style="display:flex;"><span>│   └── casket
+</span></span><span style="display:flex;"><span>└── test.cgi
+</span></span><span style="display:flex;"><span>$ cd cgi-bin/est
+</span></span><span style="display:flex;"><span>$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/libexec/* .
+</span></span><span style="display:flex;"><span>$ cp -a /usr/local/Cellar/hyperestraier/1.4.13/share/hyperestraier/est* .
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>estfraud.cgi*  estproxy.conf  estscout.cgi*  estseek.conf   estseek.top
+</span></span><span style="display:flex;"><span>estfraud.conf  estraier.idl   estscout.conf  estseek.help   estsupt.cgi*
+</span></span><span style="display:flex;"><span>estproxy.cgi*  estresult.dtd  estseek.cgi*   estseek.tmpl   estsupt.conf
+</span></span></code></pre></div><p>設定ファイルであるestseek.confはdefaultでは以下のようになっている．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Users/taipapa/Sites/cgi-bin/est
+</span></span><span style="display:flex;"><span>$ less -N estseek.conf
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> indexname: casket
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> tmplfile: estseek.tmpl
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> topfile: estseek.top
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span> helpfile: estseek.help
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span> lockindex: true
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span> pseudoindex:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">13</span> replace: ^file:///home/mikio/public_html/<span style="color:#f92672">{{</span>!<span style="color:#f92672">}}</span>http://localhost/
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">14</span> replace: /index<span style="color:#ae81ff">\.</span>html?<span style="color:#e6db74">${</span>{!<span style="color:#e6db74">}</span><span style="color:#f92672">}</span>/
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">16</span> showlreal: false
+</span></span><span style="display:flex;"><span>..........
+</span></span></code></pre></div><p>これを以下のように編集する．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#ae81ff">1</span> <span style="color:#75715e">#indexname: casket</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> indexname: /Users/taipapa/Sites/pdf/casket
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> tmplfile: estseek.tmpl
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">6</span> topfile: estseek.top
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">7</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">8</span> helpfile: estseek.help
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> lockindex: true
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">12</span> pseudoindex:
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">13</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">14</span> <span style="color:#75715e">#replace: ^file:///home/mikio/public_html/{{!}}http://localhost/</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">15</span> <span style="color:#75715e">#replace: /index\.html?${{!}}/</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">16</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">17</span> replace: ^file:///Data/<span style="color:#f92672">{{</span>!<span style="color:#f92672">}}</span>http://localhost/~taipapa/pdf/PDFs/
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">18</span>
+</span></span></code></pre></div><p>17行目の <strong>replace:</strong> の部分はかなりの試行錯誤が必要であった．マニュアルでは，「replaceは正規表現によってURIを変換するのに使います。複数回指定できます。先頭にマッチする「^」を駆使すれば接頭辞（ディレクトリ）の変換ができますし、末尾にマッチする「$」を駆使すれば接尾辞（拡張子）の変換ができます。」とあるように，どこにpdf文書を置くかで適切に変更する必要がある．私の場合は，前述のごとく，pdfのあるディレクトリが，/Data/hogehoge, /Data/fugaguga, /Data/misc で，/Users/taipapa/Sites/pdf/PDFs にシンボリックリンクで集約したので，このような設定になった．他のファイルはdefaultのままとした．</p>
 <p>これで，全ての準備は整った．Sites ディレクトリには前半部で説明した通り，pdf archiveへのシンボリックリンクが集約されており，かつ，全文検索用の索引であるcasketも置いてある．全てが正しく設定されていれば，ブラウザのurl windowに <strong><a href="http://localhost/~username/cgi-bin/est/estseek.cgi">http://localhost/~username/cgi-bin/est/estseek.cgi</a></strong> （今回は~usernameは~taipapa） と打ち込むと，以下のような全文検索の画面になるはずである．</p>
 
 
@@ -1229,7 +1229,7 @@ $ less -N estseek.conf
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -1254,7 +1254,7 @@ $ less -N estseek.conf
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

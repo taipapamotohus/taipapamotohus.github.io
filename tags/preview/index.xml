@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>preview | A perfect autumn day</title>
+    <link>/tags/preview/</link>
+      <atom:link href="/tags/preview/index.xml" rel="self" type="application/rss+xml" />
+    <description>preview</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 03 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>preview</title>
+      <link>/tags/preview/</link>
+    </image>
+    
+    <item>
+      <title>Real-time document (pdf) preview in org-mode</title>
+      <link>/post/real-time-document-pdf-preview-in-org-mode/</link>
+      <pubDate>Wed, 03 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/post/real-time-document-pdf-preview-in-org-mode/</guid>
+      <description>&lt;p&gt;いやーなんと2020年7月以来約2年ぶりの記事である．本業多忙でしばらく放置していると，ブログの書き方まで忘れてしまいすっかり億劫になり，今回この夏休みにようやく取り掛かる決心がついた．まずはリハビリも兼ねて軽めの記事を書く事にした．以前の記事（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）でorg-modeで文書を書いてpdfにexportする方法をまとめた．ただ，exportする際にC-c C-e l oと打ってcompileされるのを待つのが結構面倒なのである．この部分を自動化する方法，つまり，org-mode文書を保存すれば何もしなくても自動的にpdfが更新されるようになる設定を見つけたので，それについてまとめてみた．&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.reddit.com/r/emacs/comments/57nps0/orgmode_need_a_realtime_document_preview/&#34;&gt;Org-mode need a real-time document preview&lt;/a&gt; : 例によってredditを探ってみると，そのものズバリがあった．この記事のlarstvei氏の投稿でうまくいった．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;latexmkをインストールする．&lt;a href=&#34;../latexmk&#34;&gt;LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記）&lt;/a&gt; にlatexmkのインストール方法，設定を既述したが，ほとんどそのままでいける．&lt;/li&gt;
+&lt;li&gt;~/.latexmkrcを以下のように設定する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdflatex &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;xelatex -interaction=nonstopmode -synctex=1 %O %S&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdf_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$postscript_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; $dvi_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdf_previewer  &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;open -a Skim&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$preview_continuous_mode &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1;  &lt;span style=&#34;color:#75715e&#34;&gt;# equivalent to -pvc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;上記の $pdf_previewer  = &amp;lsquo;open -a Skim&amp;rsquo;; の行で，skimでpdfを開くようにしているが，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$pdf_previewer&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;emacsclient -e &amp;#39;(find-file-other-window %S)&amp;#39;&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;とすれば，emacsのpdf-toolで見られる．&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;そして，org文書の最後に以下を追加すれば良い．&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;*&lt;/span&gt; COMMENT Local Variables
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; Local Variables:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (server-start)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (add-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;after-save-hook&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;org-latex-export-to-latex&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; eval: (compile &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;latexmk -pdf -pvc -pdflatex=&amp;#39;xelatex -shell-escape -interaction nonstopmode&amp;#39;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;#&lt;/span&gt; End:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;以上の設定が終わると，org-modeの文書を開くたびにlocal variablesを評価するかどうかを訊かれるようになる．yesと答えると（&amp;lsquo;y&amp;rsquo;を叩けば良い），emacsclientが接続できるようにサーバーが立ち上がって保存するたびにorg-mode文書がLaTeXにexportされ，最後にバックグランドでlatexmkを用いてコンパイルされ，pdfが更新される．実に快適である．&lt;/li&gt;
+&lt;li&gt;なお，上記の操作の前に一度，C-c C-e loを行なってtex fileを作成しておかないとうまく動かない．１回やっておけば，あとは自動でやってくれるようになる．&lt;/li&gt;
+&lt;li&gt;私は，xelatexを使用しているが，他のlatexを使用している方はそこの部分を書き換えれば使えるはずである．&lt;/li&gt;
+&lt;li&gt;MacBook Pro (16inch, 2019) 8コアIntel Core i9, 2.4 GHz メモリ:	64 GB (macOS Monterey 12.4)では，保存するたびに少しcompilationを待たないといけないが，MacBook Pro（16インチ、2021）Apple M1 Max コアの総数:10（パフォーマンス: 8、効率性: 2）メモリ:	64 GB (macOS Monterey 12.4)では，待ち時間が明らかに短縮されているのを実感できる．&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

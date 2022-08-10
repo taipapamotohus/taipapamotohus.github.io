@@ -87,7 +87,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -140,7 +140,7 @@
   <meta property="twitter:image" content="/post/how-to-upgrade-hugo-and-academic-theme/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2019-08-18T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2019-08-18T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2019-08-25T00:28:02&#43;09:00">
   
@@ -337,7 +337,7 @@
 
 
 
-<meta content="2019-08-18 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2019-08-18 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2019-08-25 00:28:02 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -455,46 +455,46 @@
 </ol>
 <h2 id="hugoのupdate">Hugoのupdate</h2>
 <p>hugoを最新版にする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ brew upgrade hugo
-..........
-$ hugo version
-Hugo Static Site Generator v0.57.2/extended darwin/amd64 BuildDate: unknown
-
-$ brew info hugo
-hugo: stable 0.57.2 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>, HEAD
-Configurable static site generator
-https://gohugo.io/
-/usr/local/Cellar/hugo/0.57.2 <span style="color:#f92672">(</span><span style="color:#ae81ff">41</span> files, 59.2MB<span style="color:#f92672">)</span> *
-Poured from bottle on 2019-08-19 at 21:45:45
-From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Dependencies
-Build: go ✘
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Options
---HEAD
-Install HEAD version
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Caveats
-Bash completion has been installed to:
-/usr/local/etc/bash_completion.d
-<span style="color:#f92672">=</span><span style="color:#f92672">=</span>&gt; Analytics
-install: 23,734 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 46,557 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 196,750 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
-install_on_request: 22,865 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 45,011 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 186,183 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
-build_error: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>
-</code></pre></div><h2 id="ox-hugo-update">ox-hugo update</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew upgrade hugo
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span>$ hugo version
+</span></span><span style="display:flex;"><span>Hugo Static Site Generator v0.57.2/extended darwin/amd64 BuildDate: unknown
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ brew info hugo
+</span></span><span style="display:flex;"><span>hugo: stable 0.57.2 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>, HEAD
+</span></span><span style="display:flex;"><span>Configurable static site generator
+</span></span><span style="display:flex;"><span>https://gohugo.io/
+</span></span><span style="display:flex;"><span>/usr/local/Cellar/hugo/0.57.2 <span style="color:#f92672">(</span><span style="color:#ae81ff">41</span> files, 59.2MB<span style="color:#f92672">)</span> *
+</span></span><span style="display:flex;"><span>Poured from bottle on 2019-08-19 at 21:45:45
+</span></span><span style="display:flex;"><span>From: https://github.com/Homebrew/homebrew-core/blob/master/Formula/hugo.rb
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Dependencies
+</span></span><span style="display:flex;"><span>Build: go ✘
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Options
+</span></span><span style="display:flex;"><span>--HEAD
+</span></span><span style="display:flex;"><span>Install HEAD version
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Caveats
+</span></span><span style="display:flex;"><span>Bash completion has been installed to:
+</span></span><span style="display:flex;"><span>/usr/local/etc/bash_completion.d
+</span></span><span style="display:flex;"><span><span style="color:#f92672">==</span>&gt; Analytics
+</span></span><span style="display:flex;"><span>install: 23,734 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 46,557 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 196,750 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>install_on_request: 22,865 <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>, 45,011 <span style="color:#f92672">(</span><span style="color:#ae81ff">90</span> days<span style="color:#f92672">)</span>, 186,183 <span style="color:#f92672">(</span><span style="color:#ae81ff">365</span> days<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>build_error: <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">30</span> days<span style="color:#f92672">)</span>
+</span></span></code></pre></div><h2 id="ox-hugo-update">ox-hugo update</h2>
 <p>ox-hugoを最新版にする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">M-x package-utils-upgrade-by-name
-<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
-ox-hugo
-</code></pre></div><p>C-h C-l ox-hugo-pkg.elすると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(define-package <span style="color:#e6db74">&#34;ox-hugo&#34;</span> <span style="color:#e6db74">&#34;20190802.1755&#34;</span> <span style="color:#e6db74">&#34;Hugo Markdown Back-End for Org Export Engine&#34;</span>
-  <span style="color:#f92672">&#39;</span>((emacs <span style="color:#e6db74">&#34;24.4&#34;</span>)
-    (org <span style="color:#e6db74">&#34;9.0&#34;</span>))
-  <span style="color:#e6db74">:keywords</span>
-  <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;org&#34;</span> <span style="color:#e6db74">&#34;markdown&#34;</span> <span style="color:#e6db74">&#34;docs&#34;</span>)
-  <span style="color:#e6db74">:url</span> <span style="color:#e6db74">&#34;https://ox-hugo.scripter.co&#34;</span>)
-<span style="color:#75715e">;; Local Variables:</span>
-<span style="color:#75715e">;; no-byte-compile: t</span>
-<span style="color:#75715e">;; End:</span>
-</code></pre></div><p>最新版であることが確認できる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>M-x package-utils-upgrade-by-name
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...........</span>
+</span></span><span style="display:flex;"><span>ox-hugo
+</span></span></code></pre></div><p>C-h C-l ox-hugo-pkg.elすると，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(define-package <span style="color:#e6db74">&#34;ox-hugo&#34;</span> <span style="color:#e6db74">&#34;20190802.1755&#34;</span> <span style="color:#e6db74">&#34;Hugo Markdown Back-End for Org Export Engine&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>((emacs <span style="color:#e6db74">&#34;24.4&#34;</span>)
+</span></span><span style="display:flex;"><span>    (org <span style="color:#e6db74">&#34;9.0&#34;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:keywords</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;org&#34;</span> <span style="color:#e6db74">&#34;markdown&#34;</span> <span style="color:#e6db74">&#34;docs&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:url</span> <span style="color:#e6db74">&#34;https://ox-hugo.scripter.co&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Local Variables:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; no-byte-compile: t</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; End:</span>
+</span></span></code></pre></div><p>最新版であることが確認できる．</p>
 <h2 id="academic-theme-update">Academic theme update</h2>
 <p><a href="https://sourcethemes.com/academic/docs/update/">Update</a> のサイトには，以下の3つの場合でのupdateの方法が書かれている．</p>
 <ol>
@@ -510,123 +510,123 @@ ox-hugo
 </div>
 <p><del>色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．</del></p>
 <p><del>以下，<a href="http://www.mit.edu/~k2smith/post/getting-started/">Getting started with the Academic framework for Hugo</a> に沿って，まず，hugoで新しいサイトを作成し，そこにacademic themeをgitでインストールし，最新版の4.4.0になっていることを確認する．</del></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/hoge
-$ hugo new site Taipapablog
-$ cd Taipapablog
-$ pwd
-/Data/hoge/Taipapablog
-$ git clone https://github.com/gcushen/hugo-academic.git themes/academic
-$ less themes/academic/data/academic.toml
-<span style="color:#75715e"># Academic</span>
-
-version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.4.0&#34;</span>
-themes/academic/data/academic.toml <span style="color:#f92672">(</span>END<span style="color:#f92672">)</span>
-</code></pre></div><p><del>そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．</del></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pwd
-/Data/hoge/Taipapablog
-$ ls themes/academic/exampleSite/
-config/  content/ static/
-$ cp -av themes/academic/exampleSite/* .
-</code></pre></div><p><del>ここで，Hugo serverをwebsite root folderから立ち上げる．</del></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ pwd
-/Data/hoge/Taipapablog
-$ hugo server --watch
-</code></pre></div><p><del>これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．</del></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Data/hoge
+</span></span><span style="display:flex;"><span>$ hugo new site Taipapablog
+</span></span><span style="display:flex;"><span>$ cd Taipapablog
+</span></span><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/Data/hoge/Taipapablog
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/gcushen/hugo-academic.git themes/academic
+</span></span><span style="display:flex;"><span>$ less themes/academic/data/academic.toml
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Academic</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;4.4.0&#34;</span>
+</span></span><span style="display:flex;"><span>themes/academic/data/academic.toml <span style="color:#f92672">(</span>END<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><del>そして，academicのexampleSite folder の中身を全てwebsite root folder（今回はTaipapablog directory）にコピーする．これらは，config fileなどを含んでおり，自分のウェブサイトの鋳型になる．</del></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/Data/hoge/Taipapablog
+</span></span><span style="display:flex;"><span>$ ls themes/academic/exampleSite/
+</span></span><span style="display:flex;"><span>config/  content/ static/
+</span></span><span style="display:flex;"><span>$ cp -av themes/academic/exampleSite/* .
+</span></span></code></pre></div><p><del>ここで，Hugo serverをwebsite root folderから立ち上げる．</del></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/Data/hoge/Taipapablog
+</span></span><span style="display:flex;"><span>$ hugo server --watch
+</span></span></code></pre></div><p><del>これで，ブラウザで，url windowにlocalhost:1313と打てば，Academic powered websiteのデモが立ち上がる．ここまでは実に簡単である．</del></p>
 <h2 id="migrate-content"><a href="https://sourcethemes.com/academic/docs/update/#migrate-content">Migrate Content</a></h2>
 <p>ここから以前の記事の内容を流し込んでいくわけであるが，academicの新旧versionの間には断絶があって，単純に流し込んで終わりというわけにはいかない．これも，上書きアップデート（？）のようなやり方を諦めた理由である．この断絶を <strong>&ldquo;Breaking changes&rdquo;</strong> と呼んでいる．これを乗り越えてブログの内容を移行するための<a href="https://github.com/sourcethemes/academic-scripts">academic-scripts</a> のリンクが上記ページにある．これは，hugoの新しい機能である<a href="https://gohugo.io/content-management/page-bundles/">Page Bundles</a> への移行を自動化するスクリプトである．簡単に言えば，Page Bundlesとは，<a href="https://gohugo.io/content-management/page-resources/">Page Resources</a> をグループ化する方法であり，詳細は，リンク先を参照されたい．Page Bundlesは，下記のような構造になる．つまり，ファイルの構成が変わってmdファイルひとつだったのが，フォルダ（ディレクトリ）となり，mdファイルの名前はindex.mdとなり，かつ，featured.jpgが自動的にページの冒頭に置かれるようになる．同一記事に使用する画像などは，同じディレクトリ内にまとめることができる．以下は，アップデート前後の /Data/hoge/Taipapablog/content/post の比較である．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Old version
-$ tree -L <span style="color:#ae81ff">2</span>
-.
-├── Different-segment-to-each-facet-in-ggplot.md
-├── Emacs_Install.md
-├── EmbedRplotInBlog.md
-├── ExportRplot.md
-├── FullTextSearch.md
-├── Japanese_setup.md
-..........
-
-Current version
-$ tree -L <span style="color:#ae81ff">2</span>
-.
-├── Different-segment-to-each-facet-in-ggplot
-│   ├── featured.jpg
-│   └── index.md
-├── Emacs_Install
-│   ├── featured.jpg
-│   └── index.md
-├── EmbedRplotInBlog
-│   ├── featured.jpg
-│   └── index.md
-├── ExportRplot
-│   ├── featured.jpg
-│   └── index.md
-├── FullTextSearch
-│   ├── featured.jpg
-│   └── index.md
-├── Japanese_setup
-│   ├── featured.jpg
-│   └── index.md
-..........
-</code></pre></div><p>先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/hoge
-$ ls
-Taipapablog
-$ git clone https://github.com/sourcethemes/academic-scripts.git
-Cloning into <span style="color:#e6db74">&#39;academic-scripts&#39;</span>...
-remote: Enumerating objects: 27, <span style="color:#66d9ef">done</span>.
-remote: Total <span style="color:#ae81ff">27</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">27</span>
-Unpacking objects: 100% <span style="color:#f92672">(</span>27/27<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
-$ ls
-Taipapablog
-academic-scripts
-</code></pre></div><p>このacademic-scriptsの中身を見ると，</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd academic-scripts/
-$ ls
-LICENSE.md
-README.md
-refactor-homepage-sections-to-bundles.sh*
-refactor-pages-to-page-bundles.sh*
-refactor_page_bundles_to_pages.sh*
-$ less refactor-pages-to-page-bundles.sh
-<span style="color:#75715e">#!/bin/sh</span>
-
-<span style="color:#75715e"># Helps migrate from v2.4.0 to v3.0.0</span>
-#
-<span style="color:#75715e"># Refactor a page named `X.md` to `content/&lt;section&gt;/X/index.md` to use the</span>
-<span style="color:#75715e"># new page bundles and featured image system</span>
-#
-..........
-$ less refactor-homepage-sections-to-bundles.sh
-<span style="color:#75715e">#!/usr/bin/env bash</span>
-
-<span style="color:#75715e"># Helps migrate from v4.1 to v4.2</span>
-#
-<span style="color:#75715e"># Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,</span>
-<span style="color:#75715e"># treating homepage sections as headless page bundles in Hugo.</span>
-#
-<span style="color:#75715e"># - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`</span>
-..........
-</code></pre></div><p>という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cd /Data/hoge
-$ ls
-Taipapablog
-Taipapablog_OLD
-academic-scripts
-$ cd Taipapablog_OLD/
-$ pwd
-/Data/hoge/Taipapablog_OLD
-$ ../academic-scripts/refactor-pages-to-page-bundles.sh
-./content/posts/annotation.md -&gt; ./content/posts/annotation/index.md
-./content/post/org-html-export-theme.md -&gt; ./content/post/org-html-export-theme/index.md
-./content/post/org-mode_paper_2.md -&gt; ./content/post/org-mode_paper_2/index.md
-..........
-$ cp -a content/post/* ../Taipapablog/content/post/
-</code></pre></div><p>以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
-./content/home/search.md -&gt; ./content/home/search/index.md
-./content/home/hero_carousel.md -&gt; ./content/home/hero_carousel/index.md
-./content/home/hero.md -&gt; ./content/home/hero/index.md
-</code></pre></div><p>これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Old version
+</span></span><span style="display:flex;"><span>$ tree -L <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── Different-segment-to-each-facet-in-ggplot.md
+</span></span><span style="display:flex;"><span>├── Emacs_Install.md
+</span></span><span style="display:flex;"><span>├── EmbedRplotInBlog.md
+</span></span><span style="display:flex;"><span>├── ExportRplot.md
+</span></span><span style="display:flex;"><span>├── FullTextSearch.md
+</span></span><span style="display:flex;"><span>├── Japanese_setup.md
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Current version
+</span></span><span style="display:flex;"><span>$ tree -L <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── Different-segment-to-each-facet-in-ggplot
+</span></span><span style="display:flex;"><span>│   ├── featured.jpg
+</span></span><span style="display:flex;"><span>│   └── index.md
+</span></span><span style="display:flex;"><span>├── Emacs_Install
+</span></span><span style="display:flex;"><span>│   ├── featured.jpg
+</span></span><span style="display:flex;"><span>│   └── index.md
+</span></span><span style="display:flex;"><span>├── EmbedRplotInBlog
+</span></span><span style="display:flex;"><span>│   ├── featured.jpg
+</span></span><span style="display:flex;"><span>│   └── index.md
+</span></span><span style="display:flex;"><span>├── ExportRplot
+</span></span><span style="display:flex;"><span>│   ├── featured.jpg
+</span></span><span style="display:flex;"><span>│   └── index.md
+</span></span><span style="display:flex;"><span>├── FullTextSearch
+</span></span><span style="display:flex;"><span>│   ├── featured.jpg
+</span></span><span style="display:flex;"><span>│   └── index.md
+</span></span><span style="display:flex;"><span>├── Japanese_setup
+</span></span><span style="display:flex;"><span>│   ├── featured.jpg
+</span></span><span style="display:flex;"><span>│   └── index.md
+</span></span><span style="display:flex;"><span>..........
+</span></span></code></pre></div><p>先ほどのスクリプトは，このフォルダ構成への移行を自動化してくれる．これをgitでクローンする．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Data/hoge
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>Taipapablog
+</span></span><span style="display:flex;"><span>$ git clone https://github.com/sourcethemes/academic-scripts.git
+</span></span><span style="display:flex;"><span>Cloning into <span style="color:#e6db74">&#39;academic-scripts&#39;</span>...
+</span></span><span style="display:flex;"><span>remote: Enumerating objects: 27, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>remote: Total <span style="color:#ae81ff">27</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">27</span>
+</span></span><span style="display:flex;"><span>Unpacking objects: 100% <span style="color:#f92672">(</span>27/27<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>Taipapablog
+</span></span><span style="display:flex;"><span>academic-scripts
+</span></span></code></pre></div><p>このacademic-scriptsの中身を見ると，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd academic-scripts/
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>LICENSE.md
+</span></span><span style="display:flex;"><span>README.md
+</span></span><span style="display:flex;"><span>refactor-homepage-sections-to-bundles.sh*
+</span></span><span style="display:flex;"><span>refactor-pages-to-page-bundles.sh*
+</span></span><span style="display:flex;"><span>refactor_page_bundles_to_pages.sh*
+</span></span><span style="display:flex;"><span>$ less refactor-pages-to-page-bundles.sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Helps migrate from v2.4.0 to v3.0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Refactor a page named `X.md` to `content/&lt;section&gt;/X/index.md` to use the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># new page bundles and featured image system</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span>$ less refactor-homepage-sections-to-bundles.sh
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Helps migrate from v4.1 to v4.2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Refactors homepage sections named `content/home/X.md` to `content/home/X/index.md`,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># treating homepage sections as headless page bundles in Hugo.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># - E.g. an About section named `content/home/about.md` is converted to `content/home/about/index.md`</span>
+</span></span><span style="display:flex;"><span>..........
+</span></span></code></pre></div><p>という具合に，確かに，pageからpage bundlesへの移行を自動でやってくれるようになっている．そこで，これまでのブログをTaipapablog_OLDとして保存し，そのポスト（投稿記事）にこのスクリプトを適用する．その後，これらの記事を全て新しい方のTaipapablogのpostにコピーする．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cd /Data/hoge
+</span></span><span style="display:flex;"><span>$ ls
+</span></span><span style="display:flex;"><span>Taipapablog
+</span></span><span style="display:flex;"><span>Taipapablog_OLD
+</span></span><span style="display:flex;"><span>academic-scripts
+</span></span><span style="display:flex;"><span>$ cd Taipapablog_OLD/
+</span></span><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/Data/hoge/Taipapablog_OLD
+</span></span><span style="display:flex;"><span>$ ../academic-scripts/refactor-pages-to-page-bundles.sh
+</span></span><span style="display:flex;"><span>./content/posts/annotation.md -&gt; ./content/posts/annotation/index.md
+</span></span><span style="display:flex;"><span>./content/post/org-html-export-theme.md -&gt; ./content/post/org-html-export-theme/index.md
+</span></span><span style="display:flex;"><span>./content/post/org-mode_paper_2.md -&gt; ./content/post/org-mode_paper_2/index.md
+</span></span><span style="display:flex;"><span>..........
+</span></span><span style="display:flex;"><span>$ cp -a content/post/* ../Taipapablog/content/post/
+</span></span></code></pre></div><p>以降の作業は全て，新しい方のTaipapablog directoryで行う．こちらのcontent/home/にも先ほどのスクリプトのホームページセクション用のものを適用しておいた．こちらは不要かもしれない．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ../academic-scripts/refactor-homepage-sections-to-bundles.sh
+</span></span><span style="display:flex;"><span>./content/home/search.md -&gt; ./content/home/search/index.md
+</span></span><span style="display:flex;"><span>./content/home/hero_carousel.md -&gt; ./content/home/hero_carousel/index.md
+</span></span><span style="display:flex;"><span>./content/home/hero.md -&gt; ./content/home/hero/index.md
+</span></span></code></pre></div><p>これにより，/Data/hoge/Taipapablog/content/posts/*.mdや/Data/hoge/Taipapablog/content/home/.mdが，先ほどtreeで示したようなディレクトリ構造になる．</p>
 <p>ここから先は，config/, content/, content/home/, content/post/の中身を弄って，アップデートする前と同じになるように修正していく．私は，blogをhugoのmarkdown自体はほとんど弄ることなく，org-modeのパッケージであるox-hugoで書いているので，そちらを中心に述べる．</p>
 <h3 id="front-matter">Front matter</h3>
 <ul>
@@ -641,8 +641,8 @@ $ cp -a content/post/* ../Taipapablog/content/post/
 </li>
 <li>
 <p><strong>subtitle</strong> を使用するのが可能となった．もしかして以前から？　以下のように，ox-hugoでpropertiesに追加すれば良い．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER:</span> <span style="color:#e6db74">:subtitle</span> <span style="color:#e6db74">&#34;Hugoとacademic テーマのアップデート&#34;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER:</span> <span style="color:#e6db74">:subtitle</span> <span style="color:#e6db74">&#34;Hugoとacademic テーマのアップデート&#34;</span>
+</span></span></code></pre></div></li>
 </ul>
 <h3 id="featured-image"><a href="https://sourcethemes.com/academic/docs/managing-content/#featured-image">Featured image</a></h3>
 <ul>
@@ -651,33 +651,33 @@ $ cp -a content/post/* ../Taipapablog/content/post/
 </li>
 <li>
 <p>ox-hugoから，Page Bundlesとしてexportするためには，propertiesに <strong>EXPORT_HUGO_BUNDLE</strong> を使って以下のように書けば，Front Matterとしてexportされる．2個目の項目追加からは，*EXPORT_HUGO_BUNDLE+* とする．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp"><span style="color:#e6db74">:PROPERTIES:</span>
-<span style="color:#e6db74">:EXPORT_HUGO_BUNDLE:</span> how-to-upgrade-hugo-and-academic-theme
-<span style="color:#e6db74">:EXPORT_FILE_NAME:</span> index
-<span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER:</span> <span style="color:#e6db74">:subtitle</span> <span style="color:#e6db74">&#34;Hugoとacademic テーマのアップデート&#34;</span>
-<span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER+:</span> <span style="color:#e6db74">:image</span> <span style="color:#f92672">&#39;</span>((placement <span style="color:#f92672">.</span> <span style="color:#ae81ff">3</span>) (caption <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Ancient greek pottery, Musée du Louvre&#34;</span>))
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#e6db74">:PROPERTIES:</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">:EXPORT_HUGO_BUNDLE:</span> how-to-upgrade-hugo-and-academic-theme
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">:EXPORT_FILE_NAME:</span> index
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER:</span> <span style="color:#e6db74">:subtitle</span> <span style="color:#e6db74">&#34;Hugoとacademic テーマのアップデート&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">:EXPORT_HUGO_CUSTOM_FRONT_MATTER+:</span> <span style="color:#e6db74">:image</span> <span style="color:#f92672">&#39;</span>((placement <span style="color:#f92672">.</span> <span style="color:#ae81ff">3</span>) (caption <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Ancient greek pottery, Musée du Louvre&#34;</span>))
+</span></span></code></pre></div></li>
 <li>
 <p>Featured imageをどのような大きさで表示するかについては，上述のリンク先に説明がある．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># Featured image</span>
-<span style="color:#75715e"># To use, place an image named `featured.jpg/png` in your page&#39;s folder.</span>
-<span style="color:#75715e"># Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width</span>
-<span style="color:#75715e"># Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight</span>
-<span style="color:#75715e"># Set `preview_only` to `true` to just use the image for thumbnails.</span>
-</code></pre></div><p>とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Featured image</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># To use, place an image named `featured.jpg/png` in your page&#39;s folder.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Placement options: 1 = Full column width, 2 = Out-set, 3 = Screen-width</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Focal point options: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set `preview_only` to `true` to just use the image for thumbnails.</span>
+</span></span></code></pre></div><p>とりあえずは，旧記事に合わせて，スクリーン幅となるplacement = 3とした．ox-hugoでのpropertiesで上述のように指定する．captionのつけ方も上記の通り．</p>
 </li>
 </ul>
 <h3 id="recent-postsのサマリが長すぎる">Recent Postsのサマリが長すぎる！</h3>
 <p>Home ページの下方には，Recent Postsがあり，最近の記事のサマリが画像とともに表示される．この表示形式は以下のように5種類が選べる（<a href="https://sourcethemes.com/academic/docs/page-builder/#view">View</a>）．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
-
-1 <span style="color:#f92672">=</span> List <span style="color:#f92672">(</span>previously Simple<span style="color:#f92672">)</span>
-2 <span style="color:#f92672">=</span> Compact <span style="color:#f92672">(</span>previously Stream<span style="color:#f92672">)</span>
-3 <span style="color:#f92672">=</span> Card <span style="color:#f92672">(</span>previously Detailed<span style="color:#f92672">)</span>
-4 <span style="color:#f92672">=</span> Citation <span style="color:#f92672">(</span>previously APA and MLA<span style="color:#f92672">)</span>, only available <span style="color:#66d9ef">for</span> publications
-Optionally, edit the value of citation_style in params.toml to APA or MLA
-5 <span style="color:#f92672">=</span> Showcase <span style="color:#f92672">(</span>large images<span style="color:#f92672">)</span>, only available <span style="color:#66d9ef">for</span> projects
-</code></pre></div><p>この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．<a href="https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post">Create a blog post</a> に記載されているように， <strong>&lt;!&ndash;more&ndash;&gt;</strong> を記事本文の適当なところに挿入して，サマリの長さを調整することにした．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>Several widgets have a view option to let you choose the layout of the widget. The following layouts are available:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1 <span style="color:#f92672">=</span> List <span style="color:#f92672">(</span>previously Simple<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>2 <span style="color:#f92672">=</span> Compact <span style="color:#f92672">(</span>previously Stream<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>3 <span style="color:#f92672">=</span> Card <span style="color:#f92672">(</span>previously Detailed<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>4 <span style="color:#f92672">=</span> Citation <span style="color:#f92672">(</span>previously APA and MLA<span style="color:#f92672">)</span>, only available <span style="color:#66d9ef">for</span> publications
+</span></span><span style="display:flex;"><span>Optionally, edit the value of citation_style in params.toml to APA or MLA
+</span></span><span style="display:flex;"><span>5 <span style="color:#f92672">=</span> Showcase <span style="color:#f92672">(</span>large images<span style="color:#f92672">)</span>, only available <span style="color:#66d9ef">for</span> projects
+</span></span></code></pre></div><p>この中から，以前のversionに一番近い 3，つまり，カード形式を選択した．しかし，画像のcropがイマイチで，しかもサマリがサマリと言えないくらいに長い．updateする前のフォーマットが気に入っていたので，この変化は残念．<a href="https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post">Create a blog post</a> に記載されているように， <strong>&lt;!&ndash;more&ndash;&gt;</strong> を記事本文の適当なところに挿入して，サマリの長さを調整することにした．</p>
 <h3 id="recent-postsの画像表示のフォーマット変更">Recent Postsの画像表示のフォーマット変更</h3>
 <h4 id="references">References</h4>
 <ul>
@@ -701,27 +701,27 @@ Optionally, edit the value of citation_style in params.toml to APA or MLA
 </li>
 <li>
 <p>以下のように，li_card.htmlの53行目を変更する．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">.....
-<span style="color:#ae81ff">52</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> with $resource <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
-<span style="color:#ae81ff">53</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> $image :<span style="color:#f92672">=</span> .Fill <span style="color:#f92672">(</span>printf <span style="color:#e6db74">&#34;918x517 q90 %s&#34;</span> $anchor<span style="color:#f92672">)</span> <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
-<span style="color:#ae81ff">54</span> &lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{{ </span>$item<span style="color:#e6db74">.RelPermalink }}</span><span style="color:#e6db74">&#34;</span>&gt;
-.....
-
------&gt;
-.....
-<span style="color:#ae81ff">53</span> <span style="color:#f92672">{</span><span style="color:#f92672">{</span> $image :<span style="color:#f92672">=</span> .Resize <span style="color:#e6db74">&#34;900x&#34;</span>  <span style="color:#f92672">}</span><span style="color:#f92672">}</span>
-.....
-</code></pre></div><p>これは， <a href="https://gohugo.io/content-management/image-processing/">Image Processing</a> に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">52</span> <span style="color:#f92672">{{</span> with $resource <span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">53</span> <span style="color:#f92672">{{</span> $image :<span style="color:#f92672">=</span> .Fill <span style="color:#f92672">(</span>printf <span style="color:#e6db74">&#34;918x517 q90 %s&#34;</span> $anchor<span style="color:#f92672">)</span> <span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">54</span> &lt;a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ </span>$item<span style="color:#e6db74">.RelPermalink }}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>-----&gt;
+</span></span><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">53</span> <span style="color:#f92672">{{</span> $image :<span style="color:#f92672">=</span> .Resize <span style="color:#e6db74">&#34;900x&#34;</span>  <span style="color:#f92672">}}</span>
+</span></span><span style="display:flex;"><span>.....
+</span></span></code></pre></div><p>これは， <a href="https://gohugo.io/content-management/image-processing/">Image Processing</a> に解説されているように，FillをResizeに変更しただけであるが，ほぼ望み通りの画像表示となった．</p>
 </li>
 </ol>
 <h3 id="alerts"><a href="https://sourcethemes.com/academic/docs/writing-markdown-latex/#alerts">Alerts</a></h3>
 <ul>
 <li>これは今回見つけた新たな小道具</li>
 <li>ノート，ヒント，警告などに有用．</li>
-<li>いくつか方法はあるが，shortcodeを使うのが一番簡単．\<br>
-｛{% alert note %}}\<br>
-A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\<br>
-｛{% alert  %}}\<br>
+<li>いくつか方法はあるが，shortcodeを使うのが一番簡単．\
+｛{% alert note %}}\
+A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\
+｛{% alert  %}}\
 により，（最初の <strong>&quot;{&quot;</strong> はescapeできないので全角の <strong>&quot;｛&quot;</strong> にしていることに注意）</li>
 </ul>
 <div class="alert alert-note">
@@ -730,9 +730,9 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
   </div>
 </div>
 <p>となる．</p>
-<p>｛{% alert warning %}}\<br>
-A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\<br>
-｛{% /alert %}}\<br>
+<p>｛{% alert warning %}}\
+A Markdown aside is useful for displaying notices, hints, or definitions to your readers.\
+｛{% /alert %}}\
 は，以下のようになる．（最初の <strong>&quot;{&quot;</strong> はescapeできないので全角の <strong>&quot;｛&quot;</strong> にしていることに注意）\</p>
  <div class="alert alert-warning">
   <div>
@@ -749,41 +749,41 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 </div>
 <p>のような警告が出るようになった（早速使ってみた）．サイト自体のビルドはできて，実害はないが，気持ちが悪いので，ネットを探ると，academicの作者のGitHub pageに，そのものズバリの <a href="https://github.com/gcushen/hugo-academic/issues/1060">Featurette widget does not change from example #1060</a> があった．</p>
 <blockquote>
-<p>You have updated to the unreleased version. You'll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>
+<p>You have updated to the unreleased version. You&rsquo;ll need to remove the &ldquo;CSS&rdquo; output entry from config.Toml</p>
 </blockquote>
 <p>ということなので，以下のように作業した．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vi /Data/hoge/Taipapablog/config/_default/config.toml
-.....
-<span style="color:#ae81ff">45</span> <span style="color:#f92672">[</span>outputs<span style="color:#f92672">]</span>
-<span style="color:#ae81ff">46</span>   home <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>, <span style="color:#e6db74">&#34;WebAppManifest&#34;</span>, <span style="color:#e6db74">&#34;CSS&#34;</span><span style="color:#f92672">]</span>
-<span style="color:#ae81ff">47</span>   section <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span> <span style="color:#f92672">]</span>
-.....
------&gt;
-.....
-<span style="color:#ae81ff">45</span> <span style="color:#f92672">[</span>outputs<span style="color:#f92672">]</span>
-<span style="color:#ae81ff">46</span> <span style="color:#75715e">#  home = [ &#34;HTML&#34;, &#34;RSS&#34;, &#34;JSON&#34;, &#34;WebAppManifest&#34;, &#34;CSS&#34;]</span>
-<span style="color:#ae81ff">47</span>   home <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>, <span style="color:#e6db74">&#34;WebAppManifest&#34;</span><span style="color:#f92672">]</span>
-<span style="color:#ae81ff">48</span>   section <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span> <span style="color:#f92672">]</span>
-.....
-</code></pre></div><p>46行目の&quot;CSS&quot;を削除するだけで，警告が出なくなった．(^o^)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ vi /Data/hoge/Taipapablog/config/_default/config.toml
+</span></span><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">45</span> <span style="color:#f92672">[</span>outputs<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">46</span>   home <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>, <span style="color:#e6db74">&#34;WebAppManifest&#34;</span>, <span style="color:#e6db74">&#34;CSS&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">47</span>   section <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span>-----&gt;
+</span></span><span style="display:flex;"><span>.....
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">45</span> <span style="color:#f92672">[</span>outputs<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">46</span> <span style="color:#75715e">#  home = [ &#34;HTML&#34;, &#34;RSS&#34;, &#34;JSON&#34;, &#34;WebAppManifest&#34;, &#34;CSS&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">47</span>   home <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>, <span style="color:#e6db74">&#34;WebAppManifest&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">48</span>   section <span style="color:#f92672">=</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span> <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>.....
+</span></span></code></pre></div><p>46行目の&quot;CSS&quot;を削除するだけで，警告が出なくなった．(^o^)</p>
 <p>見え方にまだまだ不満はあるが，こんなところだろうか．アップデートしてから，貼り付けた画像の上にマウスを持っていくと，拡大鏡のアイコンになり，クリックすると2段階で拡大されるようになった．他にも変化はあるようだが，全然活用できていない．ぼちぼち触っていって，面白いことがあれば，また，まとめてみよう．．．</p>
 <h2 id="追記">追記</h2>
 <p>githubにdeployした時に，以下のようなエラーが生じた．</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">warning: adding embedded git repository: themes/academic
-hint: You<span style="color:#e6db74">&#39;ve</span> added another git repository inside your current repository.
-hint: Clones of <span style="color:#66d9ef">the</span> outer repository will <span style="color:#a6e22e">not</span> contain <span style="color:#66d9ef">the</span> contents of
-hint: <span style="color:#66d9ef">the</span> embedded repository and will <span style="color:#a6e22e">not</span> know how to obtain it.
-hint: If you meant to add a submodule, use:
-hint:
-hint: 	git submodule add &lt;url&gt; themes/academic
-hint:
-hint: If you added this path by mistake, you can <span style="color:#a6e22e">remove</span> it from <span style="color:#66d9ef">the</span>
-hint: index with:
-hint:
-hint: 	git rm --cached themes/academic
-hint:
-hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for more information.
-</code></pre></div><p>エラーは吐くものの，deployはできて，ウェブでサイトも見られるので，疲れたし（笑），しばらくは，このままで行くことにする．themeのインストールは，submoduleで行うべきだったと，今更にして気がついた．次回アップデートする時にやってみよう．．．(^^;;;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>warning: adding embedded git repository: themes/academic
+</span></span><span style="display:flex;"><span>hint: You<span style="color:#e6db74">&#39;ve</span> added another git repository inside your current repository.
+</span></span><span style="display:flex;"><span>hint: Clones of <span style="color:#66d9ef">the</span> outer repository will <span style="color:#a6e22e">not</span> contain <span style="color:#66d9ef">the</span> contents of
+</span></span><span style="display:flex;"><span>hint: <span style="color:#66d9ef">the</span> embedded repository and will <span style="color:#a6e22e">not</span> know how to obtain it.
+</span></span><span style="display:flex;"><span>hint: If you meant to add a submodule, use:
+</span></span><span style="display:flex;"><span>hint:
+</span></span><span style="display:flex;"><span>hint: 	git submodule add &lt;url&gt; themes/academic
+</span></span><span style="display:flex;"><span>hint:
+</span></span><span style="display:flex;"><span>hint: If you added this path by mistake, you can <span style="color:#a6e22e">remove</span> it from <span style="color:#66d9ef">the</span>
+</span></span><span style="display:flex;"><span>hint: index with:
+</span></span><span style="display:flex;"><span>hint:
+</span></span><span style="display:flex;"><span>hint: 	git rm --cached themes/academic
+</span></span><span style="display:flex;"><span>hint:
+</span></span><span style="display:flex;"><span>hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for more information.
+</span></span></code></pre></div><p>エラーは吐くものの，deployはできて，ウェブでサイトも見られるので，疲れたし（笑），しばらくは，このままで行くことにする．themeのインストールは，submoduleで行うべきだったと，今更にして気がついた．次回アップデートする時にやってみよう．．．(^^;;;</p>
 <p>で，結局，気になって，academic themeのインストールをやり直した（笑）．次回の記事（<a href="../how-to-update-hugo-and-academic-theme-part2">How to update hugo and academic theme (Part2)</a>）を参照されたい．</p>
     </div>
 
@@ -930,7 +930,7 @@ hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for mo
   
   <div class="post-nav-item">
     <div class="meta-nav">Next</div>
-    <a href="/post/how-to-update-hugo-and-academic-theme-part2/" rel="next">How to update hugo and academic theme (Part2)</a>
+    <a href="/post/how-to-update-hugo-and-academic-theme--part2/" rel="next">How to update hugo and academic theme (Part2)</a>
   </div>
   
   
@@ -1094,7 +1094,7 @@ hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for mo
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -1119,7 +1119,7 @@ hint: See <span style="color:#e6db74">&#34;git help submodule&#34;</span> for mo
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

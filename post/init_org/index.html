@@ -29,8 +29,10 @@
     
   
   <meta name="description" content="自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．
-参考サイト  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel &#43; init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel  Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針  個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．  Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成  ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む  (require &#39;org) (defvar my-config-dir (concat user-emacs-directory &#34;personal/&#34;)) (org-babel-load-file (expand-file-name &#34;init.org&#34; my-config-dir))  工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ． これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．  init.orgの作成  これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．  Code blockの挿入   俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．
-  org-modeで以下のようにする．（後述する設定が必要）">
+参考サイト 俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel &#43; init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針 個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する． Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成 ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む (require &#39;org) (defvar my-config-dir (concat user-emacs-directory &#34;personal/&#34;)) (org-babel-load-file (expand-file-name &#34;init.org&#34; my-config-dir)) 工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ． これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される． init.orgの作成 これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．． Code blockの挿入 俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．
+org-modeで以下のようにする．（後述する設定が必要）
+&lt;l （ここで&lt;TAB&gt;すると．．．） 以下のように展開される #&#43;begin_src emacs-lisp #&#43;end_src 2019年1月14日追加
+上記の「TABで展開」に関して，Disqusで，mickaushyさんから「&lt;lではなくて&lt;sではないのか」とのご指摘をいただいた．全くそのとおりで，（後述する設定が必要）と自分で書いておきながら，その設定を書き忘れていた．mickaushyさんが指摘されている通りの設定をしている． - 参考：&lt;http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3&gt; ```lisp #&#43;begin_src emacs-lisp (setq org-structure-template-alist &#39;((&quot;s&quot; &quot;#&#43;begin_src ?">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/init_org/">
@@ -82,7 +84,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.78c6d66dd9441acddcacbbdd5a1f423a.css">
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
 
   
 
@@ -125,12 +127,14 @@
   <meta property="og:url" content="/post/init_org/">
   <meta property="og:title" content="Emacsの設定（その2）設定ファイル（init.el）をorg-modeで管理する | A perfect autumn day">
   <meta property="og:description" content="自分のinit.elを見てると嫌になってくる．なんとかしようと弄り回すが，結局，訳わからんコードが山のように残ったまま．これをなんとかしようと，以前から気になっていたorg-modeでinit.elを管理するという方法を試してみた．まず，参考にしたサイトを最初にまとめておくので，そちらを見たほうが良いかもしれない．
-参考サイト  俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel &#43; init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel  Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針  個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する．  Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成  ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む  (require &#39;org) (defvar my-config-dir (concat user-emacs-directory &#34;personal/&#34;)) (org-babel-load-file (expand-file-name &#34;init.org&#34; my-config-dir))  工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ． これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．  init.orgの作成  これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．．  Code blockの挿入   俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．
-  org-modeで以下のようにする．（後述する設定が必要）"><meta property="og:image" content="/post/init_org/featured.jpg">
+参考サイト 俺、ちゃんと全部管理してます（org-modeでinit.elを管理する） babel-loader:org-mode で init.el を管理する方法 平衡点(2011-12-13) ORG-Babel &#43; init.el = ?? | くらいまーず　はい Prelude init.el &amp; org-babel Preludeを使いながら，init.orgから個人用のinit.elを自動作成させてEmacsを設定する方法 基本方針 個人用の設定内容は，~/.emacs.d/personal/init.orgに書き込む． 起動時にEmacsはinit.orgを解釈できないので，init.elにはそれを解釈するように書き込む． 具体的には，init.elで，(require &lsquo;org)した後にorg-babel-load-fileでinit.orgを読み込む． しかし，Preludeを導入しているので，そのまま~/.emacs.dにinit.elを書き込むわけにはいかず，少し工夫する． Preludeの導入 前回のポスト（Emacsの設定（その1）Preludeの導入）を参考　emac-init.elの作成 ~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む (require &#39;org) (defvar my-config-dir (concat user-emacs-directory &#34;personal/&#34;)) (org-babel-load-file (expand-file-name &#34;init.org&#34; my-config-dir)) 工夫と言っても， init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ． これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される． init.orgの作成 これでいよいよ肝心のinit.orgの作成を行う org-modeについては，今更説明不要であろう．とにかくすごいやつ．超高機能アウトラインメジャーモード．文書作成，このブログ作成など殆どのことをこれでやっている． 具体的な内容は次回以降に記述予定だが，code blockの挿入は特筆すべき者であり，先に書いておく．． Code blockの挿入 俺、ちゃんと全部管理してます（org-modeでinit.elを管理する）で指摘されているとおり，とにかく便利．以下はほとんどそのままコピペしたような記述である．
+org-modeで以下のようにする．（後述する設定が必要）
+&lt;l （ここで&lt;TAB&gt;すると．．．） 以下のように展開される #&#43;begin_src emacs-lisp #&#43;end_src 2019年1月14日追加
+上記の「TABで展開」に関して，Disqusで，mickaushyさんから「&lt;lではなくて&lt;sではないのか」とのご指摘をいただいた．全くそのとおりで，（後述する設定が必要）と自分で書いておきながら，その設定を書き忘れていた．mickaushyさんが指摘されている通りの設定をしている． - 参考：&lt;http://pages.sachachua.com/.emacs.d/Sacha.html#org74bcbb3&gt; ```lisp #&#43;begin_src emacs-lisp (setq org-structure-template-alist &#39;((&quot;s&quot; &quot;#&#43;begin_src ?"><meta property="og:image" content="/post/init_org/featured.jpg">
   <meta property="twitter:image" content="/post/init_org/featured.jpg"><meta property="og:locale" content="en-us">
   
     
-      <meta property="article:published_time" content="2018-08-17T00:00:00&#43;09:00">
+      <meta property="article:published_time" content="2018-08-17T00:00:00&#43;00:00">
     
     <meta property="article:modified_time" content="2019-01-14T14:05:55&#43;09:00">
   
@@ -327,7 +331,7 @@
 
 
 
-<meta content="2018-08-17 00:00:00 &#43;0900 JST" itemprop="datePublished">
+<meta content="2018-08-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">
 <meta content="2019-01-14 14:05:55 &#43;0900 JST" itemprop="dateModified">
 
 <div class="article-metadata">
@@ -426,11 +430,11 @@
 <ul>
 <li>~/.emacs.d/personal/emacs-init.elというファイルを作成し，下記のように書き込む</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;org</span>)
-(defvar my-config-dir (concat user-emacs-directory <span style="color:#e6db74">&#34;personal/&#34;</span>))
-(org-babel-load-file
- (expand-file-name <span style="color:#e6db74">&#34;init.org&#34;</span> my-config-dir))
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;org</span>)
+</span></span><span style="display:flex;"><span>(defvar my-config-dir (concat user-emacs-directory <span style="color:#e6db74">&#34;personal/&#34;</span>))
+</span></span><span style="display:flex;"><span>(org-babel-load-file
+</span></span><span style="display:flex;"><span> (expand-file-name <span style="color:#e6db74">&#34;init.org&#34;</span> my-config-dir))
+</span></span></code></pre></div><ul>
 <li>工夫と言っても， <strong>init.elの名前のままではinit.orgからinit.elが生成されるときに衝突してしまう</strong>  ので，違う名前（emacs-init.el）にしていることと，init.orgを~/.emacs.d/personal/に置くようにしているだけ．</li>
 <li>これでEmacsを起動すると，init.org内のcode blockだけを抜き出したinit.elが同じdirectory (personal)に作成される．</li>
 </ul>
@@ -447,12 +451,12 @@
 </li>
 <li>
 <p>org-modeで以下のようにする．（後述する設定が必要）</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">&lt;l <span style="color:#960050;background-color:#1e0010">（</span>ここで&lt;TAB&gt;すると<span style="color:#960050;background-color:#1e0010">．</span><span style="color:#960050;background-color:#1e0010">．</span><span style="color:#960050;background-color:#1e0010">．</span><span style="color:#960050;background-color:#1e0010">）</span>
-以下のように展開される
-<span style="color:#f92672">#+</span>begin_src emacs-lisp
-
-<span style="color:#f92672">#+</span>end_src
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>&lt;l <span style="color:#960050;background-color:#1e0010">（</span>ここで&lt;TAB&gt;すると<span style="color:#960050;background-color:#1e0010">．．．）</span>
+</span></span><span style="display:flex;"><span>以下のように展開される
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div></li>
 <li>
 <p><strong>2019年1月14日追加</strong></p>
 </li>
@@ -495,19 +499,19 @@
 <li>
 <p>当該のcode blockだけのバッファが表示される（下図の下のバッファ）</p>
 
-
-
-
-
-
-<figure>
-
-  <a data-fancybox="" href="/img/CodeBlock_small.jpg" >
-
-<img src="/img/CodeBlock_small.jpg" width="100%" >
-</a>
-
-</figure>
+        
+        
+        
+        
+        
+        <figure>
+        
+          <a data-fancybox="" href="/img/CodeBlock_small.jpg" >
+        
+        <img src="/img/CodeBlock_small.jpg" width="100%" >
+        </a>
+        
+        </figure>
 
 </li>
 <li>
@@ -822,7 +826,7 @@
     
     
     
-    <script src="/js/academic.min.16bbb3750feb7244c9bc409a5a4fe678.js"></script>
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
 
     
 
@@ -847,7 +851,7 @@
   
 
   <p class="powered-by">
-    © 2020 &middot; 
+    © 2022 &middot; 
 
     Powered by the
     <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for

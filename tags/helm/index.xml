@@ -5,7 +5,7 @@
     <link>/tags/helm/</link>
       <atom:link href="/tags/helm/index.xml" rel="self" type="application/rss+xml" />
     <description>helm</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 27 Oct 2019 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>helm</title>
@@ -15,7 +15,7 @@
     <item>
       <title>How to use mark in Emacs (helm-all-mark-rings)</title>
       <link>/post/mark-and-desktop-saving/</link>
-      <pubDate>Sun, 27 Oct 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 27 Oct 2019 00:00:00 +0000</pubDate>
       <guid>/post/mark-and-desktop-saving/</guid>
       <description>&lt;p&gt;Emacsのカーソルは画面をスクロールして上端または下端に至ると画面の中に表示される状態を維持するように動いてしまい，元の位置には止まらないのが仕様になっている．これは通常のエディターとは違っており，不便と感じて，色々と調べたり試したりしたのだが，要するに思想の違いであると考えるに至った．カーソルの位置は保持できない代わりにマークという方法が提供されている．まぁ，これが結構分かりにくいのだが，使ってみると案外便利である．そこで，マークについてまとめることにした．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
@@ -136,7 +136,7 @@
     <item>
       <title>Treemacs and Projectile</title>
       <link>/post/treemacs_projectile/</link>
-      <pubDate>Sun, 25 Aug 2019 00:00:00 +0900</pubDate>
+      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       <guid>/post/treemacs_projectile/</guid>
       <description>&lt;p&gt;MacのFinderに相当するのは，EmacsではDiredであろう．しかし，なにかのプロジェクトに関わる文書群を管理するということになると，Diredでは力不足である．というか目的が違う．これにぴったりなのが，treemacsであり，そのバックボーンになるのが，Projectileである．これらは，プログラマーでもない自分には必要ないものと思っていたのだが，このblogを書くのに使用しているHugoとそのテーマであるacademicをアップデートする際に，非常に役に立ったので，いまだによく分かっていない自分自身のために書き留めておく．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
@@ -178,15 +178,15 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 &lt;p&gt;以前の記事（&lt;a href=&#34;../prelude_install&#34;&gt;Emacsの設定（その1）Preludeの導入（2018年10月9日修正，2019年6月1日追記）&lt;/a&gt;）に書いたように，私は，Preludeを導入しているが，これにより，prejectileのインストールと設定は既に終わっている．マニュアルで入れる場合は，以下のようにinit.orgに書き込めば良い．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; projectile
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-  (define-key projectile-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s-p&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;projectile-command-map&lt;/span&gt;)
-  (define-key projectile-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c p&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;projectile-command-map&lt;/span&gt;)
-  (projectile-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;+1&lt;/span&gt;))
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; projectile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (define-key projectile-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;s-p&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;projectile-command-map&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (define-key projectile-mode-map (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-c p&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;projectile-command-map&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (projectile-mode &lt;span style=&#34;color:#ae81ff&#34;&gt;+1&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;多分，このソフトは解説を読んでいても，有り難みがさっぱり分からない（私がそうであった）．gitを使って開発をしている人とかにはすごく役に立つと思う．では，プログラマーでもない私の様な素人が使ってなんの役に立つのかと思われるであろうが，これが，案外便利なのである．&lt;/p&gt;
 &lt;h4 id=&#34;basic-usage&#34;&gt;Basic Usage&lt;/h4&gt;
 &lt;p&gt;個人的に実際に使うのは，以下の4つぐらい．&lt;/p&gt;
@@ -239,88 +239,88 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 &lt;p&gt;ご本家の方法を丸写ししておく．以下をinit.orgに書き込めば良い．デフォルト設定なので，これ全部写す必要はなさそうだが．．．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:defer&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
-  (with-eval-after-load &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;winum&lt;/span&gt;
-    (define-key winum-keymap (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;M-0&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;#&amp;#39;&lt;/span&gt;treemacs-select-window))
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
-  (&lt;span style=&#34;color:#66d9ef&#34;&gt;progn&lt;/span&gt;
-    (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; treemacs-collapse-dirs                 (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (treemacs--find-python3) &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
-          treemacs-deferred-git-apply-delay      &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;
-          treemacs-display-in-side-window        &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-          treemacs-eldoc-display                 &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-          treemacs-file-event-delay              &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
-          treemacs-file-follow-delay             &lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;
-          treemacs-follow-after-init             &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-          treemacs-git-command-pipe              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-          treemacs-goto-tag-strategy             &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;refetch-index&lt;/span&gt;
-          treemacs-indentation                   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-          treemacs-indentation-string            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;
-          treemacs-is-never-other-window         &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-max-git-entries               &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
-          treemacs-missing-project-action        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ask&lt;/span&gt;
-          treemacs-no-png-images                 &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-no-delete-other-windows       &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-          treemacs-project-follow-cleanup        &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-persist-file                  (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.cache/treemacs-persist&amp;#34;&lt;/span&gt; user-emacs-directory)
-          treemacs-recenter-distance             &lt;span style=&#34;color:#ae81ff&#34;&gt;0.1&lt;/span&gt;
-          treemacs-recenter-after-file-follow    &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-recenter-after-tag-follow     &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-recenter-after-project-jump   &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;always&lt;/span&gt;
-          treemacs-recenter-after-project-expand &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;on-distance&lt;/span&gt;
-          treemacs-show-cursor                   &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-show-hidden-files             &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-          treemacs-silent-filewatch              &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-silent-refresh                &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
-          treemacs-sorting                       &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alphabetic-desc&lt;/span&gt;
-          treemacs-space-between-root-nodes      &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-          treemacs-tag-follow-cleanup            &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-          treemacs-tag-follow-delay              &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;
-          treemacs-width                         &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;)
-
-    &lt;span style=&#34;color:#75715e&#34;&gt;;; The default width and height of the icons is 22 pixels. If you are&lt;/span&gt;
-    &lt;span style=&#34;color:#75715e&#34;&gt;;; using a Hi-DPI display, uncomment this to double the icon size.&lt;/span&gt;
-    &lt;span style=&#34;color:#75715e&#34;&gt;;; (treemacs-resize-icons 44)&lt;/span&gt;
-
-    (treemacs-follow-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-    (treemacs-filewatch-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-    (treemacs-fringe-indicator-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-    (pcase (&lt;span style=&#34;color:#a6e22e&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;null&lt;/span&gt; (executable-find &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;)))
-                 (&lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;null&lt;/span&gt; (treemacs--find-python3))))
-      (&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-       (treemacs-git-mode &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;deferred&lt;/span&gt;))
-      (&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; _)
-       (treemacs-git-mode &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;simple&lt;/span&gt;))))
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:bind&lt;/span&gt;
-  (&lt;span style=&#34;color:#e6db74&#34;&gt;:map&lt;/span&gt; global-map
-        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;M-0&amp;#34;&lt;/span&gt;       &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-select-window)
-        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t 1&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-delete-other-windows)
-        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t t&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs)
-        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t B&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-bookmark)
-        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t C-t&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-find-file)
-        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t M-t&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-find-tag)))
-
-&lt;span style=&#34;color:#75715e&#34;&gt;;; (use-package treemacs-evil&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;;;   :after treemacs evil&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;;;   :ensure t)&lt;/span&gt;
-
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-projectile
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs projectile
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-icons-dired
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs dired
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt; (treemacs-icons-dired-mode))
-
-(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-magit
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs magit
-  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
-&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:defer&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:init&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (with-eval-after-load &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;winum&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (define-key winum-keymap (kbd &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;M-0&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;#&amp;#39;&lt;/span&gt;treemacs-select-window))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;progn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; treemacs-collapse-dirs                 (&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (treemacs--find-python3) &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-deferred-git-apply-delay      &lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-display-in-side-window        &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-eldoc-display                 &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-file-event-delay              &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-file-follow-delay             &lt;span style=&#34;color:#ae81ff&#34;&gt;0.2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-follow-after-init             &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-git-command-pipe              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-goto-tag-strategy             &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;refetch-index&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-indentation                   &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-indentation-string            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-is-never-other-window         &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-max-git-entries               &lt;span style=&#34;color:#ae81ff&#34;&gt;5000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-missing-project-action        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;ask&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-no-png-images                 &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-no-delete-other-windows       &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-project-follow-cleanup        &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-persist-file                  (expand-file-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.cache/treemacs-persist&amp;#34;&lt;/span&gt; user-emacs-directory)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-recenter-distance             &lt;span style=&#34;color:#ae81ff&#34;&gt;0.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-recenter-after-file-follow    &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-recenter-after-tag-follow     &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-recenter-after-project-jump   &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-recenter-after-project-expand &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;on-distance&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-show-cursor                   &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-show-hidden-files             &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-silent-filewatch              &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-silent-refresh                &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-sorting                       &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;alphabetic-desc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-space-between-root-nodes      &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-tag-follow-cleanup            &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-tag-follow-delay              &lt;span style=&#34;color:#ae81ff&#34;&gt;1.5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          treemacs-width                         &lt;span style=&#34;color:#ae81ff&#34;&gt;35&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;;; The default width and height of the icons is 22 pixels. If you are&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;;; using a Hi-DPI display, uncomment this to double the icon size.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;;; (treemacs-resize-icons 44)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (treemacs-follow-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (treemacs-filewatch-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (treemacs-fringe-indicator-mode &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (pcase (&lt;span style=&#34;color:#a6e22e&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;null&lt;/span&gt; (executable-find &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git&amp;#34;&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 (&lt;span style=&#34;color:#a6e22e&#34;&gt;not&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;null&lt;/span&gt; (treemacs--find-python3))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (treemacs-git-mode &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;deferred&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; _)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (treemacs-git-mode &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;simple&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:bind&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#e6db74&#34;&gt;:map&lt;/span&gt; global-map
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;M-0&amp;#34;&lt;/span&gt;       &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-select-window)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t 1&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-delete-other-windows)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t t&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t B&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-bookmark)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t C-t&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-find-file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;C-x t M-t&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt; treemacs-find-tag)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;;; (use-package treemacs-evil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;;;   :after treemacs evil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;;;   :ensure t)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-projectile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs projectile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-icons-dired
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs dired
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:config&lt;/span&gt; (treemacs-icons-dired-mode))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; treemacs-magit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:after&lt;/span&gt; treemacs magit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
 &lt;p&gt;上記設定により，projectileと統合した状態で使用することになる．従って，git initしたdirectoryや，git cloneしたdirectoryが対象となる．それらに該当しなければ，directory内に.projectileという 空ファイルを作成すれば良い．まず，最初は， &lt;strong&gt;M-0&lt;/strong&gt; と叩いて，Treemacsを開き，C-c C-p a (treemacs-add-project-to-workspace) でプロジェクトをtreemacsのworkspaceに追加する．下図は，Taipapablogというdirectoryを開けて，そこから2つのファイルを横に並べて開いたところである．&lt;/p&gt;
 &lt;p&gt;左のtreemacsのバッファの行番号114のさらに左のfringeに小さな青いマークがついている．行のハイライトとともに現在アクティブなバッファがどれかを示している．複数のプロジェクトや複数のディレクトリに同じ名前のファイルがあるときなどは，今作業しているファイルが，どこにあるファイルがわからなくなって困ることがある（少なくとも私は）．そのようなときに，このfringe indicatorは有用である．&lt;/p&gt;
 
@@ -354,7 +354,7 @@
 
 &lt;/figure&gt;
 
-&lt;p&gt;使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， &lt;strong&gt;Winum &amp;amp; ace-window compatibility&lt;/strong&gt; と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， &lt;strong&gt;(define-key winum-keymap (kbd &amp;ldquo;M-0&amp;rdquo;) #&amp;lsquo;treemacs-select-window)&lt;/strong&gt; と書いてある．つまり，横や縦に並べたバッファ間の移動は， &lt;strong&gt;C-x o&lt;/strong&gt; の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， &lt;strong&gt;M-0&lt;/strong&gt; を打てば良い．下図は，先ほどの図の状態で， &lt;strong&gt;C-x o&lt;/strong&gt; を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．&lt;/p&gt;
+&lt;p&gt;使い始めたときに問題となったのは，treemacsのコマンドはtreemacsのバッファにいるときでないと効かないことである（projectileのコマンドは何処でも効く）．いちいち，マウスでtreemacsのバッファをクリックしてそちらに移ってからコマンドを打たないといけないようではやってられない．これでは，Macのfinderと同じである．そこで，ご本家のサイトをよく読むと， &lt;strong&gt;Winum &amp;amp; ace-window compatibility&lt;/strong&gt; と書いてある．上述したインストールのためのuse-packageの設定のconfigにも， &lt;strong&gt;(define-key winum-keymap (kbd &amp;ldquo;M-0&amp;rdquo;) #&amp;rsquo;treemacs-select-window)&lt;/strong&gt; と書いてある．つまり，横や縦に並べたバッファ間の移動は， &lt;strong&gt;C-x o&lt;/strong&gt; の後に行きたいバッファの番号を打てばよく，treemacsのバッファに戻るには， &lt;strong&gt;M-0&lt;/strong&gt; を打てば良い．下図は，先ほどの図の状態で， &lt;strong&gt;C-x o&lt;/strong&gt; を打った時の様子である．茶色の小さな数字がそれぞれのバッファに割り当てられた番号である．&lt;/p&gt;
 &lt;p&gt;なお，winumのインストールについては，&lt;a href=&#34;https://github.com/deb0ch/emacs-winum&#34;&gt;emacs-winum&lt;/a&gt; を参照されたい．&lt;/p&gt;
 
 

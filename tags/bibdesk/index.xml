@@ -5,7 +5,7 @@
     <link>/tags/bibdesk/</link>
       <atom:link href="/tags/bibdesk/index.xml" rel="self" type="application/rss+xml" />
     <description>bibdesk</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>bibdesk</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Emacsのorg-modeで論文を書く（その2：BibDeskによる論文収集と整理）</title>
       <link>/post/org-mode_paper_2/</link>
-      <pubDate>Wed, 12 Sep 2018 00:00:00 +0900</pubDate>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
       <guid>/post/org-mode_paper_2/</guid>
       <description>&lt;p&gt;さて，前回（&lt;a href=&#34;../org-mode_paper_1&#34;&gt;Emacsのorg-modeで論文を書く（その1：pdfとhtmlへの出力）&lt;/a&gt;）はorg-modeによる論文本体の執筆に付いてまとめたわけだが，今回は論文引用の方法についてまとめる．と思ったのだが，論文を引用するためには，当然のことながら論文を収集しなければならない．そのうち膨大な数の論文の海に溺れることになる．そこで，収集した論文，つまり，pdfの整理をするソフトが必要になってくる．その引用も，書式や番号付を雑誌の規定に合わせて自動化してくれれば言うことはない．ということで，そのようなソフトについて書くことにする．有料ソフトの定番としては，EndoNoteがあるし，フリーソフトでは，&lt;a href=&#34;https://www.zotero.org&#34;&gt;zotero&lt;/a&gt;や&lt;a href=&#34;https://www.mendeley.com/?switchedFrom=&#34;&gt;Mendeley&lt;/a&gt;が有名である．私自身は，LaTeXを利用することが多い関係上，&lt;a href=&#34;https://bibdesk.sourceforge.io&#34;&gt;BibDesk&lt;/a&gt;というこれまた老舗のソフトをもっぱら利用している．ネット上でもzoteroやmendeleyについての情報は豊富だが，BibDeskについてはそれほど見られないので，まとめておくことは多少の意味があるであろうと考え，BibDeskによる論文収集を説明することにした．&lt;/p&gt;
 &lt;h2 id=&#34;bibdesk&#34;&gt;&lt;a href=&#34;https://bibdesk.sourceforge.io&#34;&gt;BibDesk&lt;/a&gt;&lt;/h2&gt;
@@ -35,19 +35,19 @@
 &lt;li&gt;
 &lt;p&gt;見た目はこんな感じ&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/bibdesk.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/bibdesk.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
@@ -73,19 +73,19 @@
 &lt;li&gt;
 &lt;p&gt;検索欄に，例えば，&amp;ldquo;heat shock protein&amp;quot;と打つと，下図のように検索結果が50編ずつ並ぶが，50編以上ある場合は，Searchを繰り返しクリックすることにより，100編と150編とどんどんリストに取り込まれていく．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk-pubmed2.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/bibdesk-pubmed2.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk-pubmed2.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/bibdesk-pubmed2.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
@@ -100,56 +100,56 @@
 &lt;li&gt;
 &lt;p&gt;リストの中から興味のある論文をクリックして選択し，グレーにハイライトさせると，下図のごとく右側のサイドパネルに，その論文のあるサイトを示すアイコンが表示される．これをクリックすれば，ブラウザーが開いてそのサイトに飛ぶ．もし，その論文がオープンアクセスであれば，あるいは，所属する組織が出版社と契約を交わしていれば，その論文のpdfを落とせる．落としたpdfをドラッグしてその論文に該当するリストのラインにドロップすれば，その書誌事項とpdfはリンクし，以降はその論文のサイドパネルにpdfのアイコンが表示され，ダブルクリックによりオープンするようになる．さらに言えば，pdfではなく，パワポやワードのファイルとして文献が存在することもある．同じようにドラッグ＆ドロップすれば，これまたリンクする．しかも一つの文献にいくつものpdfやその他のファイルをリンクできる．非常に便利である．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk-pubmed3.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/bibdesk-pubmed3.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk-pubmed3.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/bibdesk-pubmed3.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;また，下図のごとく，左のサイドパネルの一番上の方にある&amp;quot;Web BibDesk Web Group&amp;quot;をクリックして選択すれば，更にいろいろな文献ソースが表示される．医学系では，Google Scholarが有用なので，これをクリックすれば，BibDeskの中からGoogle Scholarを検索できるし，書誌事項も取り込める．pdfのリンクが存在すればBibDeskの中でpdfを落とすこともできる．&lt;/p&gt;
 
-
-
-
-
-
-&lt;figure&gt;
-
-  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk-pubmed4.jpg&#34; &gt;
-
-&lt;img src=&#34;/img/bibdesk-pubmed4.jpg&#34; width=&#34;100%&#34; &gt;
-&lt;/a&gt;
-
-&lt;/figure&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/bibdesk-pubmed4.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/bibdesk-pubmed4.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;収集した文献の書誌事項はhogefuga-reference.bibにbibtex fileとしてまとめられているが，その中身は以下のような情報の集積である（下の例ではabstractなどは省略している）．&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;@article{Rothwell:2018aa,
-
-  Author = {Rothwell, Peter M and Cook, Nancy R and Gaziano, J Michael and Price, Jacqueline F and Belch, Jill F F and Roncaglioni, Maria Carla and Morimoto, Takeshi and Mehta, Ziyah},
-  Date-Added = {2018-08-03 22:46:26 +0900},
-  Date-Modified = {2018-08-03 22:46:26 +0900},
-  Doi = {10.1016/S0140-6736(18)31133-4},
-  Journal = {Lancet},
-  Journal-Full = {Lancet (London, England)},
-  Month = {Jul},
-  Pmid = {30017552},
-  Pst = {aheadofprint},
-  Title = {Effects of aspirin on risks of vascular events and cancer according to bodyweight and dose: analysis of individual patient data from randomised trials},
-  Year = {2018},
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-tex&#34; data-lang=&#34;tex&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@article{Rothwell:2018aa,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Author = {Rothwell, Peter M and Cook, Nancy R and Gaziano, J Michael and Price, Jacqueline F and Belch, Jill F F and Roncaglioni, Maria Carla and Morimoto, Takeshi and Mehta, Ziyah},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Date-Added = {2018-08-03 22:46:26 +0900},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Date-Modified = {2018-08-03 22:46:26 +0900},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Doi = {10.1016/S0140-6736(18)31133-4},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Journal = {Lancet},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Journal-Full = {Lancet (London, England)},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Month = {Jul},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Pmid = {30017552},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Pst = {aheadofprint},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Title = {Effects of aspirin on risks of vascular events and cancer according to bodyweight and dose: analysis of individual patient data from randomised trials},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Year = {2018},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;bibtexなので，前述のごとく，文献の引用，引用スタイルの設定，文献リストの作成，文献リストのスタイルの設定などをすべて自動化できる．&lt;/p&gt;
 &lt;/li&gt;
