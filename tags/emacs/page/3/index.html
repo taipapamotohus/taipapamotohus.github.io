@@ -128,7 +128,7 @@
   <meta property="og:description" content="本人ではありません　(^^)"><meta property="og:image" content="/img/icon-192.png">
   <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
   
-    <meta property="og:updated_time" content="2022-08-03T00:00:00&#43;00:00">
+    <meta property="og:updated_time" content="2022-08-20T00:00:00&#43;00:00">
   
 
   
@@ -321,6 +321,16 @@
   
   
   <div>
+    <h2><a href="/post/embedrplotinblog/">How to automatically embed R plot in blog created by Hugo via ox-hugo</a></h2>
+    <div class="article-style">
+      
+      （承前）前回（How to automatically embed R plot into html exported by org-mode with org-babel）はorg-babelを設定して，Rで描いたグラフを自動でhtmlやpdfに挿入するところまでまとめた．繰り返しになるが，本サイトは，ox-hugoで書いてHugo用のMarkdownをexportすることにより作成している．前々回の記事（How to plot survival curve of competing risk analysis with censoring mark and number at risk (at risk table)）を書いている際に，Rでplotしたgraphをブログ記事の中に自動ではめ込むよう設定するのに苦労した．前回でorg-babelの設定は終わっているので，今回は，Hugoやox-hugoの設定に関してまとめ，ブログ記事へのR plotの自動挿入ができるようにする．
+Table of Contents References Configuration of Hugo section Setup of HUGO_SECTION &amp; HUGO_BASE_DIR in ox-hugo References to files outside the static directory References HUGO Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/exportrplot/">How to automatically embed R plot into html exported by org-mode with org-babel</a></h2>
     <div class="article-style">
       
@@ -447,15 +457,6 @@ Emacs上のlatex document上の特定の箇所に該当するpdfの箇所を探�
 Table of Contents 目的 org-modeで論文を書く利点 org-modeの設定・セットアップ（pdfとhtmlへの出力用） koma-script – A bundle of versatile classes and packages Tufte-LaTeX org-bullet org-modeのinit.elの設定（pdf出力用） 「org-modeで論文を書く」の実例 目的 org-modeからlatex経由で，文献がnumberingされ文献リストも付いたpdfを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたhtmlを出力できるようにする org-modeから，文献がnumberingされ文献リストも付いたwordファイルを出力できるようにする org-modeで論文を書く利点 LaTeXのややこしいコマンドを覚えなくても普通に文章を書いていけば，pdfで出力できる． latexの力を借りることで，文献の引用やリストの作成を自動化できる． 必要なら，htmlとしても出力できる． どうしても必要なら，pandocの力を借りて，なんとMicrosoft Wordのファイルとしても出力できてしまう． org-modeの設定・セットアップ（pdfとhtmlへの出力用） 設定が最もよくまとまっているのはTeX Wiki Emacs/Org mode 設定例のmacOSの部分である．正統派の方は，こちらを参考にしていただきたい．
 私は，koma-script – A bundle of versatile classes and packages と Tufte-LaTeX を気に入っており，ほぼこれらしか使わないので，その設定を書いておく．その前に少し情報をまとめておく．
 koma-script – A bundle of versatile classes and packages 参考サイト１：Koma-Script 入門　～初歩の初歩～ 参考サイト２：使ってはいけない LaTeX のコマンド・パッケージ・作法 参考サイト３：LaTeX の「アレなデフォルト」 傾向と対策 アメリカ生まれのaritcleなどの欧文標準文書クラスはデフォルトがレターサイズで余白が広すぎてしまう．これに対して，ヨーロッパ生まれのkoma-scriptはa4がデフォルトで，余白も広すぎず，レイアウトもなんとなくオシャレ（笑）である．当然のことながら，texliveに含まれており，texliveをインストールした時点で，インストールされている． Tufte-LaTeX 参考サイト１： tufte-org-mode Edward R.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/beamer/">beamerでスライド原稿用pdfを作成する（その１）</a></h2>
-    <div class="article-style">
-      
-      前回のポスト（LaTeXをインストールし，texファイルが変更されると，自動的にcompileしてskimでのpdfも自動で更新されるようにする（2018年9月1日追記））により，既にLaTeXはインストールされたので，今回は学会発表向けのスライド原稿作成についてまとめる．ようやく実質的な話になる． beamerによるスライド原稿の作成 基本的には，通常のLaTeX文書と同じである．実際のスライド原稿を見てもらうほうが早いであろう．以下のtexファイルを作成し，beamer_test.texと名付け，保存する．Editorは何でも良いが，やはり，Emacsのauctexを使うと補完などあり，便利である． 下記のファイルには多少コメントを付けた．フォントの指定は自明．themeは山のようにあるので，ググって好きなものを使う． なお， \usefonttheme{professionalfonts} を入れているのは，これを入れないと，beamer は数式フォントとして sans に指定されたフォントを使うように内部で変更するからで，これを入れるとこの変更を無効にできる．数式がヒラギノになると間抜けである．昔，TeX QAで教えていただいた．参考：beamerでの数式フォントの変更 また，いろいろ余分なパッケージも読み込んでいるが，必要なときに書き込めば良く，不要なら削除する． % -*-coding:utf-8-*- \documentclass[svgnames, table, 14pt]{beamer} \usepackage{zxjatype} \usepackage[hiragino-dx]{zxjafont} % ヒラギノ角ゴ Proを使う \setjamainfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} \setjasansfont[Scale=0.95,BoldFont=ヒラギノ角ゴ Pro W6]{ヒラギノ角ゴ Pro W3} % themeを指定する \usetheme{Darmstadt} \usefonttheme[onlylarge]{structurebold} \setbeamerfont*{frametitle}{size=\large,series=\bfseries} \setbeamertemplate{navigation symbols}{} \usepackage[english]{babel} \usepackage[latin1]{inputenc} \usepackage{times} \usepackage[T1]{fontenc} \usepackage{hyperref} % Setup TikZ \usepackage{tikz} \usetikzlibrary{arrows} \tikzstyle{block}=[draw opacity=0.7,line width=1.4cm] % Figure position \usepackage[absolute,overlay]{textpos} % math \usepackage{mathabx} \usefonttheme{professionalfonts} % Author, Title, etc. \title[hoge/fugaによる相補的な治療における高難度症例の治療と成績] {hoge/fugaによる相補的な治療における高難度症例の治療と成績} \author[taipapa] {taipapa, 織田信長, 豊臣秀吉, 徳川家康} \institute[hogefuga University] {hogefuga大学大学院 hogefuga研究科　hogefuga分野} \date[日本hogefuga外科学会 第?
       
     </div>
   </div>

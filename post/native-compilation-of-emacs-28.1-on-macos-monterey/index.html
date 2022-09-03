@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="taipapa">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，少し前からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． ">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/native-compilation-of-emacs-28.1-on-macos-monterey/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="#EF525B">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-light">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/zenburn.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,400italic,700|Roboto+Mono&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.87110e324fd0ae488089adcee2c7f1ad.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-126592193-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon-32.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/native-compilation-of-emacs-28.1-on-macos-monterey/">
+
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="og:site_name" content="A perfect autumn day">
+  <meta property="og:url" content="/post/native-compilation-of-emacs-28.1-on-macos-monterey/">
+  <meta property="og:title" content="Emacs 28.1 with Native compilation (GccEmacs) on macOS Monterey | A perfect autumn day">
+  <meta property="og:description" content="このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，少し前からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． "><meta property="og:image" content="/post/native-compilation-of-emacs-28.1-on-macos-monterey/featured.jpg">
+  <meta property="twitter:image" content="/post/native-compilation-of-emacs-28.1-on-macos-monterey/featured.jpg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2022-08-20T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2022-09-03T22:07:30&#43;09:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Emacs 28.1 with Native compilation (GccEmacs) on macOS Monterey | A perfect autumn day</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">A perfect autumn day</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+      
+      </ul>
+      <ul class="navbar-nav ml-auto">
+      
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+
+        
+        <li class="nav-item">
+          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1 itemprop="name">Emacs 28.1 with Native compilation (GccEmacs) on macOS Monterey</h1>
+
+  
+  <p class="page-subtitle">Emacs 28.1のネイティブコンパイル版をmacOS Montereyで試す</p>
+  
+
+  
+
+
+
+<meta content="2022-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2022-09-03 22:07:30 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Sep 3, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/native-compilation-of-emacs-28.1-on-macos-monterey/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+    
+
+  
+
+</div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 4032px; max-height: 1779px;">
+  <div style="position: relative">
+    <img src="/post/native-compilation-of-emacs-28.1-on-macos-monterey/featured.jpg" alt="" class="featured-image">
+    <span class="article-header-caption">Fish on a bicycle at the Guinness Factory, Dublin</span>
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      <p>このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，少し前からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． <br/></p>
+<div class="ox-hugo-toc toc">
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#preparation">Preparation</a>
+<ul>
+<li><a href="#installation-of-gcc">Installation of gcc</a></li>
+<li><a href="#installation-of-libgccjit">Installation of libgccjit</a></li>
+</ul>
+</li>
+<li><a href="#test-of-gcc-compilation-with-libgccjit">Test of gcc compilation with libgccjit</a></li>
+<li><a href="#installation-of-gcc-emacs">Installation of GCC Emacs</a></li>
+<li><a href="#confirmation-of-native-compilation-feature-activation">Confirmation of native compilation feature activation</a></li>
+<li><a href="#verification-of-speedup-by-native-compilation-in-gcc-emacs">Verification of speedup by native compilation in GCC Emacs</a>
+<ul>
+<li><a href="#references">References</a></li>
+<li><a href="#benchmarks">Benchmarks</a></li>
+<li><a href="#elisp-benchmarks">elisp-benchmarks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<!--endtoc-->
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://blog.tomoya.dev/posts/hello-native-comp-emacs/">ネイティブコンパイルEmacsの登場|日々，とんは語る。</a> <br />
+このサイトは必読．libgccjitのエラーについても詳細に書かれている． <br/></li>
+<li><a href="https://qiita.com/ikoanymg/items/b108e97093b50662673d">[macOS Monterey] ClangからGCCへの切り替え</a>  <br />
+Emacsのネイティブコンパイルはgccで行うのだが，Mac標準のコンパイラはClangなので，入れ替える必要がある．このサイトにはその際の注意点などが詳細に書かれており助かる． <br/></li>
+<li><a href="https://mem-archive.com/2019/08/17/post-2038">homebrewでgccをインストールする</a>  <br />
+gccに入れ替えた後のシンボリックリンクの貼り直しについて詳しく記載されている． <br/></li>
+<li><a href="https://github.com/railwaycat/homebrew-emacsmacport/issues/274">native-comp support #274</a>  <br />
+私はrailwaycatさんのemacs-macをhomebrewでインストールしているのだが，GitHubでのnative-compilationに関するやりとりが参考になる． <br/></li>
+<li><a href="http://www.mattduck.com/2021-05-upgrading-to-emacs-28.html">Upgrading to Emacs 28.0 for native compilation</a>  <br />
+少し古いが，多くのエラーに対するwork aroundが書かれている． <br/></li>
+<li><a href="https://akrl.sdf.org/gccemacs.html#orgb675e88">gccemacs</a>  <br />
+gccemacsの作者であるAndrea Corallo氏のサイト <br/></li>
+<li><a href="https://www.emacswiki.org/emacs/GccEmacs">GccEmacs</a>  <br />
+EmacsWikiのページ <br/></li>
+<li><a href="https://www.youtube.com/watch?v=i8OLg-f9EHk&amp;t=5440s">System Crafters Live! - Emacs Native Comp will change <strong>everything</strong> • Trying out Eglot • Q&amp;A</a> <br />
+ご存じSystem Crafters Liveのネイティブコンパイルに関するYouTube <br/></li>
+</ul>
+<h2 id="preparation">Preparation</h2>
+<p>GccEmacsでは，hogehoge.elをgccでコンパイルして，hogehoge.elnというバイナリファイルを作成（これをネイティブコンパイルと呼ぶ）して読み込むことで高速化する．従って，macOSのデフォルトのコンパイラであるClangをgccと入れ替えるなどのいくつかの準備作業が必要となる． <br/></p>
+<h3 id="installation-of-gcc">Installation of gcc</h3>
+<p>これは， <a href="https://qiita.com/ikoanymg/items/b108e97093b50662673d">[macOS Monterey] ClangからGCCへの切り替え</a>に書いてある通りにやれば良い．まず，gccをインストールする．homebrewのコマンド一発でOK. <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install gcc
+</span></span><span style="display:flex;"><span>$ brew info gcc
+</span></span><span style="display:flex;"><span>gcc: stable 12.1.0 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>, HEAD GNU compiler collection
+</span></span><span style="display:flex;"><span>https://gcc.gnu.org/
+</span></span><span style="display:flex;"><span>/opt/homebrew/Cellar/gcc/12.1.0 <span style="color:#f92672">(</span>1,454 files, 261.6MB<span style="color:#f92672">)</span> *
+</span></span><span style="display:flex;"><span>  Poured from bottle on 2022-08-13 at 21:53:59
+</span></span><span style="display:flex;"><span>.....
+</span></span></code></pre></div><p>これにより，/opt/homebrew/Cellar/にgccがdirectoryとしてインストールされ，自動的に/opt/homebrew/bin/からシンボリックリンクが貼られる．しかし，このままではgccと叩いても，元々のClangの方が呼び出されてしまうので，今回インストールしたgccが呼び出されるようにシンボリックリンクを貼って切り替える． <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ ln -fs /opt/homebrew/bin/gcc-12 /opt/homebrew/bin/gcc
+</span></span><span style="display:flex;"><span>$ ln -fs /opt/homebrew/bin/g++-12 /opt/homebrew/bin/g++
+</span></span></code></pre></div><p>whichコマンドで確認してみる． <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ which gcc
+</span></span><span style="display:flex;"><span>/opt/homebrew/bin/gcc
+</span></span><span style="display:flex;"><span>$ which g++
+</span></span><span style="display:flex;"><span>/opt/homebrew/bin/g++
+</span></span></code></pre></div><p>これでインストールしたgccが呼び出されるようになったことが確認できた． <br/></p>
+<h3 id="installation-of-libgccjit">Installation of libgccjit</h3>
+<p><strong>GCC Emacs</strong> は<a href="https://gcc.gnu.org/onlinedocs/jit/">libgccjit</a> (jitは just in time の略)と呼ばれるライブラリを使い，GCC (GNU Compiler Collection)のコンパイル機構を用いてオンディマンドにEmacs lispをネイティブな機械語に翻訳する．これにより大きなパフォーマンスの向上が提供される．このためGCC Emacsをbuildするためにはlibgccjitのインストールが必要であり，これもhomebrewで行った． <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew install libgccjit
+</span></span><span style="display:flex;"><span>$ brew info libgccjit
+</span></span><span style="display:flex;"><span>libgccjit: stable 12.1.0 <span style="color:#f92672">(</span>bottled<span style="color:#f92672">)</span>, HEAD
+</span></span><span style="display:flex;"><span>JIT library <span style="color:#66d9ef">for</span> the GNU compiler collection
+</span></span><span style="display:flex;"><span>https://gcc.gnu.org/
+</span></span><span style="display:flex;"><span>/opt/homebrew/Cellar/libgccjit/12.1.0 <span style="color:#f92672">(</span><span style="color:#ae81ff">15</span> files, 37.7MB<span style="color:#f92672">)</span> *
+</span></span><span style="display:flex;"><span>Poured from bottle on 2022-08-13 at 21:57:00
+</span></span><span style="display:flex;"><span>.....
+</span></span></code></pre></div><h2 id="test-of-gcc-compilation-with-libgccjit">Test of gcc compilation with libgccjit</h2>
+<p>これでgccとlibgccjitを用いて簡単なコードをコンパイルできるかテストした．<a href="https://blog.tomoya.dev/posts/hello-native-comp-emacs/">ネイティブコンパイルEmacsの登場|日々，とんは語る。</a>で記載されているように，<a href="https://gcc.gnu.org/onlinedocs/jit/intro/tutorial01.html">Tutorial part 1: “Hello world”</a>にあるコードをhello-world.cとして保存してビルドしてみた． <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gcc hello-world.c -o hello-world -lgccjit
+</span></span><span style="display:flex;"><span>hello-world.c:20:10: fatal error: libgccjit.h: No such file or directory
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">20</span> | <span style="color:#75715e">#include &lt;libgccjit.h&gt;</span>
+</span></span><span style="display:flex;"><span>    |          ^~~~~~~~~~~~~
+</span></span><span style="display:flex;"><span>compilation terminated.
+</span></span></code></pre></div><p>そうするとlibgccjit.hがないと怒られてしまう．ヘッダファイルのある場所を指定しないといけない．そこで，以下のようにヘッダファイルの場所を指定すると <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gcc -I /opt/homebrew/Cellar/libgccjit/12.1.0/include/  hello-world.c -o hello-world -lgccjit
+</span></span><span style="display:flex;"><span>ld: library not found <span style="color:#66d9ef">for</span> -lgccjit
+</span></span><span style="display:flex;"><span>collect2: error: ld returned <span style="color:#ae81ff">1</span> exit status
+</span></span></code></pre></div><p>今度はlibgccjitのライブラリがないと怒られた． <br/></p>
+<p>そこで，LIBRARY_PATH環境変数を定義してみた．具体的には，home directoryの.zshenvに以下のように書き込んだ． <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ echo <span style="color:#66d9ef">$(</span>brew --prefix libgccjit<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>/opt/homebrew/opt/libgccjit    <span style="color:#75715e"># Confirm prefix directory</span>
+</span></span><span style="display:flex;"><span>$ cd ~
+</span></span><span style="display:flex;"><span>$ vi .zshenv
+</span></span><span style="display:flex;"><span>export PATH
+</span></span><span style="display:flex;"><span>export MANPATH
+</span></span><span style="display:flex;"><span>export LIBRARY_PATH<span style="color:#f92672">=</span>/opt/homebrew/opt/libgccjit/lib/gcc/12
+</span></span></code></pre></div><p>これでコンパイルし直してみると <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ gcc -I /opt/homebrew/Cellar/libgccjit/12.1.0/include/ hello-world.c -o hello-world -L /opt/homebrew/opt/libgccjit/lib/gcc/12/ -lgccjit
+</span></span><span style="display:flex;"><span>$ ./hello-world
+</span></span><span style="display:flex;"><span>hello world
+</span></span></code></pre></div><p>今度はちゃんとコンパイルできて，&ldquo;hello world&quot;と表示されるようになった．これで準備が整った． <br/></p>
+<h2 id="installation-of-gcc-emacs">Installation of GCC Emacs</h2>
+<p>Emacs自体のインストールは <a href="../how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina">How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</a> に書いた通りにhomebrewで，railwaycatさんのemacs-macをインストールすれば良いのだが，ネイティブコンパイルを可能にするために <strong>&ndash;with-native-comp</strong> オプションをつけておく．なお，&ndash;with-xwidgets &ndash;with-rsvgなどはお試しでつけているので無くても良い． <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ brew tap railwaycat/emacsmacport
+</span></span><span style="display:flex;"><span>$ brew install emacs-mac --with-modern-icon --with-imagemagick --with-xwidgets --with-rsvg --with-native-comp
+</span></span><span style="display:flex;"><span>$ brew info emacs-mac
+</span></span><span style="display:flex;"><span>Warning: Treating emacs-mac as a formula. For the cask, use railwaycat/emacsmacport/emacs-mac
+</span></span><span style="display:flex;"><span>railwaycat/emacsmacport/emacs-mac: stable emacs-28.1-mac-9.0, HEAD
+</span></span><span style="display:flex;"><span>YAMAMOTO Mitsuharu<span style="color:#960050;background-color:#1e0010">&#39;</span>s Mac port of GNU Emacs
+</span></span><span style="display:flex;"><span>https://www.gnu.org/software/emacs/
+</span></span><span style="display:flex;"><span>/opt/homebrew/Cellar/emacs-mac/emacs-28.1-mac-9.0 <span style="color:#f92672">(</span>4,260 files, 151.4MB<span style="color:#f92672">)</span> *
+</span></span><span style="display:flex;"><span>  Built from source on 2022-08-14 at 15:07:27 with: --with-rsvg --with-native-comp --with-xwidgets --with-modern-icon --with-imagemagick
+</span></span><span style="display:flex;"><span>From: https://github.com/railwaycat/homebrew-emacsmacport/blob/HEAD/Formula/emacs-mac.rb
+</span></span><span style="display:flex;"><span>.....
+</span></span></code></pre></div><p>これで，/opt/homebrew/Cellar/emacs-mac/emacs-28.1-mac-9.0/Emacs.appがインストールされる．これを/Application directoryにコピーすれば良い (GNU Emacs 28.1 (build 1, aarch64-apple-darwin21.5.0, Carbon Version 165 AppKit 2113.5))． <br/></p>
+<h2 id="confirmation-of-native-compilation-feature-activation">Confirmation of native compilation feature activation</h2>
+<p>Emacsを起動して， <strong>C-h f system-configuration-features</strong> とすると，下図のようにHelp buffer内の&quot;Its value is&quot;の中に&quot;NATIVE_COMP&quot;が含まれていればネイティブコンパイル機能が有効化されている． <br/></p>
+<p>
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/native-compile-1.jpg" >
+
+<img src="/img/native-compile-1.jpg" width="100%" >
+</a>
+
+</figure>
+ <br/></p>
+<h2 id="verification-of-speedup-by-native-compilation-in-gcc-emacs">Verification of speedup by native compilation in GCC Emacs</h2>
+<p>これでGccEmacsがインストールされたわけだが，やはり，どの程度高速化しているのかを知りたいものである．そこで，ネイティブコンパイルによりどれくらい高速化するのか確認するために，ベンチマークを実行してみた． <br/></p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://elpa.gnu.org/packages/elisp-benchmarks.html">elisp-benchmarks</a> Home <br/></li>
+<li><a href="https://github.com/emacsmirror/elisp-benchmarks">elisp-benchmarks</a> Github <br/></li>
+<li><a href="https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/SC-Live-Mar5-2021.org">Emacs Native Comp is going to change everything</a> <br/></li>
+<li><a href="https://github.com/shshkn/emacs.d/blob/master/docs/nativecomp.md">gccemacs</a> <br/></li>
+<li><a href="https://www.emacswiki.org/emacs/EmacsLispBenchmark">EmacsLispBenchmark</a> <br/></li>
+<li><a href="https://qiita.com/furandon_pig/items/78facc323df6761fd663">emacsのNative compilation機能(elispのネイティブコンパイル)を試してみる</a> <br/></li>
+<li><a href="https://github.com/enzuru/native-comp-elisp-benchmarks">native-comp-elisp-benchmarks — submit a PR with your own benchmark results!</a> <br/></li>
+</ul>
+<h3 id="benchmarks">Benchmarks</h3>
+<p><a href="https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/SC-Live-Mar5-2021.org">Emacs Native Comp is going to change everything</a> を参考にバブルソートのベンチマークを以下のようにやってみた．具体的には，scratch bufferに以下のelispを貼って最後の &ldquo;)&rdquo; の後でC-jと打って評価するか，org-modeで#+begin_src emacs-lisp  #+end_srcの間にelispを挟んでC-x C-eで評価するかのどちらかを行う．最後の３つの数値はそれぞれ経過時間，garbage collectsの数とその時間である． <br/></p>
+<h4 id="interpreted-emacs-lisp">Interpreted Emacs Lisp</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(benchmark-run <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">let*</span> ((<span style="color:#a6e22e">list</span> (<span style="color:#a6e22e">mapcar</span> <span style="color:#e6db74">&#39;random</span> (<span style="color:#a6e22e">make-list</span> <span style="color:#ae81ff">100</span> most-positive-fixnum)))
+</span></span><span style="display:flex;"><span>         (i (<span style="color:#a6e22e">length</span> <span style="color:#a6e22e">list</span>)))
+</span></span><span style="display:flex;"><span>    (while (<span style="color:#a6e22e">&gt;</span> i <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">let</span> ((b <span style="color:#a6e22e">list</span>))
+</span></span><span style="display:flex;"><span>        (while (<span style="color:#a6e22e">cdr</span> b)
+</span></span><span style="display:flex;"><span>          (when (<span style="color:#a6e22e">&lt;</span> (<span style="color:#a6e22e">cadr</span> b) (<span style="color:#a6e22e">car</span> b))
+</span></span><span style="display:flex;"><span>            (setcar b (prog1 (<span style="color:#a6e22e">cadr</span> b)
+</span></span><span style="display:flex;"><span>                        (setcdr b (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">car</span> b) (<span style="color:#a6e22e">cddr</span> b))))))
+</span></span><span style="display:flex;"><span>          (<span style="color:#66d9ef">setq</span> b (<span style="color:#a6e22e">cdr</span> b))))
+</span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">setq</span> i (<span style="color:#a6e22e">1-</span> i)))
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">list</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">5.813263999999999</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">0.1648019999999999</span>)
+</span></span></code></pre></div><h4 id="byte-compilation">Byte compilation</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(benchmark-run-compiled <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">let*</span> ((<span style="color:#a6e22e">list</span> (<span style="color:#a6e22e">mapcar</span> <span style="color:#e6db74">&#39;random</span> (<span style="color:#a6e22e">make-list</span> <span style="color:#ae81ff">100</span> most-positive-fixnum)))
+</span></span><span style="display:flex;"><span>         (i (<span style="color:#a6e22e">length</span> <span style="color:#a6e22e">list</span>)))
+</span></span><span style="display:flex;"><span>    (while (<span style="color:#a6e22e">&gt;</span> i <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">let</span> ((b <span style="color:#a6e22e">list</span>))
+</span></span><span style="display:flex;"><span>        (while (<span style="color:#a6e22e">cdr</span> b)
+</span></span><span style="display:flex;"><span>          (when (<span style="color:#a6e22e">&lt;</span> (<span style="color:#a6e22e">cadr</span> b) (<span style="color:#a6e22e">car</span> b))
+</span></span><span style="display:flex;"><span>            (setcar b (prog1 (<span style="color:#a6e22e">cadr</span> b)
+</span></span><span style="display:flex;"><span>                        (setcdr b (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">car</span> b) (<span style="color:#a6e22e">cddr</span> b))))))
+</span></span><span style="display:flex;"><span>          (<span style="color:#66d9ef">setq</span> b (<span style="color:#a6e22e">cdr</span> b))))
+</span></span><span style="display:flex;"><span>      (<span style="color:#66d9ef">setq</span> i (<span style="color:#a6e22e">1-</span> i)))
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">list</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">1.1243109999999998</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">0.24839000000000055</span>)
+</span></span></code></pre></div><h4 id="native-compilation">Native compilation</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> dw/compiled-benchmark
+</span></span><span style="display:flex;"><span>      (native-compile
+</span></span><span style="display:flex;"><span>       (lambda ()
+</span></span><span style="display:flex;"><span>         (<span style="color:#66d9ef">let*</span> ((<span style="color:#a6e22e">list</span> (<span style="color:#a6e22e">mapcar</span> <span style="color:#e6db74">&#39;random</span> (<span style="color:#a6e22e">make-list</span> <span style="color:#ae81ff">100</span> most-positive-fixnum)))
+</span></span><span style="display:flex;"><span>                (i (<span style="color:#a6e22e">length</span> <span style="color:#a6e22e">list</span>)))
+</span></span><span style="display:flex;"><span>           (while (<span style="color:#a6e22e">&gt;</span> i <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>             (<span style="color:#66d9ef">let</span> ((b <span style="color:#a6e22e">list</span>))
+</span></span><span style="display:flex;"><span>               (while (<span style="color:#a6e22e">cdr</span> b)
+</span></span><span style="display:flex;"><span>                 (when (<span style="color:#a6e22e">&lt;</span> (<span style="color:#a6e22e">cadr</span> b) (<span style="color:#a6e22e">car</span> b))
+</span></span><span style="display:flex;"><span>                   (setcar b (prog1 (<span style="color:#a6e22e">cadr</span> b)
+</span></span><span style="display:flex;"><span>                               (setcdr b (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">car</span> b) (<span style="color:#a6e22e">cddr</span> b))))))
+</span></span><span style="display:flex;"><span>                 (<span style="color:#66d9ef">setq</span> b (<span style="color:#a6e22e">cdr</span> b))))
+</span></span><span style="display:flex;"><span>             (<span style="color:#66d9ef">setq</span> i (<span style="color:#a6e22e">1-</span> i)))
+</span></span><span style="display:flex;"><span>           <span style="color:#a6e22e">list</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">setq</span> comp-speed <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>(benchmark-run-compiled <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">funcall</span> dw/compiled-benchmark))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#ae81ff">0.796706</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">0.24380600000000108</span>)
+</span></span></code></pre></div><p>ということで，elisp, byte-compilation, native compilationの順に，経過時間は，5.81 s &gt; 1.12 s &gt; 0.797 sと短縮していることがわかる．byte-compilationの効果が凄いな．．．．． <br/></p>
+<h3 id="elisp-benchmarks"><a href="https://elpa.gnu.org/packages/elisp-benchmarks.html">elisp-benchmarks</a></h3>
+<p>ネイティブコンパイルに対応したベンチマークのコレクションである．Emacsにおけるネイティブコンパイルを可能にしたAndrea Corallo氏自ら作成したものであるが，こちらもやってみた． <br/></p>
+<h4 id="installation">Installation</h4>
+<p>preludeを使用している場合は，以下を~/.emacs.d/personal/init.orgに追記すれば良い．それ以外の場合は，init.elにuse-package以下の部分を書き込めば良い． <br/></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#f92672">#+</span>begin_src emacs-lisp
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">use-package</span> elisp-benchmarks
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">:ensure</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">#+</span>end_src
+</span></span></code></pre></div><h4 id="benchmarks">Benchmarks</h4>
+<p>上記インストール後に，M-x elisp-benchmarks-run と打ってテストを開始する．しかし，以下のようなエラーが出てうまくいかない． <br/></p>
+<p>
+
+
+
+
+
+<figure>
+
+  <a data-fancybox="" href="/img/elisp-benchmarks-error.jpg" >
+
+<img src="/img/elisp-benchmarks-error.jpg" width="100%" >
+</a>
+
+</figure>
+ <br/></p>
+<p>emacs-develの<a href="https://lists.nongnu.org/archive/html/emacs-devel/2022-02/msg00398.html">elisp-benchmarks</a>に <br/></p>
+<blockquote>
+<p>`bytecomp`, `scroll`, and `smie` are benchmarks I added yesterday which are not microbenchmarks and thus hopefully reflect &ldquo;real use&rdquo;. <br/></p>
+</blockquote>
+<p>とあったので，これらの後で追加されたベンチマーク（elb-bytecomp, elb-scroll, elb-smie）をelisp-benchmarks/benchmarksから除去してから再度M-x elisp-benchmarks-runすると，今度はうまく動いてくれた． <br/></p>
+<h4 id="results">Results</h4>
+<table>
+<thead>
+<tr>
+<th>test</th>
+<th>non-gc avg (s)</th>
+<th>gc avg (s)</th>
+<th>gcs avg</th>
+<th>tot avg (s)</th>
+<th>tot avg err (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bubble</td>
+<td>0.85</td>
+<td>0.15</td>
+<td>1</td>
+<td>1.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>bubble-no-cons</td>
+<td>1.42</td>
+<td>0.00</td>
+<td>0</td>
+<td>1.42</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>dhrystone</td>
+<td>1.95</td>
+<td>0.00</td>
+<td>0</td>
+<td>1.95</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>eieio</td>
+<td>1.27</td>
+<td>0.24</td>
+<td>3</td>
+<td>1.51</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>fibn</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>fibn-named-let</td>
+<td>0.83</td>
+<td>0.00</td>
+<td>0</td>
+<td>0.83</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>fibn-rec</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>fibn-tc</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>0</td>
+<td>0.01</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>flet</td>
+<td>1.75</td>
+<td>0.00</td>
+<td>0</td>
+<td>1.75</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>inclist</td>
+<td>1.27</td>
+<td>0.00</td>
+<td>0</td>
+<td>1.27</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>inclist-type-hints</td>
+<td>1.20</td>
+<td>0.00</td>
+<td>0</td>
+<td>1.20</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>listlen-tc</td>
+<td>0.16</td>
+<td>0.00</td>
+<td>0</td>
+<td>0.16</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>map-closure</td>
+<td>6.19</td>
+<td>0.00</td>
+<td>0</td>
+<td>6.19</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>nbody</td>
+<td>1.32</td>
+<td>0.26</td>
+<td>1</td>
+<td>1.57</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>pack-unpack</td>
+<td>0.29</td>
+<td>0.00</td>
+<td>0</td>
+<td>0.29</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>pack-unpack-old</td>
+<td>0.46</td>
+<td>0.08</td>
+<td>1</td>
+<td>0.54</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>pcase</td>
+<td>1.84</td>
+<td>0.00</td>
+<td>0</td>
+<td>1.84</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>pidigits</td>
+<td>4.26</td>
+<td>2.02</td>
+<td>7</td>
+<td>6.29</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>total</td>
+<td>25.05</td>
+<td>2.75</td>
+<td>13</td>
+<td>27.80</td>
+<td>0.02</td>
+</tr>
+</tbody>
+</table>
+<p>このような結果が得られた．non-gc avg (s)がバイトコンパイルの結果，gc avg (s)がネイティブコンパイルの結果のようであるが，totalで後者が9.1倍も速いということになる．かなりの高速化であり，本当かと突っ込みたくなるのが正直な感想である．しかし，Emacsの起動，ファイルのオープン，文書作成，コード補完などの体感速度は確かに速くなっている気がする． <br/></p>
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/native-compile/">native-compile</a>
+  
+  <a class="badge badge-light" href="/tags/emacs/">emacs</a>
+  
+  <a class="badge badge-light" href="/tags/elisp/">elisp</a>
+  
+  <a class="badge badge-light" href="/tags/benchmark/">benchmark</a>
+  
+  <a class="badge badge-light" href="/tags/speedup/">speedup</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar%20%28Copy%201%29_hu0e0eac0269c34ce41ed30e928150bd75_369085_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">taipapa</a></h5>
+      <h6 class="card-subtitle">本人ではありません　(^^)</h6>
+      
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:taipapamotohus@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=x1m6M2IAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/taipapamotohus" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/post/real-time-document-pdf-preview-in-org-mode/">Real-time document (pdf) preview in org-mode</a></li>
+          
+          <li><a href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part3/">How to embed presentation slides created by reveal.js and org-mode (org-reveal) in web page.</a></li>
+          
+          <li><a href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-reveal--part2/">How to create presentation slides by reveal.js and org-mode (org-reveal) Part2</a></li>
+          
+          <li><a href="/post/how-to-create-presentation-slides-by-reveal-dot-js-and-org-mode--org-re-reveal/">How to create presentation slides by reveal.js and org-mode (org-reveal)</a></li>
+          
+          <li><a href="/post/dired/">Dired reinforcement</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+    <div class="article-widget">
+      
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Previous</div>
+    <a href="/post/real-time-document-pdf-preview-in-org-mode/" rel="prev">Real-time document (pdf) preview in org-mode</a>
+  </div>
+  
+</div>
+
+    </div>
+    
+
+    
+<section id="comments">
+  
+    
+<div id="disqus_thread"></div>
+<script>
+  let disqus_config = function () {
+    
+    
+    
+  };
+  (function() {
+    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+      document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+      return;
+    }
+    var d = document, s = d.createElement('script'); s.async = true;
+    s.src = 'https://' + "a-perfect-autumn-day" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+  
+</section>
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/go.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/ocaml.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/sh.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/tex.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/emacs-lisp.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/pearl.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script>
+      const search_index_filename = "/index.json";
+      const i18n = {
+        'placeholder': "Search...",
+        'results': "results found",
+        'no_results': "No results found"
+      };
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    <script id="dsq-count-scr" src="https://a-perfect-autumn-day.disqus.com/count.js" async></script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.842f599ee533ad7f6dbd4e00e95d3d79.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+        
+  </p>
+  
+
+  <p class="powered-by">
+    © 2022 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>elisp | A perfect autumn day</title>
+    <link>/tags/elisp/</link>
+      <atom:link href="/tags/elisp/index.xml" rel="self" type="application/rss+xml" />
+    <description>elisp</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sat, 20 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>elisp</title>
+      <link>/tags/elisp/</link>
+    </image>
+    
+    <item>
+      <title>Emacs 28.1 with Native compilation (GccEmacs) on macOS Monterey</title>
+      <link>/post/native-compilation-of-emacs-28.1-on-macos-monterey/</link>
+      <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>/post/native-compilation-of-emacs-28.1-on-macos-monterey/</guid>
+      <description>&lt;p&gt;このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，少し前からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#preparation&#34;&gt;Preparation&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#installation-of-gcc&#34;&gt;Installation of gcc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation-of-libgccjit&#34;&gt;Installation of libgccjit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#test-of-gcc-compilation-with-libgccjit&#34;&gt;Test of gcc compilation with libgccjit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#installation-of-gcc-emacs&#34;&gt;Installation of GCC Emacs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#confirmation-of-native-compilation-feature-activation&#34;&gt;Confirmation of native compilation feature activation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#verification-of-speedup-by-native-compilation-in-gcc-emacs&#34;&gt;Verification of speedup by native compilation in GCC Emacs&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#benchmarks&#34;&gt;Benchmarks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#elisp-benchmarks&#34;&gt;elisp-benchmarks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.tomoya.dev/posts/hello-native-comp-emacs/&#34;&gt;ネイティブコンパイルEmacsの登場|日々，とんは語る。&lt;/a&gt; &lt;br /&gt;
+このサイトは必読．libgccjitのエラーについても詳細に書かれている． &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/ikoanymg/items/b108e97093b50662673d&#34;&gt;[macOS Monterey] ClangからGCCへの切り替え&lt;/a&gt;  &lt;br /&gt;
+Emacsのネイティブコンパイルはgccで行うのだが，Mac標準のコンパイラはClangなので，入れ替える必要がある．このサイトにはその際の注意点などが詳細に書かれており助かる． &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mem-archive.com/2019/08/17/post-2038&#34;&gt;homebrewでgccをインストールする&lt;/a&gt;  &lt;br /&gt;
+gccに入れ替えた後のシンボリックリンクの貼り直しについて詳しく記載されている． &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/railwaycat/homebrew-emacsmacport/issues/274&#34;&gt;native-comp support #274&lt;/a&gt;  &lt;br /&gt;
+私はrailwaycatさんのemacs-macをhomebrewでインストールしているのだが，GitHubでのnative-compilationに関するやりとりが参考になる． &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.mattduck.com/2021-05-upgrading-to-emacs-28.html&#34;&gt;Upgrading to Emacs 28.0 for native compilation&lt;/a&gt;  &lt;br /&gt;
+少し古いが，多くのエラーに対するwork aroundが書かれている． &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://akrl.sdf.org/gccemacs.html#orgb675e88&#34;&gt;gccemacs&lt;/a&gt;  &lt;br /&gt;
+gccemacsの作者であるAndrea Corallo氏のサイト &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.emacswiki.org/emacs/GccEmacs&#34;&gt;GccEmacs&lt;/a&gt;  &lt;br /&gt;
+EmacsWikiのページ &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=i8OLg-f9EHk&amp;amp;t=5440s&#34;&gt;System Crafters Live! - Emacs Native Comp will change &lt;strong&gt;everything&lt;/strong&gt; • Trying out Eglot • Q&amp;amp;A&lt;/a&gt; &lt;br /&gt;
+ご存じSystem Crafters Liveのネイティブコンパイルに関するYouTube &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;preparation&#34;&gt;Preparation&lt;/h2&gt;
+&lt;p&gt;GccEmacsでは，hogehoge.elをgccでコンパイルして，hogehoge.elnというバイナリファイルを作成（これをネイティブコンパイルと呼ぶ）して読み込むことで高速化する．従って，macOSのデフォルトのコンパイラであるClangをgccと入れ替えるなどのいくつかの準備作業が必要となる． &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id=&#34;installation-of-gcc&#34;&gt;Installation of gcc&lt;/h3&gt;
+&lt;p&gt;これは， &lt;a href=&#34;https://qiita.com/ikoanymg/items/b108e97093b50662673d&#34;&gt;[macOS Monterey] ClangからGCCへの切り替え&lt;/a&gt;に書いてある通りにやれば良い．まず，gccをインストールする．homebrewのコマンド一発でOK. &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install gcc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info gcc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gcc: stable 12.1.0 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, HEAD GNU compiler collection
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://gcc.gnu.org/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/gcc/12.1.0 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;1,454 files, 261.6MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Poured from bottle on 2022-08-13 at 21:53:59
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.....
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これにより，/opt/homebrew/Cellar/にgccがdirectoryとしてインストールされ，自動的に/opt/homebrew/bin/からシンボリックリンクが貼られる．しかし，このままではgccと叩いても，元々のClangの方が呼び出されてしまうので，今回インストールしたgccが呼び出されるようにシンボリックリンクを貼って切り替える． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -fs /opt/homebrew/bin/gcc-12 /opt/homebrew/bin/gcc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ln -fs /opt/homebrew/bin/g++-12 /opt/homebrew/bin/g++
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;whichコマンドで確認してみる． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ which gcc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/bin/gcc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ which g++
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/bin/g++
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでインストールしたgccが呼び出されるようになったことが確認できた． &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id=&#34;installation-of-libgccjit&#34;&gt;Installation of libgccjit&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;GCC Emacs&lt;/strong&gt; は&lt;a href=&#34;https://gcc.gnu.org/onlinedocs/jit/&#34;&gt;libgccjit&lt;/a&gt; (jitは just in time の略)と呼ばれるライブラリを使い，GCC (GNU Compiler Collection)のコンパイル機構を用いてオンディマンドにEmacs lispをネイティブな機械語に翻訳する．これにより大きなパフォーマンスの向上が提供される．このためGCC Emacsをbuildするためにはlibgccjitのインストールが必要であり，これもhomebrewで行った． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install libgccjit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info libgccjit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;libgccjit: stable 12.1.0 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;JIT library &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; the GNU compiler collection
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://gcc.gnu.org/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/libgccjit/12.1.0 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; files, 37.7MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Poured from bottle on 2022-08-13 at 21:57:00
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.....
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;test-of-gcc-compilation-with-libgccjit&#34;&gt;Test of gcc compilation with libgccjit&lt;/h2&gt;
+&lt;p&gt;これでgccとlibgccjitを用いて簡単なコードをコンパイルできるかテストした．&lt;a href=&#34;https://blog.tomoya.dev/posts/hello-native-comp-emacs/&#34;&gt;ネイティブコンパイルEmacsの登場|日々，とんは語る。&lt;/a&gt;で記載されているように，&lt;a href=&#34;https://gcc.gnu.org/onlinedocs/jit/intro/tutorial01.html&#34;&gt;Tutorial part 1: “Hello world”&lt;/a&gt;にあるコードをhello-world.cとして保存してビルドしてみた． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gcc hello-world.c -o hello-world -lgccjit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hello-world.c:20:10: fatal error: libgccjit.h: No such file or directory
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt; | &lt;span style=&#34;color:#75715e&#34;&gt;#include &amp;lt;libgccjit.h&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    |          ^~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;compilation terminated.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;そうするとlibgccjit.hがないと怒られてしまう．ヘッダファイルのある場所を指定しないといけない．そこで，以下のようにヘッダファイルの場所を指定すると &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gcc -I /opt/homebrew/Cellar/libgccjit/12.1.0/include/  hello-world.c -o hello-world -lgccjit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ld: library not found &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; -lgccjit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;collect2: error: ld returned &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; exit status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;今度はlibgccjitのライブラリがないと怒られた． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;そこで，LIBRARY_PATH環境変数を定義してみた．具体的には，home directoryの.zshenvに以下のように書き込んだ． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ echo &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;brew --prefix libgccjit&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/opt/libgccjit    &lt;span style=&#34;color:#75715e&#34;&gt;# Confirm prefix directory&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd ~
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ vi .zshenv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export PATH
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export MANPATH
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;export LIBRARY_PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/opt/homebrew/opt/libgccjit/lib/gcc/12
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これでコンパイルし直してみると &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ gcc -I /opt/homebrew/Cellar/libgccjit/12.1.0/include/ hello-world.c -o hello-world -L /opt/homebrew/opt/libgccjit/lib/gcc/12/ -lgccjit
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./hello-world
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hello world
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;今度はちゃんとコンパイルできて，&amp;ldquo;hello world&amp;quot;と表示されるようになった．これで準備が整った． &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;installation-of-gcc-emacs&#34;&gt;Installation of GCC Emacs&lt;/h2&gt;
+&lt;p&gt;Emacs自体のインストールは &lt;a href=&#34;../how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina&#34;&gt;How to install Emacs &amp;amp; LaTeX to MacBook Pro 16-inch on Catalina&lt;/a&gt; に書いた通りにhomebrewで，railwaycatさんのemacs-macをインストールすれば良いのだが，ネイティブコンパイルを可能にするために &lt;strong&gt;&amp;ndash;with-native-comp&lt;/strong&gt; オプションをつけておく．なお，&amp;ndash;with-xwidgets &amp;ndash;with-rsvgなどはお試しでつけているので無くても良い． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew tap railwaycat/emacsmacport
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install emacs-mac --with-modern-icon --with-imagemagick --with-xwidgets --with-rsvg --with-native-comp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info emacs-mac
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Warning: Treating emacs-mac as a formula. For the cask, use railwaycat/emacsmacport/emacs-mac
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;railwaycat/emacsmacport/emacs-mac: stable emacs-28.1-mac-9.0, HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;YAMAMOTO Mitsuharu&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;#39;&lt;/span&gt;s Mac port of GNU Emacs
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://www.gnu.org/software/emacs/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/emacs-mac/emacs-28.1-mac-9.0 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4,260 files, 151.4MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Built from source on 2022-08-14 at 15:07:27 with: --with-rsvg --with-native-comp --with-xwidgets --with-modern-icon --with-imagemagick
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;From: https://github.com/railwaycat/homebrew-emacsmacport/blob/HEAD/Formula/emacs-mac.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.....
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，/opt/homebrew/Cellar/emacs-mac/emacs-28.1-mac-9.0/Emacs.appがインストールされる．これを/Application directoryにコピーすれば良い (GNU Emacs 28.1 (build 1, aarch64-apple-darwin21.5.0, Carbon Version 165 AppKit 2113.5))． &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;confirmation-of-native-compilation-feature-activation&#34;&gt;Confirmation of native compilation feature activation&lt;/h2&gt;
+&lt;p&gt;Emacsを起動して， &lt;strong&gt;C-h f system-configuration-features&lt;/strong&gt; とすると，下図のようにHelp buffer内の&amp;quot;Its value is&amp;quot;の中に&amp;quot;NATIVE_COMP&amp;quot;が含まれていればネイティブコンパイル機能が有効化されている． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/native-compile-1.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/native-compile-1.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+ &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;verification-of-speedup-by-native-compilation-in-gcc-emacs&#34;&gt;Verification of speedup by native compilation in GCC Emacs&lt;/h2&gt;
+&lt;p&gt;これでGccEmacsがインストールされたわけだが，やはり，どの程度高速化しているのかを知りたいものである．そこで，ネイティブコンパイルによりどれくらい高速化するのか確認するために，ベンチマークを実行してみた． &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://elpa.gnu.org/packages/elisp-benchmarks.html&#34;&gt;elisp-benchmarks&lt;/a&gt; Home &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/emacsmirror/elisp-benchmarks&#34;&gt;elisp-benchmarks&lt;/a&gt; Github &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/SC-Live-Mar5-2021.org&#34;&gt;Emacs Native Comp is going to change everything&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/shshkn/emacs.d/blob/master/docs/nativecomp.md&#34;&gt;gccemacs&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.emacswiki.org/emacs/EmacsLispBenchmark&#34;&gt;EmacsLispBenchmark&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/furandon_pig/items/78facc323df6761fd663&#34;&gt;emacsのNative compilation機能(elispのネイティブコンパイル)を試してみる&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/enzuru/native-comp-elisp-benchmarks&#34;&gt;native-comp-elisp-benchmarks — submit a PR with your own benchmark results!&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;benchmarks&#34;&gt;Benchmarks&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/SC-Live-Mar5-2021.org&#34;&gt;Emacs Native Comp is going to change everything&lt;/a&gt; を参考にバブルソートのベンチマークを以下のようにやってみた．具体的には，scratch bufferに以下のelispを貼って最後の &amp;ldquo;)&amp;rdquo; の後でC-jと打って評価するか，org-modeで#+begin_src emacs-lisp  #+end_srcの間にelispを挟んでC-x C-eで評価するかのどちらかを行う．最後の３つの数値はそれぞれ経過時間，garbage collectsの数とその時間である． &lt;br/&gt;&lt;/p&gt;
+&lt;h4 id=&#34;interpreted-emacs-lisp&#34;&gt;Interpreted Emacs Lisp&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(benchmark-run &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;let*&lt;/span&gt; ((&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;mapcar&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;random&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-list&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; most-positive-fixnum)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (i (&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (while (&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt; i &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((b &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (while (&lt;span style=&#34;color:#a6e22e&#34;&gt;cdr&lt;/span&gt; b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;lt;&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;cadr&lt;/span&gt; b) (&lt;span style=&#34;color:#a6e22e&#34;&gt;car&lt;/span&gt; b))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            (setcar b (prog1 (&lt;span style=&#34;color:#a6e22e&#34;&gt;cadr&lt;/span&gt; b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        (setcdr b (&lt;span style=&#34;color:#a6e22e&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;car&lt;/span&gt; b) (&lt;span style=&#34;color:#a6e22e&#34;&gt;cddr&lt;/span&gt; b))))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; b (&lt;span style=&#34;color:#a6e22e&#34;&gt;cdr&lt;/span&gt; b))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; i (&lt;span style=&#34;color:#a6e22e&#34;&gt;1-&lt;/span&gt; i)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;5.813263999999999&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.1648019999999999&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;byte-compilation&#34;&gt;Byte compilation&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(benchmark-run-compiled &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#66d9ef&#34;&gt;let*&lt;/span&gt; ((&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;mapcar&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;random&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-list&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; most-positive-fixnum)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (i (&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (while (&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt; i &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((b &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        (while (&lt;span style=&#34;color:#a6e22e&#34;&gt;cdr&lt;/span&gt; b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;lt;&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;cadr&lt;/span&gt; b) (&lt;span style=&#34;color:#a6e22e&#34;&gt;car&lt;/span&gt; b))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            (setcar b (prog1 (&lt;span style=&#34;color:#a6e22e&#34;&gt;cadr&lt;/span&gt; b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        (setcdr b (&lt;span style=&#34;color:#a6e22e&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;car&lt;/span&gt; b) (&lt;span style=&#34;color:#a6e22e&#34;&gt;cddr&lt;/span&gt; b))))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; b (&lt;span style=&#34;color:#a6e22e&#34;&gt;cdr&lt;/span&gt; b))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; i (&lt;span style=&#34;color:#a6e22e&#34;&gt;1-&lt;/span&gt; i)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1.1243109999999998&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.24839000000000055&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;native-compilation&#34;&gt;Native compilation&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; dw/compiled-benchmark
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      (native-compile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       (lambda ()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         (&lt;span style=&#34;color:#66d9ef&#34;&gt;let*&lt;/span&gt; ((&lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;mapcar&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;random&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;make-list&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt; most-positive-fixnum)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                (i (&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           (while (&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;gt;&lt;/span&gt; i &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             (&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; ((b &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;               (while (&lt;span style=&#34;color:#a6e22e&#34;&gt;cdr&lt;/span&gt; b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 (when (&lt;span style=&#34;color:#a6e22e&#34;&gt;&amp;lt;&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;cadr&lt;/span&gt; b) (&lt;span style=&#34;color:#a6e22e&#34;&gt;car&lt;/span&gt; b))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                   (setcar b (prog1 (&lt;span style=&#34;color:#a6e22e&#34;&gt;cadr&lt;/span&gt; b)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                               (setcdr b (&lt;span style=&#34;color:#a6e22e&#34;&gt;cons&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;car&lt;/span&gt; b) (&lt;span style=&#34;color:#a6e22e&#34;&gt;cddr&lt;/span&gt; b))))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                 (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; b (&lt;span style=&#34;color:#a6e22e&#34;&gt;cdr&lt;/span&gt; b))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             (&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; i (&lt;span style=&#34;color:#a6e22e&#34;&gt;1-&lt;/span&gt; i)))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;           &lt;span style=&#34;color:#a6e22e&#34;&gt;list&lt;/span&gt;))))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;setq&lt;/span&gt; comp-speed &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(benchmark-run-compiled &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a6e22e&#34;&gt;funcall&lt;/span&gt; dw/compiled-benchmark))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;0.796706&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.24380600000000108&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ということで，elisp, byte-compilation, native compilationの順に，経過時間は，5.81 s &amp;gt; 1.12 s &amp;gt; 0.797 sと短縮していることがわかる．byte-compilationの効果が凄いな．．．．． &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id=&#34;elisp-benchmarks&#34;&gt;&lt;a href=&#34;https://elpa.gnu.org/packages/elisp-benchmarks.html&#34;&gt;elisp-benchmarks&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;ネイティブコンパイルに対応したベンチマークのコレクションである．Emacsにおけるネイティブコンパイルを可能にしたAndrea Corallo氏自ら作成したものであるが，こちらもやってみた． &lt;br/&gt;&lt;/p&gt;
+&lt;h4 id=&#34;installation&#34;&gt;Installation&lt;/h4&gt;
+&lt;p&gt;preludeを使用している場合は，以下を~/.emacs.d/personal/init.orgに追記すれば良い．それ以外の場合は，init.elにuse-package以下の部分を書き込めば良い． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lisp&#34; data-lang=&#34;lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;begin_src emacs-lisp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;use-package&lt;/span&gt; elisp-benchmarks
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;:ensure&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;t&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;#+&lt;/span&gt;end_src
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;benchmarks&#34;&gt;Benchmarks&lt;/h4&gt;
+&lt;p&gt;上記インストール後に，M-x elisp-benchmarks-run と打ってテストを開始する．しかし，以下のようなエラーが出てうまくいかない． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;/img/elisp-benchmarks-error.jpg&#34; &gt;
+
+&lt;img src=&#34;/img/elisp-benchmarks-error.jpg&#34; width=&#34;100%&#34; &gt;
+&lt;/a&gt;
+
+&lt;/figure&gt;
+ &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;emacs-develの&lt;a href=&#34;https://lists.nongnu.org/archive/html/emacs-devel/2022-02/msg00398.html&#34;&gt;elisp-benchmarks&lt;/a&gt;に &lt;br/&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;`bytecomp`, `scroll`, and `smie` are benchmarks I added yesterday which are not microbenchmarks and thus hopefully reflect &amp;ldquo;real use&amp;rdquo;. &lt;br/&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;とあったので，これらの後で追加されたベンチマーク（elb-bytecomp, elb-scroll, elb-smie）をelisp-benchmarks/benchmarksから除去してから再度M-x elisp-benchmarks-runすると，今度はうまく動いてくれた． &lt;br/&gt;&lt;/p&gt;
+&lt;h4 id=&#34;results&#34;&gt;Results&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;test&lt;/th&gt;
+&lt;th&gt;non-gc avg (s)&lt;/th&gt;
+&lt;th&gt;gc avg (s)&lt;/th&gt;
+&lt;th&gt;gcs avg&lt;/th&gt;
+&lt;th&gt;tot avg (s)&lt;/th&gt;
+&lt;th&gt;tot avg err (s)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;bubble&lt;/td&gt;
+&lt;td&gt;0.85&lt;/td&gt;
+&lt;td&gt;0.15&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1.00&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bubble-no-cons&lt;/td&gt;
+&lt;td&gt;1.42&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1.42&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dhrystone&lt;/td&gt;
+&lt;td&gt;1.95&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1.95&lt;/td&gt;
+&lt;td&gt;0.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;eieio&lt;/td&gt;
+&lt;td&gt;1.27&lt;/td&gt;
+&lt;td&gt;0.24&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;1.51&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fibn&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fibn-named-let&lt;/td&gt;
+&lt;td&gt;0.83&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.83&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fibn-rec&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fibn-tc&lt;/td&gt;
+&lt;td&gt;0.01&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.01&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;flet&lt;/td&gt;
+&lt;td&gt;1.75&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1.75&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;inclist&lt;/td&gt;
+&lt;td&gt;1.27&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1.27&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;inclist-type-hints&lt;/td&gt;
+&lt;td&gt;1.20&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1.20&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;listlen-tc&lt;/td&gt;
+&lt;td&gt;0.16&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.16&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;map-closure&lt;/td&gt;
+&lt;td&gt;6.19&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;6.19&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nbody&lt;/td&gt;
+&lt;td&gt;1.32&lt;/td&gt;
+&lt;td&gt;0.26&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;1.57&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pack-unpack&lt;/td&gt;
+&lt;td&gt;0.29&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.29&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pack-unpack-old&lt;/td&gt;
+&lt;td&gt;0.46&lt;/td&gt;
+&lt;td&gt;0.08&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0.54&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pcase&lt;/td&gt;
+&lt;td&gt;1.84&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;1.84&lt;/td&gt;
+&lt;td&gt;0.00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pidigits&lt;/td&gt;
+&lt;td&gt;4.26&lt;/td&gt;
+&lt;td&gt;2.02&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;6.29&lt;/td&gt;
+&lt;td&gt;0.02&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;total&lt;/td&gt;
+&lt;td&gt;25.05&lt;/td&gt;
+&lt;td&gt;2.75&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;27.80&lt;/td&gt;
+&lt;td&gt;0.02&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;このような結果が得られた．non-gc avg (s)がバイトコンパイルの結果，gc avg (s)がネイティブコンパイルの結果のようであるが，totalで後者が9.1倍も速いということになる．かなりの高速化であり，本当かと突っ込みたくなるのが正直な感想である．しかし，Emacsの起動，ファイルのオープン，文書作成，コード補完などの体感速度は確かに速くなっている気がする． &lt;br/&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

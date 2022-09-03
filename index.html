@@ -523,8 +523,8 @@
 <p>Emacsのorg-modeやLaTeX絡みの話が多くなりそう．．．</p>
 <p>殆どは先人の方々からの受け売りなので，できるだけ情報元も併記する．</p>
 <h2 id="環境"><strong>環境</strong></h2>
-<p>MacBook Pro (16-inch, 2019), Catalina</p>
-<p>GNU Emacs 26.3, TeX Live 2019 (MacTeX-2019)</p>
+<p>MacBook Pro (16-inch, 2021), mac OS Monterey (version 12.4), Apple M1 Max, 64 GB</p>
+<p>GNU Emacs 28.1 (build 1, aarch64-apple-darwin21.5.0, Carbon Version 165 AppKit 2113.5), TeX Live 2021 (MacTeX-2021)</p>
 
 
     <div class="row">
@@ -623,6 +623,100 @@
 
     
 
+    
+      
+        
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
+
+  
+    
+
+
+
+<meta content="2022-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2022-09-03 22:07:30 &#43;0900 JST" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    <time>Sep 3, 2022</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/native-compilation-of-emacs-28.1-on-macos-monterey/#disqus_thread"></a>
+  
+
+  
+  
+
+  
+
+</div>
+
+  
+
+  
+  
+  
+  
+  <a href="/post/native-compilation-of-emacs-28.1-on-macos-monterey/">
+      <img src="/post/native-compilation-of-emacs-28.1-on-macos-monterey/featured_huddbdfc9eba3afb2c5ba0210eef875d65_169275_900x0_resize_q90_lanczos.jpg" class="article-banner" itemprop="image" alt="">
+  </a>
+  
+
+  <h3 class="article-title mb-1 mt-3" itemprop="name">
+    <a href="/post/native-compilation-of-emacs-28.1-on-macos-monterey/" itemprop="url">Emacs 28.1 with Native compilation (GccEmacs) on macOS Monterey</a>
+  </h3>
+
+  
+  <div class="article-style" itemprop="articleBody">
+    <p>このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，少し前からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． <br/></p>
+  </div>
+  
+
+  
+
+</div>
+
+      
     
       
         
@@ -1191,100 +1285,6 @@
 
       
     
-      
-        
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="card-simple" itemscope itemtype="http://schema.org/BlogPosting">
-
-  
-    
-
-
-
-<meta content="2019-12-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">
-<meta content="2020-01-05 23:00:41 &#43;0900 JST" itemprop="dateModified">
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    <time>Jan 5, 2020</time>
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    4 min read
-  </span>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/#disqus_thread"></a>
-  
-
-  
-  
-
-  
-
-</div>
-
-  
-
-  
-  
-  
-  
-  <a href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/">
-      <img src="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/featured_hu9f09e72dc92c743ffd013adcb654f832_532280_900x0_resize_q90_lanczos.jpg" class="article-banner" itemprop="image" alt="">
-  </a>
-  
-
-  <h3 class="article-title mb-1 mt-3" itemprop="name">
-    <a href="/post/how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina/" itemprop="url">How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina</a>
-  </h3>
-
-  
-  <div class="article-style" itemprop="articleBody">
-    <p>1ヶ月ほど前にMacBook Pro late 2016のバッテリーが逝かれてしまい，laptopのはずがコンセントに繋がないと動かないdesktopになってしまった．すると待っていたかのようにMacBook Pro 16-inch 2019が発売となり，速攻で注文してしまった．これまでは常に半年ぐらい様子を見てから新機を購入していたのだが，今回は止むを得ず発売直後のものを購入せざるを得なかった．新しい計算機やOSへのEmacsやLaTeXのインストールは色々な問題に遭遇することが多い．幸いなことに今回の年末年始の休みは長いので，こちらにまとめておくことにした．基本的には，<a href="../mojave">Upgrade to Mojave and upgrade to Emacs 26.2 by homebrew</a>でまとめたことをやれば良くて，大きな問題はなかった．トップの画像で示しているように各種ソフトがスムーズに動いている．</p>
-  </div>
-  
-
-  
-
-</div>
-
-      
-    
 
     
     <div class="see-all">
@@ -1364,7 +1364,7 @@
           
           
           
-          <a href="/tags/academic/" style="font-size:1.3211751138506398rem">academic</a>
+          <a href="/tags/academic/" style="font-size:1.3172205339246106rem">academic</a>
         
           
           
@@ -1379,7 +1379,7 @@
           
           
           
-          <a href="/tags/annotation/" style="font-size:1.1288248861493604rem">annotation</a>
+          <a href="/tags/annotation/" style="font-size:1.1263298240111523rem">annotation</a>
         
           
           
@@ -1414,7 +1414,12 @@
           
           
           
-          <a href="/tags/beamer/" style="font-size:1.5635077414483383rem">beamer</a>
+          <a href="/tags/beamer/" style="font-size:1.557714386571143rem">beamer</a>
+        
+          
+          
+          
+          <a href="/tags/benchmark/" style="font-size:0.8rem">benchmark</a>
         
           
           
@@ -1424,7 +1429,7 @@
           
           
           
-          <a href="/tags/bibtex/" style="font-size:1.1288248861493604rem">bibtex</a>
+          <a href="/tags/bibtex/" style="font-size:1.1263298240111523rem">bibtex</a>
         
           
           
@@ -1434,7 +1439,7 @@
           
           
           
-          <a href="/tags/blog/" style="font-size:1.1288248861493604rem">blog</a>
+          <a href="/tags/blog/" style="font-size:1.1263298240111523rem">blog</a>
         
           
           
@@ -1459,7 +1464,7 @@
           
           
           
-          <a href="/tags/citation/" style="font-size:1.3211751138506398rem">citation</a>
+          <a href="/tags/citation/" style="font-size:1.3172205339246106rem">citation</a>
         
           
           
@@ -1469,7 +1474,7 @@
           
           
           
-          <a href="/tags/color/" style="font-size:1.1288248861493604rem">color</a>
+          <a href="/tags/color/" style="font-size:1.1263298240111523rem">color</a>
         
           
           
@@ -1489,7 +1494,7 @@
           
           
           
-          <a href="/tags/css/" style="font-size:1.1288248861493604rem">css</a>
+          <a href="/tags/css/" style="font-size:1.1263298240111523rem">css</a>
         
           
           
@@ -1519,12 +1524,17 @@
           
           
           
-          <a href="/tags/dired/" style="font-size:1.1288248861493604rem">dired</a>
+          <a href="/tags/dired/" style="font-size:1.1263298240111523rem">dired</a>
         
           
           
           
-          <a href="/tags/emacs/" style="font-size:2.486635904074776rem">emacs</a>
+          <a href="/tags/elisp/" style="font-size:0.8rem">elisp</a>
+        
+          
+          
+          
+          <a href="/tags/emacs/" style="font-size:2.487100715871526rem">emacs</a>
         
           
           
@@ -1544,7 +1554,7 @@
           
           
           
-          <a href="/tags/export/" style="font-size:1.4576497722987207rem">export</a>
+          <a href="/tags/export/" style="font-size:1.4526596480223044rem">export</a>
         
           
           
@@ -1559,7 +1569,7 @@
           
           
           
-          <a href="/tags/ggplot2/" style="font-size:1.1288248861493604rem">ggplot2</a>
+          <a href="/tags/ggplot2/" style="font-size:1.1263298240111523rem">ggplot2</a>
         
           
           
@@ -1574,7 +1584,7 @@
           
           
           
-          <a href="/tags/helm/" style="font-size:1.1288248861493604rem">helm</a>
+          <a href="/tags/helm/" style="font-size:1.1263298240111523rem">helm</a>
         
           
           
@@ -1584,7 +1594,7 @@
           
           
           
-          <a href="/tags/homebrew/" style="font-size:1.3211751138506398rem">homebrew</a>
+          <a href="/tags/homebrew/" style="font-size:1.3172205339246106rem">homebrew</a>
         
           
           
@@ -1594,12 +1604,12 @@
           
           
           
-          <a href="/tags/html/" style="font-size:1.4576497722987207rem">html</a>
+          <a href="/tags/html/" style="font-size:1.4526596480223044rem">html</a>
         
           
           
           
-          <a href="/tags/hugo/" style="font-size:1.4576497722987207rem">hugo</a>
+          <a href="/tags/hugo/" style="font-size:1.4526596480223044rem">hugo</a>
         
           
           
@@ -1619,7 +1629,7 @@
           
           
           
-          <a href="/tags/init-el/" style="font-size:1.1288248861493604rem">init-el</a>
+          <a href="/tags/init-el/" style="font-size:1.1263298240111523rem">init-el</a>
         
           
           
@@ -1659,22 +1669,22 @@
           
           
           
-          <a href="/tags/javascript/" style="font-size:1.3211751138506398rem">javascript</a>
+          <a href="/tags/javascript/" style="font-size:1.3172205339246106rem">javascript</a>
         
           
           
           
-          <a href="/tags/js/" style="font-size:1.3211751138506398rem">js</a>
+          <a href="/tags/js/" style="font-size:1.3172205339246106rem">js</a>
         
           
           
           
-          <a href="/tags/latex/" style="font-size:1.9375472081399068rem">latex</a>
+          <a href="/tags/latex/" style="font-size:1.928915711288525rem">latex</a>
         
           
           
           
-          <a href="/tags/latexmk/" style="font-size:1.1288248861493604rem">latexmk</a>
+          <a href="/tags/latexmk/" style="font-size:1.1263298240111523rem">latexmk</a>
         
           
           
@@ -1699,7 +1709,7 @@
           
           
           
-          <a href="/tags/macos/" style="font-size:1.1288248861493604rem">macos</a>
+          <a href="/tags/macos/" style="font-size:1.1263298240111523rem">macos</a>
         
           
           
@@ -1719,17 +1729,17 @@
           
           
           
-          <a href="/tags/mode/" style="font-size:1.4576497722987207rem">mode</a>
+          <a href="/tags/mode/" style="font-size:1.4526596480223044rem">mode</a>
         
           
           
           
-          <a href="/tags/mojave/" style="font-size:1.3211751138506398rem">mojave</a>
+          <a href="/tags/mojave/" style="font-size:1.3172205339246106rem">mojave</a>
         
           
           
           
-          <a href="/tags/movie/" style="font-size:1.1288248861493604rem">movie</a>
+          <a href="/tags/movie/" style="font-size:1.1263298240111523rem">movie</a>
         
           
           
@@ -1739,12 +1749,17 @@
           
           
           
+          <a href="/tags/native-compile/" style="font-size:0.8rem">native-compile</a>
+        
+          
+          
+          
           <a href="/tags/number/" style="font-size:0.8rem">number</a>
         
           
           
           
-          <a href="/tags/org/" style="font-size:1.4576497722987207rem">org</a>
+          <a href="/tags/org/" style="font-size:1.4526596480223044rem">org</a>
         
           
           
@@ -1754,12 +1769,12 @@
           
           
           
-          <a href="/tags/org-mode/" style="font-size:2.016796669020316rem">org-mode</a>
+          <a href="/tags/org-mode/" style="font-size:2.0075638419848607rem">org-mode</a>
         
           
           
           
-          <a href="/tags/org-reveal/" style="font-size:1.3211751138506398rem">org-reveal</a>
+          <a href="/tags/org-reveal/" style="font-size:1.3172205339246106rem">org-reveal</a>
         
           
           
@@ -1769,7 +1784,7 @@
           
           
           
-          <a href="/tags/orgmode/" style="font-size:1.3211751138506398rem">orgmode</a>
+          <a href="/tags/orgmode/" style="font-size:1.3172205339246106rem">orgmode</a>
         
           
           
@@ -1779,17 +1794,17 @@
           
           
           
-          <a href="/tags/ox/" style="font-size:1.1288248861493604rem">ox</a>
+          <a href="/tags/ox/" style="font-size:1.1263298240111523rem">ox</a>
         
           
           
           
-          <a href="/tags/ox-hugo/" style="font-size:1.1288248861493604rem">ox-hugo</a>
+          <a href="/tags/ox-hugo/" style="font-size:1.1263298240111523rem">ox-hugo</a>
         
           
           
           
-          <a href="/tags/pandoc/" style="font-size:1.1288248861493604rem">pandoc</a>
+          <a href="/tags/pandoc/" style="font-size:1.1263298240111523rem">pandoc</a>
         
           
           
@@ -1799,7 +1814,7 @@
           
           
           
-          <a href="/tags/pdf/" style="font-size:1.786474658448081rem">pdf</a>
+          <a href="/tags/pdf/" style="font-size:1.778989472033457rem">pdf</a>
         
           
           
@@ -1814,7 +1829,7 @@
           
           
           
-          <a href="/tags/plot/" style="font-size:1.3211751138506398rem">plot</a>
+          <a href="/tags/plot/" style="font-size:1.3172205339246106rem">plot</a>
         
           
           
@@ -1824,12 +1839,12 @@
           
           
           
-          <a href="/tags/prelude/" style="font-size:1.1288248861493604rem">prelude</a>
+          <a href="/tags/prelude/" style="font-size:1.1263298240111523rem">prelude</a>
         
           
           
           
-          <a href="/tags/presentation/" style="font-size:1.3211751138506398rem">presentation</a>
+          <a href="/tags/presentation/" style="font-size:1.3172205339246106rem">presentation</a>
         
           
           
@@ -1859,7 +1874,7 @@
           
           
           
-          <a href="/tags/r/" style="font-size:1.65rem">R</a>
+          <a href="/tags/r/" style="font-size:1.643550357935763rem">R</a>
         
           
           
@@ -1869,7 +1884,7 @@
           
           
           
-          <a href="/tags/reference/" style="font-size:1.3211751138506398rem">reference</a>
+          <a href="/tags/reference/" style="font-size:1.3172205339246106rem">reference</a>
         
           
           
@@ -1884,7 +1899,7 @@
           
           
           
-          <a href="/tags/reveal/" style="font-size:1.3211751138506398rem">reveal</a>
+          <a href="/tags/reveal/" style="font-size:1.3172205339246106rem">reveal</a>
         
           
           
@@ -1914,7 +1929,7 @@
           
           
           
-          <a href="/tags/search/" style="font-size:1.3211751138506398rem">search</a>
+          <a href="/tags/search/" style="font-size:1.3172205339246106rem">search</a>
         
           
           
@@ -1934,12 +1949,17 @@
           
           
           
-          <a href="/tags/slide/" style="font-size:1.3211751138506398rem">slide</a>
+          <a href="/tags/slide/" style="font-size:1.3172205339246106rem">slide</a>
         
           
           
           
-          <a href="/tags/source-themes/" style="font-size:1.3211751138506398rem">Source Themes</a>
+          <a href="/tags/source-themes/" style="font-size:1.3172205339246106rem">Source Themes</a>
+        
+          
+          
+          
+          <a href="/tags/speedup/" style="font-size:0.8rem">speedup</a>
         
           
           
@@ -1974,7 +1994,7 @@
           
           
           
-          <a href="/tags/theme/" style="font-size:1.4576497722987207rem">theme</a>
+          <a href="/tags/theme/" style="font-size:1.4526596480223044rem">theme</a>
         
           
           
@@ -1989,7 +2009,7 @@
           
           
           
-          <a href="/tags/treemacs/" style="font-size:1.1288248861493604rem">treemacs</a>
+          <a href="/tags/treemacs/" style="font-size:1.1263298240111523rem">treemacs</a>
         
           
           
@@ -2004,7 +2024,7 @@
           
           
           
-          <a href="/tags/upgrade/" style="font-size:1.3211751138506398rem">upgrade</a>
+          <a href="/tags/upgrade/" style="font-size:1.3172205339246106rem">upgrade</a>
         
           
           
@@ -2019,7 +2039,7 @@
           
           
           
-          <a href="/tags/word/" style="font-size:1.1288248861493604rem">word</a>
+          <a href="/tags/word/" style="font-size:1.1263298240111523rem">word</a>
         
           
           
