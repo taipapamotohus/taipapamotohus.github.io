@@ -331,6 +331,15 @@
   </div>
   
   <div>
+    <h2><a href="/post/how-to-update-hugo-and-academic-theme--part2/">How to update hugo and academic theme (Part2)</a></h2>
+    <div class="article-style">
+      
+      前回（How to update hugo and academic theme (Part 1)）にhutoとacademicのアップデートをまとめたが，やはり，githubにdeployするときのエラーが，どうしても気になる．そこで，今回は，Academic themeのインストールを一からやり直すことにした． Hugoとox-hugoのインストールやアップデートは前回の記事（How to update hugo and academic theme (Part 1)）を参考にしていただきたい． &lt;!&ndash;more&ndash;&gt; Table of Contents References Install Academic Kickstart with Git Migrate Content References Install Academicご本家の解説 Update Academicご本家の解説 Install Academic Kickstart with Git やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． Git submodule の基礎 によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である． 1. まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする． {{% alert note %}} またも間違っていた．上述の公式ドキュメントにはちゃんと，Fork the Academic Kickstart repository to create a new website と書いてあったのに読み過ごしていた． {{% /alert %}} ということで，まず，academic-kickstart に行って，右上の Fork ボタンを押して，自分のgithub pageにacademic-kickstartのrepositoryを作成する． ついで，この自分のgithub pageのforkをgit cloneで自分のサイトにクローンする． $ pwd /Data/MyBlog $ git clone https://github.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/how-to-upgrade-hugo-and-academic-theme/">How to update hugo and academic theme (Part 1)</a></h2>
     <div class="article-style">
       

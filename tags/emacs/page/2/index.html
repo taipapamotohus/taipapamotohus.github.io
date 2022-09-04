@@ -341,6 +341,15 @@
   </div>
   
   <div>
+    <h2><a href="/post/how-to-update-hugo-and-academic-theme--part2/">How to update hugo and academic theme (Part2)</a></h2>
+    <div class="article-style">
+      
+      前回（How to update hugo and academic theme (Part 1)）にhutoとacademicのアップデートをまとめたが，やはり，githubにdeployするときのエラーが，どうしても気になる．そこで，今回は，Academic themeのインストールを一からやり直すことにした． Hugoとox-hugoのインストールやアップデートは前回の記事（How to update hugo and academic theme (Part 1)）を参考にしていただきたい． &lt;!&ndash;more&ndash;&gt; Table of Contents References Install Academic Kickstart with Git Migrate Content References Install Academicご本家の解説 Update Academicご本家の解説 Install Academic Kickstart with Git やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． Git submodule の基礎 によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である． 1. まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする． {{% alert note %}} またも間違っていた．上述の公式ドキュメントにはちゃんと，Fork the Academic Kickstart repository to create a new website と書いてあったのに読み過ごしていた． {{% /alert %}} ということで，まず，academic-kickstart に行って，右上の Fork ボタンを押して，自分のgithub pageにacademic-kickstartのrepositoryを作成する． ついで，この自分のgithub pageのforkをgit cloneで自分のサイトにクローンする． $ pwd /Data/MyBlog $ git clone https://github.
+      
+    </div>
+  </div>
+  
+  <div>
     <h2><a href="/post/how-to-upgrade-hugo-and-academic-theme/">How to update hugo and academic theme (Part 1)</a></h2>
     <div class="article-style">
       
@@ -420,21 +429,6 @@ Table of Contents Upgrade to Mojave from Sierra Upgrade to Xcode 10.2.1 Upgrade 
 結論から言うと，拍子抜けするぐらい簡単であった．AppStoreで適当にクリックするとすぐにMojaveがダウンロードされて，インストーラーが起動した．これをクリックしてインストールを始めると，此処から先は完全自動状態で，ひたすら待った．というか，違うことをしていた．何回も再起動していたようだが，実際には1時間ぐらいで終了したような気がする．手間いらずであった．R, Rstudio, ImageJ, Emacs, LaTeXが動いて画像編集，動画編集ができれば，とりあえず文句はないので，まずそのあたりをチェックしてみると，R, Rstudio, ImageJ, 画像編集，動画編集は問題なく動いた．EmacsとLaTeXについては以下に述べる．
 Upgrade to Xcode 10.2.1 早速brewでemacsをupgradeしようとしたのだが，xcodeが古いと叱られたので，まず，xcodeをApp Storeからupgradeした．そして brew install すると以下のようなエラーが出る．
 $ brew install hogehoge ......... xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun これは，「macOS を Mojave にあげた後に Homebrew を使うとエラーが出る問題」にあるようにcommand line developer toolsを再インストールすれば直る．同サイトに詳細が記載されている．
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/post/peep/">peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）</a></h2>
-    <div class="article-style">
-      
-      最近Rネタばかり書いていたが，今回は久しぶりのEmacsネタである．org-modeで文書を書いているときに画像を貼り付けたいことがある．そのためには画像ファイルの名前とパスが必要となる．要するに毎回画像ファイルのパスを調べて/hoge/fuga/hogefuga/hugo.jpgというようなことをタイプしなければならず面倒である．そこで，peep-diredの出番である．peep-diredとは，diredでファイルにカーソルを持っていくと中身が見える，すなわち，画像ファイルなら画像が見え，テキストファイルならテキストが読めるというminor modeである．これが画像リンクの貼り付けに便利なのでまとめておく．
-Table of Contents References peep-diredのインストールと設定 peep-diredの使い方 bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ） References peep-dired QUICKLY PREVIEW IMAGES AND OTHER FILES WITH PEEP-DIRED peep-diredのインストールと設定 例によって，use-packagを用いて以下のように，init.orgに書けばよい．
-#+begin_src emacs-lisp (use-package peep-dired :ensure t :defer t ; don&#39;t access `dired-mode-map&#39; until `peep-dired&#39; is loaded :bind (:map dired-mode-map (&#34;P&#34; . peep-dired))) #+end_src 設定は上記参照サイトのパクリで，diredで&quot;P&quot;を打つとpeep-dired modeとなってdiredのリストの画像ファイルが見られるようになり，もう一度&quot;P&quot;と打つとpeep-dired modeは終了する．　peep-diredの使い方 File viewerとしてだけなら，どうということはないのだが，org-modeと組み合わせて使うと便利さが増す．たとえば，下図のように画像をおいているdirectoryをdiredで開いて&quot;P&quot;を打ってpeep-dired modeに入り，画像を確かめながら文書に挿入する画像を決める．上段のdiredのバッファにおいてIMG_1996.jpgにカーソルがあり，下段のバッファにその画像が表示されている．画像が決まったらその画像ファイルにカーソルが合っていることを確認した上で，C-c lを打つ．これで，画像へのリンクがフルパスも含めてコピーされる．
-ついで，org-mode文書内の画像を挿入したいところにカーソルを持って行き，そこで，C-c C-lとすると，下部に新たなorg-insert-linkのウィンドウが開いて下図のように先程コピーしたリンクが一番上にフルパスでハイライトされて表示される．ここでリターンすればフルパスのリンクがorg-mode文書内に挿入される．
-文章で説明すると複雑だが，実際にやってみると実に簡単で有用である．このやり方に気がつくまでは，いちいちフルパスを手入力したり，コピペしたりしていたが，その必要がなくなり非常に楽になった．
-bjm/ivy-dired-recent-dirs - 最近開けたdirectoryを一覧表示する方法（おまけ） diredでdirectoryを開けるときにその名前を入力する必要があるが，これが結構面倒である．特に深いところにあるファイルはフルパスを書くのが大変である．どうせ，同じファイルに何回も行くことが多いので，「最近訪れたdirectoryの履歴」みたいなのが一覧表示されると嬉しい．まさに，こんなのぞみにピッタリのものが，bjm/ivy-dired-recent-dirsである．これについては，以前に書いたのでそちらを参考にしていただきたい．というか，以前に書いた事自体を忘れていたので，自分への戒めとして記録しておく．．．(^^;;;
-Ref: 最近開いたディレクトリを開く
       
     </div>
   </div>

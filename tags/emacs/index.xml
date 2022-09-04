@@ -2864,7 +2864,7 @@ EmacsWikiのページ &lt;br/&gt;&lt;/li&gt;
       <link>/post/how-to-update-hugo-and-academic-theme--part3/</link>
       <pubDate>Wed, 04 Sep 2019 00:00:00 +0000</pubDate>
       <guid>/post/how-to-update-hugo-and-academic-theme--part3/</guid>
-      <description>&lt;p&gt;先日，ブログのアップデートについて2回に分けてまとめたが（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part1)&lt;/a&gt;, &lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．&lt;/p&gt;
+      <description>&lt;p&gt;先日，ブログのアップデートについて2回に分けてまとめたが（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part1)&lt;/a&gt;, &lt;a href=&#34;../how-to-update-hugo-and-academic-theme--part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;），読み直してみるとhugoとacademic themeの全体的なアップデートのことで終わっていて，具体的な内容のアップデートについてはあまり書いていないことに気がついた．そこで，今回はその辺の細かいところについて，後日の自分のためにも，まとめておくことにした．今回の内容に関しては，ox-hugoのレベル，つまり，org-mode file ではどうすれば良いのか分からず，直接マークダウンファイルを弄らざるを得ない事が多かった．&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
 &lt;div&gt;&lt;/div&gt;
 &lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
@@ -3209,6 +3209,117 @@ EmacsWikiのページ &lt;br/&gt;&lt;/li&gt;
     </item>
     
     <item>
+      <title>How to update hugo and academic theme (Part2)</title>
+      <link>/post/how-to-update-hugo-and-academic-theme--part2/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-update-hugo-and-academic-theme--part2/</guid>
+      <description>&lt;p&gt;前回（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part 1)&lt;/a&gt;）にhutoとacademicのアップデートをまとめたが，やはり，githubにdeployするときのエラーが，どうしても気になる．そこで，今回は，Academic themeのインストールを一からやり直すことにした．   Hugoとox-hugoのインストールやアップデートは前回の記事（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part 1)&lt;/a&gt;）を参考にしていただきたい．   &amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt; &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#install-academic-kickstart-with-git&#34;&gt;Install Academic Kickstart with Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#migrate-content&#34;&gt;Migrate Content&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/install/&#34;&gt;Install&lt;/a&gt; Academicご本家の解説 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/update/&#34;&gt;Update&lt;/a&gt; Academicご本家の解説 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;install-academic-kickstart-with-git&#34;&gt;Install Academic Kickstart with Git&lt;/h2&gt;
+&lt;p&gt;やはり，公式ドキュメントに従うのが良いだろうと考え，上記のリンク先のInstallの解説の通りにしてみた．git submoduleを使うので，よく分からんと敬遠していたのだが，やってみると（作業自体は）簡単であった． &lt;a href=&#34;https://qiita.com/sotarok/items/0d525e568a6088f6f6bb&#34;&gt;Git submodule の基礎&lt;/a&gt; によれば，「git submodule は、外部の git リポジトリを、自分の git リポジトリのサブディレクトリとして登録し、特定の commit を参照する仕組み」である． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;1. まず，Academic Kickstart repository を自分のウェブサイトを作るためにクローンする．&lt;/del&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;{{% alert note %}} &lt;br/&gt;
+またも間違っていた．上述の公式ドキュメントにはちゃんと，Fork the Academic Kickstart repository to create a new website と書いてあったのに読み過ごしていた． &lt;br/&gt;
+{{% /alert %}} &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;ということで，まず，&lt;a href=&#34;https://github.com/sourcethemes/academic-kickstart#fork-destination-box&#34;&gt;academic-kickstart&lt;/a&gt; に行って，右上の &lt;strong&gt;Fork&lt;/strong&gt; ボタンを押して，自分のgithub pageにacademic-kickstartのrepositoryを作成する． &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ついで，この自分のgithub pageのforkをgit cloneで自分のサイトにクローンする． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Data/MyBlog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git clone https://github.com/taipapamotohus/academic-kickstart Taipapablog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Cloning into &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Taipapablog&amp;#39;&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;remote: Enumerating objects: 579, &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;remote: Total &lt;span style=&#34;color:#ae81ff&#34;&gt;579&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;delta 0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, reused &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;delta 0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, pack-reused &lt;span style=&#34;color:#ae81ff&#34;&gt;579&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Receiving objects: 100% &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;579/579&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 163.92 KiB | 480.00 KiB/s, &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Resolving deltas: 100% &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;179/179&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ついで，themeをsubmoduleでinitializeする． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd Taipapablog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Data/MyBlog/Taipapablog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git submodule update --init --recursive
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Submodule &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;themes/academic&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;https://github.com/gcushen/hugo-academic.git&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; registered &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; path &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;themes/academic&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Cloning into &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/Data/MyBlog/Taipapablog/themes/academic&amp;#39;&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Submodule path &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;themes/academic&amp;#39;&lt;/span&gt;: checked out &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;32b6145c06835e33668100105ac1835593cf8d72&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LICENSE.md          config/             netlify.toml        themes/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;README.md           content/            scripts/            update_academic.sh*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;academic.Rproj      data/               static/             view.sh*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ll
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;total &lt;span style=&#34;color:#ae81ff&#34;&gt;72&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;576&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;18&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;576&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:35 ..
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;298&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 .editorconfig
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#ae81ff&#34;&gt;13&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;416&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 .git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin    &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 .gitignore
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;106&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 .gitmodules
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1078&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 LICENSE.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;2671&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 README.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;258&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 academic.Rproj
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; kohkichi  admin    &lt;span style=&#34;color:#ae81ff&#34;&gt;96&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 config
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;7&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;224&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 content
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; kohkichi  admin    &lt;span style=&#34;color:#ae81ff&#34;&gt;96&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 data
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin   &lt;span style=&#34;color:#ae81ff&#34;&gt;380&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 netlify.toml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; kohkichi  admin    &lt;span style=&#34;color:#ae81ff&#34;&gt;96&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 scripts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; kohkichi  admin    &lt;span style=&#34;color:#ae81ff&#34;&gt;96&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 static
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; kohkichi  admin    &lt;span style=&#34;color:#ae81ff&#34;&gt;96&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 themes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin  &lt;span style=&#34;color:#ae81ff&#34;&gt;1628&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 update_academic.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rwxr-xr-x   &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; kohkichi  admin    &lt;span style=&#34;color:#ae81ff&#34;&gt;49&lt;/span&gt; Aug &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; 16:34 view.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;う〜む，実質2行のコマンドで終わり，これで，あとは，hugo serverと叩いて，ブラウザで，localhost:1313を開けば，デモ用のサイトが立ち上がる．非常に簡単である．自分のGitHub pageを持っていれば，2-3分でできてしまう． &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;migrate-content&#34;&gt;Migrate Content&lt;/h2&gt;
+&lt;p&gt;前回（&lt;a href=&#34;../how-to-upgrade-hugo-and-academic-theme&#34;&gt;How to update hugo and academic theme (Part 1)&lt;/a&gt;）にすでに投稿記事などはスクリプトなどを使ってアップデートしてあるし，設定ファイルもアップデート済みである．そちらのディレクトリから，config, content (home, postなど主要な部分を含む), layouts, static, assetsなどを，今回新たに作成したTaipapablog directoryにコピーすれば良い．コピー後にもう一度Taipapablog directoryの中身を見ると， &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LICENSE.md                   layouts/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;README.md                    netlify.toml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Taipapablog-20180816_v2.org  public/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;academic.Rproj               resources/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;assets/                      scripts/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;config/                      static/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;content/                     themes/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;data/                        update_academic.sh*
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deploy.sh*                   view.sh*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;こんな風になっているはずである．（Taipapablog-20180816_v2.orgは，ox-hugoで書いたこのブログの原稿） &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;これで，hugo root directoryで，hugo serverを叩くと，元のブログが立ち上がる． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;あれ，今回は簡単にできてしまった．既に，前回で，Page Bundlesやfeatured imageに合わせて修正していたから，本当に流し込むだけであった．さて，これで，deployしてもエラーが出なければOKである． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;う〜ん，deployはできて，前回のエラーも消えたけど，また，別のエラーが出る．．．gitは苦手だ．．．(ToT)&lt;/del&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;remote: Permission to sourcethemes/academic-kickstart.git denied to taipapamotohus.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fatal: unable to access &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://github.com/sourcethemes/academic-kickstart.git/&amp;#39;&lt;/span&gt;: The requested URL returned error: &lt;span style=&#34;color:#ae81ff&#34;&gt;403&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;del&gt;これって，master repositoryを上書きしようとしてるな．deploy scriptを直さないといけない．．．&lt;/del&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;ウェブからは見えてるので，とりあえず，後日に見直してみよう．．．(^^;;;&lt;/del&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Enumerating objects: 546, &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Counting objects: 100% &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;546/546&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Delta compression using up to &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; threads
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Compressing objects: 100% &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;503/503&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Writing objects: 100% &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;530/530&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, 131.20 MiB | 8.04 MiB/s, &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Total &lt;span style=&#34;color:#ae81ff&#34;&gt;530&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;delta 20&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, reused &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;delta 0&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;remote: Resolving deltas: 100% &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;20/20&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, completed with &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; local objects.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;To https://github.com/taipapamotohus/academic-kickstart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;98a99bf..eb43ba1  master -&amp;gt; master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Forkを行ってから，クローンするようにするとdeployの際にエラーは出なくなった．自分のサイトだから書き換えできるので，当たり前である．．．(^^;;; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;前回，今回と間違ったことばかりやってしまったが，後日にまた同じ轍を踏まないように，それも含めて，全て記録するようにした．やっとアップデートが終わった．gitは奥が深い（自分が無知なだけ．．．） &lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to update hugo and academic theme (Part 1)</title>
       <link>/post/how-to-upgrade-hugo-and-academic-theme/</link>
       <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
@@ -3305,7 +3416,7 @@ EmacsWikiのページ &lt;br/&gt;&lt;/li&gt;
 &lt;p&gt;問題は，自分がどうやってインストールしたかを忘れている（！）ことだった&amp;hellip;..(^^;;;  versionも 2.4.0とかなり古い． しかも，恐らくは，数種類の方法を重ねて試した結果が現在の状況と考えられるので，ドキュメントの通りにやってもうまくいくはずがない気がした．&lt;/p&gt;
 &lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
-    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参考にしていただきたい．以下の記述は自戒のために残しておく．
+    以下のhugo new citeを行ってから，academic をgit cloneする方法はお勧めしない．この方法では，git repositryの中にgit repositoryを埋め込むことになりエラーが出る．1のAcademic Kickstartを使う方法が良い．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme--part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参考にしていただきたい．以下の記述は自戒のために残しておく．
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;del&gt;色々悩んだ末に，2の方法をいちから，やり直すことにした．要するにクリーンインストールを行い，その上に，現在までの内容を流し込むという泥臭いやり方を選択したわけである．&lt;/del&gt;&lt;/p&gt;
@@ -3584,7 +3695,7 @@ A Markdown aside is useful for displaying notices, hints, or definitions to your
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hint:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hint: See &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;git help submodule&amp;#34;&lt;/span&gt; for more information.
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;エラーは吐くものの，deployはできて，ウェブでサイトも見られるので，疲れたし（笑），しばらくは，このままで行くことにする．themeのインストールは，submoduleで行うべきだったと，今更にして気がついた．次回アップデートする時にやってみよう．．．(^^;;;&lt;/p&gt;
-&lt;p&gt;で，結局，気になって，academic themeのインストールをやり直した（笑）．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme-part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参照されたい．&lt;/p&gt;</description>
+&lt;p&gt;で，結局，気になって，academic themeのインストールをやり直した（笑）．次回の記事（&lt;a href=&#34;../how-to-update-hugo-and-academic-theme--part2&#34;&gt;How to update hugo and academic theme (Part2)&lt;/a&gt;）を参照されたい．&lt;/p&gt;</description>
     </item>
     
     <item>
