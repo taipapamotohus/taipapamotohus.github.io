@@ -17,7 +17,7 @@
       <link>/post/native-compilation-of-emacs-28.1-on-macos-monterey/</link>
       <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
       <guid>/post/native-compilation-of-emacs-28.1-on-macos-monterey/</guid>
-      <description>&lt;p&gt;このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，少し前からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． &lt;br/&gt;&lt;/p&gt;
+      <description>&lt;p&gt;このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，2020年頃からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． &lt;br/&gt;&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
 &lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
