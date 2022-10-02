@@ -5,7 +5,7 @@
     <link>/post/</link>
       <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 02 Oct 2022 13:51:50 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 02 Oct 2022 15:19:51 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Posts</title>
@@ -15,7 +15,7 @@
     <item>
       <title>How to download YouTube videos with python (pytube or youtube_dl)</title>
       <link>/post/pytube_youtube/</link>
-      <pubDate>Sun, 02 Oct 2022 13:51:50 +0900</pubDate>
+      <pubDate>Sun, 02 Oct 2022 15:19:51 +0900</pubDate>
       <guid>/post/pytube_youtube/</guid>
       <description>&lt;p&gt;仕事に役に立つ動画をYouTubeで探すことがちょくちょくある．その都度見れば良いのだろうが，ローカルにあれば便利だなぁとなんとなく思っていたところ，先日，全くの別件を調べている時に，そう言えばpythonにそのようなツールがあったような気がして，探してみると，pytubeとyoutube_dl が見つかった．使ってみると思った以上に便利だったので，導入と使用法をまとめておくことにする． &lt;br/&gt;&lt;/p&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;

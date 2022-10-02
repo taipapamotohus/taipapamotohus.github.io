@@ -5,12 +5,52 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sat, 20 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Sun, 02 Oct 2022 15:19:51 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>ffmpeg</title>
+      <link>/tags/ffmpeg/</link>
+      <pubDate>Sun, 02 Oct 2022 15:19:51 +0900</pubDate>
+      <guid>/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sun, 02 Oct 2022 15:19:51 +0900</pubDate>
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pytube</title>
+      <link>/tags/pytube/</link>
+      <pubDate>Sun, 02 Oct 2022 15:19:51 +0900</pubDate>
+      <guid>/tags/pytube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>YouTube</title>
+      <link>/tags/youtube/</link>
+      <pubDate>Sun, 02 Oct 2022 15:19:51 +0900</pubDate>
+      <guid>/tags/youtube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>youtube-dl</title>
+      <link>/tags/youtube-dl/</link>
+      <pubDate>Sun, 02 Oct 2022 15:19:51 +0900</pubDate>
+      <guid>/tags/youtube-dl/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>benchmark</title>
