@@ -1,0 +1,330 @@
++++
+title = "Emacs 28.1 with Native compilation (GccEmacs) on macOS Monterey"
+author = ["taipapa"]
+date = 2022-08-20
+lastmod = 2022-09-04T11:51:05+09:00
+tags = ["native-compile", "emacs", "elisp", "benchmark", "speedup"]
+type = "post"
+draft = false
+weight = 1
+subtitle = "Emacs 28.1のネイティブコンパイル版をmacOS Montereyで試す"
+[image]
+  placement = 3
+  caption = "Fish on a bicycle at the Guinness Factory, Dublin"
++++
+
+このブログをサボっている間にMacBook Pro (16-inch, 2021, Apple M1 Max)に買い替えたのだが，そのおかげでEmacsがますます速くなった．同じinit.elで起動しても，明らかにMacBook Pro (16-inch, 2019)よりも素早く起動する．そこで，更なる高速化を求め，2020年頃からEmacs界隈を騒がせているネイティブコンパイルなるもの（GccEmacs）をやってみたので，その顛末を後日の自分のためにまとめておくことにした． <br/>
+
+<!--more-->
+
+<div class="ox-hugo-toc toc">
+
+<div class="heading">Table of Contents</div>
+
+- [References](#references)
+- [Preparation](#preparation)
+    - [Installation of gcc](#installation-of-gcc)
+    - [Installation of libgccjit](#installation-of-libgccjit)
+- [Test of gcc compilation with libgccjit](#test-of-gcc-compilation-with-libgccjit)
+- [Installation of GCC Emacs](#installation-of-gcc-emacs)
+- [Confirmation of native compilation feature activation](#confirmation-of-native-compilation-feature-activation)
+- [Verification of speedup by native compilation in GCC Emacs](#verification-of-speedup-by-native-compilation-in-gcc-emacs)
+    - [References](#references)
+    - [Benchmarks](#benchmarks)
+    - [elisp-benchmarks](#elisp-benchmarks)
+
+</div>
+<!--endtoc-->
+
+
+## References {#references}
+
+-   [ネイティブコンパイルEmacsの登場|日々，とんは語る。](https://blog.tomoya.dev/posts/hello-native-comp-emacs/) <br />
+    このサイトは必読．libgccjitのエラーについても詳細に書かれている． <br/>
+-   [[macOS Monterey] ClangからGCCへの切り替え](https://qiita.com/ikoanymg/items/b108e97093b50662673d)  <br />
+    Emacsのネイティブコンパイルはgccで行うのだが，Mac標準のコンパイラはClangなので，入れ替える必要がある．このサイトにはその際の注意点などが詳細に書かれており助かる． <br/>
+-   [homebrewでgccをインストールする](https://mem-archive.com/2019/08/17/post-2038)  <br />
+    gccに入れ替えた後のシンボリックリンクの貼り直しについて詳しく記載されている． <br/>
+-   [native-comp support #274](https://github.com/railwaycat/homebrew-emacsmacport/issues/274)  <br />
+    私はrailwaycatさんのemacs-macをhomebrewでインストールしているのだが，GitHubでのnative-compilationに関するやりとりが参考になる． <br/>
+-   [Upgrading to Emacs 28.0 for native compilation](http://www.mattduck.com/2021-05-upgrading-to-emacs-28.html)  <br />
+    少し古いが，多くのエラーに対するwork aroundが書かれている． <br/>
+-   [gccemacs](https://akrl.sdf.org/gccemacs.html#orgb675e88)  <br />
+    gccemacsの作者であるAndrea Corallo氏のサイト <br/>
+-   [GccEmacs](https://www.emacswiki.org/emacs/GccEmacs)  <br />
+    EmacsWikiのページ <br/>
+-   [System Crafters Live! - Emacs Native Comp will change **everything** • Trying out Eglot • Q&amp;A](https://www.youtube.com/watch?v=i8OLg-f9EHk&t=5440s) <br />
+    ご存じSystem Crafters Liveのネイティブコンパイルに関するYouTube <br/>
+
+
+## Preparation {#preparation}
+
+GccEmacsでは，hogehoge.elをgccでコンパイルして，hogehoge.elnというバイナリファイルを作成（これをネイティブコンパイルと呼ぶ）して読み込むことで高速化する．従って，macOSのデフォルトのコンパイラであるClangをgccと入れ替えるなどのいくつかの準備作業が必要となる． <br/>
+
+
+### Installation of gcc {#installation-of-gcc}
+
+これは， [[macOS Monterey] ClangからGCCへの切り替え](https://qiita.com/ikoanymg/items/b108e97093b50662673d)に書いてある通りにやれば良い．まず，gccをインストールする．homebrewのコマンド一発でOK. <br/>
+
+```sh
+$ brew install gcc
+$ brew info gcc
+gcc: stable 12.1.0 (bottled), HEAD GNU compiler collection
+https://gcc.gnu.org/
+/opt/homebrew/Cellar/gcc/12.1.0 (1,454 files, 261.6MB) *
+  Poured from bottle on 2022-08-13 at 21:53:59
+.....
+```
+
+これにより，/opt/homebrew/Cellar/にgccがdirectoryとしてインストールされ，自動的に/opt/homebrew/bin/からシンボリックリンクが貼られる．しかし，このままではgccと叩いても，元々のClangの方が呼び出されてしまうので，今回インストールしたgccが呼び出されるようにシンボリックリンクを貼って切り替える． <br/>
+
+```sh
+$ ln -fs /opt/homebrew/bin/gcc-12 /opt/homebrew/bin/gcc
+$ ln -fs /opt/homebrew/bin/g++-12 /opt/homebrew/bin/g++
+```
+
+whichコマンドで確認してみる． <br/>
+
+```sh
+$ which gcc
+/opt/homebrew/bin/gcc
+$ which g++
+/opt/homebrew/bin/g++
+```
+
+これでインストールしたgccが呼び出されるようになったことが確認できた． <br/>
+
+
+### Installation of libgccjit {#installation-of-libgccjit}
+
+**GCC Emacs** は[libgccjit](https://gcc.gnu.org/onlinedocs/jit/) (jitは just in time の略)と呼ばれるライブラリを使い，GCC (GNU Compiler Collection)のコンパイル機構を用いてオンディマンドにEmacs lispをネイティブな機械語に翻訳する．これにより大きなパフォーマンスの向上が提供される．このためGCC Emacsをbuildするためにはlibgccjitのインストールが必要であり，これもhomebrewで行った． <br/>
+
+```sh
+$ brew install libgccjit
+$ brew info libgccjit
+libgccjit: stable 12.1.0 (bottled), HEAD
+JIT library for the GNU compiler collection
+https://gcc.gnu.org/
+/opt/homebrew/Cellar/libgccjit/12.1.0 (15 files, 37.7MB) *
+Poured from bottle on 2022-08-13 at 21:57:00
+.....
+```
+
+
+## Test of gcc compilation with libgccjit {#test-of-gcc-compilation-with-libgccjit}
+
+これでgccとlibgccjitを用いて簡単なコードをコンパイルできるかテストした．[ネイティブコンパイルEmacsの登場|日々，とんは語る。](https://blog.tomoya.dev/posts/hello-native-comp-emacs/)で記載されているように，[Tutorial part 1: “Hello world”](https://gcc.gnu.org/onlinedocs/jit/intro/tutorial01.html)にあるコードをhello-world.cとして保存してビルドしてみた． <br/>
+
+```sh
+$ gcc hello-world.c -o hello-world -lgccjit
+hello-world.c:20:10: fatal error: libgccjit.h: No such file or directory
+20 | #include <libgccjit.h>
+    |          ^~~~~~~~~~~~~
+compilation terminated.
+```
+
+そうするとlibgccjit.hがないと怒られてしまう．ヘッダファイルのある場所を指定しないといけない．そこで，以下のようにヘッダファイルの場所を指定すると <br/>
+
+```sh
+$ gcc -I /opt/homebrew/Cellar/libgccjit/12.1.0/include/  hello-world.c -o hello-world -lgccjit
+ld: library not found for -lgccjit
+collect2: error: ld returned 1 exit status
+```
+
+今度はlibgccjitのライブラリがないと怒られた． <br/>
+
+そこで，LIBRARY_PATH環境変数を定義してみた．具体的には，home directoryの.zshenvに以下のように書き込んだ． <br/>
+
+```sh
+$ echo $(brew --prefix libgccjit)
+/opt/homebrew/opt/libgccjit    # Confirm prefix directory
+$ cd ~
+$ vi .zshenv
+export PATH
+export MANPATH
+export LIBRARY_PATH=/opt/homebrew/opt/libgccjit/lib/gcc/12
+```
+
+これでコンパイルし直してみると <br/>
+
+```sh
+$ gcc -I /opt/homebrew/Cellar/libgccjit/12.1.0/include/ hello-world.c -o hello-world -L /opt/homebrew/opt/libgccjit/lib/gcc/12/ -lgccjit
+$ ./hello-world
+hello world
+```
+
+今度はちゃんとコンパイルできて，"hello world"と表示されるようになった．これで準備が整った． <br/>
+
+
+## Installation of GCC Emacs {#installation-of-gcc-emacs}
+
+Emacs自体のインストールは [How to install Emacs &amp; LaTeX to MacBook Pro 16-inch on Catalina](../how-to-install-emacs-and-latex-to-macbook-pro-16in-on-catalina) に書いた通りにhomebrewで，railwaycatさんのemacs-macをインストールすれば良いのだが，ネイティブコンパイルを可能にするために **--with-native-comp** オプションをつけておく．なお，--with-xwidgets --with-rsvgなどはお試しでつけているので無くても良い． <br/>
+
+```sh
+$ brew tap railwaycat/emacsmacport
+$ brew install emacs-mac --with-modern-icon --with-imagemagick --with-xwidgets --with-rsvg --with-native-comp
+$ brew info emacs-mac
+Warning: Treating emacs-mac as a formula. For the cask, use railwaycat/emacsmacport/emacs-mac
+railwaycat/emacsmacport/emacs-mac: stable emacs-28.1-mac-9.0, HEAD
+YAMAMOTO Mitsuharu's Mac port of GNU Emacs
+https://www.gnu.org/software/emacs/
+/opt/homebrew/Cellar/emacs-mac/emacs-28.1-mac-9.0 (4,260 files, 151.4MB) *
+  Built from source on 2022-08-14 at 15:07:27 with: --with-rsvg --with-native-comp --with-xwidgets --with-modern-icon --with-imagemagick
+From: https://github.com/railwaycat/homebrew-emacsmacport/blob/HEAD/Formula/emacs-mac.rb
+.....
+```
+
+これで，/opt/homebrew/Cellar/emacs-mac/emacs-28.1-mac-9.0/Emacs.appがインストールされる．これを/Application directoryにコピーすれば良い (GNU Emacs 28.1 (build 1, aarch64-apple-darwin21.5.0, Carbon Version 165 AppKit 2113.5))． <br/>
+
+
+## Confirmation of native compilation feature activation {#confirmation-of-native-compilation-feature-activation}
+
+Emacsを起動して， **C-h f system-configuration-features** とすると，下図のようにHelp buffer内の"Its value is"の中に"NATIVE_COMP"が含まれていればネイティブコンパイル機能が有効化されている． <br/>
+
+{{< figure src="/img/native-compile-1.jpg" width="100%" >}} <br/>
+
+
+## Verification of speedup by native compilation in GCC Emacs {#verification-of-speedup-by-native-compilation-in-gcc-emacs}
+
+これでGccEmacsがインストールされたわけだが，やはり，どの程度高速化しているのかを知りたいものである．そこで，ネイティブコンパイルによりどれくらい高速化するのか確認するために，ベンチマークを実行してみた． <br/>
+
+
+### References {#references}
+
+-   [elisp-benchmarks](https://elpa.gnu.org/packages/elisp-benchmarks.html) Home <br/>
+-   [elisp-benchmarks](https://github.com/emacsmirror/elisp-benchmarks) Github <br/>
+-   [Emacs Native Comp is going to change everything](https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/SC-Live-Mar5-2021.org) <br/>
+-   [gccemacs](https://github.com/shshkn/emacs.d/blob/master/docs/nativecomp.md) <br/>
+-   [EmacsLispBenchmark](https://www.emacswiki.org/emacs/EmacsLispBenchmark) <br/>
+-   [emacsのNative compilation機能(elispのネイティブコンパイル)を試してみる](https://qiita.com/furandon_pig/items/78facc323df6761fd663) <br/>
+-   [native-comp-elisp-benchmarks — submit a PR with your own benchmark results!](https://github.com/enzuru/native-comp-elisp-benchmarks) <br/>
+
+
+### Benchmarks {#benchmarks}
+
+[Emacs Native Comp is going to change everything](https://github.com/daviwil/emacs-from-scratch/blob/master/show-notes/SC-Live-Mar5-2021.org) を参考にバブルソートのベンチマークを以下のようにやってみた．具体的には，scratch bufferに以下のelispを貼って最後の ")" の後でC-jと打って評価するか，org-modeで#+begin_src emacs-lisp  #+end_srcの間にelispを挟んでC-x C-eで評価するかのどちらかを行う．最後の３つの数値はそれぞれ経過時間，garbage collectsの数とその時間である． <br/>
+
+
+#### Interpreted Emacs Lisp {#interpreted-emacs-lisp}
+
+```lisp
+(benchmark-run 3000
+  (let* ((list (mapcar 'random (make-list 100 most-positive-fixnum)))
+         (i (length list)))
+    (while (> i 1)
+      (let ((b list))
+        (while (cdr b)
+          (when (< (cadr b) (car b))
+            (setcar b (prog1 (cadr b)
+                        (setcdr b (cons (car b) (cddr b))))))
+          (setq b (cdr b))))
+      (setq i (1- i)))
+    list))
+
+(5.813263999999999 2 0.1648019999999999)
+```
+
+
+#### Byte compilation {#byte-compilation}
+
+```lisp
+(benchmark-run-compiled 3000
+  (let* ((list (mapcar 'random (make-list 100 most-positive-fixnum)))
+         (i (length list)))
+    (while (> i 1)
+      (let ((b list))
+        (while (cdr b)
+          (when (< (cadr b) (car b))
+            (setcar b (prog1 (cadr b)
+                        (setcdr b (cons (car b) (cddr b))))))
+          (setq b (cdr b))))
+      (setq i (1- i)))
+    list))
+
+(1.1243109999999998 3 0.24839000000000055)
+```
+
+
+#### Native compilation {#native-compilation}
+
+```lisp
+(setq dw/compiled-benchmark
+      (native-compile
+       (lambda ()
+         (let* ((list (mapcar 'random (make-list 100 most-positive-fixnum)))
+                (i (length list)))
+           (while (> i 1)
+             (let ((b list))
+               (while (cdr b)
+                 (when (< (cadr b) (car b))
+                   (setcar b (prog1 (cadr b)
+                               (setcdr b (cons (car b) (cddr b))))))
+                 (setq b (cdr b))))
+             (setq i (1- i)))
+           list))))
+
+(setq comp-speed 2)
+(benchmark-run-compiled 3000
+  (funcall dw/compiled-benchmark))
+
+(0.796706 3 0.24380600000000108)
+```
+
+ということで，elisp, byte-compilation, native compilationの順に，経過時間は，5.81 s &gt; 1.12 s &gt; 0.797 sと短縮していることがわかる．byte-compilationの効果が凄いな．．．．． <br/>
+
+
+### [elisp-benchmarks](https://elpa.gnu.org/packages/elisp-benchmarks.html) {#elisp-benchmarks}
+
+ネイティブコンパイルに対応したベンチマークのコレクションである．Emacsにおけるネイティブコンパイルを可能にしたAndrea Corallo氏自ら作成したものであるが，こちらもやってみた． <br/>
+
+
+#### Installation {#installation}
+
+preludeを使用している場合は，以下を~/.emacs.d/personal/init.orgに追記すれば良い．それ以外の場合は，init.elにuse-package以下の部分を書き込めば良い． <br/>
+
+```lisp
+#+begin_src emacs-lisp
+(use-package elisp-benchmarks
+  :ensure t)
+#+end_src
+```
+
+
+#### Benchmarks {#benchmarks}
+
+上記インストール後に，M-x elisp-benchmarks-run と打ってテストを開始する．しかし，以下のようなエラーが出てうまくいかない． <br/>
+
+{{< figure src="/img/elisp-benchmarks-error.jpg" width="100%" >}} <br/>
+
+emacs-develの[elisp-benchmarks](https://lists.nongnu.org/archive/html/emacs-devel/2022-02/msg00398.html)に <br/>
+
+> \`bytecomp\`, \`scroll\`, and \`smie\` are benchmarks I added yesterday which are not microbenchmarks and thus hopefully reflect "real use". <br/>
+
+とあったので，これらの後で追加されたベンチマーク（elb-bytecomp, elb-scroll, elb-smie）をelisp-benchmarks/benchmarksから除去してから再度M-x elisp-benchmarks-runすると，今度はうまく動いてくれた． <br/>
+
+
+#### Results {#results}
+
+| test               | non-gc avg (s) | gc avg (s) | gcs avg | tot avg (s) | tot avg err (s) |
+|--------------------|----------------|------------|---------|-------------|-----------------|
+| bubble             | 0.85           | 0.15       | 1       | 1.00        | 0.00            |
+| bubble-no-cons     | 1.42           | 0.00       | 0       | 1.42        | 0.00            |
+| dhrystone          | 1.95           | 0.00       | 0       | 1.95        | 0.01            |
+| eieio              | 1.27           | 0.24       | 3       | 1.51        | 0.00            |
+| fibn               | 0.00           | 0.00       | 0       | 0.00        | 0.00            |
+| fibn-named-let     | 0.83           | 0.00       | 0       | 0.83        | 0.00            |
+| fibn-rec           | 0.00           | 0.00       | 0       | 0.00        | 0.00            |
+| fibn-tc            | 0.01           | 0.00       | 0       | 0.01        | 0.00            |
+| flet               | 1.75           | 0.00       | 0       | 1.75        | 0.00            |
+| inclist            | 1.27           | 0.00       | 0       | 1.27        | 0.00            |
+| inclist-type-hints | 1.20           | 0.00       | 0       | 1.20        | 0.00            |
+| listlen-tc         | 0.16           | 0.00       | 0       | 0.16        | 0.00            |
+| map-closure        | 6.19           | 0.00       | 0       | 6.19        | 0.00            |
+| nbody              | 1.32           | 0.26       | 1       | 1.57        | 0.00            |
+| pack-unpack        | 0.29           | 0.00       | 0       | 0.29        | 0.00            |
+| pack-unpack-old    | 0.46           | 0.08       | 1       | 0.54        | 0.00            |
+| pcase              | 1.84           | 0.00       | 0       | 1.84        | 0.00            |
+| pidigits           | 4.26           | 2.02       | 7       | 6.29        | 0.02            |
+| total              | 25.05          | 2.75       | 13      | 27.80       | 0.02            |
+
+このような結果が得られた．non-gc avg (s)がバイトコンパイルの結果，gc avg (s)がネイティブコンパイルの結果のようであるが，totalで後者が9.1倍も速いということになる．かなりの高速化であり，本当かと突っ込みたくなるのが正直な感想である．しかし，Emacsの起動，ファイルのオープン，文書作成，コード補完などの体感速度は確かに速くなっている気がする． <br/>

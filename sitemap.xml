@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/post/pytube_youtube/</loc>
+    <lastmod>2022-10-02T13:51:50+09:00</lastmod>
+  </url><url>
     <loc>/post/native-compilation-of-emacs-28.1-on-macos-monterey/</loc>
     <lastmod>2022-09-04T11:51:05+09:00</lastmod>
   </url><url>
@@ -173,6 +176,9 @@
     <loc>/talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-10-02T13:51:50+09:00</lastmod>
+  </url><url>
     <loc>/tags/benchmark/</loc>
     <lastmod>2022-09-04T11:51:05+09:00</lastmod>
   </url><url>
@@ -184,9 +190,6 @@
   </url><url>
     <loc>/tags/native-compile/</loc>
     <lastmod>2022-09-04T11:51:05+09:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2022-09-04T12:44:59+09:00</lastmod>
   </url><url>
     <loc>/tags/speedup/</loc>
     <lastmod>2022-09-04T11:51:05+09:00</lastmod>

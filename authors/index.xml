@@ -23,7 +23,7 @@
 &lt;p&gt;殆どは先人の方々からの受け売りなので，できるだけ情報元も併記する．&lt;/p&gt;
 &lt;h2 id=&#34;環境&#34;&gt;&lt;strong&gt;環境&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;MacBook Pro (16-inch, 2021), mac OS Monterey (version 12.4), Apple M1 Max, 64 GB&lt;/p&gt;
-&lt;p&gt;GNU Emacs 28.1 (build 1, aarch64-apple-darwin21.5.0, Carbon Version 165 AppKit 2113.5), TeX Live 2021 (MacTeX-2021)&lt;/p&gt;
+&lt;p&gt;GNU Emacs 28.2 (build 1, aarch64-apple-darwin21.6.0, Carbon Version 165 AppKit 2113.6), TeX Live 2021 (MacTeX-2021)&lt;/p&gt;
 </description>
     </item>
     
