@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ALAC | A perfect autumn day</title>
+    <link>/tags/alac/</link>
+      <atom:link href="/tags/alac/index.xml" rel="self" type="application/rss+xml" />
+    <description>ALAC</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 23 Nov 2022 17:05:27 +0900</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>ALAC</title>
+      <link>/tags/alac/</link>
+    </image>
+    
+    <item>
+      <title>How to convert FLAC (Free Lossless Audio Codec) to ALAC (Apple Lossless Audio Codecc) with ffmpeg</title>
+      <link>/post/flac2alac/</link>
+      <pubDate>Wed, 23 Nov 2022 17:05:27 +0900</pubDate>
+      <guid>/post/flac2alac/</guid>
+      <description>&lt;p&gt;可逆圧縮で音質の劣化がないFLACで音源が手に入ったときにmp3に変換するのは，今時の記憶媒体の価格低下を考えると，もはや，悪手ではないかと感じる今日この頃，とはいうもののマック使いにとってはFLACはMusic.appやiPhoneでは再生できないという問題がある．それなら同じく可逆圧縮のALACに変換すれば良いじゃないかと気がついた．ネットを探ると訳のわからんソフトがいっぱいでてくるが，なんのことはないffmpegでできるではないか．ということで，今回は，ffmpegでFLACをALACに変換する方法についてまとめてみた． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ffmpeg&#34;&gt;ffmpeg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#how-to-convert&#34;&gt;How to convert&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/62486428/using-ffmpeg-to-convert-flac-to-alac-with-cover-art&#34;&gt;using ffmpeg to convert flac to alac with cover art&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://9to5answer.com/convert-flac-to-mp3-with-ffmpeg-keeping-all-metadata&#34;&gt;Convert .flac to .mp3 with ffmpeg, keeping all metadata&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ffmpeg.org/ffmpeg.html&#34;&gt;ffmpeg Documentation&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/cha84rakanal/items/e84fe4eb6fbe2ae13fd8&#34;&gt;それFFmpegで出来るよ！&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/yh1224/items/38d4ef1cf768aa3368d6&#34;&gt;FFmpeg の使い方 (基本)&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cisdem.com/resource/flac-to-alac.html&#34;&gt;2 Useful Ways to Convert FLAC to ALAC &amp;lt;High Quality &amp;amp; Super Fast&amp;gt;&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ffmpeg&#34;&gt;ffmpeg&lt;/h2&gt;
+&lt;p&gt;前々回の記事（&lt;a href=&#34;../pytube_youtube&#34;&gt;How to download YouTube videos with python (pytube or youtube_dl) pythonでYouTubeのビデオをダウンロードする&lt;/a&gt;）でインストールなどについて記載したが，再掲しておく．homebrewでインストールする． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install ffmpeg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info ffmpeg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; ffmpeg: stable 5.1.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Play, record, convert, and stream audio and video
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://ffmpeg.org/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/ffmpeg/5.1.2 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;282&lt;/span&gt; files, 49.3MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Poured from bottle on 2022-11-03 at 14:40:20
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;From: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/ffmpeg.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;License: GPL-2.0-or-later
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ffmpegを使って，音源や動画のサイズやcodecを調べることができる． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ffmpeg -i InputFile.mp3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ffmpeg version 5.1.2 Copyright &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;c&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; 2000-2022 the FFmpeg developers
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  built with Apple clang version 14.0.0 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;clang-1400.0.29.102&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  configuration: --prefix&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/opt/homebrew/Cellar/ffmpeg/5.1.2 --enable-shared --enable-pthreads --enable-version3 --cc&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;clang --host-cflags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; --host-ldflags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; --enable-ffplay --enable-gnutls --enable-gpl --enable-libaom --enable-libbluray --enable-libdav1d --enable-libmp3lame --enable-libopus --enable-librav1e --enable-librist --enable-librubberband --enable-libsnappy --enable-libsrt --enable-libtesseract --enable-libtheora --enable-libvidstab --enable-libvmaf --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-lzma --enable-libfontconfig --enable-libfreetype --enable-frei0r --enable-libass --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libspeex --enable-libsoxr --enable-libzmq --enable-libzimg --disable-libjack --disable-indev&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;jack --enable-videotoolbox --enable-neon
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libavutil      57. 28.100 / 57. 28.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libavcodec     59. 37.100 / 59. 37.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libavformat    59. 27.100 / 59. 27.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libavdevice    59.  7.100 / 59.  7.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libavfilter     8. 44.100 /  8. 44.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libswscale      6.  7.100 /  6.  7.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libswresample   4.  7.100 /  4.  7.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  libpostproc    56.  6.100 / 56.  6.100
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;mp3 @ 0x141605860&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Estimating duration from bitrate, this may be inaccurate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Input &lt;span style=&#34;color:#75715e&#34;&gt;#0, mp3, from &amp;#39;02 You Don&amp;#39;t Know What Love Is.mp3&amp;#39;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    title           : You Dont Know What Love Is
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    TCM             : Don Raye/Gene DePaul
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    album           : Ballads
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    track           : &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    artist          : John Coltrane
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    encoded_by      : iTunes v4.8.0.32
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    iTunNORM        :  0000079D 0000019F 00004E14 &lt;span style=&#34;color:#ae81ff&#34;&gt;00004716&lt;/span&gt; 00002E05 00048C63 00007B00 00007FFF 0003B11A 00048C2F
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    date            : &lt;span style=&#34;color:#ae81ff&#34;&gt;1962&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Duration: 00:05:15.17, start: 0.000000, bitrate: &lt;span style=&#34;color:#ae81ff&#34;&gt;320&lt;/span&gt; kb/s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Stream &lt;span style=&#34;color:#75715e&#34;&gt;#0:0: Audio: mp3, 44100 Hz, stereo, fltp, 320 kb/s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Stream &lt;span style=&#34;color:#75715e&#34;&gt;#0:1: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 200x182 [SAR 300:300 DAR 100:91], 90k tbr, 90k tbn (attached pic)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      comment         : Other
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;At least one output file must be specified
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これは手持ちのCDをiTune（現在はMusic.app）に取り込んだものだが，演奏時間5分15秒，ビットレート 320 kb/s，曲名，演奏者などいろいろなデータが表示される．同じく &amp;ldquo;-i&amp;rdquo; オプションを使えば動画ファイルの情報も得られる． &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-to-convert&#34;&gt;How to convert&lt;/h2&gt;
+&lt;p&gt;それではffmpegを使ってコマンド1行でFLACをALACに変換してみよう． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ffmpeg -i input.flac -c:v copy -c:a alac output.m4a
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これだけでほぼ一瞬で変換される． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;しかし，せっかくCommand Line Interfaceを使っているので，directoryのなかにある複数のFLACファイルをコマンド一発で全て変換したいものである．それが以下の1行スクリプトである．Music_Folderというdirectoryに多数のFLACファイルがあるとする． &lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd /hoge/fuga/Music_folder
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ find . -name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;*.flac&amp;#34;&lt;/span&gt; -exec ffmpeg -i &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; -c:v copy -c:a alac &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt;.m4a &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;これで，あっという間に複数のFLACファイルがALACファイルに変換される．変換されたファイルはm4aの拡張子がついており，mp3と同じくMusic.appに取り込める． &lt;br/&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
