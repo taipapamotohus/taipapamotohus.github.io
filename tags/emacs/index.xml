@@ -5,7 +5,7 @@
     <link>/tags/emacs/</link>
       <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <description>emacs</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2023</copyright><lastBuildDate>Tue, 03 Jan 2023 21:02:28 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2023</copyright><lastBuildDate>Tue, 03 Jan 2023 21:15:26 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>emacs</title>
@@ -15,10 +15,9 @@
     <item>
       <title>How to browse images using Image Dired</title>
       <link>/post/imagedired/</link>
-      <pubDate>Tue, 03 Jan 2023 21:02:28 +0900</pubDate>
+      <pubDate>Tue, 03 Jan 2023 21:15:26 +0900</pubDate>
       <guid>/post/imagedired/</guid>
       <description>&lt;p&gt;文書ファイルに関してはEmacsでほとんどの用は足せるのだが，画像ファイルを扱う際はMacの場合Finderを使用することが多い．そこで，画像ファイルのブラウズや外部アプリによるオープンなどもEmacsでできれば，Finderとの行き来の必要がなくなり，より便利になるのに，と常々感じていた．以前の記事（&lt;a href=&#34;../peep&#34;&gt;peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）&lt;/a&gt;）で紹介したパッケージでも画像のブラウズや操作に不満があった．そこで色々調べてみると，なんとEmacsにすでに便利なパッケージが標準で入っているではないか！その名も&amp;quot;Image Dired&amp;quot;！ しかも，C -&amp;lt;RET&amp;gt; 一発でGIMPで画像を開けられるように設定もできる．今回はこのパッケージのセットアップや使用法について記録しておく． &lt;br/&gt;&lt;/p&gt;
-&lt;!-- more --&gt;
 &lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
 &lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
 &lt;ul&gt;
@@ -169,8 +168,7 @@
 &lt;p&gt;これで，image-diredのサムネールが選択されているとき，C -&amp;lt;RET&amp;gt; と打てば直接GIMPで開かれるようになる．非常に便利である．ただし，通常のdiredのバッファで C-&amp;lt;Ret&amp;gt; と打っても，&amp;ldquo;C-&amp;lt;return&amp;gt; is undefined&amp;rdquo; と怒られるだけである． &lt;br/&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;これで画像の管理や操作もEmacsでやりやすくなった． &lt;br/&gt;&lt;/p&gt;
-</description>
+&lt;p&gt;これで画像の管理や操作もEmacsでやりやすくなった． &lt;br/&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
