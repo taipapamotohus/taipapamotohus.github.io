@@ -5,12 +5,173 @@
     <link>/tags/dired/</link>
       <atom:link href="/tags/dired/index.xml" rel="self" type="application/rss+xml" />
     <description>dired</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Tue, 18 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2023</copyright><lastBuildDate>Tue, 03 Jan 2023 21:02:28 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>dired</title>
       <link>/tags/dired/</link>
     </image>
+    
+    <item>
+      <title>How to browse images using Image Dired</title>
+      <link>/post/imagedired/</link>
+      <pubDate>Tue, 03 Jan 2023 21:02:28 +0900</pubDate>
+      <guid>/post/imagedired/</guid>
+      <description>&lt;p&gt;文書ファイルに関してはEmacsでほとんどの用は足せるのだが，画像ファイルを扱う際はMacの場合Finderを使用することが多い．そこで，画像ファイルのブラウズや外部アプリによるオープンなどもEmacsでできれば，Finderとの行き来の必要がなくなり，より便利になるのに，と常々感じていた．以前の記事（&lt;a href=&#34;../peep&#34;&gt;peep-diredで画像をチラ見して，orgファイルに簡単にリンクを貼り付ける（おまけ：最近開けたdirectoryを一覧表示する方法）&lt;/a&gt;）で紹介したパッケージでも画像のブラウズや操作に不満があった．そこで色々調べてみると，なんとEmacsにすでに便利なパッケージが標準で入っているではないか！その名も&amp;quot;Image Dired&amp;quot;！ しかも，C -&amp;lt;RET&amp;gt; 一発でGIMPで画像を開けられるように設定もできる．今回はこのパッケージのセットアップや使用法について記録しておく． &lt;br/&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;div class=&#34;ox-hugo-toc toc&#34;&gt;
+&lt;div class=&#34;heading&#34;&gt;Table of Contents&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#references&#34;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#setup&#34;&gt;Setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#usage&#34;&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--endtoc--&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://obsidianrook.com/codelife/emacs_image_mode.html&#34;&gt;viewing images inside emacs&lt;/a&gt; ご本家 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.emacswiki.org/emacs/ImageDired&#34;&gt;Image Dired&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=QN1vah3m7QM&#34;&gt;Browse your images in Emacs using image dired&lt;/a&gt; この動画は懇切丁寧で，非常に参考になった． &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/ShingoFukuyama/items/7e5b9310d42720515be1&#34;&gt;Emacsで画像プレビュー image-diredを使用可能にする&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;image dired自体は標準でEmacsに入っているので特にインストールする必要はない． &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;convertコマンドを使うので，imagemagickをインストールする．homebrewを使うのが簡単． &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--listend--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install imagemagick
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew info imagemagick
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; imagemagick: stable 7.1.0-53 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;bottled&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Tools and libraries to manipulate images in many formats
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://imagemagick.org/index.php
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/opt/homebrew/Cellar/imagemagick/7.1.0-53 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;807&lt;/span&gt; files, 31.0MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; *
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Poured from bottle on 2022-12-09 at 22:44:27
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;From: https://github.com/Homebrew/homebrew-core/blob/HEAD/Formula/imagemagick.rb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;License: ImageMagick
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Dependencies
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Build: pkg-config ✔
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Required: freetype ✔, ghostscript ✔, jpeg-turbo ✔, libheif ✔, liblqr ✔, libpng ✔, libraw ✔, libtiff ✔, libtool ✔, little-cms2 ✔, openexr ✔, openjpeg ✔, webp ✔, xz ✔, libomp ✔
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&amp;gt; Options
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Install HEAD version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使い方は,  &lt;a href=&#34;https://www.youtube.com/watch?v=QN1vah3m7QM&#34;&gt;Browse your images in Emacs using image dired&lt;/a&gt; を見ればほぼ全てわかると思うが，一応簡単に説明しておく． &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;~/Data/MyBlog/image_dired_figuresに必要な画像があるとする．このdirectoryをemacsのdiredで開くと下図のようになっている． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/image-dired-1.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/image-dired-1.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
+ &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;この状態で，emacsに， &lt;strong&gt;M-x image-dired&lt;/strong&gt; と打つと，当該ディレクトリのすべての画像のサムネールが表示され，サムネールの画像の一つを選択してスペースを叩くとその画像が別のwindowに表示される．さらにスペースを叩くと次の画像が表示される．Delete keyを叩くとひとつ前の画像に戻る．下図のように，windowを3分割すると見やすいかもしれない． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/image-dired-4.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/image-dired-4.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
+ &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;サムネールで選択された画像は青枠で囲まれ，どの画像を選択しているか分かるようになっている． &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;また，dired bufferで，いくつか画像を選択してマークをつけ（mを叩く），C-t d (M-x image-dired-display-thumbs)と叩けば，マークをつけた画像のみのサムネールが表示される． &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;また，dired bufferで，C-t C-tと叩けば（M-x image-dired-dired-toggle-marked-thumbs），下図のように，dired bufferの画像ファイル名の横にサムネールを表示させることもできる． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/image-dired-5.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/image-dired-5.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
+ &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;alert-note alert&#34;&gt;
+&lt;div class=&#34;alert-heading&#34;&gt;
+&lt;p&gt;&lt;strong&gt;&lt;strong&gt;image-diredから一発で外部アプリで画像を開く方法&lt;/strong&gt;&lt;/strong&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;MacのFinderで画像を選択しダブルクリックするとPreviewで画像が開かれる．これはこれで良いのだが，例えばGIMPで加工したいときは，右クリックして「このアプリケーションで開く」からGIMP.appを選択しないといけない．これが結構面倒なのである．一方，image-diredを使えば，C-&amp;lt;RET&amp;gt; 一発でGIMPで開くことができる．以下はその設定である． &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;M-x customize としてカスタマイズ画面を呼び出し，下図のように検索ボックスに &amp;ldquo;external view&amp;rdquo; と打つ． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/customize-1.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/customize-1.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
+ &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;すると下図のように，&amp;ldquo;Image Dired External Viewer&amp;rdquo; が表示されるので，&amp;ldquo;Value Menu&amp;rdquo; の String: に /Application/GIMP.app/Contents/MacOS/gimp とフルパスを打つ．これはgimpの場合の設定であるが，外部アプリによって適宜修正する．これを保存して適用する． &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;
+    
+    
+    
+    
+    
+    &lt;figure&gt;
+    
+      &lt;a data-fancybox=&#34;&#34; href=&#34;/img/customize-2.jpg&#34; &gt;
+    
+    &lt;img src=&#34;/img/customize-2.jpg&#34; width=&#34;100%&#34; &gt;
+    &lt;/a&gt;
+    
+    &lt;/figure&gt;
+ &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;これで，image-diredのサムネールが選択されているとき，C -&amp;lt;RET&amp;gt; と打てば直接GIMPで開かれるようになる．非常に便利である．ただし，通常のdiredのバッファで C-&amp;lt;Ret&amp;gt; と打っても，&amp;ldquo;C-&amp;lt;return&amp;gt; is undefined&amp;rdquo; と怒られるだけである． &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;これで画像の管理や操作もEmacsでやりやすくなった． &lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Dired reinforcement</title>

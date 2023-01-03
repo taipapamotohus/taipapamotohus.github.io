@@ -5,12 +5,52 @@
     <link>/tags/</link>
       <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Wed, 23 Nov 2022 17:05:27 +0900</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2023</copyright><lastBuildDate>Tue, 03 Jan 2023 21:02:28 +0900</lastBuildDate>
     <image>
       <url>/img/icon-192.png</url>
       <title>Tags</title>
       <link>/tags/</link>
     </image>
+    
+    <item>
+      <title>dired</title>
+      <link>/tags/dired/</link>
+      <pubDate>Tue, 03 Jan 2023 21:02:28 +0900</pubDate>
+      <guid>/tags/dired/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Tue, 03 Jan 2023 21:02:28 +0900</pubDate>
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>external-application</title>
+      <link>/tags/external-application/</link>
+      <pubDate>Tue, 03 Jan 2023 21:02:28 +0900</pubDate>
+      <guid>/tags/external-application/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>image-viewer</title>
+      <link>/tags/image-viewer/</link>
+      <pubDate>Tue, 03 Jan 2023 21:02:28 +0900</pubDate>
+      <guid>/tags/image-viewer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>thumbnails</title>
+      <link>/tags/thumbnails/</link>
+      <pubDate>Tue, 03 Jan 2023 21:02:28 +0900</pubDate>
+      <guid>/tags/thumbnails/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ALAC</title>
@@ -89,14 +129,6 @@
       <link>/tags/elisp/</link>
       <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
       <guid>/tags/elisp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
-      <pubDate>Sat, 20 Aug 2022 00:00:00 +0000</pubDate>
-      <guid>/tags/emacs/</guid>
       <description></description>
     </item>
     
@@ -209,14 +241,6 @@
       <link>/tags/slide/</link>
       <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
       <guid>/tags/slide/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dired</title>
-      <link>/tags/dired/</link>
-      <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/dired/</guid>
       <description></description>
     </item>
     
